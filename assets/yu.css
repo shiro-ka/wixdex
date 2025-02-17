@@ -9,9 +9,10 @@
 /* 全体の設定 */
 body {
     font-family: Arial, Helvetica, sans-serif; line-height: 1;
+    display: flex;
     overflow: hidden;
     margin: 0; padding: 0;
-    height: 100%; width: 100%;
+    height: 100vh; width: 100vw;
     background-color: var(--background-color);
     flex-direction: column;
 }
@@ -19,19 +20,28 @@ body {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /* ヘッダーの設定 */
-.header {
+header {
     display: flex;
     height: 3rem; width: 100%;
     background-color: var(--header-color);
+    z-index: 0;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /* メイン部分の設定 */
+main {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    justify-content: center;
+    z-index: 0;
+}
 .container {
     display: flex;
     height: 100%;
     width: 100%; max-width: 1080px;
+    z-index: 1;
 }
 
 
