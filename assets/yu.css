@@ -1,4 +1,4 @@
-/* ------------------------------------------------------------------------------- */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 /* 変数 */
 :root {
@@ -19,7 +19,9 @@ body {
     flex-direction: column;
 }
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* ---------------------------------------------------------------------------------
+body -> .header main .popup
+--------------------------------------------------------------------------------- */
 
 /* ヘッダーの設定 */
 header {
@@ -30,9 +32,9 @@ header {
     z-index: 0;
 }
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* ------------------------------------------------------------------------ */
 
-/* main全体の設定 */
+/* main全体・表示領域の設定 */
 main {
     display: flex;
     position: relative;
@@ -47,14 +49,22 @@ main {
     height: 100%;
     width: 95%; max-width: 1080px;
     z-index: 1;
+    flex-direction: column;
 }
-.cards-container {
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+.container -> .deck-container .search-container
+-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
+
+/* デッキ表示領域 */
+.deck-container {
     display: flex;
     position: relative;
-    flex: 1;
-    width: 100%;
-    z-index: 2;
+    height: 74%; width: 100%;
+    top: 1%; z-index: 2;
 }
+
+/*  *  * .deck-container -> ,lrig-deck .main-deck *  *  */
 
 /* ルリグデッキ欄 */
 .lrig-deck {
@@ -65,12 +75,9 @@ main {
     border-radius: 16px;
     z-index: 3;
 }
-@media (min-width:1080px){.lrig-deck{
-    height: 19%; width: 69%;
-}}
 
 /* メインデッキ欄 */
-.mein-deck {
+.main-deck {
     display: flex;
     position: absolute; top: 17%;
     height: 65%; width: 100%;
@@ -78,16 +85,23 @@ main {
     border-radius: 16px;
     z-index: 3;
 }
-@media (min-width:1080px){.mein-deck{
-    top: 21%;
-    height: 78%; width: 69%;
-}}
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
+
+/* 検索表示領域 */
+.search-container {
+    display: flex;
+    position: relative;
+    height: 24%; width: 100%;
+    top: 1%; z-index: 2;
+}
+
+/*  *  * .search-container -> ,cards-list .search-tool *  *  */
 
 /* カードリスト欄 */
 .cards-list {
     display: flex;
-    position: absolute; top: 83%;
-    height: 16%; width: 100%;
+    flex: 1; width: 100%;
     border: solid 2px var(--deck-background-color);
     border-radius: 8px;
     z-index: 3;
@@ -96,9 +110,11 @@ main {
 /* 検索ツール欄 */
 .search-tool {
     display: flex;
-    position: absolute; bottom: 0;
     height: 4.5rem; width: 100%;
-    z-index: 2;
+    margin-top: auto;
+    z-index: 1;
 }
 
-/* ------------------------------------------------------------------------------- */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
