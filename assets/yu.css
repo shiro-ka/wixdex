@@ -108,7 +108,7 @@ main {
     display: flex;
     position: relative;
     height: 15rem; width: 100%;
-    top: 2%; z-index: 2;
+    z-index: 2;
     flex-direction: column;
 }
 
