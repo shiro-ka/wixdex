@@ -112,7 +112,7 @@ main {
     flex-direction: column;
 }
 
-/*  *  * .search-container -> ,cards-list .search-tool *  *  */
+/*  *  * .search-container > ,cards-list .search-tool *  *  */
 
 /* カードリスト欄 */
 .flex.cards-list {
@@ -127,6 +127,23 @@ main {
     grid-template-columns: repeat(auto-fill,6rem);
     gap: 0.5rem;
     overflow-x: auto;
+}
+.grid.cards-list > .card-container {
+    display: flex;
+    height: 100%; width: 100%;
+    align-items: center;
+}
+.grid.cards-list > .card-container > img {
+    height: auto; width: 100%;
+}
+.grid.cards-list > .card-container > .add-card-button {
+display: none;
+}
+.grid.cards-list > .card-container > .add-fourth-button {
+display: none;
+}
+.grid.cards-list > .card-container > .open-detail-button {
+display: none;
 }
 
 /* 検索ツール欄 */
