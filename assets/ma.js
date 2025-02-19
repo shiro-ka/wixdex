@@ -62,8 +62,8 @@ Promise.allSettled(cardJson.map(file =>
 ページをひらいたときはwindow.allCardsData、検索したときはfilteredCardsDataが引数。
 (Promise.allSettled(cardJson / cardsSearch() -> listCards)
 
-カードのデータからcardContainerを作成し、リスト欄に追加。(forEachでくりかえす)
-<div class="cardContainer">
+カードのデータからcard-containerを作成し、リスト欄に追加。(forEachでくりかえす)
+<div class="card-container">
     <img src="URL">
     <div class="addCardButton">
         <img src="girl/PlusOneIcon.png">
@@ -96,15 +96,15 @@ function listCards(cards) {
     // カードのhtmlを作成
     cards.forEach(card => {
         const cardContainer = document.createElement('div');
-        cardContainer.classList.add('cardContainer');
+        cardContainer.classList.add('card-container');
         // カード画像
         const cardImage = document.createElement('img');
         cardImage.src = card.image;
         cardContainer.appendChild(cardImage);
         // PC用ボタン(一旦Fragmentに追加して、あとで処理)
-        cardContainer.appendChild(createButton('addCardButton', "girl/PlusOneIcon.png"));
-        cardContainer.appendChild(createButton('addFourCardsButton', "girl/PlusFourIcon.png"));
-        cardContainer.appendChild(createButton('openDetailPopupButton', "girl/CardDetailIcon.png"));
+        cardContainer.appendChild(createButton('add-card-button', "girl/PlusOneIcon.png"));
+        cardContainer.appendChild(createButton('add-fourth-button', "girl/PlusFourIcon.png"));
+        cardContainer.appendChild(createButton('open-detail-button', "girl/CardDetailIcon.png"));
         fragment.appendChild(cardContainer);
     })
     // Fragmentを処理
