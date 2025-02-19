@@ -33,7 +33,7 @@ Promise.allSettled(cardJson.map(file =>
     let allCardsJson = [];
     results.forEach(result => {
         if (result.status === "fulfilled") {
-            allCardsJson.push(result.value);
+            allCardsJson.push(...result.value);
         } else {
             console.error("よみこめなかったjsonがあるっぽい", result.reason);
         }
