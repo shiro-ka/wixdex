@@ -33,6 +33,9 @@ body {
     background-color: var(--background-color);
     flex-direction: column;
 }
+body * {
+    box-sizing: border-box;
+}
 
 /* ---------------------------------------------------------------------------------
 body -> .header main .popup
@@ -85,10 +88,27 @@ main {
 .lrig-deck {
     display: flex;
     position: absolute;
-    height: 26%; width: 100%;
+    height: auto; width: 100%;
     background-color: var(--deck-background-color);
     border-radius: 16px;
     top: 1%; z-index: 3;
+}
+.header.lrig-deck {
+    display: flex;
+    position: absolute;
+    height: 3rem; width: 100%;
+    z-index: 4;
+}
+.deck.lrig-deck {
+    display: flex;
+    position: absolute;
+    height: 27%; width: 100%;
+    padding: 0.5rem;
+    z-index: 4;
+}
+.grid.lrig-deck {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(8,1fr);
 }
 
 /* メインデッキ欄 */
@@ -99,6 +119,24 @@ main {
     background-color: var(--deck-background-color);
     border-radius: 16px;
     top: 28%; z-index: 3;
+}
+.header.main-deck {
+    display: flex;
+    position: absolute;
+    height: 3rem; width: 100%;
+    z-index: 4;
+}
+.deck.main-deck {
+    display: flex;
+    position: absolute;
+    flex: 1; width: 100%;
+    padding: 0.5rem;
+    z-index: 4;
+}
+.grid.main-deck {
+    grid-template-rows: repeat(4,1fr);
+    grid-template-columns: repeat(8,1fr);
+    row-gap: 0.5rem;
 }
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
@@ -120,11 +158,12 @@ main {
     border: solid 2px var(--deck-background-color);
     border-radius: 8px;
     z-index: 3;
+    padding: 0.5rem;
 }
 .grid.cards-list {
     grid-auto-flow: column;
     grid-template-rows: 1fr;
-    grid-auto-columns: 6rem;
+    grid-auto-columns: 17%;
     gap: 0.5rem;
     overflow-x: auto;
 }

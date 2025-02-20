@@ -111,41 +111,7 @@ function listCards(cards) {
     gridCardsList.appendChild(fragment);
 }
 
-
-/*
-function listCards(cards) {
-    cards.forEach(card => {
-        /* <div class="cardContainer">を作成 *
-        const cardContainer = document.createElement('div');
-        cardContainer.classList.add('cardContainer');
-        /* divにカード画像を追加 *
-        const cardImage = document.createElement('img');
-        cardImage.src = card.image;
-        cardContainer.appendChild(cardImage);
-        /* divにPC用操作ボタンを追加 *
-        const addCardButton = document.createElement('div'),
-            addCardButtonIcon = document.createElement('img'),
-            addFourCardsButton = document.createElement('div'),
-            addFourCardsButtonIcon = document.createElement('img'),
-            openDetailPopupButton = document.createElement('div'),
-            openDetailPopupButtonIcon = document.createElement('img');
-        addCardButton.classList.add('addCardButton');
-        addCardButtonIcon.src = "girl/PlusOneIcon.png";
-        addCardButton.appendChild(addCardButtonIcon);
-        cardContainer.appendChild(addCardButton);
-        addFourCardsButton.classList.add('addFourCardsButton');
-        addFourCardsButtonIcon.src = "girl/PlusFourIcon.png";
-        addFourCardsButton.appendChild(addFourCardsButtonIcon);
-        cardContainer.appendChild(addFourCardsButton);
-        openDetailPopupButton.classList.add('openDetailPopupButton');
-        openDetailPopupButtonIcon.src = "girl/CardDetailIcon.png";
-        openDetailPopupButton.appendChild(openDetailPopupButtonIcon);
-        cardContainer.appendChild(openDetailPopupButton);
-        /* grid card-listに追加 *
-        const gridCardsList = document.querySelector('.grid.cards-list');
-        gridCardsList.appendChild(cardContainer);
-    });
-}*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
 
