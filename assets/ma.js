@@ -10,11 +10,7 @@ const cardJson = [
 
 /* 初期設定 */
 
-let
-    currentCard,
-    touchStartY = 0,
-    touchStartTime = 0,
-    lifeBurstState = 0;
+let touchStartY = 0;
 
 /* --------------------------------------------------------------------------------- */
 
@@ -79,7 +75,21 @@ Promise.allSettled(cardJson.map(file =>
 
 */
 
-// PCでの操作用ボタンを追加
+// タッチ開始時
+function handleTouchStart(event) {
+    touchStartY = event.touches[0].clientY;
+}
+// タッチ終了時
+function handleTouchEnd(event, card) {
+    const touchEndY = event.changedTouches[0].clientY;
+    const swipeDistance = touchStartY - touchEndY;
+    if (swipeDistance > 50) {
+        addCardToDeck(card);
+    } else {
+        showCardDetail(card);
+    }
+}
+// PC用操作ボタンを追加
 function createButton(className, iconSrc) {
     const button = document.createElement('div');
     const icon = document.createElement('img');
@@ -87,6 +97,10 @@ function createButton(className, iconSrc) {
     icon.src = iconSrc;
     button.appendChild(icon);
     return button;
+}
+// PCでのクリック
+function handleClick(card) {
+    showCardDetail(card);
 }
 // リスト欄にカードを追加
 function listCards(cards) {
@@ -101,18 +115,39 @@ function listCards(cards) {
         const cardImage = document.createElement('img');
         cardImage.src = card.image;
         cardContainer.appendChild(cardImage);
+        // フリック用のタッチイベント追加
+        cardContainer.addEventListener('touchstart', handleTouchStart);
+        cardContainer.addEventListener('touchend', (event) => handleTouchEnd(event, card));
+        // PC用クリックリスナー
+        cardContainer.addEventListener('click', () => handleClick(card));
         // PC用ボタン(一旦Fragmentに追加して、あとで処理)
         cardContainer.appendChild(createButton('add-card-button', "girl/PlusOneIcon.png"));
         cardContainer.appendChild(createButton('add-fourth-button', "girl/PlusFourIcon.png"));
-        cardContainer.appendChild(createButton('open-detail-button', "girl/CardDetailIcon.png"));
         fragment.appendChild(cardContainer);
     })
     // Fragmentを処理
     gridCardsList.appendChild(fragment);
 }
 
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
+/* デッキにカードを追加
 
+*/
+
+function addCardToDeck(card) {
+    console.log(card);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* カードの詳細表示
+
+*/
+
+function showCardDetail(card) {
+    console.log(card);
+}
 
 /* -------------------------------------------------------------------------- */})/*/*/
