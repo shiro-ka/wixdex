@@ -186,6 +186,9 @@ main {
 display: none;
 }
 .grid.cards-list > .card-container > .add-fourth-button {
+    display: none;
+}
+.grid.cards-list > .card-container > .open-detail-button {
 display: none;
 }
 
