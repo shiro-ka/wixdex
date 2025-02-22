@@ -81,10 +81,6 @@ function handleTouchEndOnDeck(event, card) {
         showCardDetail(card);
     }
 }
-// PCでのクリック
-function handleClick(card) {
-    showCardDetail(card);
-}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -102,9 +98,6 @@ function handleClick(card) {
     </div>
     <div class="addFourCardsButton">
         <img src="girl/PlusFourIcon.png">
-    </div>
-    <div class="openDetailPopupButton">
-        <img src="girl/CardDetailIcon.png">
     </div>
 </div>
 これがカードの枚数分grid card-listに追加される。
@@ -136,7 +129,7 @@ function listCards(cards) {
         cardContainer.addEventListener('touchstart', handleTouchStart);
         cardContainer.addEventListener('touchend', (event) => handleTouchEndOnList(event, card));
         // PC用クリックリスナー
-        cardContainer.addEventListener('click', () => handleClick(card));
+        cardContainer.addEventListener('click', () => showCardDetail(card));
         // PC用ボタン(一旦Fragmentに追加して、あとで処理)
         cardContainer.appendChild(createButton('add-card-button', "girl/PlusOneIcon.png"));
         cardContainer.appendChild(createButton('add-fourth-button', "girl/PlusFourIcon.png"));
@@ -149,14 +142,23 @@ function listCards(cards) {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/* デッキにカードを追加
+/* カードをデッキに追加
+
+引数(タップ/クリックしたカード)をcardでうけとる。
+
+カードのデータからcard-containerを作成
+<div class="card-container" data-name/card-type/lrig-type-class/level="カード名/ルリグ/タマ/3">
+    <img src="URL">
+</div>
+
+カード種類に応じてルリグデッキかメインデッキに追加
 
 */
 
 function addCardToDeck(card) {
     // カードのhtmlを作成
-    const cardElement = document.createElement('div');           // <div class="card">を作成
-    cardElement.classList.add('card');
+    const cardElement = document.createElement('div');           // <div class="card-container">を作成
+    cardElement.classList.add('card-container');
     const cardImage = document.createElement('img');             // <img src="URL">を作成してdivに追加
     cardImage.src = card.image;
     cardElement.appendChild(cardImage);
@@ -276,11 +278,18 @@ function addCardToDeck(card) {
         gridMainDeck.appendChild(cardElement);
         sortMainDeck();
     }
-    // カードにフリックイベントを追加
-    cardElement.addEventListener('touchstart', handleTouchStart);
-    cardElement.addEventListener('touchend',  (event) => handleTouchEndOnDeck(event));
-}
 
+    /* カード操作のリスナー */
+    // スマホ
+    cardElement.addEventListener('touchstart', handleTouchStart);
+    cardElement.addEventListener('touchend',  function(event) {
+        handleTouchEndOnDeck(event, card);
+    });
+    // PC
+    cardElement.addEventListener('click', function() {
+        showCardDetail(card);
+    });
+}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -291,6 +300,12 @@ function addCardToDeck(card) {
 function showCardDetail(card) {
     console.log(card);
 }
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* デッキをソート
+
+*/
 
 function sortLrigDeck() {
     console.log("sortLrigDeck")
