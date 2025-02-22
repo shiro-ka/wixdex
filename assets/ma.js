@@ -62,7 +62,8 @@ Promise.allSettled(cardJson.map(file =>
 function handleTouchStart(event) {
     touchStartY = event.touches[0].clientY;
 }
-// タッチ終了時
+
+// タッチ終了時(リスト欄)
 function handleTouchEndOnList(event, card) {
     const touchEndY = event.changedTouches[0].clientY;
     const swipeDistance = touchStartY - touchEndY;
@@ -72,6 +73,8 @@ function handleTouchEndOnList(event, card) {
         showCardDetail(card);
     }
 }
+
+// タッチ終了時(デッキ欄)
 function handleTouchEndOnDeck(event, card) {
     const touchEndY = event.changedTouches[0].clientY;
     const swipeDistance = touchStartY - touchEndY;
@@ -113,6 +116,7 @@ function createButton(className, iconSrc) {
     button.appendChild(icon);
     return button;
 }
+
 // リスト欄にカードを追加
 function listCards(cards) {
     gridCardsList.innerHTML = "";
@@ -168,7 +172,6 @@ function addCardToDeck(card) {
     cardElement.dataset.level = card.level;
     // cardTypeを取得
     const cardType = cardElement.dataset.cardType;
-
     /* デッキに追加 */
     // (センター)ルリグ
     if (cardType ==='ルリグ') {
@@ -278,7 +281,6 @@ function addCardToDeck(card) {
         gridMainDeck.appendChild(cardElement);
         sortMainDeck();
     }
-
     /* カード操作のリスナー */
     // スマホ
     cardElement.addEventListener('touchstart', handleTouchStart);
@@ -293,7 +295,7 @@ function addCardToDeck(card) {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/* カードの詳細表示
+/* カードの詳細ポップアップを表示
 
 */
 
@@ -303,15 +305,82 @@ function showCardDetail(card) {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/* デッキをソート
+/* デッキをソート */
 
-*/
-
+// ルリグデッキ
 function sortLrigDeck() {
-    console.log("sortLrigDeck")
+    // ルリグデッキのカードを取得
+    const lrigDeckCards = Array.from(gridLrigDeck.children);
+    // カード種類のソート順
+    const lrigDeckOrder = {
+        'ルリグ': 1,
+        'アシストルリグ': 2,
+        'ピース': 3,
+        'アーツ': 4
+    };
+    // ソート
+    lrigDeckCards.sort((a, b) => {
+        // カード種類でソート
+        const aCardType = lrigDeckOrder[a.dataset.cardType] || 5;   // カード種類を取得し、ソート順の値を持たせる
+        const bCardType = lrigDeckOrder[b.dataset.cardType] || 5;
+        if (aCardType !== bCardType) {
+            return aCardType - bCardType                            // 違うカード種類ならソート
+        }
+        // アシストルリグのソート
+        if (a.dataset.cardType === 'アシストルリグ' && b.dataset.cardType === 'アシストルリグ') {
+            // ルリグタイプでソート
+            const aLrigTypeClass = a.dataset.lrigTypeClass;            // ルリグタイプを取得
+            const bLrigTypeClass = b.dataset.lrigTypeClass;
+            if (aLrigTypeClass !== bLrigTypeClass) {
+                return aLrigTypeClass.localeCompare(bLrigTypeClass);   // 違うルリグタイプなら文字列でソート
+            }
+            // ルリグタイプが同じならレベルでソート
+            const aLevel = a.dataset.level;                            // レベルを取得
+            const bLevel = b.dataset.level;
+            return aLevel - bLevel;                                    // aとbで比較
+        }
+        // アシストルリグ以外で同じカード種類ならカード名でソート
+        const aName = a.dataset.name;                                  // カード名を取得
+        const bName = b.dataset.name;
+        return aName.localeCompare(bName);                             // カード名でソート
+    });
+    // ルリグデッキに再度追加
+    gridLrigDeck.innerHTML = '';
+    lrigDeckCards.forEach(element => gridLrigDeck.appendChild(element));
 }
+
+// メインデッキ
 function sortMainDeck() {
-    console.log("sortMainDeck")
+    // メインデッキのカードを取得
+    const mainDeckCards = Array.from(gridMainDeck.children);
+    // カード種類によるソート順
+    const mainDeckOrder = {
+        'シグニ': 1,
+        'スペル': 2,
+        'サーバント': 3
+    };
+    // ソート
+    mainDeckCards.sort((a, b) => {
+        // カード種類でソート
+        const aCardType = mainDeckOrder[a.dataset.cardType] || 4;   // カード種類を取得し、ソート順の値を持たせる
+        const bCardType = mainDeckOrder[b.dataset.cardType] || 4;
+        if (aCardType !== bCardType) {
+            return aCardType - bCardType                            // 違うカード種類ならソート
+        }
+        // 同じカード種類ならレベルでソート
+        const aLevel = a.dataset.level;                             // レベルを取得
+        const bLevel = b.dataset.level;
+        if (aLevel !== bLevel) {
+        return aLevel - bLevel;                                     // 違うレベルならソート
+        }
+        // レベルが同じならカード名でソート
+        const aName = a.dataset.name;                               // カード名を取得
+        const bName = b.dataset.name;
+        return aName.localeCompare(bName);                          // カード名でソート
+    });
+    // メインデッキに再度追加
+    gridMainDeck.innerHTML = '';
+    mainDeckCards.forEach(element => gridMainDeck.appendChild(element));
 }
 
 /* -------------------------------------------------------------------------- */})/*/*/
