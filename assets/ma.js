@@ -19,7 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /* html要素の取得 */
-
+const gridLrigDeck = document.querySelector('.grid.lrig-deck');
+const gridMainDeck = document.querySelector('.grid.main-deck');
+const gridCardsList = document.querySelector('.grid.cards-list');
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -52,6 +54,40 @@ Promise.allSettled(cardJson.map(file =>
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
+/* カード操作のリスナー
+
+*/
+
+// タッチ開始時
+function handleTouchStart(event) {
+    touchStartY = event.touches[0].clientY;
+}
+// タッチ終了時
+function handleTouchEndOnList(event, card) {
+    const touchEndY = event.changedTouches[0].clientY;
+    const swipeDistance = touchStartY - touchEndY;
+    if (swipeDistance > 50) {
+        addCardToDeck(card);
+    } else {
+        showCardDetail(card);
+    }
+}
+function handleTouchEndOnDeck(event, card) {
+    const touchEndY = event.changedTouches[0].clientY;
+    const swipeDistance = touchStartY - touchEndY;
+    if (swipeDistance > 50) {
+        addCardToDeck(card);
+    } else {
+        showCardDetail(card);
+    }
+}
+// PCでのクリック
+function handleClick(card) {
+    showCardDetail(card);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 /* ページひらいたとき、検索したときにリスト欄にカードを表示
 
 引数をcardsでうけとる。
@@ -75,20 +111,6 @@ Promise.allSettled(cardJson.map(file =>
 
 */
 
-// タッチ開始時
-function handleTouchStart(event) {
-    touchStartY = event.touches[0].clientY;
-}
-// タッチ終了時
-function handleTouchEnd(event, card) {
-    const touchEndY = event.changedTouches[0].clientY;
-    const swipeDistance = touchStartY - touchEndY;
-    if (swipeDistance > 50) {
-        addCardToDeck(card);
-    } else {
-        showCardDetail(card);
-    }
-}
 // PC用操作ボタンを追加
 function createButton(className, iconSrc) {
     const button = document.createElement('div');
@@ -98,13 +120,8 @@ function createButton(className, iconSrc) {
     button.appendChild(icon);
     return button;
 }
-// PCでのクリック
-function handleClick(card) {
-    showCardDetail(card);
-}
 // リスト欄にカードを追加
 function listCards(cards) {
-    const gridCardsList = document.querySelector('.grid.cards-list');
     gridCardsList.innerHTML = "";
     const fragment = document.createDocumentFragment();
     // カードのhtmlを作成
@@ -117,7 +134,7 @@ function listCards(cards) {
         cardContainer.appendChild(cardImage);
         // フリック用のタッチイベント追加
         cardContainer.addEventListener('touchstart', handleTouchStart);
-        cardContainer.addEventListener('touchend', (event) => handleTouchEnd(event, card));
+        cardContainer.addEventListener('touchend', (event) => handleTouchEndOnList(event, card));
         // PC用クリックリスナー
         cardContainer.addEventListener('click', () => handleClick(card));
         // PC用ボタン(一旦Fragmentに追加して、あとで処理)
@@ -137,8 +154,133 @@ function listCards(cards) {
 */
 
 function addCardToDeck(card) {
-    console.log(card);
+    // カードのhtmlを作成
+    const cardElement = document.createElement('div');           // <div class="card">を作成
+    cardElement.classList.add('card');
+    const cardImage = document.createElement('img');             // <img src="URL">を作成してdivに追加
+    cardImage.src = card.image;
+    cardElement.appendChild(cardImage);
+    cardElement.dataset.name = card.name;                        // データを追加(ソートに使用)
+    cardElement.dataset.cardType = card.cardType[0];
+    cardElement.dataset.lrigTypeClass = card.lrigTypeClass[0];
+    cardElement.dataset.level = card.level;
+    // cardTypeを取得
+    const cardType = cardElement.dataset.cardType;
+
+    /* デッキに追加 */
+    // (センター)ルリグ
+    if (cardType ==='ルリグ') {
+        // ルリグデッキは8枚まで
+        if (gridLrigDeck.children.length >= 8) {
+            return;
+        }
+        // センタールリグは1枚まで
+        const lrigDeckLrig = Array.from(gridLrigDeck.children).filter(deckCard => {
+            const deckCardType = deckCard.dataset.cardType;
+            return deckCardType === "ルリグ";
+        });
+        if (lrigDeckLrig.length >= 1 ) {
+            return;
+        }
+        // divをルリグデッキに追加してソート
+        gridLrigDeck.appendChild(cardElement);
+        sortLrigDeck();
+    }
+    // アシストルリグ
+    else if(cardType === 'アシストルリグ') {
+        // ルリグデッキは8枚まで
+        if (gridLrigDeck.children.length >= 8) {
+            return;
+        }
+        // 同じレベルのアシストルリグは2枚まで
+        const lrigDeckSameLevelAssist = Array.from(gridLrigDeck.children).filter(deckCard => {
+            const deckCardType = deckCard.dataset.cardType;
+            const deckCardLevel = deckCard.dataset.level;
+            return deckCardType === "アシストルリグ" && deckCardLevel === cardElement.dataset.level;
+        });
+        if (lrigDeckSameLevelAssist.length >= 2) {
+            return;
+        }
+        // 同じルリグタイプで同じレベルのカードは1枚まで
+        const lrigDeckSameLrigTypeAssist = Array.from(gridLrigDeck.children).filter(deckCard => {
+        const deckLrigType = deckCard.dataset.lrigTypeClass;
+            const deckCardLevel = deckCard.dataset.level;
+            return deckLrigType === cardElement.dataset.lrigTypeClass && deckCardLevel === cardElement.dataset.level;
+        });
+        if (lrigDeckSameLrigTypeAssist.length >= 1 ) {
+            return;
+        }
+        // divをルリグデッキに追加してソート
+        gridLrigDeck.appendChild(cardElement);
+        sortLrigDeck();
+    }
+    // ピース
+    else if(cardType === 'ピース') {
+        // ルリグデッキは8枚まで
+        if (gridLrigDeck.children.length >= 8) {
+            return;
+        }
+        // ピースは2枚まで
+        const lrigDeckPiece = Array.from(gridLrigDeck.children).filter(deckCard => {
+            const deckCardType = deckCard.dataset.cardType;
+            return deckCardType === "ピース";
+        });
+        if (lrigDeckPiece.length >= 2) {
+            return;
+        }
+        /* 同名カードは1枚まで */
+        const lrigDeckSameNameCard = Array.from(gridLrigDeck.children).filter(deckCard => {
+            const deckCardName = deckCard.dataset.name;
+            return deckCardName === cardElement.dataset.name;
+        });
+        if (lrigDeckSameNameCard.length >= 1) {
+            return;
+        }
+        // divをルリグデッキに追加してソート
+        gridLrigDeck.appendChild(cardElement);
+        sortLrigDeck();
+    }
+    // アーツ
+    else if(cardType === 'アーツ') {
+        // ルリグデッキは8枚まで
+        if (gridLrigDeck.children.length >= 8) {
+            return;
+        }
+        // 同名カードは1枚まで
+        const lrigDeckSameNameCard = Array.from(gridLrigDeck.children).filter(deckCard => {
+            const deckCardName = deckCard.dataset.name;
+            return deckCardName === cardElement.dataset.name;
+        });
+        if (lrigDeckSameNameCard.length >= 1) {
+            return;
+        }
+        // divをルリグデッキに追加してソート
+        gridLrigDeck.appendChild(cardElement);
+        sortLrigDeck();
+    }
+    // シグニ,スペル,サーバント
+    else if (['シグニ', 'スペル', 'サーバント'].includes(cardType)) {
+        // メインデッキは40枚まで
+        if (gridMainDeck.children.length >= 40) {
+            return;
+        }
+        // 同名カードは4枚まで
+        const mainSameNameCards = Array.from(gridMainDeck.children).filter(deckCard => {
+            const deckCardName = deckCard.dataset.name;
+            return deckCardName === cardElement.dataset.name;
+        });
+        if (mainSameNameCards.length >= 4) {
+            return;
+        }
+        // divをルリグデッキに追加してソート
+        gridMainDeck.appendChild(cardElement);
+        sortMainDeck();
+    }
+    // カードにフリックイベントを追加
+    cardElement.addEventListener('touchstart', handleTouchStart);
+    cardElement.addEventListener('touchend',  (event) => handleTouchEndOnDeck(event));
 }
+
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -148,6 +290,13 @@ function addCardToDeck(card) {
 
 function showCardDetail(card) {
     console.log(card);
+}
+
+function sortLrigDeck() {
+    console.log("sortLrigDeck")
+}
+function sortMainDeck() {
+    console.log("sortMainDeck")
 }
 
 /* -------------------------------------------------------------------------- */})/*/*/
