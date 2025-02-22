@@ -115,6 +115,14 @@ main {
     grid-template-columns: repeat(8,1fr);
     column-gap: 0.5rem;
 }
+.grid.lrig-deck > .card-container {
+    display: flex;
+    height: 100%; width: 100%;
+    align-items: center;
+}
+.grid.lrig-deck > .card-container > img {
+    height: auto; width: 100%;
+}
 
 /* メインデッキ欄 */
 .main-deck-container {
@@ -144,6 +152,14 @@ main {
     grid-template-rows: repeat(4,1fr);
     grid-template-columns: repeat(8,1fr);
     gap: 0.5rem;
+}
+.grid.main-deck > .card-container {
+    display: flex;
+    height: 100%; width: 100%;
+    align-items: center;
+}
+.grid.main-deck > .card-container > img {
+    height: auto; width: 100%;
 }
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
