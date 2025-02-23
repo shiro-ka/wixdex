@@ -55,7 +55,6 @@ main {
     display: flex;
     flex: 1; width: 100%;
     z-index: 0;
-    justify-content: center; /* containerを中央に表示 */
 }
 
 /* ---------------------------------------------------------------------------------
@@ -66,7 +65,7 @@ main -> .container
     display: flex;
     height: 100%;
     width: 95%; max-width: 1080px;
-    z-index: 1;
+    margin: auto; z-index: 1;
     padding: 0.5rem 0; gap: 0.5rem;
     flex-direction: column;
 }
@@ -82,7 +81,7 @@ main -> .container
 /* デッキ表示領域 */
 .deck-container {
     display: flex;
-    flex: 1; max-height: 105dvw; width: 100%;
+    /*height: auto;*/ width: 100%;
     z-index: 2;
     gap: 0.5rem;
     flex-direction: column;
@@ -94,7 +93,7 @@ main -> .container
 /* 検索表示領域 */
 .search-container {
     display: flex;
-    height: 24dvh; width: 100%;
+    /*height: auto;*/ width: 100%;
     z-index: 2;
     flex-direction: column;
 }
@@ -107,7 +106,7 @@ main -> .container
 /* ルリグデッキ欄 */
 .lrig-deck-container {
     display: flex;
-    height: 27%; width: 100%;
+    /*height: auto;*/ width: 100%;
     background-color: var(--deck-background-color);
     border-radius: 16px;
     z-index: 3;
@@ -121,16 +120,25 @@ main -> .container
 }
 .deck.lrig-deck {
     display: flex;
-    flex: 1; width: 100%; max-width: 69dvh;
-    padding: 0.5rem 1rem;
+    height: 19dvw; max-height: 14dvh; width: 100%; max-width: 69dvh;
     background-color: var(--transparent);
-    z-index: 4;
+    margin: auto; z-index: 4;
+    padding: 2dvw;
 }
 .grid.lrig-deck {
     width: 100%;
     grid-template-rows: 1fr;
     grid-template-columns: repeat(8,1fr);
-    gap: 4px;
+    gap: 1dvw;
+}
+@media (min-width: 774px) {
+    .deck.lrig-deck {
+        height: 11dvw; max-height: 15dvh; max-width: 73dvh;
+        padding: 1%;
+    }
+    .grid.lrig-deck {
+        gap: 1%;
+    }
 }
 .grid.lrig-deck > .card-container {
     display: flex;
@@ -144,7 +152,7 @@ main -> .container
 /* メインデッキ欄 */
 .main-deck-container {
     display: flex;
-    height: 70%; width: 100%;
+    /*height: auto;*/ width: 100%;
     background-color: var(--deck-background-color);
     border-radius: 16px;
     z-index: 3;
@@ -158,16 +166,25 @@ main -> .container
 }
 .deck.main-deck {
     display: flex;
-    flex: 1; width: 100%; max-width: 69dvh;
-    padding: 0.5rem 1rem;
+    height: 62dvh; max-height: 47dvh; width: 100%; max-width: 69dvh;
     background-color: var(--transparent);
-    z-index: 4;
+    margin: auto; z-index: 4;
+    padding: 2dvw;
 }
 .grid.main-deck {
     width: 100%;
     grid-template-rows: repeat(4,1fr);
     grid-template-columns: repeat(8,1fr);
-    gap: 4px;
+    gap: 1dvw;
+}
+@media (min-width: 774px) {
+    .deck.main-deck {
+        height: 41dvw; max-height: 55dvh; max-width: 73dvh;
+        padding: 1%;
+    }
+    .grid.grid.main-deck {
+        gap: 1%;
+    }
 }
 .grid.main-deck > .card-container {
     display: flex;
@@ -185,8 +202,8 @@ main -> .container
 /*  *  * .search-container > ,cards-list .search-tool *  *  */
 
 /* カードリスト欄 */
-.flex.cards-list {
-    flex: 1; width: 100%;
+.cards-list-container {
+    /*height: auto;*/ width: 100%;
     border: solid 2px var(--deck-background-color);
     border-radius: 8px;
     z-index: 3;
@@ -216,19 +233,29 @@ main -> .container
 .grid.cards-list > .card-container > .open-detail-button {
     display: none;
 }
+@media (min-width: 774px) {
+    .cards-list-container {
+        height: 53dvh;
+    }
+    .grid.cards-list {
+        grid-auto-flow: row;
+        grid-template-rows: 19dvh;
+        grid-auto-columns: repeat(3, 1fr);
+        overflow-y: auto;
+    }
+}
 
 /* 検索ツール欄 */
 .search-tool-container {
     display: flex;
     height: 5rem; width: 100%;
-    margin-top: auto;
     z-index: 3;
     padding: 4px 0;
 }
 .grid.search-tool {
     height: 100%; width: 100%;
     grid-template-rows: repeat(2,1fr);
-    grid-template-columns: repeat(9,1fr);
+    grid-template-columns: repeat(8,1fr) 3rem;
     gap: 4px;
 }
 .search-level-container {
