@@ -231,8 +231,8 @@ main -> .container
 }
 @media (min-width: 774px) {
     .cards-list-container {
-        height: 52dvw;
-        max-height: 70dvh;
+        height: 54dvw;
+        max-height: calc(100dvh - 6.5rem);
     }
     .grid.cards-list {
         grid-template-rows: none; grid-auto-columns: none;
