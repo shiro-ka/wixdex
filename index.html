@@ -11,7 +11,7 @@
     <header>
     </header>
     <main>
-        <div class="flex container">
+        <div class="flex main-container">
             <div class="flex deck-container">
                 <!-- ルリグデッキ欄 -->
                 <div class="lrig-deck-container">
@@ -42,11 +42,26 @@
                     <div class="grid cards-list"></div>
                 </div>
                 <!-- 検索ツール欄 -->
-                <div class="search-tool-container">
+                <div class="flex search-tool-container">
                     <div class="grid search-tool">
-                        <div class="search-level-container"></div>
-                        <div class="search-color-container"></div>
-                        <div class="search-lb-container"></div>
+                        <div class="level search-button-container">
+                            <div class="lv1 search-button"></div>
+                            <div class="lv2 search-button"></div>
+                            <div class="lv3 search-button"></div>
+                        </div>
+                        <div class="color search-button-container">
+                            <div class="white search-button" data-color="白">
+                                <img src="img/icon_color/icon_white.png"></div>
+                            <div class="red search-button" data-color="赤">
+                                <img src="img/icon_color/icon_red.png"></div>
+                            <div class="blue search-button" data-color="青">
+                                <img src="img/icon_color/icon_blue.png"></div>
+                            <div class="green search-button" data-color="緑">
+                                <img src="img/icon_color/icon_green.png"></div>
+                            <div class="black search-button" data-color="黒">
+                                <img src="img/icon_color/icon_black.png"></div>
+                        </div>
+                        <div class="lb search-button-container"></div>
                         <div class="search-cardType-button"></div>
                         <div class="search-lrigTypeClass-button"></div>
                         <input type="text" class="search-text-input" placeholder="">
