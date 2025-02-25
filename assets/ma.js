@@ -179,7 +179,7 @@ function handleSearch() {
     const selectedCardType = openSearchCardTypePopupButton.dataset.selectedCardType || "";
     const selectedLrigTypeClass = openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass || "";*/
     // window.cardsDataの中からカードを検索してfilteredCardsに保存
-    let filteredCards = window.cardsData.filter(card => {
+    let filteredCards = window.allCardsData.filter(card => {
         /* 検索条件を設定
         const nameMatch = card.name.toLowerCase().includes(searchText);
         const subNameMatch = card.subName && card.subName.some(sub => sub.toLowerCase().includes(searchText));
