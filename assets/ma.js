@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const gridLrigDeck = document.querySelector('.grid.lrig-deck');
 const gridMainDeck = document.querySelector('.grid.main-deck');
 const gridCardsList = document.querySelector('.grid.cards-list');
-const searchColorButtons = document.querySelectorAll(".color search-button-container > .search-button");
+const searchColorButtons = document.querySelectorAll(".color.search-button-container > .search-button");
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
