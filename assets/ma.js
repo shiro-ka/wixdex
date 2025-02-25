@@ -173,7 +173,7 @@ function listCards(cards) {
 
 /* カードを検索 */
 function handleSearch() {
-    cardsList.innerHTML = '';
+    gridCardsList.innerHTML = "";
     // 検索条件を取得
     /*const searchText = searchTextInput.value.toLowerCase();
     const selectedCardType = openSearchCardTypePopupButton.dataset.selectedCardType || "";
