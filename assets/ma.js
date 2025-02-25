@@ -46,6 +46,7 @@ searchColorButtons.forEach(button => {
             img.src = src.replace("_stroke.png", ".png");
         }
     });
+    handleSearch()
 });
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -168,6 +169,37 @@ function listCards(cards) {
     gridCardsList.appendChild(fragment);
 }
 
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* カードを検索 */
+function handleSearch() {
+    cardsList.innerHTML = '';
+    // 検索条件を取得
+    /*const searchText = searchTextInput.value.toLowerCase();
+    const selectedCardType = openSearchCardTypePopupButton.dataset.selectedCardType || "";
+    const selectedLrigTypeClass = openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass || "";*/
+    // window.cardsDataの中からカードを検索してfilteredCardsに保存
+    let filteredCards = window.cardsData.filter(card => {
+        /* 検索条件を設定
+        const nameMatch = card.name.toLowerCase().includes(searchText);
+        const subNameMatch = card.subName && card.subName.some(sub => sub.toLowerCase().includes(searchText));
+        const cardTypeMatch = selectedCardType === "" || (card.cardType && card.cardType.includes(selectedCardType));
+        const lrigTypeClassMatch = selectedLrigTypeClass === "" || (card.lrigTypeClass && card.lrigTypeClass.includes(selectedLrigTypeClass));
+        const levelMatch = selectedLevels.size === 0 || selectedLevels.has(card.level);*/
+        const colorMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => card.color.includes(color));
+        /*const lifeBurstMatch = (
+            (lifeBurstState === 0) ||                           // lifeBurstStateが0であれば全てで検索
+            (lifeBurstState === 1 && card.lifeBurst === 1) ||   // lifeBurstStateが1であればLBありで検索
+            (lifeBurstState === 2 && card.lifeBurst === 0)      // lifeBurstStateが2であればLBなしで検索
+        );
+        /* 全条件で検索
+        return (nameMatch || subNameMatch) && cardTypeMatch && lrigTypeClassMatch && levelMatch && colorMatch && lifeBurstMatch;
+        */
+        return colorMatch;
+    });
+    /* 検索結果をリスト欄に表示 */
+    listCards(filteredCards);
+}
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
