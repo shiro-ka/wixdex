@@ -187,12 +187,8 @@ main -> .main-container
 
 /* デッキのカード画像 */
 .card-container {
-    display: flex;
     height: 100%; width: 100%;
     align-items: center;
-}
-.card-container > img {
-    height: auto; width: 100%;
 }
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
@@ -215,12 +211,8 @@ main -> .main-container
     overflow-x: auto;
 }
 .grid.cards-list > .card-container {
-    display: flex;
     height: 100%; width: 100%;
     align-items: center;
-}
-.grid.cards-list > .card-container > img {
-    height: auto; width: 100%;
 }
 .grid.cards-list > .card-container > .add-card-button {
     display: none;
@@ -310,7 +302,10 @@ main -> .main-container
 
 .search-button {
     flex-grow: 1;
-    padding: 4px;
+    padding: 6px;
+}
+.search-button.active {
+    background-color: var(--deck-background-color);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

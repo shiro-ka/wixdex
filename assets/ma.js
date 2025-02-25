@@ -22,6 +22,31 @@ document.addEventListener('DOMContentLoaded', () => {
 const gridLrigDeck = document.querySelector('.grid.lrig-deck');
 const gridMainDeck = document.querySelector('.grid.main-deck');
 const gridCardsList = document.querySelector('.grid.cards-list');
+const searchColorButtons = document.querySelectorAll(".color search-button-container > .search-button");
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* 検索ツールに処理を追加 */
+
+// 色検索ボタン
+const selectedColors = new Set();                // 選択された色を管理するSetを作成
+searchColorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const color = button.dataset.color;
+        const img = button.querySelector("img");
+        let src = img.src;
+        // ボタンのオン・オフを切り替え
+        if (selectedColors.has(color)) {
+            selectedColors.delete(color);
+            button.classList.remove('active');
+            img.src = src.replace(/(_stroke)?\.png$/, "_stroke.png");
+        } else {
+            selectedColors.add(color);
+            button.classList.add('active');
+            img.src = src.replace("_stroke.png", ".png");
+        }
+    });
+});
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
