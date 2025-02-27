@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const gridLrigDeck = document.querySelector('.grid.lrig-deck');
 const gridMainDeck = document.querySelector('.grid.main-deck');
 const gridCardsList = document.querySelector('.grid.cards-list');
+const searchLevelButtons = document.querySelectorAll(".level.search-button-container > .search-button");
 const searchColorButtons = document.querySelectorAll(".color.search-button-container > .search-button");
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -95,6 +96,7 @@ function listCards(cards) {
         cardContainer.classList.add('card-container');
         // カードデータ(検索に使用)
         cardContainer.dataset.color = card.color || "";
+        cardContainer.dataset.level = card.level || "";
         // カード画像
         const cardImage = document.createElement('img');
         cardImage.src = card.image;
@@ -111,43 +113,6 @@ function listCards(cards) {
     })
     // Fragmentを処理
     gridCardsList.appendChild(fragment);
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-/* 検索ツールに処理を追加 */
-
-// 色検索ボタン
-const selectedColors = new Set();                // 選択された色を管理するSetを作成
-searchColorButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const color = button.dataset.color;
-        const img = button.querySelector("img");
-        let src = img.src;
-        // ボタンのオン・オフを切り替え
-        if (selectedColors.has(color)) {
-            selectedColors.delete(color);
-            button.classList.remove('active');
-            img.src = src.replace(/(_stroke)?\.png$/, "_stroke.png");
-        } else {
-            selectedColors.add(color);
-            button.classList.add('active');
-            img.src = src.replace("_stroke.png", ".png");
-        }
-        handleSearch()
-    });
-});
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-/* カードを検索 */
-function handleSearch() {
-    const cards = document.querySelectorAll(".card-container"); // すべてのカード要素取得
-    cards.forEach(card => {
-        const cardColor = card.dataset.color;
-        const isMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
-        card.style.display = isMatch ? "" : "none";
-    });
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -179,6 +144,64 @@ function handleTouchEndOnDeck(event, card) {
     } else {
         showCardDetail(card);
     }
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* 検索ツールに処理を追加 */
+
+// レベル検索ボタン
+const selectedLevel = new Set();
+searchLevelButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const level = button.dataset.level;
+        const img = button.querySelector("img");
+        let src = img.src;
+        // ボタンのオン・オフを切り替え
+        if (selectedLevel.has(level)) {
+            selectedLevel.delete(level);
+            button.classList.remove('active');
+            img.src = src.replace(/(_stroke)?\.png$/, "_stroke.png");
+        } else {
+            selectedLevel.add(level);
+            button.classList.add('active');
+            img.src = src.replace("_stroke.png", ".png");
+        }
+        handleSearch()
+    });
+});
+
+// 色検索ボタン
+const selectedColors = new Set();
+searchColorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const color = button.dataset.color;
+        const img = button.querySelector("img");
+        let src = img.src;
+        // ボタンのオン・オフを切り替え
+        if (selectedColors.has(color)) {
+            selectedColors.delete(color);
+            button.classList.remove('active');
+            img.src = src.replace(/(_stroke)?\.png$/, "_stroke.png");
+        } else {
+            selectedColors.add(color);
+            button.classList.add('active');
+            img.src = src.replace("_stroke.png", ".png");
+        }
+        handleSearch()
+    });
+});
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* カードを検索 */
+function handleSearch() {
+    const cards = document.querySelectorAll(".card-container");
+    cards.forEach(card => {
+        const cardColor = card.dataset.color;
+        const isMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
+        card.style.display = isMatch ? "" : "none";
+    });
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
