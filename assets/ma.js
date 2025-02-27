@@ -134,8 +134,8 @@ searchColorButtons.forEach(button => {
             button.classList.add('active');
             img.src = src.replace("_stroke.png", ".png");
         }
+        handleSearch()
     });
-    handleSearch()
 });
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -146,11 +146,7 @@ function handleSearch() {
     cards.forEach(card => {
         const cardColor = card.dataset.color;
         const isMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
-        if (isMatch) {
-            card.style.display = "";
-        } else {
-            card.style.display = "none";
-        }
+        card.style.display = isMatch ? "" : "none";
     });
 }
 
