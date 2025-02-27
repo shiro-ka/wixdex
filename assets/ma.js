@@ -198,9 +198,11 @@ searchColorButtons.forEach(button => {
 function handleSearch() {
     const cards = document.querySelectorAll(".card-container");
     cards.forEach(card => {
+        const cardLevel = card.dataset.level;
         const cardColor = card.dataset.color;
-        const isMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
-        card.style.display = isMatch ? "" : "none";
+        const levelMatch = selectedLevel.size === 0 || Array.from(selectedLevel).some(level => cardLevel === level);
+        const colorMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
+        card.style.display = (colorMatch && levelMatch) ? "" : "none";
     });
 }
 
