@@ -55,65 +55,7 @@ Promise.allSettled(cardJson.map(file =>
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/* 検索ツールに処理を追加 */
-
-// 色検索ボタン
-const selectedColors = new Set();                // 選択された色を管理するSetを作成
-searchColorButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const color = button.dataset.color;
-        const img = button.querySelector("img");
-        let src = img.src;
-        // ボタンのオン・オフを切り替え
-        if (selectedColors.has(color)) {
-            selectedColors.delete(color);
-            button.classList.remove('active');
-            img.src = src.replace(/(_stroke)?\.png$/, "_stroke.png");
-        } else {
-            selectedColors.add(color);
-            button.classList.add('active');
-            img.src = src.replace("_stroke.png", ".png");
-        }
-    });
-    handleSearch()
-});
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-/* カード操作のリスナー
-
-*/
-
-// タッチ開始時
-function handleTouchStart(event) {
-    touchStartY = event.touches[0].clientY;
-}
-
-// タッチ終了時(リスト欄)
-function handleTouchEndOnList(event, card) {
-    const touchEndY = event.changedTouches[0].clientY;
-    const swipeDistance = touchStartY - touchEndY;
-    if (swipeDistance > 50) {
-        addCardToDeck(card);
-    } else {
-        showCardDetail(card);
-    }
-}
-
-// タッチ終了時(デッキ欄)
-function handleTouchEndOnDeck(event, card) {
-    const touchEndY = event.changedTouches[0].clientY;
-    const swipeDistance = touchStartY - touchEndY;
-    if (swipeDistance > 50) {
-        addCardToDeck(card);
-    } else {
-        showCardDetail(card);
-    }
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-/* ページひらいたとき、検索したときにリスト欄にカードを表示
+/* リスト欄にカードを表示
 
 引数をcardsでうけとる。
 ページをひらいたときはwindow.allCardsData、検索したときはfilteredCardsDataが引数。
@@ -151,6 +93,8 @@ function listCards(cards) {
     cards.forEach(card => {
         const cardContainer = document.createElement('div');
         cardContainer.classList.add('card-container');
+        // カードデータ(検索に使用)
+        cardContainer.dataset.color = card.color || "";
         // カード画像
         const cardImage = document.createElement('img');
         cardImage.src = card.image;
@@ -171,34 +115,74 @@ function listCards(cards) {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
+/* 検索ツールに処理を追加 */
+
+// 色検索ボタン
+const selectedColors = new Set();                // 選択された色を管理するSetを作成
+searchColorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const color = button.dataset.color;
+        const img = button.querySelector("img");
+        let src = img.src;
+        // ボタンのオン・オフを切り替え
+        if (selectedColors.has(color)) {
+            selectedColors.delete(color);
+            button.classList.remove('active');
+            img.src = src.replace(/(_stroke)?\.png$/, "_stroke.png");
+        } else {
+            selectedColors.add(color);
+            button.classList.add('active');
+            img.src = src.replace("_stroke.png", ".png");
+        }
+    });
+    handleSearch()
+});
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 /* カードを検索 */
 function handleSearch() {
-    gridCardsList.innerHTML = "";
-    // 検索条件を取得
-    /*const searchText = searchTextInput.value.toLowerCase();
-    const selectedCardType = openSearchCardTypePopupButton.dataset.selectedCardType || "";
-    const selectedLrigTypeClass = openSearchLrigTypeClassPopupButton.dataset.selectedLrigTypeClass || "";*/
-    // window.cardsDataの中からカードを検索してfilteredCardsに保存
-    let filteredCards = window.allCardsData.filter(card => {
-        /* 検索条件を設定
-        const nameMatch = card.name.toLowerCase().includes(searchText);
-        const subNameMatch = card.subName && card.subName.some(sub => sub.toLowerCase().includes(searchText));
-        const cardTypeMatch = selectedCardType === "" || (card.cardType && card.cardType.includes(selectedCardType));
-        const lrigTypeClassMatch = selectedLrigTypeClass === "" || (card.lrigTypeClass && card.lrigTypeClass.includes(selectedLrigTypeClass));
-        const levelMatch = selectedLevels.size === 0 || selectedLevels.has(card.level);*/
-        const colorMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => card.color.includes(color));
-        /*const lifeBurstMatch = (
-            (lifeBurstState === 0) ||                           // lifeBurstStateが0であれば全てで検索
-            (lifeBurstState === 1 && card.lifeBurst === 1) ||   // lifeBurstStateが1であればLBありで検索
-            (lifeBurstState === 2 && card.lifeBurst === 0)      // lifeBurstStateが2であればLBなしで検索
-        );
-        /* 全条件で検索
-        return (nameMatch || subNameMatch) && cardTypeMatch && lrigTypeClassMatch && levelMatch && colorMatch && lifeBurstMatch;
-        */
-        return colorMatch;
+    const cards = document.querySelectorAll(".card-container"); // すべてのカード要素取得
+    cards.forEach(card => {
+        const cardColor = card.dataset.color;
+        const isMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
+        if (isMatch) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
     });
-    /* 検索結果をリスト欄に表示 */
-    listCards(filteredCards);
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/* カード操作のリスナー */
+
+// タッチ開始時
+function handleTouchStart(event) {
+    touchStartY = event.touches[0].clientY;
+}
+
+// タッチ終了時(リスト欄)
+function handleTouchEndOnList(event, card) {
+    const touchEndY = event.changedTouches[0].clientY;
+    const swipeDistance = touchStartY - touchEndY;
+    if (swipeDistance > 50) {
+        addCardToDeck(card);
+    } else {
+        showCardDetail(card);
+    }
+}
+
+// タッチ終了時(デッキ欄)
+function handleTouchEndOnDeck(event, card) {
+    const touchEndY = event.changedTouches[0].clientY;
+    const swipeDistance = touchStartY - touchEndY;
+    if (swipeDistance > 50) {
+        addCardToDeck(card);
+    } else {
+        showCardDetail(card);
+    }
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
