@@ -228,8 +228,8 @@ function handleSearch() {
         const colorMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
         const lifeBurstMatch =
             lifeBurstState === 0 ||
-            (lifeBurstState === 1 && cardLifeBurst === "1") ||
-            (lifeBurstState === 2 && cardLifeBurst === "0");
+            (lifeBurstState === 1 && cardLifeBurst === "true") ||
+            (lifeBurstState === 2 && cardLifeBurst === "false");
         card.style.display = (colorMatch && levelMatch && lifeBurstMatch) ? "" : "none";
     });
 }

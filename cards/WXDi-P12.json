@@ -7,7 +7,7 @@
         "lrigTypeClass": [""],
         "level": 0,
         "color": ["白"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["ディソナ"]
     },
 
@@ -19,7 +19,7 @@
         "lrigTypeClass": [""],
         "level": 0,
         "color": ["赤"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["ディソナ"]
     },
 
@@ -31,7 +31,7 @@
         "lrigTypeClass": [""],
         "level": 0,
         "color": ["緑"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["ディソナ"]
     },
 
@@ -43,7 +43,7 @@
         "lrigTypeClass": [""],
         "level": 0,
         "color": [""],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["ディソナ"]
     },
 
@@ -55,7 +55,7 @@
         "lrigTypeClass": [""],
         "level": 0,
         "color": [""],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["ディソナ"]
     },
 
@@ -67,7 +67,7 @@
         "lrigTypeClass": ["イオナ"],
         "level": 3,
         "color": ["白"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["ディソナ"]
     },
 
@@ -79,7 +79,7 @@
         "lrigTypeClass": ["花代"],
         "level": 3,
         "color": ["赤"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["ディソナ"]
     },
 
@@ -91,7 +91,7 @@
         "lrigTypeClass": ["みこみこ"],
         "level": 3,
         "color": ["青"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["ディソナ"]
     },
 
@@ -103,7 +103,7 @@
         "lrigTypeClass": ["メル"],
         "level": 3,
         "color": ["緑"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["ディソナ"]
     },
 
@@ -115,7 +115,7 @@
         "lrigTypeClass": ["タマ"],
         "level": 3,
         "color": ["黒"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["ディソナ"]
     },
 
@@ -127,7 +127,7 @@
         "lrigTypeClass": ["レイラ"],
         "level": 1,
         "color": ["赤"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": [""]
     },
 
@@ -139,7 +139,7 @@
         "lrigTypeClass": ["レイラ"],
         "level": 1,
         "color": ["赤"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": [""]
     },
 
@@ -151,7 +151,7 @@
         "lrigTypeClass": ["レイラ"],
         "level": 2,
         "color": ["赤"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": [""]
     },
 
@@ -163,7 +163,7 @@
         "lrigTypeClass": ["レイラ"],
         "level": 2,
         "color": ["赤"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["アタックフェイズ"]
     },
 
@@ -175,7 +175,7 @@
         "lrigTypeClass": ["レイラ"],
         "level": 2,
         "color": ["赤"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["アタックフェイズ"]
     },
 
@@ -187,7 +187,7 @@
         "lrigTypeClass": ["エルドラ"],
         "level": 1,
         "color": ["青"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": [""]
     },
 
@@ -199,7 +199,7 @@
         "lrigTypeClass": ["エルドラ"],
         "level": 1,
         "color": ["青"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": [""]
     },
 
@@ -211,7 +211,7 @@
         "lrigTypeClass": ["エルドラ"],
         "level": 2,
         "color": ["青"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["アタックフェイズ"]
     },
 
@@ -223,7 +223,7 @@
         "lrigTypeClass": ["エルドラ"],
         "level": 2,
         "color": ["青"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["アタックフェイズ"]
     },
 
@@ -235,7 +235,7 @@
         "lrigTypeClass": ["エルドラ"],
         "level": 2,
         "color": ["青"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["アタックフェイズ"]
     },
 
@@ -247,7 +247,7 @@
         "lrigTypeClass": ["アイヤイ"],
         "level": 1,
         "color": ["緑"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": [""]
     },
 
@@ -259,7 +259,7 @@
         "lrigTypeClass": ["アイヤイ"],
         "level": 1,
         "color": ["緑"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["アタックフェイズ"]
     },
 
@@ -271,7 +271,7 @@
         "lrigTypeClass": ["アイヤイ"],
         "level": 2,
         "color": ["緑"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": [""]
     },
 
@@ -283,7 +283,7 @@
         "lrigTypeClass": ["アイヤイ"],
         "level": 2,
         "color": ["緑"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["アタックフェイズ"]
     },
 
@@ -295,7 +295,7 @@
         "lrigTypeClass": ["アイヤイ"],
         "level": 2,
         "color": ["緑"],
-        "lifeBurst": 2,
+        "lifeBurst": null,
         "tags": ["アタックフェイズ"]
     },
 
@@ -307,7 +307,7 @@
         "lrigTypeClass": ["奏生：怪異"],
         "level": 3,
         "color": ["白"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -319,7 +319,7 @@
         "lrigTypeClass": ["奏械：迷宮"],
         "level": 3,
         "color": ["白"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -331,7 +331,7 @@
         "lrigTypeClass": ["奏生：龍獣"],
         "level": 3,
         "color": ["赤"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -343,7 +343,7 @@
         "lrigTypeClass": ["奏羅：宝石"],
         "level": 3,
         "color": ["赤"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -355,7 +355,7 @@
         "lrigTypeClass": ["奏生：凶蟲"],
         "level": 3,
         "color": ["青"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -367,7 +367,7 @@
         "lrigTypeClass": ["奏羅：宇宙"],
         "level": 3,
         "color": ["青"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -379,7 +379,7 @@
         "lrigTypeClass": ["奏羅：微菌"],
         "level": 3,
         "color": ["青"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -403,7 +403,7 @@
         "lrigTypeClass": ["奏械：調理"],
         "level": 3,
         "color": ["緑"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -415,7 +415,7 @@
         "lrigTypeClass": ["奏械：古代兵器"],
         "level": 3,
         "color": ["黒"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -427,7 +427,7 @@
         "lrigTypeClass": ["奏武：アーム"],
         "level": 3,
         "color": ["黒"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -439,7 +439,7 @@
         "lrigTypeClass": ["奏像：悪魔"],
         "level": 3,
         "color": [""],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -451,7 +451,7 @@
         "lrigTypeClass": ["奏像：天使"],
         "level": 1,
         "color": ["白"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -463,7 +463,7 @@
         "lrigTypeClass": ["奏羅：宇宙"],
         "level": 1,
         "color": ["白"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -475,7 +475,7 @@
         "lrigTypeClass": ["奏械：迷宮"],
         "level": 1,
         "color": ["白"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -487,7 +487,7 @@
         "lrigTypeClass": ["奏武：トリック"],
         "level": 2,
         "color": ["白"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -499,7 +499,7 @@
         "lrigTypeClass": ["奏武：アーム"],
         "level": 2,
         "color": ["白"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -511,7 +511,7 @@
         "lrigTypeClass": ["奏像：武勇"],
         "level": 3,
         "color": ["白"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -523,7 +523,7 @@
         "lrigTypeClass": [""],
         "level": 0,
         "color": ["白"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -535,7 +535,7 @@
         "lrigTypeClass": ["奏像：武勇"],
         "level": 1,
         "color": ["赤"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -547,7 +547,7 @@
         "lrigTypeClass": ["奏像：天使"],
         "level": 1,
         "color": ["赤"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -559,7 +559,7 @@
         "lrigTypeClass": ["奏武：ウェポン"],
         "level": 1,
         "color": ["赤"],
-        "lifeBurst": 1,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -571,7 +571,7 @@
         "lrigTypeClass": ["奏械：電機"],
         "level": 2,
         "color": ["赤"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -583,7 +583,7 @@
         "lrigTypeClass": ["奏生：地獣"],
         "level": 2,
         "color": ["赤"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -595,7 +595,7 @@
         "lrigTypeClass": ["奏械：乗機"],
         "level": 3,
         "color": ["赤"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ","ライズ"]
     },
 
@@ -607,7 +607,7 @@
         "lrigTypeClass": [""],
         "level": 0,
         "color": ["赤"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -619,7 +619,7 @@
         "lrigTypeClass": ["奏械：古代兵器"],
         "level": 1,
         "color": ["青"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -631,7 +631,7 @@
         "lrigTypeClass": ["奏械：調理"],
         "level": 1,
         "color": ["青"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -643,7 +643,7 @@
         "lrigTypeClass": ["奏生：水獣"],
         "level": 1,
         "color": ["青"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -655,7 +655,7 @@
         "lrigTypeClass": ["シグニ"],
         "level": 2,
         "color": ["青"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -667,7 +667,7 @@
         "lrigTypeClass": ["奏羅：宝石"],
         "level": 2,
         "color": ["青"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -679,7 +679,7 @@
         "lrigTypeClass": [""],
         "level": 0,
         "color": ["青"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -691,7 +691,7 @@
         "lrigTypeClass": ["奏武：毒牙"],
         "level": 1,
         "color": ["緑"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -703,7 +703,7 @@
         "lrigTypeClass": ["奏像：美巧"],
         "level": 1,
         "color": ["緑"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -715,7 +715,7 @@
         "lrigTypeClass": ["奏生：地獣"],
         "level": 1,
         "color": ["緑"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -727,7 +727,7 @@
         "lrigTypeClass": ["奏械：迷宮"],
         "level": 2,
         "color": ["緑"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -739,7 +739,7 @@
         "lrigTypeClass": ["奏羅：植物"],
         "level": 2,
         "color": ["緑"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -751,7 +751,7 @@
         "lrigTypeClass": ["奏像：英知"],
         "level": 3,
         "color": ["緑"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -763,7 +763,7 @@
         "lrigTypeClass": [""],
         "level": 0,
         "color": ["緑"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -775,7 +775,7 @@
         "lrigTypeClass": ["奏械：迷宮"],
         "level": 1,
         "color": ["黒"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -787,7 +787,7 @@
         "lrigTypeClass": ["奏羅：原子"],
         "level": 1,
         "color": ["黒"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -799,7 +799,7 @@
         "lrigTypeClass": ["奏械：古代兵器"],
         "level": 1,
         "color": ["黒"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     },
 
@@ -811,7 +811,7 @@
         "lrigTypeClass": ["奏武：毒牙"],
         "level": 2,
         "color": ["黒"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -823,7 +823,7 @@
         "lrigTypeClass": ["奏武：遊具"],
         "level": 2,
         "color": ["黒"],
-        "lifeBurst": 2,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -835,7 +835,7 @@
         "lrigTypeClass": ["奏羅：微菌"],
         "level": 3,
         "color": ["黒"],
-        "lifeBurst": 0,
+        "lifeBurst": false,
         "tags": ["ディソナ"]
     },
 
@@ -847,7 +847,7 @@
         "lrigTypeClass": [""],
         "level": 0,
         "color": ["黒"],
-        "lifeBurst": 1,
+        "lifeBurst": true,
         "tags": ["ディソナ"]
     }
 ]
