@@ -11,6 +11,7 @@ const cardJson = [
 /* 初期設定 */
 
 let touchStartY = 0;
+let lifeBurstState = 0;
 
 /* --------------------------------------------------------------------------------- */
 
@@ -19,11 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /* html要素の取得 */
+
 const gridLrigDeck = document.querySelector('.grid.lrig-deck');
 const gridMainDeck = document.querySelector('.grid.main-deck');
 const gridCardsList = document.querySelector('.grid.cards-list');
 const searchLevelButtons = document.querySelectorAll(".level.search-button-container > .search-button");
 const searchColorButtons = document.querySelectorAll(".color.search-button-container > .search-button");
+const searchLbButton = document.querySelector(".lb.search-button-container > .lb.search-button");
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -97,6 +100,7 @@ function listCards(cards) {
         // カードデータ(検索に使用)
         cardContainer.dataset.color = card.color || "";
         cardContainer.dataset.level = card.level || "";
+        cardContainer.dataset.lifeBurst = card.lifeBurst || "";
         // カード画像
         const cardImage = document.createElement('img');
         cardImage.src = card.image;
@@ -192,6 +196,25 @@ searchColorButtons.forEach(button => {
     });
 });
 
+// LB検索ボタン
+searchLbButton.addEventListener('click', function() {
+    lifeBurstState = (lifeBurstState + 1) % 3;             // クリックごとにlifeBurstStateを1増やす(0=>1=>2=>0...)
+    switch (lifeBurstState) {
+        case 0:                                            // デフォルト(LBありなしどっちもで検索)
+            this.classList.remove('active', 'inactive');
+            break;
+        case 1:                                            // LBあり
+            this.classList.add('active');
+            this.classList.remove('inactive');
+            break;
+        case 2:                                            // LBなし
+            this.classList.add('inactive');
+            this.classList.remove('active');
+            break;
+    }
+    handleSearch();
+});
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /* カードを検索 */
@@ -200,9 +223,14 @@ function handleSearch() {
     cards.forEach(card => {
         const cardLevel = card.dataset.level;
         const cardColor = card.dataset.color;
+        const cardLifeBurst = card.dataset.lifeBurst;
         const levelMatch = selectedLevel.size === 0 || Array.from(selectedLevel).some(level => cardLevel === level);
         const colorMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
-        card.style.display = (colorMatch && levelMatch) ? "" : "none";
+        const lifeBurstMatch =
+            lifeBurstState === 0 ||
+            (lifeBurstState === 1 && cardLifeBurst === "1") ||
+            (lifeBurstState === 2 && cardLifeBurst === "0");
+        card.style.display = (colorMatch && levelMatch && lifeBurstMatch) ? "" : "none";
     });
 }
 
