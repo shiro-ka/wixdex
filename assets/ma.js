@@ -219,7 +219,7 @@ searchLbButton.addEventListener('click', function() {
 
 /* カードを検索 */
 function handleSearch() {
-    const cards = document.querySelectorAll(".card-container");
+    const cards = document.querySelectorAll(".cards-list > .card-container");
     cards.forEach(card => {
         const cardLevel = card.dataset.level;
         const cardColor = card.dataset.color;
