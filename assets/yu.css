@@ -287,13 +287,13 @@ main -> .main-container
     flex-grow: 1;
     padding: 6px;
 }
-.search-button.active {
+.search-button.active , .search-button.inactive {
     background-color: var(--deck-background-color);
 }
 
 .search-text-input {
     height: 100%; width: 100%;
-    background: var(--transparent);
+    border: none; background: var(--transparent);
     color: var(--sub-color);
 }
 
