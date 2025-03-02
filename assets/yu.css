@@ -312,12 +312,13 @@ main -> .main-container
 .card-detail.popup-container {
     height: auto; width: 90%;
     border: solid 2px var(--sub-color);
-    background: var(--deck-background-color);
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: var(--background-color);
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 101;
     padding: 1rem;
 }
 .card-detail.popup-container > .card-container {
     height: auto; width: 100%; max-width: 512px;
+    margin: auto;
 }
 
 /* -  -  - ポップアップオーバーレイ -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
