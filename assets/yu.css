@@ -56,8 +56,8 @@ main -> .main-container
 --------------------------------------------------------------------------------- */
 
 .main-container {
-    height: 100%;
-    width: 95%; max-width: 1080px;
+    position: relative;
+    height: 100%; width: 95%; max-width: 1080px;
     margin: auto; z-index: 1;
     padding: 0.5rem 0; gap: 0.5rem;
     flex-direction: column;
@@ -297,11 +297,33 @@ main -> .main-container
     color: var(--sub-color);
 }
 
+/* -  -  - ポップアップ -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
+
+.popup-container {
+    visibility: hidden;
+    position: absolute;
+    opacity: 0; transition: opacity 0.3s ease;
+}
+.popup-container.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.card-detail.popup-container {
+    height: auto; width: 90%;
+    border: solid 2px var(--sub-color);
+    background: var(--deck-background-color);
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    padding: 1rem;
+}
+.card-detail.popup-container > .card-container {
+    height: auto; width: 100%; max-width: 512px;
+}
+
 /* -  -  - ポップアップオーバーレイ -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
 
 .popup-overlay {
     visibility: hidden;
-    height: 100%; width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     position: absolute; top: 0; left: 0; z-index: 100;
     opacity: 0; transition: opacity 0.3s ease;
@@ -309,6 +331,10 @@ main -> .main-container
 .popup-overlay.active {
     visibility: visible;
     opacity: 1;
+}
+
+.card-detail.popup-overlay {
+    height: 100%; width: 100%;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
