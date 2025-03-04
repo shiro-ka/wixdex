@@ -224,6 +224,9 @@ searchLbButton.addEventListener('click', function() {
     handleSearch();
 });
 
+// テキスト検索ボタン
+searchTextInput.addEventListener("input" , handleSearch);
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /* カードを検索 */
