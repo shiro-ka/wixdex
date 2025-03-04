@@ -243,7 +243,7 @@ function handleSearch() {
             lifeBurstState === 0 ||
             (lifeBurstState === 1 && cardLifeBurst === "true") ||
             (lifeBurstState === 2 && cardLifeBurst === "false");
-        const textMatch = searchTextInput === "" || cardName.includes(searchText);
+        const textMatch = searchTextInput === "" || cardName.includes(searchTextInput);
         card.style.display = (colorMatch && levelMatch && lifeBurstMatch&& textMatch) ? "" : "none";
     });
 }
