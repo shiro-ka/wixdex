@@ -27,6 +27,7 @@ const gridCardsList = document.querySelector('.grid.cards-list');
 const searchLevelButtons = document.querySelectorAll(".level.search-button-container > .search-button");
 const searchColorButtons = document.querySelectorAll(".color.search-button-container > .search-button");
 const searchLbButton = document.querySelector(".lb.search-button-container > .lb.search-button");
+const searchTextInput = document.querySelector(".search-text-input").value.toLowerCase();
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -98,8 +99,8 @@ function listCards(cards) {
         const cardContainer = document.createElement('div');
         cardContainer.classList.add('card-container');
         // カードデータ(検索に使用)
-        cardContainer.dataset.name = card.name || "";
-        cardContainer.dataset.color = card.color || "";
+        cardContainer.dataset.name = normalizeText(card.name) || "";
+        cardContainer.dataset.color = card.color.join(",") || "";
         cardContainer.dataset.level = card.level || "";
         cardContainer.dataset.lifeBurst = card.lifeBurst || "";
         // カード画像
@@ -118,6 +119,13 @@ function listCards(cards) {
     })
     // Fragmentを処理
     gridCardsList.appendChild(fragment);
+}
+
+// カード名datasetを正規化
+function normalizeText(text) {
+    return text
+        .toLowerCase()  // 英語の大文字小文字を統一
+        .normalize("NFKC"); // 全角⇔半角を統一
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -225,13 +233,15 @@ function handleSearch() {
         const cardLevel = card.dataset.level;
         const cardColor = card.dataset.color;
         const cardLifeBurst = card.dataset.lifeBurst;
+        const cardName = card.dataset.name;
         const levelMatch = selectedLevel.size === 0 || Array.from(selectedLevel).some(level => cardLevel === level);
         const colorMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
         const lifeBurstMatch =
             lifeBurstState === 0 ||
             (lifeBurstState === 1 && cardLifeBurst === "true") ||
             (lifeBurstState === 2 && cardLifeBurst === "false");
-        card.style.display = (colorMatch && levelMatch && lifeBurstMatch) ? "" : "none";
+        const textMatch = searchTextInput === "" || cardName.includes(searchText);
+        card.style.display = (colorMatch && levelMatch && lifeBurstMatch&& textMatch) ? "" : "none";
     });
 }
 
