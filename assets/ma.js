@@ -98,6 +98,7 @@ function listCards(cards) {
         const cardContainer = document.createElement('div');
         cardContainer.classList.add('card-container');
         // カードデータ(検索に使用)
+        cardContainer.dataset.name = card.name || "";
         cardContainer.dataset.color = card.color || "";
         cardContainer.dataset.level = card.level || "";
         cardContainer.dataset.lifeBurst = card.lifeBurst || "";
