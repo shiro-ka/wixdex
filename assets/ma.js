@@ -28,7 +28,7 @@ const gridCardsList = document.querySelector('.grid.cards-list');
 const searchLevelButtons = document.querySelectorAll(".level.search-button-container > .search-button");
 const searchColorButtons = document.querySelectorAll(".color.search-button-container > .search-button");
 const searchLbButton = document.querySelector(".lb.search-button-container > .lb.search-button");
-const searchTextInput = document.querySelector(".search-text-input").value.toLowerCase();
+const searchTextInput = document.querySelector('.search-text-input').value.toLowerCase();
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -226,9 +226,6 @@ searchLbButton.addEventListener('click', function() {
 });
 
 // テキスト検索ボタン
-
-console.log(searchTextInput); // komatta
-
 searchTextInput.addEventListener("input" , handleSearch);
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
