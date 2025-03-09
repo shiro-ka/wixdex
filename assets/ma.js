@@ -232,18 +232,19 @@ searchTextInput.addEventListener("input" , handleSearch);
 /* カードを検索 */
 function handleSearch() {
     const cards = document.querySelectorAll(".cards-list > .card-container");
+    const searchText = searchTextInput.value.toLowerCase();
     cards.forEach(card => {
         const cardLevel = card.dataset.level;
         const cardColor = card.dataset.color;
         const cardLifeBurst = card.dataset.lifeBurst;
-        const cardName = card.dataset.name;
+        const cardName = card.dataset.name.toLowerCase();
         const levelMatch = selectedLevel.size === 0 || Array.from(selectedLevel).some(level => cardLevel === level);
         const colorMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
         const lifeBurstMatch =
             lifeBurstState === 0 ||
             (lifeBurstState === 1 && cardLifeBurst === "true") ||
             (lifeBurstState === 2 && cardLifeBurst === "false");
-        const textMatch = searchTextInput === "" || cardName.includes(searchTextInput);
+        const textMatch = searchText === "" || cardName.includes(searchText);
         card.style.display = (colorMatch && levelMatch && lifeBurstMatch&& textMatch) ? "" : "none";
     });
 }
