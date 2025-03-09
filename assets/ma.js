@@ -227,7 +227,7 @@ searchLbButton.addEventListener('click', function() {
 
 // テキスト検索ボタン
 
-console.log(document.querySelector(".search-text-input")); //
+console.log(searchTextInput); // komatta
 
 searchTextInput.addEventListener("input" , handleSearch);
 
