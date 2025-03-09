@@ -226,6 +226,9 @@ searchLbButton.addEventListener('click', function() {
 });
 
 // テキスト検索ボタン
+
+console.log(document.querySelector(".search-text-input")); //
+
 searchTextInput.addEventListener("input" , handleSearch);
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
