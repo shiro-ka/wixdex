@@ -29,6 +29,9 @@ const searchLevelButtons = document.querySelectorAll(".level.search-button-conta
 const searchColorButtons = document.querySelectorAll(".color.search-button-container > .search-button");
 const searchLbButton = document.querySelector(".lb.search-button-container > .lb.search-button");
 const searchTextInput = document.querySelector('.search-text-input');
+const popupContainer = document.querySelectorAll('.popup-container');
+const popupOverlay = document.querySelector('.popup-overlay');
+const cardDetailPopup = document.querySelector('.card-detail.popup-container');
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -406,7 +409,7 @@ function addCardToDeck(card) {
 */
 
 function showCardDetail(card) {
-    console.log(card);
+    
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
