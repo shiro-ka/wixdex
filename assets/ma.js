@@ -411,7 +411,7 @@ function addCardToDeck(card) {
 
 function showCardDetail(card) {
     const cardImage = card.image;
-    popupImg.src = cardImage;
+    cardDetailImg .src = cardImage;
     cardDetailPopup.classList.add('active');
     popupOverlay.classList.add('active');
 }
