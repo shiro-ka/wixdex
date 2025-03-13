@@ -32,6 +32,7 @@ const searchTextInput = document.querySelector('.search-text-input');
 const popupContainer = document.querySelectorAll('.popup-container');
 const popupOverlay = document.querySelector('.popup-overlay');
 const cardDetailPopup = document.querySelector('.card-detail.popup-container');
+const cardDetailImg = cardDetailPopup.querySelector('img');
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -409,7 +410,10 @@ function addCardToDeck(card) {
 */
 
 function showCardDetail(card) {
-    
+    const cardImage = card.image;
+    popupImg.src = cardImage;
+    cardDetailPopup.classList.add('active');
+    popupOverlay.classList.add('active');
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
