@@ -30,7 +30,8 @@ const searchColorButtons = document.querySelectorAll(".color.search-button-conta
 const searchLbButton = document.querySelector(".lb.search-button-container > .lb.search-button");
 const searchTextInput = document.querySelector('.search-text-input');
 const popupContainer = document.querySelectorAll('.popup-container');
-const popupOverlay = document.querySelector('.popup-overlay');
+const popupOverlay = document.querySelectorAll('.popup-overlay');
+const cardDetailPopupOverlay = document.querySelector('.card-detail.popup')
 const cardDetailPopup = document.querySelector('.card-detail.popup-container');
 const cardDetailImg = cardDetailPopup.querySelector('img');
 
@@ -233,7 +234,7 @@ searchLbButton.addEventListener('click', function() {
 searchTextInput.addEventListener("input" , handleSearch);
 
 // ポップアップオーバーレイ
-cardDetailPopup.addEventListener('click', function() {
+popupOverlay.addEventListener('click', function() {
     this.classList.remove('active');
     cardDetailPopup.classList.remove('active');
 });
