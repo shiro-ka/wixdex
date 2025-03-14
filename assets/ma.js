@@ -31,7 +31,7 @@ const searchLbButton = document.querySelector(".lb.search-button-container > .lb
 const searchTextInput = document.querySelector('.search-text-input');
 const popupContainer = document.querySelectorAll('.popup-container');
 const popupOverlay = document.querySelectorAll('.popup-overlay');
-const cardDetailPopupOverlay = document.querySelector('.card-detail.popup')
+const cardDetailPopupOverlay = document.querySelector('.card-detail.popup-overlay')
 const cardDetailPopup = document.querySelector('.card-detail.popup-container');
 const cardDetailImg = cardDetailPopup.querySelector('img');
 
@@ -234,7 +234,7 @@ searchLbButton.addEventListener('click', function() {
 searchTextInput.addEventListener("input" , handleSearch);
 
 // ポップアップオーバーレイ
-popupOverlay.addEventListener('click', function() {
+cardDetailPopupOverlay.addEventListener('click', function() {
     this.classList.remove('active');
     cardDetailPopup.classList.remove('active');
 });
@@ -420,7 +420,7 @@ function showCardDetail(card) {
     const cardImage = card.image;
     cardDetailImg .src = cardImage;
     cardDetailPopup.classList.add('active');
-    popupOverlay.classList.add('active');
+    cardDetailPopupOverlay.classList.add('active');
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
