@@ -320,6 +320,11 @@ main -> .main-container
     height: auto; width: 100%; max-width: 512px;
     margin: auto;
 }
+@media (min-width: 774px) {
+    .card-detail.popup-container {
+        max-width: 1080px;
+    }
+}
 
 /* -  -  - ポップアップオーバーレイ -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
 
