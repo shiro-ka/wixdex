@@ -240,6 +240,18 @@ main -> .main-container
         height: 100%;
         margin-bottom: auto;
     }
+    .grid.cards-list > .card-container > .add-card-button {
+        display: flex;
+        margin-top: auto;
+    }
+    .grid.cards-list > .card-container > .add-fourth-button {
+        display: flex;
+        margin-top: auto;
+    }
+    .grid.cards-list > .card-container > .open-detail-button {
+        display: flex;
+        margin-top: auto;
+    }
 }
 
 /* -  -  - 検索ツール欄 -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
