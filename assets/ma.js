@@ -166,7 +166,7 @@ function handleTouchEndOnDeck(event, card) {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/* 検索ツールに処理を追加 */
+/* htmlに処理を追加 */
 
 // レベル検索ボタン
 const selectedLevel = new Set();
@@ -231,6 +231,12 @@ searchLbButton.addEventListener('click', function() {
 
 // テキスト検索ボタン
 searchTextInput.addEventListener("input" , handleSearch);
+
+// ポップアップオーバーレイ
+cardDetailPopup.addEventListener('click', function() {
+    this.classList.remove('active');
+    cardDetailPopup.classList.remove('active');
+});
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
