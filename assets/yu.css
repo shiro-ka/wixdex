@@ -213,14 +213,19 @@ main -> .main-container
 .grid.cards-list > .card-container {
     height: 100%; width: 100%;
     align-items: center;
+    flex-direction: column;
 }
-.grid.cards-list > .card-container > .add-card-button {
+.grid.cards-list > .card-container> .button-container {
+    height: 2rem; width: 100%;
+    flex-direction: row;
+}
+.grid.cards-list > .card-container > .button-container > .add-card-button {
     display: none;
 }
-.grid.cards-list > .card-container > .add-fourth-button {
+.grid.cards-list > .card-container > .button-container > .add-fourth-button {
     display: none;
 }
-.grid.cards-list > .card-container > .open-detail-button {
+.grid.cards-list > .card-container > .button-container > .open-detail-button {
     display: none;
 }
 @media (min-width: 774px) {
