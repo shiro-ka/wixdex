@@ -245,15 +245,15 @@ main -> .main-container
         height: 100%;
         margin-bottom: auto;
     }
-    .grid.cards-list > .card-container > .add-card-button {
+    .grid.cards-list > .card-container > .button-container > .add-card-button {
         display: flex;
         margin-top: auto;
     }
-    .grid.cards-list > .card-container > .add-fourth-button {
+    .grid.cards-list > .card-container > .button-container > .add-fourth-button {
         display: flex;
         margin-top: auto;
     }
-    .grid.cards-list > .card-container > .open-detail-button {
+    .grid.cards-list > .card-container > .button-container > .open-detail-button {
         display: flex;
         margin-top: auto;
     }
