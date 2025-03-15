@@ -164,7 +164,11 @@ function handleTouchEndOnList(event, card) {
     const swipeDistance = touchStartY - touchEndY;
     if (swipeDistance > 50) {
         addCardToDeck(card);
-    } else {
+    }
+    else if (swipeDistance < -50) {
+        addFourCardsToDeck(card);
+    }
+    else {
         showCardDetail(card);
     }
 }
@@ -447,7 +451,7 @@ function addFourCardsToDeck(card) {
         cardElement.addEventListener('click', () => showCardDetail(card));
         return cardElement;
     }
-    // フラグメントにいれる
+    // fragmentにいれる
     const fragment = document.createDocumentFragment();
     for (let i = 0; i < createCount; i++) {
         fragment.appendChild(createCardElement());
