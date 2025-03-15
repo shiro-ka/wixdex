@@ -96,6 +96,52 @@ function createButton(className, iconSrc) {
     return button;
 }
 
+/* リスト欄にカードを追加
+function listCards(cards) {
+    gridCardsList.innerHTML = "";
+    const fragment = document.createDocumentFragment();
+    cards.forEach(card => {
+        const cardContainer = document.createElement('div');
+        cardContainer.classList.add('card-container');
+        // カードデータ(検索に使用)
+        cardContainer.dataset.name = normalizeText(card.name) || "";
+        cardContainer.dataset.color = card.color.join(",") || "";
+        cardContainer.dataset.level = card.level || "";
+        cardContainer.dataset.lifeBurst = card.lifeBurst || "";
+        // カード画像
+        const cardImage = document.createElement('img');
+        cardImage.src = card.image;
+        cardContainer.appendChild(cardImage);
+        // ボタンコンテナ作成
+        const buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('button-container');
+        // 各ボタン作成してbuttonContainerに追加
+        const addCardButton = createButton('add-card-button', "girl/PlusOneIcon.png");
+        addCardButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            addCardToDeck(card);
+        });
+        buttonContainer.appendChild(addCardButton);
+        const addFourCardsButton = createButton('add-fourth-button', "girl/PlusFourIcon.png");
+        addFourCardsButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            addFourCardsToDeck(card);
+        });
+        buttonContainer.appendChild(addFourCardsButton);
+        buttonContainer.appendChild(createButton('remove-card-button', "girl/RemoveIcon.png"));
+        // buttonContainerをcardContainerに追加
+        cardContainer.appendChild(buttonContainer);
+        // フリック用のタッチイベント追加
+        cardContainer.addEventListener('touchstart', handleTouchStart);
+        cardContainer.addEventListener('touchend', (event) => handleTouchEndOnList(event, card));
+        // PC用クリックリスナー
+        cardContainer.addEventListener('click', () => showCardDetail(card));
+        fragment.appendChild(cardContainer);
+    });
+    gridCardsList.appendChild(fragment);
+}
+*/
+
 // リスト欄にカードを追加
 function listCards(cards) {
     gridCardsList.innerHTML = "";
@@ -465,8 +511,13 @@ function addFourCardsToDeck(card) {
     }
     else if (cardType === 'アシストルリグ') {
         if (gridLrigDeck.children.length >= 8) return;
-        if (Array.from(gridLrigDeck.children).filter(deckCard => deckCard.dataset.cardType === "アシストルリグ" && deckCard.dataset.level === card.level).length >= 2) return;
-        if (Array.from(gridLrigDeck.children).filter(deckCard => deckCard.dataset.lrigTypeClass === card.lrigTypeClass[0] && deckCard.dataset.level === card.level).length >= 1) return;
+        const sameLevelAssist = Array.from(gridLrigDeck.children).filter(deckCard => {
+            return deckCard.dataset.cardType === "アシストルリグ" && deckCard.dataset.level === card.level;
+        });
+        const sameLrigTypeAssist = Array.from(gridLrigDeck.children).filter(deckCard => {
+            return deckCard.dataset.lrigTypeClass === card.lrigTypeClass[0] && deckCard.dataset.level === card.level;
+        });
+        if (sameLevelAssist.length >= 2 || sameLrigTypeAssist.length >= 1) return;
         gridLrigDeck.appendChild(fragment);
         sortLrigDeck();
     }
