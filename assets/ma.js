@@ -431,7 +431,7 @@ function addFourCardsToDeck(card) {
     // カード種類を取得
     const cardType = card.cardType[0];
     // カードのdivを作成
-    const createCount = ['ルリグ', 'ピース', 'アーツ'].includes(cardType) ? 1 : 4;
+    const createCount = ['ルリグ','アシストルリグ', 'ピース', 'アーツ'].includes(cardType) ? 1 : 4;
     const createCardElement = () => {
         const cardElement = document.createElement('div');
         cardElement.classList.add('card-container');
