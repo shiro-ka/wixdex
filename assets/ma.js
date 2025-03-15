@@ -127,7 +127,7 @@ function listCards(cards) {
             e.stopPropagation();
             addFourCardsToDeck(card);
         });
-        buttonContainer.appendChild();
+        buttonContainer.appendChild(addFourCardsButton);
         buttonContainer.appendChild(createButton('remove-card-button', "girl/RemoveIcon.png"));
         // buttonContainerをcardContainerに追加
         cardContainer.appendChild(buttonContainer);
