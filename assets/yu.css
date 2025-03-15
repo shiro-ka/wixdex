@@ -216,16 +216,6 @@ main -> .main-container
     flex-direction: column;
 }
 .grid.cards-list > .card-container> .button-container {
-    height: 2rem; width: 100%;
-    flex-direction: row;
-}
-.grid.cards-list > .card-container > .button-container > .add-card-button {
-    display: none;
-}
-.grid.cards-list > .card-container > .button-container > .add-fourth-button {
-    display: none;
-}
-.grid.cards-list > .card-container > .button-container > .open-detail-button {
     display: none;
 }
 @media (min-width: 774px) {
@@ -244,6 +234,10 @@ main -> .main-container
     .grid.cards-list > .card-container {
         height: 100%;
         margin-bottom: auto;
+    }
+    .grid.cards-list > .card-container> .button-container {
+        height: 2rem; width: 100%;
+        flex-direction: row;
     }
     .grid.cards-list > .card-container > .button-container > .add-card-button {
         display: flex;
@@ -339,7 +333,7 @@ main -> .main-container
 }
 @media (min-width: 774px) {
     .card-detail.popup-container {
-        max-width: 1080px;
+        max-width: 774px;
     }
 }
 
