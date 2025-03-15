@@ -236,6 +236,7 @@ main -> .main-container
         margin-bottom: auto;
     }
     .grid.cards-list > .card-container> .button-container {
+        display: flex;
         height: 2rem; width: 100%;
         flex-direction: row;
     }
