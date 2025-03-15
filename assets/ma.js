@@ -116,14 +116,18 @@ function listCards(cards) {
         const buttonContainer = document.createElement('div');
         buttonContainer.classList.add('button-container');
         // 各ボタン作成してbuttonContainerに追加
-        /*buttonContainer.appendChild(createButton('add-card-button', "girl/PlusOneIcon.png"));*/
         const addCardButton = createButton('add-card-button', "girl/PlusOneIcon.png");
         addCardButton.addEventListener('click', (e) => {
             e.stopPropagation();
             addCardToDeck(card);
         });
         buttonContainer.appendChild(addCardButton);
-        buttonContainer.appendChild(createButton('add-fourth-button', "girl/PlusFourIcon.png"));
+        const addFourCardsButton = createButton('add-fourth-button', "girl/PlusFourIcon.png");
+        addFourCardsButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            addFourCardsToDeck(card);
+        });
+        buttonContainer.appendChild();
         buttonContainer.appendChild(createButton('remove-card-button', "girl/RemoveIcon.png"));
         // buttonContainerをcardContainerに追加
         cardContainer.appendChild(buttonContainer);
@@ -287,6 +291,7 @@ function handleSearch() {
 
 */
 
+// 1枚追加
 function addCardToDeck(card) {
     // カードのhtmlを作成
     const cardElement = document.createElement('div');           // <div class="card-container">を作成
@@ -420,6 +425,70 @@ function addCardToDeck(card) {
         showCardDetail(card);
     });
 }
+
+// 4枚追加
+function addFourCardsToDeck(card) {
+    /* カードのdivを4つ作ってfragmentに一旦おいとく */
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < 4; i++) {
+        const cardElement = document.createElement('div');
+        cardElement.classList.add('card-container');
+        const cardImage = document.createElement('img');
+        cardImage.src = card.image;
+        cardElement.appendChild(cardImage);
+        cardElement.dataset.name = card.name;
+        cardElement.dataset.cardType = card.cardType[0];
+        cardElement.dataset.lrigTypeClass = card.lrigTypeClass[0];
+        cardElement.dataset.level = card.level;
+        cardElement.addEventListener('touchstart', handleTouchStart);
+        cardElement.addEventListener('touchend', (event) => handleTouchEndOnDeck(event, card));
+        cardElement.addEventListener('click', () => showCardDetail(card));
+        // フラグメントに追加
+        fragment.appendChild(cardElement);
+    }
+    /* デッキに追加 */
+    // カード種類を取得
+    const cardType = card.cardType[0];
+    // (センター)ルリグ
+    if (cardType === 'ルリグ') {
+        if (gridLrigDeck.children.length >= 8) return;
+        if (Array.from(gridLrigDeck.children).some(deckCard => deckCard.dataset.cardType === "ルリグ")) return;
+        gridLrigDeck.appendChild(fragment);
+        sortLrigDeck();
+    }
+    // アシストルリグ
+    else if (cardType === 'アシストルリグ') {
+        if (gridLrigDeck.children.length >= 8) return;
+        if (Array.from(gridLrigDeck.children).filter(deckCard => deckCard.dataset.cardType === "アシストルリグ" && deckCard.dataset.level === card.level).length >= 2) return;
+        if (Array.from(gridLrigDeck.children).filter(deckCard => deckCard.dataset.lrigTypeClass === card.lrigTypeClass[0] && deckCard.dataset.level === card.level).length >= 1) return;
+        gridLrigDeck.appendChild(fragment);
+        sortLrigDeck();
+    }
+    // ピース
+    else if (cardType === 'ピース') {
+        if (gridLrigDeck.children.length >= 8) return;
+        if (Array.from(gridLrigDeck.children).filter(deckCard => deckCard.dataset.cardType === "ピース").length >= 2) return;
+        if (Array.from(gridLrigDeck.children).filter(deckCard => deckCard.dataset.name === card.name).length >= 1) return;
+        gridLrigDeck.appendChild(fragment);
+        sortLrigDeck();
+    }
+    // アーツ
+    else if (cardType === 'アーツ') {
+        if (gridLrigDeck.children.length >= 8) return;
+        if (Array.from(gridLrigDeck.children).filter(deckCard => deckCard.dataset.name === card.name).length >= 1) return;
+        gridLrigDeck.appendChild(fragment);
+        sortLrigDeck();
+    }
+    // シグニ,スペル,サーバント
+    else if (['シグニ', 'スペル', 'サーバント'].includes(cardType)) {
+        if (gridMainDeck.children.length >= 40) return;
+        if (Array.from(gridMainDeck.children).filter(deckCard => deckCard.dataset.name === card.name).length >= 4) return;
+        gridMainDeck.appendChild(fragment);
+        sortMainDeck();
+    }
+}
+
+
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
