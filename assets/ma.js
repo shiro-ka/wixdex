@@ -102,19 +102,19 @@ function listCards(cards) {
         // PC用操作ボタン
         const buttonContainer = document.createElement('div');
         buttonContainer.classList.add('button-container');
-        const addCardButton = createButton('add-card-button', "girl/icon_plus.png");
+        const addCardButton = createButton('add-card-button', "img/girl/icon_plus.png");
         addCardButton.addEventListener('click', (e) => {
             e.stopPropagation();
             addCardToDeck(card);
         });
         buttonContainer.appendChild(addCardButton);
-        const addFourCardsButton = createButton('add-fourth-button', "girl/icon_plus4.png");
+        const addFourCardsButton = createButton('add-fourth-button', "img/girl/icon_plus4.png");
         addFourCardsButton.addEventListener('click', (e) => {
             e.stopPropagation();
             addFourCardsToDeck(card);
         });
         buttonContainer.appendChild(addFourCardsButton);
-        buttonContainer.appendChild(createButton('remove-card-button', "girl/icon_minus.png"));
+        buttonContainer.appendChild(createButton('remove-card-button', "img/girl/icon_minus.png"));
         cardContainer.appendChild(buttonContainer);
         // フリック用のタッチイベント追加
         cardContainer.addEventListener('touchstart', handleTouchStart);
