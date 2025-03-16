@@ -102,26 +102,26 @@ function listCards(cards) {
         // PC用操作ボタン
         const buttonContainer = document.createElement('div');
         buttonContainer.classList.add('button-container');
-        const addCardButton = createButton('add-card-button', "img/girl/icon_plus.png");
+        const addCardButton = createButton('card-plus-button', "img/girl/icon_plus.png");
         addCardButton.addEventListener('click', (e) => {
             e.stopPropagation();
             addCardToDeck(card);
         });
         buttonContainer.appendChild(addCardButton);
         if (['シグニ', 'スペル', 'サーバント'].includes(card.cardType[0])) {
-            const addFourCardsButton = createButton('add-fourth-button', "img/girl/icon_plus4.png");
+            const addFourCardsButton = createButton('card-four-button', "img/girl/icon_plus4.png");
             addFourCardsButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 addFourCardsToDeck(card);
             });
             buttonContainer.appendChild(addFourCardsButton);
         };
-        buttonContainer.appendChild(createButton('remove-card-button', "img/girl/icon_minus.png"));
+        buttonContainer.appendChild(createButton('card-minus-button', "img/girl/icon_minus.png"));
         cardContainer.appendChild(buttonContainer);
-        // フリック用のタッチイベント追加
+        // スマホ用リスナー
         cardContainer.addEventListener('touchstart', handleTouchStart);
         cardContainer.addEventListener('touchend', (event) => handleTouchEndOnList(event, card));
-        // PC用クリックリスナー
+        // PC用リスナー
         cardContainer.addEventListener('click', () => showCardDetail(card));
         // fragmentに追加
         fragment.appendChild(cardContainer);
