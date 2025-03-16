@@ -108,12 +108,14 @@ function listCards(cards) {
             addCardToDeck(card);
         });
         buttonContainer.appendChild(addCardButton);
-        const addFourCardsButton = createButton('add-fourth-button', "img/girl/icon_plus4.png");
-        addFourCardsButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            addFourCardsToDeck(card);
-        });
-        buttonContainer.appendChild(addFourCardsButton);
+        if (['シグニ', 'スペル', 'サーバント'].includes(card.cardType[0])) {
+            const addFourCardsButton = createButton('add-fourth-button', "img/girl/icon_plus4.png");
+            addFourCardsButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                addFourCardsToDeck(card);
+            });
+            buttonContainer.appendChild(addFourCardsButton);
+        };
         buttonContainer.appendChild(createButton('remove-card-button', "img/girl/icon_minus.png"));
         cardContainer.appendChild(buttonContainer);
         // フリック用のタッチイベント追加
@@ -121,6 +123,7 @@ function listCards(cards) {
         cardContainer.addEventListener('touchend', (event) => handleTouchEndOnList(event, card));
         // PC用クリックリスナー
         cardContainer.addEventListener('click', () => showCardDetail(card));
+        // fragmentに追加
         fragment.appendChild(cardContainer);
     });
     gridCardsList.appendChild(fragment);
@@ -145,7 +148,7 @@ function normalizeText(text) {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/* カード操作のリスナー */
+/* スマホ操作のリスナー */
 
 // タッチ開始時
 function handleTouchStart(event) {
