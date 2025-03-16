@@ -64,8 +64,6 @@ Promise.allSettled(cardJson.map(file =>
     listCards(window.allCardsData);
 })
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
 /* リスト欄にカードを表示
 
 引数をcardsでうけとる。
@@ -86,6 +84,48 @@ Promise.allSettled(cardJson.map(file =>
 
 */
 
+function listCards(cards) {
+    gridCardsList.innerHTML = "";
+    const fragment = document.createDocumentFragment();
+    cards.forEach(card => {
+        const cardContainer = document.createElement('div');
+        cardContainer.classList.add('card-container');
+        // カードデータ(検索に使用)
+        cardContainer.dataset.name = normalizeText(card.name) || "";
+        cardContainer.dataset.color = card.color.join(",") || "";
+        cardContainer.dataset.level = card.level || "";
+        cardContainer.dataset.lifeBurst = card.lifeBurst || "";
+        // カード画像
+        const cardImage = document.createElement('img');
+        cardImage.src = card.image;
+        cardContainer.appendChild(cardImage);
+        // PC用操作ボタン
+        const buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('button-container');
+        const addCardButton = createButton('add-card-button', "girl/icon_plus.png");
+        addCardButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            addCardToDeck(card);
+        });
+        buttonContainer.appendChild(addCardButton);
+        const addFourCardsButton = createButton('add-fourth-button', "girl/icon_plus4.png");
+        addFourCardsButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            addFourCardsToDeck(card);
+        });
+        buttonContainer.appendChild(addFourCardsButton);
+        buttonContainer.appendChild(createButton('remove-card-button', "girl/icon_minus.png"));
+        cardContainer.appendChild(buttonContainer);
+        // フリック用のタッチイベント追加
+        cardContainer.addEventListener('touchstart', handleTouchStart);
+        cardContainer.addEventListener('touchend', (event) => handleTouchEndOnList(event, card));
+        // PC用クリックリスナー
+        cardContainer.addEventListener('click', () => showCardDetail(card));
+        fragment.appendChild(cardContainer);
+    });
+    gridCardsList.appendChild(fragment);
+}
+
 // PC用操作ボタンを追加
 function createButton(className, iconSrc) {
     const button = document.createElement('div');
@@ -95,98 +135,6 @@ function createButton(className, iconSrc) {
     button.appendChild(icon);
     return button;
 }
-
-/* リスト欄にカードを追加
-function listCards(cards) {
-    gridCardsList.innerHTML = "";
-    const fragment = document.createDocumentFragment();
-    cards.forEach(card => {
-        const cardContainer = document.createElement('div');
-        cardContainer.classList.add('card-container');
-        // カードデータ(検索に使用)
-        cardContainer.dataset.name = normalizeText(card.name) || "";
-        cardContainer.dataset.color = card.color.join(",") || "";
-        cardContainer.dataset.level = card.level || "";
-        cardContainer.dataset.lifeBurst = card.lifeBurst || "";
-        // カード画像
-        const cardImage = document.createElement('img');
-        cardImage.src = card.image;
-        cardContainer.appendChild(cardImage);
-        // ボタンコンテナ作成
-        const buttonContainer = document.createElement('div');
-        buttonContainer.classList.add('button-container');
-        // 各ボタン作成してbuttonContainerに追加
-        const addCardButton = createButton('add-card-button', "girl/PlusOneIcon.png");
-        addCardButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            addCardToDeck(card);
-        });
-        buttonContainer.appendChild(addCardButton);
-        const addFourCardsButton = createButton('add-fourth-button', "girl/PlusFourIcon.png");
-        addFourCardsButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            addFourCardsToDeck(card);
-        });
-        buttonContainer.appendChild(addFourCardsButton);
-        buttonContainer.appendChild(createButton('remove-card-button', "girl/RemoveIcon.png"));
-        // buttonContainerをcardContainerに追加
-        cardContainer.appendChild(buttonContainer);
-        // フリック用のタッチイベント追加
-        cardContainer.addEventListener('touchstart', handleTouchStart);
-        cardContainer.addEventListener('touchend', (event) => handleTouchEndOnList(event, card));
-        // PC用クリックリスナー
-        cardContainer.addEventListener('click', () => showCardDetail(card));
-        fragment.appendChild(cardContainer);
-    });
-    gridCardsList.appendChild(fragment);
-}
-*/
-
-// リスト欄にカードを追加
-function listCards(cards) {
-    gridCardsList.innerHTML = "";
-    const fragment = document.createDocumentFragment();
-    cards.forEach(card => {
-        const cardContainer = document.createElement('div');
-        cardContainer.classList.add('card-container');
-        // カードデータ(検索に使用)
-        cardContainer.dataset.name = normalizeText(card.name) || "";
-        cardContainer.dataset.color = card.color.join(",") || "";
-        cardContainer.dataset.level = card.level || "";
-        cardContainer.dataset.lifeBurst = card.lifeBurst || "";
-        // カード画像
-        const cardImage = document.createElement('img');
-        cardImage.src = card.image;
-        cardContainer.appendChild(cardImage);
-        // ボタンコンテナ作成
-        const buttonContainer = document.createElement('div');
-        buttonContainer.classList.add('button-container');
-        // 各ボタン作成してbuttonContainerに追加
-        const addCardButton = createButton('add-card-button', "girl/PlusOneIcon.png");
-        addCardButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            addCardToDeck(card);
-        });
-        buttonContainer.appendChild(addCardButton);
-        const addFourCardsButton = createButton('add-fourth-button', "girl/PlusFourIcon.png");
-        addFourCardsButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            addFourCardsToDeck(card);
-        });
-        buttonContainer.appendChild(addFourCardsButton);
-        buttonContainer.appendChild(createButton('remove-card-button', "girl/RemoveIcon.png"));
-        // buttonContainerをcardContainerに追加
-        cardContainer.appendChild(buttonContainer);
-        // フリック用のタッチイベント追加
-        cardContainer.addEventListener('touchstart', handleTouchStart);
-        cardContainer.addEventListener('touchend', (event) => handleTouchEndOnList(event, card));
-        // PC用クリックリスナー
-        cardContainer.addEventListener('click', () => showCardDetail(card));
-        fragment.appendChild(cardContainer);
-    });
-    gridCardsList.appendChild(fragment);
-}
-
 
 // カード名datasetを正規化
 function normalizeText(text) {
