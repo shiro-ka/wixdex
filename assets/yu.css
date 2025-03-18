@@ -61,47 +61,23 @@ main -> .main-container
 .main-container {
     position: relative;
     height: 100%; width: var(--main-container-width); max-width: 1080px;
-    margin: auto; z-index: 1;
+    margin: 0 auto auto auto; z-index: 1;
     padding: .5em 0; gap: .5em;
     flex-direction: column;
 }
 @media (min-width: 774px) { .main-container {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 5fr 3fr;
     grid-template-rows: calc(11dvh + 3rem) calc(52dvh - 1.5rem) 5.5rem;
     grid-template-areas:
-        "lrig-deck card-list"
-        "main-deck card-list"
-        "main-deck search-tool";
+        "lrig-deck cards-list"
+        "main-deck cards-list"
+        "search-tool search-tool";
 }}
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-.container -> .deck-container .search-container
+    デッキ欄
 -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
-
-/* デッキ表示領域 */
-.deck-container {
-    /*height: auto;*/ width: 100%;
-    z-index: 2;
-    gap: 0.5rem;
-    flex-direction: column;
-}
-@media (min-width: 774px) { .deck-container {
-    height: 100%; width: 60%;
-}}
-
-/* 検索表示領域 */
-.search-container {
-    /*height: auto;*/ width: 100%;
-    z-index: 2;
-    gap: 0.5rem;
-    flex-direction: column;
-}
-@media (min-width: 774px) { .search-container {
-    height: 100%; width: 40%;
-}}
-
-/*  *  * .deck-container -> ,lrig-deck .main-deck *  *  */
 
 /* ルリグデッキ欄 */
 .lrig-deck-container {
@@ -189,7 +165,7 @@ main -> .main-container
 }
 .grid.main-deck {
     width: 100%;
-    grid-template-rows: repeat(4,1fr);
+    grid-template-rows: repeat(5,1fr);
     grid-template-columns: repeat(8,1fr);
     gap: 1dvw;
 }
