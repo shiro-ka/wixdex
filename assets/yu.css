@@ -199,11 +199,12 @@ main * {
     .grid.cards-list > .card-container> .button-container {
         display: flex;
         height: 2rem; width: 100%;
-        flex-direction: row;
+        flex-direction: row; gap: 4px;
     }
     .grid.cards-list > .card-container > .button-container > .card-handle-button {
         display: flex;
-        margin-top: auto;
+        border: solid 2px var(--deck-background-color);
+        border-radius: 4px;
     }
 }
 @media (min-width: 1080px) {
