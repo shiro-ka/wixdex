@@ -38,7 +38,13 @@ preloadImages ([
     "img/icon_color/icon_red.png",
     "img/icon_color/icon_red_stroke.png",
     "img/icon_color/icon_white.png",
-    "img/icon_color/icon_white_stroke.png"
+    "img/icon_color/icon_white_stroke.png",
+    "img/icon_level/icon_lv1.png",
+    "img/icon_level/icon_lv1_stroke.png",
+    "img/icon_level/icon_lv2.png",
+    "img/icon_level/icon_lv2_stroke.png",
+    "img/icon_level/icon_lv3.png",
+    "img/icon_level/icon_lv3_stroke.png"
 ]);
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
