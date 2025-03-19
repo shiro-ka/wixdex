@@ -146,7 +146,7 @@ main * {
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
 
-/* デッキのカード画像 */
+/* カード画像 */
 .card-container {
     height: 100%; width: 100%;
     align-items: center;
@@ -183,7 +183,6 @@ main * {
     .cards-list-container {
         height: 100%;
         grid-area: cards-list;
-        /*height: 54dvw;max-height: calc(100dvh - 6.5rem);*/
     }
     .grid.cards-list {
         grid-template-rows: none; grid-auto-columns: none;
@@ -202,17 +201,14 @@ main * {
         height: 2rem; width: 100%;
         flex-direction: row;
     }
-    .grid.cards-list > .card-container > .button-container > .add-card-button {
+    .grid.cards-list > .card-container > .button-container > .card-handle-button {
         display: flex;
         margin-top: auto;
     }
-    .grid.cards-list > .card-container > .button-container > .add-fourth-button {
-        display: flex;
-        margin-top: auto;
-    }
-    .grid.cards-list > .card-container > .button-container > .open-detail-button {
-        display: flex;
-        margin-top: auto;
+}
+@media (min-width: 1080px) {
+    .grid.cards-list {
+        grid-auto-rows: 12rem;
     }
 }
 

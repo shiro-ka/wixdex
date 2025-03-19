@@ -102,21 +102,21 @@ function listCards(cards) {
         // PC用操作ボタン
         const buttonContainer = document.createElement('div');
         buttonContainer.classList.add('button-container');
-        const addCardButton = createButton('card-plus-button', "img/girl/icon_plus.png");
+        const addCardButton = createButton('plus', "img/girl/icon_plus.png");
         addCardButton.addEventListener('click', (e) => {
             e.stopPropagation();
             addCardToDeck(card);
         });
         buttonContainer.appendChild(addCardButton);
         if (['シグニ', 'スペル', 'サーバント'].includes(card.cardType[0])) {
-            const addFourCardsButton = createButton('card-four-button', "img/girl/icon_plus4.png");
+            const addFourCardsButton = createButton('plus-four', "img/girl/icon_plus4.png");
             addFourCardsButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 addFourCardsToDeck(card);
             });
             buttonContainer.appendChild(addFourCardsButton);
         };
-        buttonContainer.appendChild(createButton('card-minus-button', "img/girl/icon_minus.png"));
+        buttonContainer.appendChild(createButton('minus', "img/girl/icon_minus.png"));
         cardContainer.appendChild(buttonContainer);
         // スマホ用リスナー
         cardContainer.addEventListener('touchstart', handleTouchStart);
@@ -134,6 +134,7 @@ function createButton(className, iconSrc) {
     const button = document.createElement('div');
     const icon = document.createElement('img');
     button.classList.add(className);
+    button.classList.add('card-handle-button');
     icon.src = iconSrc;
     button.appendChild(icon);
     return button;
