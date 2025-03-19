@@ -20,6 +20,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
+/* 画像のロード */
+
+const preloadImages = (urls) => {
+    urls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+    });
+};
+preloadImages ([
+    "img/icon_color/icon_black.png",
+    "img/icon_color/icon_black_stroke.png",
+    "img/icon_color/icon_blue.png",
+    "img/icon_color/icon_blue_stroke.png",
+    "img/icon_color/icon_green.png",
+    "img/icon_color/icon_green_stroke.png",
+    "img/icon_color/icon_red.png",
+    "img/icon_color/icon_red_stroke.png",
+    "img/icon_color/icon_white.png",
+    "img/icon_color/icon_white_stroke.png"
+]);
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 /* html要素の取得 */
 
 const gridLrigDeck = document.querySelector('.grid.lrig-deck');
