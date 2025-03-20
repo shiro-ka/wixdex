@@ -30,24 +30,25 @@ const preloadImages = (urls) => {
         img.src = url;
     });
 };
-preloadImages ([
-    "img/icon_color/icon_black.png",
-    "img/icon_color/icon_black_stroke.png",
-    "img/icon_color/icon_blue.png",
-    "img/icon_color/icon_blue_stroke.png",
-    "img/icon_color/icon_green.png",
-    "img/icon_color/icon_green_stroke.png",
-    "img/icon_color/icon_red.png",
-    "img/icon_color/icon_red_stroke.png",
-    "img/icon_color/icon_white.png",
-    "img/icon_color/icon_white_stroke.png",
-    "img/icon_level/icon_lv1.png",
-    "img/icon_level/icon_lv1_stroke.png",
-    "img/icon_level/icon_lv2.png",
-    "img/icon_level/icon_lv2_stroke.png",
-    "img/icon_level/icon_lv3.png",
-    "img/icon_level/icon_lv3_stroke.png"
+preloadImages([
+    "../img/icon_color/icon_black.png",
+    "../img/icon_color/icon_black_stroke.png",
+    "../img/icon_color/icon_blue.png",
+    "../img/icon_color/icon_blue_stroke.png",
+    "../img/icon_color/icon_green.png",
+    "../img/icon_color/icon_green_stroke.png",
+    "../img/icon_color/icon_red.png",
+    "../img/icon_color/icon_red_stroke.png",
+    "../img/icon_color/icon_white.png",
+    "../img/icon_color/icon_white_stroke.png",
+    "../img/icon_level/icon_lv1.png",
+    "../img/icon_level/icon_lv1_stroke.png",
+    "../img/icon_level/icon_lv2.png",
+    "../img/icon_level/icon_lv2_stroke.png",
+    "../img/icon_level/icon_lv3.png",
+    "../img/icon_level/icon_lv3_stroke.png"
 ]);
+
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
