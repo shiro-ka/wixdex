@@ -120,7 +120,8 @@ function listCards(cards) {
         const cardContainer = document.createElement('div');
         cardContainer.classList.add('card-container');
         // カードデータ(検索に使用)
-        cardContainer.dataset.name = normalizeText(card.name) || "";
+        cardContainer.dataset.name = card.name || "";
+        cardContainer.dataset.subName = card.subName || "";
         cardContainer.dataset.color = card.color.join(",") || "";
         cardContainer.dataset.level = card.level || "";
         cardContainer.dataset.lifeBurst = card.lifeBurst || "";
@@ -296,14 +297,15 @@ function handleSearch() {
         const cardColor = card.dataset.color;
         const cardLifeBurst = card.dataset.lifeBurst;
         const cardName = card.dataset.name.toLowerCase();
+        const cardSubName = card.dataset.subName.toLowerCase();
         const levelMatch = selectedLevel.size === 0 || Array.from(selectedLevel).some(level => cardLevel === level);
         const colorMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
         const lifeBurstMatch =
             lifeBurstState === 0 ||
             (lifeBurstState === 1 && cardLifeBurst === "true") ||
             (lifeBurstState === 2 && cardLifeBurst === "false");
-        const textMatch = searchText === "" || cardName.includes(searchText);
-        card.style.display = (colorMatch && levelMatch && lifeBurstMatch&& textMatch) ? "" : "none";
+            const textMatch = searchText === "" || cardName.includes(searchText) || cardSubName.includes(searchText);
+        card.style.display = (colorMatch && levelMatch && lifeBurstMatch && textMatch) ? "" : "none";
     });
 }
 
