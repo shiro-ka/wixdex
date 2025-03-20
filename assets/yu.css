@@ -216,7 +216,6 @@ main * {
 
 .search-tool-container {
     height: 100%; width: 100%;
-    background-color: var(--background-color);
     z-index: 51;
 }
 .grid.search-tool {
@@ -236,6 +235,7 @@ main * {
 
 .search-button-container {
     height: 100%; width: 100%;
+    background-color: var(--background-color);
     border: solid 2px var(--deck-background-color);
     border-radius: 8px;
     flex-direction: row;
@@ -308,7 +308,6 @@ main * {
 .popup-overlay {
     visibility: hidden;
     height: 100%; width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
     position: absolute; top: 0; left: 0;
     opacity: 0; transition: opacity 0.3s ease;
 }
@@ -319,12 +318,13 @@ main * {
 
 /* 検索ポップアップ */
 .search-tool.popup-overlay {
-    position: fixed;
-    z-index: 50;
+    position: fixed; z-index: 50;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 /* カード詳細 */
 .card-detail.popup-overlay {
     z-index: 100;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
