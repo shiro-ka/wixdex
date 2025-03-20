@@ -28,8 +28,8 @@ const preloadImages = (urls) => {
     urls.forEach(url => {
         const img = new Image();
         img.src = url;
-        img.onload = () => console.log(`Loaded: ${url}`);
-        img.onerror = () => console.error(`Failed to load: ${url}`);
+        document.body.appendChild(img);
+        img.style.display = "none";
     });
 };
 preloadImages([
