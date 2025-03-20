@@ -57,11 +57,11 @@ const gridCardsList = document.querySelector('.grid.cards-list');
 const searchLevelButtons = document.querySelectorAll(".level.search-button-container > .search-button");
 const searchColorButtons = document.querySelectorAll(".color.search-button-container > .search-button");
 const searchLbButton = document.querySelector(".lb.search-button-container > .lb.search-button");
+const searchPopupButton = document.querySelector(".popup.search-button-container > .popup.search-button");
 const searchTextInput = document.querySelector('.search-text-input');
-const popupContainer = document.querySelectorAll('.popup-container');
-const popupOverlay = document.querySelectorAll('.popup-overlay');
-const cardDetailPopupOverlay = document.querySelector('.card-detail.popup-overlay')
+const searchToolPopupOverlay = document.querySelector('.search-tool.popup-overlay');
 const cardDetailPopup = document.querySelector('.card-detail.popup-container');
+const cardDetailPopupOverlay = document.querySelector('.card-detail.popup-overlay');
 const cardDetailImg = cardDetailPopup.querySelector('img');
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -273,6 +273,14 @@ searchLbButton.addEventListener('click', function() {
             break;
     }
     handleSearch();
+});
+
+// 検索ポップアップ
+searchPopupButton.addEventListener('click', function() {
+    searchToolPopupOverlay.classList.add('active');
+});
+searchToolPopupOverlay.addEventListener('click', function() {
+    this.classList.remove('active');
 });
 
 // テキスト検索ボタン
