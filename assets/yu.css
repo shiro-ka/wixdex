@@ -285,9 +285,14 @@ main * {
 .search-tool.popup-container {
     grid-area: 1/1 / 3/2;
     height: 100%; width: 100%;
-    border: solid 2px var(--sub-color);
+    z-index: 52;
+}
+.search-tool.popup-container > .inner {
+    height: 90%; width: 90%;
+    border: solid 2px var(--deck-background-color);
+    border-radius: 8px;
     background: var(--background-color);
-    top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 52;
+    margin: auto;
 }
 
 /* カード詳細 */
