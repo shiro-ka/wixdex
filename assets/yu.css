@@ -70,10 +70,6 @@ main * {
     display: grid;
     grid-template-columns: 5fr 3fr;
     grid-template-rows: calc(var(--deck-height) + 4rem) calc(var(--deck-height)*5 + 6rem) 5.5rem;
-    grid-template-areas:
-        "lrig-deck cards-list"
-        "main-deck cards-list"
-        "search-tool search-tool";
 }}
 @media (min-width: 1080px) { .main-container {
     grid-template-rows: 11rem 35rem 5.5rem;
@@ -93,11 +89,11 @@ main * {
 @media (min-width: 774px) {
     .lrig-deck.deck-container {
         height: 100%;
-        grid-area: lrig-deck;
+        grid-area: 1/1 / 2/2;
     }
     .main-deck.deck-container {
         height: 100%;
-        grid-area: main-deck;
+        grid-area: 1/2 / 2/3;
     }
 }
 
@@ -180,7 +176,7 @@ main * {
 @media (min-width: 774px) {
     .cards-list-container {
         height: 100%;
-        grid-area: cards-list;
+        grid-area: 2/1 / 3/3;
     }
     .grid.cards-list {
         grid-template-rows: none; grid-auto-columns: none;
@@ -226,7 +222,7 @@ main * {
 }
 @media (min-width: 774px) {
     .search-tool-container {
-        grid-area: search-tool;
+        grid-area: 1/3 / 3/4;
     }
     .grid.search-tool {
         grid-template-columns: repeat(9,1fr);
