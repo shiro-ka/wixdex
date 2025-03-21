@@ -64,6 +64,7 @@ const searchColorButtons = document.querySelectorAll(".color.search-button-conta
 const searchLbButton = document.querySelector(".lb.search-button-container > .lb.search-button");
 const searchPopupButton = document.querySelector(".popup.search-button-container > .popup.search-button");
 const searchTextInput = document.querySelector('.search-text-input');
+const searchToolPopup = document.querySelector('.search-tool.popup-container');
 const searchToolPopupOverlay = document.querySelector('.search-tool.popup-overlay');
 const cardDetailPopup = document.querySelector('.card-detail.popup-container');
 const cardDetailPopupOverlay = document.querySelector('.card-detail.popup-overlay');
@@ -282,9 +283,11 @@ searchLbButton.addEventListener('click', function() {
 
 // 検索ポップアップ
 searchPopupButton.addEventListener('click', function() {
+    searchToolPopup.classList.add('active');
     searchToolPopupOverlay.classList.add('active');
 });
 searchToolPopupOverlay.addEventListener('click', function() {
+    searchToolPopup.classList.remove('active');
     this.classList.remove('active');
 });
 
