@@ -129,6 +129,7 @@ function listCards(cards) {
         // カードデータ(検索に使用)
         cardContainer.dataset.name = card.name || "";
         cardContainer.dataset.subName = card.subName || "";
+        cardContainer.dataset.cardType = card.cardType.join(",") || "";
         cardContainer.dataset.color = card.color.join(",") || "";
         cardContainer.dataset.level = card.level || "";
         cardContainer.dataset.lifeBurst = card.lifeBurst || "";
