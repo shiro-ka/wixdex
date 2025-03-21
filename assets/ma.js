@@ -66,6 +66,7 @@ const searchPopupButton = document.querySelector(".popup.search-button-container
 const searchTextInput = document.querySelector('.search-text-input');
 const searchToolPopup = document.querySelector('.search-tool.popup-container');
 const searchToolPopupOverlay = document.querySelector('.search-tool.popup-overlay');
+const searchTypeButtons = document.querySelectorAll(".type.search-button-container > .search-button");
 const cardDetailPopup = document.querySelector('.card-detail.popup-container');
 const cardDetailPopupOverlay = document.querySelector('.card-detail.popup-overlay');
 const cardDetailImg = cardDetailPopup.querySelector('img');
@@ -281,6 +282,9 @@ searchLbButton.addEventListener('click', function() {
     handleSearch();
 });
 
+// テキスト検索ボタン
+searchTextInput.addEventListener("input" , handleSearch);
+
 // 検索ポップアップ
 searchPopupButton.addEventListener('click', function() {
     searchToolPopup.classList.add('active');
@@ -290,11 +294,24 @@ searchToolPopupOverlay.addEventListener('click', function() {
     searchToolPopup.classList.remove('active');
     this.classList.remove('active');
 });
+// カード種類検索ボタン
+const selectedType = new Set();
+searchTypeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const type = button.dataset.type;
+        // ボタンのオン・オフを切り替え
+        if (selectedType.has(type)) {
+            selectedType.delete(type);
+            button.classList.remove('active');
+        } else {
+            selectedColors.add(type);
+            button.classList.add('active');
+        }
+        handleSearch()
+    });
+});
 
-// テキスト検索ボタン
-searchTextInput.addEventListener("input" , handleSearch);
-
-// ポップアップオーバーレイ
+// カード詳細ポップアップ(オーバーレイ)
 cardDetailPopupOverlay.addEventListener('click', function() {
     this.classList.remove('active');
     cardDetailPopup.classList.remove('active');
@@ -312,14 +329,16 @@ function handleSearch() {
         const cardLifeBurst = card.dataset.lifeBurst;
         const cardName = card.dataset.name.toLowerCase();
         const cardSubName = card.dataset.subName.toLowerCase();
+        const cardType = card.dataset.cardType;
         const levelMatch = selectedLevel.size === 0 || Array.from(selectedLevel).some(level => cardLevel === level);
         const colorMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
         const lifeBurstMatch =
             lifeBurstState === 0 ||
             (lifeBurstState === 1 && cardLifeBurst === "true") ||
             (lifeBurstState === 2 && cardLifeBurst === "false");
-            const textMatch = searchText === "" || cardName.includes(searchText) || cardSubName.includes(searchText);
-        card.style.display = (colorMatch && levelMatch && lifeBurstMatch && textMatch) ? "" : "none";
+        const textMatch = searchText === "" || cardName.includes(searchText) || cardSubName.includes(searchText);
+        const typeMatch = selectedType.size === 0 || Array.from(selectedType).some(type => cardType.includes(type));
+        card.style.display = (colorMatch && levelMatch && lifeBurstMatch && textMatch && typeMatch) ? "" : "none";
     });
 }
 
