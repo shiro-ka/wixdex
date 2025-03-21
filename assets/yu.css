@@ -23,7 +23,7 @@ img {
     object-fit: contain;
 }
 
-/* 全体の設定 */
+/* 設定 */
 body {
     font-family: Arial, Helvetica, sans-serif; line-height: 1;
     display: flex;
@@ -32,6 +32,9 @@ body {
     height: 100dvh; width: 100dvw;
     background-color: var(--background-color);
     flex-direction: column;
+}
+.preload-imgs {
+    display: none;
 }
 
 /* =================================================================================
@@ -288,11 +291,12 @@ main * {
     z-index: 52;
 }
 .search-tool.popup-container > .inner {
-    height: 90%; width: 90%;
+    height: 96%; width: 92%;
     border: solid 2px var(--deck-background-color);
     border-radius: 8px;
     background: var(--background-color);
     margin: auto;
+    padding: 8px;
 }
 
 /* カード詳細 */

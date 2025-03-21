@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* 画像のロード */
 
+const preContainer = document.querySelector('.preload-imgs')
 const preloadImages = (urls) => {
     urls.forEach(url => {
         const img = new Image();
         img.src = url;
-        document.body.appendChild(img);
-        img.style.display = "none";
+        preContainer.appendChild(img);
     });
 };
 preloadImages([
