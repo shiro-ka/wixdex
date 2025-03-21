@@ -6,7 +6,7 @@
     --header-color: #161618;
     --background-color: #1c1c1f;
     --deck-background-color: #2c2c3064;
-    --sub-color: #e9eaf1;
+    --sub-color: #cccccc;
     --main-container-width: 96dvw;
     --main-container-height: ;
     --main-container-height-ex : ;
@@ -21,6 +21,11 @@
 img {
     height: 100%; width: 100%;
     object-fit: contain;
+}
+p {
+    margin: 0;
+    height: 1rem; width: 100%;
+    color: var(--sub-color);
 }
 
 /* 設定 */
@@ -260,7 +265,8 @@ main * {
 
 .search-button {
     flex-grow: 1;
-    padding: 6px;
+    color: var(--sub-color); font-size: 16px;
+    padding: 6px; align-items: center;
 }
 .search-button.active , .search-button.inactive {
     background-color: var(--deck-background-color);
@@ -292,11 +298,13 @@ main * {
 }
 .search-tool.popup-container > .inner {
     height: 96%; width: 92%;
-    border: solid 2px var(--deck-background-color);
-    border-radius: 8px;
+    border: solid 2px var(--deck-background-color); border-radius: 8px;
     background: var(--background-color);
     margin: auto;
-    padding: 8px;
+    padding: 1rem; flex-direction: column; gap: .5em;
+}
+.type.search-button-container {
+    height: 2.5rem;
 }
 
 /* カード詳細 */
