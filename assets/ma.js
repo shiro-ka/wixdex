@@ -304,7 +304,7 @@ searchTypeButtons.forEach(button => {
             selectedType.delete(type);
             button.classList.remove('active');
         } else {
-            selectedColors.add(type);
+            selectedType.add(type);
             button.classList.add('active');
         }
         handleSearch()
