@@ -30,7 +30,7 @@ p {
 
 /* 設定 */
 body {
-    font-family: Arial, Helvetica, sans-serif; line-height: 1;
+    font-family: "Kiwi Maru", serif; font-weight: 400; font-style: normal;
     display: flex;
     overflow: hidden;
     margin: 0; padding: 0;
