@@ -10,7 +10,7 @@
     --main-container-width: 96dvw;
     --main-container-height: ;
     --main-container-height-ex : ;
-    /* ( 96dvw -  .5em*2 - .5em*7 ) / 8 * 1047/750 = 16.752dvw - 12.564px */
+    /* ( 96dvw -  .5em*2 - .4px*7 ) / 8 * 1047/750 = 16.752dvw - 12.564px */
     --column-deck-height: calc(16.76dvw - 12.6px);
     /* ((( 96dvw - .5em ) * 5/8 ) - .5em*2 - .5em*7 ) / 8 * 1047/750 = 10.47dvw - 13.4365px */
     --grid-deck-height: calc(10.5dvw - 13.4px);
@@ -96,10 +96,10 @@ main * {
     z-index: 2;
     padding: .5em; flex-direction: column;
 }.lrig-deck.deck-container {
-    height: calc(var(--column-deck-height) + 4rem);
+    height: auto;
 }
 .main-deck.deck-container {
-    height: calc(var(--column-deck-height)*5 + 6rem);
+    height: auto;
 }
 @media (min-width: 774px) {
     .lrig-deck.deck-container {
@@ -135,23 +135,25 @@ main * {
     padding-top: .5em;
 }
 .grid.lrig-deck {
-    height: 100%; width: 100%;
-    grid-template-rows: 1fr;
+    height: auto; width: 100%;
+    grid-template-rows: var(--column-deck-height);
     grid-template-columns: repeat(8,1fr);
     gap: 4px;
 }
 .grid.main-deck {
-    height: 100%; width: 100%;
-    grid-template-rows: repeat(5,1fr);
+    height: auto; width: 100%;
+    grid-template-rows: repeat(5,var(--column-deck-height));
     grid-template-columns: repeat(8,1fr);
     gap: 4px;
 }
 @media (min-width: 774px) {
     .grid.lrig-deck {
-        gap: .5em;
+        height: 100%;
+        grid-template-rows: 1fr; gap: .5em;
     }
     .grid.main-deck {
-        gap: .5em;
+        height: 100%;
+        grid-template-rows: repeat(5,1fr); gap: .5em;
     }
 }
 
