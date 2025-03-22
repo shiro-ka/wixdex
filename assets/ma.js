@@ -317,7 +317,7 @@ searchTypeButtons.forEach(button => {
 const selectedLtc = new Set();
 searchLtcButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const ltc = button.dataset.lrigTypeClass;
+        const ltc = button.dataset.ltc;
         // ボタンのオン・オフを切り替え
         if (selectedLtc.has(ltc)) {
             selectedLtc.delete(ltc);
