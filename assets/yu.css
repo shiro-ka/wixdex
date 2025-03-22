@@ -24,7 +24,7 @@ img {
 }
 p {
     margin: 0;
-    height: 1rem; width: 100%;
+    height: auto; width: 100%;
     color: var(--sub-color);
 }
 
