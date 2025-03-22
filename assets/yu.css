@@ -10,8 +10,10 @@
     --main-container-width: 96dvw;
     --main-container-height: ;
     --main-container-height-ex : ;
+    /* ( 96dvw -  .5em*2 - .5em*7 ) / 8 * 1047/750 = 16.752dvw - 12.564px */
+    --column-deck-height: calc(16.76dvw - 12.6px);
     /* ((( 96dvw - .5em ) * 5/8 ) - .5em*2 - .5em*7 ) / 8 * 1047/750 = 10.47dvw - 13.4365px */
-    --deck-height: calc(10.5dvw - 13.4px);
+    --grid-deck-height: calc(10.5dvw - 13.4px);
 }
 
 /* 汎用 */
@@ -77,7 +79,7 @@ main * {
 @media (min-width: 774px) { .main-container {
     display: grid;
     grid-template-columns: 5fr 3fr;
-    grid-template-rows: calc(var(--deck-height) + 4rem) calc(var(--deck-height)*5 + 6rem) 5.5rem;
+    grid-template-rows: calc(var(--grid-deck-height) + 4rem) calc(var(--grid-deck-height)*5 + 6rem) 5.5rem;
 }}
 @media (min-width: 1080px) { .main-container {
     grid-template-rows: 11rem 35rem 5.5rem;
@@ -88,11 +90,16 @@ main * {
 -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
 
 .deck-container {
-    height: 100%; width: 100%;
+    width: 100%;
     background-color: var(--deck-background-color);
     border-radius: 16px;
     z-index: 2;
     padding: .5em; flex-direction: column;
+}.lrig-deck.deck-container {
+    height: calc(var(--column-deck-height) + 4rem);
+}
+.main-deck.deck-container {
+    height: calc(var(--column-deck-height)*5 + 6rem);
 }
 @media (min-width: 774px) {
     .lrig-deck.deck-container {
@@ -159,18 +166,18 @@ main * {
 /* -  -  - カードリスト欄 -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  */
 
 .cards-list-container {
-    height: 100%; width: 100%;
+    height: auto; width: 100%;
     background-color: var(--background-color);
     border: solid 2px var(--deck-background-color);
     border-radius: 8px;
     z-index: 51;
-    padding: 0.5rem;
+    padding: .5em;
 }
 .grid.cards-list {
     grid-auto-flow: column;
     grid-template-rows: 1fr;
     grid-auto-columns: 8dvh;
-    gap: 0.5rem;
+    gap: .5em;
     overflow-x: auto;
 }
 .grid.cards-list > .card-container {
@@ -292,8 +299,8 @@ main * {
 
 /* 検索ポップアップ */
 .search-tool.popup-container {
-    grid-area: 1/1 / 3/2;
-    height: 100%; width: 100%;
+    height: 60%; width: 100%;
+    margin-top: 10%;
     z-index: 52;
 }
 .search-tool.popup-container > .inner {
@@ -318,6 +325,13 @@ main * {
 }
 .ltc.search-button-container > .search-button > img {
     height: 1.5rem; width: 1.5rem; border-radius: 50%;
+}
+@media (min-width: 774px) {
+    .search-tool.popup-container {
+        margin-top: 0;
+        grid-area: 1/1 / 3/2;
+        height: 100%;
+    }
 }
 
 /* カード詳細 */
