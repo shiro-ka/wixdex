@@ -316,7 +316,7 @@ main * {
     justify-content: initial; gap: .5em;
 }
 .ltc.search-button-container > .search-button > img {
-    width: auto; border-radius: 50%;
+    height: 1.5rem; width: 1.5rem; border-radius: 50%;
 }
 
 /* カード詳細 */
