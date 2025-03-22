@@ -67,6 +67,7 @@ const searchTextInput = document.querySelector('.search-text-input');
 const searchToolPopup = document.querySelector('.search-tool.popup-container');
 const searchToolPopupOverlay = document.querySelector('.search-tool.popup-overlay');
 const searchTypeButtons = document.querySelectorAll(".type.search-button-container > .search-button");
+const searchLtcButtons = document.querySelectorAll(".ltc.search-button-container > .search-button");
 const cardDetailPopup = document.querySelector('.card-detail.popup-container');
 const cardDetailPopupOverlay = document.querySelector('.card-detail.popup-overlay');
 const cardDetailImg = cardDetailPopup.querySelector('img');
@@ -129,6 +130,7 @@ function listCards(cards) {
         // カードデータ(検索に使用)
         cardContainer.dataset.name = card.name || "";
         cardContainer.dataset.subName = card.subName || "";
+        cardContainer.dataset.lrigTypeClass = card.lrigTypeClass.join(",") || "";
         cardContainer.dataset.cardType = card.cardType.join(",") || "";
         cardContainer.dataset.color = card.color.join(",") || "";
         cardContainer.dataset.level = card.level || "";
@@ -311,6 +313,22 @@ searchTypeButtons.forEach(button => {
         handleSearch()
     });
 });
+// ルリグタイプ・クラス検索ボタン
+const selectedLtc = new Set();
+searchLtcButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const ltc = button.dataset.lrigTypeClass;
+        // ボタンのオン・オフを切り替え
+        if (selectedLtc.has(ltc)) {
+            selectedLtc.delete(ltc);
+            button.classList.remove('active');
+        } else {
+            selectedLtc.add(ltc);
+            button.classList.add('active');
+        }
+        handleSearch()
+    });
+});
 
 // カード詳細ポップアップ(オーバーレイ)
 cardDetailPopupOverlay.addEventListener('click', function() {
@@ -331,6 +349,7 @@ function handleSearch() {
         const cardName = card.dataset.name.toLowerCase();
         const cardSubName = card.dataset.subName.toLowerCase();
         const cardType = card.dataset.cardType;
+        const cardLtc = card.dataset.lrigTypeClass;
         const levelMatch = selectedLevel.size === 0 || Array.from(selectedLevel).some(level => cardLevel === level);
         const colorMatch = selectedColors.size === 0 || Array.from(selectedColors).some(color => cardColor.includes(color));
         const lifeBurstMatch =
@@ -339,7 +358,8 @@ function handleSearch() {
             (lifeBurstState === 2 && cardLifeBurst === "false");
         const textMatch = searchText === "" || cardName.includes(searchText) || cardSubName.includes(searchText);
         const typeMatch = selectedType.size === 0 || Array.from(selectedType).some(type => cardType.includes(type));
-        card.style.display = (colorMatch && levelMatch && lifeBurstMatch && textMatch && typeMatch) ? "" : "none";
+        const ltcMatch = selectedLtc.size === 0 || Array.from(selectedLtc).some(ltc => cardLtc.includes(ltc));
+        card.style.display = (colorMatch && levelMatch && lifeBurstMatch && textMatch && typeMatch && ltcMatch) ? "" : "none";
     });
 }
 
