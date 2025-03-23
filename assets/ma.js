@@ -290,8 +290,8 @@ searchTextInput.addEventListener("input" , handleSearch);
 
 // 検索ポップアップ
 searchPopupButton.addEventListener('click', function() {
-    searchToolPopup.classList.add('active');
-    searchToolPopupOverlay.classList.add('active');
+    searchToolPopup.classList.toggle('active');
+    searchToolPopupOverlay.classList.toggle('active');
 });
 searchToolPopupOverlay.addEventListener('click', function() {
     searchToolPopup.classList.remove('active');
