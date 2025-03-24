@@ -159,11 +159,11 @@ function listCards(cards) {
         };
         buttonContainer.appendChild(createButton('minus', "img/girl/icon_minus.png"));
         cardContainer.appendChild(buttonContainer);
-        // スマホ用リスナー
+        // スマホ操作リスナー
         cardContainer.addEventListener('touchstart', handleTouchStart);
         cardContainer.addEventListener('touchmove', handleTouchMove);
         cardContainer.addEventListener('touchend', (event) => handleTouchEndOnList(event, card));
-        // PC用リスナー
+        // 詳細ポップアップ表示リスナー
         cardContainer.addEventListener('click', () => showCardDetail(card));
         // fragmentに追加
         fragment.appendChild(cardContainer);
@@ -212,16 +212,13 @@ function handleTouchEndOnList(event, card) {
     if (swipeDistance > 50) {
         addCardToDeck(card);
     }
-    else if (swipeDistance < -50) {
+    else if (swipeDistance < -65) {
         if (['シグニ', 'スペル', 'サーバント'].includes(card.cardType[0])) {
             addFourCardsToDeck(card);
         }
         else {
             addCardToDeck(card);
         }
-    }
-    else {
-        showCardDetail(card);
     }
 }
 
