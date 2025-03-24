@@ -15,6 +15,7 @@ const cardJson = [
 
 let touchStartY = 0;
 let lifeBurstState = 0;
+let isVerticalScroll = false;
 
 /* --------------------------------------------------------------------------------- */
 
@@ -160,6 +161,7 @@ function listCards(cards) {
         cardContainer.appendChild(buttonContainer);
         // スマホ用リスナー
         cardContainer.addEventListener('touchstart', handleTouchStart);
+        cardContainer.addEventListener('touchmove', handleTouchMove);
         cardContainer.addEventListener('touchend', (event) => handleTouchEndOnList(event, card));
         // PC用リスナー
         cardContainer.addEventListener('click', () => showCardDetail(card));
@@ -187,6 +189,20 @@ function createButton(className, iconSrc) {
 // タッチ開始時
 function handleTouchStart(event) {
     touchStartY = event.touches[0].clientY;
+    touchStartX = event.touches[0].clientX;
+    isVerticalScroll = false;
+}
+
+// タッチ中(縦と横のフリックが干渉しないようにする)
+function handleTouchMove(event) {
+    const touchMoveY = event.touches[0].clientY;
+    const touchMoveX = event.touches[0].clientX;
+    const deltaY = Math.abs(touchMoveY - touchStartY);
+    const deltaX = Math.abs(touchMoveX - touchStartX);
+    if (deltaY > deltaX) {
+        isVerticalScroll = true;
+        event.preventDefault();
+    }
 }
 
 // タッチ終了時(リスト欄)
