@@ -548,10 +548,15 @@ function addFourCardsToDeck(card) {
         return cardElement;
     };
     // デッキに追加
-    if (gridMainDeck.children.length >= 40) return;
-    if (Array.from(gridMainDeck.children).filter(deckCard => deckCard.dataset.name === card.name).length >= 4) return;
+    const currentDeckCount = gridMainDeck.children.length;
+    const deckSpaceLeft = 40 - currentDeckCount;
+    if (deckSpaceLeft <= 0) return;
+    const sameCardCount = Array.from(gridMainDeck.children).filter(deckCard => deckCard.dataset.name === card.name).length;
+    const maxCardsAllowed = 4 - sameCardCount;
+    if (maxCardsAllowed <= 0) return;
+    const addCount = Math.min(deckSpaceLeft, maxCardsAllowed);
     const fragment = document.createDocumentFragment();
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < addCount; i++) {
         fragment.appendChild(createCardElement());
     }
     gridMainDeck.appendChild(fragment);
