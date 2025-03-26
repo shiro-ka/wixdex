@@ -86,7 +86,7 @@ main * {
     grid-template-rows: calc(var(--grid-deck-height) + 4rem) calc(var(--grid-deck-height)*5 + 6rem) 5.5rem;
 }}
 @media (min-width: 1080px) { .main-container {
-    grid-template-rows: 11rem 35rem 5.5rem;
+    grid-template-rows: 11rem 38rem 5.5rem;
 }}
 
 /*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
