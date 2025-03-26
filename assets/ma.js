@@ -7,8 +7,10 @@ const cardJson = [
 'cards/WX24-P3.json',
 'cards/WX24-P2.json',
 'cards/WX24-P1.json',
+'cards/WXDi-P16.json',
+'cards/WXDi-P13.json',
 'cards/WXDi-P12.json',
-'cards/WXDi-P13.json'
+
 
 /* -------------------------------------------------------------------------- */];/*/*/
 
