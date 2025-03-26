@@ -562,7 +562,7 @@ function addFourCardsToDeck(card) {
 function removeCardFromDeck(card) {
     const deckCards = document.querySelectorAll('.deck .card-container');
     for (let deckCard of deckCards) {
-        if (deckCard.dataset.name === card.name && deckCard.dataset.image === card.image) {
+        if (deckCard.dataset.name === card.name) {
             deckCard.remove();
             break;
         }
