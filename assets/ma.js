@@ -231,10 +231,10 @@ function handleTouchEndOnList(event, card) {
 function handleTouchEndOnDeck(event, card) {
     const touchEndY = event.changedTouches[0].clientY;
     const swipeDistance = touchStartY - touchEndY;
-    if (swipeDistance > 50) {
+    if (swipeDistance > 40) {
         addCardToDeck(card);
-    } else {
-        showCardDetail(card);
+    } else if (swipeDistance < -40) {
+        removeCardFromDeck(card);
     }
 }
 
