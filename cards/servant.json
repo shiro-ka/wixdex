@@ -1,0 +1,13 @@
+[
+    {
+        "name": "デフォルトサーバント",
+        "subName": [""],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P00-089.jpg",
+        "cardType": ["サーバント"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": [""],
+        "lifeBurst": "true",
+        "tags": ["サーバント"]
+    }
+]
