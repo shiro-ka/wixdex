@@ -189,7 +189,7 @@ function createButton(className, iconSrc) {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/* スマホ操作のリスナー */
+/* 操作のリスナー */
 
 // タッチ開始時
 function handleTouchStart(event) {
@@ -234,6 +234,16 @@ function handleTouchEndOnDeck(event, card) {
     if (swipeDistance > 40) {
         addCardToDeck(card);
     } else if (swipeDistance < -40) {
+        removeCardFromDeck(card);
+    }
+}
+
+// マウスホイール操作(デッキ欄)
+function handleWheelOnDeck(event, card) {
+    event.preventDefault(); // デフォルトのスクロール無効化
+    if (event.deltaY < 0) {
+        addCardToDeck(card);
+    } else if (event.deltaY > 0) {
         removeCardFromDeck(card);
     }
 }
@@ -527,6 +537,9 @@ function addCardToDeck(card) {
     cardElement.addEventListener('click', function() {
         showCardDetail(card);
     });
+    cardElement.addEventListener('wheel', function(event) {
+        handleWheelOnDeck(event, card);
+    });
 }
 
 // 4枚追加(シグニ,スペル,サーバントのみ)
@@ -545,6 +558,9 @@ function addFourCardsToDeck(card) {
         cardElement.addEventListener('touchstart', handleTouchStart);
         cardElement.addEventListener('touchend', (event) => handleTouchEndOnDeck(event, card));
         cardElement.addEventListener('click', () => showCardDetail(card));
+        cardElement.addEventListener('wheel', function(event) {
+            handleWheelOnDeck(event, card);
+        });
         return cardElement;
     };
     // デッキに追加
