@@ -157,7 +157,12 @@ function listCards(cards) {
             });
             buttonContainer.appendChild(addFourCardsButton);
         };
-        buttonContainer.appendChild(createButton('minus', "img/girl/icon_minus.png"));
+        const removeCardButton = createButton('minus', "img/girl/icon_minus.png");
+        removeCardButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            removeCardFromDeck(card);
+        });
+        buttonContainer.appendChild(removeCardButton);
         cardContainer.appendChild(buttonContainer);
         // スマホ操作リスナー
         cardContainer.addEventListener('touchstart', handleTouchStart);
@@ -378,17 +383,15 @@ function handleSearch() {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/* カードをデッキに追加
+/* カードをデッキに追加 / カードをデッキから削除
 
-引数(タップ/クリックしたカード)をcardでうけとる。
-
-カードのデータからcard-containerを作成
-<div class="card-container" data-name/card-type/lrig-type-class/level="カード名/ルリグ/タマ/3">
-    <img src="URL">
-</div>
-
-カード種類に応じてルリグデッキかメインデッキに追加
-
+追加の処理
+    引数(タップ/クリックしたカード)をcardでうけとる。
+    カードのデータからcard-containerを作成
+        <div class="card-container" data-name/card-type/lrig-type-class/level="カード名/ルリグ/タマ/3">
+            <img src="URL">
+        </div>
+    カード種類に応じてルリグデッキかメインデッキに追加
 */
 
 // 1枚追加
@@ -555,11 +558,20 @@ function addFourCardsToDeck(card) {
     sortMainDeck();
 }
 
+// 削除
+function removeCardFromDeck(card) {
+    const deckCards = document.querySelectorAll('.deck .card-container');
+    for (let deckCard of deckCards) {
+        if (deckCard.dataset.name === card.name && deckCard.dataset.image === card.image) {
+            deckCard.remove();
+            break;
+        }
+    }
+}
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-/* カードの詳細ポップアップを表示
-
-*/
+/* カードの詳細ポップアップを表示 */
 
 function showCardDetail(card) {
     const cardImage = card.image;
