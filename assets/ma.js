@@ -267,21 +267,21 @@ function listCards(cards) {
         // PC用操作ボタン
         const buttonContainer = document.createElement('div');
         buttonContainer.classList.add('button-container');
-        const addCardButton = createButton('plus', "img/girl/icon_plus.png");
+        const addCardButton = createButton('plus', "+");
         addCardButton.addEventListener('click', (e) => {
             e.stopPropagation();
             addCardToDeck(card);
         });
         buttonContainer.appendChild(addCardButton);
         if (['シグニ', 'スペル', 'サーバント'].includes(card.cardType[0])) {
-            const addFourCardsButton = createButton('plus-four', "img/girl/icon_plus4.png");
+            const addFourCardsButton = createButton('plus-four', "+4");
             addFourCardsButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 addFourCardsToDeck(card);
             });
             buttonContainer.appendChild(addFourCardsButton);
         };
-        const removeCardButton = createButton('minus', "img/girl/icon_minus.png");
+        const removeCardButton = createButton('minus', "-");
         removeCardButton.addEventListener('click', (e) => {
             e.stopPropagation();
             removeCardFromDeck(card);
@@ -300,14 +300,11 @@ function listCards(cards) {
     gridCardsList.appendChild(fragment);
 }
 
-// PC用操作ボタンを追加
-function createButton(className, iconSrc) {
+// PC用操作ボタンを追加（文字バージョン）
+function createButton(className, iconText) {
     const button = document.createElement('div');
-    const icon = document.createElement('img');
-    button.classList.add(className);
-    button.classList.add('card-handle-button');
-    icon.src = iconSrc;
-    button.appendChild(icon);
+    button.classList.add(className, 'card-handle-button');
+    button.textContent = iconText;
     return button;
 }
 
