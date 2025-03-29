@@ -281,7 +281,7 @@ function listCards(cards) {
             });
             buttonContainer.appendChild(addFourCardsButton);
         };
-        const removeCardButton = createButton('minus', "-");
+        const removeCardButton = createButton('minus', "－");
         removeCardButton.addEventListener('click', (e) => {
             e.stopPropagation();
             removeCardFromDeck(card);

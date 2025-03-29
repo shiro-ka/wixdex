@@ -217,9 +217,13 @@ main * {
     }
     .grid.cards-list > .card-container > .button-container > .card-handle-button {
         display: flex;
-        border: solid 2px var(--deck-background-color);
-        border-radius: 4px;
-        padding: 4px 0;
+        flex-grow: 1;
+        border: solid 2px var(--deck-background-color); border-radius: 4px;
+        padding: 4px 0; justify-content: center; align-items: center;
+        color: var(--sub-color); font-size: 24px;
+    }
+    .plus-four.card-handle-button{
+        font-size: 18px;
     }
 }
 @media (min-width: 1080px) {
