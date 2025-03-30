@@ -221,9 +221,7 @@ main * {
         border: solid 2px var(--deck-background-color); border-radius: 4px;
         padding: 4px 0; justify-content: center; align-items: center;
         color: var(--sub-color); font-size: 24px;
-    }
-    .plus-four.card-handle-button{
-        font-size: 18px;
+        cursor: pointer; user-select: none;
     }
 }
 @media (min-width: 1080px) {
@@ -284,6 +282,7 @@ main * {
     flex-grow: 1;
     color: var(--sub-color); font-size: 16px;
     padding: 6px; justify-content: center; align-items: center;
+    cursor: pointer; user-select: none;
 }
 .search-button.active , .search-button.inactive {
     background-color: var(--deck-background-color);
