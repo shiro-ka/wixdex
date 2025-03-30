@@ -129,6 +129,7 @@ const cardJson = [
 'cards/WX24-P1.json',
 'cards/WXDi-P16.json',
 'cards/WXDi-P15.json',
+'cards/WXDi-CP02.json',
 'cards/WXDi-P13.json',
 'cards/WXDi-P12.json',
 
