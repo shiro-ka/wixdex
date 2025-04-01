@@ -274,7 +274,7 @@ function listCards(cards) {
         // PC用操作ボタン
         const buttonContainer = document.createElement('div');
         buttonContainer.classList.add('button-container');
-        const addCardButton = createButton('plus', "+");
+        const addCardButton = createButton('plus', "＋");
         addCardButton.addEventListener('click', (e) => {
             e.stopPropagation();
             addCardToDeck(card);
@@ -450,7 +450,11 @@ searchTextInput.addEventListener("input" , handleSearch);
 
 // 検索クリアボタン
 searchClearButton.addEventListener("click", function() {
-    searchButton.classList.remove('active');
+    searchButton.forEach(button => button.classList.remove("active", "inactive"));
+    lifeBurstState = 0;
+    searchLbButton.querySelector("img").src = "img/girl/icon_LB_stroke.png";
+    searchTextInput.value = "";
+    handleSearch();
 });
 
 // 検索ポップアップ
