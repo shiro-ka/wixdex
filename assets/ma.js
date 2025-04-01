@@ -160,6 +160,9 @@ const preloadImages = (urls) => {
     });
 };
 preloadImages([
+    "img/girl/icon_LB.png",
+    "img/girl/icon_LB_stroke.png",
+    "img/girl/icon_LB_offstroke.png",
     "img/icon_color/icon_black.png",
     "img/icon_color/icon_black_stroke.png",
     "img/icon_color/icon_blue.png",
@@ -418,23 +421,28 @@ searchColorButtons.forEach(button => {
 });
 
 // LB検索ボタン
-searchLbButton.addEventListener('click', function() {
-    lifeBurstState = (lifeBurstState + 1) % 3;             // クリックごとにlifeBurstStateを1増やす(0=>1=>2=>0...)
+searchLbButton.addEventListener('click', function () {
+    lifeBurstState = (lifeBurstState + 1) % 3; // クリックごとにlifeBurstStateを1増やす(0=>1=>2=>0...)
+    const img = this.querySelector('img'); // ボタン内の画像取得
     switch (lifeBurstState) {
-        case 0:                                            // デフォルト(LBありなしどっちもで検索)
+        case 0: // デフォルト(LBありなしどっちもで検索)
             this.classList.remove('active', 'inactive');
+            img.src = 'img/girl/icon_LB_stroke.png';
             break;
-        case 1:                                            // LBあり
+        case 1: // LBあり
             this.classList.add('active');
             this.classList.remove('inactive');
+            img.src = 'img/girl/icon_LB.png';
             break;
-        case 2:                                            // LBなし
+        case 2: // LBなし
             this.classList.add('inactive');
             this.classList.remove('active');
+            img.src = 'img/girl/icon_LB_offstroke.png';
             break;
     }
     handleSearch();
 });
+
 
 // テキスト検索ボタン
 searchTextInput.addEventListener("input" , handleSearch);
