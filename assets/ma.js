@@ -189,7 +189,7 @@ preloadImages([
 const gridLrigDeck = document.querySelector('.grid.lrig-deck');
 const gridMainDeck = document.querySelector('.grid.main-deck');
 const gridCardsList = document.querySelector('.grid.cards-list');
-const searchButton = document.querySelectorAll('.search-button');
+const searchButton = document.querySelectorAll(".search-button");
 const searchLevelButtons = document.querySelectorAll(".level.search-button-container > .search-button");
 const searchColorButtons = document.querySelectorAll(".color.search-button-container > .search-button");
 const searchLbButton = document.querySelector(".lb.search-button-container > .lb.search-button");
