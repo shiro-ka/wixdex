@@ -133,7 +133,7 @@ const cardJson = [
 'cards/WXDi-P14.json',
 'cards/WXDi-P13.json',
 'cards/WXDi-P12.json',
-
+'cards/WXDi-P11.json',
 
 /* -------------------------------------------------------------------------- */];/*/*/
 
