@@ -189,6 +189,7 @@ preloadImages([
 const gridLrigDeck = document.querySelector('.grid.lrig-deck');
 const gridMainDeck = document.querySelector('.grid.main-deck');
 const gridCardsList = document.querySelector('.grid.cards-list');
+const searchButton = document.querySelectorAll('.search-button');
 const searchLevelButtons = document.querySelectorAll(".level.search-button-container > .search-button");
 const searchColorButtons = document.querySelectorAll(".color.search-button-container > .search-button");
 const searchLbButton = document.querySelector(".lb.search-button-container > .lb.search-button");
@@ -198,6 +199,7 @@ const searchToolPopup = document.querySelector('.search-tool.popup-container');
 const searchToolPopupOverlay = document.querySelector('.search-tool.popup-overlay');
 const searchTypeButtons = document.querySelectorAll(".type.search-button-container > .search-button");
 const searchLtcButtons = document.querySelectorAll(".ltc.search-button-container > .search-button");
+const searchClearButton = document.querySelector(".clear.search-button-container > .clear.search-button");
 const cardDetailPopup = document.querySelector('.card-detail.popup-container');
 const cardDetailPopupOverlay = document.querySelector('.card-detail.popup-overlay');
 const cardDetailImg = cardDetailPopup.querySelector('img');
@@ -443,9 +445,13 @@ searchLbButton.addEventListener('click', function () {
     handleSearch();
 });
 
-
 // テキスト検索ボタン
 searchTextInput.addEventListener("input" , handleSearch);
+
+// 検索クリアボタン
+searchClearButton.addEventListener("click", function() {
+    searchButton.classList.remove('active');
+});
 
 // 検索ポップアップ
 searchPopupButton.addEventListener('click', function() {
