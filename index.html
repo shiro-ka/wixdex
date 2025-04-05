@@ -1,173 +1,176 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wixdex</title>
-    <link rel="icon" href="img/favicon/wixdex - 256×256.png" type="image/png">
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/yu.css">
-    <!-- フォント -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
-    <!-- Twemoji -->
-    <!--<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>-->
-</head>
-<body>
-    <header>
-    </header>
-    <main>
-        <!-- メイン -->
-        <div class="main-container">
-            <!-- ルリグデッキ欄 -->
-            <div class="lrig-deck deck-container">
-                <div class="deck-header">
-                    <div class="text-icon">
-                        <img src="img/girl/LrigDeck - 512×128.png">
-                    </div>
-                </div>
-                <div class=" lrig-deck deck">
-                    <div class=" lrig-deck grid"></div>
-                </div>
-            </div>
-            <!-- メインデッキ欄 -->
-            <div class="main-deck deck-container">
-                <div class="deck-header">
-                    <div class="text-icon">
-                        <img src="img/girl/MainDeck - 512×128.png">
-                    </div>
-                </div>
-                <div class=" main-deck deck">
-                    <div class=" main-deck grid"></div>
-                </div>
-            </div>
-            <!-- カードリスト欄 -->
-            <div class="cards-list-container">
-                <div class="grid cards-list"></div>
-            </div>
-            <!-- 検索ツール欄 -->
-            <div class="search-tool-container">
-                <div class="grid search-tool">
-                    <div class="level search-button-container">
-                        <div class="lv1 search-button" data-level="1">
-                            <img src="img/icon_level/icon_lv1_stroke.png"></div>
-                        <div class="lv2 search-button" data-level="2">
-                            <img src="img/icon_level/icon_lv2_stroke.png"></div>
-                        <div class="lv3 search-button" data-level="3">
-                            <img src="img/icon_level/icon_lv3_stroke.png"></div>
-                    </div>
-                    <div class="color search-button-container">
-                        <div class="white search-button" data-color="白">
-                            <img src="img/icon_color/icon_white_stroke.png"></div>
-                        <div class="red search-button" data-color="赤">
-                            <img src="img/icon_color/icon_red_stroke.png"></div>
-                        <div class="blue search-button" data-color="青">
-                            <img src="img/icon_color/icon_blue_stroke.png"></div>
-                        <div class="green search-button" data-color="緑">
-                            <img src="img/icon_color/icon_green_stroke.png"></div>
-                        <div class="black search-button" data-color="黒">
-                            <img src="img/icon_color/icon_black_stroke.png"></div>
-                    </div>
-                    <div class="lb search-button-container">
-                        <div class="lb search-button">
-                            <img src="img/girl/icon_LB_stroke.png"></div>
-                    </div>
-                    <div class="popup search-button-container">
-                        <div class="popup search-button" data-cardtype=""></div>
-                    </div>
-                    <div class="text search-button-container">
-                        <input type="text" class="search-text-input" placeholder="">
-                    </div>
-                    <div class="clear search-button-container">
-                        <div class="clear search-button">
-                            <img src="img/girl/icon_clear.png"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- 検索ポップアップ -->
-            <div class="search-tool popup-container">
-                <div class="inner">
-                    <p>カード種類</p>
-                    <div class="type search-button-container">
-                        <div class="lrig search-button" data-type="ルリグ">ルリグ</div>
-                        <div class="assist search-button" data-type="アシスト">アシスト</div>
-                        <div class="peice search-button" data-type="ピース">ピース</div>
-                        <div class="arts search-button" data-type="アーツ">アーツ</div>
-                        <div class="signi search-button" data-type="シグニ">シグニ</div>
-                        <div class="spell search-button" data-type="スペル">スペル</div>
-                    </div>
-                    <p>ルリグタイプ / クラス</p>
-                    <div class="ltc search-button-container grid">
-                        <div class="aiyai search-button" data-ltc="アイヤイ"><img src="img/icon_lrig/icon_aiyai.png">アイヤイ</div>
-                        <div class="akino search-button" data-ltc="アキノ"><img src="img/icon_lrig/icon_akino.png">アキノ</div>
-                        <div class="tama search-button" data-ltc="あきら"><img src="img/icon_lrig/icon_akira.png">あきら</div>
-                        <div class="tama search-button" data-ltc="アザエラ"><img src="img/icon_lrig/icon_azaela.png">アザエラ</div>
-                        <div class="tama search-button" data-ltc="アト"><img src="img/icon_lrig/icon_at.png">アト</div>
-                        <div class="tama search-button" data-ltc="あや"><img src="img/icon_lrig/icon_aya.png">あや</div>
-                        <div class="tama search-button" data-ltc="アルフォウ"><img src="img/icon_lrig/icon_alfou.png">アルフォウ</div>
-                        <div class="tama search-button" data-ltc="アン"><img src="img/icon_lrig/icon_ann.png">アン</div>
-                        <div class="tama search-button" data-ltc="イオナ"><img src="img/icon_lrig/icon_iona.png">イオナ</div>
-                        <div class="tama search-button" data-ltc="ウムル"><img src="img/icon_lrig/icon_umr.png">ウムル</div>
-                        <div class="tama search-button" data-ltc="ウリス"><img src="img/icon_lrig/icon_urith.png">ウリス</div>
-                        <div class="tama search-button" data-ltc="WOLF"><img src="img/icon_lrig/icon_wolf.png">WOLF</div>
-                        <div class="tama search-button" data-ltc="エクス"><img src="img/icon_lrig/icon_ex.png">エクス</div>
-                        <div class="tama search-button" data-ltc="エルドラ"><img src="img/icon_lrig/icon_eldora.png">エルドラ</div>
-                        <div class="tama search-button" data-ltc="カーニバル"><img src="img/icon_lrig/icon_carnival.png">カーニバル</div>
-                        <div class="tama search-button" data-ltc="ガブリエラ"><img src="img/icon_lrig/icon_gabriela.png">ガブリエラ</div>
-                        <div class="tama search-button" data-ltc="グズ子"><img src="img/icon_lrig/icon_guzuko.png">グズ子</div>
-                        <div class="tama search-button" data-ltc="サシェ"><img src="img/icon_lrig/icon_sashe.png">サシェ</div>
-                        <div class="tama search-button" data-ltc="サンガ"><img src="img/icon_lrig/icon_sanga.png">サンガ</div>
-                        <div class="tama search-button" data-ltc="タウィル"><img src="img/icon_lrig/icon_tawil.png">タウィル</div>
-                        <div class="tama search-button" data-ltc="タマ"><img src="img/icon_lrig/icon_tama.png">タマ</div>
-                        <div class="tama search-button" data-ltc="タマゴ"><img src="img/icon_lrig/icon_tamago.png">タマゴ</div>
-                        <div class="tama search-button" data-ltc="ちより"><img src="img/icon_lrig/icon_chiyori.png">ちより</div>
-                        <div class="tama search-button" data-ltc="デウス"><img src="img/icon_lrig/icon_deus.png">デウス</div>
-                        <div class="tama search-button" data-ltc="ドーナ"><img src="img/icon_lrig/icon_dona.png">ドーナ</div>
-                        <div class="tama search-button" data-ltc="ナナシ"><img src="img/icon_lrig/icon_nanashi.png">ナナシ</div>
-                        <div class="tama search-button" data-ltc="ノヴァ"><img src="img/icon_lrig/icon_nova.png">ノヴァ</div>
-                        <div class="tama search-button" data-ltc="花代"><img src="img/icon_lrig/icon_hanayo.png">花代</div>
-                        <div class="tama search-button" data-ltc="バン"><img src="img/icon_lrig/icon_bang.png">バン</div>
-                        <div class="tama search-button" data-ltc="ひとえ"><img src="img/icon_lrig/icon_hitoe.png">ひとえ</div>
-                        <div class="tama search-button" data-ltc="ヒラナ"><img src="img/icon_lrig/icon_hirana.png">ヒラナ</div>
-                        <div class="tama search-button" data-ltc="ピルルク"><img src="img/icon_lrig/icon_piruluk.png">ピルルク</div>
-                        <div class="tama search-button" data-ltc="マキナ"><img src="img/icon_lrig/icon_machina.png">マキナ</div>
-                        <div class="tama search-button" data-ltc="マドカ"><img src="img/icon_lrig/icon_madoka.png">マドカ</div>
-                        <div class="tama search-button" data-ltc="まほまほ"><img src="img/icon_lrig/icon_mahomaho.png">まほまほ</div>
-                        <div class="tama search-button" data-ltc="ママ"><img src="img/icon_lrig/icon_mama.png">ママ</div>
-                        <div class="tama search-button" data-ltc="ミカエラ"><img src="img/icon_lrig/icon_michaela.png">ミカエラ</div>
-                        <div class="tama search-button" data-ltc="みこみこ"><img src="img/icon_lrig/icon_mikomiko.png">みこみこ</div>
-                        <div class="tama search-button" data-ltc="緑子"><img src="img/icon_lrig/icon_midoriko.png">緑子</div>
-                        <div class="tama search-button" data-ltc="ミュウ"><img src="img/icon_lrig/icon_myu.png">ミュウ</div>
-                        <div class="tama search-button" data-ltc="ミルルン"><img src="img/icon_lrig/icon_milulun.png">ミルルン</div>
-                        <div class="tama search-button" data-ltc="夢限"><img src="img/icon_lrig/icon_mugen.png">夢限</div>
-                        <div class="tama search-button" data-ltc="ムジカ"><img src="img/icon_lrig/icon_muzica.png">ムジカ</div>
-                        <div class="tama search-button" data-ltc="メル"><img src="img/icon_lrig/icon_mel.png">メル</div>
-                        <div class="tama search-button" data-ltc="ゆかゆか"><img src="img/icon_lrig/icon_yukayuka.png">ゆかゆか</div>
-                        <div class="tama search-button" data-ltc="遊月"><img src="img/icon_lrig/icon_yuzuki.png">遊月</div>
-                        <div class="tama search-button" data-ltc="LOVEIT"><img src="img/icon_lrig/icon_lovit.png">LOVEIT</div>
-                        <div class="tama search-button" data-ltc="LION"><img src="img/icon_lrig/icon_lion.png">LION</div>
-                        <div class="tama search-button" data-ltc="リメンバ"><img src="img/icon_lrig/icon_remember.png">リメンバ</div>
-                        <div class="tama search-button" data-ltc="リル"><img src="img/icon_lrig/icon_ril.png">リル</div>
-                        <div class="tama search-button" data-ltc="るう子"><img src="img/icon_lrig/icon_ruuko.png">るう子</div>
-                        <div class="tama search-button" data-ltc="レイ"><img src="img/icon_lrig/icon_rei.png">レイ</div>
-                        <div class="tama search-button" data-ltc="レイラ"><img src="img/icon_lrig/icon_layla.png">レイラ</div>
-                    </div>
-                </div>
-            </div>
-            <!-- オーバーレイ -->
-            <div class="search-tool popup-overlay"></div>
-        </div>
-        <!-- カード詳細ポップアップ -->
-        <div class="card-detail popup-container">
-            <div class="card-container">
-                <img src=""></div>
-        </div>
 
-        <div class="card-detail popup-overlay"></div>
-    </main>
-    <div class="preload-imgs"></div>
-    <script src="assets/ma.js"></script>
-    <!--<script>twemoji.parse(document.body);</script>-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wixdex</title>
+  <link rel="icon" href="img/favicon/wixdex - 256×256.png" type="image/png">
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/yu.css">
+  <!-- フォント -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+  <!-- Twemoji -->
+  <!--<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>-->
+</head>
+
+<body>
+  <header>
+  </header>
+  <main>
+    <!-- メイン -->
+    <div class="main-container">
+      <!-- ルリグデッキ欄 -->
+      <div class="lrig-deck deck-container">
+        <div class="deck-header">
+          <div class="text-icon">
+            <img src="img/girl/LrigDeck - 512×128.png">
+            <p>ルリグデッキ</p>
+          </div>
+        </div>
+        <div class=" lrig-deck deck">
+          <div class=" lrig-deck grid"></div>
+        </div>
+      </div>
+      <!-- メインデッキ欄 -->
+      <div class="main-deck deck-container">
+        <div class="deck-header">
+            <img src="img/girl/MainDeck - 512×128.png">
+            <p>メインデッキ</p>
+        </div>
+        <div class=" main-deck deck">
+          <div class=" main-deck grid"></div>
+        </div>
+      </div>
+      <!-- カードリスト欄 -->
+      <div class="cards-list-container">
+        <div class="grid cards-list"></div>
+      </div>
+      <!-- 検索ツール欄 -->
+      <div class="search-tool-container">
+        <div class="grid search-tool">
+          <div class="level search-button-container">
+            <div class="lv1 search-button" data-level="1">
+              <img src="img/icon_level/icon_lv1_stroke.png"></div>
+            <div class="lv2 search-button" data-level="2">
+              <img src="img/icon_level/icon_lv2_stroke.png"></div>
+            <div class="lv3 search-button" data-level="3">
+              <img src="img/icon_level/icon_lv3_stroke.png"></div>
+          </div>
+          <div class="color search-button-container">
+            <div class="white search-button" data-color="白">
+              <img src="img/icon_color/icon_white_stroke.png"></div>
+            <div class="red search-button" data-color="赤">
+              <img src="img/icon_color/icon_red_stroke.png"></div>
+            <div class="blue search-button" data-color="青">
+              <img src="img/icon_color/icon_blue_stroke.png"></div>
+            <div class="green search-button" data-color="緑">
+              <img src="img/icon_color/icon_green_stroke.png"></div>
+            <div class="black search-button" data-color="黒">
+              <img src="img/icon_color/icon_black_stroke.png"></div>
+          </div>
+          <div class="lb search-button-container">
+            <div class="lb search-button">
+              <img src="img/girl/icon_LB_stroke.png"></div>
+          </div>
+          <div class="popup search-button-container">
+            <div class="popup search-button" data-cardtype=""></div>
+          </div>
+          <div class="text search-button-container">
+            <input type="text" class="search-text-input" placeholder="">
+          </div>
+          <div class="clear search-button-container">
+            <div class="clear search-button">
+              <img src="img/girl/icon_clear.png"></div>
+          </div>
+        </div>
+      </div>
+      <!-- 検索ポップアップ -->
+      <div class="search-tool popup-container">
+        <div class="inner">
+          <p>カード種類</p>
+          <div class="type search-button-container">
+            <div class="lrig search-button" data-type="ルリグ">ルリグ</div>
+            <div class="assist search-button" data-type="アシスト">アシスト</div>
+            <div class="peice search-button" data-type="ピース">ピース</div>
+            <div class="arts search-button" data-type="アーツ">アーツ</div>
+            <div class="signi search-button" data-type="シグニ">シグニ</div>
+            <div class="spell search-button" data-type="スペル">スペル</div>
+          </div>
+          <p>ルリグタイプ / クラス</p>
+          <div class="ltc search-button-container grid">
+            <div class="aiyai search-button" data-ltc="アイヤイ"><img src="img/icon_lrig/icon_aiyai.png">アイヤイ</div>
+            <div class="akino search-button" data-ltc="アキノ"><img src="img/icon_lrig/icon_akino.png">アキノ</div>
+            <div class="tama search-button" data-ltc="あきら"><img src="img/icon_lrig/icon_akira.png">あきら</div>
+            <div class="tama search-button" data-ltc="アザエラ"><img src="img/icon_lrig/icon_azaela.png">アザエラ</div>
+            <div class="tama search-button" data-ltc="アト"><img src="img/icon_lrig/icon_at.png">アト</div>
+            <div class="tama search-button" data-ltc="あや"><img src="img/icon_lrig/icon_aya.png">あや</div>
+            <div class="tama search-button" data-ltc="アルフォウ"><img src="img/icon_lrig/icon_alfou.png">アルフォウ</div>
+            <div class="tama search-button" data-ltc="アン"><img src="img/icon_lrig/icon_ann.png">アン</div>
+            <div class="tama search-button" data-ltc="イオナ"><img src="img/icon_lrig/icon_iona.png">イオナ</div>
+            <div class="tama search-button" data-ltc="ウムル"><img src="img/icon_lrig/icon_umr.png">ウムル</div>
+            <div class="tama search-button" data-ltc="ウリス"><img src="img/icon_lrig/icon_urith.png">ウリス</div>
+            <div class="tama search-button" data-ltc="WOLF"><img src="img/icon_lrig/icon_wolf.png">WOLF</div>
+            <div class="tama search-button" data-ltc="エクス"><img src="img/icon_lrig/icon_ex.png">エクス</div>
+            <div class="tama search-button" data-ltc="エルドラ"><img src="img/icon_lrig/icon_eldora.png">エルドラ</div>
+            <div class="tama search-button" data-ltc="カーニバル"><img src="img/icon_lrig/icon_carnival.png">カーニバル</div>
+            <div class="tama search-button" data-ltc="ガブリエラ"><img src="img/icon_lrig/icon_gabriela.png">ガブリエラ</div>
+            <div class="tama search-button" data-ltc="グズ子"><img src="img/icon_lrig/icon_guzuko.png">グズ子</div>
+            <div class="tama search-button" data-ltc="サシェ"><img src="img/icon_lrig/icon_sashe.png">サシェ</div>
+            <div class="tama search-button" data-ltc="サンガ"><img src="img/icon_lrig/icon_sanga.png">サンガ</div>
+            <div class="tama search-button" data-ltc="タウィル"><img src="img/icon_lrig/icon_tawil.png">タウィル</div>
+            <div class="tama search-button" data-ltc="タマ"><img src="img/icon_lrig/icon_tama.png">タマ</div>
+            <div class="tama search-button" data-ltc="タマゴ"><img src="img/icon_lrig/icon_tamago.png">タマゴ</div>
+            <div class="tama search-button" data-ltc="ちより"><img src="img/icon_lrig/icon_chiyori.png">ちより</div>
+            <div class="tama search-button" data-ltc="デウス"><img src="img/icon_lrig/icon_deus.png">デウス</div>
+            <div class="tama search-button" data-ltc="ドーナ"><img src="img/icon_lrig/icon_dona.png">ドーナ</div>
+            <div class="tama search-button" data-ltc="ナナシ"><img src="img/icon_lrig/icon_nanashi.png">ナナシ</div>
+            <div class="tama search-button" data-ltc="ノヴァ"><img src="img/icon_lrig/icon_nova.png">ノヴァ</div>
+            <div class="tama search-button" data-ltc="花代"><img src="img/icon_lrig/icon_hanayo.png">花代</div>
+            <div class="tama search-button" data-ltc="バン"><img src="img/icon_lrig/icon_bang.png">バン</div>
+            <div class="tama search-button" data-ltc="ひとえ"><img src="img/icon_lrig/icon_hitoe.png">ひとえ</div>
+            <div class="tama search-button" data-ltc="ヒラナ"><img src="img/icon_lrig/icon_hirana.png">ヒラナ</div>
+            <div class="tama search-button" data-ltc="ピルルク"><img src="img/icon_lrig/icon_piruluk.png">ピルルク</div>
+            <div class="tama search-button" data-ltc="マキナ"><img src="img/icon_lrig/icon_machina.png">マキナ</div>
+            <div class="tama search-button" data-ltc="マドカ"><img src="img/icon_lrig/icon_madoka.png">マドカ</div>
+            <div class="tama search-button" data-ltc="まほまほ"><img src="img/icon_lrig/icon_mahomaho.png">まほまほ</div>
+            <div class="tama search-button" data-ltc="ママ"><img src="img/icon_lrig/icon_mama.png">ママ</div>
+            <div class="tama search-button" data-ltc="ミカエラ"><img src="img/icon_lrig/icon_michaela.png">ミカエラ</div>
+            <div class="tama search-button" data-ltc="みこみこ"><img src="img/icon_lrig/icon_mikomiko.png">みこみこ</div>
+            <div class="tama search-button" data-ltc="緑子"><img src="img/icon_lrig/icon_midoriko.png">緑子</div>
+            <div class="tama search-button" data-ltc="ミュウ"><img src="img/icon_lrig/icon_myu.png">ミュウ</div>
+            <div class="tama search-button" data-ltc="ミルルン"><img src="img/icon_lrig/icon_milulun.png">ミルルン</div>
+            <div class="tama search-button" data-ltc="夢限"><img src="img/icon_lrig/icon_mugen.png">夢限</div>
+            <div class="tama search-button" data-ltc="ムジカ"><img src="img/icon_lrig/icon_muzica.png">ムジカ</div>
+            <div class="tama search-button" data-ltc="メル"><img src="img/icon_lrig/icon_mel.png">メル</div>
+            <div class="tama search-button" data-ltc="ゆかゆか"><img src="img/icon_lrig/icon_yukayuka.png">ゆかゆか</div>
+            <div class="tama search-button" data-ltc="遊月"><img src="img/icon_lrig/icon_yuzuki.png">遊月</div>
+            <div class="tama search-button" data-ltc="LOVEIT"><img src="img/icon_lrig/icon_lovit.png">LOVEIT</div>
+            <div class="tama search-button" data-ltc="LION"><img src="img/icon_lrig/icon_lion.png">LION</div>
+            <div class="tama search-button" data-ltc="リメンバ"><img src="img/icon_lrig/icon_remember.png">リメンバ</div>
+            <div class="tama search-button" data-ltc="リル"><img src="img/icon_lrig/icon_ril.png">リル</div>
+            <div class="tama search-button" data-ltc="るう子"><img src="img/icon_lrig/icon_ruuko.png">るう子</div>
+            <div class="tama search-button" data-ltc="レイ"><img src="img/icon_lrig/icon_rei.png">レイ</div>
+            <div class="tama search-button" data-ltc="レイラ"><img src="img/icon_lrig/icon_layla.png">レイラ</div>
+          </div>
+        </div>
+      </div>
+      <!-- オーバーレイ -->
+      <div class="search-tool popup-overlay"></div>
+    </div>
+    <!-- カード詳細ポップアップ -->
+    <div class="card-detail popup-container">
+      <div class="card-container">
+        <img src=""></div>
+    </div>
+
+    <div class="card-detail popup-overlay"></div>
+  </main>
+  <div class="preload-imgs"></div>
+  <script src="assets/ma.js"></script>
+  <!--<script>twemoji.parse(document.body);</script>-->
 </body>
+
 </html>
