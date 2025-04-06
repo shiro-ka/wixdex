@@ -666,14 +666,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (mainSameNameCards.length >= 4) {
         return;
       }
-      // LBをカウント
-      if (card.lifeBurst === "true") {
-        lifeBurstCount++;
-        lbCountDisplay.textContent = lifeBurstCount;
-      }
       // divをルリグデッキに追加してソート
       gridMainDeck.appendChild(cardElement);
       sortMainDeck();
+      // ステータス欄を更新
+      updateDeckStatusAdd(card);
     }
     /* カード操作のリスナー */
     // スマホ
@@ -723,12 +720,9 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < addCount; i++) {
       fragment.appendChild(createCardElement());
     }
-    if (card.lifeBurst === "true") {
-      lifeBurstCount += addCount;
-      lbCountDisplay.textContent = lifeBurstCount;
-    }
     gridMainDeck.appendChild(fragment);
     sortMainDeck();
+    updateDeckStatusFour(card, addCount)
   }
 
   // 削除
@@ -739,6 +733,25 @@ document.addEventListener('DOMContentLoaded', () => {
         deckCard.remove();
         break;
       }
+    }
+  }
+
+  /* ステータス欄を更新 */
+
+  // +1
+  function updateDeckStatusAdd(card) {
+    //LB
+    if (card.lifeBurst === "true") {
+      lifeBurstCount++;
+      lbCountDisplay.textContent = lifeBurstCount;
+    }
+  }
+
+  // +4
+  function updateDeckStatusFour(card, addCount) {
+    if (card.lifeBurst === "true") {
+      lifeBurstCount += addCount;
+      lbCountDisplay.textContent = lifeBurstCount;
     }
   }
 
