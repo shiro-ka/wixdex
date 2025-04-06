@@ -727,30 +727,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 削除
   function removeCardFromDeck(card) {
-    const deckCards = document.querySelectorAll('.deck .card-container');
-    for (let deckCard of deckCards) {
-      if (deckCard.dataset.name === card.name) {
-        deckCard.remove();
-        break;
+    if (['シグニ', 'スペル', 'サーバント'].includes(card.cardType[0])) {
+      const deckCards = document.querySelectorAll('.main-deck.grid .card-container');
+      for (let deckCard of deckCards) {
+        if (deckCard.dataset.name === card.name) {
+          updateDeckStatusRemove(card);
+          deckCard.remove();
+          break;
+        }
+      }
+    } else {
+      const deckCards = document.querySelectorAll('.lrig-deck.grid .card-container');
+      for (let deckCard of deckCards) {
+        if (deckCard.dataset.name === card.name) {
+          deckCard.remove();
+          break;
+        }
       }
     }
   }
 
   /* ステータス欄を更新 */
 
-  // +1
-  function updateDeckStatusAdd(card) {
-    //LB
-    if (card.lifeBurst === "true") {
-      lifeBurstCount++;
-      lbCountDisplay.textContent = lifeBurstCount;
-    }
-  }
+  updateDeckStatusRemove(card)
 
   // +4
   function updateDeckStatusFour(card, addCount) {
     if (card.lifeBurst === "true") {
       lifeBurstCount += addCount;
+      lbCountDisplay.textContent = lifeBurstCount;
+    }
+  }
+
+  // -1
+  function updateDeckStatusRemove(card) {
+    if (card.lifeBurst === "true") {
+      lifeBurstCount--;
       lbCountDisplay.textContent = lifeBurstCount;
     }
   }
