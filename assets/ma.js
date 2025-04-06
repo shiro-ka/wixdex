@@ -667,7 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
       // LBをカウント
-      if (card.lifeBurst === true) {
+      if (card.lifeBurst === "true") {
         lifeBurstCount++;
         lbCountDisplay.textContent = lifeBurstCount;
       }
@@ -723,7 +723,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < addCount; i++) {
       fragment.appendChild(createCardElement());
     }
-    if (card.lifeBurst === true) {
+    if (card.lifeBurst === "true") {
       lifeBurstCount += addCount;
       lbCountDisplay.textContent = lifeBurstCount;
     }
