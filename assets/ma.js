@@ -141,6 +141,7 @@ const cardJson = [
 
 /* 初期設定 */
 
+let lifeBurstCount = 0;
 let touchStartY = 0;
 let lifeBurstState = 0;
 let isVerticalScroll = false;
@@ -191,6 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const gridLrigDeck = document.querySelector('.grid.lrig-deck');
   const gridMainDeck = document.querySelector('.grid.main-deck');
   const gridCardsList = document.querySelector('.grid.cards-list');
+  const lbCountDisplay = document.querySelector('.lb-count');
   const searchButton = document.querySelectorAll(".search-button");
   const searchLevelButtons = document.querySelectorAll(".level.search-button-container > .search-button");
   const searchColorButtons = document.querySelectorAll(".color.search-button-container > .search-button");
@@ -664,6 +666,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (mainSameNameCards.length >= 4) {
         return;
       }
+      // LBをカウント
+      if (card.lifeBurst === true) {
+        lifeBurstCount++;
+        lbCountDisplay.textContent = lifeBurstCount;
+      }
       // divをルリグデッキに追加してソート
       gridMainDeck.appendChild(cardElement);
       sortMainDeck();
@@ -715,6 +722,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const fragment = document.createDocumentFragment();
     for (let i = 0; i < addCount; i++) {
       fragment.appendChild(createCardElement());
+    }
+    if (card.lifeBurst === true) {
+      lifeBurstCount += addCount;
+      lbCountDisplay.textContent = lifeBurstCount;
     }
     gridMainDeck.appendChild(fragment);
     sortMainDeck();
