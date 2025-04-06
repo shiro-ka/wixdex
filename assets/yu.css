@@ -152,27 +152,39 @@ main * {
   width: 100%;
   padding: 0 .5em;
 }
-
 .deck-header>img {
   display: none;
 }
-
 .deck-header>p {
   display: flex;
-  height: 1rem;
+  height: 1.5rem;
   margin-right: auto;
+}
+
+.deck-status {
+  height: 1.5rem;
+}
+.deck-status > img {
+  height: 1rem;
+  width: auto;
+  margin: 5px 0 auto 0;
+}
+.deck-status > p {
+  width: 2rem;
+  justify-content: center;
+  user-select: none;
 }
 
 @media (min-width: 774px) {
   .deck-header {
     height: 2rem;
   }
-  .deck-header>img {
+  .deck-header > img {
     display: flex;
     width: auto;
     margin-right: auto;
   }
-  .deck-header>p {
+  .deck-header > p {
     display: none;
   }
 }
