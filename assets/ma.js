@@ -749,7 +749,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ステータス欄を更新 */
 
-  updateDeckStatusRemove(card)
+  // +1
+  function updateDeckStatusAdd(card) {
+    //LB
+    if (card.lifeBurst === "true") {
+      lifeBurstCount++;
+      lbCountDisplay.textContent = lifeBurstCount;
+    }
+  }
 
   // +4
   function updateDeckStatusFour(card, addCount) {
@@ -761,11 +768,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // -1
   function updateDeckStatusRemove(card) {
-    if (card.lifeBurst === "true") {
+    if (card.lifeBurst === "true" && lifeBurstCount > 0) {
       lifeBurstCount--;
       lbCountDisplay.textContent = lifeBurstCount;
     }
   }
+
 
   /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
