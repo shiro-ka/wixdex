@@ -200,11 +200,10 @@ main * {
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(5, 3rem);
     direction: rtl;
-    writing-mode: vertical-rl;
+    writing-mode: horizontal-tb;
   }
   .deck-status-container > * {
     direction: ltr;
-  writing-mode: horizontal-tb;
   }
 }
 
