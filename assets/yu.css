@@ -161,9 +161,14 @@ main * {
   margin-right: auto;
 }
 
+.deck-status-container {
+  height: 100%;
+  width: 1.5rem;
+  margin-left: auto;
+}
 .deck-status {
-  height: 1.5rem;
-  margin-top: auto;
+  height: 100%;
+  width: 100%;
 }
 .deck-status > img {
   height: 1rem;
@@ -178,15 +183,22 @@ main * {
 
 @media (min-width: 774px) {
   .deck-header {
-    height: 2rem;
+    height: 3rem;
   }
   .deck-header > img {
     display: flex;
     width: auto;
     margin-right: auto;
+    padding-top: 0.5rem;
   }
   .deck-header > p {
     display: none;
+  }
+  .deck-status-container {
+    display: grid;
+    width: 7.5rem;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(5, 1.5rem);
   }
 }
 
@@ -218,13 +230,11 @@ main * {
   .grid.lrig-deck {
     height: 100%;
     grid-template-rows: 1fr;
-    gap: .5em;
   }
 
   .grid.main-deck {
     height: 100%;
     grid-template-rows: repeat(5, 1fr);
-    gap: .5em;
   }
 }
 
