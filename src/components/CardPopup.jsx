@@ -1,4 +1,4 @@
-function CardPopup({ card, onClose }) {
+function CardPopup({ card, onClose, basePath }) {
   if (!card) return null;
 
   return (
@@ -12,7 +12,7 @@ function CardPopup({ card, onClose }) {
       >
         <div className="w-full h-full flex items-center justify-center">
           <img
-            src={`/assets/cards_img/${card.image}`}
+            src={`${basePath}/assets/cards_img/${card.image}`}
             className="max-w-full max-h-full object-contain"
             alt={card.name}
           />

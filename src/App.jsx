@@ -136,6 +136,7 @@ function App() {
             onRemoveFromCandidate={handleRemoveFromCandidate}
             onCardClick={setPopupCard}
             lifeBurstCount={lifeBurstCount}
+            basePath="/wixdex"
           />
           {/* カードリスト欄 */}
           <CardList
@@ -147,6 +148,7 @@ function App() {
             onHover={setHoveredCard}
             onAddToCandidate={handleAddToCandidate}
             onCardClick={setPopupCard}
+            basePath="/wixdex"
           />
           {/* 検索欄 */}
           <SearchArea
@@ -156,11 +158,12 @@ function App() {
             onLevelFilter={handleLevelFilter}
             onLifeBurstFilter={handleLifeBurstFilter}
             onReset={handleReset}
+            basePath="/wixdex"
           />
         </div>
       </div>
       {/* ポップアップ */}
-      <CardPopup card={popupCard} onClose={() => setPopupCard(null)} />
+      <CardPopup card={popupCard} onClose={() => setPopupCard(null)} basePath="/wixdex" />
     </div>
   );
 }

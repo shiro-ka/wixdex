@@ -10,7 +10,7 @@ import iconLevel2 from '../assets/icon_level/icon_lv2_stroke.png';
 import iconLevel3 from '../assets/icon_level/icon_lv3_stroke.png';
 import iconLB from '../assets/icon_lb/icon_lb_stroke.png';
 
-function SearchArea({ hoveredCard, onColorFilter, onTextSearch, onLevelFilter, onLifeBurstFilter, onReset }) {
+function SearchArea({ hoveredCard, onColorFilter, onTextSearch, onLevelFilter, onLifeBurstFilter, onReset, basePath }) {
   const inputRef = useRef(null);
 
   const handleClear = () => {
@@ -33,7 +33,7 @@ function SearchArea({ hoveredCard, onColorFilter, onTextSearch, onLevelFilter, o
         {hoveredCard && (
           <div className="w-full h-full flex items-center justify-center">
             <img
-              src={`/assets/cards_img/${hoveredCard.image}`}
+              src={`${basePath}/assets/cards_img/${hoveredCard.image}`}
               className="max-w-full max-h-full object-contain"
               alt={hoveredCard.name}
             />

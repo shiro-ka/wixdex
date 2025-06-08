@@ -1,6 +1,6 @@
 import { PlusIcon, MinusIcon, ArrowLeftEndOnRectangleIcon } from '@heroicons/react/24/outline';
 
-function CardList({ cards, onAdd, onRemove, onHover, onAddToCandidate, onCardClick }) {
+function CardList({ cards, onAdd, onRemove, onHover, onAddToCandidate, onCardClick, basePath }) {
   return (
     <div className="border border-neutral-700 rounded-xl p-2
                     w-full md:w-96 2xl:w-140 
@@ -14,7 +14,7 @@ function CardList({ cards, onAdd, onRemove, onHover, onAddToCandidate, onCardCli
           <div className="w-full h-fit" key={card.id}>
             <div className="flex w-full xl:h-48 items-center">
               <img
-                src={`/assets/cards_img/${card.image}`}
+                src={`${basePath}/assets/cards_img/${card.image}`}
                 className="w-full object-contain cursor-pointer"
                 onMouseEnter={() => onHover(card)}
                 onClick={() => onCardClick(card)}

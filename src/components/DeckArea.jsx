@@ -2,7 +2,7 @@ import headerLrigDeck from '../assets/girl/LrigDeck.png';
 import headerMainDeck from '../assets/girl/MainDeck.png';
 import { PlusIcon, MinusIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline';
 
-function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards, onAddToCandidate, onRemoveFromCandidate, onCardClick, lifeBurstCount }) {
+function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards, onAddToCandidate, onRemoveFromCandidate, onCardClick, lifeBurstCount, basePath }) {
   const handleWheel = (e, card) => {
     e.preventDefault();
     if (e.deltaY < 0) {
@@ -18,7 +18,7 @@ function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards
         <div className='flex flex-col w-full h-fit'>
           <div className='flex w-full'>
             <div className='p-2 w-48 md:h-12 rounded-t-lg bg-gray-600/20'>
-              <img src={headerLrigDeck} alt="LrigDeck" className='w-full h-full object-contain mb-2'/>
+              <img src={`${basePath}/assets/girl/LrigDeck.png`} alt="LrigDeck" className='w-full h-full object-contain mb-2'/>
               <div className="h-px mx-4 bg-white/20"></div>
             </div>
           </div>
@@ -27,7 +27,7 @@ function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards
               {lrigDeck.map((card, index) => (
                 <div key={`${card.id}-${index}`} className="flex items-center">
                   <img
-                    src={`/assets/cards_img/${card.image}`}
+                    src={`${basePath}/assets/cards_img/${card.image}`}
                     className="w-full object-contain cursor-pointer"
                     alt={card.name}
                     onMouseEnter={() => onHover(card)}
@@ -42,7 +42,7 @@ function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards
         <div className='flex flex-col w-full'>
           <div className='flex w-full'>
             <div className='p-2 w-48 md:h-12 rounded-t-lg bg-gray-600/20'>
-              <img src={headerMainDeck} alt="MainDeck" className='w-full h-full object-contain mb-2'/>
+              <img src={`${basePath}/assets/girl/MainDeck.png`} alt="MainDeck" className='w-full h-full object-contain mb-2'/>
               <div className="h-px mx-4 bg-white/20"></div>
             </div>
             <div className="flex items-center gap-2">
@@ -55,7 +55,7 @@ function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards
               {mainDeck.map((card, index) => (
                 <div key={`${card.id}-${index}`} className="flex items-center">
                   <img
-                    src={`/assets/cards_img/${card.image}`}
+                    src={`${basePath}/assets/cards_img/${card.image}`}
                     className="w-full object-contain cursor-pointer"
                     alt={card.name}
                     onMouseEnter={() => onHover(card)}
@@ -77,7 +77,7 @@ function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards
             <div className="w-full h-fit" key={card.id}>
               <div className="flex w-full h-42 items-center">
                 <img
-                  src={`/assets/cards_img/${card.image}`}
+                  src={`${basePath}/assets/cards_img/${card.image}`}
                   className="w-full object-contain cursor-pointer"
                   onMouseEnter={() => onHover(card)}
                   onClick={() => onCardClick(card)}
