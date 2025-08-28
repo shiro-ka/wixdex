@@ -1,0 +1,769 @@
+[
+  {
+    "name": "玩具行進曲",
+    "subName": ["がんぐこうしんきょく", "おもちゃこうしんきょく"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-001.jpg",
+    "cardType": ["ピース"],
+    "lrigTypeClass": [""],
+    "level": "",
+    "color": ["白"],
+    "lifeBurst": "",
+    "tags": ["チームピース"]
+  },
+
+  {
+    "name": "アフタヌーンティーショー",
+    "subName": ["あふたぬーんてぃーしょー"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-002.jpg",
+    "cardType": ["ピース"],
+    "lrigTypeClass": [""],
+    "level": "",
+    "color": ["緑"],
+    "lifeBurst": "",
+    "tags": ["チームピース"]
+  },
+
+  {
+    "name": "ライク・ア・フレンズ",
+    "subName": ["らいくあふれんず"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-003.jpg",
+    "cardType": ["ピース"],
+    "lrigTypeClass": [""],
+    "level": "",
+    "color": ["黒"],
+    "lifeBurst": "",
+    "tags": ["チームピース"]
+  },
+
+  {
+    "name": "み～んなではじめるアイドルライフ！",
+    "subName": ["みーんなではじめるあいどるらいふ", "ぷりぱらぴーす"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-004.jpg",
+    "cardType": ["ピース"],
+    "lrigTypeClass": [""],
+    "level": "",
+    "color": ["無"],
+    "lifeBurst": "",
+    "tags": ["チームピース", "プリパラ"]
+  },
+
+  {
+    "name": "共宴の巫女　リメンバ・ディナー",
+    "subName": ["きょうえんのみこりめんばでぃなー"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-005.jpg",
+    "cardType": ["ルリグ"],
+    "lrigTypeClass": ["リメンバ"],
+    "level": 3,
+    "color": ["白"],
+    "lifeBurst": "",
+    "tags": [""]
+  },
+
+  {
+    "name": "火露炎　花代・参",
+    "subName": ["ひろうえんはなよさん", "かろえんはなよさん"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-006.jpg",
+    "cardType": ["ルリグ"],
+    "lrigTypeClass": ["花代"],
+    "level": 3,
+    "color": ["赤"],
+    "lifeBurst": "",
+    "tags": [""]
+  },
+
+  {
+    "name": "ミルルン・セツナ",
+    "subName": ["みるるんせつな"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-007.jpg",
+    "cardType": ["ルリグ"],
+    "lrigTypeClass": ["ミルルン"],
+    "level": 3,
+    "color": ["青"],
+    "lifeBurst": "",
+    "tags": [""]
+  },
+
+  {
+    "name": "参上　緑姫",
+    "subName": ["さんじょうみどりこ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-008.jpg",
+    "cardType": ["ルリグ"],
+    "lrigTypeClass": ["緑子"],
+    "level": 3,
+    "color": ["緑"],
+    "lifeBurst": "",
+    "tags": [""]
+  },
+
+  {
+    "name": "掌握の冥者　ハナレ",
+    "subName": ["しょうあくのめいじゃはなれ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-009.jpg",
+    "cardType": ["ルリグ"],
+    "lrigTypeClass": ["ハナレ"],
+    "level": 3,
+    "color": ["黒"],
+    "lifeBurst": "",
+    "tags": [""]
+  },
+
+  {
+    "name": "遊月・ガーネット",
+    "subName": ["ゆづきがーねっと"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-023.jpg",
+    "cardType": ["アシストルリグ"],
+    "lrigTypeClass": ["ユヅキ"],
+    "level": 1,
+    "color": ["赤"],
+    "lifeBurst": "",
+    "tags": [""]
+  },
+
+  {
+    "name": "遊月・ルビー",
+    "subName": ["ゆづきるびー"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-024.jpg",
+    "cardType": ["アシストルリグ"],
+    "lrigTypeClass": ["ユヅキ"],
+    "level": 1,
+    "color": ["赤"],
+    "lifeBurst": "",
+    "tags": [""]
+  },
+
+  {
+    "name": "遊月・レッドベリル",
+    "subName": ["ゆづきれっどべりる"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-025.jpg",
+    "cardType": ["アシストルリグ"],
+    "lrigTypeClass": ["ユヅキ"],
+    "level": 2,
+    "color": ["赤"],
+    "lifeBurst": "",
+    "tags": [""]
+  },
+
+  {
+    "name": "遊月・アンデシン",
+    "subName": ["ゆづきあんでしん"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-026.jpg",
+    "cardType": ["アシストルリグ"],
+    "lrigTypeClass": ["ユヅキ"],
+    "level": 2,
+    "color": ["赤"],
+    "lifeBurst": "",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "遊月・ルベライト",
+    "subName": ["ゆづきるべらいと"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-027.jpg",
+    "cardType": ["アシストルリグ"],
+    "lrigTypeClass": ["ユヅキ"],
+    "level": 2,
+    "color": ["赤"],
+    "lifeBurst": "",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "ウリス・スケアー",
+    "subName": ["うりすすけあー"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-028.jpg",
+    "cardType": ["アシストルリグ"],
+    "lrigTypeClass": ["ウリス"],
+    "level": 1,
+    "color": ["黒"],
+    "lifeBurst": "",
+    "tags": [""]
+  },
+
+  {
+    "name": "ウリス・マッド",
+    "subName": ["うりすまっど"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-029.jpg",
+    "cardType": ["アシストルリグ"],
+    "lrigTypeClass": ["ウリス"],
+    "level": 1,
+    "color": ["黒"],
+    "lifeBurst": "",
+    "tags": [""]
+  },
+
+  {
+    "name": "ウリス・オーラ",
+    "subName": ["うりすおーら"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-030.jpg",
+    "cardType": ["アシストルリグ"],
+    "lrigTypeClass": ["ウリス"],
+    "level": 2,
+    "color": ["黒"],
+    "lifeBurst": "",
+    "tags": [""]
+  },
+
+  {
+    "name": "ウリス・ブラッディ",
+    "subName": ["うりすぶらっでぃ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-031.jpg",
+    "cardType": ["アシストルリグ"],
+    "lrigTypeClass": ["ウリス"],
+    "level": 2,
+    "color": ["黒"],
+    "lifeBurst": "",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "ウリス・アフリクト",
+    "subName": ["うりすあふりくと"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-032.jpg",
+    "cardType": ["アシストルリグ"],
+    "lrigTypeClass": ["ウリス"],
+    "level": 2,
+    "color": ["黒"],
+    "lifeBurst": "",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "プリパラアイドル　真中らぁら",
+    "subName": ["ぷりぱらあいどるまなからぁら", "かしこまっ！"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-033.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 3,
+    "color": ["白"],
+    "lifeBurst": "false",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "羅植姫　ユキ//メモリア",
+    "subName": ["ゆきめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-034.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：植物"],
+    "level": 3,
+    "color": ["白"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "幻水姫　セイレーン",
+    "subName": ["げんすいひめせいれーん", "げんすいきせいれーん"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-035.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：水獣"],
+    "level": 3,
+    "color": ["白"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅星姫　アンドロメダ",
+    "subName": ["らせいきあんどろめだ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-036.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：宇宙"],
+    "level": 3,
+    "color": ["赤"],
+    "lifeBurst": "true",
+    "tags": ["レベル1"]
+  },
+
+  {
+    "name": "幻竜歌姫　オロチ",
+    "subName": ["げんりゅううたひめおろち"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-037.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：龍獣"],
+    "level": 3,
+    "color": ["赤"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "プリパラアイドル　紫京院ひびき",
+    "subName": ["ぷりぱらあいどるしきょういんひびき"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-038.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 3,
+    "color": ["青"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "蒼魔姫　リッチレーサー",
+    "subName": ["そうまきりっちれーさー"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-039.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：悪魔"],
+    "level": 3,
+    "color": ["青"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "コードオーダー　エルドラ//メモリア",
+    "subName": ["こーどおーだーえるどらめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-040.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：調理"],
+    "level": 3,
+    "color": ["青"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅植姫　タナバタ",
+    "subName": ["らしょくきくなばた"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-041.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：植物"],
+    "level": 3,
+    "color": ["緑"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "コードハート　ピルルクＷ//メモリア",
+    "subName": ["こーどはーとぴるるくわっとめもりあ", "こーどはーとぴるるくだぶりゅーめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-042.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：電機"],
+    "level": 3,
+    "color": ["緑"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅星姫　ミュウ//メモリア",
+    "subName": ["らせいきみゅうめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-043.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：宇宙"],
+    "level": 3,
+    "color": ["黒"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "コードラビリンス　ムジカ//メモリア",
+    "subName": ["こーどらびりんすむじかめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-044.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：迷宮"],
+    "level": 3,
+    "color": ["黒"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "プリパラアイドル　北条そふぃ",
+    "subName": ["ぷりぱらあいどるほうじょうそふぃ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-045.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 1,
+    "color": ["白"],
+    "lifeBurst": "true",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "聖天　アルテミス",
+    "subName": ["せいてんあるてみす"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-046.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：天使"],
+    "level": 1,
+    "color": ["白"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "偉智の遊　タマ//メモリア",
+    "subName": ["いちのゆうたまめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-047.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：遊具"],
+    "level": 1,
+    "color": ["白"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "プリパラアイドル　南みれぃ",
+    "subName": ["ぷりぱらあいどるみなみみれぃ", "ぷりぱらあいどるみなみみれい"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-048.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 2,
+    "color": ["白"],
+    "lifeBurst": "true",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "幻怪　コックリサン",
+    "subName": ["げんかいこっくりさん"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-049.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：怪異"],
+    "level": 2,
+    "color": ["白"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "コール・アウト",
+    "subName": ["こーるあうと"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-050.jpg",
+    "cardType": ["スペル"],
+    "lrigTypeClass": [""],
+    "level": "",
+    "color": ["白"],
+    "lifeBurst": "true",
+    "tags": ["エクシード"]
+  },
+
+  {
+    "name": "プリパラアイドル　ガァルル",
+    "subName": ["ぷりぱらあいどるがぁるる", "ぷりぱらあいどるがあるる"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-051.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 1,
+    "color": ["赤"],
+    "lifeBurst": "false",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "小装　リル//メモリア",
+    "subName": ["しょうそうりるめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-052.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：アーム"],
+    "level": 1,
+    "color": ["赤"],
+    "lifeBurst": "false",
+    "tags": ["コイン"]
+  },
+
+  {
+    "name": "コードアート　Ｈットカーペット",
+    "subName": ["こーどあーとえいちっとかーぺっと", "こーどあーとほっとかーぺっと"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-053.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：電機"],
+    "level": 1,
+    "color": ["赤"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "プリパラアイドル　白玉みかん",
+    "subName": ["ぷりぱらあいどるしらたまみかん"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-054.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 2,
+    "color": ["赤"],
+    "lifeBurst": "true",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "紅天　プロメウス",
+    "subName": ["こうてんぷろめてうす"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-055.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：天使"],
+    "level": 2,
+    "color": ["赤"],
+    "lifeBurst": "false",
+    "tags": ["天使"]
+  },
+
+  {
+    "name": "プリパラアイドル　黒須あろま",
+    "subName": ["ぷりぱらあいどるくろすあろま"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-056.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 3,
+    "color": ["赤"],
+    "lifeBurst": "false",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "炎神の大鎌",
+    "subName": ["えんじんのおおがま"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-057.jpg",
+    "cardType": ["スペル"],
+    "lrigTypeClass": [""],
+    "level": "",
+    "color": ["赤"],
+    "lifeBurst": "true",
+    "tags": ["エクシード"]
+  },
+
+  {
+    "name": "プリパラアイドル　緑風ふわり",
+    "subName": ["ぷりぱらあいどるみどりかぜふわり"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-058.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 1,
+    "color": ["青"],
+    "lifeBurst": "false",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "蒼将　サイトウ",
+    "subName": ["そうしょうさいとう"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-059.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：武勇"],
+    "level": 1,
+    "color": ["青"],
+    "lifeBurst": "false",
+    "tags": ["凍結状態"]
+  },
+
+  {
+    "name": "コードアンチ　マドカ//メモリア",
+    "subName": ["こーどあんちまどかめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-060.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：古代兵器"],
+    "level": 1,
+    "color": ["青"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "プリパラアイドル　ファルル",
+    "subName": ["ぷりぱらあいどるふぁるる"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-061.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 2,
+    "color": ["青"],
+    "lifeBurst": "false",
+    "tags": ["プリパラ", "ハンデス", "凍結"]
+  },
+
+  {
+    "name": "蒼魔　アロス・ピルルク//メモリア",
+    "subName": ["そうまあろすぴるるくめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-062.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：悪魔"],
+    "level": 2,
+    "color": ["青"],
+    "lifeBurst": "false",
+    "tags": ["コイン", "ハンデス"]
+  },
+
+  {
+    "name": "INVESTIGATE",
+    "subName": ["いんべすてぃげいと", "いんべすてぃげーと"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-063.jpg",
+    "cardType": ["スペル"],
+    "lrigTypeClass": [""],
+    "level": "",
+    "color": ["青"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "プリパラアイドル　太陽ペッパー",
+    "subName": ["ぷりぱらあいどるたいようぺっぱー"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-064.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 1,
+    "color": ["緑"],
+    "lifeBurst": "false",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "翠魔　マンドラゴラ",
+    "subName": ["すいままんどらごら"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-065.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：悪魔"],
+    "level": 1,
+    "color": ["緑"],
+    "lifeBurst": "true",
+    "tags": ["悪魔"]
+  },
+
+  {
+    "name": "羅菌　メル//メモリア",
+    "subName": ["らきんめるめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-066.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：微菌"],
+    "level": 1,
+    "color": ["緑"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "プリパラアイドル　月川ちり",
+    "subName": ["ぷりぱらあいどるつきかわちり"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-067.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 2,
+    "color": ["緑"],
+    "lifeBurst": "false",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "ツヴァイ＝サンガ//メモリア",
+    "subName": ["つヴぁいさんがめもりあ", "つばいさんがめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-068.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：毒牙"],
+    "level": 2,
+    "color": ["緑"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "プリパラアイドル　真中のん",
+    "subName": ["ぷりぱらあいどるまなかのん"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-069.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 3,
+    "color": ["緑"],
+    "lifeBurst": "true",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "枝折",
+    "subName": ["しおり", "しせつ", "えだおり"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-070.jpg",
+    "cardType": ["スペル"],
+    "lrigTypeClass": [""],
+    "level": "",
+    "color": ["緑"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "プリパラアイドル　レオナ・ウェスト",
+    "subName": ["ぷりぱらあいどるれおなうぇすと", "プリパラで一番可愛いと噂のあの娘"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-071.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 1,
+    "color": ["黒"],
+    "lifeBurst": "false",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "凶美　アルフォウ//メモリア",
+    "subName": ["きょうびあるふぉうめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-072.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：美巧"],
+    "level": 1,
+    "color": ["黒"],
+    "lifeBurst": "true",
+    "tags": ["ライブラリアウト"]
+  },
+
+  {
+    "name": "小罠　グズ子//メモリア",
+    "subName": ["しょうびんぐずこめもりあ", "こわなぐずこめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-073.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：トリック"],
+    "level": 1,
+    "color": ["黒"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "プリパラアイドル　ドロシー・ウェスト",
+    "subName": ["ぷりぱらあいどるどろしーうぇすと"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-074.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 2,
+    "color": ["黒"],
+    "lifeBurst": "true",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "幻竜　ウリス//メモリア",
+    "subName": ["げんりゅううりすめもりあ"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-075.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：龍獣"],
+    "level": 2,
+    "color": ["黒"],
+    "lifeBurst": "false",
+    "tags": ["エクシード"]
+  },
+
+  {
+    "name": "プリパラアイドル　東堂シオン",
+    "subName": ["ぷりぱらあいどるとうどうしおん"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-076.jpg",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：プリパラ"],
+    "level": 3,
+    "color": ["黒"],
+    "lifeBurst": "false",
+    "tags": ["プリパラ"]
+  },
+
+  {
+    "name": "ウェルカム・バック",
+    "subName": ["うぇるかむばっく"],
+    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-077.jpg",
+    "cardType": ["スペル"],
+    "lrigTypeClass": [""],
+    "level": "",
+    "color": ["黒"],
+    "lifeBurst": "true",
+    "tags": [""]
+  }
+]
