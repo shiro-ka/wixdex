@@ -24,7 +24,7 @@ function App() {
   const [searchText, setSearchText] = useState('');
   const [popupCard, setPopupCard] = useState(null);
 
-  // カードデータjsonをallCardDataにまとめる
+  // 複数セットのカードデータをまとめる
   const allCardData = useMemo(() => [
     ...cardDataWX24P4,
     ...cardDataWXDiP16,
@@ -59,6 +59,18 @@ function App() {
         newLevels.add(level);
       }
       return newLevels;
+    });
+  };
+
+  const handleCardTypeFilter = (cardType) => {
+    setSelectedCardTypes(prev => {
+      const newTypes = new Set(prev);
+      if (newTypes.has(cardType)) {
+        newTypes.delete(cardType);
+      } else {
+        newTypes.add(cardType);
+      }
+      return newTypes;
     });
   };
 
@@ -99,13 +111,15 @@ function App() {
     setSelectedColors(new Set());
     // レベルフィルターをリセット
     setSelectedLevels(new Set());
+    // カード種類フィルターをリセット
+    setSelectedCardTypes(new Set());
     // ライフバーストフィルターをリセット
     setLifeBurstFilter(null);
     // テキスト検索をリセット
     setSearchText('');
   };
 
-  const filteredCards = cardData.filter(card => {
+  const filteredCards = allCardData.filter(card => {
     // 色によるフィルタリング
     const colorMatch = selectedColors.size === 0 || 
       card.color.some(color => selectedColors.has(color));
@@ -113,6 +127,10 @@ function App() {
     // レベルによるフィルタリング
     const levelMatch = selectedLevels.size === 0 || 
       selectedLevels.has(card.level);
+
+    // カード種類によるフィルタリング
+    const cardTypeMatch = selectedCardTypes.size === 0 || 
+      card.cardType.some(type => selectedCardTypes.has(type));
 
     // ライフバーストによるフィルタリング
     const lifeBurstMatch = lifeBurstFilter === null || 
@@ -124,14 +142,16 @@ function App() {
       card.subName.some(name => name.toLowerCase().includes(searchText.toLowerCase()));
 
     // 全ての条件を満たすカードのみを表示
-    return colorMatch && levelMatch && lifeBurstMatch && textMatch;
+    return colorMatch && levelMatch && cardTypeMatch && lifeBurstMatch && textMatch;
   });
 
   return (
     <div className="w-dvw bg-gray-200 dark:bg-zinc-800">
       {/* ヘッダー */}
-      <div className='h-16 w-full bg-sky-200/60 dark:bg-zinc-950/70 flex items-center justify-end px-4'>
-        <Bars2Icon className="h-8 w-8 text-gray-700 dark:text-gray-300" />
+      <div className='h-16 w-full bg-sky-200/60 dark:bg-zinc-950/70 flex items-center px-4'>
+        <div className='flex items-center hover:cursor-pointer hover:bg-zinc-800/30 rounded-xl p-2 ml-auto'>
+          <Bars2Icon className="h-8 w-8 text-gray-700 dark:text-gray-300" />
+        </div>
       </div>
       {/* メイン */}
       <div className='p-4 w-full md:h-[calc(100dvh-4rem)]'>
@@ -167,10 +187,15 @@ function App() {
           {/* 検索欄 */}
           <SearchArea
             hoveredCard={hoveredCard}
+            selectedColors={selectedColors}
+            selectedLevels={selectedLevels}
+            selectedCardTypes={selectedCardTypes}
+            lifeBurstFilter={lifeBurstFilter}
             onColorFilter={handleColorFilter}
             onTextSearch={setSearchText}
             onLevelFilter={handleLevelFilter}
             onLifeBurstFilter={handleLifeBurstFilter}
+            onCardTypeFilter={handleCardTypeFilter}
             onReset={handleReset}
             basePath="/wixdex"
           />
