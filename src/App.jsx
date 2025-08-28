@@ -3,7 +3,11 @@ import CardList from './components/CardList';
 import DeckArea from './components/DeckArea';
 import SearchArea from './components/SearchArea';
 import CardPopup from './components/CardPopup';
-import cardData from './assets/cards_json/WXDi-P16.json';
+import cardDataWX24P4 from './assets/cards_json/WX24-P4.json';
+import cardDataWXDiP16 from './assets/cards_json/WXDi-P16.json';
+import cardDataWXDiP15 from './assets/cards_json/WXDi-P15.json';
+import cardDataWXDiP13 from './assets/cards_json/WXDi-P13.json';
+import cardDataWXDiP12 from './assets/cards_json/WXDi-P12.json';
 import { handleAddCard } from './handlers/handleAddCard';
 import { handleRemoveCard } from './handlers/handleRemoveCard';
 import { Bars2Icon } from '@heroicons/react/24/outline';
@@ -14,10 +18,20 @@ function App() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [selectedColors, setSelectedColors] = useState(new Set());
   const [selectedLevels, setSelectedLevels] = useState(new Set());
+  const [selectedCardTypes, setSelectedCardTypes] = useState(new Set());
   const [lifeBurstFilter, setLifeBurstFilter] = useState(null);
   const [candidateCards, setCandidateCards] = useState([]);
   const [searchText, setSearchText] = useState('');
   const [popupCard, setPopupCard] = useState(null);
+
+  // カードデータjsonをallCardDataにまとめる
+  const allCardData = useMemo(() => [
+    ...cardDataWX24P4,
+    ...cardDataWXDiP16,
+    ...cardDataWXDiP13,
+    ...cardDataWXDiP15,
+    ...cardDataWXDiP12,
+  ], []);
 
   // ライフバーストカードの枚数を計算
   const lifeBurstCount = useMemo(() => {
