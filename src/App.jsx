@@ -148,7 +148,7 @@ function App() {
   return (
     <div className="w-dvw h-dvh bg-gray-950">
       {/* ヘッダー - - - - - - - - - - - - - - - - */}
-      <div className='flex absolute z-10 w-full h-12 bg-zinc-950/20 px-4 items-center'>
+      <div className='flex absolute z-10 w-full h-12 bg-zinc-950/10 px-4 items-center'>
         <div className='flex items-center hover:cursor-pointer hover:bg-zinc-800/30 rounded-xl p-2 ml-auto'>
           <Bars2Icon className="h-8 w-8 text-gray-700 dark:text-gray-300" />
         </div>
@@ -174,7 +174,7 @@ function App() {
           />
         </div>
         {/* カードリスト欄 */}
-        <div className='py-4'>
+        <div className='h-26 pb-4'>
           <CardList
             cards={filteredCards}
             onAdd={(card) =>
@@ -188,7 +188,7 @@ function App() {
           />
         </div>
         {/* 検索欄 */}
-        <div className='px-4 py-2 bg-blue-700'>
+        <div className='h-20 px-4 py-2 bg-blue-700'>
           <SearchArea
             hoveredCard={hoveredCard}
             selectedColors={selectedColors}

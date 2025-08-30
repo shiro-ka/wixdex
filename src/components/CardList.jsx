@@ -3,7 +3,7 @@ import { PlusIcon, MinusIcon, ArrowLeftEndOnRectangleIcon } from '@heroicons/rea
 function CardList({ cards, onAdd, onRemove, onHover, onAddToCandidate, onCardClick, basePath }) {
   return (
     <div className="
-      flex max-w-full h-22 gap-2 overflow-x-auto
+      flex max-w-full gap-2 overflow-x-auto
       md:grid
       md:grid-cols-[repeat(2,_8rem)] md:grid-rows-[content-fit] md:overflow-y-auto md:max-h-full
       lg:grid-cols-[repeat(3,_8rem)]"
