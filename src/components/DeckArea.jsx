@@ -14,6 +14,7 @@ function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards
 
   return (
     <div className='flex flex-col gap-4 w-full md:flex-1'>
+      {/* ルリグデッキ */}
       <div className='flex flex-col gap-4 w-full h-fit'>
         <div className='flex flex-col w-full h-fit'>
           <div className='flex w-full'>

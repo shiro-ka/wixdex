@@ -146,17 +146,17 @@ function App() {
   });
 
   return (
-    <div className="w-dvw bg-gray-200 dark:bg-zinc-800">
-      {/* ヘッダー */}
-      <div className='h-16 w-full bg-sky-200/60 dark:bg-zinc-950/70 flex items-center px-4'>
+    <div className="w-dvw h-dvh bg-gray-950">
+      {/* ヘッダー - - - - - - - - - - - - - - - - */}
+      <div className='flex absolute z-10 w-full h-12 bg-zinc-950/20 px-4 items-center'>
         <div className='flex items-center hover:cursor-pointer hover:bg-zinc-800/30 rounded-xl p-2 ml-auto'>
           <Bars2Icon className="h-8 w-8 text-gray-700 dark:text-gray-300" />
         </div>
       </div>
-      {/* メイン */}
-      <div className='p-4 w-full md:h-[calc(100dvh-4rem)]'>
-        <div className='container flex md:flex-row gap-4 mx-auto w-full h-fit md:h-full'>
-          {/* デッキ欄 */}
+      {/* メイン - - - - - - - - - - - - - - - - - */}
+      <div className='flex flex-col absolute z-0 container h-full pt-12'>
+        {/* デッキ欄 */}
+        <div className='flex-1 p-4'>
           <DeckArea
             mainDeck={mainDeck}
             lrigDeck={lrigDeck}
@@ -172,6 +172,7 @@ function App() {
             lifeBurstCount={lifeBurstCount}
             basePath="/wixdex"
           />
+        </div>
           {/* カードリスト欄 */}
           <CardList
             cards={filteredCards}
@@ -184,7 +185,8 @@ function App() {
             onCardClick={setPopupCard}
             basePath="/wixdex"
           />
-          {/* 検索欄 */}
+        {/* 検索欄 */}
+        <div className='p-4 bg-gray-950/80'>
           <SearchArea
             hoveredCard={hoveredCard}
             selectedColors={selectedColors}
@@ -201,7 +203,7 @@ function App() {
           />
         </div>
       </div>
-      {/* ポップアップ */}
+      {/* ポップアップ - - - - - - - - - - - - - - - - */}
       <CardPopup card={popupCard} onClose={() => setPopupCard(null)} basePath="/wixdex" />
     </div>
   );
