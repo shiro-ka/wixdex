@@ -173,7 +173,8 @@ function App() {
             basePath="/wixdex"
           />
         </div>
-          {/* カードリスト欄 */}
+        {/* カードリスト欄 */}
+        <div className='py-4'>
           <CardList
             cards={filteredCards}
             onAdd={(card) =>
@@ -185,8 +186,9 @@ function App() {
             onCardClick={setPopupCard}
             basePath="/wixdex"
           />
+        </div>
         {/* 検索欄 */}
-        <div className='p-4 bg-gray-950/80'>
+        <div className='px-4 py-2 bg-blue-700'>
           <SearchArea
             hoveredCard={hoveredCard}
             selectedColors={selectedColors}
@@ -203,7 +205,7 @@ function App() {
           />
         </div>
       </div>
-      {/* ポップアップ - - - - - - - - - - - - - - - - */}
+      {/* ポップアップ - - - - - - - - - - - - - - */}
       <CardPopup card={popupCard} onClose={() => setPopupCard(null)} basePath="/wixdex" />
     </div>
   );

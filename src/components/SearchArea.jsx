@@ -26,8 +26,8 @@ function SearchArea({ hoveredCard, onColorFilter, onTextSearch, onLevelFilter, o
   };
 
   return (
-    <div className='w-full md:w-48 2xl:w-96 gap-4'>
-      {/* ホバープレビュー */}
+    <div className=''>
+      {/* ホバープレビュー - - - - - - - - - - - - */}
       <div className='hidden sm:block w-full 2xl:h-132 border border-neutral-700 rounded-xl p-4'>
         {hoveredCard && (
           <div className="w-full h-full flex items-center justify-center">
@@ -39,28 +39,9 @@ function SearchArea({ hoveredCard, onColorFilter, onTextSearch, onLevelFilter, o
           </div>
         )}
       </div>
-      <div className="flex flex-col md:grow gap-4">
-        <div className="flex w-full 2xl:h-12 border border-neutral-700 rounded-xl">
-          <div className='h-full w-16 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer'>
-            <MagnifyingGlassIcon className="w-6 h-6"/>
-          </div>
-          <div className="w-px my-2 bg-neutral-700"></div>
-          <div className="relative w-full h-full">
-            <input
-              ref={inputRef}
-              type="text"
-              placeholder="テキストで検索"
-              className="w-full h-full pl-4 pr-10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              onChange={(e) => onTextSearch(e.target.value)}
-            />
-            <div 
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white cursor-pointer"
-              onClick={handleClear}
-            >
-              <XCircleIcon className="w-5 h-5" />
-            </div>
-          </div>
-        </div>
+      {/* 検索欄 - - - - - - - - - - - - - - - - - */}
+      <div className="">
+        {/* 色/Lv/LB */}
         <div className="flex w-full 2xl:h-12 border border-neutral-700 rounded-xl">
           <div className="flex flex-1 items-center justify-center cursor-pointer" onClick={() => onColorFilter('白')}>
             <img src={iconWhite} alt="白" className="w-6 h-6" />
@@ -81,8 +62,6 @@ function SearchArea({ hoveredCard, onColorFilter, onTextSearch, onLevelFilter, o
           <div className="flex flex-1 items-center justify-center cursor-pointer" onClick={() => onColorFilter('黒')}>
             <img src={iconBlack} alt="黒" className="w-6 h-6" />
           </div>
-        </div>
-        <div className='flex w-full 2xl:h-12 gap-4'>
           <div className="flex flex-3 border border-neutral-700 rounded-xl">
             <div className="flex flex-1 items-center justify-center cursor-pointer" onClick={() => onLevelFilter(1)}>
               <img src={iconLevel1} alt="1" className="w-6 h-6" />
@@ -99,6 +78,28 @@ function SearchArea({ hoveredCard, onColorFilter, onTextSearch, onLevelFilter, o
           <div className="flex flex-1 border border-neutral-700 rounded-xl cursor-pointer" onClick={onLifeBurstFilter}>
             <div className="flex flex-1 items-center justify-center">
               <img src={iconLB} alt="LB" className="w-6 h-6" />
+            </div>
+          </div>
+        </div>
+        {/* テキスト/クリア/その他ボタン */}
+        <div className="flex w-full 2xl:h-12 border border-neutral-700 rounded-xl">
+          <div className='h-full w-16 flex items-center justify-center text-gray-400 hover:text-white cursor-pointer'>
+            <MagnifyingGlassIcon className="w-6 h-6"/>
+          </div>
+          <div className="w-px my-2 bg-neutral-700"></div>
+          <div className="relative w-full h-full">
+            <input
+              ref={inputRef}
+              type="text"
+              placeholder="＃検索"
+              className="w-full h-full pl-4 pr-10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onChange={(e) => onTextSearch(e.target.value)}
+            />
+            <div 
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white cursor-pointer"
+              onClick={handleClear}
+            >
+              <XCircleIcon className="w-5 h-5" />
             </div>
           </div>
           <div
