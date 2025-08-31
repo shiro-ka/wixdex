@@ -188,7 +188,7 @@ function App() {
           />
         </div>
         {/* 検索欄 */}
-        <div className='h-20 px-4 py-2 bg-blue-700'>
+        <div className='p-4 bg-zinc-950/90 border-t border-neutral-700'>
           <SearchArea
             hoveredCard={hoveredCard}
             selectedColors={selectedColors}
