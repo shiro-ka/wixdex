@@ -9,6 +9,7 @@ import iconLevel1 from '../assets/icon_level/icon_lv1_stroke.png';
 import iconLevel2 from '../assets/icon_level/icon_lv2_stroke.png';
 import iconLevel3 from '../assets/icon_level/icon_lv3_stroke.png';
 import iconLB from '../assets/icon_lb/icon_lb_stroke.png';
+import ClearIcon from '../assets/svg/clear.svg';
 
 function SearchArea({ hoveredCard, onColorFilter, onTextSearch, onLevelFilter, onLifeBurstFilter, onReset, basePath }) {
   const inputRef = useRef(null);
@@ -106,7 +107,7 @@ function SearchArea({ hoveredCard, onColorFilter, onTextSearch, onLevelFilter, o
             className="flex flex-1 border border-neutral-700 rounded-xl items-center justify-center text-gray-400 hover:text-white cursor-pointer"
             onClick={handleReset}
           >
-            <XMarkIcon className="w-6 h-6"/>
+            <ClearIcon className="w-6 h-6" />
           </div>
         </div>
       </div>
