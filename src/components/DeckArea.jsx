@@ -41,7 +41,7 @@ function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards
           <span>LB：</span>
           <span>{lifeBurstCount}</span>
         </div>
-        <div className='mainDeck grid w-full h-[calc(68dvw-4rem)] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-2'>
+        <div className='mainDeck grid w-full h-[calc(90dvw-4rem)] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-2'>
           {mainDeck.map((card, index) => (
             <div key={`${card.id}-${index}`} className="flex items-center">
               <img
@@ -57,7 +57,7 @@ function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards
         </div>
       </div>
         {/* 候補カードリスト */}
-        <div className='flex-1 bg-gray-600/20 p-4 rounded-lg'>
+        <div className='hidden flex-1 bg-gray-600/20 p-4 rounded-lg'>
           <div className="w-fit mx-auto grid gap-2 overflow-x-auto
                           md:grid-cols-[repeat(2,_7.5rem)] md:grid-rows-[content-fit] md:overflow-y-auto md:max-h-full
                           lg:grid-cols-[repeat(3,_7.5rem)]
