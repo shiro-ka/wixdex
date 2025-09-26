@@ -3,11 +3,11 @@ function CardPopup({ card, onClose, basePath }) {
 
   return (
     <div 
-      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
       onClick={onClose}
     >
       <div 
-        className="bg-gray-800 p-8 rounded-xl w-[90vw] h-[90vh] max-w-4xl max-h-[80vh]"
+        className="bg-gray-800 p-8 rounded-xl w-[90vw] aspect-[3/4] max-w-4xl"
         onClick={e => e.stopPropagation()}
       >
         <div className="w-full h-full flex items-center justify-center">

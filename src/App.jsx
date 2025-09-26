@@ -3,14 +3,16 @@ import CardList from './components/CardList';
 import DeckArea from './components/DeckArea';
 import SearchArea from './components/SearchArea';
 import CardPopup from './components/CardPopup';
+import { handleAddCard } from './handlers/handleAddCard';
+import { handleRemoveCard } from './handlers/handleRemoveCard';
+import { Bars2Icon } from '@heroicons/react/24/outline';
+
+// カードデータ
 import cardDataWX24P4 from './assets/cards_json/WX24-P4.json';
 import cardDataWXDiP16 from './assets/cards_json/WXDi-P16.json';
 import cardDataWXDiP15 from './assets/cards_json/WXDi-P15.json';
 import cardDataWXDiP13 from './assets/cards_json/WXDi-P13.json';
 import cardDataWXDiP12 from './assets/cards_json/WXDi-P12.json';
-import { handleAddCard } from './handlers/handleAddCard';
-import { handleRemoveCard } from './handlers/handleRemoveCard';
-import { Bars2Icon } from '@heroicons/react/24/outline';
 
 function App() {
   const [mainDeck, setMainDeck] = useState([]);
@@ -24,7 +26,7 @@ function App() {
   const [searchText, setSearchText] = useState('');
   const [popupCard, setPopupCard] = useState(null);
 
-  // 複数セットのカードデータをまとめる
+  // カードデータをまとめる
   const allCardData = useMemo(() => [
     ...cardDataWX24P4,
     ...cardDataWXDiP16,
