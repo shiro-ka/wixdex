@@ -148,17 +148,20 @@ function App() {
   });
 
   return (
-    <div className="w-dvw h-dvh bg-gray-950">
-      {/* ヘッダー - - - - - - - - - - - - - - - - */}
-      <div className='flex absolute z-10 w-full h-12 bg-zinc-950/10 px-4 items-center'>
-        <div className='flex items-center hover:cursor-pointer hover:bg-zinc-800/30 rounded-xl p-2 ml-auto'>
-          <Bars2Icon className="h-8 w-8 text-gray-700 dark:text-gray-300" />
+    <div className="vw-100 vh-100 bg-dark">
+      {/* Navbar */}
+      <nav className="navbar navbar-dark bg-dark position-absolute z-3 w-100" style={{height: '3rem', paddingLeft: '1rem', alignItems: 'center'}}>
+        <div className="container-fluid d-flex align-items-center">
+          <a className="navbar-brand" href="#">Wixdex</a>
+          <div className="ms-auto p-2 rounded" style={{cursor: 'pointer', background: 'rgba(33,37,41,0.18)'}}>
+            <i className="bi bi-list h-8 w-8 text-secondary"></i>
+          </div>
         </div>
-      </div>
-      {/* メイン - - - - - - - - - - - - - - - - - */}
-      <div className='flex flex-col absolute z-0 container h-full pt-12'>
+      </nav>
+      {/* メイン */}
+      <div className="d-flex flex-column position-absolute z-0 container-fluid h-100 pt-5">
         {/* デッキ欄 */}
-        <div className='flex-1 p-4'>
+        <div className="flex-grow-1 p-4">
           <DeckArea
             mainDeck={mainDeck}
             lrigDeck={lrigDeck}
@@ -176,7 +179,7 @@ function App() {
           />
         </div>
         {/* カードリスト欄 */}
-        <div className='h-26 pb-4'>
+        <div className="pb-4" style={{height: '6.5rem'}}>
           <CardList
             cards={filteredCards}
             onAdd={(card) =>
@@ -190,7 +193,7 @@ function App() {
           />
         </div>
         {/* 検索欄 */}
-        <div className='p-4 bg-zinc-950/90 border-t border-neutral-700'>
+        <div className="p-4 border-top border-secondary" style={{background: 'rgba(33,37,41,0.9)'}}>
           <SearchArea
             hoveredCard={hoveredCard}
             selectedColors={selectedColors}
@@ -207,7 +210,7 @@ function App() {
           />
         </div>
       </div>
-      {/* ポップアップ - - - - - - - - - - - - - - */}
+      {/* ポップアップ */}
       <CardPopup card={popupCard} onClose={() => setPopupCard(null)} basePath="/wixdex" />
     </div>
   );
