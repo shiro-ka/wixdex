@@ -148,20 +148,19 @@ function App() {
   });
 
   return (
-    <div className="vw-100 vh-100 bg-dark">
+    <div className="d-flex flex-column vw-100 vh-100 bg-dark">
       {/* Navbar */}
-      <nav className="navbar navbar-dark bg-dark position-absolute z-3 w-100" style={{height: '3rem', paddingLeft: '1rem', alignItems: 'center'}}>
+      <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid d-flex align-items-center">
-          <a className="navbar-brand" href="#">Wixdex</a>
-          <div className="ms-auto p-2 rounded" style={{cursor: 'pointer', background: 'rgba(33,37,41,0.18)'}}>
-            <i className="bi bi-list h-8 w-8 text-secondary"></i>
-          </div>
+          <button className="ms-auto bg-transparent p-2">
+            <i className="bi bi-list fs-5 text-secondary"></i>
+          </button>
         </div>
       </nav>
-      {/* メイン */}
-      <div className="d-flex flex-column position-absolute z-0 container-fluid h-100 pt-5">
+      {/* Container */}
+      <div className="container-md d-flex flex-column flex-grow-1">
         {/* デッキ欄 */}
-        <div className="flex-grow-1 p-4">
+        <div className="flex-grow-1">
           <DeckArea
             mainDeck={mainDeck}
             lrigDeck={lrigDeck}
@@ -179,7 +178,7 @@ function App() {
           />
         </div>
         {/* カードリスト欄 */}
-        <div className="pb-4" style={{height: '6.5rem'}}>
+        <div className="pb-4">
           <CardList
             cards={filteredCards}
             onAdd={(card) =>
@@ -193,7 +192,7 @@ function App() {
           />
         </div>
         {/* 検索欄 */}
-        <div className="p-4 border-top border-secondary" style={{background: 'rgba(33,37,41,0.9)'}}>
+        <div className="py-4 border-top border-secondary">
           <SearchArea
             hoveredCard={hoveredCard}
             selectedColors={selectedColors}
