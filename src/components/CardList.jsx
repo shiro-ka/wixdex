@@ -1,21 +1,14 @@
 import { PlusIcon, MinusIcon, ArrowLeftEndOnRectangleIcon } from '@heroicons/react/24/outline';
+import LazyImage from './LazyImage';
 
 function CardList({ cards, onAdd, onRemove, onHover, onAddToCandidate, onCardClick, basePath }) {
   return (
-    <div className="
-      flex max-w-full gap-2 overflow-x-auto
-      md:grid
-      md:grid-cols-[repeat(2,_8rem)] md:grid-rows-[content-fit] md:overflow-y-auto md:max-h-full
-      lg:grid-cols-[repeat(3,_8rem)]"
+    <div className="d-flex gap-2 overflow-x-auto  mw-100"
     >
-      {cards.map((card) => (
-        <div key={card.id}>
+      {cards.map((card, index) => (
+        <div key={`${card.id}-${index}`}>
           {/* カード */}
           <div className="flex w-16 h-full items-center justify-center cursor-pointer"
-            // カード詳細(タップ/クリック)
-            onClick={() => onCardClick(card)}
-            // カード詳細(ホバー)
-            onMouseEnter={() => onHover(card)}
             // カード追加(フリック)
             onTouchStart={(e) => {
               e.currentTarget._touchStartY = e.touches[0].clientY;
@@ -28,10 +21,12 @@ function CardList({ cards, onAdd, onRemove, onHover, onAddToCandidate, onCardCli
               }
             }}
           >
-            <img
+            <LazyImage
               src={`${basePath}/assets/cards_img/${card.image}`}
               className="object-contain"
               alt={card.name}
+              onMouseEnter={() => onHover(card)}
+              onClick={() => onCardClick(card)}
             />
           </div>
           {/* 操作ボタン(PC) */}

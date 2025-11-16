@@ -148,9 +148,9 @@ function App() {
   });
 
   return (
-    <div className="d-flex flex-column vw-100 vh-100 bg-dark">
+    <div className="d-flex flex-column vw-100 vh-100 bg-dark overflow-hidden">
       {/* Navbar */}
-      <nav className="navbar navbar-dark bg-dark">
+      <nav className="navbar navbar-dark bg-dark flex-shrink-0">
         <div className="container-fluid d-flex align-items-center">
           <button className="ms-auto bg-transparent p-2">
             <i className="bi bi-list fs-5 text-secondary"></i>
@@ -158,9 +158,9 @@ function App() {
         </div>
       </nav>
       {/* Container */}
-      <div className="container-md d-flex flex-column flex-grow-1">
+      <div className="container-md d-flex flex-column flex-grow-1 overflow-hidden">
         {/* デッキ欄 */}
-        <div className="flex-grow-1">
+        <div className="flex-shrink-0">
           <DeckArea
             mainDeck={mainDeck}
             lrigDeck={lrigDeck}
@@ -178,7 +178,7 @@ function App() {
           />
         </div>
         {/* カードリスト欄 */}
-        <div className="pb-4">
+        <div className="flex-grow-1 overflow-auto">
           <CardList
             cards={filteredCards}
             onAdd={(card) =>
@@ -192,7 +192,7 @@ function App() {
           />
         </div>
         {/* 検索欄 */}
-        <div className="py-4 border-top border-secondary">
+        <div className="flex-shrink-0 py-4 border-top border-secondary">
           <SearchArea
             hoveredCard={hoveredCard}
             selectedColors={selectedColors}
