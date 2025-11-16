@@ -3,7 +3,7 @@ import LazyImage from './LazyImage';
 
 function CardList({ cards, onAdd, onRemove, onHover, onAddToCandidate, onCardClick, basePath }) {
   return (
-    <div className="d-flex gap-2 overflow-x-auto  mw-100"
+    <div className="flex gap-2 overflow-x-auto max-w-full pb-3"
     >
       {cards.map((card, index) => (
         <div key={`${card.id}-${index}`}>

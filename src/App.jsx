@@ -3,9 +3,9 @@ import CardList from './components/CardList';
 import DeckArea from './components/DeckArea';
 import SearchArea from './components/SearchArea';
 import CardPopup from './components/CardPopup';
-import { handleAddCard } from './handlers/handleAddCard';
-import { handleRemoveCard } from './handlers/handleRemoveCard';
-import { Bars2Icon } from '@heroicons/react/24/outline';
+import { useDeck } from './hooks/useDeck';
+import { useCardFilter } from './hooks/useCardFilter';
+import { filterCards } from './utils/cardFilters';
 
 // カードデータ
 import cardDataWX24P4 from './assets/cards_json/WX24-P4.json';
@@ -15,16 +15,12 @@ import cardDataWXDiP13 from './assets/cards_json/WXDi-P13.json';
 import cardDataWXDiP12 from './assets/cards_json/WXDi-P12.json';
 
 function App() {
-  const [mainDeck, setMainDeck] = useState([]);
-  const [lrigDeck, setLrigDeck] = useState([]);
   const [hoveredCard, setHoveredCard] = useState(null);
-  const [selectedColors, setSelectedColors] = useState(new Set());
-  const [selectedLevels, setSelectedLevels] = useState(new Set());
-  const [selectedCardTypes, setSelectedCardTypes] = useState(new Set());
-  const [lifeBurstFilter, setLifeBurstFilter] = useState(null);
-  const [candidateCards, setCandidateCards] = useState([]);
-  const [searchText, setSearchText] = useState('');
   const [popupCard, setPopupCard] = useState(null);
+
+  // カスタムフックでstate管理
+  const deck = useDeck();
+  const filter = useCardFilter();
 
   // カードデータをまとめる
   const allCardData = useMemo(() => [
@@ -35,145 +31,44 @@ function App() {
     ...cardDataWXDiP12,
   ], []);
 
-  // ライフバーストカードの枚数を計算
-  const lifeBurstCount = useMemo(() => {
-    return mainDeck.filter(card => card.lifeBurst === "true").length;
-  }, [mainDeck]);
-
-  const handleColorFilter = (color) => {
-    setSelectedColors(prev => {
-      const newColors = new Set(prev);
-      if (newColors.has(color)) {
-        newColors.delete(color);
-      } else {
-        newColors.add(color);
-      }
-      return newColors;
+  // フィルタリングされたカードリスト
+  const filteredCards = useMemo(() => {
+    return filterCards(allCardData, {
+      selectedColors: filter.selectedColors,
+      selectedLevels: filter.selectedLevels,
+      selectedCardTypes: filter.selectedCardTypes,
+      lifeBurstFilter: filter.lifeBurstFilter,
+      searchText: filter.searchText,
     });
-  };
-
-  const handleLevelFilter = (level) => {
-    setSelectedLevels(prev => {
-      const newLevels = new Set(prev);
-      if (newLevels.has(level)) {
-        newLevels.delete(level);
-      } else {
-        newLevels.add(level);
-      }
-      return newLevels;
-    });
-  };
-
-  const handleCardTypeFilter = (cardType) => {
-    setSelectedCardTypes(prev => {
-      const newTypes = new Set(prev);
-      if (newTypes.has(cardType)) {
-        newTypes.delete(cardType);
-      } else {
-        newTypes.add(cardType);
-      }
-      return newTypes;
-    });
-  };
-
-  const handleLifeBurstFilter = () => {
-    setLifeBurstFilter(prev => {
-      if (prev === null) return true;
-      if (prev === true) return false;
-      return null;
-    });
-  };
-
-  const handleAddToCandidate = (card) => {
-    if (!candidateCards.some(c => c.image === card.image)) {
-      setCandidateCards(prev => [...prev, card]);
-    }
-  };
-
-  const handleRemoveFromCandidate = (card) => {
-    setCandidateCards(prev => prev.filter(c => c.image !== card.image));
-  };
-
-  const handleCardRemove = (card) => {
-    // カードをデッキから削除
-    const { newMainDeck, newLrigDeck } = handleRemoveCard(card, mainDeck, lrigDeck, setMainDeck, setLrigDeck);
-    
-    // デッキ内の同じカードの枚数を確認
-    const remainingInMain = newMainDeck.filter(c => c.id === card.id).length;
-    const remainingInLrig = newLrigDeck.filter(c => c.id === card.id).length;
-    
-    // デッキ内に同じカードが0枚になった場合、候補リストに追加
-    if (remainingInMain === 0 && remainingInLrig === 0 && !candidateCards.some(c => c.id === card.id)) {
-      handleAddToCandidate(card);
-    }
-  };
-
-  const handleReset = () => {
-    // 色フィルターをリセット
-    setSelectedColors(new Set());
-    // レベルフィルターをリセット
-    setSelectedLevels(new Set());
-    // カード種類フィルターをリセット
-    setSelectedCardTypes(new Set());
-    // ライフバーストフィルターをリセット
-    setLifeBurstFilter(null);
-    // テキスト検索をリセット
-    setSearchText('');
-  };
-
-  const filteredCards = allCardData.filter(card => {
-    // 色によるフィルタリング
-    const colorMatch = selectedColors.size === 0 || 
-      card.color.some(color => selectedColors.has(color));
-
-    // レベルによるフィルタリング
-    const levelMatch = selectedLevels.size === 0 || 
-      selectedLevels.has(card.level);
-
-    // カード種類によるフィルタリング
-    const cardTypeMatch = selectedCardTypes.size === 0 || 
-      card.cardType.some(type => selectedCardTypes.has(type));
-
-    // ライフバーストによるフィルタリング
-    const lifeBurstMatch = lifeBurstFilter === null || 
-      card.lifeBurst === lifeBurstFilter.toString();
-
-    // テキストによるフィルタリング
-    const textMatch = searchText === '' || 
-      card.name.toLowerCase().includes(searchText.toLowerCase()) ||
-      card.subName.some(name => name.toLowerCase().includes(searchText.toLowerCase()));
-
-    // 全ての条件を満たすカードのみを表示
-    return colorMatch && levelMatch && cardTypeMatch && lifeBurstMatch && textMatch;
-  });
+  }, [allCardData, filter.selectedColors, filter.selectedLevels, filter.selectedCardTypes, filter.lifeBurstFilter, filter.searchText]);
 
   return (
-    <div className="d-flex flex-column vw-100 vh-100 bg-dark overflow-hidden">
+    <div className="flex flex-col w-screen h-screen bg-gray-900 overflow-hidden">
       {/* Navbar */}
-      <nav className="navbar navbar-dark bg-dark flex-shrink-0">
-        <div className="container-fluid d-flex align-items-center">
-          <button className="ms-auto bg-transparent p-2">
-            <i className="bi bi-list fs-5 text-secondary"></i>
+      <nav className="flex-shrink-0 bg-gray-900 p-4">
+        <div className="flex items-center">
+          <button className="ml-auto bg-transparent p-2">
+            <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
           </button>
         </div>
       </nav>
       {/* Container */}
-      <div className="container-md d-flex flex-column flex-grow-1 overflow-hidden">
+      <div className="flex flex-col flex-1 overflow-hidden max-w-screen-md mx-auto w-full">
         {/* デッキ欄 */}
         <div className="flex-shrink-0">
           <DeckArea
-            mainDeck={mainDeck}
-            lrigDeck={lrigDeck}
+            mainDeck={deck.mainDeck}
+            lrigDeck={deck.lrigDeck}
             onHover={setHoveredCard}
-            onAdd={(card) =>
-              handleAddCard(card, mainDeck, lrigDeck, setMainDeck, setLrigDeck)
-            }
-            onRemove={handleCardRemove}
-            candidateCards={candidateCards}
-            onAddToCandidate={handleAddToCandidate}
-            onRemoveFromCandidate={handleRemoveFromCandidate}
+            onAdd={deck.addCard}
+            onRemove={deck.removeCard}
+            candidateCards={deck.candidateCards}
+            onAddToCandidate={deck.addToCandidate}
+            onRemoveFromCandidate={deck.removeFromCandidate}
             onCardClick={setPopupCard}
-            lifeBurstCount={lifeBurstCount}
+            lifeBurstCount={deck.lifeBurstCount}
             basePath="/wixdex"
           />
         </div>
@@ -181,30 +76,28 @@ function App() {
         <div className="flex-grow-1 overflow-auto">
           <CardList
             cards={filteredCards}
-            onAdd={(card) =>
-              handleAddCard(card, mainDeck, lrigDeck, setMainDeck, setLrigDeck)
-            }
-            onRemove={handleCardRemove}
+            onAdd={deck.addCard}
+            onRemove={deck.removeCard}
             onHover={setHoveredCard}
-            onAddToCandidate={handleAddToCandidate}
+            onAddToCandidate={deck.addToCandidate}
             onCardClick={setPopupCard}
             basePath="/wixdex"
           />
         </div>
         {/* 検索欄 */}
-        <div className="flex-shrink-0 py-4 border-top border-secondary">
+        <div className="flex-shrink-0 py-4 border-t border-gray-600">
           <SearchArea
             hoveredCard={hoveredCard}
-            selectedColors={selectedColors}
-            selectedLevels={selectedLevels}
-            selectedCardTypes={selectedCardTypes}
-            lifeBurstFilter={lifeBurstFilter}
-            onColorFilter={handleColorFilter}
-            onTextSearch={setSearchText}
-            onLevelFilter={handleLevelFilter}
-            onLifeBurstFilter={handleLifeBurstFilter}
-            onCardTypeFilter={handleCardTypeFilter}
-            onReset={handleReset}
+            selectedColors={filter.selectedColors}
+            selectedLevels={filter.selectedLevels}
+            selectedCardTypes={filter.selectedCardTypes}
+            lifeBurstFilter={filter.lifeBurstFilter}
+            onColorFilter={filter.toggleColorFilter}
+            onTextSearch={filter.setSearchText}
+            onLevelFilter={filter.toggleLevelFilter}
+            onLifeBurstFilter={filter.toggleLifeBurstFilter}
+            onCardTypeFilter={filter.toggleCardTypeFilter}
+            onReset={filter.resetFilters}
             basePath="/wixdex"
           />
         </div>

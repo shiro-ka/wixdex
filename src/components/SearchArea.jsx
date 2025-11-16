@@ -1,4 +1,4 @@
-import { MagnifyingGlassIcon, BackspaceIcon, XCircleIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useRef, useState } from 'react';
 import iconWhite from '../assets/icon_color/icon_white_stroke.png';
 import iconRed from '../assets/icon_color/icon_red_stroke.png';
@@ -129,7 +129,7 @@ function SearchArea({
         </div>
         {/* テキスト/クリア/その他ボタン */}
         <div className="flex w-full">
-          <div className='flex h-10 aspect-1/1 mr-2 bg-zinc-700/70 rounded-full items-center justify-center text-gray-400 hover:text-white cursor-pointer'>
+          <div className='flex h-10 aspect-square mr-2 bg-zinc-700/70 rounded-full items-center justify-center text-gray-400 hover:text-white cursor-pointer'>
             <MagnifyingGlassIcon className="w-5 h-5"/>
           </div>
           <div className="flex flex-1 mr-2 bg-zinc-700/70 rounded-full focus-within:ring-2 focus-within:ring-blue-500">
@@ -144,15 +144,17 @@ function SearchArea({
                 onTextSearch(e.target.value);
               }}
             />
-            <div 
+            <div
               className="flex h-10 w-10 mr-2 items-center justify-center text-gray-400 hover:text-white cursor-pointer rounded-full transition-all"
               onClick={handleClear}
             >
-              <BackspaceIcon className="w-5 h-5" />
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" />
+              </svg>
             </div>
           </div>
           <div
-            className="flex h-10 aspect-1/1 bg-zinc-700/70 rounded-full items-center justify-center text-gray-400 hover:text-white cursor-pointer"
+            className="flex h-10 aspect-square bg-zinc-700/70 rounded-full items-center justify-center text-gray-400 hover:text-white cursor-pointer"
             onClick={handleReset}
           >
             <XMarkIcon className="w-5 h-5" />

@@ -15,7 +15,7 @@ function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards
   return (
     <div className='flex flex-col h-full'>
       {/* ルリグデッキ */}
-      <div className='h-fit px-4 py-2 mb-4 bg-gray-600/10 rounded-xl'>
+      <div className='h-fit p-2 mb-4 bg-gray-600/10 rounded-xl'>
         <div className='flex w-full'>
           <span>Lrig Deck</span>
         </div>
@@ -35,7 +35,7 @@ function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards
         </div>
       </div>
       {/* メインデッキ */}
-      <div className='h-fit px-4 py-2 mb-4 bg-gray-600/10 rounded-xl'>
+      <div className='h-fit p-2 mb-4 bg-gray-600/10 rounded-xl'>
         <div className='flex w-full'>
           <span>Main Deck</span>
           <span>LB：</span>
