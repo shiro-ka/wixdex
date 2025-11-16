@@ -1,5 +1,3 @@
-import headerLrigDeck from '../assets/girl/LrigDeck.png';
-import headerMainDeck from '../assets/girl/MainDeck.png';
 import { PlusIcon, MinusIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline';
 
 function DeckArea({ mainDeck, lrigDeck, onHover, onAdd, onRemove, candidateCards, onAddToCandidate, onRemoveFromCandidate, onCardClick, lifeBurstCount, basePath }) {
