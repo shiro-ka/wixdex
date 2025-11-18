@@ -44,7 +44,7 @@ function App() {
   }, [allCardData, filter.selectedColors, filter.selectedLevels, filter.selectedCardTypes, filter.lifeBurstFilter, filter.searchText]);
 
   return (
-    <div className="flex flex-col w-screen h-screen bg-gray-900 overflow-hidden">
+    <div className="flex flex-col w-screen h-screen bg-zinc-900 overflow-hidden">
       {/* Navbar */}
       <Navbar basePath="/wixdex" />
       {/* Container */}
