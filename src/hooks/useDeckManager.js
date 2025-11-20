@@ -1,8 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
-import { handleAddCard } from '../handlers/handleAddCard';
-import { handleRemoveCard } from '../handlers/handleRemoveCard';
+import { addCardToDeck, removeCardFromDeck } from '../utils/deckOperations';
 
-export function useDeck() {
+export function useDeckManager() {
   const [mainDeck, setMainDeck] = useState([]);
   const [lrigDeck, setLrigDeck] = useState([]);
   const [candidateCards, setCandidateCards] = useState([]);
@@ -26,22 +25,20 @@ export function useDeck() {
 
   // カードをデッキに追加
   const addCard = useCallback((card) => {
-    handleAddCard(card, mainDeck, lrigDeck, setMainDeck, setLrigDeck);
+    const result = addCardToDeck(card, mainDeck, lrigDeck);
+    setMainDeck(result.mainDeck);
+    setLrigDeck(result.lrigDeck);
   }, [mainDeck, lrigDeck]);
 
   // カードをデッキから削除
   const removeCard = useCallback((card) => {
-    const { newMainDeck, newLrigDeck } = handleRemoveCard(
-      card,
-      mainDeck,
-      lrigDeck,
-      setMainDeck,
-      setLrigDeck
-    );
+    const result = removeCardFromDeck(card, mainDeck, lrigDeck);
+    setMainDeck(result.mainDeck);
+    setLrigDeck(result.lrigDeck);
 
     // デッキ内の同じカードの枚数を確認
-    const remainingInMain = newMainDeck.filter(c => c.id === card.id).length;
-    const remainingInLrig = newLrigDeck.filter(c => c.id === card.id).length;
+    const remainingInMain = result.mainDeck.filter(c => c.id === card.id).length;
+    const remainingInLrig = result.lrigDeck.filter(c => c.id === card.id).length;
 
     // デッキ内に同じカードが0枚になった場合、候補リストに追加
     if (remainingInMain === 0 && remainingInLrig === 0 && !candidateCards.some(c => c.id === card.id)) {
