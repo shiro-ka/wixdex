@@ -33,7 +33,33 @@ export function addCardToDeck(card, mainDeck, lrigDeck) {
 }
 
 // カードをデッキから削除
-export function removeCardFromDeck(card, mainDeck, lrigDeck) {
+export function removeCardFromDeck(card, mainDeck, lrigDeck, specificIndex = null, deckType = null) {
+  // 特定のインデックスが指定されている場合はそれを使用
+  if (specificIndex !== null && deckType !== null) {
+    if (deckType === 'lrig') {
+      if (specificIndex >= 0 && specificIndex < lrigDeck.length) {
+        const newLrigDeck = [...lrigDeck];
+        newLrigDeck.splice(specificIndex, 1);
+        return {
+          mainDeck,
+          lrigDeck: newLrigDeck,
+        };
+      }
+      return { mainDeck, lrigDeck };
+    } else if (deckType === 'main') {
+      if (specificIndex >= 0 && specificIndex < mainDeck.length) {
+        const newMainDeck = [...mainDeck];
+        newMainDeck.splice(specificIndex, 1);
+        return {
+          mainDeck: newMainDeck,
+          lrigDeck,
+        };
+      }
+      return { mainDeck, lrigDeck };
+    }
+  }
+
+  // 従来の動作（IDで最初のマッチを削除）
   // ルリグデッキの処理
   if (isLrigCard(card)) {
     const index = lrigDeck.findIndex(c => c.id === card.id);

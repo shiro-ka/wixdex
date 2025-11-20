@@ -1,6 +1,9 @@
 import { PlusIcon, MinusIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline';
+import { useRef } from 'react';
 
 function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateCards, onAddToCandidate, onRemoveFromCandidate, onCardClick, lifeBurstCount, basePath }) {
+  const touchStateRef = useRef(new Map());
+
   const handleWheel = (e, card) => {
     e.preventDefault();
     if (e.deltaY < 0) {
@@ -10,52 +13,62 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
     }
   };
 
-  const handleTouchStart = (e) => {
-    e.currentTarget._touchStartY = e.touches[0].clientY;
-    e.currentTarget._touchStartX = e.touches[0].clientX;
-    e.currentTarget._isVerticalSwipe = false;
-    e.currentTarget.style.transition = 'none';
+  const handleTouchStart = (e, uniqueKey) => {
+    const element = e.currentTarget;
+    touchStateRef.current.set(uniqueKey, {
+      startY: e.touches[0].clientY,
+      startX: e.touches[0].clientX,
+      isVerticalSwipe: false,
+      element: element
+    });
+    element.style.transition = 'none';
   };
 
-  const handleTouchMove = (e) => {
-    const startY = e.currentTarget._touchStartY;
-    const startX = e.currentTarget._touchStartX;
+  const handleTouchMove = (e, uniqueKey) => {
+    const state = touchStateRef.current.get(uniqueKey);
+    if (!state) return;
+
     const currentY = e.touches[0].clientY;
     const currentX = e.touches[0].clientX;
-    const deltaY = Math.abs(startY - currentY);
-    const deltaX = Math.abs(startX - currentX);
+    const deltaY = Math.abs(state.startY - currentY);
+    const deltaX = Math.abs(state.startX - currentX);
 
     // 縦方向の動きが横より大きい、かつ15px以上動いたら縦スワイプモード
     if (deltaY > deltaX && deltaY > 15) {
       e.preventDefault(); // 横スクロールを防ぐ
-      e.currentTarget._isVerticalSwipe = true;
+      state.isVerticalSwipe = true;
 
       // カードを動かす（最大10pxまで）
-      const signedDeltaY = startY - currentY;
+      const signedDeltaY = state.startY - currentY;
       const translateY = Math.max(-10, Math.min(10, -signedDeltaY));
-      e.currentTarget.style.transform = `translateY(${translateY}px)`;
+      state.element.style.transform = `translateY(${translateY}px)`;
     }
   };
 
-  const handleTouchEnd = (e, card) => {
-    const startY = e.currentTarget._touchStartY;
+  const handleTouchEnd = (e, uniqueKey, card, index, deckType) => {
+    const state = touchStateRef.current.get(uniqueKey);
+    if (!state) return;
+
     const endY = e.changedTouches[0].clientY;
-    const deltaY = startY - endY;
+    const deltaY = state.startY - endY;
 
     // アニメーション付きで元の位置に戻す
-    e.currentTarget.style.transition = 'transform 0.2s ease-out';
-    e.currentTarget.style.transform = 'translateY(0)';
+    state.element.style.transition = 'transform 0.2s ease-out';
+    state.element.style.transform = 'translateY(0)';
 
     // 縦スワイプモードの時だけカード追加/削除を実行
-    if (e.currentTarget._isVerticalSwipe) {
+    if (state.isVerticalSwipe) {
       if (deltaY > 30) {
         // 上にスワイプ → 追加
         onAdd(card);
       } else if (deltaY < -30) {
-        // 下にスワイプ → 削除
-        onRemove(card);
+        // 下にスワイプ → 削除（このインデックスのカードを削除）
+        onRemove(card, index, deckType);
       }
     }
+
+    // クリーンアップ
+    touchStateRef.current.delete(uniqueKey);
   };
 
   return (
@@ -74,9 +87,9 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
                 alt={card.name}
                 onMouseEnter={() => onCardHover(card)}
                 onWheel={(e) => handleWheel(e, card)}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={(e) => handleTouchEnd(e, card)}
+                onTouchStart={(e) => handleTouchStart(e, `lrig-${card.id}-${index}`)}
+                onTouchMove={(e) => handleTouchMove(e, `lrig-${card.id}-${index}`)}
+                onTouchEnd={(e) => handleTouchEnd(e, `lrig-${card.id}-${index}`, card, index, 'lrig')}
                 onClick={() => onCardClick(card)}
               />
             </div>
@@ -99,9 +112,9 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
                 alt={card.name}
                 onMouseEnter={() => onCardHover(card)}
                 onWheel={(e) => handleWheel(e, card)}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={(e) => handleTouchEnd(e, card)}
+                onTouchStart={(e) => handleTouchStart(e, `main-${card.id}-${index}`)}
+                onTouchMove={(e) => handleTouchMove(e, `main-${card.id}-${index}`)}
+                onTouchEnd={(e) => handleTouchEnd(e, `main-${card.id}-${index}`, card, index, 'main')}
                 onClick={() => onCardClick(card)}
               />
             </div>

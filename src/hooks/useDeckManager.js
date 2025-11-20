@@ -31,8 +31,8 @@ export function useDeckManager() {
   }, [mainDeck, lrigDeck]);
 
   // カードをデッキから削除
-  const removeCard = useCallback((card) => {
-    const result = removeCardFromDeck(card, mainDeck, lrigDeck);
+  const removeCard = useCallback((card, specificIndex = null, deckType = null) => {
+    const result = removeCardFromDeck(card, mainDeck, lrigDeck, specificIndex, deckType);
     setMainDeck(result.mainDeck);
     setLrigDeck(result.lrigDeck);
 
