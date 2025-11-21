@@ -37,20 +37,18 @@ function FilterDropdown({ isOpen, onClose, title, children }: FilterDropdownProp
 
   return (
     <div
-      className={`fixed top-0 left-0 w-dvw bg-zinc-800 border-b border-gray-700 shadow-lg z-50 p-4 ${
-        isClosing ? 'animate-slide-up' : 'animate-slide-down'
-      }`}
+      className={`fixed top-0 left-0 w-dvw bg-zinc-800 border-b border-gray-700 shadow-lg z-50 p-4 ${isClosing ? 'animate-slide-up' : 'animate-slide-down'
+        }`}
     >
       <div
-        className={`max-w-screen-md mx-auto ${
-          isClosing ? 'animate-fade-out' : 'animate-fade-in'
-        }`}
+        className={`max-w-screen-md mx-auto ${isClosing ? 'animate-fade-out' : 'animate-fade-in'
+          }`}
       >
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-white text-sm font-semibold">{title}</h3>
           <button
             onClick={handleClose}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-gray-400 hover:text-white !bg-transparent hover:bg-gray-700/50 rounded-lg p-1 transition-all"
             aria-label="閉じる"
           >
             <ChevronUpIcon className="w-5 h-5" />

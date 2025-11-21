@@ -1,6 +1,5 @@
 import {
   MagnifyingGlassIcon,
-  XMarkIcon,
   AdjustmentsHorizontalIcon,
   XCircleIcon,
   FolderIcon,
@@ -120,11 +119,10 @@ function SearchArea({
             <FolderIcon className="w-5 h-5" />
           </div>
           <div
-            className={`flex w-10 rounded-md mr-2 items-center justify-center cursor-pointer transition-all ${
-              isTypeFilterActive
+            className={`flex w-10 rounded-md mr-2 items-center justify-center cursor-pointer transition-all ${isTypeFilterActive
                 ? 'bg-zinc-600/40 border-2 border-gray-500/50'
                 : 'bg-gray-600/10 border-2 border-transparent'
-            }`}
+              }`}
             onClick={() => toggleDropdown('type')}
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill={isTypeFilterActive ? "currentColor" : "none"} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
@@ -132,11 +130,10 @@ function SearchArea({
             </svg>
           </div>
           <div
-            className={`flex w-10 rounded-md mr-2 items-center justify-center cursor-pointer transition-all ${
-              isLrigClassFilterActive
+            className={`flex w-10 rounded-md mr-2 items-center justify-center cursor-pointer transition-all ${isLrigClassFilterActive
                 ? 'bg-zinc-600/40 border-2 border-gray-500/50'
                 : 'bg-gray-600/10 border-2 border-transparent'
-            }`}
+              }`}
             onClick={() => toggleDropdown('lrigClass')}
           >
             <svg xmlns="http://www.w3.org/2000/svg" fill={isLrigClassFilterActive ? "currentColor" : "none"} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
@@ -248,7 +245,24 @@ function SearchArea({
             className="flex w-10 aspect-square bg-zinc-600/10 rounded-lg items-center justify-center text-gray-400 hover:text-white cursor-pointer"
             onClick={handleReset}
           >
-            <XMarkIcon className="w-5 h-5" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-5 h-5"
+            >
+              <path d="M12 2v4"/>
+              <path d="m16.2 7.8 2.9-2.9"/>
+              <path d="M18 12h4"/>
+              <path d="m16.2 16.2 2.9 2.9"/>
+              <path d="M12 18v4"/>
+              <path d="m4.9 19.1 2.9-2.9"/>
+              <path d="M2 12h4"/>
+              <path d="m4.9 4.9 2.9 2.9"/>
+            </svg>
           </div>
         </div>
       </div>
