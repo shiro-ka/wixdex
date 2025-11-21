@@ -24,7 +24,7 @@ function LrigClassFilterContent({ selectedLrigClasses, onToggle }) {
   ];
 
   return (
-    <div className="max-h-[50dvh] overflow-y-auto">
+    <div className="max-h-[48dvh] overflow-y-auto">
       <div className="grid grid-cols-3 gap-2">
         {lrigClasses.map((lrigClass) => (
           <label

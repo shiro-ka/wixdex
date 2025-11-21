@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ChevronUpIcon } from '@heroicons/react/24/outline';
 
 /**
  * 共通ドロップダウンラッパーコンポーネント
@@ -47,18 +48,20 @@ function FilterDropdown({ isOpen, onClose, title, children }) {
           isClosing ? 'animate-fade-out' : 'animate-fade-in'
         }`}
       >
-        <h3 className="text-white text-sm font-semibold mb-3">{title}</h3>
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-white text-sm font-semibold">{title}</h3>
+          {/* 閉じるボタン */}
+          <button
+            onClick={handleClose}
+            className="text-gray-400 hover:text-white transition-colors"
+            aria-label="閉じる"
+          >
+            <ChevronUpIcon className="w-5 h-5" />
+          </button>
+        </div>
 
         {/* ドロップダウンの中身 */}
-        <div className="mb-4">{children}</div>
-
-        {/* 閉じるボタン */}
-        <button
-          onClick={handleClose}
-          className="w-full bg-zinc-700 hover:bg-zinc-600 text-white py-2 px-4 rounded-lg transition-colors text-sm"
-        >
-          閉じる
-        </button>
+        <div>{children}</div>
       </div>
     </div>
   );
