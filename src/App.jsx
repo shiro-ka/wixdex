@@ -71,10 +71,11 @@ function App() {
       selectedColors: filter.selectedColors,
       selectedLevels: filter.selectedLevels,
       selectedCardTypes: filter.selectedCardTypes,
+      selectedLrigClasses: filter.selectedLrigClasses,
       lifeBurstFilter: filter.lifeBurstFilter,
       searchText: filter.searchText,
     });
-  }, [allCardData, filter.selectedColors, filter.selectedLevels, filter.selectedCardTypes, filter.lifeBurstFilter, filter.searchText]);
+  }, [allCardData, filter.selectedColors, filter.selectedLevels, filter.selectedCardTypes, filter.selectedLrigClasses, filter.lifeBurstFilter, filter.searchText]);
 
   return (
     <div className="flex flex-col w-dvw h-dvh bg-zinc-900  overflow-hidden m-0 p-0">
@@ -112,12 +113,14 @@ function App() {
           selectedColors={filter.selectedColors}
           selectedLevels={filter.selectedLevels}
           selectedCardTypes={filter.selectedCardTypes}
+          selectedLrigClasses={filter.selectedLrigClasses}
           lifeBurstFilter={filter.lifeBurstFilter}
           onColorFilter={filter.toggleColorFilter}
           onTextSearch={filter.setSearchText}
           onLevelFilter={filter.toggleLevelFilter}
           onLifeBurstFilter={filter.toggleLifeBurstFilter}
           onCardTypeFilter={filter.toggleCardTypeFilter}
+          onLrigClassFilter={filter.toggleLrigClassFilter}
           onReset={filter.resetFilters}
           basePath="/wixdex"
         />

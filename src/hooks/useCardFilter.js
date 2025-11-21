@@ -4,6 +4,7 @@ export function useCardFilter() {
   const [selectedColors, setSelectedColors] = useState(new Set());
   const [selectedLevels, setSelectedLevels] = useState(new Set());
   const [selectedCardTypes, setSelectedCardTypes] = useState(new Set());
+  const [selectedLrigClasses, setSelectedLrigClasses] = useState(new Set());
   const [lifeBurstFilter, setLifeBurstFilter] = useState(null);
   const [searchText, setSearchText] = useState('');
 
@@ -46,6 +47,19 @@ export function useCardFilter() {
     });
   }, []);
 
+  // ルリグクラスフィルターのトグル
+  const toggleLrigClassFilter = useCallback((lrigClass) => {
+    setSelectedLrigClasses(prev => {
+      const newClasses = new Set(prev);
+      if (newClasses.has(lrigClass)) {
+        newClasses.delete(lrigClass);
+      } else {
+        newClasses.add(lrigClass);
+      }
+      return newClasses;
+    });
+  }, []);
+
   // ライフバーストフィルターのトグル
   const toggleLifeBurstFilter = useCallback(() => {
     setLifeBurstFilter(prev => {
@@ -60,6 +74,7 @@ export function useCardFilter() {
     setSelectedColors(new Set());
     setSelectedLevels(new Set());
     setSelectedCardTypes(new Set());
+    setSelectedLrigClasses(new Set());
     setLifeBurstFilter(null);
     setSearchText('');
   }, []);
@@ -68,12 +83,14 @@ export function useCardFilter() {
     selectedColors,
     selectedLevels,
     selectedCardTypes,
+    selectedLrigClasses,
     lifeBurstFilter,
     searchText,
     setSearchText,
     toggleColorFilter,
     toggleLevelFilter,
     toggleCardTypeFilter,
+    toggleLrigClassFilter,
     toggleLifeBurstFilter,
     resetFilters,
   };

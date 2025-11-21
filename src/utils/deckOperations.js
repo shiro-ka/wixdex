@@ -1,5 +1,6 @@
 import { isLrigCard, isMainDeckCard } from './cardTypeUtils';
 import { canAddCard } from './deckValidation';
+import { sortLrigDeck, sortMainDeck } from './cardSorting';
 
 // カードをデッキに追加
 export function addCardToDeck(card, mainDeck, lrigDeck) {
@@ -13,16 +14,18 @@ export function addCardToDeck(card, mainDeck, lrigDeck) {
 
   // ルリグデッキの処理
   if (isLrigCard(card)) {
+    const newLrigDeck = [...lrigDeck, card];
     return {
       mainDeck,
-      lrigDeck: [...lrigDeck, card],
+      lrigDeck: sortLrigDeck(newLrigDeck), // ソートして返す
     };
   }
 
   // メインデッキの処理
   if (isMainDeckCard(card)) {
+    const newMainDeck = [...mainDeck, card];
     return {
-      mainDeck: [...mainDeck, card],
+      mainDeck: sortMainDeck(newMainDeck), // ソートして返す
       lrigDeck,
     };
   }
