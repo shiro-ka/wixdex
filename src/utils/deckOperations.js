@@ -1,12 +1,18 @@
-import { isLrigCard, isMainDeckCard, DECK_LIMITS } from './cardTypeUtils';
+import { isLrigCard, isMainDeckCard } from './cardTypeUtils';
+import { canAddCard } from './deckValidation';
 
 // カードをデッキに追加
 export function addCardToDeck(card, mainDeck, lrigDeck) {
+  // バリデーションチェック
+  const validation = canAddCard(card, mainDeck, lrigDeck);
+  if (!validation.valid) {
+    // TODO: エラーメッセージをユーザーに通知する仕組みを追加
+    console.warn(validation.error);
+    return { mainDeck, lrigDeck };
+  }
+
   // ルリグデッキの処理
   if (isLrigCard(card)) {
-    if (lrigDeck.length >= DECK_LIMITS.LRIG) {
-      return { mainDeck, lrigDeck }; // 上限に達している
-    }
     return {
       mainDeck,
       lrigDeck: [...lrigDeck, card],
@@ -15,13 +21,6 @@ export function addCardToDeck(card, mainDeck, lrigDeck) {
 
   // メインデッキの処理
   if (isMainDeckCard(card)) {
-    if (mainDeck.length >= DECK_LIMITS.MAIN) {
-      return { mainDeck, lrigDeck }; // 上限に達している
-    }
-    const sameNameCount = mainDeck.filter(c => c.name === card.name).length;
-    if (sameNameCount >= DECK_LIMITS.SAME_NAME) {
-      return { mainDeck, lrigDeck }; // 同名カード上限に達している
-    }
     return {
       mainDeck: [...mainDeck, card],
       lrigDeck,
