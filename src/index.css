@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import '@tailwindcss/typography';
 
 /* アニメーション定義 */
 @keyframes slide-down {
