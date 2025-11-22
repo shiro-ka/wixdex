@@ -1,6 +1,6 @@
-import { XMarkIcon } from '@heroicons/react/24/outline';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Markdown from 'react-markdown';
+import { BaseModal } from './BaseModal';
 
 interface DeckEditModalProps {
   isOpen: boolean;
@@ -14,85 +14,78 @@ function DeckEditModal({ isOpen, onClose, currentName, currentMemo, onSave }: De
   const [name, setName] = useState(currentName);
   const [memo, setMemo] = useState(currentMemo);
   const [isEditMode, setIsEditMode] = useState(false);
+  const [isNameEditMode, setIsNameEditMode] = useState(false);
 
-  if (!isOpen) return null;
+  // propsが変更されたらstateを更新
+  useEffect(() => {
+    setName(currentName);
+    setMemo(currentMemo);
+  }, [currentName, currentMemo]);
 
-  const handleSave = () => {
+  const handleClose = () => {
+    // 閉じる時に自動保存
     onSave(name, memo);
     onClose();
   };
 
   return (
-    <>
-      <div className="fixed inset-0 bg-black/50 z-50" onClick={onClose} />
-      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 max-w-2xl bg-zinc-800 border border-neutral-700 z-50 rounded-xl shadow-xl p-6 max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-white">デッキ編集</h2>
-          <button
-            onClick={onClose}
-            className="text-gray-400 hover:text-white !bg-transparent hover:bg-gray-700/50 rounded-lg p-1 transition-all"
-          >
-            <XMarkIcon className="w-6 h-6" />
-          </button>
-        </div>
-
-        <div className="space-y-4">
-          {/* デッキ名入力 */}
-          <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">デッキ名</label>
+    <BaseModal
+      isOpen={isOpen}
+      onClose={handleClose}
+      title="デッキ編集"
+      maxWidth="lg"
+    >
+      <div className="space-y-4">
+        {/* デッキ名入力 */}
+        <div>
+          <label className="block text-sm font-medium text-gray-300 mb-2">デッキ名</label>
+          {isNameEditMode ? (
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              onBlur={() => setIsNameEditMode(false)}
+              autoFocus
               className="w-full px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
               placeholder="デッキ名を入力"
             />
-          </div>
-
-          {/* メモ入力/プレビュー */}
-          <div>
-            <label className="block text-sm font-medium text-gray-300 mb-2">メモ</label>
-
-            {isEditMode ? (
-              <textarea
-                value={memo}
-                onChange={(e) => setMemo(e.target.value)}
-                onBlur={() => setIsEditMode(false)}
-                autoFocus
-                className="w-full min-h-[200px] px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gray-500 font-mono text-sm"
-                placeholder="メモを入力（マークダウン対応）"
-              />
-            ) : (
-              <div
-                onClick={() => setIsEditMode(true)}
-                className="w-full min-h-[200px] px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white prose prose-invert prose-sm max-w-none cursor-text hover:bg-zinc-700/80 transition-colors"
-              >
-                <Markdown>{memo || '*メモをクリックして編集*'}</Markdown>
-              </div>
-            )}
-            <p className="text-xs text-gray-500 mt-1">
-              {isEditMode ? 'マークダウン記法が使えます（クリック外で保存）' : 'クリックして編集'}
-            </p>
-          </div>
-
-          {/* 保存ボタン */}
-          <div className="flex gap-2 justify-end">
-            <button
-              onClick={onClose}
-              className="px-4 py-2 bg-zinc-700 hover:bg-zinc-600 text-white rounded-lg transition-colors"
+          ) : (
+            <div
+              onClick={() => setIsNameEditMode(true)}
+              className="w-full px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white cursor-text hover:bg-zinc-700/80 transition-colors"
             >
-              キャンセル
-            </button>
-            <button
-              onClick={handleSave}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+              {name || 'デッキ名を入力'}
+            </div>
+          )}
+        </div>
+
+        {/* メモ入力/プレビュー */}
+        <div>
+          <label className="block text-sm font-medium text-gray-300 mb-2">メモ</label>
+
+          {isEditMode ? (
+            <textarea
+              value={memo}
+              onChange={(e) => setMemo(e.target.value)}
+              onBlur={() => setIsEditMode(false)}
+              autoFocus
+              className="w-full min-h-[200px] px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gray-500 font-mono text-sm"
+              placeholder="メモを入力（マークダウン対応）"
+            />
+          ) : (
+            <div
+              onClick={() => setIsEditMode(true)}
+              className="w-full min-h-[200px] px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white prose prose-invert prose-sm max-w-none cursor-text hover:bg-zinc-700/80 transition-colors"
             >
-              保存
-            </button>
-          </div>
+              <Markdown>{memo || '*メモをクリックして編集*'}</Markdown>
+            </div>
+          )}
+          <p className="text-xs text-gray-500 mt-1">
+            {isEditMode ? 'マークダウン記法が使えます（クリック外で保存）' : 'クリックして編集'}
+          </p>
         </div>
       </div>
-    </>
+    </BaseModal>
   );
 }
 

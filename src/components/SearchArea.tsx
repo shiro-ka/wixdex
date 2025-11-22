@@ -7,8 +7,11 @@ import {
 } from '@heroicons/react/24/outline';
 import { useRef, useState } from 'react';
 import type { Card } from '../types';
-import { WhiteIcon, RedIcon, BlueIcon, GreenIcon, BlackIcon } from './icons/ColorIcons';
-import { Level1Icon, Level2Icon, Level3Icon } from './icons/LevelIcons';
+import { WhiteIcon } from './icons/WhiteIcon';
+import { RedIcon } from './icons/RedIcon';
+import { BlueIcon } from './icons/BlueIcon';
+import { GreenIcon } from './icons/GreenIcon';
+import { BlackIcon } from './icons/BlackIcon';
 import { LifeBurstIcon } from './icons/LifeBurstIcon';
 
 interface SearchAreaProps {
@@ -134,7 +137,7 @@ function SearchArea({
               }`}
             onClick={() => onColorFilter('白')}
           >
-            <WhiteIcon className="w-5 h-5 text-yellow-300" />
+            <WhiteIcon className="w-5 h-5 text-yellow-200" />
           </div>
           <div
             className={`flex flex-1 bg-zinc-600/10 items-center justify-center cursor-pointer border ${selectedColors.has('赤') ? 'border-red-300/30' : 'border-transparent'
@@ -169,21 +172,27 @@ function SearchArea({
               }`}
             onClick={() => onLevelFilter(1)}
           >
-            <Level1Icon className="w-4 h-4 text-gray-400" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256" className="w-5 h-5 text-gray-400">
+              <path d="M144,48V208a8,8,0,0,1-16,0V62.13L100.12,78.86a8,8,0,1,1-8.24-13.72l40-24A8,8,0,0,1,144,48Z"></path>
+            </svg>
           </div>
           <div
             className={`flex flex-1 bg-zinc-600/10 items-center justify-center cursor-pointer border ${selectedLevels.has(2) ? 'border-gray-300/30' : 'border-transparent'
               }`}
             onClick={() => onLevelFilter(2)}
           >
-            <Level2Icon className="w-4 h-4 text-gray-400" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256" className="w-5 h-5 text-gray-400">
+              <path d="M176,208a8,8,0,0,1-8,8H88a8,8,0,0,1-6.4-12.8l71.94-95.92a32,32,0,1,0-51.1-38.53,32.5,32.5,0,0,0-3.78,6.46A8,8,0,1,1,84,68.8a48,48,0,1,1,82.33,48.09L104,200h64A8,8,0,0,1,176,208Z"></path>
+            </svg>
           </div>
           <div
             className={`flex flex-1 bg-zinc-600/10 rounded-r mr-2 items-center justify-center cursor-pointer border ${selectedLevels.has(3) ? 'border-gray-300/30' : 'border-transparent'
               }`}
             onClick={() => onLevelFilter(3)}
           >
-            <Level3Icon className="w-4 h-4 text-gray-400" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256" className="w-5 h-5 text-gray-400">
+              <path d="M176,160a56,56,0,0,1-93.33,41.74,8,8,0,1,1,10.66-11.92A40,40,0,1,0,120,120a8,8,0,0,1-6.4-12.8L152,56H88a8,8,0,0,1,0-16h80a8,8,0,0,1,6.4,12.8l-39.84,53.12A56.1,56.1,0,0,1,176,160Z"></path>
+            </svg>
           </div>
           <div
             className={`flex w-10 bg-zinc-600/10 rounded-lg items-center justify-center cursor-pointer ${lifeBurstFilter === true ? 'border-2 border-gray-300/30' :

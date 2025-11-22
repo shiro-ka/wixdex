@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import DeckListModal from './components/DeckListModal';
 import DeckEditModal from './components/DeckEditModal';
+import ShareModal from './components/ShareModal';
 import FilterDropdown from './components/dropdowns/FilterDropdown';
 import TypeFilterContent from './components/dropdowns/TypeFilterContent';
 import LrigClassFilterContent from './components/dropdowns/LrigClassFilterContent';
@@ -14,7 +15,8 @@ import { useDeckManager } from './hooks/useDeckManager';
 import { useCardHover } from './hooks/useCardHover';
 import { useCardPopup } from './hooks/useCardPopup';
 import { useCardFilter } from './hooks/useCardFilter';
-import { useDeckStorage } from './hooks/useDeckStorage';
+import { useDeckStorage, type SavedDeck } from './hooks/useDeckStorage';
+import { useCurrentDeck } from './hooks/useCurrentDeck';
 import { filterCards } from './utils/cardFilters';
 import type { Card } from './types';
 
@@ -32,38 +34,34 @@ function App() {
   const { popupCard, onCardClick, closePopup } = useCardPopup();
   const filter = useCardFilter();
   const { getAllDecks, saveDeck, updateDeck } = useDeckStorage();
-
-  // 現在のデッキ情報
-  const [currentDeckId, setCurrentDeckId] = useState<string | null>(null);
-  const [currentDeckName, setCurrentDeckName] = useState('');
-  const [currentDeckMemo, setCurrentDeckMemo] = useState('');
+  const currentDeck = useCurrentDeck();
 
   // オーバーレイ要素の状態管理
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDeckListOpen, setIsDeckListOpen] = useState(false);
   const [isDeckEditOpen, setIsDeckEditOpen] = useState(false);
+  const [isShareOpen, setIsShareOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<'type' | 'lrigClass' | null>(null);
 
   const handleSidebarOpen = () => {
-    console.log('App: handleSidebarOpen called!');
     setIsSidebarOpen(true);
   };
 
   const handleSave = () => {
-    console.log('App: handleSave called!');
-    if (currentDeckId) {
+    if (currentDeck.id) {
       // 既存デッキの更新
-      updateDeck(currentDeckId, currentDeckName, currentDeckMemo, deck.mainDeck, deck.lrigDeck, deck.candidateCards);
-      alert(`デッキ「${currentDeckName}」を更新しました！`);
+      const success = updateDeck(currentDeck.id, currentDeck.name, currentDeck.memo, deck.mainDeck, deck.lrigDeck, deck.candidateCards);
+      if (success) {
+        currentDeck.markAsSaved();
+      }
     } else {
       // 新規デッキの保存
       const deckName = prompt('デッキ名を入力してください', 'New Deck');
       if (deckName) {
         const newDeck = saveDeck(deckName, '', deck.mainDeck, deck.lrigDeck, deck.candidateCards);
-        setCurrentDeckId(newDeck.id);
-        setCurrentDeckName(newDeck.name);
-        setCurrentDeckMemo(newDeck.memo);
-        alert(`デッキ「${deckName}」を保存しました！`);
+        if (newDeck) {
+          currentDeck.createNewDeck(newDeck.id, newDeck.name, newDeck.memo);
+        }
       }
     }
   };
@@ -76,20 +74,40 @@ function App() {
     setIsDeckEditOpen(true);
   };
 
-  const handleLoadDeck = (savedDeck: { id: string; name: string; memo: string; mainDeck: Card[]; lrigDeck: Card[]; candidateCards: Card[] }) => {
+  const handleShareOpen = () => {
+    setIsShareOpen(true);
+  };
+
+  const handleLoadDeck = (savedDeck: SavedDeck) => {
     deck.loadDeck(savedDeck.mainDeck, savedDeck.lrigDeck, savedDeck.candidateCards);
-    setCurrentDeckId(savedDeck.id);
-    setCurrentDeckName(savedDeck.name);
-    setCurrentDeckMemo(savedDeck.memo);
+    currentDeck.loadDeck(savedDeck.id, savedDeck.name, savedDeck.memo);
   };
 
   const handleDeckEdit = (name: string, memo: string) => {
-    setCurrentDeckName(name);
-    setCurrentDeckMemo(memo);
-    if (currentDeckId) {
-      updateDeck(currentDeckId, name, memo, deck.mainDeck, deck.lrigDeck, deck.candidateCards);
+    if (currentDeck.id) {
+      const success = updateDeck(currentDeck.id, name, memo, deck.mainDeck, deck.lrigDeck, deck.candidateCards);
+      if (success) {
+        currentDeck.updateMetadata(name, memo);
+      }
     }
   };
+
+  // デッキ内容が変更されたら未保存状態に
+  useEffect(() => {
+    if (currentDeck.id) {
+      currentDeck.markAsUnsaved();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deck.mainDeck, deck.lrigDeck, deck.candidateCards]);
+
+  // デッキ名が設定されている場合はタイトルを更新
+  useEffect(() => {
+    if (currentDeck.name) {
+      document.title = `${currentDeck.name} - wixdex`;
+    } else {
+      document.title = 'wixdex';
+    }
+  }, [currentDeck.name]);
 
   // 引っ張って更新を防ぐ（特定要素のみ）
   useEffect(() => {
@@ -151,10 +169,12 @@ function App() {
       {/* Navbar */}
       <Navbar
         basePath="/wixdex"
-        deckName={currentDeckName}
+        deckName={currentDeck.name}
+        isSaved={currentDeck.isSaved}
         onMenuClick={handleSidebarOpen}
         onSaveClick={handleSave}
         onDeckClick={handleDeckEditOpen}
+        onShareClick={handleShareOpen}
       />
       {/* Container */}
       <div className="flex flex-col flex-1 overflow-hidden max-w-screen-md mx-auto w-full">
@@ -246,9 +266,15 @@ function App() {
       <DeckEditModal
         isOpen={isDeckEditOpen}
         onClose={() => setIsDeckEditOpen(false)}
-        currentName={currentDeckName}
-        currentMemo={currentDeckMemo}
+        currentName={currentDeck.name}
+        currentMemo={currentDeck.memo}
         onSave={handleDeckEdit}
+      />
+
+      {/* シェアモーダル */}
+      <ShareModal
+        isOpen={isShareOpen}
+        onClose={() => setIsShareOpen(false)}
       />
 
       {/* ポップアップ */}
