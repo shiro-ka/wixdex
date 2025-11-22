@@ -11,9 +11,17 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
     selectedLrigClasses,
     lifeBurstFilter,
     searchText,
+    candidateFilter,
+    candidateCards,
   } = filters;
 
   return cards.filter(card => {
+    // 候補カードフィルター（最優先）
+    if (candidateFilter && candidateCards) {
+      const inCandidates = candidateCards.some(c => c.id === card.id);
+      if (!inCandidates) return false;
+    }
+
     // 色によるフィルタリング
     const colorMatch = selectedColors.size === 0 ||
       card.color.some(color => selectedColors.has(color));

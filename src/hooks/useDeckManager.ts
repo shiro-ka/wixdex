@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback } from 'react';
 import type { Card, DeckType } from '../types';
-import { addCardToDeck, removeCardFromDeck } from '../utils/deckOperations';
+import { addCardToDeck, addMultipleCardsToDeck, removeCardFromDeck } from '../utils/deckOperations';
 
 export function useDeckManager() {
   const [mainDeck, setMainDeck] = useState<Card[]>([]);
@@ -31,6 +31,13 @@ export function useDeckManager() {
     setLrigDeck(result.lrigDeck);
   }, [mainDeck, lrigDeck]);
 
+  // カードを複数枚デッキに追加
+  const addMultipleCards = useCallback((card: Card, count: number) => {
+    const result = addMultipleCardsToDeck(card, count, mainDeck, lrigDeck);
+    setMainDeck(result.mainDeck);
+    setLrigDeck(result.lrigDeck);
+  }, [mainDeck, lrigDeck]);
+
   // カードをデッキから削除
   const removeCard = useCallback((card: Card, specificIndex: number | null = null, deckType: DeckType | null = null) => {
     const result = removeCardFromDeck(card, mainDeck, lrigDeck, specificIndex, deckType);
@@ -47,14 +54,23 @@ export function useDeckManager() {
     }
   }, [mainDeck, lrigDeck, candidateCards, addToCandidate]);
 
+  // デッキを読み込み
+  const loadDeck = useCallback((newMainDeck: Card[], newLrigDeck: Card[], newCandidateCards: Card[]) => {
+    setMainDeck(newMainDeck);
+    setLrigDeck(newLrigDeck);
+    setCandidateCards(newCandidateCards);
+  }, []);
+
   return {
     mainDeck,
     lrigDeck,
     candidateCards,
     lifeBurstCount,
     addCard,
+    addMultipleCards,
     removeCard,
     addToCandidate,
     removeFromCandidate,
+    loadDeck,
   };
 }

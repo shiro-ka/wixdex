@@ -1,3 +1,5 @@
+import type { Card } from './card';
+
 export interface FilterState {
   selectedColors: Set<string>;
   selectedLevels: Set<number>;
@@ -5,4 +7,6 @@ export interface FilterState {
   selectedLrigClasses: Set<string>;
   lifeBurstFilter: boolean | null;
   searchText: string;
+  candidateFilter: boolean;
+  candidateCards?: Card[];
 }

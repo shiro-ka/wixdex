@@ -34,6 +34,58 @@ export function addCardToDeck(card: Card, mainDeck: Card[], lrigDeck: Card[]): D
   return { mainDeck, lrigDeck };
 }
 
+// カードを複数枚デッキに追加（構築制限チェックしながら1枚ずつ追加し、最後に1回だけソート）
+export function addMultipleCardsToDeck(
+  card: Card,
+  count: number,
+  mainDeck: Card[],
+  lrigDeck: Card[]
+): DeckOperationResult {
+  let newMainDeck = [...mainDeck];
+  let newLrigDeck = [...lrigDeck];
+  let addedCount = 0;
+
+  // count回ループして追加可能な枚数だけ追加
+  for (let i = 0; i < count; i++) {
+    const validation = canAddCard(card, newMainDeck, newLrigDeck);
+    if (!validation.valid) {
+      // これ以上追加できない場合はループを抜ける
+      if (addedCount > 0) {
+        console.warn(`${addedCount}枚追加しました: ${validation.error}`);
+      } else {
+        console.warn(validation.error);
+      }
+      break;
+    }
+
+    // ルリグデッキの処理
+    if (isLrigCard(card)) {
+      newLrigDeck = [...newLrigDeck, card];
+      addedCount++;
+    }
+    // メインデッキの処理
+    else if (isMainDeckCard(card)) {
+      newMainDeck = [...newMainDeck, card];
+      addedCount++;
+    }
+    // どちらでもない場合は終了
+    else {
+      break;
+    }
+  }
+
+  // 最後に1回だけソート
+  if (addedCount > 0) {
+    if (isLrigCard(card)) {
+      newLrigDeck = sortLrigDeck(newLrigDeck);
+    } else if (isMainDeckCard(card)) {
+      newMainDeck = sortMainDeck(newMainDeck);
+    }
+  }
+
+  return { mainDeck: newMainDeck, lrigDeck: newLrigDeck };
+}
+
 // カードをデッキから削除
 export function removeCardFromDeck(
   card: Card,

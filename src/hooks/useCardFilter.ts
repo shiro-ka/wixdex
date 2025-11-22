@@ -7,6 +7,7 @@ export function useCardFilter() {
   const [selectedLrigClasses, setSelectedLrigClasses] = useState<Set<string>>(new Set());
   const [lifeBurstFilter, setLifeBurstFilter] = useState<boolean | null>(null);
   const [searchText, setSearchText] = useState<string>('');
+  const [candidateFilter, setCandidateFilter] = useState<boolean>(false);
 
   // 色フィルターのトグル
   const toggleColorFilter = useCallback((color: string) => {
@@ -69,6 +70,11 @@ export function useCardFilter() {
     });
   }, []);
 
+  // 候補カードフィルターのトグル
+  const toggleCandidateFilter = useCallback(() => {
+    setCandidateFilter(prev => !prev);
+  }, []);
+
   // 全フィルターをリセット
   const resetFilters = useCallback(() => {
     setSelectedColors(new Set());
@@ -77,6 +83,7 @@ export function useCardFilter() {
     setSelectedLrigClasses(new Set());
     setLifeBurstFilter(null);
     setSearchText('');
+    setCandidateFilter(false);
   }, []);
 
   return {
@@ -86,12 +93,14 @@ export function useCardFilter() {
     selectedLrigClasses,
     lifeBurstFilter,
     searchText,
+    candidateFilter,
     setSearchText,
     toggleColorFilter,
     toggleLevelFilter,
     toggleCardTypeFilter,
     toggleLrigClassFilter,
     toggleLifeBurstFilter,
+    toggleCandidateFilter,
     resetFilters,
   };
 }
