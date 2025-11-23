@@ -18,6 +18,7 @@ import { useCardPopup } from './hooks/useCardPopup';
 import { useCardFilter } from './hooks/useCardFilter';
 import { useDeckStorage, type SavedDeck } from './hooks/useDeckStorage';
 import { useCurrentDeck } from './hooks/useCurrentDeck';
+import { useUserSettings } from './hooks/useUserSettings';
 import { filterCards } from './utils/cardFilters';
 import type { Card } from './types';
 
@@ -36,6 +37,7 @@ function App() {
   const filter = useCardFilter();
   const { getAllDecks, saveDeck, updateDeck } = useDeckStorage();
   const currentDeck = useCurrentDeck();
+  const { settings, toggleShowLifeBurst } = useUserSettings();
 
   // オーバーレイ要素の状態管理
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -229,6 +231,8 @@ function App() {
           basePath="/wixdex"
           activeDropdown={activeDropdown}
           onDropdownChange={setActiveDropdown}
+          showLifeBurst={settings.showLifeBurst}
+          onToggleLifeBurst={toggleShowLifeBurst}
         />
       </div>
 
@@ -311,6 +315,9 @@ function App() {
       <ShareModal
         isOpen={isShareOpen}
         onClose={() => setIsShareOpen(false)}
+        deckName={currentDeck.name}
+        mainDeck={deck.mainDeck}
+        lrigDeck={deck.lrigDeck}
       />
 
       {/* ポップアップ */}

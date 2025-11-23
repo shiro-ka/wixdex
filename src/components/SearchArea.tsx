@@ -14,6 +14,7 @@ import { BlackIcon } from './icons/BlackIcon';
 import { LifeBurstIcon } from './icons/LifeBurstIcon';
 import { CardTypeIcon } from './icons/CardTypeIcon';
 import { LrigClassIcon } from './icons/LrigClassIcon';
+import SettingsPopup from './SettingsPopup';
 
 interface SearchAreaProps {
   hoveredCard: Card | null;
@@ -36,6 +37,8 @@ interface SearchAreaProps {
   basePath: string;
   activeDropdown: 'type' | 'lrigClass' | 'tag' | null;
   onDropdownChange: (dropdown: 'type' | 'lrigClass' | 'tag' | null) => void;
+  showLifeBurst: boolean;
+  onToggleLifeBurst: () => void;
 }
 
 function SearchArea({
@@ -59,9 +62,12 @@ function SearchArea({
   candidateFilter,
   activeDropdown,
   onDropdownChange,
+  showLifeBurst,
+  onToggleLifeBurst,
 }: SearchAreaProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchText, setSearchText] = useState('');
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const handleClear = () => {
     setSearchText('');
@@ -229,8 +235,14 @@ function SearchArea({
         </div>
         {/* テキスト/クリア/その他ボタン */}
         <div className="flex w-full h-8">
-          <div className='flex w-10 mr-2 bg-zinc-600/10 rounded-lg items-center justify-center text-gray-400'>
+          <div className='relative flex w-10 mr-2 bg-zinc-600/10 rounded-lg items-center justify-center text-gray-400 hover:text-white cursor-pointer transition-all' onClick={() => setIsSettingsOpen(!isSettingsOpen)}>
             <AdjustmentsHorizontalIcon className="w-5 h-5" />
+            <SettingsPopup
+              isOpen={isSettingsOpen}
+              onClose={() => setIsSettingsOpen(false)}
+              showLifeBurst={showLifeBurst}
+              onToggleLifeBurst={onToggleLifeBurst}
+            />
           </div>
           <div className="flex flex-1 mr-2 items-center bg-zinc-600/10 rounded-lg focus-within:ring-2 focus-within:ring-gray-500">
             <div
