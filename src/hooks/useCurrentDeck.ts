@@ -50,6 +50,15 @@ export function useCurrentDeck() {
     setState(prev => ({ ...prev, isSaved: true }));
   }, []);
 
+  const resetDeck = useCallback(() => {
+    setState({
+      id: null,
+      name: '',
+      memo: '',
+      isSaved: true,
+    });
+  }, []);
+
   return {
     ...state,
     loadDeck,
@@ -57,5 +66,6 @@ export function useCurrentDeck() {
     createNewDeck,
     markAsUnsaved,
     markAsSaved,
+    resetDeck,
   };
 }

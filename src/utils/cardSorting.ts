@@ -61,54 +61,70 @@ function getLrigTypeSortKey(card: Card): string {
   return lrigType;
 }
 
-// ルリグデッキをソート
+// ルリグデッキをソート（安定ソート対応）
 export function sortLrigDeck(lrigDeck: Card[]): Card[] {
-  return [...lrigDeck].sort((a, b) => {
-    // 1. カードタイプでソート（ルリグ→アシスト→ピース→アーツ）
-    const typeDiff = getLrigCardTypePriority(a) - getLrigCardTypePriority(b);
-    if (typeDiff !== 0) return typeDiff;
+  // インデックスと一緒に保持して安定ソートを実現
+  return [...lrigDeck]
+    .map((card, index) => ({ card, index }))
+    .sort((a, b) => {
+      // 1. カードタイプでソート（ルリグ→アシスト→ピース→アーツ）
+      const typeDiff = getLrigCardTypePriority(a.card) - getLrigCardTypePriority(b.card);
+      if (typeDiff !== 0) return typeDiff;
 
-    // 2. ルリグタイプでソート（アシストの場合のみ、50音順）
-    const isAssistA = a.cardType?.[0] === 'アシスト';
-    const isAssistB = b.cardType?.[0] === 'アシスト';
-    if (isAssistA && isAssistB) {
-      const lrigTypeDiff = getLrigTypeSortKey(a).localeCompare(getLrigTypeSortKey(b), 'ja');
-      if (lrigTypeDiff !== 0) return lrigTypeDiff;
+      // 2. ルリグタイプでソート（アシストの場合のみ、50音順）
+      const isAssistA = a.card.cardType?.[0] === 'アシスト';
+      const isAssistB = b.card.cardType?.[0] === 'アシスト';
+      if (isAssistA && isAssistB) {
+        const lrigTypeDiff = getLrigTypeSortKey(a.card).localeCompare(getLrigTypeSortKey(b.card), 'ja');
+        if (lrigTypeDiff !== 0) return lrigTypeDiff;
 
-      // 3. レベルでソート（アシストの場合、1→2）
-      const levelDiff = getLevel(a) - getLevel(b);
-      if (levelDiff !== 0) return levelDiff;
-    }
+        // 3. レベルでソート（アシストの場合、1→2）
+        const levelDiff = getLevel(a.card) - getLevel(b.card);
+        if (levelDiff !== 0) return levelDiff;
+      }
 
-    // 4. IDでソート
-    const idA = a.id ?? '';
-    const idB = b.id ?? '';
-    return idA.localeCompare(idB);
-  });
+      // 4. IDでソート
+      const idA = a.card.id ?? '';
+      const idB = b.card.id ?? '';
+      const idDiff = idA.localeCompare(idB);
+      if (idDiff !== 0) return idDiff;
+
+      // 5. IDが同じ場合は元のインデックス順を保つ（安定ソート）
+      return a.index - b.index;
+    })
+    .map(item => item.card);
 }
 
-// メインデッキをソート
+// メインデッキをソート（安定ソート対応）
 export function sortMainDeck(mainDeck: Card[]): Card[] {
-  return [...mainDeck].sort((a, b) => {
-    // 1. カードタイプでソート（シグニ→スペル→サーバント）
-    const typeDiff = getMainCardTypePriority(a) - getMainCardTypePriority(b);
-    if (typeDiff !== 0) return typeDiff;
+  // インデックスと一緒に保持して安定ソートを実現
+  return [...mainDeck]
+    .map((card, index) => ({ card, index }))
+    .sort((a, b) => {
+      // 1. カードタイプでソート（シグニ→スペル→サーバント）
+      const typeDiff = getMainCardTypePriority(a.card) - getMainCardTypePriority(b.card);
+      if (typeDiff !== 0) return typeDiff;
 
-    // 2. レベルでソート（シグニの場合のみ、1→2→3）
-    const isSigniA = a.cardType?.[0] === 'シグニ';
-    const isSigniB = b.cardType?.[0] === 'シグニ';
-    if (isSigniA && isSigniB) {
-      const levelDiff = getLevel(a) - getLevel(b);
-      if (levelDiff !== 0) return levelDiff;
-    }
+      // 2. レベルでソート（シグニの場合のみ、1→2→3）
+      const isSigniA = a.card.cardType?.[0] === 'シグニ';
+      const isSigniB = b.card.cardType?.[0] === 'シグニ';
+      if (isSigniA && isSigniB) {
+        const levelDiff = getLevel(a.card) - getLevel(b.card);
+        if (levelDiff !== 0) return levelDiff;
+      }
 
-    // 3. 色でソート（白→赤→青→緑→黒→多色→無色）
-    const colorDiff = getColorPriority(a) - getColorPriority(b);
-    if (colorDiff !== 0) return colorDiff;
+      // 3. 色でソート（白→赤→青→緑→黒→多色→無色）
+      const colorDiff = getColorPriority(a.card) - getColorPriority(b.card);
+      if (colorDiff !== 0) return colorDiff;
 
-    // 4. IDでソート
-    const idA = a.id ?? '';
-    const idB = b.id ?? '';
-    return idA.localeCompare(idB);
-  });
+      // 4. IDでソート
+      const idA = a.card.id ?? '';
+      const idB = b.card.id ?? '';
+      const idDiff = idA.localeCompare(idB);
+      if (idDiff !== 0) return idDiff;
+
+      // 5. IDが同じ場合は元のインデックス順を保つ（安定ソート）
+      return a.index - b.index;
+    })
+    .map(item => item.card);
 }

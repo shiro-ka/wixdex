@@ -6,9 +6,10 @@ interface FilterDropdownProps {
   onClose: () => void;
   title: string;
   children: ReactNode;
+  onClearAll: () => void;
 }
 
-function FilterDropdown({ isOpen, onClose, title, children }: FilterDropdownProps) {
+function FilterDropdown({ isOpen, onClose, title, children, onClearAll }: FilterDropdownProps) {
   const [isClosing, setIsClosing] = useState(false);
   const [shouldRender, setShouldRender] = useState(isOpen);
 
@@ -47,15 +48,34 @@ function FilterDropdown({ isOpen, onClose, title, children }: FilterDropdownProp
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-white text-sm font-semibold">{title}</h3>
           <button
-            onClick={handleClose}
+            onClick={onClearAll}
             className="text-gray-400 hover:text-white !bg-transparent hover:bg-gray-700/50 rounded-lg p-1 transition-all"
-            aria-label="閉じる"
+            aria-label="チェック全解除"
           >
-            <ChevronUpIcon className="w-5 h-5" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M8.56 3.69a9 9 0 0 0 -2.92 1.95" />
+              <path d="M3.69 8.56a9 9 0 0 0 -.69 3.44" />
+              <path d="M3.69 15.44a9 9 0 0 0 1.95 2.92" />
+              <path d="M8.56 20.31a9 9 0 0 0 3.44 .69" />
+              <path d="M15.44 20.31a9 9 0 0 0 2.92 -1.95" />
+              <path d="M20.31 15.44a9 9 0 0 0 .69 -3.44" />
+              <path d="M20.31 8.56a9 9 0 0 0 -1.95 -2.92" />
+              <path d="M15.44 3.69a9 9 0 0 0 -3.44 -.69" />
+              <path d="M9 12l2 2l4 -4" />
+            </svg>
           </button>
         </div>
 
         <div>{children}</div>
+
+        <button
+          onClick={handleClose}
+          className="w-full mt-4 text-gray-400 hover:text-white bg-gray-700/50 hover:bg-gray-700 rounded-lg p-2 transition-all flex items-center justify-center gap-2"
+        >
+          <ChevronUpIcon className="w-5 h-5" />
+          <span className="text-sm">閉じる</span>
+        </button>
       </div>
     </div>
   );

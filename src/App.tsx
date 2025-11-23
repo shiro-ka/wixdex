@@ -11,6 +11,7 @@ import ShareModal from './components/ShareModal';
 import FilterDropdown from './components/dropdowns/FilterDropdown';
 import TypeFilterContent from './components/dropdowns/TypeFilterContent';
 import LrigClassFilterContent from './components/dropdowns/LrigClassFilterContent';
+import TagFilterContent from './components/dropdowns/TagFilterContent';
 import { useDeckManager } from './hooks/useDeckManager';
 import { useCardHover } from './hooks/useCardHover';
 import { useCardPopup } from './hooks/useCardPopup';
@@ -41,7 +42,7 @@ function App() {
   const [isDeckListOpen, setIsDeckListOpen] = useState(false);
   const [isDeckEditOpen, setIsDeckEditOpen] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<'type' | 'lrigClass' | null>(null);
+  const [activeDropdown, setActiveDropdown] = useState<'type' | 'lrigClass' | 'tag' | null>(null);
 
   const handleSidebarOpen = () => {
     setIsSidebarOpen(true);
@@ -157,12 +158,13 @@ function App() {
       selectedLevels: filter.selectedLevels,
       selectedCardTypes: filter.selectedCardTypes,
       selectedLrigClasses: filter.selectedLrigClasses,
+      selectedTags: filter.selectedTags,
       lifeBurstFilter: filter.lifeBurstFilter,
       searchText: filter.searchText,
       candidateFilter: filter.candidateFilter,
       candidateCards: deck.candidateCards,
     });
-  }, [allCardData, filter.selectedColors, filter.selectedLevels, filter.selectedCardTypes, filter.selectedLrigClasses, filter.lifeBurstFilter, filter.searchText, filter.candidateFilter, deck.candidateCards]);
+  }, [allCardData, filter.selectedColors, filter.selectedLevels, filter.selectedCardTypes, filter.selectedLrigClasses, filter.selectedTags, filter.lifeBurstFilter, filter.searchText, filter.candidateFilter, deck.candidateCards]);
 
   return (
     <div className="flex flex-col w-dvw h-dvh bg-zinc-900  overflow-hidden m-0 p-0">
@@ -212,6 +214,7 @@ function App() {
           selectedLevels={filter.selectedLevels}
           selectedCardTypes={filter.selectedCardTypes}
           selectedLrigClasses={filter.selectedLrigClasses}
+          selectedTags={filter.selectedTags}
           lifeBurstFilter={filter.lifeBurstFilter}
           candidateFilter={filter.candidateFilter}
           onColorFilter={filter.toggleColorFilter}
@@ -220,6 +223,7 @@ function App() {
           onLifeBurstFilter={filter.toggleLifeBurstFilter}
           onCardTypeFilter={filter.toggleCardTypeFilter}
           onLrigClassFilter={filter.toggleLrigClassFilter}
+          onTagFilter={filter.toggleTagFilter}
           onCandidateFilter={filter.toggleCandidateFilter}
           onReset={filter.resetFilters}
           basePath="/wixdex"
@@ -233,6 +237,10 @@ function App() {
         isOpen={activeDropdown === 'type'}
         onClose={() => setActiveDropdown(null)}
         title="カードタイプ検索"
+        onClearAll={() => {
+          // 現在選択されているカード種類をすべて解除
+          filter.selectedCardTypes.forEach(type => filter.toggleCardTypeFilter(type));
+        }}
       >
         <TypeFilterContent
           selectedTypes={filter.selectedCardTypes}
@@ -244,6 +252,10 @@ function App() {
         isOpen={activeDropdown === 'lrigClass'}
         onClose={() => setActiveDropdown(null)}
         title="ルリグタイプ/クラス検索"
+        onClearAll={() => {
+          // 現在選択されているルリグクラスをすべて解除
+          filter.selectedLrigClasses.forEach(lrigClass => filter.toggleLrigClassFilter(lrigClass));
+        }}
       >
         <LrigClassFilterContent
           selectedLrigClasses={filter.selectedLrigClasses}
@@ -251,8 +263,32 @@ function App() {
         />
       </FilterDropdown>
 
+      <FilterDropdown
+        isOpen={activeDropdown === 'tag'}
+        onClose={() => setActiveDropdown(null)}
+        title="タグ検索"
+        onClearAll={() => {
+          // 現在選択されているタグをすべて解除
+          filter.selectedTags.forEach(tag => filter.toggleTagFilter(tag));
+        }}
+      >
+        <TagFilterContent
+          selectedTags={filter.selectedTags}
+          onToggle={filter.toggleTagFilter}
+        />
+      </FilterDropdown>
+
       {/* サイドバー（App レベル） */}
-      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} onDeckListClick={handleDeckListOpen} />
+      <Sidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        onDeckListClick={handleDeckListOpen}
+        onNewDeckClick={() => {
+          // 新しいデッキ作成時の処理（現在のデッキをリセット）
+          currentDeck.resetDeck();
+          deck.loadDeck([], [], []);
+        }}
+      />
 
       {/* デッキ一覧モーダル */}
       <DeckListModal

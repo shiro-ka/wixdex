@@ -9,6 +9,7 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
     selectedLevels,
     selectedCardTypes,
     selectedLrigClasses,
+    selectedTags,
     lifeBurstFilter,
     searchText,
     candidateFilter,
@@ -38,6 +39,11 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
     const lrigClassMatch = selectedLrigClasses.size === 0 ||
       card.lrigTypeClass.some(lrigClass => selectedLrigClasses.has(lrigClass));
 
+    // タグによるフィルタリング
+    const tagMatch = selectedTags.size === 0 ||
+      (Array.isArray(card.tags) ? card.tags.some(tag => selectedTags.has(tag)) :
+       typeof card.tags === 'string' && card.tags !== '' && selectedTags.has(card.tags));
+
     // ライフバーストによるフィルタリング
     const lifeBurstMatch = lifeBurstFilter === null ||
       card.lifeBurst === lifeBurstFilter.toString();
@@ -48,6 +54,6 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
       card.subName.some(name => name.toLowerCase().includes(searchText.toLowerCase()));
 
     // 全ての条件を満たすカードのみを表示
-    return colorMatch && levelMatch && cardTypeMatch && lrigClassMatch && lifeBurstMatch && textMatch;
+    return colorMatch && levelMatch && cardTypeMatch && lrigClassMatch && tagMatch && lifeBurstMatch && textMatch;
   });
 }

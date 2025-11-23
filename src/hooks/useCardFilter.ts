@@ -5,6 +5,7 @@ export function useCardFilter() {
   const [selectedLevels, setSelectedLevels] = useState<Set<number>>(new Set());
   const [selectedCardTypes, setSelectedCardTypes] = useState<Set<string>>(new Set());
   const [selectedLrigClasses, setSelectedLrigClasses] = useState<Set<string>>(new Set());
+  const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
   const [lifeBurstFilter, setLifeBurstFilter] = useState<boolean | null>(null);
   const [searchText, setSearchText] = useState<string>('');
   const [candidateFilter, setCandidateFilter] = useState<boolean>(false);
@@ -61,6 +62,19 @@ export function useCardFilter() {
     });
   }, []);
 
+  // タグフィルターのトグル
+  const toggleTagFilter = useCallback((tag: string) => {
+    setSelectedTags(prev => {
+      const newTags = new Set(prev);
+      if (newTags.has(tag)) {
+        newTags.delete(tag);
+      } else {
+        newTags.add(tag);
+      }
+      return newTags;
+    });
+  }, []);
+
   // ライフバーストフィルターのトグル
   const toggleLifeBurstFilter = useCallback(() => {
     setLifeBurstFilter(prev => {
@@ -81,6 +95,7 @@ export function useCardFilter() {
     setSelectedLevels(new Set());
     setSelectedCardTypes(new Set());
     setSelectedLrigClasses(new Set());
+    setSelectedTags(new Set());
     setLifeBurstFilter(null);
     setSearchText('');
     setCandidateFilter(false);
@@ -91,6 +106,7 @@ export function useCardFilter() {
     selectedLevels,
     selectedCardTypes,
     selectedLrigClasses,
+    selectedTags,
     lifeBurstFilter,
     searchText,
     candidateFilter,
@@ -99,6 +115,7 @@ export function useCardFilter() {
     toggleLevelFilter,
     toggleCardTypeFilter,
     toggleLrigClassFilter,
+    toggleTagFilter,
     toggleLifeBurstFilter,
     toggleCandidateFilter,
     resetFilters,

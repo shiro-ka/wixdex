@@ -5,6 +5,7 @@ export interface FilterState {
   selectedLevels: Set<number>;
   selectedCardTypes: Set<string>;
   selectedLrigClasses: Set<string>;
+  selectedTags: Set<string>;
   lifeBurstFilter: boolean | null;
   searchText: string;
   candidateFilter: boolean;
