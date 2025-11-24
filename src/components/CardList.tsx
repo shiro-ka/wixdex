@@ -14,6 +14,8 @@ interface CardListProps {
   onCardClick: (card: Card) => void;
   basePath: string;
   showLifeBurst: boolean;
+  showCandidateIcon: boolean;
+  candidateCards: Card[];
 }
 
 // HTMLImageElementの拡張（カスタムプロパティ用）
@@ -28,7 +30,12 @@ interface ExtendedHTMLImageElement extends HTMLImageElement {
   _holdTimer?: number | null;
 }
 
-function CardList({ cards, onAdd, onAddMultiple, onRemove, onCardHover, onAddToCandidate, onRemoveFromCandidate, candidateFilter, onCardClick, basePath, showLifeBurst }: CardListProps) {
+function CardList({ cards, onAdd, onAddMultiple, onRemove, onCardHover, onAddToCandidate, onRemoveFromCandidate, candidateFilter, onCardClick, basePath, showLifeBurst, showCandidateIcon, candidateCards }: CardListProps) {
+  // カードが候補カードに含まれているかチェック
+  const isCardInCandidates = (card: Card): boolean => {
+    return candidateCards.some(c => (c.id && c.id === card.id) || (c.image === card.image));
+  };
+
   return (
     <div
       className="flex gap-2 overflow-x-auto max-w-full py-3 flex-grow-1 mb-1"
@@ -164,6 +171,8 @@ function CardList({ cards, onAdd, onAddMultiple, onRemove, onCardHover, onAddToC
               className="object-contain"
               alt={card.name}
               showLifeBurst={showLifeBurst}
+              showCandidateIcon={showCandidateIcon}
+              isInCandidates={isCardInCandidates(card)}
               onMouseEnter={() => onCardHover(card)}
               onClick={() => onCardClick(card)}
             />

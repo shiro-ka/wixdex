@@ -32,10 +32,24 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,svg,json}'],
-        globIgnores: ['**/assets/cards_img/**'],
+        globPatterns: ['**/*.{js,css,html,ico,svg}'],
+        globIgnores: ['**/assets/cards_img/**', '**/assets/cards_json/**'],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024, // 3MB
         runtimeCaching: [
+          {
+            urlPattern: /\/assets\/cards_json\/.*/i,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'card-data-cache',
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 7 // 7日間
+              },
+              networkTimeoutSeconds: 10,
+              cacheableResponse: {
+                statuses: [0, 200]
+              }
+            }
+          },
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
             handler: 'CacheFirst',
@@ -70,8 +84,8 @@ export default defineConfig({
             options: {
               cacheName: 'card-images-cache',
               expiration: {
-                maxEntries: 500,
-                maxAgeSeconds: 60 * 60 * 24 * 30 // 30日
+                maxEntries: 1000,
+                maxAgeSeconds: 60 * 60 * 24 * 90 // 90日（カード画像は変更されないので長く保持）
               },
               cacheableResponse: {
                 statuses: [0, 200]

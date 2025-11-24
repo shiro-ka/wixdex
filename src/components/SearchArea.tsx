@@ -39,6 +39,8 @@ interface SearchAreaProps {
   onDropdownChange: (dropdown: 'type' | 'lrigClass' | 'tag' | null) => void;
   showLifeBurst: boolean;
   onToggleLifeBurst: () => void;
+  showCandidateIcon: boolean;
+  onToggleCandidateIcon: () => void;
 }
 
 function SearchArea({
@@ -64,6 +66,8 @@ function SearchArea({
   onDropdownChange,
   showLifeBurst,
   onToggleLifeBurst,
+  showCandidateIcon,
+  onToggleCandidateIcon,
 }: SearchAreaProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchText, setSearchText] = useState('');
@@ -242,6 +246,8 @@ function SearchArea({
               onClose={() => setIsSettingsOpen(false)}
               showLifeBurst={showLifeBurst}
               onToggleLifeBurst={onToggleLifeBurst}
+              showCandidateIcon={showCandidateIcon}
+              onToggleCandidateIcon={onToggleCandidateIcon}
             />
           </div>
           <div className="flex flex-1 mr-2 items-center bg-zinc-600/10 rounded-lg focus-within:ring-2 focus-within:ring-gray-500">

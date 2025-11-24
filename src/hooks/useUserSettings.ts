@@ -4,10 +4,12 @@ const SETTINGS_STORAGE_KEY = 'wixdex_user_settings';
 
 interface UserSettings {
   showLifeBurst: boolean;
+  showCandidateIcon: boolean;
 }
 
 const DEFAULT_SETTINGS: UserSettings = {
   showLifeBurst: false,
+  showCandidateIcon: false,
 };
 
 export function useUserSettings() {
@@ -36,8 +38,13 @@ export function useUserSettings() {
     setSettings(prev => ({ ...prev, showLifeBurst: !prev.showLifeBurst }));
   }, []);
 
+  const toggleShowCandidateIcon = useCallback(() => {
+    setSettings(prev => ({ ...prev, showCandidateIcon: !prev.showCandidateIcon }));
+  }, []);
+
   return {
     settings,
     toggleShowLifeBurst,
+    toggleShowCandidateIcon,
   };
 }

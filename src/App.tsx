@@ -28,6 +28,7 @@ import cardDataWXDiP16 from './assets/cards_json/WXDi-P16.json';
 import cardDataWXDiP15 from './assets/cards_json/WXDi-P15.json';
 import cardDataWXDiP13 from './assets/cards_json/WXDi-P13.json';
 import cardDataWXDiP12 from './assets/cards_json/WXDi-P12.json';
+import cardDataServant from './assets/cards_json/servant.json';
 
 function App() {
   // カスタムフックでstate管理
@@ -37,7 +38,7 @@ function App() {
   const filter = useCardFilter();
   const { getAllDecks, saveDeck, updateDeck } = useDeckStorage();
   const currentDeck = useCurrentDeck();
-  const { settings, toggleShowLifeBurst } = useUserSettings();
+  const { settings, toggleShowLifeBurst, toggleShowCandidateIcon } = useUserSettings();
 
   // オーバーレイ要素の状態管理
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -146,6 +147,7 @@ function App() {
 
   // カードデータをまとめる
   const allCardData = useMemo(() => [
+    ...(cardDataServant as Card[]),
     ...(cardDataWX24P4 as Card[]),
     ...(cardDataWXDiP16 as Card[]),
     ...(cardDataWXDiP13 as Card[]),
@@ -210,6 +212,8 @@ function App() {
           onCardClick={onCardClick}
           basePath="/wixdex"
           showLifeBurst={settings.showLifeBurst}
+          showCandidateIcon={settings.showCandidateIcon}
+          candidateCards={deck.candidateCards}
         />
         {/* 検索欄 */}
         <SearchArea
@@ -235,6 +239,8 @@ function App() {
           onDropdownChange={setActiveDropdown}
           showLifeBurst={settings.showLifeBurst}
           onToggleLifeBurst={toggleShowLifeBurst}
+          showCandidateIcon={settings.showCandidateIcon}
+          onToggleCandidateIcon={toggleShowCandidateIcon}
         />
       </div>
 

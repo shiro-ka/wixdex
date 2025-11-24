@@ -56,7 +56,7 @@ function ShareModal({ isOpen, onClose, deckName, mainDeck, lrigDeck }: ShareModa
       <div className="space-y-4">
         {/* 画像エクスポート */}
         <div>
-          <h4 className="text-white text-sm font-semibold mb-2">画像エクスポート</h4>
+          <h4 className="text-white text-sm font-semibold mb-2">画像エクスポート（製作中）</h4>
           <p className="text-gray-400 text-xs mb-3">スタック式デッキ画像 (16:9)</p>
 
           <div className="flex h-10 gap-3">
