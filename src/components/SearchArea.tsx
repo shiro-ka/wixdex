@@ -25,6 +25,7 @@ interface SearchAreaProps {
   selectedTags: Set<string>;
   lifeBurstFilter: boolean | null;
   candidateFilter: boolean;
+  favoriteFilter: boolean;
   onColorFilter: (color: string) => void;
   onTextSearch: (text: string) => void;
   onLevelFilter: (level: number) => void;
@@ -33,6 +34,7 @@ interface SearchAreaProps {
   onLrigClassFilter: (lrigClass: string) => void;
   onTagFilter: (tag: string) => void;
   onCandidateFilter: () => void;
+  onFavoriteFilter: () => void;
   onReset: () => void;
   basePath: string;
   activeDropdown: 'type' | 'lrigClass' | 'tag' | null;
@@ -53,6 +55,7 @@ function SearchArea({
   onLrigClassFilter,
   onTagFilter,
   onCandidateFilter,
+  onFavoriteFilter,
   onReset,
   basePath,
   selectedColors,
@@ -62,6 +65,7 @@ function SearchArea({
   selectedTags,
   lifeBurstFilter,
   candidateFilter,
+  favoriteFilter,
   activeDropdown,
   onDropdownChange,
   showLifeBurst,
@@ -114,6 +118,23 @@ function SearchArea({
         {/* 候補カード/カードタイプ/カード種類 */}
         <div className="flex w-full h-8 mb-2">
           <div
+            className={`flex w-10 rounded-md mr-2 items-center justify-center cursor-pointer transition-all ${favoriteFilter
+              ? 'bg-zinc-600/40 border-2 border-gray-500/50'
+              : 'bg-gray-600/10 border-2 border-transparent'
+              }`}
+            onClick={onFavoriteFilter}
+          >
+            {favoriteFilter ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-gray-400">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-400">
+                <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" />
+              </svg>
+            )}
+          </div>
+          <div
             id="folder-button"
             className={`flex flex-1 rounded-md mr-2 items-center justify-center cursor-pointer transition-all duration-200 ${candidateFilter
               ? 'bg-zinc-600/40 border-2 border-gray-500/50'
@@ -122,7 +143,7 @@ function SearchArea({
             style={{ transition: 'all 0.2s ease-out' }}
             onClick={onCandidateFilter}
           >
-            <FolderIcon className="w-5 h-5" />
+            <FolderIcon className="w-5 h-5 text-gray-400" />
           </div>
           <div
             className={`flex w-10 rounded-md mr-2 items-center justify-center cursor-pointer transition-all ${isTypeDropdownActive
@@ -131,7 +152,7 @@ function SearchArea({
               }`}
             onClick={() => toggleDropdown('type')}
           >
-            <CardTypeIcon filled={isTypeFilterEnabled} />
+            <CardTypeIcon filled={isTypeFilterEnabled} className="w-5 h-5 text-gray-400" />
           </div>
           <div
             className={`flex w-10 rounded-md mr-2 items-center justify-center cursor-pointer transition-all ${isLrigClassDropdownActive
@@ -140,7 +161,7 @@ function SearchArea({
               }`}
             onClick={() => toggleDropdown('lrigClass')}
           >
-            <LrigClassIcon filled={isLrigClassFilterEnabled} />
+            <LrigClassIcon filled={isLrigClassFilterEnabled} className="w-5 h-5 text-gray-400" />
           </div>
           <div
             className={`flex w-10 rounded-md items-center justify-center cursor-pointer transition-all ${isTagDropdownActive
@@ -150,12 +171,12 @@ function SearchArea({
             onClick={() => toggleDropdown('tag')}
           >
             {isTagFilterEnabled ? (
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-gray-400">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M11.172 2a3 3 0 0 1 2.121 .879l7.71 7.71a3.41 3.41 0 0 1 0 4.822l-5.592 5.592a3.41 3.41 0 0 1 -4.822 0l-7.71 -7.71a3 3 0 0 1 -.879 -2.121v-5.172a4 4 0 0 1 4 -4zm-3.672 3.5a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2" />
               </svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-400">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
                 <path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z" />

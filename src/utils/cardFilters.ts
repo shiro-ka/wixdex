@@ -14,10 +14,20 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
     searchText,
     candidateFilter,
     candidateCards,
+    favoriteFilter,
+    favoriteCards,
   } = filters;
 
   return cards.filter(card => {
-    // 候補カードフィルター（最優先）
+    // お気に入りカードフィルター（最優先）
+    if (favoriteFilter && favoriteCards) {
+      const inFavorites = favoriteCards.some(c =>
+        (c.id && c.id === card.id) || (c.image === card.image)
+      );
+      if (!inFavorites) return false;
+    }
+
+    // 候補カードフィルター（次に優先）
     if (candidateFilter && candidateCards) {
       const inCandidates = candidateCards.some(c => c.id === card.id);
       if (!inCandidates) return false;

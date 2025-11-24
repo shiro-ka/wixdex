@@ -19,6 +19,7 @@ import { useCardFilter } from './hooks/useCardFilter';
 import { useDeckStorage, type SavedDeck } from './hooks/useDeckStorage';
 import { useCurrentDeck } from './hooks/useCurrentDeck';
 import { useUserSettings } from './hooks/useUserSettings';
+import { useFavoriteCards } from './hooks/useFavoriteCards';
 import { filterCards } from './utils/cardFilters';
 import type { Card } from './types';
 
@@ -39,6 +40,7 @@ function App() {
   const { getAllDecks, saveDeck, updateDeck } = useDeckStorage();
   const currentDeck = useCurrentDeck();
   const { settings, toggleShowLifeBurst, toggleShowCandidateIcon } = useUserSettings();
+  const { favoriteCards, toggleFavorite, isFavorite } = useFavoriteCards();
 
   // オーバーレイ要素の状態管理
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -167,8 +169,10 @@ function App() {
       searchText: filter.searchText,
       candidateFilter: filter.candidateFilter,
       candidateCards: deck.candidateCards,
+      favoriteFilter: filter.favoriteFilter,
+      favoriteCards: favoriteCards,
     });
-  }, [allCardData, filter.selectedColors, filter.selectedLevels, filter.selectedCardTypes, filter.selectedLrigClasses, filter.selectedTags, filter.lifeBurstFilter, filter.searchText, filter.candidateFilter, deck.candidateCards]);
+  }, [allCardData, filter.selectedColors, filter.selectedLevels, filter.selectedCardTypes, filter.selectedLrigClasses, filter.selectedTags, filter.lifeBurstFilter, filter.searchText, filter.candidateFilter, deck.candidateCards, filter.favoriteFilter, favoriteCards]);
 
   return (
     <div className="flex flex-col w-dvw h-dvh bg-zinc-900  overflow-hidden m-0 p-0">
@@ -183,7 +187,9 @@ function App() {
         onShareClick={handleShareOpen}
       />
       {/* Container */}
-      <div className="flex flex-col flex-1 overflow-hidden max-w-screen-md mx-auto w-full">
+      <div className=
+        "flex flex-col flex-1 overflow-hidden mx-auto w-full max-w-screen-md md:max-w-screen-xl sm:flex-row"
+      >
         {/* デッキ欄 */}
         <DeckArea
           mainDeck={deck.mainDeck}
@@ -199,49 +205,53 @@ function App() {
           basePath="/wixdex"
           showLifeBurst={settings.showLifeBurst}
         />
-        {/* カードリスト欄 */}
-        <CardList
-          cards={filteredCards}
-          onAdd={deck.addCard}
-          onAddMultiple={deck.addMultipleCards}
-          onRemove={deck.removeCard}
-          onCardHover={onCardHover}
-          onAddToCandidate={deck.addToCandidate}
-          onRemoveFromCandidate={deck.removeFromCandidate}
-          candidateFilter={filter.candidateFilter}
-          onCardClick={onCardClick}
-          basePath="/wixdex"
-          showLifeBurst={settings.showLifeBurst}
-          showCandidateIcon={settings.showCandidateIcon}
-          candidateCards={deck.candidateCards}
-        />
-        {/* 検索欄 */}
-        <SearchArea
-          hoveredCard={hoveredCard}
-          selectedColors={filter.selectedColors}
-          selectedLevels={filter.selectedLevels}
-          selectedCardTypes={filter.selectedCardTypes}
-          selectedLrigClasses={filter.selectedLrigClasses}
-          selectedTags={filter.selectedTags}
-          lifeBurstFilter={filter.lifeBurstFilter}
-          candidateFilter={filter.candidateFilter}
-          onColorFilter={filter.toggleColorFilter}
-          onTextSearch={filter.setSearchText}
-          onLevelFilter={filter.toggleLevelFilter}
-          onLifeBurstFilter={filter.toggleLifeBurstFilter}
-          onCardTypeFilter={filter.toggleCardTypeFilter}
-          onLrigClassFilter={filter.toggleLrigClassFilter}
-          onTagFilter={filter.toggleTagFilter}
-          onCandidateFilter={filter.toggleCandidateFilter}
-          onReset={filter.resetFilters}
-          basePath="/wixdex"
-          activeDropdown={activeDropdown}
-          onDropdownChange={setActiveDropdown}
-          showLifeBurst={settings.showLifeBurst}
-          onToggleLifeBurst={toggleShowLifeBurst}
-          showCandidateIcon={settings.showCandidateIcon}
-          onToggleCandidateIcon={toggleShowCandidateIcon}
-        />
+        <div className="xl:flex">
+          {/* カードリスト欄 */}
+          <CardList
+            cards={filteredCards}
+            onAdd={deck.addCard}
+            onAddMultiple={deck.addMultipleCards}
+            onRemove={deck.removeCard}
+            onCardHover={onCardHover}
+            onAddToCandidate={deck.addToCandidate}
+            onRemoveFromCandidate={deck.removeFromCandidate}
+            candidateFilter={filter.candidateFilter}
+            onCardClick={onCardClick}
+            basePath="/wixdex"
+            showLifeBurst={settings.showLifeBurst}
+            showCandidateIcon={settings.showCandidateIcon}
+            candidateCards={deck.candidateCards}
+          />
+          {/* 検索欄 */}
+          <SearchArea
+            hoveredCard={hoveredCard}
+            selectedColors={filter.selectedColors}
+            selectedLevels={filter.selectedLevels}
+            selectedCardTypes={filter.selectedCardTypes}
+            selectedLrigClasses={filter.selectedLrigClasses}
+            selectedTags={filter.selectedTags}
+            lifeBurstFilter={filter.lifeBurstFilter}
+            candidateFilter={filter.candidateFilter}
+            favoriteFilter={filter.favoriteFilter}
+            onColorFilter={filter.toggleColorFilter}
+            onTextSearch={filter.setSearchText}
+            onLevelFilter={filter.toggleLevelFilter}
+            onLifeBurstFilter={filter.toggleLifeBurstFilter}
+            onCardTypeFilter={filter.toggleCardTypeFilter}
+            onLrigClassFilter={filter.toggleLrigClassFilter}
+            onTagFilter={filter.toggleTagFilter}
+            onCandidateFilter={filter.toggleCandidateFilter}
+            onFavoriteFilter={filter.toggleFavoriteFilter}
+            onReset={filter.resetFilters}
+            basePath="/wixdex"
+            activeDropdown={activeDropdown}
+            onDropdownChange={setActiveDropdown}
+            showLifeBurst={settings.showLifeBurst}
+            onToggleLifeBurst={toggleShowLifeBurst}
+            showCandidateIcon={settings.showCandidateIcon}
+            onToggleCandidateIcon={toggleShowCandidateIcon}
+          />
+        </div>
       </div>
 
       {/* ドロップダウンメニュー（App レベル） */}
@@ -329,7 +339,13 @@ function App() {
       />
 
       {/* ポップアップ */}
-      <CardPopup card={popupCard} onClose={closePopup} basePath="/wixdex" />
+      <CardPopup
+        card={popupCard}
+        onClose={closePopup}
+        basePath="/wixdex"
+        isFavorite={popupCard ? isFavorite(popupCard) : false}
+        onToggleFavorite={popupCard ? () => toggleFavorite(popupCard) : () => { }}
+      />
     </div>
   );
 }

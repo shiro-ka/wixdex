@@ -9,6 +9,7 @@ export function useCardFilter() {
   const [lifeBurstFilter, setLifeBurstFilter] = useState<boolean | null>(null);
   const [searchText, setSearchText] = useState<string>('');
   const [candidateFilter, setCandidateFilter] = useState<boolean>(false);
+  const [favoriteFilter, setFavoriteFilter] = useState<boolean>(false);
 
   // 色フィルターのトグル
   const toggleColorFilter = useCallback((color: string) => {
@@ -89,6 +90,11 @@ export function useCardFilter() {
     setCandidateFilter(prev => !prev);
   }, []);
 
+  // お気に入りフィルターのトグル
+  const toggleFavoriteFilter = useCallback(() => {
+    setFavoriteFilter(prev => !prev);
+  }, []);
+
   // 全フィルターをリセット
   const resetFilters = useCallback(() => {
     setSelectedColors(new Set());
@@ -99,6 +105,7 @@ export function useCardFilter() {
     setLifeBurstFilter(null);
     setSearchText('');
     setCandidateFilter(false);
+    setFavoriteFilter(false);
   }, []);
 
   return {
@@ -110,6 +117,7 @@ export function useCardFilter() {
     lifeBurstFilter,
     searchText,
     candidateFilter,
+    favoriteFilter,
     setSearchText,
     toggleColorFilter,
     toggleLevelFilter,
@@ -118,6 +126,7 @@ export function useCardFilter() {
     toggleTagFilter,
     toggleLifeBurstFilter,
     toggleCandidateFilter,
+    toggleFavoriteFilter,
     resetFilters,
   };
 }

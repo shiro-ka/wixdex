@@ -10,4 +10,6 @@ export interface FilterState {
   searchText: string;
   candidateFilter: boolean;
   candidateCards?: Card[];
+  favoriteFilter: boolean;
+  favoriteCards?: Card[];
 }
