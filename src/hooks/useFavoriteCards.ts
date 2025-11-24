@@ -3,6 +3,11 @@ import type { Card } from '../types';
 
 const FAVORITES_STORAGE_KEY = 'wixdex_favorite_cards';
 
+// カードが同一かどうかを判定するヘルパー関数
+const isSameCard = (card1: Card, card2: Card): boolean => {
+  return (card1.id && card1.id === card2.id) || (card1.image === card2.image);
+};
+
 export function useFavoriteCards() {
   const [favoriteCards, setFavoriteCards] = useState<Card[]>(() => {
     try {
@@ -26,14 +31,10 @@ export function useFavoriteCards() {
 
   const toggleFavorite = useCallback((card: Card) => {
     setFavoriteCards(prev => {
-      const exists = prev.some(c =>
-        (c.id && c.id === card.id) || (c.image === card.image)
-      );
+      const exists = prev.some(c => isSameCard(c, card));
 
       if (exists) {
-        return prev.filter(c =>
-          !((c.id && c.id === card.id) || (c.image === card.image))
-        );
+        return prev.filter(c => !isSameCard(c, card));
       } else {
         return [...prev, card];
       }
@@ -41,9 +42,7 @@ export function useFavoriteCards() {
   }, []);
 
   const isFavorite = useCallback((card: Card): boolean => {
-    return favoriteCards.some(c =>
-      (c.id && c.id === card.id) || (c.image === card.image)
-    );
+    return favoriteCards.some(c => isSameCard(c, card));
   }, [favoriteCards]);
 
   return {

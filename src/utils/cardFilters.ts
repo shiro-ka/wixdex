@@ -1,6 +1,13 @@
 import type { Card, FilterState } from '../types';
 
 /**
+ * カードが同一かどうかを判定するヘルパー関数
+ */
+const isSameCard = (card1: Card, card2: Card): boolean => {
+  return (card1.id && card1.id === card2.id) || (card1.image === card2.image);
+};
+
+/**
  * カードをフィルタリングする
  */
 export function filterCards(cards: Card[], filters: FilterState): Card[] {
@@ -21,15 +28,13 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
   return cards.filter(card => {
     // お気に入りカードフィルター（最優先）
     if (favoriteFilter && favoriteCards) {
-      const inFavorites = favoriteCards.some(c =>
-        (c.id && c.id === card.id) || (c.image === card.image)
-      );
+      const inFavorites = favoriteCards.some(c => isSameCard(c, card));
       if (!inFavorites) return false;
     }
 
     // 候補カードフィルター（次に優先）
     if (candidateFilter && candidateCards) {
-      const inCandidates = candidateCards.some(c => c.id === card.id);
+      const inCandidates = candidateCards.some(c => isSameCard(c, card));
       if (!inCandidates) return false;
     }
 
