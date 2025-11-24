@@ -1,5 +1,5 @@
 import { PlusIcon, MinusIcon, ArrowLeftEndOnRectangleIcon } from '@heroicons/react/24/outline';
-import LazyImage from './LazyImage';
+import CardImage from './CardImage';
 import type { Card } from '../types';
 
 interface CardListProps {
@@ -13,6 +13,7 @@ interface CardListProps {
   candidateFilter: boolean;
   onCardClick: (card: Card) => void;
   basePath: string;
+  showLifeBurst: boolean;
 }
 
 // HTMLImageElementの拡張（カスタムプロパティ用）
@@ -27,7 +28,7 @@ interface ExtendedHTMLImageElement extends HTMLImageElement {
   _holdTimer?: number | null;
 }
 
-function CardList({ cards, onAdd, onAddMultiple, onRemove, onCardHover, onAddToCandidate, onRemoveFromCandidate, candidateFilter, onCardClick, basePath }: CardListProps) {
+function CardList({ cards, onAdd, onAddMultiple, onRemove, onCardHover, onAddToCandidate, onRemoveFromCandidate, candidateFilter, onCardClick, basePath, showLifeBurst }: CardListProps) {
   return (
     <div
       className="flex gap-2 overflow-x-auto max-w-full py-3 flex-grow-1 mb-1"
@@ -157,10 +158,12 @@ function CardList({ cards, onAdd, onAddMultiple, onRemove, onCardHover, onAddToC
               }
             }}
           >
-            <LazyImage
+            <CardImage
+              card={card}
               src={`${basePath}/assets/cards_img/${card.image}`}
               className="object-contain"
               alt={card.name}
+              showLifeBurst={showLifeBurst}
               onMouseEnter={() => onCardHover(card)}
               onClick={() => onCardClick(card)}
             />

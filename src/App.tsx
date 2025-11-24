@@ -195,6 +195,7 @@ function App() {
           onCardClick={onCardClick}
           lifeBurstCount={deck.lifeBurstCount}
           basePath="/wixdex"
+          showLifeBurst={settings.showLifeBurst}
         />
         {/* カードリスト欄 */}
         <CardList
@@ -208,6 +209,7 @@ function App() {
           candidateFilter={filter.candidateFilter}
           onCardClick={onCardClick}
           basePath="/wixdex"
+          showLifeBurst={settings.showLifeBurst}
         />
         {/* 検索欄 */}
         <SearchArea

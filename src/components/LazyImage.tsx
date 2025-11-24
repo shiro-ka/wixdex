@@ -5,10 +5,15 @@ interface LazyImageProps {
   alt: string;
   className?: string;
   onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   onClick?: () => void;
+  onTouchStart?: (e: React.TouchEvent<HTMLImageElement>) => void;
+  onTouchMove?: (e: React.TouchEvent<HTMLImageElement>) => void;
+  onTouchEnd?: (e: React.TouchEvent<HTMLImageElement>) => void;
+  onLoad?: (loaded: boolean) => void;
 }
 
-function LazyImage({ src, alt, className, onMouseEnter, onClick }: LazyImageProps) {
+function LazyImage({ src, alt, className, onMouseEnter, onMouseLeave, onClick, onTouchStart, onTouchMove, onTouchEnd, onLoad }: LazyImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLImageElement | HTMLDivElement>(null);
@@ -49,9 +54,16 @@ function LazyImage({ src, alt, className, onMouseEnter, onClick }: LazyImageProp
           className={`${className} transition-opacity duration-300 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
-          onLoad={() => setIsLoaded(true)}
+          onLoad={() => {
+            setIsLoaded(true);
+            onLoad?.(true);
+          }}
           onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
           onClick={onClick}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         />
       ) : (
         <div ref={imgRef as React.RefObject<HTMLDivElement>} className={`${className} bg-gray-700/20 animate-pulse`} />

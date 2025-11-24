@@ -1,6 +1,7 @@
 import { PlusIcon, MinusIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline';
 import { useRef } from 'react';
 import { LifeBurstIcon } from './icons/LifeBurstIcon';
+import CardImage from './CardImage';
 import type { Card } from '../types';
 
 interface DeckAreaProps {
@@ -15,6 +16,7 @@ interface DeckAreaProps {
   onCardClick: (card: Card) => void;
   lifeBurstCount: number;
   basePath: string;
+  showLifeBurst: boolean;
 }
 
 interface TouchState {
@@ -24,7 +26,7 @@ interface TouchState {
   element: HTMLElement;
 }
 
-function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateCards, onAddToCandidate, onRemoveFromCandidate, onCardClick, lifeBurstCount, basePath }: DeckAreaProps) {
+function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateCards, onAddToCandidate, onRemoveFromCandidate, onCardClick, lifeBurstCount, basePath, showLifeBurst }: DeckAreaProps) {
   const touchStateRef = useRef(new Map<string, TouchState>());
 
   const handleWheel = (e: React.WheelEvent, card: Card) => {
@@ -104,12 +106,13 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
         <div className='lrigDeck grid w-full h-[calc(32dvw-4rem)] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1'>
           {lrigDeck.map((card, index) => (
             <div key={`${card.id}-${index}`} className="flex items-center">
-              <img
+              <CardImage
+                card={card}
                 src={`${basePath}/assets/cards_img/${card.image}`}
                 className="w-full object-contain cursor-pointer"
                 alt={card.name}
+                showLifeBurst={showLifeBurst}
                 onMouseEnter={() => onCardHover(card)}
-                onWheel={(e) => handleWheel(e, card)}
                 onTouchStart={(e) => handleTouchStart(e, `lrig-${card.id}-${index}`)}
                 onTouchMove={(e) => handleTouchMove(e, `lrig-${card.id}-${index}`)}
                 onTouchEnd={(e) => handleTouchEnd(e, `lrig-${card.id}-${index}`, card, index, 'lrig')}
@@ -131,12 +134,13 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
         <div className='mainDeck grid w-full h-[calc(90dvw-4rem)] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1'>
           {mainDeck.map((card, index) => (
             <div key={`${card.id}-${index}`} className="flex items-center">
-              <img
+              <CardImage
+                card={card}
                 src={`${basePath}/assets/cards_img/${card.image}`}
                 className="w-full object-contain cursor-pointer"
                 alt={card.name}
+                showLifeBurst={showLifeBurst}
                 onMouseEnter={() => onCardHover(card)}
-                onWheel={(e) => handleWheel(e, card)}
                 onTouchStart={(e) => handleTouchStart(e, `main-${card.id}-${index}`)}
                 onTouchMove={(e) => handleTouchMove(e, `main-${card.id}-${index}`)}
                 onTouchEnd={(e) => handleTouchEnd(e, `main-${card.id}-${index}`, card, index, 'main')}

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { BaseModal } from './BaseModal';
 import type { Card } from '../types';
 import { generateStackDeckImage, downloadCanvasAsImage, copyCanvasToClipboard } from '../utils/deckImageExport';
@@ -13,38 +13,15 @@ interface ShareModalProps {
 
 function ShareModal({ isOpen, onClose, deckName, mainDeck, lrigDeck }: ShareModalProps) {
   const [isExporting, setIsExporting] = useState(false);
-  const [exportFormat, setExportFormat] = useState<'png' | 'jpg'>('png');
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // プレビュー生成
-  useEffect(() => {
-    if (!isOpen || mainDeck.length === 0) {
-      setPreviewUrl(null);
-      return;
-    }
-
-    const generatePreview = async () => {
-      try {
-        const basePath = '/wixdex';
-        const canvas = await generateStackDeckImage(deckName, mainDeck, lrigDeck, basePath);
-        canvasRef.current = canvas;
-        const url = canvas.toDataURL('image/png');
-        setPreviewUrl(url);
-      } catch (error) {
-        console.error('Failed to generate preview:', error);
-      }
-    };
-
-    generatePreview();
-  }, [isOpen, deckName, mainDeck, lrigDeck]);
-
-  const handleExportImage = async () => {
-    if (isExporting || !canvasRef.current) return;
+  const handleExportImage = async (format: 'png' | 'jpg') => {
+    if (isExporting || mainDeck.length === 0) return;
 
     setIsExporting(true);
     try {
-      downloadCanvasAsImage(canvasRef.current, `${deckName || 'deck'}.${exportFormat}`, exportFormat);
+      const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+      const canvas = await generateStackDeckImage(deckName, mainDeck, lrigDeck, basePath);
+      downloadCanvasAsImage(canvas, `${deckName || 'deck'}.${format}`, format);
     } catch (error) {
       console.error('Failed to export image:', error);
       alert('画像のエクスポートに失敗しました。');
@@ -54,11 +31,13 @@ function ShareModal({ isOpen, onClose, deckName, mainDeck, lrigDeck }: ShareModa
   };
 
   const handleCopyToClipboard = async () => {
-    if (isExporting || !canvasRef.current) return;
+    if (isExporting || mainDeck.length === 0) return;
 
     setIsExporting(true);
     try {
-      await copyCanvasToClipboard(canvasRef.current);
+      const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+      const canvas = await generateStackDeckImage(deckName, mainDeck, lrigDeck, basePath);
+      await copyCanvasToClipboard(canvas);
       alert('画像をクリップボードにコピーしました。');
     } catch (error) {
       console.error('Failed to copy to clipboard:', error);
@@ -75,62 +54,78 @@ function ShareModal({ isOpen, onClose, deckName, mainDeck, lrigDeck }: ShareModa
       title="シェア"
     >
       <div className="space-y-4">
-        {/* プレビュー */}
-        {previewUrl && (
-          <div className="border border-zinc-700 rounded-lg overflow-hidden bg-zinc-900">
-            <img src={previewUrl} alt="Deck Preview" className="w-full h-auto" />
-          </div>
-        )}
-
-        {/* エクスポート形式選択 */}
+        {/* 画像エクスポート */}
         <div>
           <h4 className="text-white text-sm font-semibold mb-2">画像エクスポート</h4>
           <p className="text-gray-400 text-xs mb-3">スタック式デッキ画像 (16:9)</p>
 
-          {/* フォーマット選択 */}
-          <div className="flex gap-2 mb-3">
-            <button
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                exportFormat === 'png'
-                  ? 'bg-orange-500 text-white'
-                  : 'bg-zinc-700 text-gray-300 hover:bg-zinc-600'
-              }`}
-              onClick={() => setExportFormat('png')}
-            >
-              PNG
-            </button>
-            <button
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                exportFormat === 'jpg'
-                  ? 'bg-orange-500 text-white'
-                  : 'bg-zinc-700 text-gray-300 hover:bg-zinc-600'
-              }`}
-              onClick={() => setExportFormat('jpg')}
-            >
-              JPG
-            </button>
-          </div>
+          <div className="flex h-10 gap-3">
+            {/* JPG */}
+            <div className="flex flex-1 px-1 bg-zinc-800 rounded-lg border border-zinc-700">
+              <div className="flex flex-1 text-white font-medium text-sm items-center justify-center">JPG</div>
+              <button
+                className="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={handleCopyToClipboard}
+                disabled={isExporting || mainDeck.length === 0}
+                title="クリップボードにコピー"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto text-white">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                  <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                </svg>
+              </button>
+              <button
+                className="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={() => handleExportImage('jpg')}
+                disabled={isExporting || mainDeck.length === 0}
+                title="ダウンロード"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto text-white">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                  <path d="M7 11l5 5l5 -5" />
+                  <path d="M12 4l0 12" />
+                </svg>
+              </button>
+            </div>
 
-          {/* エクスポートボタン */}
-          <div className="flex gap-2">
-            <button
-              className="flex-1 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              onClick={handleExportImage}
-              disabled={isExporting || mainDeck.length === 0}
-            >
-              {isExporting ? '生成中...' : '画像をダウンロード'}
-            </button>
-            <button
-              className="flex-1 px-4 py-2 bg-zinc-700 hover:bg-zinc-600 text-white rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              onClick={handleCopyToClipboard}
-              disabled={isExporting || mainDeck.length === 0}
-            >
-              {isExporting ? '生成中...' : 'クリップボードにコピー'}
-            </button>
+            {/* PNG */}
+            <div className="flex flex-1 px-1 bg-zinc-800 rounded-lg border border-zinc-700">
+              <div className="flex flex-1 text-white font-medium text-sm items-center justify-center">PNG</div>
+              <button
+                className="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={handleCopyToClipboard}
+                disabled={isExporting || mainDeck.length === 0}
+                title="クリップボードにコピー"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto text-white">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                  <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                </svg>
+              </button>
+              <button
+                className="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={() => handleExportImage('png')}
+                disabled={isExporting || mainDeck.length === 0}
+                title="ダウンロード"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto text-white">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                  <path d="M7 11l5 5l5 -5" />
+                  <path d="M12 4l0 12" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           {mainDeck.length === 0 && (
-            <p className="text-yellow-500 text-xs mt-2">※デッキにカードを追加してください</p>
+            <p className="text-yellow-500 text-xs mt-3">※デッキにカードを追加してください</p>
+          )}
+          {isExporting && (
+            <p className="text-gray-400 text-xs mt-3">生成中...</p>
           )}
         </div>
 
