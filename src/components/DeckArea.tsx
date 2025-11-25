@@ -99,7 +99,7 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
   return (
     <div className='flex flex-col px-2 mb-2 md:flex-2'>
       {/* ルリグデッキ */}
-      <div className='h-fit px-4 py-2 mb-2 bg-zinc-600/10 rounded-xl'>
+      <div className='h-fit px-4 py-2 mb-2 bg-zinc-600/10 border border-gray-600/30 rounded-xl'>
         <div className='flex w-full'>
           <span className='text-base md:text-lg'>Lrig Deck</span>
         </div>
@@ -129,7 +129,7 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
         </div>
       </div>
       {/* メインデッキ */}
-      <div className='h-fit px-4 py-2 bg-zinc-600/10 rounded-xl'>
+      <div className='h-fit px-4 py-2 mb-2 bg-zinc-600/10 border border-gray-600/30 rounded-xl'>
         <div className='flex w-full justify-between items-center'>
           <span className='text-base md:text-lg'>Main Deck</span>
           <div className='flex items-center gap-1 md:gap-1.5'>
@@ -157,6 +157,68 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
                 onTouchEnd={(e) => handleTouchEnd(e, `main-${card.id}-${index}`, card, index, 'main')}
                 onClick={() => onCardClick(card)}
               />
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* 候補カードリスト */}
+      <div className="hidden md:flex flex-col flex-1 px-4 py-2 rounded-xl bg-zinc-600/10 border border-gray-600/30 overflow-hidden">
+        <div className="flex w-full mb-2">
+          <span className="text-base md:text-lg">Folder</span>
+        </div>
+        <div className="grid grid-cols-5 auto-rows-min gap-2 w-full overflow-y-auto xl:grid-cols-6">
+          {candidateCards.map((card, index) => (
+            <div key={`${card.id}-${index}`} className="flex flex-col">
+              <CardImage
+                card={card}
+                src={`${basePath}/assets/cards_img/${card.image}`}
+                className="w-full object-contain cursor-pointer"
+                alt={card.name}
+                showLifeBurst={showLifeBurst}
+                onMouseEnter={() => onCardHover(card)}
+                onClick={() => onCardClick(card)}
+              />
+              {/* 操作ボタン(PC) */}
+              <div className="flex justify-center gap-2 w-full h-10 mt-2">
+                <button
+                  className="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
+                  onClick={() => onAdd(card)}
+                  title="デッキに1枚追加"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-400">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 5l0 14" />
+                    <path d="M5 12l14 0" />
+                  </svg>
+                </button>
+                <button
+                  className="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
+                  onClick={() => {
+                    onAdd(card);
+                    onAdd(card);
+                    onAdd(card);
+                    onAdd(card);
+                  }}
+                  title="デッキに4枚追加"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-400">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M15 20v-15l-8 11h10" />
+                  </svg>
+                </button>
+                <button
+                  className="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
+                  onClick={() => onRemoveFromCandidate(card)}
+                  title="候補カードから削除"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-400">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M13.5 19h-8.5a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v4" />
+                    <path d="M22 22l-5 -5" />
+                    <path d="M17 22l5 -5" />
+                  </svg>
+                </button>
+              </div>
             </div>
           ))}
         </div>

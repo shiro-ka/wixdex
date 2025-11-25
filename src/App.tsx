@@ -175,7 +175,7 @@ function App() {
   }, [allCardData, filter.selectedColors, filter.selectedLevels, filter.selectedCardTypes, filter.selectedLrigClasses, filter.selectedTags, filter.lifeBurstFilter, filter.searchText, filter.candidateFilter, deck.candidateCards, filter.favoriteFilter, favoriteCards]);
 
   return (
-    <div className="flex flex-col w-dvw h-dvh bg-zinc-900  overflow-hidden m-0 p-0">
+    <div className="flex flex-col w-dvw h-dvh m-0 p-0 bg-zinc-900 overflow-hidden">
       {/* Navbar */}
       <Navbar
         basePath="/wixdex"
@@ -187,13 +187,7 @@ function App() {
         onShareClick={handleShareOpen}
       />
       {/* Container */}
-      <div className="
-        flex flex-col flex-1 overflow-hidden mx-auto
-        w-full max-w-screen-sm
-        md:flex-1
-        lg:flex-row lg:max-w-screen-xl
-        2xl:max-w-[84vw]
-      ">
+      <div className="flex flex-col flex-1 w-full max-w-screen-sm mx-auto overflow-hidden md:flex-1 lg:flex-row lg:max-w-screen-xl lg:mb-4 2xl:max-w-[84vw]">
         {/* デッキ欄 */}
         <DeckArea
           mainDeck={deck.mainDeck}
@@ -209,10 +203,7 @@ function App() {
           basePath="/wixdex"
           showLifeBurst={settings.showLifeBurst}
         />
-        <div className="
-          flex flex-3
-          flex-col lg:flex-row
-        ">
+        <div className="flex flex-3 flex-col lg:flex-row">
           {/* カードリスト欄 */}
           <CardList
             cards={filteredCards}
