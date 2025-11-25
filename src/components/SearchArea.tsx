@@ -101,9 +101,9 @@ function SearchArea({
   const isTagFilterEnabled = selectedTags.size > 0;
 
   return (
-    <div className='flex-shrink-0 px-2 pb-4'>
+    <div className='px-2 pb-4 md:w-96'>
       {/* ホバープレビュー - - - - - - - - - - - - */}
-      <div className='hidden sm:block w-full 2xl:h-132 border border-neutral-700 rounded-xl p-4'>
+      <div className='hidden lg:block w-full aspect-[3/4] border border-neutral-700 rounded-xl p-4'>
         {hoveredCard && (
           <div className="w-full h-full flex items-center justify-center">
             <img

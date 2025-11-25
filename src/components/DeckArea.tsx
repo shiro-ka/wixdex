@@ -97,13 +97,19 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
   };
 
   return (
-    <div className='flex flex-col flex-shrink-0 px-2 mb-2'>
+    <div className='flex flex-col px-2 mb-2 md:flex-2'>
       {/* ルリグデッキ */}
-      <div className='h-fit px-4 py-2 mb-2 bg-zinc-800/10 rounded-xl'>
+      <div className='h-fit px-4 py-2 mb-2 bg-zinc-600/10 rounded-xl'>
         <div className='flex w-full'>
-          <span>Lrig Deck</span>
+          <span className='text-base md:text-lg'>Lrig Deck</span>
         </div>
-        <div className='lrigDeck grid w-full h-[calc(32dvw-4rem)] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1'>
+        <div className='
+          lrigDeck grid w-full
+          h-[calc(32dvw-4rem)]
+          sm:h-[8rem]
+          lg:h-[calc(11dvw-3rem)]
+          xl:h-[6rem]
+          grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1'>
           {lrigDeck.map((card, index) => (
             <div key={`${card.id}-${index}`} className="flex items-center">
               <CardImage
@@ -123,15 +129,20 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
         </div>
       </div>
       {/* メインデッキ */}
-      <div className='h-fit px-4 py-2 bg-zinc-800/10 rounded-xl'>
+      <div className='h-fit px-4 py-2 bg-zinc-600/10 rounded-xl'>
         <div className='flex w-full justify-between items-center'>
-          <span>Main Deck</span>
-          <div className='flex items-center gap-1'>
-            <LifeBurstIcon className="w-4 h-4 text-gray-400" />
-            <span className='flex items-center justify-center w-4 h-4 pb-[2px] text-sm'>{lifeBurstCount}</span>
+          <span className='text-base md:text-lg'>Main Deck</span>
+          <div className='flex items-center gap-1 md:gap-1.5'>
+            <LifeBurstIcon className="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
+            <span className='flex items-center justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px] text-sm md:text-base'>{lifeBurstCount}</span>
           </div>
         </div>
-        <div className='mainDeck grid w-full h-[calc(90dvw-4rem)] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1'>
+        <div className='
+          mainDeck grid w-full
+          h-[calc(90dvw-4rem)]
+          lg:h-[calc(36dvw-3rem)]
+          xl:h-[26rem]
+          grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1'>
           {mainDeck.map((card, index) => (
             <div key={`${card.id}-${index}`} className="flex items-center">
               <CardImage

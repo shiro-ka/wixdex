@@ -38,13 +38,16 @@ function CardList({ cards, onAdd, onAddMultiple, onRemove, onCardHover, onAddToC
 
   return (
     <div
-      className="flex gap-2 overflow-x-auto max-w-full py-3 flex-grow-1 mb-1"
+      className="
+        flex gap-2 overflow-x-auto max-w-full flex-1 py-3 mb-1
+        md:grid md:grid-cols-3 md:auto-rows-min md:overflow-y-auto md:overflow-x-hidden
+      "
       style={{ touchAction: 'pan-x' }}
     >
       {cards.map((card, index) => (
         <div key={`${card.id}-${index}`}>
           {/* カード */}
-          <div className="flex w-16 h-full items-center justify-center cursor-pointer"
+          <div className="flex w-16 md:w-full h-full items-center justify-center cursor-pointer"
             // カード追加(フリック)
             onTouchStart={(e) => {
               const imgElement = e.currentTarget.querySelector('img') as ExtendedHTMLImageElement;
