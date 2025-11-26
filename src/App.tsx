@@ -196,7 +196,6 @@ function App() {
           onAdd={deck.addCard}
           onRemove={deck.removeCard}
           candidateCards={deck.candidateCards}
-          onAddToCandidate={deck.addToCandidate}
           onRemoveFromCandidate={deck.removeFromCandidate}
           onCardClick={onCardClick}
           lifeBurstCount={deck.lifeBurstCount}

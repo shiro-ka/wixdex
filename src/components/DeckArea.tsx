@@ -1,4 +1,3 @@
-import { PlusIcon, MinusIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline';
 import { useRef } from 'react';
 import { LifeBurstIcon } from './icons/LifeBurstIcon';
 import CardImage from './CardImage';
@@ -11,7 +10,6 @@ interface DeckAreaProps {
   onAdd: (card: Card) => void;
   onRemove: (card: Card, index?: number, deckType?: 'main' | 'lrig') => void;
   candidateCards: Card[];
-  onAddToCandidate: (card: Card) => void;
   onRemoveFromCandidate: (card: Card) => void;
   onCardClick: (card: Card) => void;
   lifeBurstCount: number;
@@ -26,7 +24,7 @@ interface TouchState {
   element: HTMLElement;
 }
 
-function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateCards, onAddToCandidate, onRemoveFromCandidate, onCardClick, lifeBurstCount, basePath, showLifeBurst }: DeckAreaProps) {
+function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateCards, onRemoveFromCandidate, onCardClick, lifeBurstCount, basePath, showLifeBurst }: DeckAreaProps) {
   const touchStateRef = useRef(new Map<string, TouchState>());
 
   const handleWheel = (e: React.WheelEvent, card: Card) => {
@@ -97,7 +95,7 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
   };
 
   return (
-    <div className='flex flex-col px-2 mb-2 md:flex-2'>
+    <div className='flex flex-col px-2 mb-2 md:mb-1 md:flex-2'>
       {/* ルリグデッキ */}
       <div className='h-fit px-4 py-2 mb-2 bg-zinc-600/10 border border-gray-600/30 rounded-xl'>
         <div className='flex w-full'>
@@ -119,6 +117,7 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
                 alt={card.name}
                 showLifeBurst={showLifeBurst}
                 onMouseEnter={() => onCardHover(card)}
+                onWheel={(e) => handleWheel(e, card)}
                 onTouchStart={(e) => handleTouchStart(e, `lrig-${card.id}-${index}`)}
                 onTouchMove={(e) => handleTouchMove(e, `lrig-${card.id}-${index}`)}
                 onTouchEnd={(e) => handleTouchEnd(e, `lrig-${card.id}-${index}`, card, index, 'lrig')}
@@ -152,6 +151,7 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
                 alt={card.name}
                 showLifeBurst={showLifeBurst}
                 onMouseEnter={() => onCardHover(card)}
+                onWheel={(e) => handleWheel(e, card)}
                 onTouchStart={(e) => handleTouchStart(e, `main-${card.id}-${index}`)}
                 onTouchMove={(e) => handleTouchMove(e, `main-${card.id}-${index}`)}
                 onTouchEnd={(e) => handleTouchEnd(e, `main-${card.id}-${index}`, card, index, 'main')}
@@ -186,7 +186,7 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
                   title="デッキに1枚追加"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-400">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M12 5l0 14" />
                     <path d="M5 12l14 0" />
                   </svg>
@@ -202,7 +202,7 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
                   title="デッキに4枚追加"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-400">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M15 20v-15l-8 11h10" />
                   </svg>
                 </button>
@@ -212,7 +212,7 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
                   title="候補カードから削除"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-400">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M13.5 19h-8.5a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v4" />
                     <path d="M22 22l-5 -5" />
                     <path d="M17 22l5 -5" />

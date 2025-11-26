@@ -13,11 +13,8 @@ export function RedIcon({ className = "w-5 h-5" }: RedIconProps) {
       strokeLinejoin="round"
       className={className}
     >
-      {/* 中央の縦線 */}
-      <path d="M10 4 L10 14" />
-      <path d="M14 4 L14 14" />
-      {/* 矢印の先端 */}
-      <path d="M6 10 L12 20 L18 10" />
+      <path d="M12 2 L16 10 L22 9 L12 22 L2 9 L8 10 Z" />
+      <line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" strokeWidth="2" />
     </svg>
   );
 }

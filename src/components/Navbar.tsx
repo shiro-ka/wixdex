@@ -16,7 +16,7 @@ function Navbar({ basePath, deckName, isSaved, onMenuClick, onSaveClick, onDeckC
         <div className="flex items-center gap-2">
           <div className="flex items-center border border-gray-600 rounded-lg overflow-hidden">
             <button
-              className="!bg-transparent !pr-2 h-10 flex items-center justify-center hover:bg-gray-700/50 transition-colors"
+              className="!bg-transparent !pl-4 h-10 flex items-center justify-center hover:bg-gray-700/50 transition-colors"
               onClick={onDeckClick}
               aria-label="デッキ"
             >

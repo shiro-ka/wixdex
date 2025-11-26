@@ -14,6 +14,7 @@ interface CardImageProps {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   onClick?: () => void;
+  onWheel?: (e: React.WheelEvent<HTMLImageElement>) => void;
   onTouchStart?: (e: React.TouchEvent<HTMLImageElement>) => void;
   onTouchMove?: (e: React.TouchEvent<HTMLImageElement>) => void;
   onTouchEnd?: (e: React.TouchEvent<HTMLImageElement>) => void;
@@ -30,6 +31,7 @@ function CardImage({
   onMouseEnter,
   onMouseLeave,
   onClick,
+  onWheel,
   onTouchStart,
   onTouchMove,
   onTouchEnd
@@ -46,6 +48,7 @@ function CardImage({
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
         onClick={onClick}
+        onWheel={onWheel}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}

@@ -13,12 +13,14 @@ export function BlueIcon({ className = "w-5 h-5" }: BlueIconProps) {
       strokeLinejoin="round"
       className={className}
     >
-      {/* 外側の円（上部が開いている） */}
-      <path d="M12 4 A8 8 0 0 1 20 12 A8 8 0 0 1 12 20 A8 8 0 0 1 4 12 A8 8 0 0 1 10 4.5" />
-      {/* キーホールの円 */}
-      <circle cx="12" cy="10" r="2" />
-      {/* キーホールの台形 */}
-      <path d="M10.5 12 L9.5 16 L14.5 16 L13.5 12 Z" />
+      {/* 外側の円 */}
+      <circle cx="12" cy="12" r="10" />
+      {/* 内側の円 */}
+      <circle cx="12" cy="12" r="4" />
+      {/* 線 */}
+      <line x1="12" y1="2" x2="12" y2="8" stroke="currentColor" strokeWidth="2" />
+      <line x1="14" y1="15" x2="16" y2="19" stroke="currentColor" strokeWidth="2" />
+      <line x1="10" y1="15" x2="8" y2="19" stroke="currentColor" strokeWidth="2" />
     </svg>
   );
 }

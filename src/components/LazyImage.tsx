@@ -7,13 +7,14 @@ interface LazyImageProps {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   onClick?: () => void;
+  onWheel?: (e: React.WheelEvent<HTMLImageElement>) => void;
   onTouchStart?: (e: React.TouchEvent<HTMLImageElement>) => void;
   onTouchMove?: (e: React.TouchEvent<HTMLImageElement>) => void;
   onTouchEnd?: (e: React.TouchEvent<HTMLImageElement>) => void;
   onLoad?: (loaded: boolean) => void;
 }
 
-function LazyImage({ src, alt, className, onMouseEnter, onMouseLeave, onClick, onTouchStart, onTouchMove, onTouchEnd, onLoad }: LazyImageProps) {
+function LazyImage({ src, alt, className, onMouseEnter, onMouseLeave, onClick, onWheel, onTouchStart, onTouchMove, onTouchEnd, onLoad }: LazyImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef<HTMLImageElement | HTMLDivElement>(null);
@@ -61,6 +62,7 @@ function LazyImage({ src, alt, className, onMouseEnter, onMouseLeave, onClick, o
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
           onClick={onClick}
+          onWheel={onWheel}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}

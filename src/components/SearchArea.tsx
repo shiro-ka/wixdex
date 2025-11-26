@@ -1,8 +1,3 @@
-import {
-  MagnifyingGlassIcon,
-  AdjustmentsHorizontalIcon,
-  XCircleIcon
-} from '@heroicons/react/24/outline';
 import { useRef, useState } from 'react';
 import type { Card } from '../types';
 import { WhiteIcon } from './icons/WhiteIcon';
@@ -99,16 +94,12 @@ function SearchArea({
     onDropdownChange(activeDropdown === dropdownName ? null : dropdownName);
   };
 
-  const isTypeDropdownActive = activeDropdown === 'type';
-  const isLrigClassDropdownActive = activeDropdown === 'lrigClass';
-  const isTagDropdownActive = activeDropdown === 'tag';
-
   const isTypeFilterEnabled = selectedCardTypes.size > 0;
   const isLrigClassFilterEnabled = selectedLrigClasses.size > 0;
   const isTagFilterEnabled = selectedTags.size > 0;
 
   return (
-    <div className='flex flex-col px-2 pb-4 md:pb-0 md:w-96'>
+    <div className='flex flex-col px-2 pb-4 md:pb-1 md:w-96'>
       {/* ホバープレビュー */}
       <div className='hidden lg:block w-full aspect-[3/4] p-4 mb-2 bg-gray-600/10 rounded-xl'>
         {hoveredCard && (
@@ -184,23 +175,20 @@ function SearchArea({
         {/* お気に入り/候補カード/カードタイプ/カード種類/タグ */}
         <div className="flex w-full h-8 mb-2">
           <div
-            className={`flex items-center justify-center w-10 h-full mr-2 rounded-lg border border-gray-600/50 cursor-pointer transition-all ${
-              favoriteFilter ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-            }`}
+            className={`group flex md:flex-1 items-center justify-center w-10 h-full mr-2 rounded-lg border border-gray-600/50 cursor-pointer transition-all ${favoriteFilter ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
+              }`}
             onClick={onFavoriteFilter}
           >
             <StarIcon
               filled={favoriteFilter}
-              className={`w-5 h-5 transition-all ${
-                favoriteFilter ? 'text-gray-300' : 'text-gray-400'
-              }`}
+              className={`w-5 h-5 transition-all ${favoriteFilter ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'
+                }`}
             />
           </div>
           <div
             id="folder-button"
-            className={`flex flex-1 items-center justify-center h-full mr-2 rounded-lg border border-gray-600/50 cursor-pointer transition-all ${
-              candidateFilter ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-            }`}
+            className={`group flex flex-1 items-center justify-center h-full mr-2 rounded-lg border border-gray-600/50 cursor-pointer transition-all ${candidateFilter ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
+              }`}
             onClick={onCandidateFilter}
           >
             <svg
@@ -210,99 +198,93 @@ function SearchArea({
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.5"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className={`w-5 h-5 transition-all ${
-                candidateFilter ? 'text-gray-300' : 'text-gray-400'
-              }`}
+              className={`w-5 h-5 transition-all ${candidateFilter ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'
+                }`}
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2" />
             </svg>
           </div>
-          <div
-            className={`flex items-center justify-center w-10 h-full mr-2 rounded-lg border border-gray-600/50 cursor-pointer transition-all ${
-              activeDropdown === 'type' || expandedMenu === 'type' ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-            }`}
-            onClick={() => {
-              // lg未満ではドロップダウン、lg以上では拡張メニュー
-              if (!isLargeScreen) {
-                toggleDropdown('type');
-              }
-              setExpandedMenu('type');
-            }}
-          >
-            <CardTypeIcon
-              filled={isTypeFilterEnabled}
-              className={`w-5 h-5 transition-all ${
-                activeDropdown === 'type' || expandedMenu === 'type' ? 'text-gray-300' : 'text-gray-400'
-              }`}
-            />
-          </div>
-          <div
-            className={`flex items-center justify-center w-10 h-full mr-2 rounded-lg border border-gray-600/50 cursor-pointer transition-all ${
-              activeDropdown === 'lrigClass' || expandedMenu === 'lrigClass' ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-            }`}
-            onClick={() => {
-              if (!isLargeScreen) {
-                toggleDropdown('lrigClass');
-              }
-              setExpandedMenu('lrigClass');
-            }}
-          >
-            <LrigClassIcon
-              filled={isLrigClassFilterEnabled}
-              className={`w-5 h-5 transition-all ${
-                activeDropdown === 'lrigClass' || expandedMenu === 'lrigClass' ? 'text-gray-300' : 'text-gray-400'
-              }`}
-            />
-          </div>
-          <div
-            className={`flex items-center justify-center w-10 h-full rounded-lg border border-gray-600/50 cursor-pointer transition-all ${
-              activeDropdown === 'tag' || expandedMenu === 'tag' ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-            }`}
-            onClick={() => {
-              if (!isLargeScreen) {
-                toggleDropdown('tag');
-              }
-              setExpandedMenu('tag');
-            }}
-          >
-            {isTagFilterEnabled ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className={`w-5 h-5 transition-all ${
-                  activeDropdown === 'tag' || expandedMenu === 'tag' ? 'text-gray-300' : 'text-gray-400'
+          <div className="flex w-fit md:flex-3 rounded-lg border border-gray-600/50 overflow-hidden">
+            <div
+              className={`group flex flex-1 items-center justify-center w-10 h-full cursor-pointer transition-all ${activeDropdown === 'type' || expandedMenu === 'type' ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
                 }`}
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M11.172 2a3 3 0 0 1 2.121 .879l7.71 7.71a3.41 3.41 0 0 1 0 4.822l-5.592 5.592a3.41 3.41 0 0 1 -4.822 0l-7.71 -7.71a3 3 0 0 1 -.879 -2.121v-5.172a4 4 0 0 1 4 -4zm-3.672 3.5a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2" />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className={`w-5 h-5 transition-all ${
-                  activeDropdown === 'tag' || expandedMenu === 'tag' ? 'text-gray-300' : 'text-gray-400'
+              onClick={() => {
+                // lg未満ではドロップダウン、lg以上では拡張メニュー
+                if (!isLargeScreen) {
+                  toggleDropdown('type');
+                }
+                setExpandedMenu('type');
+              }}
+            >
+              <CardTypeIcon
+                filled={isTypeFilterEnabled}
+                className={`w-5 h-5 transition-all ${activeDropdown === 'type' || expandedMenu === 'type' ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'
+                  }`}
+              />
+            </div>
+            <div
+              className={`group flex flex-1 items-center justify-center w-10 h-full cursor-pointer transition-all ${activeDropdown === 'lrigClass' || expandedMenu === 'lrigClass' ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
                 }`}
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-                <path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z" />
-              </svg>
-            )}
+              onClick={() => {
+                if (!isLargeScreen) {
+                  toggleDropdown('lrigClass');
+                }
+                setExpandedMenu('lrigClass');
+              }}
+            >
+              <LrigClassIcon
+                filled={isLrigClassFilterEnabled}
+                className={`w-5 h-5 transition-all ${activeDropdown === 'lrigClass' || expandedMenu === 'lrigClass' ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'
+                  }`}
+              />
+            </div>
+            <div
+              className={`group flex flex-1 items-center justify-center w-10 h-full cursor-pointer transition-all ${activeDropdown === 'tag' || expandedMenu === 'tag' ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
+                }`}
+              onClick={() => {
+                if (!isLargeScreen) {
+                  toggleDropdown('tag');
+                }
+                setExpandedMenu('tag');
+              }}
+            >
+              {isTagFilterEnabled ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className={`w-5 h-5 transition-all ${activeDropdown === 'tag' || expandedMenu === 'tag' ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'
+                    }`}
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M11.172 2a3 3 0 0 1 2.121 .879l7.71 7.71a3.41 3.41 0 0 1 0 4.822l-5.592 5.592a3.41 3.41 0 0 1 -4.822 0l-7.71 -7.71a3 3 0 0 1 -.879 -2.121v-5.172a4 4 0 0 1 4 -4zm-3.672 3.5a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={`w-5 h-5 transition-all ${activeDropdown === 'tag' || expandedMenu === 'tag' ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'
+                    }`}
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                  <path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z" />
+                </svg>
+              )}
+            </div>
           </div>
         </div>
         {/* 色/Lv/LB */}
@@ -310,136 +292,176 @@ function SearchArea({
           {/* 色検索 */}
           <div className="flex flex-5 mr-2 rounded-lg border border-gray-600/50 overflow-hidden">
             <div
-              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${
-                selectedColors.has('白') ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-              }`}
+              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${selectedColors.has('白') ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
+                }`}
               onClick={() => onColorFilter('白')}
             >
               <WhiteIcon
-                className={`w-5 h-5 transition-all ${
-                  selectedColors.has('白') ? 'text-yellow-100' : 'text-yellow-200'
-                }`}
+                className={`w-5 h-5 transition-all ${selectedColors.has('白') ? 'text-yellow-100' : 'text-yellow-200'
+                  }`}
               />
             </div>
             <div
-              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${
-                selectedColors.has('赤') ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-              }`}
+              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${selectedColors.has('赤') ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
+                }`}
               onClick={() => onColorFilter('赤')}
             >
               <RedIcon
-                className={`w-5 h-5 transition-all ${
-                  selectedColors.has('赤') ? 'text-red-400' : 'text-red-500'
-                }`}
+                className={`w-5 h-5 transition-all ${selectedColors.has('赤') ? 'text-red-400' : 'text-red-400'
+                  }`}
               />
             </div>
             <div
-              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${
-                selectedColors.has('青') ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-              }`}
+              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${selectedColors.has('青') ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
+                }`}
               onClick={() => onColorFilter('青')}
             >
               <BlueIcon
-                className={`w-5 h-5 transition-all ${
-                  selectedColors.has('青') ? 'text-blue-400' : 'text-blue-500'
-                }`}
+                className={`w-5 h-5 transition-all ${selectedColors.has('青') ? 'text-blue-400' : 'text-blue-400'
+                  }`}
               />
             </div>
             <div
-              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${
-                selectedColors.has('緑') ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-              }`}
+              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${selectedColors.has('緑') ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
+                }`}
               onClick={() => onColorFilter('緑')}
             >
               <GreenIcon
-                className={`w-5 h-5 transition-all ${
-                  selectedColors.has('緑') ? 'text-green-400' : 'text-green-500'
-                }`}
+                className={`w-5 h-5 transition-all ${selectedColors.has('緑') ? 'text-green-400' : 'text-green-400'
+                  }`}
               />
             </div>
             <div
-              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${
-                selectedColors.has('黒') ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-              }`}
+              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${selectedColors.has('黒') ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
+                }`}
               onClick={() => onColorFilter('黒')}
             >
               <BlackIcon
-                className={`w-5 h-5 transition-all ${
-                  selectedColors.has('黒') ? 'text-purple-400' : 'text-purple-500'
-                }`}
+                className={`w-5 h-5 transition-all ${selectedColors.has('黒') ? 'text-purple-400' : 'text-purple-500'
+                  }`}
               />
             </div>
           </div>
           {/* レベル検索 */}
           <div className="flex flex-3 mr-2 rounded-lg border border-gray-600/50 overflow-hidden">
             <div
-              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${
-                selectedLevels.has(1) ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-              }`}
+              className={`group flex flex-1 items-center justify-center cursor-pointer transition-all ${selectedLevels.has(1) ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
+                }`}
               onClick={() => onLevelFilter(1)}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                fill="currentColor"
-                viewBox="0 0 256 256"
-                className={`w-5 h-5 transition-all ${
-                  selectedLevels.has(1) ? 'text-gray-300' : 'text-gray-400'
-                }`}
-              >
-                <path d="M144,48V208a8,8,0,0,1-16,0V62.13L100.12,78.86a8,8,0,1,1-8.24-13.72l40-24A8,8,0,0,1,144,48Z"></path>
-              </svg>
+              {selectedLevels.has(1) ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-5 h-5 text-gray-300 transition-all"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M10.425 1.414a3.33 3.33 0 0 1 3.216 0l6.775 3.995c.067 .04 .127 .084 .18 .133l.008 .007l.107 .076a3.223 3.223 0 0 1 1.284 2.39l.005 .203v7.284c0 1.175 -.643 2.256 -1.623 2.793l-6.804 4.302c-.98 .538 -2.166 .538 -3.2 -.032l-6.695 -4.237a3.226 3.226 0 0 1 -1.678 -2.826v-7.285a3.21 3.21 0 0 1 1.65 -2.808zm.952 5.803l-.084 .076l-2 2l-.083 .094a1 1 0 0 0 0 1.226l.083 .094l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l.293 -.293v5.586l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-8l-.006 -.114c-.083 -.777 -1.008 -1.16 -1.617 -.67z" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
+                  <path d="M10 10l2 -2v8" />
+                </svg>
+              )}
             </div>
             <div
-              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${
-                selectedLevels.has(2) ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-              }`}
+              className={`group flex flex-1 items-center justify-center cursor-pointer transition-all ${selectedLevels.has(2) ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
+                }`}
               onClick={() => onLevelFilter(2)}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                fill="currentColor"
-                viewBox="0 0 256 256"
-                className={`w-5 h-5 transition-all ${
-                  selectedLevels.has(2) ? 'text-gray-300' : 'text-gray-400'
-                }`}
-              >
-                <path d="M176,208a8,8,0,0,1-8,8H88a8,8,0,0,1-6.4-12.8l71.94-95.92a32,32,0,1,0-51.1-38.53,32.5,32.5,0,0,0-3.78,6.46A8,8,0,1,1,84,68.8a48,48,0,1,1,82.33,48.09L104,200h64A8,8,0,0,1,176,208Z"></path>
-              </svg>
+              {selectedLevels.has(2) ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-5 h-5 text-gray-300 transition-all"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M10.425 1.414a3.33 3.33 0 0 1 3.216 0l6.775 3.995c.067 .04 .127 .084 .18 .133l.008 .007l.107 .076a3.223 3.223 0 0 1 1.284 2.39l.005 .203v7.284c0 1.175 -.643 2.256 -1.623 2.793l-6.804 4.302c-.98 .538 -2.166 .538 -3.2 -.032l-6.695 -4.237a3.226 3.226 0 0 1 -1.678 -2.826v-7.285a3.21 3.21 0 0 1 1.65 -2.808zm2.575 5.586h-3l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h3v2h-2l-.15 .005a2 2 0 0 0 -1.844 1.838l-.006 .157v2l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h3l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007h-3v-2h2l.15 -.005a2 2 0 0 0 1.844 -1.838l.006 -.157v-2l-.005 -.15a2 2 0 0 0 -1.838 -1.844l-.157 -.006z" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
+                  <path d="M10 8h3a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2a1 1 0 0 0 -1 1v2a1 1 0 0 0 1 1h3" />
+                </svg>
+              )}
             </div>
             <div
-              className={`flex flex-1 items-center justify-center cursor-pointer transition-all ${
-                selectedLevels.has(3) ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
-              }`}
+              className={`group flex flex-1 items-center justify-center cursor-pointer transition-all ${selectedLevels.has(3) ? 'bg-zinc-500/30' : 'bg-zinc-600/10'
+                }`}
               onClick={() => onLevelFilter(3)}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                fill="currentColor"
-                viewBox="0 0 256 256"
-                className={`w-5 h-5 transition-all ${
-                  selectedLevels.has(3) ? 'text-gray-300' : 'text-gray-400'
-                }`}
-              >
-                <path d="M176,160a56,56,0,0,1-93.33,41.74,8,8,0,1,1,10.66-11.92A40,40,0,1,0,120,120a8,8,0,0,1-6.4-12.8L152,56H88a8,8,0,0,1,0-16h80a8,8,0,0,1,6.4,12.8l-39.84,53.12A56.1,56.1,0,0,1,176,160Z"></path>
-              </svg>
+              {selectedLevels.has(3) ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-5 h-5 text-gray-300 transition-all"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M10.425 1.414a3.33 3.33 0 0 1 3.216 0l6.775 3.995c.067 .04 .127 .084 .18 .133l.008 .007l.107 .076a3.223 3.223 0 0 1 1.284 2.39l.005 .203v7.284c0 1.175 -.643 2.256 -1.623 2.793l-6.804 4.302c-.98 .538 -2.166 .538 -3.2 -.032l-6.695 -4.237a3.226 3.226 0 0 1 -1.678 -2.826v-7.285a3.21 3.21 0 0 1 1.65 -2.808zm2.575 5.586h-2l-.15 .005a2 2 0 0 0 -1.85 1.995a1 1 0 0 0 1.974 .23l.02 -.113l.006 -.117h2v2h-2l-.133 .007c-1.111 .12 -1.154 1.73 -.128 1.965l.128 .021l.133 .007h2v2h-2l-.007 -.117a1 1 0 0 0 -1.993 .117a2 2 0 0 0 1.85 1.995l.15 .005h2l.15 -.005a2 2 0 0 0 1.844 -1.838l.006 -.157v-2l-.005 -.15a1.988 1.988 0 0 0 -.17 -.667l-.075 -.152l-.019 -.032l.02 -.03a2.01 2.01 0 0 0 .242 -.795l.007 -.174v-2l-.005 -.15a2 2 0 0 0 -1.838 -1.844l-.157 -.006z" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
+                  <path d="M10 9a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1" />
+                </svg>
+              )}
             </div>
           </div>
 
           {/* LB検索 */}
           <div
-            className={`flex items-center justify-center w-10 h-full rounded-lg border border-gray-600/50 cursor-pointer transition-all ${
-              lifeBurstFilter === true
-                ? 'bg-zinc-500/30'
-                : lifeBurstFilter === false
+            className={`group flex items-center justify-center w-10 h-full rounded-lg border border-gray-600/50 cursor-pointer transition-all ${lifeBurstFilter === true
+              ? 'bg-zinc-500/30'
+              : lifeBurstFilter === false
                 ? 'bg-zinc-500/30'
                 : 'bg-zinc-600/10'
-            }`}
+              }`}
             onClick={onLifeBurstFilter}
           >
             {lifeBurstFilter === false ? (
@@ -456,9 +478,8 @@ function SearchArea({
               </svg>
             ) : (
               <LifeBurstIcon
-                className={`w-5 h-5 transition-all ${
-                  lifeBurstFilter === true ? 'text-gray-300' : 'text-gray-400'
-                }`}
+                className={`w-5 h-5 transition-all ${lifeBurstFilter === true ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'
+                  }`}
               />
             )}
           </div>
@@ -469,7 +490,18 @@ function SearchArea({
             className="relative flex items-center justify-center w-10 h-full mr-2 rounded-lg bg-zinc-600/10 border border-gray-600/50 text-gray-400 hover:text-white cursor-pointer transition-all"
             onClick={() => setIsSettingsOpen(!isSettingsOpen)}
           >
-            <AdjustmentsHorizontalIcon className="w-5 h-5" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M4 6l8 0" />
+              <path d="M16 6l4 0" />
+              <path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M4 12l2 0" />
+              <path d="M10 12l10 0" />
+              <path d="M17 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M4 18l11 0" />
+              <path d="M19 18l1 0" />
+            </svg>
             <SettingsPopup
               isOpen={isSettingsOpen}
               onClose={() => setIsSettingsOpen(false)}
@@ -483,7 +515,11 @@ function SearchArea({
             <div
               className="flex w-12 h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer transition-all"
             >
-              <MagnifyingGlassIcon className="w-5 h-5" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                <path d="M21 21l-6 -6" />
+              </svg>
             </div>
             <input
               ref={inputRef}
@@ -500,30 +536,27 @@ function SearchArea({
               className="flex w-12 h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer rounded-full transition-all"
               onClick={handleClear}
             >
-              <XCircleIcon className="w-5 h-5" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                <path d="M10 10l4 4m0 -4l-4 4" />
+              </svg>
             </div>
           </div>
           <div
             className="flex w-10 aspect-square bg-zinc-600/10 border border-gray-600/50 rounded-lg items-center justify-center text-gray-400 hover:text-white cursor-pointer"
             onClick={handleReset}
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-5 h-5"
-            >
-              <path d="M12 2v4" />
-              <path d="m16.2 7.8 2.9-2.9" />
-              <path d="M18 12h4" />
-              <path d="m16.2 16.2 2.9 2.9" />
-              <path d="M12 18v4" />
-              <path d="m4.9 19.1 2.9-2.9" />
-              <path d="M2 12h4" />
-              <path d="m4.9 4.9 2.9 2.9" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M12 6l0 -3" />
+              <path d="M16.25 7.75l2.15 -2.15" />
+              <path d="M18 12l3 0" />
+              <path d="M16.25 16.25l2.15 2.15" />
+              <path d="M12 18l0 3" />
+              <path d="M7.75 16.25l-2.15 2.15" />
+              <path d="M6 12l-3 0" />
+              <path d="M7.75 7.75l-2.15 -2.15" />
             </svg>
           </div>
         </div>
