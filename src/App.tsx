@@ -21,6 +21,7 @@ import { useCurrentDeck } from './hooks/useCurrentDeck';
 import { useUserSettings } from './hooks/useUserSettings';
 import { useFavoriteCards } from './hooks/useFavoriteCards';
 import { filterCards } from './utils/cardFilters';
+import { sortCandidateCards } from './utils/cardSorting';
 import type { Card } from './types';
 
 // カードデータ
@@ -37,7 +38,7 @@ function App() {
   const { hoveredCard, onCardHover } = useCardHover();
   const { popupCard, onCardClick, closePopup } = useCardPopup();
   const filter = useCardFilter();
-  const { getAllDecks, saveDeck, updateDeck } = useDeckStorage();
+  const { getAllDecks, saveDeck, updateDeck, deleteDeck } = useDeckStorage();
   const currentDeck = useCurrentDeck();
   const { settings, toggleShowLifeBurst, toggleShowCandidateIcon } = useUserSettings();
   const { favoriteCards, toggleFavorite, isFavorite } = useFavoriteCards();
@@ -48,6 +49,7 @@ function App() {
   const [isDeckEditOpen, setIsDeckEditOpen] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<'type' | 'lrigClass' | 'tag' | null>(null);
+  const [savedDecks, setSavedDecks] = useState<SavedDeck[]>([]);
 
   const handleSidebarOpen = () => {
     setIsSidebarOpen(true);
@@ -73,7 +75,15 @@ function App() {
   };
 
   const handleDeckListOpen = () => {
+    setSavedDecks(getAllDecks());
     setIsDeckListOpen(true);
+  };
+
+  const handleDeleteDeck = (deckId: string) => {
+    const success = deleteDeck(deckId);
+    if (success) {
+      setSavedDecks(getAllDecks());
+    }
   };
 
   const handleDeckEditOpen = () => {
@@ -174,6 +184,11 @@ function App() {
     });
   }, [allCardData, filter.selectedColors, filter.selectedLevels, filter.selectedCardTypes, filter.selectedLrigClasses, filter.selectedTags, filter.lifeBurstFilter, filter.searchText, filter.candidateFilter, deck.candidateCards, filter.favoriteFilter, favoriteCards]);
 
+  // 候補カードをソート
+  const sortedCandidateCards = useMemo(() => {
+    return sortCandidateCards(deck.candidateCards);
+  }, [deck.candidateCards]);
+
   return (
     <div className="flex flex-col w-dvw h-dvh m-0 p-0 bg-zinc-900 overflow-hidden">
       {/* Navbar */}
@@ -195,7 +210,7 @@ function App() {
           onCardHover={onCardHover}
           onAdd={deck.addCard}
           onRemove={deck.removeCard}
-          candidateCards={deck.candidateCards}
+          candidateCards={sortedCandidateCards}
           onRemoveFromCandidate={deck.removeFromCandidate}
           onCardClick={onCardClick}
           lifeBurstCount={deck.lifeBurstCount}
@@ -313,8 +328,9 @@ function App() {
       <DeckListModal
         isOpen={isDeckListOpen}
         onClose={() => setIsDeckListOpen(false)}
-        decks={getAllDecks()}
+        decks={savedDecks}
         onSelectDeck={handleLoadDeck}
+        onDeleteDeck={handleDeleteDeck}
       />
 
       {/* デッキ編集モーダル */}

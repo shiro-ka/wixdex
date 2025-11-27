@@ -128,3 +128,68 @@ export function sortMainDeck(mainDeck: Card[]): Card[] {
     })
     .map(item => item.card);
 }
+
+// 候補カード（Folder）用の統合カードタイプ優先順位
+const CANDIDATE_CARD_TYPE_ORDER: Record<string, number> = {
+  'ルリグ': 1,
+  'アシスト': 2,
+  'ピース': 3,
+  'アーツ': 4,
+  'シグニ': 5,
+  'スペル': 6,
+  'サーバント': 7,
+};
+
+// 候補カード用のカードタイプ優先順位を取得
+function getCandidateCardTypePriority(card: Card): number {
+  const cardType = card.cardType?.[0] ?? '';
+  return CANDIDATE_CARD_TYPE_ORDER[cardType] ?? 999;
+}
+
+// 候補カード（Folder）をソート（ルリグ+メイン統合ロジック）
+export function sortCandidateCards(candidateCards: Card[]): Card[] {
+  return [...candidateCards]
+    .map((card, index) => ({ card, index }))
+    .sort((a, b) => {
+      // 1. カードタイプでソート（ルリグ→アシスト→ピース→アーツ→シグニ→スペル→サーバント）
+      const typeDiff = getCandidateCardTypePriority(a.card) - getCandidateCardTypePriority(b.card);
+      if (typeDiff !== 0) return typeDiff;
+
+      const cardTypeA = a.card.cardType?.[0] ?? '';
+      const cardTypeB = b.card.cardType?.[0] ?? '';
+
+      // 2. アシストの場合: ルリグタイプ（50音順）→ レベル
+      if (cardTypeA === 'アシスト' && cardTypeB === 'アシスト') {
+        const lrigTypeDiff = getLrigTypeSortKey(a.card).localeCompare(getLrigTypeSortKey(b.card), 'ja');
+        if (lrigTypeDiff !== 0) return lrigTypeDiff;
+
+        const levelDiff = getLevel(a.card) - getLevel(b.card);
+        if (levelDiff !== 0) return levelDiff;
+      }
+
+      // 3. シグニの場合: レベル → 色
+      if (cardTypeA === 'シグニ' && cardTypeB === 'シグニ') {
+        const levelDiff = getLevel(a.card) - getLevel(b.card);
+        if (levelDiff !== 0) return levelDiff;
+
+        const colorDiff = getColorPriority(a.card) - getColorPriority(b.card);
+        if (colorDiff !== 0) return colorDiff;
+      }
+
+      // 4. スペルやサーバントの場合: 色でソート
+      if ((cardTypeA === 'スペル' || cardTypeA === 'サーバント') && cardTypeA === cardTypeB) {
+        const colorDiff = getColorPriority(a.card) - getColorPriority(b.card);
+        if (colorDiff !== 0) return colorDiff;
+      }
+
+      // 5. IDでソート
+      const idA = a.card.id ?? '';
+      const idB = b.card.id ?? '';
+      const idDiff = idA.localeCompare(idB);
+      if (idDiff !== 0) return idDiff;
+
+      // 6. IDが同じ場合は元のインデックス順を保つ（安定ソート）
+      return a.index - b.index;
+    })
+    .map(item => item.card);
+}

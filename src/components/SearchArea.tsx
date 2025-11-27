@@ -10,6 +10,7 @@ import { CardTypeIcon } from './icons/CardTypeIcon';
 import { LrigClassIcon } from './icons/LrigClassIcon';
 import { StarIcon } from './icons/StarIcon';
 import SettingsPopup from './SettingsPopup';
+import SearchSettingsPopup from './SearchSettingsPopup';
 import TypeFilterContent from './dropdowns/TypeFilterContent';
 import LrigClassFilterContent from './dropdowns/LrigClassFilterContent';
 import TagFilterContent from './dropdowns/TagFilterContent';
@@ -75,6 +76,9 @@ function SearchArea({
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchText, setSearchText] = useState('');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isSearchSettingsOpen, setIsSearchSettingsOpen] = useState(false);
+  const [searchCardName, setSearchCardName] = useState(true);
+  const [searchCardText, setSearchCardText] = useState(false);
   const [expandedMenu, setExpandedMenu] = useState<'type' | 'lrigClass' | 'tag' | null>('type');
 
   // lg以上（1024px以上）かどうかを判定
@@ -191,22 +195,35 @@ function SearchArea({
               }`}
             onClick={onCandidateFilter}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={`w-5 h-5 transition-all ${candidateFilter ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'
-                }`}
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2" />
-            </svg>
+            {candidateFilter ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="w-5 h-5 text-gray-300 transition-all"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M9 3a1 1 0 0 1 .608 .206l.1 .087l2.706 2.707h6.586a3 3 0 0 1 2.995 2.824l.005 .176v8a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-11a3 3 0 0 1 2.824 -2.995l.176 -.005h4z" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 4h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2" />
+              </svg>
+            )}
           </div>
           <div className="flex w-fit md:flex-3 rounded-lg border border-gray-600/50 overflow-hidden">
             <div
@@ -513,13 +530,29 @@ function SearchArea({
           </div>
           <div className="flex flex-1 mr-2 items-center bg-zinc-600/10 border border-gray-600/50 rounded-lg focus-within:ring-2 focus-within:ring-gray-500">
             <div
-              className="flex w-12 h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer transition-all"
+              className="relative flex w-12 h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer transition-all"
+              onClick={() => setIsSearchSettingsOpen(!isSearchSettingsOpen)}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                <path d="M21 21l-6 -6" />
-              </svg>
+              {isSearchSettingsOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-gray-300">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M14 3.072a8 8 0 0 1 2.32 11.834l5.387 5.387a1 1 0 0 1 -1.414 1.414l-5.388 -5.387a8 8 0 0 1 -12.905 -6.32l.005 -.285a8 8 0 0 1 11.995 -6.643m-5.293 4.22a1 1 0 0 0 -1.414 1.415l1.292 1.293l-1.292 1.293a1 1 0 0 0 1.414 1.414l1.293 -1.292l1.293 1.292a1 1 0 0 0 1.414 -1.414l-1.292 -1.293l1.292 -1.293a1 1 0 1 0 -1.414 -1.414l-1.293 1.292z" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                  <path d="M21 21l-6 -6" />
+                </svg>
+              )}
+              <SearchSettingsPopup
+                isOpen={isSearchSettingsOpen}
+                onClose={() => setIsSearchSettingsOpen(false)}
+                searchCardName={searchCardName}
+                searchCardText={searchCardText}
+                onToggleSearchCardName={() => setSearchCardName(!searchCardName)}
+                onToggleSearchCardText={() => setSearchCardText(!searchCardText)}
+              />
             </div>
             <input
               ref={inputRef}
