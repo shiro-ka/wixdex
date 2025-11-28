@@ -2,7 +2,7 @@
     {
         "name": "リベレーターズフォース",
         "subName": ["りべれーたーずふぉーす","りべふぉ"],
-        "image": "WXDi-P15/WXDi-P15-001.png",
+        "image": "WXDi-P15/WXDi-P15-001.webp",
         "cardType": ["ピース"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -14,7 +14,7 @@
     {
         "name": "パワーオブストラグル",
         "subName": ["ぱわーおぶすとらぐる","ぱわすと"],
-        "image": "WXDi-P15/WXDi-P15-002.png",
+        "image": "WXDi-P15/WXDi-P15-002.webp",
         "cardType": ["ピース"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -26,7 +26,7 @@
     {
         "name": "ひらけ！ゲート！",
         "subName": ["ひらけげーと","ひらげ"],
-        "image": "WXDi-P15/WXDi-P15-003.png",
+        "image": "WXDi-P15/WXDi-P15-003.webp",
         "cardType": ["ピース"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -38,7 +38,7 @@
     {
         "name": "オールアウトバトル",
         "subName": ["おーるあうとばとる","OOB"],
-        "image": "WXDi-P15/WXDi-P15-004.png",
+        "image": "WXDi-P15/WXDi-P15-004.webp",
         "cardType": ["ピース"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -50,7 +50,7 @@
     {
         "name": "俯瞰者からの啓示",
         "subName": ["ふかんしゃからのけいじ"],
-        "image": "WXDi-P15/WXDi-P15-005.png",
+        "image": "WXDi-P15/WXDi-P15-005.webp",
         "cardType": ["ピース"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -62,7 +62,7 @@
     {
         "name": "自由の記憶解放者リル",
         "subName": ["じゆうのきおくかいほうしゃりる"],
-        "image": "WXDi-P15/WXDi-P15-006.png",
+        "image": "WXDi-P15/WXDi-P15-006.webp",
         "cardType": ["ルリグ"],
         "lrigTypeClass": ["リル"],
         "level": 3,
@@ -74,7 +74,7 @@
     {
         "name": "解放者エルドラ×マークν",
         "subName": ["かいほうしゃえるどらまーくにゅー","かいほうしゃえるどらまーくν"],
-        "image": "WXDi-P15/WXDi-P15-007.png",
+        "image": "WXDi-P15/WXDi-P15-007.webp",
         "cardType": ["ルリグ"],
         "lrigTypeClass": ["エルドラ"],
         "level": 3,
@@ -86,7 +86,7 @@
     {
         "name": "闘争者カーニバル#T#",
         "subName": ["とうそうしゃかーにばるわいるどてるせいろ"],
-        "image": "WXDi-P15/WXDi-P15-008.png",
+        "image": "WXDi-P15/WXDi-P15-008.webp",
         "cardType": ["ルリグ"],
         "lrigTypeClass": ["カーニバル"],
         "level": 3,
@@ -98,7 +98,7 @@
     {
         "name": "貪欲の駄姫闘争者グズ子",
         "subName": ["どんよくのだきとうそうしゃぐずこ"],
-        "image": "WXDi-P15/WXDi-P15-009.png",
+        "image": "WXDi-P15/WXDi-P15-009.webp",
         "cardType": ["ルリグ"],
         "lrigTypeClass": ["グズ子"],
         "level": 3,
@@ -110,7 +110,7 @@
     {
         "name": "防衛者ＭＣ．ＬＩＯＮ－３ｒｄ",
         "subName": ["ぼうえいしゃえむしーりおんさーど","防衛者MCLION3rd","ぼうえいしゃえむしーらいおんさーど"],
-        "image": "WXDi-P15/WXDi-P15-010.png",
+        "image": "WXDi-P15/WXDi-P15-010.webp",
         "cardType": ["ルリグ"],
         "lrigTypeClass": ["LION"],
         "level": 3,
@@ -122,7 +122,7 @@
     {
         "name": "プロフェッサー防衛者Ｄｒ．タマゴ",
         "subName": ["ぷろふぇっさーぼうえいしゃどくたーたまご","プロフェッサー防衛者Drタマゴ"],
-        "image": "WXDi-P15/WXDi-P15-011.png",
+        "image": "WXDi-P15/WXDi-P15-011.webp",
         "cardType": ["ルリグ"],
         "lrigTypeClass": ["タマゴ"],
         "level": 3,
@@ -134,7 +134,7 @@
     {
         "name": "リメンバ・スクライイング",
         "subName": ["りめんばすくらいいんぐ"],
-        "image": "WXDi-P15/WXDi-P15-031.png",
+        "image": "WXDi-P15/WXDi-P15-031.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["リメンバ"],
         "level": 1,
@@ -146,7 +146,7 @@
     {
         "name": "リメンバ・オミノス",
         "subName": ["りめんばおみのす"],
-        "image": "WXDi-P15/WXDi-P15-032.png",
+        "image": "WXDi-P15/WXDi-P15-032.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["リメンバ"],
         "level": 1,
@@ -158,7 +158,7 @@
     {
         "name": "リメンバ・リストレイント",
         "subName": ["りめんばりすとれいんと"],
-        "image": "WXDi-P15/WXDi-P15-033.png",
+        "image": "WXDi-P15/WXDi-P15-033.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["リメンバ"],
         "level": 2,
@@ -170,7 +170,7 @@
     {
         "name": "リメンバ・アストロジー",
         "subName": ["りめんばあすとろじー"],
-        "image": "WXDi-P15/WXDi-P15-034.png",
+        "image": "WXDi-P15/WXDi-P15-034.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["リメンバ"],
         "level": 2,
@@ -182,7 +182,7 @@
     {
         "name": "リメンバ・プロフェシー",
         "subName": ["りめんばぷろふぇしー"],
-        "image": "WXDi-P15/WXDi-P15-035.png",
+        "image": "WXDi-P15/WXDi-P15-035.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["リメンバ"],
         "level": 2,
@@ -194,7 +194,7 @@
     {
         "name": "アルフォウソード",
         "subName": ["あるふぉうそーど"],
-        "image": "WXDi-P15/WXDi-P15-037.png",
+        "image": "WXDi-P15/WXDi-P15-037.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["アルフォウ"],
         "level": 1,
@@ -206,7 +206,7 @@
     {
         "name": "アルフォウアイスバーグ",
         "subName": ["あるふぉうあいすばーぐ"],
-        "image": "WXDi-P15/WXDi-P15-038.png",
+        "image": "WXDi-P15/WXDi-P15-038.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["アルフォウ"],
         "level": 1,
@@ -218,7 +218,7 @@
     {
         "name": "アルフォウジェラシー",
         "subName": ["あるふぉうじぇらしー"],
-        "image": "WXDi-P15/WXDi-P15-039.png",
+        "image": "WXDi-P15/WXDi-P15-039.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["アルフォウ"],
         "level": 2,
@@ -230,7 +230,7 @@
     {
         "name": "アルフォウスプラッシュ",
         "subName": ["あるふぉうすぷらっしゅ"],
-        "image": "WXDi-P15/WXDi-P15-040.png",
+        "image": "WXDi-P15/WXDi-P15-040.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["アルフォウ"],
         "level": 2,
@@ -242,7 +242,7 @@
     {
         "name": "アルフォウソーンアイビー",
         "subName": ["あるふぉうそーんあいびー"],
-        "image": "WXDi-P15/WXDi-P15-041.png",
+        "image": "WXDi-P15/WXDi-P15-041.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["アルフォウ"],
         "level": 2,
@@ -254,7 +254,7 @@
     {
         "name": "ハナレ//スパイクス",
         "subName": ["はなれすぱいくす"],
-        "image": "WXDi-P15/WXDi-P15-043.png",
+        "image": "WXDi-P15/WXDi-P15-043.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["ハナレ"],
         "level": 1,
@@ -266,7 +266,7 @@
     {
         "name": "ハナレ//ダークスフィア",
         "subName": ["はなれだーくすふぃあ"],
-        "image": "WXDi-P15/WXDi-P15-044.png",
+        "image": "WXDi-P15/WXDi-P15-044.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["ハナレ"],
         "level": 1,
@@ -278,7 +278,7 @@
     {
         "name": "ハナレ//ミリオンダガー",
         "subName": ["はなれみりおんだらー"],
-        "image": "WXDi-P15/WXDi-P15-045.png",
+        "image": "WXDi-P15/WXDi-P15-045.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["ハナレ"],
         "level": 2,
@@ -290,7 +290,7 @@
     {
         "name": "ハナレ//フォービドゥンファング",
         "subName": ["はなれふぉーびどぅんふぁんぐ"],
-        "image": "WXDi-P15/WXDi-P15-046.png",
+        "image": "WXDi-P15/WXDi-P15-046.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["ハナレ"],
         "level": 2,
@@ -302,7 +302,7 @@
     {
         "name": "ハナレ//ベノムスプラッシュ",
         "subName": ["はなれべのむすぷらっしゅ"],
-        "image": "WXDi-P15/WXDi-P15-047.png",
+        "image": "WXDi-P15/WXDi-P15-047.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["ハナレ"],
         "level": 2,
@@ -314,7 +314,7 @@
     {
         "name": "紅将姫シモン・バール//THEDOOR",
         "subName": ["こうしょうきしもんばーるざどあー","紅将姫シモンバールTHEDOOR"],
-        "image": "WXDi-P15/WXDi-P15-048.png",
+        "image": "WXDi-P15/WXDi-P15-048.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["解放派","奏像：武勇"],
         "level": 3,
@@ -326,7 +326,7 @@
     {
         "name": "コードオーダーメル//THE DOOR",
         "subName": ["こーどおーだーめるざどあー","めるどあ"],
-        "image": "WXDi-P15/WXDi-P15-049.png",
+        "image": "WXDi-P15/WXDi-P15-049.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["解放派","奏械：調理"],
         "level": 3,
@@ -338,7 +338,7 @@
     {
         "name": "幻水姫フクロウナギ//THE DOOR",
         "subName": ["げんすいひめふくろうなぎざどあー","うなどあ"],
-        "image": "WXDi-P15/WXDi-P15-050.png",
+        "image": "WXDi-P15/WXDi-P15-050.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["解放派","奏生：水獣"],
         "level": 3,
@@ -350,7 +350,7 @@
     {
         "name": "羅輝石花代//THE DOOR",
         "subName": ["らきせきはなよざどあー","はなどあ"],
-        "image": "WXDi-P15/WXDi-P15-051.png",
+        "image": "WXDi-P15/WXDi-P15-051.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["解放派","奏羅：宝石"],
         "level": 3,
@@ -362,7 +362,7 @@
     {
         "name": "羅星姫フラドウズ//THE DOOR",
         "subName": ["らせいきふらどうずざどあー","ふらどあ"],
-        "image": "WXDi-P15/WXDi-P15-052.png",
+        "image": "WXDi-P15/WXDi-P15-052.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["闘争派","奏羅：宇宙"],
         "level": 3,
@@ -374,7 +374,7 @@
     {
         "name": "羅菌姫ナナシ//THE DOOR",
         "subName": ["らきんひめななしざどあー","ななどあ"],
-        "image": "WXDi-P15/WXDi-P15-053.png",
+        "image": "WXDi-P15/WXDi-P15-053.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["闘争派","奏羅：微菌"],
         "level": 3,
@@ -386,7 +386,7 @@
     {
         "name": "惨之遊姫コイントス//THE DOOR",
         "subName": ["さんのゆうきこいんとすざどあー"],
-        "image": "WXDi-P15/WXDi-P15-054.png",
+        "image": "WXDi-P15/WXDi-P15-054.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["闘争派","奏武：遊具"],
         "level": 3,
@@ -398,7 +398,7 @@
     {
         "name": "大罠あや//THE DOOR",
         "subName": ["だいびんあやざどあー","おおわなあやざどあー"],
-        "image": "WXDi-P15/WXDi-P15-055.png",
+        "image": "WXDi-P15/WXDi-P15-055.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["闘争派","奏武：トリック"],
         "level": 3,
@@ -410,7 +410,7 @@
     {
         "name": "コードハートLスピーカ//THE DOOR",
         "subName": ["こーどはーとえるすぴーかざどあー"],
-        "image": "WXDi-P15/WXDi-P15-056.png",
+        "image": "WXDi-P15/WXDi-P15-056.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["防衛派","奏械：電機"],
         "level": 3,
@@ -422,7 +422,7 @@
     {
         "name": "幻獣神LOVIT//THE DOOR",
         "subName": ["げんじゅうしんらびっとざどあー"],
-        "image": "WXDi-P15/WXDi-P15-057.png",
+        "image": "WXDi-P15/WXDi-P15-057.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["防衛派","奏生：地獣"],
         "level": 3,
@@ -434,7 +434,7 @@
     {
         "name": "羅星姫コスチュム//THE DOOR",
         "subName": ["らせいきこすちゅむざどあー"],
-        "image": "WXDi-P15/WXDi-P15-058.png",
+        "image": "WXDi-P15/WXDi-P15-058.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["防衛派","奏羅：宇宙"],
         "level": 3,
@@ -446,7 +446,7 @@
     {
         "name": "羅星姫ノヴァ//THE DOOR",
         "subName": ["らせいきのヴぁざどあー"],
-        "image": "WXDi-P15/WXDi-P15-059.png",
+        "image": "WXDi-P15/WXDi-P15-059.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["防衛派","奏羅：宇宙"],
         "level": 3,
@@ -458,7 +458,7 @@
     {
         "name": "幻竜遊月//THE DOOR",
         "subName": ["げんりゅうゆづきざどあー"],
-        "image": "WXDi-P15/WXDi-P15-060.png",
+        "image": "WXDi-P15/WXDi-P15-060.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["解放派","奏生：龍獣"],
         "level": 1,
@@ -470,7 +470,7 @@
     {
         "name": "羅星サシェ//THE DOOR",
         "subName": ["らせいさしぇざどあー"],
-        "image": "WXDi-P15/WXDi-P15-061.png",
+        "image": "WXDi-P15/WXDi-P15-061.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["解放派","奏羅：宇宙"],
         "level": 1,
@@ -482,7 +482,7 @@
     {
         "name": "幻怪ドーナ//THE DOOR",
         "subName": ["げんかいどーなざどあー","どなどあ"],
-        "image": "WXDi-P15/WXDi-P15-062.png",
+        "image": "WXDi-P15/WXDi-P15-062.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["解放派","奏生：怪異"],
         "level": 0,
@@ -494,7 +494,7 @@
     {
         "name": "解放の弾丸",
         "subName": ["かいほうのだんがん"],
-        "image": "WXDi-P15/WXDi-P15-063.png",
+        "image": "WXDi-P15/WXDi-P15-063.webp",
         "cardType": ["スペル"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -506,7 +506,7 @@
     {
         "name": "幻蟲アロス・ピルルク//THE DOOR",
         "subName": ["げんちゅうあろすぴるるくざどあー","あろぴどあ"],
-        "image": "WXDi-P15/WXDi-P15-064.png",
+        "image": "WXDi-P15/WXDi-P15-064.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["解放派","奏生：凶蟲"],
         "level": 1,
@@ -518,7 +518,7 @@
     {
         "name": "幻獣緑子//THE DOOR",
         "subName": ["げんじゅうみどりこざどあー"],
-        "image": "WXDi-P15/WXDi-P15-065.png",
+        "image": "WXDi-P15/WXDi-P15-065.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["解放派","奏生：地獣"],
         "level": 1,
@@ -530,7 +530,7 @@
     {
         "name": "幻蟲ミュウ//THE DOOR",
         "subName": ["げんちゅうみゅうざどあー","みゅうどあ"],
-        "image": "WXDi-P15/WXDi-P15-066.png",
+        "image": "WXDi-P15/WXDi-P15-066.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["解放派","奏生：凶蟲"],
         "level": 2,
@@ -542,7 +542,7 @@
     {
         "name": "INSPIRATION",
         "subName": ["いんすぴれーしょん"],
-        "image": "WXDi-P15/WXDi-P15-067.png",
+        "image": "WXDi-P15/WXDi-P15-067.webp",
         "cardType": ["スペル"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -554,7 +554,7 @@
     {
         "name": "羅原ミルルン//THE DOOR",
         "subName": ["らげんみるるんざどあー","みるどあ"],
-        "image": "WXDi-P15/WXDi-P15-068.png",
+        "image": "WXDi-P15/WXDi-P15-068.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["闘争派","奏羅：原子"],
         "level": 1,
@@ -566,7 +566,7 @@
     {
         "name": "コードライドレイラ//THE DOOR",
         "subName": ["こーどらいどれいらざどあー"],
-        "image": "WXDi-P15/WXDi-P15-069.png",
+        "image": "WXDi-P15/WXDi-P15-069.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["闘争派","奏械：乗機"],
         "level": 1,
@@ -578,7 +578,7 @@
     {
         "name": "翠英ママ//THE DOOR",
         "subName": ["すいえいままざどあー","ままどあ"],
-        "image": "WXDi-P15/WXDi-P15-070.png",
+        "image": "WXDi-P15/WXDi-P15-070.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["闘争派","奏像：英知"],
         "level": 2,
@@ -590,7 +590,7 @@
     {
         "name": "闘槍",
         "subName": ["とうそう"],
-        "image": "WXDi-P15/WXDi-P15-071.png",
+        "image": "WXDi-P15/WXDi-P15-071.webp",
         "cardType": ["スペル"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -602,7 +602,7 @@
     {
         "name": "小罠ゆかゆか//THE DOOR",
         "subName": ["しょうびんゆかゆかざどあー","こわなゆかゆかざどあー","ゆかどあ"],
-        "image": "WXDi-P15/WXDi-P15-072.png",
+        "image": "WXDi-P15/WXDi-P15-072.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["闘争派","奏武：トリック"],
         "level": 1,
@@ -614,7 +614,7 @@
     {
         "name": "羅原まほまほ//THE DOOR",
         "subName": ["らげんまほまほざどあー","まほどあ"],
-        "image": "WXDi-P15/WXDi-P15-073.png",
+        "image": "WXDi-P15/WXDi-P15-073.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["闘争派","奏羅：原子"],
         "level": 1,
@@ -626,7 +626,7 @@
     {
         "name": "羅菌みこみこ//THE DOOR",
         "subName": ["らきんみこみこざどあー","みこどあ"],
-        "image": "WXDi-P15/WXDi-P15-074.png",
+        "image": "WXDi-P15/WXDi-P15-074.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["闘争派","奏羅：微菌"],
         "level": 2,
@@ -638,7 +638,7 @@
     {
         "name": "デス・デストロイ",
         "subName": ["ですですとろい"],
-        "image": "WXDi-P15/WXDi-P15-075.png",
+        "image": "WXDi-P15/WXDi-P15-075.webp",
         "cardType": ["スペル"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -650,7 +650,7 @@
     {
         "name": "コードメイズムジカ//THE DOOR",
         "subName": ["こーどめいずむじかざどあー","むじどあ"],
-        "image": "WXDi-P15/WXDi-P15-076.png",
+        "image": "WXDi-P15/WXDi-P15-076.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["防衛派","奏械：迷宮"],
         "level": 1,
@@ -662,7 +662,7 @@
     {
         "name": "幻怪エクス//THE DOOR",
         "subName": ["げんかいえくすざどあー","えくどあ"],
-        "image": "WXDi-P15/WXDi-P15-077.png",
+        "image": "WXDi-P15/WXDi-P15-077.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["防衛派","奏生：怪異"],
         "level": 1,
@@ -674,7 +674,7 @@
     {
         "name": "爆砲WOLF//THE DOOR",
         "subName": ["ばくほううるふざどあー","うるどあ"],
-        "image": "WXDi-P15/WXDi-P15-078.png",
+        "image": "WXDi-P15/WXDi-P15-078.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["防衛派","奏武：ウェポン"],
         "level": 2,
@@ -686,7 +686,7 @@
     {
         "name": "オープン・ゲート",
         "subName": ["おーぷんげーと"],
-        "image": "WXDi-P15/WXDi-P15-079.png",
+        "image": "WXDi-P15/WXDi-P15-079.webp",
         "cardType": ["スペル"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -698,7 +698,7 @@
     {
         "name": "蒼天ヒラナ//THE DOOR",
         "subName": ["そうてんひらなざどあー","ひらどあ"],
-        "image": "WXDi-P15/WXDi-P15-080.png",
+        "image": "WXDi-P15/WXDi-P15-080.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["防衛派","奏像：天使"],
         "level": 1,
@@ -710,7 +710,7 @@
     {
         "name": "羅石レイ//THE DOOR",
         "subName": ["らせきれいざどあー","れいどあ"],
-        "image": "WXDi-P15/WXDi-P15-081.png",
+        "image": "WXDi-P15/WXDi-P15-081.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["防衛派","奏羅：宝石"],
         "level": 1,
@@ -722,7 +722,7 @@
     {
         "name": "蒼魔バン//THE DOOR",
         "subName": ["そうまばんざどあー","ばんどあ"],
-        "image": "WXDi-P15/WXDi-P15-082.png",
+        "image": "WXDi-P15/WXDi-P15-082.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["防衛派","奏像：悪魔"],
         "level": 2,
@@ -734,7 +734,7 @@
     {
         "name": "GATEDRIVE",
         "subName": ["げーとどらいぶ"],
-        "image": "WXDi-P15/WXDi-P15-083.png",
+        "image": "WXDi-P15/WXDi-P15-083.webp",
         "cardType": ["スペル"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -746,7 +746,7 @@
     {
         "name": "小装ロングスピア",
         "subName": ["しょうそうろんぐすぴあ","ろんすぴ"],
-        "image": "WXDi-P15/WXDi-P15-084.png",
+        "image": "WXDi-P15/WXDi-P15-084.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏武：アーム"],
         "level": 1,
@@ -758,7 +758,7 @@
     {
         "name": "中罠デジロック",
         "subName": ["ちゅうびんでじろっく","ちゅうわなでじろっく"],
-        "image": "WXDi-P15/WXDi-P15-085.png",
+        "image": "WXDi-P15/WXDi-P15-085.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏武：トリック"],
         "level": 2,
@@ -770,7 +770,7 @@
     {
         "name": "コードアートAトドア",
         "subName": ["こーどあーとえーとどあ","こーどあーとおーとどあ"],
-        "image": "WXDi-P15/WXDi-P15-086.png",
+        "image": "WXDi-P15/WXDi-P15-086.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏械：電機"],
         "level": 2,
@@ -782,7 +782,7 @@
     {
         "name": "小砲カエンビン",
         "subName": ["しょうほうかえんびん"],
-        "image": "WXDi-P15/WXDi-P15-087.png",
+        "image": "WXDi-P15/WXDi-P15-087.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏武：ウェポン"],
         "level": 1,
@@ -794,7 +794,7 @@
     {
         "name": "紅天アレース",
         "subName": ["こうてんあれーす"],
-        "image": "WXDi-P15/WXDi-P15-088.png",
+        "image": "WXDi-P15/WXDi-P15-088.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏像：天使"],
         "level": 2,
@@ -806,7 +806,7 @@
     {
         "name": "羅星ホーキング",
         "subName": ["らせいほーきんぐ"],
-        "image": "WXDi-P15/WXDi-P15-089.png",
+        "image": "WXDi-P15/WXDi-P15-089.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏羅：宇宙"],
         "level": 2,
@@ -818,7 +818,7 @@
     {
         "name": "羅原Kr",
         "subName": ["らげんくりぷとん","らげんけーあーる"],
-        "image": "WXDi-P15/WXDi-P15-090.png",
+        "image": "WXDi-P15/WXDi-P15-090.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏羅：原子"],
         "level": 1,
@@ -830,7 +830,7 @@
     {
         "name": "羅石ラブラドライト",
         "subName": ["らせきらぶらどらいと"],
-        "image": "WXDi-P15/WXDi-P15-091.png",
+        "image": "WXDi-P15/WXDi-P15-091.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏羅：宝石"],
         "level": 1,
@@ -842,7 +842,7 @@
     {
         "name": "羅植マングロブ",
         "subName": ["らしょくまんぐろぶ"],
-        "image": "WXDi-P15/WXDi-P15-092.png",
+        "image": "WXDi-P15/WXDi-P15-092.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏生：植物"],
         "level": 2,
@@ -854,7 +854,7 @@
     {
         "name": "幻獣ギリシャガメ",
         "subName": ["げんじゅうぎりしゃがめ"],
-        "image": "WXDi-P15/WXDi-P15-093.png",
+        "image": "WXDi-P15/WXDi-P15-093.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏生：地獣"],
         "level": 1,
@@ -866,7 +866,7 @@
     {
         "name": "幻水アユモド",
         "subName": ["げんしあゆもど"],
-        "image": "WXDi-P15/WXDi-P15-094.png",
+        "image": "WXDi-P15/WXDi-P15-094.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏生：水獣"],
         "level": 1,
@@ -878,7 +878,7 @@
     {
         "name": "翠英マキトミ",
         "subName": ["すいえいまきとみ"],
-        "image": "WXDi-P15/WXDi-P15-095.png",
+        "image": "WXDi-P15/WXDi-P15-095.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏像：英知"],
         "level": 2,
@@ -890,7 +890,7 @@
     {
         "name": "アイン＝ツキヨタケ",
         "subName": ["あいんつきよたけ"],
-        "image": "WXDi-P15/WXDi-P15-096.png",
+        "image": "WXDi-P15/WXDi-P15-096.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏武：毒牙"],
         "level": 1,
@@ -902,7 +902,7 @@
     {
         "name": "凶魔デモゴーン",
         "subName": ["きょうまでもごーん"],
-        "image": "WXDi-P15/WXDi-P15-097.png",
+        "image": "WXDi-P15/WXDi-P15-097.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏像：悪魔"],
         "level": 2,
@@ -914,7 +914,7 @@
     {
         "name": "凶将アオトラ",
         "subName": ["きょうしょうあおとら"],
-        "image": "WXDi-P15/WXDi-P15-098.png",
+        "image": "WXDi-P15/WXDi-P15-098.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏像：武勇"],
         "level": 2,

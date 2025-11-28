@@ -30,17 +30,7 @@ function App() {
   // カードデータの読み込み
   const { cardData: allCardData, loading, error } = useCardData();
 
-  // ローディング中
-  if (loading) {
-    return <LoadingSpinner />;
-  }
-
-  // エラー発生時
-  if (error) {
-    return <ErrorMessage message={error.message} />;
-  }
-
-  // カスタムフックでstate管理
+  // カスタムフックでstate管理（Hooks は常に同じ順序で呼び出す必要がある）
   const deck = useDeckManager();
   const { hoveredCard, onCardHover } = useCardHover();
   const { popupCard, onCardClick, closePopup } = useCardPopup();
@@ -185,6 +175,16 @@ function App() {
   const sortedCandidateCards = useMemo(() => {
     return sortCandidateCards(deck.candidateCards);
   }, [deck.candidateCards]);
+
+  // ローディング中
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  // エラー発生時
+  if (error) {
+    return <ErrorMessage message={error.message} />;
+  }
 
   return (
     <div className="flex flex-col w-dvw h-dvh m-0 p-0 bg-zinc-900 overflow-hidden">

@@ -46,7 +46,7 @@ function CardList({ cards, onAdd, onAddMultiple, onCardHover, onAddToCandidate, 
             onTouchMove={(e) => handleTouchMove(e, card)}
             onTouchEnd={(e) => handleTouchEnd(e, card)}
           >
-            <div className="hidden md:flex items-center w-full aspect-[3/4]">
+            <div className="hidden md:flex items-center w-full aspect-[12/17]">
               <CardImage
                 card={card}
                 src={`${basePath}/assets/cards_img/${card.image}`}
