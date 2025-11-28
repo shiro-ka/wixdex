@@ -1,0 +1,853 @@
+[
+    {
+        "name": "スプラッシュフィールド",
+        "subName": ["すぷらっしゅふぃーるど","すぷふぃ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-001.jpg",
+        "cardType": ["ピース"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["白"],
+        "lifeBurst": "",
+        "tags": ["チームピース"]
+    },
+
+    {
+        "name": "CONNECTスピニング",
+        "subName": ["こねくとすぴにんぐ","こねすぴ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-002.jpg",
+        "cardType": ["ピース"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["赤"],
+        "lifeBurst": "",
+        "tags": ["チームピース"]
+    },
+
+    {
+        "name": "ブルー・ナイトショー",
+        "subName": ["ぶるーないとしょー","ぶるない"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-003.jpg",
+        "cardType": ["ピース"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["青"],
+        "lifeBurst": "",
+        "tags": ["チームピース"]
+    },
+
+    {
+        "name": "ハピネス・フロート",
+        "subName": ["はぴねすふろーと","はぴふろ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-004.jpg",
+        "cardType": ["ピース"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["緑"],
+        "lifeBurst": "",
+        "tags": ["チームピース"]
+    },
+
+    {
+        "name": "カオス！chaos！混沌！",
+        "subName": ["かおすかおすかおす","かおすかおすこんとん","かおかお"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-005.jpg",
+        "cardType": ["ピース"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["黒"],
+        "lifeBurst": "",
+        "tags": ["チームピース"]
+    },
+
+    {
+        "name": "炎泳華　遊月・燦",
+        "subName": ["えんえいかゆづきさん","ふぇぞーねゆづき"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-006.jpg",
+        "cardType": ["ルリグ"],
+        "lrigTypeClass": ["ユヅキ"],
+        "level": 3,
+        "color": ["赤"],
+        "lifeBurst": "",
+        "tags": ["フェゾーネマジック"]
+    },
+
+    {
+        "name": "アロス・ピルルク　kl",
+        "subName": ["あろすぴるるくきろりっとる","あろすぴるるくけーえる","ふぇぞーねあろぴ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-007.jpg",
+        "cardType": ["ルリグ"],
+        "lrigTypeClass": ["ピルルク"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": "",
+        "tags": ["フェゾーネマジック"]
+    },
+
+    {
+        "name": "盛夏の成果　アン＝サード",
+        "subName": ["せいかのせいかあんさーど","ふぇぞーねあん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-008.jpg",
+        "cardType": ["ルリグ"],
+        "lrigTypeClass": ["アン"],
+        "level": 3,
+        "color": ["緑"],
+        "lifeBurst": "",
+        "tags": ["フェゾーネマジック"]
+    },
+
+    {
+        "name": "熱狂の閻魔　ウリス",
+        "subName": ["ねっきょうのえんまうりす","ふぇぞーねうりす"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-009.jpg",
+        "cardType": ["ルリグ"],
+        "lrigTypeClass": ["ウリス"],
+        "level": 3,
+        "color": ["黒"],
+        "lifeBurst": "",
+        "tags": ["フェゾーネマジック"]
+    },
+
+    {
+        "name": "ミルルン☆ウェルカム",
+        "subName": ["みるるんうぇるかむ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-023.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["ミルルン"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": "",
+        "tags": [""]
+    },
+
+    {
+        "name": "ミルルン☆スラッシュ",
+        "subName": ["みるるんすらっしゅ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-024.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["ミルルン"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": "",
+        "tags": [""]
+    },
+
+    {
+        "name": "ミルルン☆スレトゥン",
+        "subName": ["みるるんすれとぅん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-025.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["ミルルン"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": "",
+        "tags": [""]
+    },
+
+    {
+        "name": "ミルルン☆キャッチ",
+        "subName": ["みるるんきゃっち"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-026.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["ミルルン"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": "",
+        "tags": [""]
+    },
+
+    {
+        "name": "ミルルン☆フラッシュ",
+        "subName": ["みるるんふらっしゅ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-027.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["ミルルン"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": "",
+        "tags": [""]
+    },
+
+    {
+        "name": "ママ　ハッピー",
+        "subName": ["ままはっぴー"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-029.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["ママ"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": "",
+        "tags": ["コイン獲得"]
+    },
+
+    {
+        "name": "ママ　アタック",
+        "subName": ["ままあたっく"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-030.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["ママ"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": "",
+        "tags": [""]
+    },
+
+    {
+        "name": "ママ　カンニング",
+        "subName": ["ままかんにんぐ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-031.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["ママ"],
+        "level": 2,
+        "color": ["緑"],
+        "lifeBurst": "",
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "ママ　ディフェンス",
+        "subName": ["ままでぃふぇんす"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-032.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["ママ"],
+        "level": 2,
+        "color": ["緑"],
+        "lifeBurst": "",
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "ママ　お片付け",
+        "subName": ["ままおかたづけ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-033.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["ママ"],
+        "level": 2,
+        "color": ["緑"],
+        "lifeBurst": "",
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "グズ子～ハプニング～",
+        "subName": ["ぐずこはぷにんぐ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-035.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["グズ子"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": "",
+        "tags": ["コイン獲得"]
+    },
+
+    {
+        "name": "グズ子～クライ～",
+        "subName": ["ぐずこくらい"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-036.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["グズ子"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": "",
+        "tags": [""]
+    },
+
+    {
+        "name": "グズ子～アピール～",
+        "subName": ["ぐずこあぴーる"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-037.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["グズ子"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": "",
+        "tags": [""]
+    },
+
+    {
+        "name": "グズ子～ダブルピース～",
+        "subName": ["ぐずこだぶるぴーす"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-038.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["グズ子"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": "",
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "グズ子～サドネス～",
+        "subName": ["ぐずこさどねす"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-039.jpg",
+        "cardType": ["アシスト"],
+        "lrigTypeClass": ["グズ子"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": "",
+        "tags": ["アタックフェイズ"]
+    },
+
+    {
+        "name": "羅星姫　リメンバ//フェゾーネ",
+        "subName": ["らせいきりめんばふぇぞーね","りめぞね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-040.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏羅：宇宙"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "幻怪姫　ドーナ//フェゾーネ",
+        "subName": ["げんかいきどーなふぇぞーね","どなぞね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-041.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏生：怪異"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "紅天姫　ヒラナ//フェゾーネ",
+        "subName": ["こうてんきひらなふぇぞーね","ひらぞね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-042.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏像：天使"],
+        "level": 3,
+        "color": ["赤"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "羅輝石　花代//フェゾーネ",
+        "subName": ["らきせきはなよふぇぞーね","はなよぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-043.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏羅：宝石"],
+        "level": 3,
+        "color": ["赤"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "羅輝石　レイ//フェゾーネ",
+        "subName": ["らきせきれいふぇぞーね","れいぞね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-044.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏羅：宝石"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "コードハート　ピルルク//フェゾーネ",
+        "subName": ["こーどはーとぴるるくふぇぞーね","どぴぞね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-045.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電機"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "轟砲　WOLF//フェゾーネ",
+        "subName": ["ごうほううるふふぇぞーね","うるぞね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-046.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏武：ウェポン"],
+        "level": 3,
+        "color": ["緑"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "コードオーダー　メル//フェゾーネ",
+        "subName": ["こーどおーだーめるふぇぞーね","めるぞね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-047.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：調理"],
+        "level": 3,
+        "color": ["緑"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "ドライ＝ハナレ//フェゾーネ",
+        "subName": ["どらいはなれふぇぞーね","はなれぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-048.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏武：毒牙"],
+        "level": 3,
+        "color": ["黒"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "羅菌姫　ナナシ//フェゾーネ",
+        "subName": ["らきんひめななしふぇぞーね","ななぞね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-049.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏羅：微菌"],
+        "level": 3,
+        "color": ["黒"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "小罠　ゆかゆか//フェゾーネ",
+        "subName": ["しょうびんゆかゆかふぇぞーね","ゆかぞね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-050.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏武：トリック"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "コードアート　LION//フェゾーネ",
+        "subName": ["こーどあーとりおんふぇぞーね","りおぞね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-051.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電機"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "爆砲　アルト//フェゾーネ",
+        "subName": ["ばくほうあるとふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-052.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏武：ウェポン"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "フェスティバル・アウェイク",
+        "subName": ["ふぇすてぃばるあうぇいく","ふぇすあうぇ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-053.jpg",
+        "cardType": ["スペル"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["白"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "幻獣　LOVIT//フェゾーネ",
+        "subName": ["げんじゅうらびっとふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-054.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏生：地獣"],
+        "level": 1,
+        "color": ["赤"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "コードアート　ララ・ルー//フェゾーネ",
+        "subName": ["こーどあーとららるーふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-055.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電機"],
+        "level": 1,
+        "color": ["赤"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "羅星　カーニバル//フェゾーネ",
+        "subName": ["らせいかーにばるふぇぞーね","かにぞね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-056.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏羅：宇宙"],
+        "level": 2,
+        "color": ["赤"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "熱気の開眼",
+        "subName": ["ねっきのかいがん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-057.jpg",
+        "cardType": ["スペル"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["赤"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "小罠　あや//フェゾーネ",
+        "subName": ["しょうびんあやふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-058.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏武：トリック"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "コードアンチ　マドカ//フェゾーネ",
+        "subName": ["こーどあんちまどかふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-059.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：古代兵器"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "羅菌　みこみこ//フェゾーネ",
+        "subName": ["らきんみこみこふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-060.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏羅：微菌"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "TEMPO　UP",
+        "subName": ["てんぽあっぷ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-061.jpg",
+        "cardType": ["スペル"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["青"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "アイン＝サンガ//フェゾーネ",
+        "subName": ["あいんさんがふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-062.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏武：毒牙"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "幻獣　緑子//フェゾーネ",
+        "subName": ["げんじゅうみどりこふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-063.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏生：地獣"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "弍ノ遊　アイヤイ//フェゾーネ",
+        "subName": ["にのゆうあいやいふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-064.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏武：遊具"],
+        "level": 2,
+        "color": ["緑"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "反響",
+        "subName": ["はんきょう"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-065.jpg",
+        "cardType": ["スペル"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["緑"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "羅原　まほまほ//フェゾーネ",
+        "subName": ["らげんまほまほふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-066.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏羅：原子"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "コードメイズ　ムジカ//フェゾーネ",
+        "subName": ["こーどめいずむじかふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-067.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：迷宮"],
+        "level": 1,
+        "color": ["黒"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "幻蟲　ミュウ//フェゾーネ",
+        "subName": ["げんちゅうみゅうふぇぞーね"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-068.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏生：凶蟲"],
+        "level": 2,
+        "color": ["黒"],
+        "lifeBurst": "false",
+        "tags": [""]
+    },
+
+    {
+        "name": "グレイブ・アップ",
+        "subName": ["ぐれいぶあっぷ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-069.jpg",
+        "cardType": ["スペル"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["黒"],
+        "lifeBurst": "true",
+        "tags": [""]
+    },
+
+    {
+        "name": "ちゅーにんぐあっぷ！",
+        "subName": ["ちゅーにんぐあっぷ","夢中にちゅ・ちゅ・ちゅ・ちゅーにんぐあっぷ！"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-070.jpg",
+        "cardType": ["ピース"],
+        "lrigTypeClass": [""],
+        "level": 0,
+        "color": ["無"],
+        "lifeBurst": "",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "憧憬へ前進　アキノ",
+        "subName": ["しょうけいへぜんしんあきの"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-071.jpg",
+        "cardType": ["ルリグ"],
+        "lrigTypeClass": ["アキノ"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": "",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　東雲和音",
+        "subName": ["でんおんぶしののめかずね","トアルトワ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-075.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": "false",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　日高零奈",
+        "subName": ["でんおんぶひだかれいな","Favorite Days"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-076.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": "true",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　茅野ふたば",
+        "subName": ["でんおんぶかやのふたば","アイドルBreak All"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-077.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": "true",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　白金煌",
+        "subName": ["でんおんぶしろかねあき"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-078.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 2,
+        "color": ["白"],
+        "lifeBurst": "false",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　黒鉄たま",
+        "subName": ["でんおんぶくろがねたま","Catch a Fire"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-079.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 3,
+        "color": ["白"],
+        "lifeBurst": "false",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　灰島銀華",
+        "subName": ["でんおんぶはいじまぎんか"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-080.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 1,
+        "color": ["白"],
+        "lifeBurst": "true",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　水上雛",
+        "subName": ["でんおんぶみずかみひな"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-081.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 2,
+        "color": ["赤"],
+        "lifeBurst": "true",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　桜乃美々兎",
+        "subName": ["でんおんぶさくらのみみと","Princess Memeism"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-082.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 3,
+        "color": ["赤"],
+        "lifeBurst": "false",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　犬吠埼紫杏",
+        "subName": ["でんおんぶいぬぼうさきしあん"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-083.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 1,
+        "color": ["赤"],
+        "lifeBurst": "false",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　瀬戸海月",
+        "subName": ["でんおんぶせとみつき"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-084.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 2,
+        "color": ["青"],
+        "lifeBurst": "false",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　鳳凰火凛",
+        "subName": ["でんおんぶほうおうかりん","CHAMPION GIRL"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-085.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 3,
+        "color": ["青"],
+        "lifeBurst": "false",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　大賀ルキア",
+        "subName": ["でんおんぶおおがるきあ"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-086.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 1,
+        "color": ["青"],
+        "lifeBurst": "true",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　安倍=シャクジ=摩耶",
+        "subName": ["でんおんぶあべのしゃくじまや","でんおんぶあべしゃくじまや"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-087.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 2,
+        "color": ["緑"],
+        "lifeBurst": "false",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　大神纏",
+        "subName": ["でんおんぶおおがみまとい"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-088.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 3,
+        "color": ["緑"],
+        "lifeBurst": "true",
+        "tags": ["電音部"]
+    },
+
+    {
+        "name": "電音部　りむる",
+        "subName": ["でんおんぶりむる"],
+        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P14-089.jpg",
+        "cardType": ["シグニ"],
+        "lrigTypeClass": ["奏械：電音部"],
+        "level": 1,
+        "color": ["緑"],
+        "lifeBurst": "false",
+        "tags": ["電音部"]
+    }
+]

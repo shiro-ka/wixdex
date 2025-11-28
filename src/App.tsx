@@ -12,6 +12,8 @@ import FilterDropdown from './components/dropdowns/FilterDropdown';
 import TypeFilterContent from './components/dropdowns/TypeFilterContent';
 import LrigClassFilterContent from './components/dropdowns/LrigClassFilterContent';
 import TagFilterContent from './components/dropdowns/TagFilterContent';
+import LoadingSpinner from './components/LoadingSpinner';
+import ErrorMessage from './components/ErrorMessage';
 import { useDeckManager } from './hooks/useDeckManager';
 import { useCardHover } from './hooks/useCardHover';
 import { useCardPopup } from './hooks/useCardPopup';
@@ -20,19 +22,24 @@ import { useDeckStorage, type SavedDeck } from './hooks/useDeckStorage';
 import { useCurrentDeck } from './hooks/useCurrentDeck';
 import { useUserSettings } from './hooks/useUserSettings';
 import { useFavoriteCards } from './hooks/useFavoriteCards';
+import { useCardData } from './hooks/useCardData';
 import { filterCards } from './utils/cardFilters';
 import { sortCandidateCards } from './utils/cardSorting';
-import type { Card } from './types';
-
-// カードデータ
-import cardDataWX24P4 from './assets/cards_json/WX24-P4.json';
-import cardDataWXDiP16 from './assets/cards_json/WXDi-P16.json';
-import cardDataWXDiP15 from './assets/cards_json/WXDi-P15.json';
-import cardDataWXDiP13 from './assets/cards_json/WXDi-P13.json';
-import cardDataWXDiP12 from './assets/cards_json/WXDi-P12.json';
-import cardDataServant from './assets/cards_json/servant.json';
 
 function App() {
+  // カードデータの読み込み
+  const { cardData: allCardData, loading, error } = useCardData();
+
+  // ローディング中
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  // エラー発生時
+  if (error) {
+    return <ErrorMessage message={error.message} />;
+  }
+
   // カスタムフックでstate管理
   const deck = useDeckManager();
   const { hoveredCard, onCardHover } = useCardHover();
@@ -156,16 +163,6 @@ function App() {
       document.removeEventListener('touchmove', touchMove);
     };
   }, []);
-
-  // カードデータをまとめる
-  const allCardData = useMemo(() => [
-    ...(cardDataServant as Card[]),
-    ...(cardDataWX24P4 as Card[]),
-    ...(cardDataWXDiP16 as Card[]),
-    ...(cardDataWXDiP13 as Card[]),
-    ...(cardDataWXDiP15 as Card[]),
-    ...(cardDataWXDiP12 as Card[]),
-  ], []);
 
   // フィルタリングされたカードリスト
   const filteredCards = useMemo(() => {
