@@ -2,7 +2,7 @@
     {
         "name": "クリスタル・エクスプロージョン",
         "subName": ["くりすたるえくすぷろーじょん","くりぷろ"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-001.jpg",
+        "image": "WX24-P3/WX24-P3-001.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -14,7 +14,7 @@
     {
         "name": "勇気爆熱",
         "subName": ["ゆうきばくねつ"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-003.jpg",
+        "image": "WX24-P3/WX24-P3-003.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -26,7 +26,7 @@
     {
         "name": "ブルー・オーバードライブ",
         "subName": ["ぶるーおーばーどらいぶ","ぶるどら"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-005.jpg",
+        "image": "WX24-P3/WX24-P3-005.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -38,7 +38,7 @@
     {
         "name": "タイム・ダイバー・ダウン",
         "subName": ["たいむだいばーだうん","たいだい","ただだ"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-006.jpg",
+        "image": "WX24-P3/WX24-P3-006.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -50,7 +50,7 @@
     {
         "name": "栄耀栄華",
         "subName": ["りぺあーういんど","りぺあーうぃんど","えいようえいか","りぺうぃん"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-007.jpg",
+        "image": "WX24-P3/WX24-P3-007.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -62,7 +62,7 @@
     {
         "name": "ダーク・ブルーム",
         "subName": ["だーくぶるーむ","だくぶる"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-009.jpg",
+        "image": "WX24-P3/WX24-P3-009.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -74,7 +74,7 @@
     {
         "name": "占星術の巫女リメンバ・ドウン",
         "subName": ["せんせいじゅつのみこりめんばどうん","りめどぅん"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-014.jpg",
+        "image": "WX24-P3/WX24-P3-014.webp",
         "cardType": ["ルリグ"],
         "lrigTypeClass": ["リメンバ"],
         "level": 3,
@@ -86,7 +86,7 @@
     {
         "name": "ちより第三章",
         "subName": ["ちよりだいさんしょう","ちよりだい3しょう"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-018.jpg",
+        "image": "WX24-P3/WX24-P3-018.webp",
         "cardType": ["ルリグ"],
         "lrigTypeClass": ["ちより"],
         "level": 3,
@@ -98,7 +98,7 @@
     {
         "name": "エルドラ×マークⅢBURST",
         "subName": ["えるどらまーくすりーばーすと","えるどらまーくiiiばーすと","えるどらまーく3ばーすと"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-022.jpg",
+        "image": "WX24-P3/WX24-P3-022.webp",
         "cardType": ["ルリグ"],
         "lrigTypeClass": ["エルドラ"],
         "level": 3,
@@ -110,7 +110,7 @@
     {
         "name": "回想の階層アン＝サード",
         "subName": ["かいそうのかいそうあんさーど"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-026.jpg",
+        "image": "WX24-P3/WX24-P3-026.webp",
         "cardType": ["ルリグ"],
         "lrigTypeClass": ["アン"],
         "level": 3,
@@ -122,7 +122,7 @@
     {
         "name": "黒想の花嫁アルフォウ",
         "subName": ["こくそうのはなよめあるふぉう"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-030.jpg",
+        "image": "WX24-P3/WX24-P3-030.webp",
         "cardType": ["ルリグ"],
         "lrigTypeClass": ["アルフォウ"],
         "level": 3,
@@ -134,7 +134,7 @@
     {
         "name": "フォーチュン・エンヴィジョン",
         "subName": ["ふぉーちゅんえんヴぃじょん","ふぉーちゅんえんびじょん","ふぉんえん"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-031.jpg",
+        "image": "WX24-P3/WX24-P3-031.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -146,7 +146,7 @@
     {
         "name": "取捨炎択",
         "subName": ["しゅしゃえんたく"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-033.jpg",
+        "image": "WX24-P3/WX24-P3-033.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -158,7 +158,7 @@
     {
         "name": "トレジャー・フィッシュ",
         "subName": ["とれじゃーふぃっしゅ","とれふぃ"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-035.jpg",
+        "image": "WX24-P3/WX24-P3-035.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -170,7 +170,7 @@
     {
         "name": "一筆啓上",
         "subName": ["ぶらっしゅすらっしゅ","いっぴつけいじょう","ぶらすら"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-037.jpg",
+        "image": "WX24-P3/WX24-P3-037.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -182,7 +182,7 @@
     {
         "name": "ブーケ・メイキング",
         "subName": ["ぶーけめいきんぐ"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-039.jpg",
+        "image": "WX24-P3/WX24-P3-039.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -194,7 +194,7 @@
     {
         "name": "リステージ・エンハンス",
         "subName": ["りすてーじえんはんす"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-041.jpg",
+        "image": "WX24-P3/WX24-P3-041.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -206,7 +206,7 @@
     {
         "name": "マルチ・チャージング",
         "subName": ["まるちちゃーじんぐ","まるちゃー"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-042.jpg",
+        "image": "WX24-P3/WX24-P3-042.webp",
         "cardType": ["アーツ"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -218,7 +218,7 @@
     {
         "name": "アシスト・ディフェンス",
         "subName": ["あしすとでぃふぇんす","あしでぃ"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-043.jpg",
+        "image": "WX24-P3/WX24-P3-043.webp",
         "cardType": ["ピース"],
         "lrigTypeClass": [""],
         "level": 0,
@@ -230,7 +230,7 @@
     {
         "name": "エルドラ！クロス・ライフ・クロス！",
         "subName": ["えるどらくろすらいふくろす","えるどら!くろすらいふくろす","えるくろ"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-044.jpg",
+        "image": "WX24-P3/WX24-P3-044.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["エルドラ"],
         "level": 2,
@@ -242,7 +242,7 @@
     {
         "name": "アン-扇ギ",
         "subName": ["あんあおぎ","あん-あおぎ"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-045.jpg",
+        "image": "WX24-P3/WX24-P3-045.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["アン"],
         "level": 2,
@@ -254,7 +254,7 @@
     {
         "name": "イオナ・クライシス",
         "subName": ["いおなくらいしす","いおくら"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-046.jpg",
+        "image": "WX24-P3/WX24-P3-046.webp",
         "cardType": ["アシスト"],
         "lrigTypeClass": ["イオナ"],
         "level": 2,
@@ -266,7 +266,7 @@
     {
         "name": "羅星姫ホロスコープ",
         "subName": ["らせいきほろすこーぷ"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-047.jpg",
+        "image": "WX24-P3/WX24-P3-047.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏羅：宇宙"],
         "level": 3,
@@ -278,7 +278,7 @@
     {
         "name": "聖天姫ラジエル",
         "subName": ["せいてんきらじえる"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-048.jpg",
+        "image": "WX24-P3/WX24-P3-048.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏像：天使"],
         "level": 3,
@@ -290,7 +290,7 @@
     {
         "name": "大罠バーニングチョリソー",
         "subName": ["だいびんばーにんぐちょりそー","おおなわばーにんぐちょりそー","ばにちょり"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-050.jpg",
+        "image": "WX24-P3/WX24-P3-050.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏武：トリック"],
         "level": 3,
@@ -302,7 +302,7 @@
     {
         "name": "幻闘水姫ナマコズ",
         "subName": ["げんとうすいひめなまこず","げんとうすいきなまこず"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-052.jpg",
+        "image": "WX24-P3/WX24-P3-052.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏生：水獣"],
         "level": 3,
@@ -314,7 +314,7 @@
     {
         "name": "翠美姫スイボク",
         "subName": ["すいびきすいぼく"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-055.jpg",
+        "image": "WX24-P3/WX24-P3-055.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏像：美巧"],
         "level": 3,
@@ -326,7 +326,7 @@
     {
         "name": "凶魔姫サユラギ",
         "subName": ["きょうまきさゆらぎ"],
-        "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WX24/WX24-P3-057.jpg",
+        "image": "WX24-P3/WX24-P3-057.webp",
         "cardType": ["シグニ"],
         "lrigTypeClass": ["奏像：悪魔"],
         "level": 3,

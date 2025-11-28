@@ -1,11 +1,21 @@
-[{
+{
   "name": "デフォルトサーバント",
-  "subName": [""],
-  "image": "servant/servant_WXDi-P12-096.png",
-  "cardType": ["サーバント"],
-  "lrigTypeClass": [""],
+  "subName": [
+    ""
+  ],
+  "image": "WXDi-P02/WXDi-P02_096.webp",
+  "cardType": [
+    "サーバント"
+  ],
+  "lrigTypeClass": [
+    ""
+  ],
   "level": 0,
-  "color": [""],
+  "color": [
+    ""
+  ],
   "lifeBurst": "true",
-  "tags": ["サーバント"]
-}]
+  "tags": [
+    "サーバント"
+  ]
+}

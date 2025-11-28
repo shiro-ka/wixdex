@@ -2,7 +2,7 @@
   {
     "name": "玩具行進曲",
     "subName": ["がんぐこうしんきょく", "おもちゃこうしんきょく"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-001.jpg",
+    "image": "WXDi-P10/WXDi-P10-001.webp",
     "cardType": ["ピース"],
     "lrigTypeClass": [""],
     "level": "",
@@ -14,7 +14,7 @@
   {
     "name": "アフタヌーンティーショー",
     "subName": ["あふたぬーんてぃーしょー"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-002.jpg",
+    "image": "WXDi-P10/WXDi-P10-002.webp",
     "cardType": ["ピース"],
     "lrigTypeClass": [""],
     "level": "",
@@ -26,7 +26,7 @@
   {
     "name": "ライク・ア・フレンズ",
     "subName": ["らいくあふれんず"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-003.jpg",
+    "image": "WXDi-P10/WXDi-P10-003.webp",
     "cardType": ["ピース"],
     "lrigTypeClass": [""],
     "level": "",
@@ -38,7 +38,7 @@
   {
     "name": "み～んなではじめるアイドルライフ！",
     "subName": ["みーんなではじめるあいどるらいふ", "ぷりぱらぴーす"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-004.jpg",
+    "image": "WXDi-P10/WXDi-P10-004.webp",
     "cardType": ["ピース"],
     "lrigTypeClass": [""],
     "level": "",
@@ -50,7 +50,7 @@
   {
     "name": "共宴の巫女　リメンバ・ディナー",
     "subName": ["きょうえんのみこりめんばでぃなー"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-005.jpg",
+    "image": "WXDi-P10/WXDi-P10-005.webp",
     "cardType": ["ルリグ"],
     "lrigTypeClass": ["リメンバ"],
     "level": 3,
@@ -62,7 +62,7 @@
   {
     "name": "火露炎　花代・参",
     "subName": ["ひろうえんはなよさん", "かろえんはなよさん"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-006.jpg",
+    "image": "WXDi-P10/WXDi-P10-006.webp",
     "cardType": ["ルリグ"],
     "lrigTypeClass": ["花代"],
     "level": 3,
@@ -74,7 +74,7 @@
   {
     "name": "ミルルン・セツナ",
     "subName": ["みるるんせつな"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-007.jpg",
+    "image": "WXDi-P10/WXDi-P10-007.webp",
     "cardType": ["ルリグ"],
     "lrigTypeClass": ["ミルルン"],
     "level": 3,
@@ -86,7 +86,7 @@
   {
     "name": "参上　緑姫",
     "subName": ["さんじょうみどりこ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-008.jpg",
+    "image": "WXDi-P10/WXDi-P10-008.webp",
     "cardType": ["ルリグ"],
     "lrigTypeClass": ["緑子"],
     "level": 3,
@@ -98,7 +98,7 @@
   {
     "name": "掌握の冥者　ハナレ",
     "subName": ["しょうあくのめいじゃはなれ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-009.jpg",
+    "image": "WXDi-P10/WXDi-P10-009.webp",
     "cardType": ["ルリグ"],
     "lrigTypeClass": ["ハナレ"],
     "level": 3,
@@ -110,7 +110,7 @@
   {
     "name": "遊月・ガーネット",
     "subName": ["ゆづきがーねっと"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-023.jpg",
+    "image": "WXDi-P10/WXDi-P10-023.webp",
     "cardType": ["アシスト"],
     "lrigTypeClass": ["ユヅキ"],
     "level": 1,
@@ -122,7 +122,7 @@
   {
     "name": "遊月・ルビー",
     "subName": ["ゆづきるびー"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-024.jpg",
+    "image": "WXDi-P10/WXDi-P10-024.webp",
     "cardType": ["アシスト"],
     "lrigTypeClass": ["ユヅキ"],
     "level": 1,
@@ -134,7 +134,7 @@
   {
     "name": "遊月・レッドベリル",
     "subName": ["ゆづきれっどべりる"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-025.jpg",
+    "image": "WXDi-P10/WXDi-P10-025.webp",
     "cardType": ["アシスト"],
     "lrigTypeClass": ["ユヅキ"],
     "level": 2,
@@ -146,7 +146,7 @@
   {
     "name": "遊月・アンデシン",
     "subName": ["ゆづきあんでしん"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-026.jpg",
+    "image": "WXDi-P10/WXDi-P10-026.webp",
     "cardType": ["アシスト"],
     "lrigTypeClass": ["ユヅキ"],
     "level": 2,
@@ -158,7 +158,7 @@
   {
     "name": "遊月・ルベライト",
     "subName": ["ゆづきるべらいと"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-027.jpg",
+    "image": "WXDi-P10/WXDi-P10-027.webp",
     "cardType": ["アシスト"],
     "lrigTypeClass": ["ユヅキ"],
     "level": 2,
@@ -170,7 +170,7 @@
   {
     "name": "ウリス・スケアー",
     "subName": ["うりすすけあー"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-028.jpg",
+    "image": "WXDi-P10/WXDi-P10-028.webp",
     "cardType": ["アシスト"],
     "lrigTypeClass": ["ウリス"],
     "level": 1,
@@ -182,7 +182,7 @@
   {
     "name": "ウリス・マッド",
     "subName": ["うりすまっど"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-029.jpg",
+    "image": "WXDi-P10/WXDi-P10-029.webp",
     "cardType": ["アシスト"],
     "lrigTypeClass": ["ウリス"],
     "level": 1,
@@ -194,7 +194,7 @@
   {
     "name": "ウリス・オーラ",
     "subName": ["うりすおーら"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-030.jpg",
+    "image": "WXDi-P10/WXDi-P10-030.webp",
     "cardType": ["アシスト"],
     "lrigTypeClass": ["ウリス"],
     "level": 2,
@@ -206,7 +206,7 @@
   {
     "name": "ウリス・ブラッディ",
     "subName": ["うりすぶらっでぃ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-031.jpg",
+    "image": "WXDi-P10/WXDi-P10-031.webp",
     "cardType": ["アシスト"],
     "lrigTypeClass": ["ウリス"],
     "level": 2,
@@ -218,7 +218,7 @@
   {
     "name": "ウリス・アフリクト",
     "subName": ["うりすあふりくと"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-032.jpg",
+    "image": "WXDi-P10/WXDi-P10-032.webp",
     "cardType": ["アシスト"],
     "lrigTypeClass": ["ウリス"],
     "level": 2,
@@ -230,7 +230,7 @@
   {
     "name": "プリパラアイドル　真中らぁら",
     "subName": ["ぷりぱらあいどるまなからぁら", "かしこまっ！"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-033.jpg",
+    "image": "WXDi-P10/WXDi-P10-033.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 3,
@@ -242,7 +242,7 @@
   {
     "name": "羅植姫　ユキ//メモリア",
     "subName": ["ゆきめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-034.jpg",
+    "image": "WXDi-P10/WXDi-P10-034.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏羅：植物"],
     "level": 3,
@@ -254,7 +254,7 @@
   {
     "name": "幻水姫　セイレーン",
     "subName": ["げんすいひめせいれーん", "げんすいきせいれーん"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-035.jpg",
+    "image": "WXDi-P10/WXDi-P10-035.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏生：水獣"],
     "level": 3,
@@ -266,7 +266,7 @@
   {
     "name": "羅星姫　アンドロメダ",
     "subName": ["らせいきあんどろめだ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-036.jpg",
+    "image": "WXDi-P10/WXDi-P10-036.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏羅：宇宙"],
     "level": 3,
@@ -278,7 +278,7 @@
   {
     "name": "幻竜歌姫　オロチ",
     "subName": ["げんりゅううたひめおろち"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-037.jpg",
+    "image": "WXDi-P10/WXDi-P10-037.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏生：龍獣"],
     "level": 3,
@@ -290,7 +290,7 @@
   {
     "name": "プリパラアイドル　紫京院ひびき",
     "subName": ["ぷりぱらあいどるしきょういんひびき"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-038.jpg",
+    "image": "WXDi-P10/WXDi-P10-038.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 3,
@@ -302,7 +302,7 @@
   {
     "name": "蒼魔姫　リッチレーサー",
     "subName": ["そうまきりっちれーさー"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-039.jpg",
+    "image": "WXDi-P10/WXDi-P10-039.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：悪魔"],
     "level": 3,
@@ -314,7 +314,7 @@
   {
     "name": "コードオーダー　エルドラ//メモリア",
     "subName": ["こーどおーだーえるどらめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-040.jpg",
+    "image": "WXDi-P10/WXDi-P10-040.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏械：調理"],
     "level": 3,
@@ -326,7 +326,7 @@
   {
     "name": "羅植姫　タナバタ",
     "subName": ["らしょくきくなばた"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-041.jpg",
+    "image": "WXDi-P10/WXDi-P10-041.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏羅：植物"],
     "level": 3,
@@ -338,7 +338,7 @@
   {
     "name": "コードハート　ピルルクＷ//メモリア",
     "subName": ["こーどはーとぴるるくわっとめもりあ", "こーどはーとぴるるくだぶりゅーめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-042.jpg",
+    "image": "WXDi-P10/WXDi-P10-042.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏械：電機"],
     "level": 3,
@@ -350,7 +350,7 @@
   {
     "name": "羅星姫　ミュウ//メモリア",
     "subName": ["らせいきみゅうめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-043.jpg",
+    "image": "WXDi-P10/WXDi-P10-043.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏羅：宇宙"],
     "level": 3,
@@ -362,7 +362,7 @@
   {
     "name": "コードラビリンス　ムジカ//メモリア",
     "subName": ["こーどらびりんすむじかめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-044.jpg",
+    "image": "WXDi-P10/WXDi-P10-044.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏械：迷宮"],
     "level": 3,
@@ -374,7 +374,7 @@
   {
     "name": "プリパラアイドル　北条そふぃ",
     "subName": ["ぷりぱらあいどるほうじょうそふぃ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-045.jpg",
+    "image": "WXDi-P10/WXDi-P10-045.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 1,
@@ -386,7 +386,7 @@
   {
     "name": "聖天　アルテミス",
     "subName": ["せいてんあるてみす"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-046.jpg",
+    "image": "WXDi-P10/WXDi-P10-046.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：天使"],
     "level": 1,
@@ -398,7 +398,7 @@
   {
     "name": "偉智の遊　タマ//メモリア",
     "subName": ["いちのゆうたまめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-047.jpg",
+    "image": "WXDi-P10/WXDi-P10-047.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏武：遊具"],
     "level": 1,
@@ -410,7 +410,7 @@
   {
     "name": "プリパラアイドル　南みれぃ",
     "subName": ["ぷりぱらあいどるみなみみれぃ", "ぷりぱらあいどるみなみみれい"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-048.jpg",
+    "image": "WXDi-P10/WXDi-P10-048.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 2,
@@ -422,7 +422,7 @@
   {
     "name": "幻怪　コックリサン",
     "subName": ["げんかいこっくりさん"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-049.jpg",
+    "image": "WXDi-P10/WXDi-P10-049.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏生：怪異"],
     "level": 2,
@@ -434,7 +434,7 @@
   {
     "name": "コール・アウト",
     "subName": ["こーるあうと"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-050.jpg",
+    "image": "WXDi-P10/WXDi-P10-050.webp",
     "cardType": ["スペル"],
     "lrigTypeClass": [""],
     "level": "",
@@ -446,7 +446,7 @@
   {
     "name": "プリパラアイドル　ガァルル",
     "subName": ["ぷりぱらあいどるがぁるる", "ぷりぱらあいどるがあるる"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-051.jpg",
+    "image": "WXDi-P10/WXDi-P10-051.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 1,
@@ -458,7 +458,7 @@
   {
     "name": "小装　リル//メモリア",
     "subName": ["しょうそうりるめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-052.jpg",
+    "image": "WXDi-P10/WXDi-P10-052.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏武：アーム"],
     "level": 1,
@@ -470,7 +470,7 @@
   {
     "name": "コードアート　Ｈットカーペット",
     "subName": ["こーどあーとえいちっとかーぺっと", "こーどあーとほっとかーぺっと"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-053.jpg",
+    "image": "WXDi-P10/WXDi-P10-053.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏械：電機"],
     "level": 1,
@@ -482,7 +482,7 @@
   {
     "name": "プリパラアイドル　白玉みかん",
     "subName": ["ぷりぱらあいどるしらたまみかん"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-054.jpg",
+    "image": "WXDi-P10/WXDi-P10-054.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 2,
@@ -494,7 +494,7 @@
   {
     "name": "紅天　プロメウス",
     "subName": ["こうてんぷろめてうす"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-055.jpg",
+    "image": "WXDi-P10/WXDi-P10-055.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：天使"],
     "level": 2,
@@ -506,7 +506,7 @@
   {
     "name": "プリパラアイドル　黒須あろま",
     "subName": ["ぷりぱらあいどるくろすあろま"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-056.jpg",
+    "image": "WXDi-P10/WXDi-P10-056.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 3,
@@ -518,7 +518,7 @@
   {
     "name": "炎神の大鎌",
     "subName": ["えんじんのおおがま"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-057.jpg",
+    "image": "WXDi-P10/WXDi-P10-057.webp",
     "cardType": ["スペル"],
     "lrigTypeClass": [""],
     "level": "",
@@ -530,7 +530,7 @@
   {
     "name": "プリパラアイドル　緑風ふわり",
     "subName": ["ぷりぱらあいどるみどりかぜふわり"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-058.jpg",
+    "image": "WXDi-P10/WXDi-P10-058.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 1,
@@ -542,7 +542,7 @@
   {
     "name": "蒼将　サイトウ",
     "subName": ["そうしょうさいとう"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-059.jpg",
+    "image": "WXDi-P10/WXDi-P10-059.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：武勇"],
     "level": 1,
@@ -554,7 +554,7 @@
   {
     "name": "コードアンチ　マドカ//メモリア",
     "subName": ["こーどあんちまどかめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-060.jpg",
+    "image": "WXDi-P10/WXDi-P10-060.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏械：古代兵器"],
     "level": 1,
@@ -566,7 +566,7 @@
   {
     "name": "プリパラアイドル　ファルル",
     "subName": ["ぷりぱらあいどるふぁるる"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-061.jpg",
+    "image": "WXDi-P10/WXDi-P10-061.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 2,
@@ -578,7 +578,7 @@
   {
     "name": "蒼魔　アロス・ピルルク//メモリア",
     "subName": ["そうまあろすぴるるくめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-062.jpg",
+    "image": "WXDi-P10/WXDi-P10-062.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：悪魔"],
     "level": 2,
@@ -590,7 +590,7 @@
   {
     "name": "INVESTIGATE",
     "subName": ["いんべすてぃげいと", "いんべすてぃげーと"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-063.jpg",
+    "image": "WXDi-P10/WXDi-P10-063.webp",
     "cardType": ["スペル"],
     "lrigTypeClass": [""],
     "level": "",
@@ -602,7 +602,7 @@
   {
     "name": "プリパラアイドル　太陽ペッパー",
     "subName": ["ぷりぱらあいどるたいようぺっぱー"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-064.jpg",
+    "image": "WXDi-P10/WXDi-P10-064.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 1,
@@ -614,7 +614,7 @@
   {
     "name": "翠魔　マンドラゴラ",
     "subName": ["すいままんどらごら"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-065.jpg",
+    "image": "WXDi-P10/WXDi-P10-065.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：悪魔"],
     "level": 1,
@@ -626,7 +626,7 @@
   {
     "name": "羅菌　メル//メモリア",
     "subName": ["らきんめるめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-066.jpg",
+    "image": "WXDi-P10/WXDi-P10-066.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏羅：微菌"],
     "level": 1,
@@ -638,7 +638,7 @@
   {
     "name": "プリパラアイドル　月川ちり",
     "subName": ["ぷりぱらあいどるつきかわちり"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-067.jpg",
+    "image": "WXDi-P10/WXDi-P10-067.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 2,
@@ -650,7 +650,7 @@
   {
     "name": "ツヴァイ＝サンガ//メモリア",
     "subName": ["つヴぁいさんがめもりあ", "つばいさんがめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-068.jpg",
+    "image": "WXDi-P10/WXDi-P10-068.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏武：毒牙"],
     "level": 2,
@@ -662,7 +662,7 @@
   {
     "name": "プリパラアイドル　真中のん",
     "subName": ["ぷりぱらあいどるまなかのん"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-069.jpg",
+    "image": "WXDi-P10/WXDi-P10-069.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 3,
@@ -674,7 +674,7 @@
   {
     "name": "枝折",
     "subName": ["しおり", "しせつ", "えだおり"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-070.jpg",
+    "image": "WXDi-P10/WXDi-P10-070.webp",
     "cardType": ["スペル"],
     "lrigTypeClass": [""],
     "level": "",
@@ -686,7 +686,7 @@
   {
     "name": "プリパラアイドル　レオナ・ウェスト",
     "subName": ["ぷりぱらあいどるれおなうぇすと", "プリパラで一番可愛いと噂のあの娘"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-071.jpg",
+    "image": "WXDi-P10/WXDi-P10-071.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 1,
@@ -698,7 +698,7 @@
   {
     "name": "凶美　アルフォウ//メモリア",
     "subName": ["きょうびあるふぉうめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-072.jpg",
+    "image": "WXDi-P10/WXDi-P10-072.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：美巧"],
     "level": 1,
@@ -710,7 +710,7 @@
   {
     "name": "小罠　グズ子//メモリア",
     "subName": ["しょうびんぐずこめもりあ", "こわなぐずこめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-073.jpg",
+    "image": "WXDi-P10/WXDi-P10-073.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏武：トリック"],
     "level": 1,
@@ -722,7 +722,7 @@
   {
     "name": "プリパラアイドル　ドロシー・ウェスト",
     "subName": ["ぷりぱらあいどるどろしーうぇすと"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-074.jpg",
+    "image": "WXDi-P10/WXDi-P10-074.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 2,
@@ -734,7 +734,7 @@
   {
     "name": "幻竜　ウリス//メモリア",
     "subName": ["げんりゅううりすめもりあ"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-075.jpg",
+    "image": "WXDi-P10/WXDi-P10-075.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏生：龍獣"],
     "level": 2,
@@ -746,7 +746,7 @@
   {
     "name": "プリパラアイドル　東堂シオン",
     "subName": ["ぷりぱらあいどるとうどうしおん"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-076.jpg",
+    "image": "WXDi-P10/WXDi-P10-076.webp",
     "cardType": ["シグニ"],
     "lrigTypeClass": ["奏像：プリパラ"],
     "level": 3,
@@ -758,7 +758,7 @@
   {
     "name": "ウェルカム・バック",
     "subName": ["うぇるかむばっく"],
-    "image": "https://www.takaratomy.co.jp/products/wixoss/img/card/WXDi/WXDi-P10-077.jpg",
+    "image": "WXDi-P10/WXDi-P10-077.webp",
     "cardType": ["スペル"],
     "lrigTypeClass": [""],
     "level": "",
