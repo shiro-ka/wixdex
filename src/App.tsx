@@ -209,6 +209,7 @@ function App() {
           lrigDeck={deck.lrigDeck}
           onCardHover={onCardHover}
           onAdd={deck.addCard}
+          onAddMultiple={deck.addMultipleCards}
           onRemove={deck.removeCard}
           candidateCards={sortedCandidateCards}
           onRemoveFromCandidate={deck.removeFromCandidate}

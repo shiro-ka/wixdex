@@ -48,11 +48,17 @@ export function useDeckManager() {
     const remainingInMain = result.mainDeck.filter(c => c.id === card.id).length;
     const remainingInLrig = result.lrigDeck.filter(c => c.id === card.id).length;
 
-    // デッキ内に同じカードが0枚になった場合、候補リストに追加
-    if (remainingInMain === 0 && remainingInLrig === 0 && !candidateCards.some(c => c.id === card.id)) {
-      addToCandidate(card);
+    // デッキ内に同じカードが0枚になった場合、候補リストに追加（最新の候補リストを参照）
+    if (remainingInMain === 0 && remainingInLrig === 0) {
+      setCandidateCards(prev => {
+        // すでに候補リストに存在する場合は追加しない
+        if (prev.some(c => c.id === card.id)) {
+          return prev;
+        }
+        return [...prev, card];
+      });
     }
-  }, [mainDeck, lrigDeck, candidateCards, addToCandidate]);
+  }, [mainDeck, lrigDeck]);
 
   // デッキを読み込み
   const loadDeck = useCallback((newMainDeck: Card[], newLrigDeck: Card[], newCandidateCards: Card[]) => {

@@ -117,7 +117,7 @@ function SearchArea({
         )}
       </div>
       {/* 拡張メニュー */}
-      <div className='hidden lg:flex flex-1 flex-col mb-2 bg-gray-600/10 border border-gray-600/50 rounded-xl p-4 overflow-hidden'>
+      <div className='hidden lg:flex flex-1 flex-col mb-2 bg-gray-600/10 border border-gray-600/50 rounded-xl p-4 min-h-0'>
         {/* ヘッダー */}
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-base text-white">
@@ -135,7 +135,7 @@ function SearchArea({
                 selectedTags.forEach(tag => onTagFilter(tag));
               }
             }}
-            className="text-gray-400 hover:text-white !bg-transparent hover:bg-gray-700/50 rounded-lg p-1 transition-all"
+            className="!text-gray-400 hover:!text-gray-300 !bg-transparent hover:bg-gray-700/50 rounded-lg p-1 transition-all"
             aria-label="チェック全解除"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -153,26 +153,24 @@ function SearchArea({
           </button>
         </div>
         {/* コンテンツ */}
-        <div className="flex-1 overflow-y-auto">
-          {expandedMenu === 'type' && (
-            <TypeFilterContent
-              selectedTypes={selectedCardTypes}
-              onToggle={onCardTypeFilter}
-            />
-          )}
-          {expandedMenu === 'lrigClass' && (
-            <LrigClassFilterContent
-              selectedLrigClasses={selectedLrigClasses}
-              onToggle={onLrigClassFilter}
-            />
-          )}
-          {expandedMenu === 'tag' && (
-            <TagFilterContent
-              selectedTags={selectedTags}
-              onToggle={onTagFilter}
-            />
-          )}
-        </div>
+        {expandedMenu === 'type' && (
+          <TypeFilterContent
+            selectedTypes={selectedCardTypes}
+            onToggle={onCardTypeFilter}
+          />
+        )}
+        {expandedMenu === 'lrigClass' && (
+          <LrigClassFilterContent
+            selectedLrigClasses={selectedLrigClasses}
+            onToggle={onLrigClassFilter}
+          />
+        )}
+        {expandedMenu === 'tag' && (
+          <TagFilterContent
+            selectedTags={selectedTags}
+            onToggle={onTagFilter}
+          />
+        )}
       </div>
       {/* 検索欄 */}
       <div className="flex flex-col">
@@ -204,7 +202,7 @@ function SearchArea({
                 fill="currentColor"
                 className="w-5 h-5 text-gray-300 transition-all"
               >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M9 3a1 1 0 0 1 .608 .206l.1 .087l2.706 2.707h6.586a3 3 0 0 1 2.995 2.824l.005 .176v8a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-11a3 3 0 0 1 2.824 -2.995l.176 -.005h4z" />
               </svg>
             ) : (
@@ -535,7 +533,7 @@ function SearchArea({
             >
               {isSearchSettingsOpen ? (
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-gray-300">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M14 3.072a8 8 0 0 1 2.32 11.834l5.387 5.387a1 1 0 0 1 -1.414 1.414l-5.388 -5.387a8 8 0 0 1 -12.905 -6.32l.005 -.285a8 8 0 0 1 11.995 -6.643m-5.293 4.22a1 1 0 0 0 -1.414 1.415l1.292 1.293l-1.292 1.293a1 1 0 0 0 1.414 1.414l1.293 -1.292l1.293 1.292a1 1 0 0 0 1.414 -1.414l-1.292 -1.293l1.292 -1.293a1 1 0 1 0 -1.414 -1.414l-1.293 1.292z" />
                 </svg>
               ) : (

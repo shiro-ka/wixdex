@@ -8,6 +8,7 @@ interface DeckAreaProps {
   lrigDeck: Card[];
   onCardHover: (card: Card | null) => void;
   onAdd: (card: Card) => void;
+  onAddMultiple: (card: Card, count: number) => void;
   onRemove: (card: Card, index?: number, deckType?: 'main' | 'lrig') => void;
   candidateCards: Card[];
   onRemoveFromCandidate: (card: Card) => void;
@@ -24,15 +25,17 @@ interface TouchState {
   element: HTMLElement;
 }
 
-function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateCards, onRemoveFromCandidate, onCardClick, lifeBurstCount, basePath, showLifeBurst }: DeckAreaProps) {
+function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onAddMultiple, onRemove, candidateCards, onRemoveFromCandidate, onCardClick, lifeBurstCount, basePath, showLifeBurst }: DeckAreaProps) {
   const touchStateRef = useRef(new Map<string, TouchState>());
 
-  const handleWheel = (e: React.WheelEvent, card: Card) => {
+  const handleWheel = (e: React.WheelEvent, card: Card, index: number, deckType: 'main' | 'lrig') => {
     e.preventDefault();
-    if (e.deltaY < 0) {
+    // 閾値を設定（絶対値で30以上のスクロールが必要）
+    const threshold = 30;
+    if (e.deltaY < -threshold) {
       onAdd(card);
-    } else {
-      onRemove(card);
+    } else if (e.deltaY > threshold) {
+      onRemove(card, index, deckType);
     }
   };
 
@@ -117,7 +120,7 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
                 alt={card.name}
                 showLifeBurst={showLifeBurst}
                 onMouseEnter={() => onCardHover(card)}
-                onWheel={(e) => handleWheel(e, card)}
+                onWheel={(e) => handleWheel(e, card, index, 'lrig')}
                 onTouchStart={(e) => handleTouchStart(e, `lrig-${card.id}-${index}`)}
                 onTouchMove={(e) => handleTouchMove(e, `lrig-${card.id}-${index}`)}
                 onTouchEnd={(e) => handleTouchEnd(e, `lrig-${card.id}-${index}`, card, index, 'lrig')}
@@ -151,7 +154,7 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
                 alt={card.name}
                 showLifeBurst={showLifeBurst}
                 onMouseEnter={() => onCardHover(card)}
-                onWheel={(e) => handleWheel(e, card)}
+                onWheel={(e) => handleWheel(e, card, index, 'main')}
                 onTouchStart={(e) => handleTouchStart(e, `main-${card.id}-${index}`)}
                 onTouchMove={(e) => handleTouchMove(e, `main-${card.id}-${index}`)}
                 onTouchEnd={(e) => handleTouchEnd(e, `main-${card.id}-${index}`, card, index, 'main')}
@@ -169,17 +172,19 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
         <div className="grid grid-cols-5 auto-rows-min gap-2 w-full overflow-y-auto xl:grid-cols-6">
           {candidateCards.map((card, index) => (
             <div key={`${card.id}-${index}`} className="flex flex-col">
-              <CardImage
-                card={card}
-                src={`${basePath}/assets/cards_img/${card.image}`}
-                className="w-full object-contain cursor-pointer"
-                alt={card.name}
-                showLifeBurst={showLifeBurst}
-                onMouseEnter={() => onCardHover(card)}
-                onClick={() => onCardClick(card)}
-              />
+              <div className="flex items-center w-full aspect-[2/3]">
+                <CardImage
+                  card={card}
+                  src={`${basePath}/assets/cards_img/${card.image}`}
+                  className="w-full object-contain cursor-pointer"
+                  alt={card.name}
+                  showLifeBurst={showLifeBurst}
+                  onMouseEnter={() => onCardHover(card)}
+                  onClick={() => onCardClick(card)}
+                />
+              </div>
               {/* 操作ボタン(PC) */}
-              <div className="flex justify-center gap-2 w-full h-10 mt-2">
+              <div className="flex justify-center gap-2 w-full h-8">
                 <button
                   className="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
                   onClick={() => onAdd(card)}
@@ -193,12 +198,7 @@ function DeckArea({ mainDeck, lrigDeck, onCardHover, onAdd, onRemove, candidateC
                 </button>
                 <button
                   className="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
-                  onClick={() => {
-                    onAdd(card);
-                    onAdd(card);
-                    onAdd(card);
-                    onAdd(card);
-                  }}
+                  onClick={() => onAddMultiple(card, 4)}
                   title="デッキに4枚追加"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-400">

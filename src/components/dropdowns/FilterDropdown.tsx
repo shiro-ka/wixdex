@@ -49,11 +49,11 @@ function FilterDropdown({ isOpen, onClose, title, children, onClearAll }: Filter
           <h3 className="text-white text-sm font-semibold">{title}</h3>
           <button
             onClick={onClearAll}
-            className="text-gray-400 hover:text-white !bg-transparent hover:bg-gray-700/50 rounded-lg p-1 transition-all"
+            className="!text-gray-400 hover:!text-gray-300 !bg-transparent hover:bg-gray-700/50 rounded-lg p-1 transition-all"
             aria-label="チェック全解除"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M8.56 3.69a9 9 0 0 0 -2.92 1.95" />
               <path d="M3.69 8.56a9 9 0 0 0 -.69 3.44" />
               <path d="M3.69 15.44a9 9 0 0 0 1.95 2.92" />

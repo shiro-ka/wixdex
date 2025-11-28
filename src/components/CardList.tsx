@@ -46,10 +46,23 @@ function CardList({ cards, onAdd, onAddMultiple, onCardHover, onAddToCandidate, 
             onTouchMove={(e) => handleTouchMove(e, card)}
             onTouchEnd={(e) => handleTouchEnd(e, card)}
           >
+            <div className="hidden md:flex items-center w-full aspect-[3/4]">
+              <CardImage
+                card={card}
+                src={`${basePath}/assets/cards_img/${card.image}`}
+                className="object-contain"
+                alt={card.name}
+                showLifeBurst={showLifeBurst}
+                showCandidateIcon={showCandidateIcon}
+                isInCandidates={isCardInCandidates(card)}
+                onMouseEnter={() => onCardHover(card)}
+                onClick={() => onCardClick(card)}
+              />
+            </div>
             <CardImage
               card={card}
               src={`${basePath}/assets/cards_img/${card.image}`}
-              className="object-contain"
+              className="object-contain md:hidden"
               alt={card.name}
               showLifeBurst={showLifeBurst}
               showCandidateIcon={showCandidateIcon}
@@ -57,7 +70,7 @@ function CardList({ cards, onAdd, onAddMultiple, onCardHover, onAddToCandidate, 
               onMouseEnter={() => onCardHover(card)}
               onClick={() => onCardClick(card)}
             />
-            <div className="hidden md:flex justify-center gap-2 w-full h-10">
+            <div className="hidden md:flex justify-center gap-2 w-full h-8">
               <button
                 className="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
                 onClick={() => onAdd(card)}
@@ -92,7 +105,7 @@ function CardList({ cards, onAdd, onAddMultiple, onCardHover, onAddToCandidate, 
               >
                 {candidateFilter ? (
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-400">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M13.5 19h-8.5a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v4" />
                     <path d="M22 22l-5 -5" />
                     <path d="M17 22l5 -5" />
