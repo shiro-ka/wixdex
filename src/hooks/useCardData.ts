@@ -3,6 +3,7 @@ import type { Card } from '../types/card';
 
 const CARD_SETS = [
   'servant',
+  'WX25-P1',
   'WX24-P2',
   'WX24-P3',
   'WX24-P4',
