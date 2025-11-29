@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import type { Card } from '../types/card';
 
 const CARD_SETS = [
+  'servant',
+  'WX24-P2',
+  'WX24-P3',
   'WX24-P4',
   'WXDi-P16',
   'WXDi-P15',
   'WXDi-P13',
   'WXDi-P12',
-  'servant',
-  // 将来的に追加するカードセットをここに列挙
 ];
 
 export function useCardData() {

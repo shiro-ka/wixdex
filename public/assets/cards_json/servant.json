@@ -1,9 +1,10 @@
 {
-  "name": "デフォルトサーバント",
+  "name": "サーバント＃",
   "subName": [
-    ""
+    "サーバント#",
+    "さーばんとしゃーぷ"
   ],
-  "image": "WXDi-P02/WXDi-P02_096.webp",
+  "image": "WXDi-P02/WXDi-P02-096.webp",
   "cardType": [
     "サーバント"
   ],
