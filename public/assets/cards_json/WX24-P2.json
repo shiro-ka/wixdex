@@ -6,20 +6,41 @@
 			"いんふぉ"
 		],
 		"image": "WX24-P2/WX24-P2-001.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-001",
+		"rarity": "LR",
 		"cardType": [
 			"アーツ"
 		],
 		"lrigTypeClass": [
 			""
 		],
-		"level": 0,
 		"color": [
 			"白"
 		],
+		"level": null,
+		"cost": {
+			"白": 1
+		},
+		"power": null,
+		"timing": [
+			"メインフェイズ"
+		],
 		"lifeBurst": "null",
+		"text": {
+			"効果": "あなたのデッキの上からカードを３枚見る。その中からシグニを１枚まで場に出し、残りを好きな順番でデッキの一番下に置く。その後、あなたのシグニ１体を対象とし、ターン終了時まで、それは「【自】：このシグニがアタックしたとき、このシグニをアップし、ターン終了時まで、このシグニは能力を失う。」を得る。",
+			"リコレクト4": "追加で対戦相手のシグニ１体を対象とし、それを手札に戻す。"
+		},
+		"flavorText": "「自由になりたいだなんて、私は思ってない。」",
+		"illust": "コウサク",
+		"faq": {
+			"リコレクトとは何ですか？": "リコレクトはテキスト内に置かれるアイコンで、《リコレクトアイコン》［４枚以上］のように表記されます。あなたのルリグトラッシュにあるアーツの枚数が指定された条件を満たしていると、後に続く文章が有効になります。このアーツ自身は使用中まだチェックゾーンに置かれていますのでルリグトラッシュの枚数に数えることはできません。例えばルリグトラッシュにアーツが３枚ある状況でこのアーツを使用しても、条件を満たしていません。",
+			"リコレクトの条件を満たして使用した場合、追加の効果で対象を選ぶのはいつですか？": "『その後、』以降に書かれた『対象』については『その後』まで処理を行った後に対象を選びますので、デッキの上からカードを3枚見てシグニを1枚まで場に出す効果を処理した後となります。"
+		},
 		"tags": [
 			"リコレクト"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "ホワイト・ウィッシュ",
@@ -28,6 +49,8 @@
 			"ほわっしゅ"
 		],
 		"image": "WX24-P2/WX24-P2-002.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-002",
 		"cardType": [
 			"アーツ"
 		],
@@ -39,9 +62,14 @@
 			"白"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"使用条件": "このアーツを使用する際、あなたのルリグデッキから白のアーツ１枚をルリグトラッシュに置いてもよい。そうした場合、このアーツの使用コストは《白×3》減る。",
+			"効果": "対戦相手のシグニ１体と、そのシグニと同じレベルの対戦相手のルリグ１体を対象とし、ターン終了時まで、それらは「【常】：アタックできない。」を得る。 "
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "集中紅火",
@@ -49,6 +77,8 @@
 			"しゅうちゅうこうか"
 		],
 		"image": "WX24-P2/WX24-P2-003.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-003",
 		"cardType": [
 			"アーツ"
 		],
@@ -60,9 +90,13 @@
 			"赤"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"リコレクト"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "熱願炎諦",
@@ -70,6 +104,8 @@
 			"ねつがんえんてい"
 		],
 		"image": "WX24-P2/WX24-P2-004.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-004",
 		"cardType": [
 			"アーツ"
 		],
@@ -81,9 +117,13 @@
 			"赤"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "ロック・オン",
@@ -91,6 +131,8 @@
 			"ろっくおん"
 		],
 		"image": "WX24-P2/WX24-P2-005.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-005",
 		"cardType": [
 			"アーツ"
 		],
@@ -102,9 +144,13 @@
 			"青"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"リコレクト"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "アズール・ウィッシュ",
@@ -113,6 +159,8 @@
 			"あずっしゅ"
 		],
 		"image": "WX24-P2/WX24-P2-006.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-006",
 		"cardType": [
 			"アーツ"
 		],
@@ -124,9 +172,13 @@
 			"青"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "虚心坦懐",
@@ -135,6 +187,8 @@
 			"きょしんたんかい"
 		],
 		"image": "WX24-P2/WX24-P2-007.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-007",
 		"cardType": [
 			"アーツ"
 		],
@@ -146,9 +200,13 @@
 			"緑"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"リコレクト"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "加持祈禱",
@@ -159,6 +217,8 @@
 			"えめっしゅ"
 		],
 		"image": "WX24-P2/WX24-P2-008.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-008",
 		"cardType": [
 			"アーツ"
 		],
@@ -170,9 +230,13 @@
 			"緑"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "デッドリー・ポータル",
@@ -181,6 +245,8 @@
 			"でっぽた"
 		],
 		"image": "WX24-P2/WX24-P2-009.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-009",
 		"cardType": [
 			"アーツ"
 		],
@@ -192,9 +258,13 @@
 			"黒"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"リコレクト"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "ブラック・ウィッシュ",
@@ -203,6 +273,8 @@
 			"ぶらっしゅ"
 		],
 		"image": "WX24-P2/WX24-P2-010.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-010",
 		"cardType": [
 			"アーツ"
 		],
@@ -214,9 +286,13 @@
 			"黒"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "満月の使徒小湊るう子",
@@ -225,6 +301,8 @@
 			"るうるう"
 		],
 		"image": "WX24-P2/WX24-P2-014.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-014",
 		"cardType": [
 			"ルリグ"
 		],
@@ -236,9 +314,13 @@
 			"白"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "熾炎舞遊月・参",
@@ -246,6 +328,8 @@
 			"しえんぶゆづきさん"
 		],
 		"image": "WX24-P2/WX24-P2-018.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-018",
 		"cardType": [
 			"ルリグ"
 		],
@@ -257,9 +341,13 @@
 			"赤"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "あきら☆らっきー",
@@ -268,6 +356,8 @@
 			"あきらっきー"
 		],
 		"image": "WX24-P2/WX24-P2-022.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-022",
 		"cardType": [
 			"ルリグ"
 		],
@@ -279,9 +369,13 @@
 			"青"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "参式一衣",
@@ -289,6 +383,8 @@
 			"さんしきひとえ"
 		],
 		"image": "WX24-P2/WX24-P2-026.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-026",
 		"cardType": [
 			"ルリグ"
 		],
@@ -300,9 +396,13 @@
 			"緑"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "エニグマ/メイデンイオナ",
@@ -310,6 +410,8 @@
 			"えにぐまめいでんいおな"
 		],
 		"image": "WX24-P2/WX24-P2-030.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-030",
 		"cardType": [
 			"ルリグ"
 		],
@@ -321,9 +423,13 @@
 			"黒"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "カオス・クラウン",
@@ -332,6 +438,8 @@
 			"かおくら"
 		],
 		"image": "WX24-P2/WX24-P2-031.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-031",
 		"cardType": [
 			"アーツ"
 		],
@@ -343,9 +451,13 @@
 			"白"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "アンステイブル・シールド",
@@ -354,6 +466,8 @@
 			"すてしー"
 		],
 		"image": "WX24-P2/WX24-P2-032.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-032",
 		"cardType": [
 			"アーツ"
 		],
@@ -365,9 +479,13 @@
 			"白"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "能龍隠爪",
@@ -376,6 +494,8 @@
 			"のうりゅういんつめ"
 		],
 		"image": "WX24-P2/WX24-P2-033.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-033",
 		"cardType": [
 			"アーツ"
 		],
@@ -387,9 +507,13 @@
 			"赤"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "炎打一振",
@@ -397,6 +521,8 @@
 			"えんだいっしん"
 		],
 		"image": "WX24-P2/WX24-P2-034.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-034",
 		"cardType": [
 			"アーツ"
 		],
@@ -408,9 +534,13 @@
 			"赤"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "ステーショナリー・ワン",
@@ -419,6 +549,8 @@
 			"すてわん"
 		],
 		"image": "WX24-P2/WX24-P2-035.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-035",
 		"cardType": [
 			"アーツ"
 		],
@@ -430,9 +562,13 @@
 			"青"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "プリーズ・ストップ",
@@ -441,6 +577,8 @@
 			"ぷりすと"
 		],
 		"image": "WX24-P2/WX24-P2-036.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-036",
 		"cardType": [
 			"アーツ"
 		],
@@ -452,9 +590,13 @@
 			"青"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "蔓巻発条",
@@ -464,6 +606,8 @@
 			"すぱそん"
 		],
 		"image": "WX24-P2/WX24-P2-037.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-037",
 		"cardType": [
 			"アーツ"
 		],
@@ -475,9 +619,13 @@
 			"緑"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "明窓浄机",
@@ -486,6 +634,8 @@
 			"めいそうじょうき"
 		],
 		"image": "WX24-P2/WX24-P2-038.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-038",
 		"cardType": [
 			"アーツ"
 		],
@@ -497,9 +647,13 @@
 			"緑"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "グレイブ・イブニング",
@@ -508,6 +662,8 @@
 			"ぐれぶん"
 		],
 		"image": "WX24-P2/WX24-P2-039.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-039",
 		"cardType": [
 			"アーツ"
 		],
@@ -519,9 +675,13 @@
 			"黒"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "シャドウ・ケージ",
@@ -530,6 +690,8 @@
 			"しゃどげ"
 		],
 		"image": "WX24-P2/WX24-P2-040.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-040",
 		"cardType": [
 			"アーツ"
 		],
@@ -541,9 +703,13 @@
 			"黒"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "チャージ・エンハンス",
@@ -552,6 +718,8 @@
 			"ちゃえんは"
 		],
 		"image": "WX24-P2/WX24-P2-041.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-041",
 		"cardType": [
 			"アーツ"
 		],
@@ -563,9 +731,13 @@
 			""
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"リミットアッパー"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "バカンス・チャージング",
@@ -574,6 +746,8 @@
 			"ばかちゃーじ"
 		],
 		"image": "WX24-P2/WX24-P2-042.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-042",
 		"cardType": [
 			"アーツ"
 		],
@@ -585,9 +759,13 @@
 			""
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "カレイドスコープ",
@@ -596,6 +774,8 @@
 			"かれすこ"
 		],
 		"image": "WX24-P2/WX24-P2-043.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-043",
 		"cardType": [
 			"ピース"
 		],
@@ -607,9 +787,13 @@
 			""
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "遊月・レッドジャスパー",
@@ -618,6 +802,8 @@
 			"れっじゃす"
 		],
 		"image": "WX24-P2/WX24-P2-044.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-044",
 		"cardType": [
 			"アシスト"
 		],
@@ -629,9 +815,13 @@
 			"赤"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "ピルルク/A-C",
@@ -640,6 +830,8 @@
 			"ぴるるくえーしー"
 		],
 		"image": "WX24-P2/WX24-P2-045.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-045",
 		"cardType": [
 			"アシスト"
 		],
@@ -651,9 +843,13 @@
 			"青"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "ウリス・カース",
@@ -661,6 +857,8 @@
 			"うりすかーす"
 		],
 		"image": "WX24-P2/WX24-P2-046.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-046",
 		"cardType": [
 			"アシスト"
 		],
@@ -672,9 +870,13 @@
 			"黒"
 		],
 		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			"アタックフェイズ"
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "聖天姫アダム",
@@ -682,6 +884,8 @@
 			"せいてんきあだむ"
 		],
 		"image": "WX24-P2/WX24-P2-047.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-047",
 		"cardType": [
 			"シグニ"
 		],
@@ -693,9 +897,13 @@
 			"白"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "聖魔姫イヴ",
@@ -704,6 +912,8 @@
 			"せいまきいぶ"
 		],
 		"image": "WX24-P2/WX24-P2-048.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-048",
 		"cardType": [
 			"シグニ"
 		],
@@ -715,9 +925,13 @@
 			"白"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "大装ツルマル",
@@ -725,6 +939,8 @@
 			"たいそうつるまる"
 		],
 		"image": "WX24-P2/WX24-P2-049.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-049",
 		"cardType": [
 			"シグニ"
 		],
@@ -736,9 +952,13 @@
 			"白"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "幻闘竜姫スヴァローグ",
@@ -746,6 +966,8 @@
 			"げんとうりゅうきすヴぁろーぐ"
 		],
 		"image": "WX24-P2/WX24-P2-050.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-050",
 		"cardType": [
 			"シグニ"
 		],
@@ -757,9 +979,13 @@
 			"赤"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "羅輝石ドラゴアゲート",
@@ -768,6 +994,8 @@
 			"どらあげ"
 		],
 		"image": "WX24-P2/WX24-P2-051.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-051",
 		"cardType": [
 			"シグニ"
 		],
@@ -779,9 +1007,13 @@
 			"赤"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "参ノ遊姫ボールペンマワシ",
@@ -789,6 +1021,8 @@
 			"さんのゆうきぼーるぺんまわし"
 		],
 		"image": "WX24-P2/WX24-P2-052.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-052",
 		"cardType": [
 			"シグニ"
 		],
@@ -800,9 +1034,13 @@
 			"青"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "コードハートDローン",
@@ -811,6 +1049,8 @@
 			"どろーん"
 		],
 		"image": "WX24-P2/WX24-P2-053.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-053",
 		"cardType": [
 			"シグニ"
 		],
@@ -822,9 +1062,13 @@
 			"青"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "羅植姫ジャックビーン",
@@ -832,6 +1076,8 @@
 			"らしょくひめじゃっくびーんず"
 		],
 		"image": "WX24-P2/WX24-P2-054.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-054",
 		"cardType": [
 			"シグニ"
 		],
@@ -843,9 +1089,13 @@
 			"緑"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "幻獣神ヤマアラシ",
@@ -853,6 +1103,8 @@
 			"げんじゅうしんやまあらし"
 		],
 		"image": "WX24-P2/WX24-P2-055.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-055",
 		"cardType": [
 			"シグニ"
 		],
@@ -864,9 +1116,13 @@
 			"緑"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "コードオーダーメロンパフェ",
@@ -874,6 +1130,8 @@
 			"こーどおーだーめろんぱふぇ"
 		],
 		"image": "WX24-P2/WX24-P2-056.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-056",
 		"cardType": [
 			"シグニ"
 		],
@@ -885,9 +1143,13 @@
 			"緑"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "コードラビラントルーブル",
@@ -895,6 +1157,8 @@
 			"こーどらびらんとるーぶる"
 		],
 		"image": "WX24-P2/WX24-P2-057.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-057",
 		"cardType": [
 			"シグニ"
 		],
@@ -906,9 +1170,13 @@
 			"黒"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "凶魔姫ハデス",
@@ -916,6 +1184,8 @@
 			"きょうまきはです"
 		],
 		"image": "WX24-P2/WX24-P2-058.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-058",
 		"cardType": [
 			"シグニ"
 		],
@@ -927,9 +1197,13 @@
 			"黒"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "聖天ヴィゾフニル",
@@ -937,6 +1211,8 @@
 			"せいてんヴぃぞふにる"
 		],
 		"image": "WX24-P2/WX24-P2-059.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-059",
 		"cardType": [
 			"シグニ"
 		],
@@ -948,9 +1224,13 @@
 			"白"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "聖魔シャックス",
@@ -958,6 +1238,8 @@
 			"せいましゃっくす"
 		],
 		"image": "WX24-P2/WX24-P2-060.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-060",
 		"cardType": [
 			"シグニ"
 		],
@@ -969,9 +1251,13 @@
 			"白"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "幻竜ニホンヤモリ",
@@ -979,6 +1265,8 @@
 			"げんりゅうにほんやもり"
 		],
 		"image": "WX24-P2/WX24-P2-061.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-061",
 		"cardType": [
 			"シグニ"
 		],
@@ -990,9 +1278,13 @@
 			"白"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "聖天シャムシエル",
@@ -1000,6 +1292,8 @@
 			"せいてんしゃむしえる"
 		],
 		"image": "WX24-P2/WX24-P2-062.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-062",
 		"cardType": [
 			"シグニ"
 		],
@@ -1011,9 +1305,13 @@
 			"白"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "聖魔セーレ",
@@ -1021,6 +1319,8 @@
 			"せいませーれ"
 		],
 		"image": "WX24-P2/WX24-P2-063.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-063",
 		"cardType": [
 			"シグニ"
 		],
@@ -1032,9 +1332,13 @@
 			"白"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "弐ノ遊ペープサート",
@@ -1043,6 +1347,8 @@
 			"ぺぷさと"
 		],
 		"image": "WX24-P2/WX24-P2-064.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-064",
 		"cardType": [
 			"シグニ"
 		],
@@ -1054,9 +1360,13 @@
 			"白"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "イマジン・ビッカー",
@@ -1065,6 +1375,8 @@
 			"いまびか"
 		],
 		"image": "WX24-P2/WX24-P2-065.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-065",
 		"cardType": [
 			"スペル"
 		],
@@ -1076,9 +1388,13 @@
 			"白"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "幻竜ヤマトサウルス",
@@ -1086,6 +1402,8 @@
 			"げんりゅうやまとさうるす"
 		],
 		"image": "WX24-P2/WX24-P2-066.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-066",
 		"cardType": [
 			"シグニ"
 		],
@@ -1097,9 +1415,13 @@
 			"赤"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "幻竜ギータ",
@@ -1107,6 +1429,8 @@
 			"げんりゅうぎーた"
 		],
 		"image": "WX24-P2/WX24-P2-067.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-067",
 		"cardType": [
 			"シグニ"
 		],
@@ -1118,9 +1442,13 @@
 			"赤"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "羅植モミジ",
@@ -1128,6 +1456,8 @@
 			"らしょくもみじ"
 		],
 		"image": "WX24-P2/WX24-P2-068.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-068",
 		"cardType": [
 			"シグニ"
 		],
@@ -1139,9 +1469,13 @@
 			"赤"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "小砲パンジャン",
@@ -1149,6 +1483,8 @@
 			"しょうほうぱんじゃん"
 		],
 		"image": "WX24-P2/WX24-P2-069.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-069",
 		"cardType": [
 			"シグニ"
 		],
@@ -1160,9 +1496,13 @@
 			"赤"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "幻竜ズメイ",
@@ -1170,6 +1510,8 @@
 			"げんりゅうずめい"
 		],
 		"image": "WX24-P2/WX24-P2-070.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-070",
 		"cardType": [
 			"シグニ"
 		],
@@ -1181,9 +1523,13 @@
 			"赤"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "幻闘竜グリアナ",
@@ -1191,6 +1537,8 @@
 			"げんとうりゅうぐりあな"
 		],
 		"image": "WX24-P2/WX24-P2-071.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-071",
 		"cardType": [
 			"シグニ"
 		],
@@ -1202,9 +1550,13 @@
 			"赤"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "コードメイズアカレンガ",
@@ -1212,6 +1564,8 @@
 			"こーどめいずあかれんが"
 		],
 		"image": "WX24-P2/WX24-P2-072.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-072",
 		"cardType": [
 			"シグニ"
 		],
@@ -1223,9 +1577,13 @@
 			"赤"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "爆竜の衝突",
@@ -1233,6 +1591,8 @@
 			"ばくりゅうのしょうとつ"
 		],
 		"image": "WX24-P2/WX24-P2-073.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-073",
 		"cardType": [
 			"スペル"
 		],
@@ -1244,9 +1604,13 @@
 			"赤"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "壱ノ遊フウリン",
@@ -1254,6 +1618,8 @@
 			"いちのゆうふうりん"
 		],
 		"image": "WX24-P2/WX24-P2-074.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-074",
 		"cardType": [
 			"シグニ"
 		],
@@ -1265,9 +1631,13 @@
 			"青"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "壱ノ遊キンギョスクイ",
@@ -1275,6 +1645,8 @@
 			"いちのゆうきんぎょすくい"
 		],
 		"image": "WX24-P2/WX24-P2-075.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-075",
 		"cardType": [
 			"シグニ"
 		],
@@ -1286,9 +1658,13 @@
 			"青"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "蒼天アケローン",
@@ -1296,6 +1672,8 @@
 			"そうてんあけろーん"
 		],
 		"image": "WX24-P2/WX24-P2-076.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-076",
 		"cardType": [
 			"シグニ"
 		],
@@ -1307,9 +1685,13 @@
 			"青"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "弍ノ遊ミズフウセン",
@@ -1317,6 +1699,8 @@
 			"にのゆうみずふうせん"
 		],
 		"image": "WX24-P2/WX24-P2-077.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-077",
 		"cardType": [
 			"シグニ"
 		],
@@ -1328,9 +1712,13 @@
 			"青"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "弍ノ遊ミズデッポウ",
@@ -1338,6 +1726,8 @@
 			"にのゆうみずてっぽう"
 		],
 		"image": "WX24-P2/WX24-P2-078.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-078",
 		"cardType": [
 			"シグニ"
 		],
@@ -1349,9 +1739,13 @@
 			"青"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "幻竜ウミヘビ",
@@ -1359,6 +1753,8 @@
 			"げんりゅううみへび"
 		],
 		"image": "WX24-P2/WX24-P2-079.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-079",
 		"cardType": [
 			"シグニ"
 		],
@@ -1370,9 +1766,13 @@
 			"青"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "BUNNYCHARGE",
@@ -1381,6 +1781,8 @@
 			"ばにちゃ"
 		],
 		"image": "WX24-P2/WX24-P2-080.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-080",
 		"cardType": [
 			"スペル"
 		],
@@ -1392,9 +1794,13 @@
 			"青"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "羅植ボンサイ",
@@ -1402,6 +1808,8 @@
 			"らしょくほんさい"
 		],
 		"image": "WX24-P2/WX24-P2-081.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-081",
 		"cardType": [
 			"シグニ"
 		],
@@ -1413,9 +1821,13 @@
 			"緑"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "羅闘植ローザリ",
@@ -1424,6 +1836,8 @@
 			"ろざりー"
 		],
 		"image": "WX24-P2/WX24-P2-082.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-082",
 		"cardType": [
 			"シグニ"
 		],
@@ -1435,9 +1849,13 @@
 			"緑"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "コードメイズフラワーアーチ",
@@ -1445,6 +1863,8 @@
 			"こーどめいずふらわーあーち"
 		],
 		"image": "WX24-P2/WX24-P2-083.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-083",
 		"cardType": [
 			"シグニ"
 		],
@@ -1456,9 +1876,13 @@
 			"緑"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "羅植イケバナ",
@@ -1466,6 +1890,8 @@
 			"らしょくいけばな"
 		],
 		"image": "WX24-P2/WX24-P2-084.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-084",
 		"cardType": [
 			"シグニ"
 		],
@@ -1477,9 +1903,13 @@
 			"緑"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "羅植ヤドリギ",
@@ -1487,6 +1917,8 @@
 			"らしょくやどりぎ"
 		],
 		"image": "WX24-P2/WX24-P2-085.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-085",
 		"cardType": [
 			"シグニ"
 		],
@@ -1498,9 +1930,13 @@
 			"緑"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "翠魔イシクマドウジ",
@@ -1508,6 +1944,8 @@
 			"すいまいしくまどうじ"
 		],
 		"image": "WX24-P2/WX24-P2-086.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-086",
 		"cardType": [
 			"シグニ"
 		],
@@ -1519,9 +1957,13 @@
 			"緑"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "葉刃",
@@ -1531,6 +1973,8 @@
 			"はっぱかったー"
 		],
 		"image": "WX24-P2/WX24-P2-087.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-087",
 		"cardType": [
 			"スペル"
 		],
@@ -1542,9 +1986,13 @@
 			"緑"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "コードメイズシャッターガイ",
@@ -1552,6 +2000,8 @@
 			"こーどめいずしゃったーがい"
 		],
 		"image": "WX24-P2/WX24-P2-088.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-088",
 		"cardType": [
 			"シグニ"
 		],
@@ -1563,9 +2013,13 @@
 			"黒"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "コードメイズオバケヤシキ",
@@ -1573,6 +2027,8 @@
 			"こーどめいずおばけやしき"
 		],
 		"image": "WX24-P2/WX24-P2-089.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-089",
 		"cardType": [
 			"シグニ"
 		],
@@ -1584,9 +2040,13 @@
 			"黒"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "壱ノ遊カゲエ",
@@ -1594,6 +2054,8 @@
 			"いちのゆうかげえ"
 		],
 		"image": "WX24-P2/WX24-P2-090.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-090",
 		"cardType": [
 			"シグニ"
 		],
@@ -1605,9 +2067,13 @@
 			"黒"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "コードメイズオカヤマジョ",
@@ -1616,6 +2082,8 @@
 			"岡山城"
 		],
 		"image": "WX24-P2/WX24-P2-091.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-091",
 		"cardType": [
 			"シグニ"
 		],
@@ -1627,9 +2095,13 @@
 			"黒"
 		],
 		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "コードメイズアバケイ",
@@ -1638,6 +2110,8 @@
 			"網走刑務所"
 		],
 		"image": "WX24-P2/WX24-P2-092.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-092",
 		"cardType": [
 			"シグニ"
 		],
@@ -1649,9 +2123,13 @@
 			"黒"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "羅植カレハ",
@@ -1659,6 +2137,8 @@
 			"らしょくかれは"
 		],
 		"image": "WX24-P2/WX24-P2-093.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-093",
 		"cardType": [
 			"シグニ"
 		],
@@ -1670,9 +2150,13 @@
 			"黒"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	},
 	{
 		"name": "スラッシング・ミラクル",
@@ -1681,6 +2165,8 @@
 			"すらみら"
 		],
 		"image": "WX24-P2/WX24-P2-094.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-094",
 		"cardType": [
 			"スペル"
 		],
@@ -1692,8 +2178,12 @@
 			"黒"
 		],
 		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
 		"tags": [
 			""
-		]
+		],
+		"additionalInfo": null
 	}
 ]
