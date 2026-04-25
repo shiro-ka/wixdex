@@ -30,9 +30,9 @@ export default defineConfig({
       workbox: {
         globPatterns: ['client/**/*.{js,css,ico,png,svg,webp,woff,woff2}'],
         runtimeCaching: [
-          // R2 カード画像 (独自ドメイン) — Phase A以降、実際のドメインに合わせて更新
+          // R2 カード画像 — PUBLIC_CARD_IMAGE_BASE_URL のホスト名に合わせて有効化
           // {
-          //   urlPattern: ({ url }) => url.hostname === 'images.example.com',
+          //   urlPattern: ({ url }) => url.hostname === 'images.<独自ドメイン>',
           //   handler: 'CacheFirst',
           //   options: {
           //     cacheName: 'card-images-v1',

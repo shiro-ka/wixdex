@@ -28,10 +28,9 @@ pages_build_output_dir = ".svelte-kit/cloudflare"
 # binding = "RATE_LIMIT"
 # id = "..."
 
-# R2 (Phase A で bucket 作成後に id を埋める)
-# [[r2_buckets]]
-# binding = "CARD_IMAGES"
-# bucket_name = "wixdex-card-images"
+[[r2_buckets]]
+binding = "CARD_IMAGES"
+bucket_name = "wixdex-card-images"
 
 [vars]
 APP_URL = "http://localhost:5173"

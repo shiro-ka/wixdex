@@ -1,4 +1,5 @@
 import type { Card } from '$lib/types';
+import { cardImageUrl } from '$lib/utils/cardImages';
 
 interface CardStack {
   card: Card;
@@ -68,7 +69,7 @@ export async function generateStackDeckImage(
     const x = lrigStartX + cardWidth + margin;
     const y = startY;
     imageLoadPromises.push(
-      loadImage(`/assets/cards_img/${centerLrig.image}`).then(img => ({ img, x, y })).catch(() => null)
+      loadImage(cardImageUrl(centerLrig.image)).then(img => ({ img, x, y })).catch(() => null)
     );
   }
 
@@ -76,7 +77,7 @@ export async function generateStackDeckImage(
   for (const card of otherLrigCards) {
     const x = lrigX, y = lrigY;
     imageLoadPromises.push(
-      loadImage(`/assets/cards_img/${card.image}`).then(img => ({ img, x, y })).catch(() => null)
+      loadImage(cardImageUrl(card.image)).then(img => ({ img, x, y })).catch(() => null)
     );
     lrigCol++;
     if (lrigCol >= 4) { lrigCol = 0; lrigX = lrigStartX; lrigY += cardHeight + margin; }
@@ -90,7 +91,7 @@ export async function generateStackDeckImage(
   for (const stack of cardStacks) {
     const x = mainX, y = mainY;
     imageLoadPromises.push(
-      loadImage(`/assets/cards_img/${stack.card.image}`).then(img => ({
+      loadImage(cardImageUrl(stack.card.image)).then(img => ({
         img, x, y, isStack: true, count: stack.count
       })).catch(() => null)
     );
