@@ -1,0 +1,2189 @@
+[
+	{
+		"name": "インフィニット・フォース",
+		"subName": [
+			"いんふぃにっとふぉーす",
+			"いんふぉ"
+		],
+		"image": "WX24-P2/WX24-P2-001.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-001",
+		"rarity": "LR",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"color": [
+			"白"
+		],
+		"level": null,
+		"cost": {
+			"白": 1
+		},
+		"power": null,
+		"timing": [
+			"メインフェイズ"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"効果": "あなたのデッキの上からカードを３枚見る。その中からシグニを１枚まで場に出し、残りを好きな順番でデッキの一番下に置く。その後、あなたのシグニ１体を対象とし、ターン終了時まで、それは「【自】：このシグニがアタックしたとき、このシグニをアップし、ターン終了時まで、このシグニは能力を失う。」を得る。",
+			"リコレクト4": "追加で対戦相手のシグニ１体を対象とし、それを手札に戻す。"
+		},
+		"flavorText": "「自由になりたいだなんて、私は思ってない。」",
+		"illust": "コウサク",
+		"faq": {
+			"リコレクトとは何ですか？": "リコレクトはテキスト内に置かれるアイコンで、《リコレクトアイコン》［４枚以上］のように表記されます。あなたのルリグトラッシュにあるアーツの枚数が指定された条件を満たしていると、後に続く文章が有効になります。このアーツ自身は使用中まだチェックゾーンに置かれていますのでルリグトラッシュの枚数に数えることはできません。例えばルリグトラッシュにアーツが３枚ある状況でこのアーツを使用しても、条件を満たしていません。",
+			"リコレクトの条件を満たして使用した場合、追加の効果で対象を選ぶのはいつですか？": "『その後、』以降に書かれた『対象』については『その後』まで処理を行った後に対象を選びますので、デッキの上からカードを3枚見てシグニを1枚まで場に出す効果を処理した後となります。"
+		},
+		"tags": [
+			"リコレクト"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "ホワイト・ウィッシュ",
+		"subName": [
+			"ほわいとうぃっしゅ",
+			"ほわっしゅ"
+		],
+		"image": "WX24-P2/WX24-P2-002.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-002",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"使用条件": "このアーツを使用する際、あなたのルリグデッキから白のアーツ１枚をルリグトラッシュに置いてもよい。そうした場合、このアーツの使用コストは《白×3》減る。",
+			"効果": "対戦相手のシグニ１体と、そのシグニと同じレベルの対戦相手のルリグ１体を対象とし、ターン終了時まで、それらは「【常】：アタックできない。」を得る。 "
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "集中紅火",
+		"subName": [
+			"しゅうちゅうこうか"
+		],
+		"image": "WX24-P2/WX24-P2-003.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-003",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"リコレクト"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "熱願炎諦",
+		"subName": [
+			"ねつがんえんてい"
+		],
+		"image": "WX24-P2/WX24-P2-004.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-004",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "ロック・オン",
+		"subName": [
+			"ろっくおん"
+		],
+		"image": "WX24-P2/WX24-P2-005.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-005",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"リコレクト"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "アズール・ウィッシュ",
+		"subName": [
+			"あずーるうぃっしゅ",
+			"あずっしゅ"
+		],
+		"image": "WX24-P2/WX24-P2-006.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-006",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "虚心坦懐",
+		"subName": [
+			"とぅるーはーと",
+			"きょしんたんかい"
+		],
+		"image": "WX24-P2/WX24-P2-007.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-007",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"リコレクト"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "加持祈禱",
+		"subName": [
+			"加持祈祷",
+			"えめらるどうぃっしゅ",
+			"かじきとう",
+			"えめっしゅ"
+		],
+		"image": "WX24-P2/WX24-P2-008.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-008",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "デッドリー・ポータル",
+		"subName": [
+			"でっどりーぽーたる",
+			"でっぽた"
+		],
+		"image": "WX24-P2/WX24-P2-009.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-009",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"リコレクト"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "ブラック・ウィッシュ",
+		"subName": [
+			"ぶらっくうぃっしゅ",
+			"ぶらっしゅ"
+		],
+		"image": "WX24-P2/WX24-P2-010.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-010",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "満月の使徒小湊るう子",
+		"subName": [
+			"まんげつのしとこみなとるうこ",
+			"るうるう"
+		],
+		"image": "WX24-P2/WX24-P2-014.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-014",
+		"cardType": [
+			"ルリグ"
+		],
+		"lrigTypeClass": [
+			"るう子"
+		],
+		"level": 3,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "熾炎舞遊月・参",
+		"subName": [
+			"しえんぶゆづきさん"
+		],
+		"image": "WX24-P2/WX24-P2-018.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-018",
+		"cardType": [
+			"ルリグ"
+		],
+		"lrigTypeClass": [
+			"ユヅキ"
+		],
+		"level": 3,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "あきら☆らっきー",
+		"subName": [
+			"あきららっきー",
+			"あきらっきー"
+		],
+		"image": "WX24-P2/WX24-P2-022.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-022",
+		"cardType": [
+			"ルリグ"
+		],
+		"lrigTypeClass": [
+			"あきら"
+		],
+		"level": 3,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "参式一衣",
+		"subName": [
+			"さんしきひとえ"
+		],
+		"image": "WX24-P2/WX24-P2-026.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-026",
+		"cardType": [
+			"ルリグ"
+		],
+		"lrigTypeClass": [
+			"ひとえ"
+		],
+		"level": 3,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "エニグマ/メイデンイオナ",
+		"subName": [
+			"えにぐまめいでんいおな"
+		],
+		"image": "WX24-P2/WX24-P2-030.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-030",
+		"cardType": [
+			"ルリグ"
+		],
+		"lrigTypeClass": [
+			"イオナ"
+		],
+		"level": 3,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "カオス・クラウン",
+		"subName": [
+			"かおすくらうん",
+			"かおくら"
+		],
+		"image": "WX24-P2/WX24-P2-031.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-031",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "アンステイブル・シールド",
+		"subName": [
+			"あんすていぶるしーるど",
+			"すてしー"
+		],
+		"image": "WX24-P2/WX24-P2-032.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-032",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "能龍隠爪",
+		"subName": [
+			"のうりゅういんそう",
+			"のうりゅういんつめ"
+		],
+		"image": "WX24-P2/WX24-P2-033.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-033",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "炎打一振",
+		"subName": [
+			"えんだいっしん"
+		],
+		"image": "WX24-P2/WX24-P2-034.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-034",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "ステーショナリー・ワン",
+		"subName": [
+			"すてーしょなりーわん",
+			"すてわん"
+		],
+		"image": "WX24-P2/WX24-P2-035.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-035",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "プリーズ・ストップ",
+		"subName": [
+			"ぷりーずすとっぷ",
+			"ぷりすと"
+		],
+		"image": "WX24-P2/WX24-P2-036.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-036",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "蔓巻発条",
+		"subName": [
+			"すぱいらるそーん",
+			"たつまきはつじょう",
+			"すぱそん"
+		],
+		"image": "WX24-P2/WX24-P2-037.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-037",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "明窓浄机",
+		"subName": [
+			"くりーんなっぷ",
+			"めいそうじょうき"
+		],
+		"image": "WX24-P2/WX24-P2-038.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-038",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "グレイブ・イブニング",
+		"subName": [
+			"ぐれいぶいぶにんぐ",
+			"ぐれぶん"
+		],
+		"image": "WX24-P2/WX24-P2-039.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-039",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "シャドウ・ケージ",
+		"subName": [
+			"しゃどうげーじ",
+			"しゃどげ"
+		],
+		"image": "WX24-P2/WX24-P2-040.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-040",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "チャージ・エンハンス",
+		"subName": [
+			"ちゃーじえんはんす",
+			"ちゃえんは"
+		],
+		"image": "WX24-P2/WX24-P2-041.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-041",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			""
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"リミットアッパー"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "バカンス・チャージング",
+		"subName": [
+			"ばかんすちゃーじんぐ",
+			"ばかちゃーじ"
+		],
+		"image": "WX24-P2/WX24-P2-042.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-042",
+		"cardType": [
+			"アーツ"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			""
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "カレイドスコープ",
+		"subName": [
+			"かれいどすこーぷ",
+			"かれすこ"
+		],
+		"image": "WX24-P2/WX24-P2-043.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-043",
+		"cardType": [
+			"ピース"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			""
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "遊月・レッドジャスパー",
+		"subName": [
+			"ゆづきれっどじゃすぱー",
+			"れっじゃす"
+		],
+		"image": "WX24-P2/WX24-P2-044.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-044",
+		"cardType": [
+			"アシスト"
+		],
+		"lrigTypeClass": [
+			"ユヅキ"
+		],
+		"level": 2,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "ピルルク/A-C",
+		"subName": [
+			"ぴるるくえにーちょいす",
+			"ぴるるくえーしー"
+		],
+		"image": "WX24-P2/WX24-P2-045.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-045",
+		"cardType": [
+			"アシスト"
+		],
+		"lrigTypeClass": [
+			"ピルルク"
+		],
+		"level": 2,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "ウリス・カース",
+		"subName": [
+			"うりすかーす"
+		],
+		"image": "WX24-P2/WX24-P2-046.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-046",
+		"cardType": [
+			"アシスト"
+		],
+		"lrigTypeClass": [
+			"ウリス"
+		],
+		"level": 2,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "null",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			"アタックフェイズ"
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "聖天姫アダム",
+		"subName": [
+			"せいてんきあだむ"
+		],
+		"image": "WX24-P2/WX24-P2-047.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-047",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏像：天使"
+		],
+		"level": 3,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "聖魔姫イヴ",
+		"subName": [
+			"せいまきいヴ",
+			"せいまきいぶ"
+		],
+		"image": "WX24-P2/WX24-P2-048.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-048",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏像：悪魔"
+		],
+		"level": 3,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "大装ツルマル",
+		"subName": [
+			"たいそうつるまる"
+		],
+		"image": "WX24-P2/WX24-P2-049.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-049",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏武：アーム"
+		],
+		"level": 3,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "幻闘竜姫スヴァローグ",
+		"subName": [
+			"げんとうりゅうきすヴぁろーぐ"
+		],
+		"image": "WX24-P2/WX24-P2-050.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-050",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏生：龍獣"
+		],
+		"level": 3,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "羅輝石ドラゴアゲート",
+		"subName": [
+			"らきせきどらごあげーと",
+			"どらあげ"
+		],
+		"image": "WX24-P2/WX24-P2-051.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-051",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏羅：宝石"
+		],
+		"level": 3,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "参ノ遊姫ボールペンマワシ",
+		"subName": [
+			"さんのゆうきぼーるぺんまわし"
+		],
+		"image": "WX24-P2/WX24-P2-052.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-052",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏武：遊具"
+		],
+		"level": 3,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "コードハートDローン",
+		"subName": [
+			"こーどはーとでぃーろーん",
+			"どろーん"
+		],
+		"image": "WX24-P2/WX24-P2-053.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-053",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏械：電機"
+		],
+		"level": 3,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "羅植姫ジャックビーン",
+		"subName": [
+			"らしょくひめじゃっくびーんず"
+		],
+		"image": "WX24-P2/WX24-P2-054.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-054",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏羅：植物"
+		],
+		"level": 3,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "幻獣神ヤマアラシ",
+		"subName": [
+			"げんじゅうしんやまあらし"
+		],
+		"image": "WX24-P2/WX24-P2-055.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-055",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏生：地獣"
+		],
+		"level": 3,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "コードオーダーメロンパフェ",
+		"subName": [
+			"こーどおーだーめろんぱふぇ"
+		],
+		"image": "WX24-P2/WX24-P2-056.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-056",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏械：調理"
+		],
+		"level": 3,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "コードラビラントルーブル",
+		"subName": [
+			"こーどらびらんとるーぶる"
+		],
+		"image": "WX24-P2/WX24-P2-057.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-057",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏械：迷宮"
+		],
+		"level": 3,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "凶魔姫ハデス",
+		"subName": [
+			"きょうまきはです"
+		],
+		"image": "WX24-P2/WX24-P2-058.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-058",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏像：悪魔"
+		],
+		"level": 3,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "聖天ヴィゾフニル",
+		"subName": [
+			"せいてんヴぃぞふにる"
+		],
+		"image": "WX24-P2/WX24-P2-059.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-059",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏像：天使"
+		],
+		"level": 1,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "聖魔シャックス",
+		"subName": [
+			"せいましゃっくす"
+		],
+		"image": "WX24-P2/WX24-P2-060.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-060",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏像：悪魔"
+		],
+		"level": 1,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "幻竜ニホンヤモリ",
+		"subName": [
+			"げんりゅうにほんやもり"
+		],
+		"image": "WX24-P2/WX24-P2-061.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-061",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏生：龍獣"
+		],
+		"level": 1,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "聖天シャムシエル",
+		"subName": [
+			"せいてんしゃむしえる"
+		],
+		"image": "WX24-P2/WX24-P2-062.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-062",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏像：天使"
+		],
+		"level": 2,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "聖魔セーレ",
+		"subName": [
+			"せいませーれ"
+		],
+		"image": "WX24-P2/WX24-P2-063.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-063",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏像：悪魔"
+		],
+		"level": 2,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "弐ノ遊ペープサート",
+		"subName": [
+			"にのゆうぺーぷさーと",
+			"ぺぷさと"
+		],
+		"image": "WX24-P2/WX24-P2-064.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-064",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏武：遊具"
+		],
+		"level": 2,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "イマジン・ビッカー",
+		"subName": [
+			"いまじんびっかー",
+			"いまびか"
+		],
+		"image": "WX24-P2/WX24-P2-065.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-065",
+		"cardType": [
+			"スペル"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"白"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "幻竜ヤマトサウルス",
+		"subName": [
+			"げんりゅうやまとさうるす"
+		],
+		"image": "WX24-P2/WX24-P2-066.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-066",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏生：龍獣"
+		],
+		"level": 1,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "幻竜ギータ",
+		"subName": [
+			"げんりゅうぎーた"
+		],
+		"image": "WX24-P2/WX24-P2-067.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-067",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏生：龍獣"
+		],
+		"level": 1,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "羅植モミジ",
+		"subName": [
+			"らしょくもみじ"
+		],
+		"image": "WX24-P2/WX24-P2-068.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-068",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏羅：植物"
+		],
+		"level": 1,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "小砲パンジャン",
+		"subName": [
+			"しょうほうぱんじゃん"
+		],
+		"image": "WX24-P2/WX24-P2-069.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-069",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏武：ウェポン"
+		],
+		"level": 1,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "幻竜ズメイ",
+		"subName": [
+			"げんりゅうずめい"
+		],
+		"image": "WX24-P2/WX24-P2-070.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-070",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏生：龍獣"
+		],
+		"level": 2,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "幻闘竜グリアナ",
+		"subName": [
+			"げんとうりゅうぐりあな"
+		],
+		"image": "WX24-P2/WX24-P2-071.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-071",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏生：龍獣"
+		],
+		"level": 2,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "コードメイズアカレンガ",
+		"subName": [
+			"こーどめいずあかれんが"
+		],
+		"image": "WX24-P2/WX24-P2-072.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-072",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏械：迷宮"
+		],
+		"level": 2,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "爆竜の衝突",
+		"subName": [
+			"ばくりゅうのしょうとつ"
+		],
+		"image": "WX24-P2/WX24-P2-073.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-073",
+		"cardType": [
+			"スペル"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"赤"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "壱ノ遊フウリン",
+		"subName": [
+			"いちのゆうふうりん"
+		],
+		"image": "WX24-P2/WX24-P2-074.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-074",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏武：遊具"
+		],
+		"level": 1,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "壱ノ遊キンギョスクイ",
+		"subName": [
+			"いちのゆうきんぎょすくい"
+		],
+		"image": "WX24-P2/WX24-P2-075.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-075",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏武：遊具"
+		],
+		"level": 1,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "蒼天アケローン",
+		"subName": [
+			"そうてんあけろーん"
+		],
+		"image": "WX24-P2/WX24-P2-076.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-076",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏像：天使"
+		],
+		"level": 1,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "弍ノ遊ミズフウセン",
+		"subName": [
+			"にのゆうみずふうせん"
+		],
+		"image": "WX24-P2/WX24-P2-077.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-077",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏武：遊具"
+		],
+		"level": 2,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "弍ノ遊ミズデッポウ",
+		"subName": [
+			"にのゆうみずてっぽう"
+		],
+		"image": "WX24-P2/WX24-P2-078.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-078",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏武：遊具"
+		],
+		"level": 2,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "幻竜ウミヘビ",
+		"subName": [
+			"げんりゅううみへび"
+		],
+		"image": "WX24-P2/WX24-P2-079.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-079",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏生：龍獣"
+		],
+		"level": 2,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "BUNNYCHARGE",
+		"subName": [
+			"ばにーちゃーじ",
+			"ばにちゃ"
+		],
+		"image": "WX24-P2/WX24-P2-080.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-080",
+		"cardType": [
+			"スペル"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"青"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "羅植ボンサイ",
+		"subName": [
+			"らしょくほんさい"
+		],
+		"image": "WX24-P2/WX24-P2-081.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-081",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏羅：植物"
+		],
+		"level": 1,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "羅闘植ローザリ",
+		"subName": [
+			"らとうしょくろーざり",
+			"ろざりー"
+		],
+		"image": "WX24-P2/WX24-P2-082.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-082",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏羅：植物"
+		],
+		"level": 1,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "コードメイズフラワーアーチ",
+		"subName": [
+			"こーどめいずふらわーあーち"
+		],
+		"image": "WX24-P2/WX24-P2-083.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-083",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏械：迷宮"
+		],
+		"level": 1,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "羅植イケバナ",
+		"subName": [
+			"らしょくいけばな"
+		],
+		"image": "WX24-P2/WX24-P2-084.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-084",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏羅：植物"
+		],
+		"level": 2,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "羅植ヤドリギ",
+		"subName": [
+			"らしょくやどりぎ"
+		],
+		"image": "WX24-P2/WX24-P2-085.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-085",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏羅：植物"
+		],
+		"level": 2,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "翠魔イシクマドウジ",
+		"subName": [
+			"すいまいしくまどうじ"
+		],
+		"image": "WX24-P2/WX24-P2-086.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-086",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏像：悪魔"
+		],
+		"level": 2,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "葉刃",
+		"subName": [
+			"ようじん",
+			"はば",
+			"はっぱかったー"
+		],
+		"image": "WX24-P2/WX24-P2-087.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-087",
+		"cardType": [
+			"スペル"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"緑"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "コードメイズシャッターガイ",
+		"subName": [
+			"こーどめいずしゃったーがい"
+		],
+		"image": "WX24-P2/WX24-P2-088.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-088",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏械：迷宮"
+		],
+		"level": 1,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "コードメイズオバケヤシキ",
+		"subName": [
+			"こーどめいずおばけやしき"
+		],
+		"image": "WX24-P2/WX24-P2-089.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-089",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏械：迷宮"
+		],
+		"level": 1,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "壱ノ遊カゲエ",
+		"subName": [
+			"いちのゆうかげえ"
+		],
+		"image": "WX24-P2/WX24-P2-090.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-090",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏武：遊具"
+		],
+		"level": 1,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "コードメイズオカヤマジョ",
+		"subName": [
+			"こーどめいずおかやまじょ",
+			"岡山城"
+		],
+		"image": "WX24-P2/WX24-P2-091.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-091",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏械：迷宮"
+		],
+		"level": 2,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "false",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "コードメイズアバケイ",
+		"subName": [
+			"こーどめいずあばけい",
+			"網走刑務所"
+		],
+		"image": "WX24-P2/WX24-P2-092.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-092",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏械：迷宮"
+		],
+		"level": 2,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "羅植カレハ",
+		"subName": [
+			"らしょくかれは"
+		],
+		"image": "WX24-P2/WX24-P2-093.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-093",
+		"cardType": [
+			"シグニ"
+		],
+		"lrigTypeClass": [
+			"奏羅：植物"
+		],
+		"level": 2,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	},
+	{
+		"name": "スラッシング・ミラクル",
+		"subName": [
+			"すらっしんぐみらくる",
+			"すらみら"
+		],
+		"image": "WX24-P2/WX24-P2-094.webp",
+		"productID": "WX24-P2",
+		"cardID": "WX24-P2-094",
+		"cardType": [
+			"スペル"
+		],
+		"lrigTypeClass": [
+			""
+		],
+		"level": 0,
+		"color": [
+			"黒"
+		],
+		"lifeBurst": "true",
+		"text": {
+			"": ""
+		},
+		"tags": [
+			""
+		],
+		"additionalInfo": null
+	}
+]

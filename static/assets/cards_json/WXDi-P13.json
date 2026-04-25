@@ -1,0 +1,1523 @@
+[
+    {
+        "name": "不穏☆FU☆ON！",
+        "subName": [
+            "ふおんふおん",
+            "不穏FUON",
+            "ふおんふーおん",
+            "ふぉんふぉん"
+        ],
+        "image": "WXDi-P13/WXDi-P13-001.webp",
+        "cardType": [
+            "ピース"
+        ],
+        "lrigTypeClass": [
+            ""
+        ],
+        "level": 0,
+        "color": [
+            "青"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "Instigate",
+        "subName": [
+            "いんすてぃげいと"
+        ],
+        "image": "WXDi-P13/WXDi-P13-002.webp",
+        "cardType": [
+            "ピース"
+        ],
+        "lrigTypeClass": [
+            ""
+        ],
+        "level": 0,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "未知の邂逅",
+        "subName": [
+            "みちのかいこう",
+            "未知の巫女マユ",
+            "みちのみこまゆ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-003A.webp",
+        "cardType": [
+            "ピース",
+            "ルリグ"
+        ],
+        "lrigTypeClass": [
+            "タマ",
+            "イオナ"
+        ],
+        "level": 0,
+        "color": [
+            ""
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "UNKNOWN",
+        "subName": [
+            "あんのうん",
+            "UNKNOWN-CODE-RU-",
+            "UNKNOWNCODERU",
+            "るう子"
+        ],
+        "image": "WXDi-P13/WXDi-P13-004A.webp",
+        "cardType": [
+            "ピース",
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            ""
+        ],
+        "level": 0,
+        "color": [
+            ""
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "BRAINHEARTS",
+        "subName": [
+            "ぶれいんはーつ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-005.webp",
+        "cardType": [
+            "ピース"
+        ],
+        "lrigTypeClass": [
+            ""
+        ],
+        "level": 0,
+        "color": [
+            ""
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "狂奏の巫女リメンバ・テンペスト",
+        "subName": [
+            "きょうそうのみこりめんばてんぺすと",
+            "りめてん"
+        ],
+        "image": "WXDi-P13/WXDi-P13-006.webp",
+        "cardType": [
+            "ルリグ"
+        ],
+        "lrigTypeClass": [
+            "リメンバ"
+        ],
+        "level": 3,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "王手の一歩ヒラナ",
+        "subName": [
+            "おうてのいっぽひらな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-007.webp",
+        "cardType": [
+            "ルリグ"
+        ],
+        "lrigTypeClass": [
+            "ヒラナ"
+        ],
+        "level": 3,
+        "color": [
+            "赤"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "コード・ピルルク・極",
+        "subName": [
+            "こーどぴるるくきわめ",
+            "こーどぴるるくきわみ",
+            "こーどぴるるくきょく"
+        ],
+        "image": "WXDi-P13/WXDi-P13-008.webp",
+        "cardType": [
+            "ルリグ"
+        ],
+        "lrigTypeClass": [
+            "ピルルク"
+        ],
+        "level": 3,
+        "color": [
+            "青"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "散散緑姫",
+        "subName": [
+            "さんさんみどりこ",
+            "さんさんみどりひめ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-009.webp",
+        "cardType": [
+            "ルリグ"
+        ],
+        "lrigTypeClass": [
+            "緑子"
+        ],
+        "level": 3,
+        "color": [
+            "緑"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "ナナシ其ノ参ノ禍",
+        "subName": [
+            "ななしそのさんのか"
+        ],
+        "image": "WXDi-P13/WXDi-P13-010.webp",
+        "cardType": [
+            "ルリグ"
+        ],
+        "lrigTypeClass": [
+            "ナナシ"
+        ],
+        "level": 3,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "サシェ・アンジュレーション",
+        "subName": [
+            "さしぇあんじゅれーしょん"
+        ],
+        "image": "WXDi-P13/WXDi-P13-027.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "サシェ"
+        ],
+        "level": 1,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            ""
+        ]
+    },
+    {
+        "name": "サシェ・ラアシャ",
+        "subName": [
+            "さしぇらあしゃ",
+            "さしぇらーしゃ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-028.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "サシェ"
+        ],
+        "level": 1,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "アタックフェイズ"
+        ]
+    },
+    {
+        "name": "サシェ・バラディ",
+        "subName": [
+            "さしぇばらでぃ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-029.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "サシェ"
+        ],
+        "level": 2,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            ""
+        ]
+    },
+    {
+        "name": "サシェ・アイソレート",
+        "subName": [
+            "さしぇあいそれーと"
+        ],
+        "image": "WXDi-P13/WXDi-P13-030.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "サシェ"
+        ],
+        "level": 2,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "アタックフェイズ"
+        ]
+    },
+    {
+        "name": "サシェ・スネイク",
+        "subName": [
+            "さしぇすねいく"
+        ],
+        "image": "WXDi-P13/WXDi-P13-031.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "サシェ"
+        ],
+        "level": 2,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "アタックフェイズ"
+        ]
+    },
+    {
+        "name": "イオナ・シャウティ",
+        "subName": [
+            "いおなしゃうてぃ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-033.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "イオナ"
+        ],
+        "level": 1,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            ""
+        ]
+    },
+    {
+        "name": "イオナ・エイボン",
+        "subName": [
+            "イオナエイボン"
+        ],
+        "image": "WXDi-P13/WXDi-P13-034.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "イオナ"
+        ],
+        "level": 1,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            ""
+        ]
+    },
+    {
+        "name": "イオナ・フルムーン",
+        "subName": [
+            "いおなふるむーん"
+        ],
+        "image": "WXDi-P13/WXDi-P13-035.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "イオナ"
+        ],
+        "level": 2,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "アタックフェイズ"
+        ]
+    },
+    {
+        "name": "イオナ・ザ・ビーム",
+        "subName": [
+            "いおなざびーむ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-036.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "イオナ"
+        ],
+        "level": 2,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "アタックフェイズ"
+        ]
+    },
+    {
+        "name": "イオナ・ダーク・マター",
+        "subName": [
+            "いおなだーくまたー"
+        ],
+        "image": "WXDi-P13/WXDi-P13-037.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "イオナ"
+        ],
+        "level": 2,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "アタックフェイズ"
+        ]
+    },
+    {
+        "name": "ミュウ－ジャコウ",
+        "subName": [
+            "みゅうじゃこう"
+        ],
+        "image": "WXDi-P13/WXDi-P13-039.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "ミュウ"
+        ],
+        "level": 1,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            ""
+        ]
+    },
+    {
+        "name": "ミュウ－クロアゲハ",
+        "subName": [
+            "みゅうくろあげは"
+        ],
+        "image": "WXDi-P13/WXDi-P13-040.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "ミュウ"
+        ],
+        "level": 1,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            ""
+        ]
+    },
+    {
+        "name": "ミュウ－コムラサキ",
+        "subName": [
+            "みゅうこむらさき"
+        ],
+        "image": "WXDi-P13/WXDi-P13-041.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "ミュウ"
+        ],
+        "level": 2,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "アタックフェイズ"
+        ]
+    },
+    {
+        "name": "ミュウ－サカハチ",
+        "subName": [
+            "みゅうさかはち"
+        ],
+        "image": "WXDi-P13/WXDi-P13-042.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "ミュウ"
+        ],
+        "level": 2,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "アタックフェイズ"
+        ]
+    },
+    {
+        "name": "ミュウ－ルリタテハ",
+        "subName": [
+            "みゅうるりたては"
+        ],
+        "image": "WXDi-P13/WXDi-P13-043.webp",
+        "cardType": [
+            "アシスト"
+        ],
+        "lrigTypeClass": [
+            "ミュウ"
+        ],
+        "level": 2,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "null",
+        "tags": [
+            "アタックフェイズ"
+        ]
+    },
+    {
+        "name": "聖魔姫ハイティ//ディソナ",
+        "subName": [
+            "せいまきはいてぃでぃそな",
+            "はいでぃ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-044.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏像：悪魔"
+        ],
+        "level": 3,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "幻水姫アキノ//ディソナ",
+        "subName": [
+            "げんすいきあきのでぃそな",
+            "あきでぃ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-045.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏生：水獣"
+        ],
+        "level": 3,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "羅星姫サデスタル//ディソナ",
+        "subName": [
+            "らせいきさですたるでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-046.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏羅：宇宙"
+        ],
+        "level": 3,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "幻獣神LOVIT//ディソナ",
+        "subName": [
+            "げんじゅうしんらびっとでぃそな",
+            "げんじゅうしんLOVITでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-047.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏生：地獣"
+        ],
+        "level": 0,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "紅天姫テッペン//ディソナ",
+        "subName": [
+            "こうてんきてっぺんでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-048.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏像：天使"
+        ],
+        "level": 3,
+        "color": [
+            "赤"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "大罠あや//ディソナ",
+        "subName": [
+            "だいびんあやでぃそな",
+            "おおわなあやでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-049.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏武：トリック"
+        ],
+        "level": 3,
+        "color": [
+            "青"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "コードハートセイヴ//ディソナ",
+        "subName": [
+            "こーどはーとせいヴでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-050.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏械：電機"
+        ],
+        "level": 3,
+        "color": [
+            "青"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "翠美姫アン//ディソナ",
+        "subName": [
+            "すいびきあんでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-051.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏像：美巧"
+        ],
+        "level": 33,
+        "color": [
+            "緑"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "幻獣神ウルフレンド//ディソナ",
+        "subName": [
+            "げんじゅうしんうるふれんどでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-052.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏生：地獣"
+        ],
+        "level": 3,
+        "color": [
+            "緑"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "凶魔姫アルフォウ//ディソナ",
+        "subName": [
+            "きょうまきあるふぉうでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-053.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏像：悪魔"
+        ],
+        "level": 3,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "惨之遊姫グズ子//ディソナ",
+        "subName": [
+            "さんのゆうきぐずこでぃそな",
+            "さんのゆうひめぐずこでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-054.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏武：遊具"
+        ],
+        "level": 3,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "羅菌姫ヘドニム//ディソナ",
+        "subName": [
+            "らきんひめへどにむでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-055.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏羅：微菌"
+        ],
+        "level": 3,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "コードアートLION//ディソナ",
+        "subName": [
+            "こーどあーとりおんでぃそな",
+            "こーどあーとらいおんでぃそな",
+            "こーどあーとLIONでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-056.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏械：電機"
+        ],
+        "level": 1,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "コードアンチホーキ//ディソナ",
+        "subName": [
+            "こーどあんちほーきでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-057.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏械：古代兵器"
+        ],
+        "level": 1,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "幻怪モクモレン//ディソナ",
+        "subName": [
+            "げんかいもくれんでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-058.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏生：怪異"
+        ],
+        "level": 1,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "聖天ラグエル//ディソナ",
+        "subName": [
+            "せいてんらぐえるでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-059.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏像：天使"
+        ],
+        "level": 2,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "羅星コメッチ//ディソナ",
+        "subName": [
+            "らせいこめっちでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-060.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏羅：宇宙"
+        ],
+        "level": 2,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "リズミック・フォーチュン",
+        "subName": [
+            "りずみっくふぉーちゅん"
+        ],
+        "image": "WXDi-P13/WXDi-P13-061.webp",
+        "cardType": [
+            "スペル"
+        ],
+        "lrigTypeClass": [
+            ""
+        ],
+        "level": 0,
+        "color": [
+            "白"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "羅星カーニバル//ディソナ",
+        "subName": [
+            "らせいかーにばるでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-062.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏羅：宇宙"
+        ],
+        "level": 1,
+        "color": [
+            "赤"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "幻怪チュパサブロウ//ディソナ",
+        "subName": [
+            "げんかいちゅぱさぶろうでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-063.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏生：怪異"
+        ],
+        "level": 1,
+        "color": [
+            "赤"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "幻竜キリン//ディソナ",
+        "subName": [
+            "げんりゅうきりんでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-064.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏生：龍獣"
+        ],
+        "level": 1,
+        "color": [
+            "赤"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "幻怪エクス//ディソナ",
+        "subName": [
+            "げんかいえくすでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-065.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏生：怪異"
+        ],
+        "level": 2,
+        "color": [
+            "赤"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "羅原Rb//ディソナ",
+        "subName": [
+            "らげんるびじうむでぃそな",
+            "らげんあーるびーでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-066.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏羅：原子"
+        ],
+        "level": 2,
+        "color": [
+            "赤"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "幻蟲アトラス//ディソナ",
+        "subName": [
+            "げんちゅうあとらすでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-067.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏生：凶蟲"
+        ],
+        "level": 3,
+        "color": [
+            "赤"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "見得の戦術",
+        "subName": [
+            "みえのせんじゅつ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-068.webp",
+        "cardType": [
+            "スペル"
+        ],
+        "lrigTypeClass": [
+            ""
+        ],
+        "level": 0,
+        "color": [
+            "赤"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "蒼美ふたせ//ディソナ",
+        "subName": [
+            "そうびふたせでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-069.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏像：美巧"
+        ],
+        "level": 1,
+        "color": [
+            "青"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "羅石レイ//ディソナ",
+        "subName": [
+            "らせきれいでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-070.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏羅：宝石"
+        ],
+        "level": 1,
+        "color": [
+            "青"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "コードメイズオオカソ//ディソナ",
+        "subName": [
+            "こーどめいずおおかそでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-071.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏械：迷宮"
+        ],
+        "level": 1,
+        "color": [
+            "青"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "羅原ミルルン//ディソナ",
+        "subName": [
+            "らげんみるるんでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-072.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏羅：原子"
+        ],
+        "level": 2,
+        "color": [
+            "青"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "蒼天ユバンダ//ディソナ",
+        "subName": [
+            "そうてんゆばんだでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-073.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏像：天使"
+        ],
+        "level": 2,
+        "color": [
+            "青"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "コードイートコーヒー//ディソナ",
+        "subName": [
+            "こーどいーとこーひーでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-074.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏械：調理"
+        ],
+        "level": 3,
+        "color": [
+            "青"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "DEEPFREEZE",
+        "subName": [
+            "でぃーぷふりーず",
+            "でぃぷふり"
+        ],
+        "image": "WXDi-P13/WXDi-P13-075.webp",
+        "cardType": [
+            "スペル"
+        ],
+        "lrigTypeClass": [
+            ""
+        ],
+        "level": 0,
+        "color": [
+            "青"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "翠英ママ//ディソナ",
+        "subName": [
+            "すいえいままでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-076.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏像：英知"
+        ],
+        "level": 1,
+        "color": [
+            "緑"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "小砲パチン//ディソナ",
+        "subName": [
+            "しょうほうぱちんでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-077.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏武：ウェポン"
+        ],
+        "level": 1,
+        "color": [
+            "緑"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "アイン＝コノトキ//ディソナ",
+        "subName": [
+            "あいんことのきでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-078.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏武：毒牙"
+        ],
+        "level": 1,
+        "color": [
+            "緑"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "爆砲WOLF//ディソナ",
+        "subName": [
+            "ばくほううるふでぃそな",
+            "ばくほうWOLFでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-079.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏武：ウェポン"
+        ],
+        "level": 2,
+        "color": [
+            "緑"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "翠将シンゲン//ディソナ",
+        "subName": [
+            "すいしょうしんげんでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-080.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏像：武勇"
+        ],
+        "level": 2,
+        "color": [
+            "緑"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "翠魔ヘルゲト//ディソナ",
+        "subName": [
+            "すいまへるげとでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-081.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏像：悪魔"
+        ],
+        "level": 3,
+        "color": [
+            "緑"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "心槍",
+        "subName": [
+            "しんそう",
+            "こころやり"
+        ],
+        "image": "WXDi-P13/WXDi-P13-082.webp",
+        "cardType": [
+            "スペル"
+        ],
+        "lrigTypeClass": [
+            ""
+        ],
+        "level": 0,
+        "color": [
+            "緑"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "小装デウス//ディソナ",
+        "subName": [
+            "しょうそうでうすでぃそな",
+            "でうでぃ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-083.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏武：アーム"
+        ],
+        "level": 1,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "羅星ミカヅキ//ディソナ",
+        "subName": [
+            "らせいみかづきでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-084.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏羅：宇宙"
+        ],
+        "level": 1,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "幻蟲ミヤマ//ディソナ",
+        "subName": [
+            "げんちゅうみやまでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-085.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏生：凶蟲"
+        ],
+        "level": 1,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "コードライドマキナ//ディソナ",
+        "subName": [
+            "こーどらいどまきなでぃそな",
+            "まきでぃ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-086.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏械：乗機"
+        ],
+        "level": 2,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "幻竜カルカロ//ディソナ",
+        "subName": [
+            "げんりゅうかるかろでぃそな",
+            "かるでぃー"
+        ],
+        "image": "WXDi-P13/WXDi-P13-087.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏生：龍獣"
+        ],
+        "level": 2,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "ディグ・ディグ",
+        "subName": [
+            "でぃぐでぃぐ"
+        ],
+        "image": "WXDi-P13/WXDi-P13-088.webp",
+        "cardType": [
+            "スペル"
+        ],
+        "lrigTypeClass": [
+            ""
+        ],
+        "level": 0,
+        "color": [
+            "黒"
+        ],
+        "lifeBurst": "true",
+        "tags": [
+            "ディソナ"
+        ]
+    },
+    {
+        "name": "夢限//ディソナ",
+        "subName": [
+            "むげんでぃそな"
+        ],
+        "image": "WXDi-P13/WXDi-P13-089.webp",
+        "cardType": [
+            "シグニ"
+        ],
+        "lrigTypeClass": [
+            "奏元"
+        ],
+        "level": 3,
+        "color": [
+            ""
+        ],
+        "lifeBurst": "false",
+        "tags": [
+            "ディソナ"
+        ]
+    }
+]

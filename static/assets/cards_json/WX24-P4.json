@@ -1,0 +1,1677 @@
+[
+  {
+    "id": "WX24-P4-001",
+    "name": "フレンドシップ・フレイム",
+    "subName": ["ふれんどしっぷふれいむ","ふれふれ"],
+    "image": "WX24-P4/WX24-P4-001.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["白","赤"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+  {
+    "id": "WX24-P4-002",
+    "name": "クリスタル・ダスト",
+    "subName": ["くりすたるだすと","くりだす"],
+    "image": "WX24-P4/WX24-P4-002.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["白","青"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+  {
+    "id": "WX24-P4-003",
+    "name": "エモーショナル・コンフリクト",
+    "subName": ["えもーしょんなるこんふりくと","えもこん"],
+    "image": "WX24-P4/WX24-P4-003.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["白","黒"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+  {
+    "id": "WX24-P4-004",
+    "name": "自己顕火",
+    "subName": ["じこけんか"],
+    "image": "WX24-P4/WX24-P4-004.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      "アタックフェイズ"
+    ]
+  },
+  {
+    "id": "WX24-P4-005",
+    "name": "竜花相搏",
+    "subName": [
+      "りゅうかそうはく",
+      "りゅうかそうばく",
+      "りゅうそう"
+    ],
+    "image": "WX24-P4/WX24-P4-005.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      "アタックフェイズ"
+    ]
+  },
+  {
+    "id": "WX24-P4-006",
+    "name": "バタフライ・エフェクト",
+    "subName": [
+      "ばたふらいえふぇくと",
+      "ばたえふ"
+    ],
+    "image": "WX24-P4/WX24-P4-006.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      "アタックフェイズ"
+    ]
+  },
+  {
+    "id": "WX24-P4-007",
+    "name": "ブッパ・フラストレーション",
+    "subName": [
+      "ぶっぱふらすとれーしょん",
+      "ぶぱふら"
+    ],
+    "image": "WX24-P4/WX24-P4-007.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-008",
+    "name": "緑衣之心",
+    "subName": [
+      "ぐりーんすとーりー",
+      "ぐりすと",
+      "みどりいのこころ"
+    ],
+    "image": "WX24-P4/WX24-P4-008.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-009",
+    "name": "落葉帰根",
+    "subName": [
+      "りばーさるりーふ",
+      "りばりふ",
+      "かえるね"
+    ],
+    "image": "WX24-P4/WX24-P4-009.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      "アタックフェイズ"
+    ]
+  },
+  {
+    "id": "WX24-P4-010",
+    "name": "クリムゾン・リボーン",
+    "subName": [
+      "くりむぞんりびーおん",
+      "くりりぼ"
+    ],
+    "image": "WX24-P4/WX24-P4-010.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-011",
+    "name": "過日の巫女　タマヨリヒメ",
+    "subName": [
+      "かじつのみこ たまよりひめ"
+    ],
+    "image": "WX24-P4/WX24-P4-011.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-012",
+    "name": "進日の使途　小湊るう子",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-012.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-013",
+    "name": "占星術の巫女　リメンバ・ナイト",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-013.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-014",
+    "name": "閃華繚乱　花代・肆",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-014.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-015",
+    "name": "熾炎舞　遊月・肆",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-015.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-016",
+    "name": "ちより　最終章",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-016.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-017",
+    "name": "ロストコード・ピルルク　X",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-017.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-018",
+    "name": "あきら☆らぶりー",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-018.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-019",
+    "name": "エルドラ×マークⅣ　FINAL",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-019.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-020",
+    "name": "熾型心　緑姫",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-020.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-021",
+    "name": "熾式　一衣",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-021.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-022",
+    "name": "正調の成長　アン＝フォース",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-022.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-023",
+    "name": "死界の閻魔　ウリス",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-023.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-024",
+    "name": "フォース/メイデン　イオナ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-024.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-025",
+    "name": "黒愛の花嫁　アルフォウ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-025.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-026",
+    "name": "クロス・ソード",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-026.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-027",
+    "name": "クリスタル・シールド",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-027.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-028",
+    "name": "火剛杖",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-028.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-029",
+    "name": "光火矢如",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-029.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-030",
+    "name": "グレア・アット",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-030.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-031",
+    "name": "バツ・ウォーター",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-031.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-032",
+    "name": "花枝招展",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-032.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-033",
+    "name": "飛花落葉",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-033.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-034",
+    "name": "カース・ストリング",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-034.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-035",
+    "name": "アンチ・スフィア",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-035.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-036",
+    "name": "グロウ・エンハンス",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-036.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-037",
+    "name": "スノー・チャージング",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-037.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-038",
+    "name": "憧れへの挑戦",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-038.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-039",
+    "name": "リメンバ・プリズン",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-039.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-040",
+    "name": "ミルルン☆スティール",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-040.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-041",
+    "name": "アルフォウローズドール",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-041.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-042",
+    "name": "ハナレ//ポイズンスラッシュ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-042.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-043",
+    "name": "羅星姫　マゼラン",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-043.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-044",
+    "name": "幻怪姫　ギュウキ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-044.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-045",
+    "name": "大罠　カードマジック",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-045.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-046",
+    "name": "コードアクセル　ホウルトラック",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-046.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-047",
+    "name": "幻水姫　メガマウス",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-047.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-048",
+    "name": "翠美姫　ムンクシャウト",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-048.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-049",
+    "name": "凶魔姫　ラーヴァナ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-049.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-050",
+    "name": "轟砲　ハウザー",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-050.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-051",
+    "name": "コードアンシエンツ　ナグルファル",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-051.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-052",
+    "name": "羅原姫　Ｌａ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-052.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-053",
+    "name": "蒼翠英姫　ラマヌジャン",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-053.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-054",
+    "name": "ドライ＝キロネックス",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-054.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-055",
+    "name": "小装　ホウチョウ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-055.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-056",
+    "name": "聖天　セラフィエル",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-056.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-057",
+    "name": "羅星　ソンブレロ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-057.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-058",
+    "name": "中装　ジガネマル",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-058.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-059",
+    "name": "聖魔　カネクマドウジ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-059.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-060",
+    "name": "羅星　フーシャ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-060.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-061",
+    "name": "ゲット・アルマンデル",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-061.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-062",
+    "name": "羅石　シンシャ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-062.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-063",
+    "name": "幻竜　プテラノドン",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-063.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-064",
+    "name": "小罠　ハンカチマジック",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-064.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-065",
+    "name": "羅石　オブシディアン",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-065.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-066",
+    "name": "幻竜　アロサウルス",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-066.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-067",
+    "name": "中罠　ヘンメン",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-067.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-068",
+    "name": "延命の選定",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-068.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-069",
+    "name": "コードアート　Wオーターサーバー",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-069.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-070",
+    "name": "壱ノ遊　ビニールプール",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-070.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-071",
+    "name": "幻水　カツオ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-071.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-072",
+    "name": "コードアート　Wオーターカッター",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-072.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-073",
+    "name": "弍ノ遊　バブルボール",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-073.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-074",
+    "name": "幻水　サカバンバスピス",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-074.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-075",
+    "name": "ＲＡＩＮＹ　ＤＡＹ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-075.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-076",
+    "name": "幻獣　ハクビシン",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-076.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-077",
+    "name": "羅植　スイセン",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-077.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-078",
+    "name": "翠美　フレスコ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-078.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-079",
+    "name": "幻獣　ヘラジカ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-079.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-080",
+    "name": "羅植　サイネリア",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-080.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-081",
+    "name": "翠美　ペンデュラムアート",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-081.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-082",
+    "name": "緑光",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-082.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-083",
+    "name": "凶魔　マルコシアス",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-083.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-084",
+    "name": "コードメイズ　ヨルトンネル",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-084.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-085",
+    "name": "凶魔　アンドレアルフス",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-085.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-086",
+    "name": "凶魔　ヴァプラ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-086.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-087",
+    "name": "コードメイズ　チェイテ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-087.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-088",
+    "name": "凶魔　バンダースナッチ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-088.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-089",
+    "name": "ダーク・ペネトレイト",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-089.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-090",
+    "name": "小装　ハジョウツイ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-090.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-091",
+    "name": "幻水　イソギンチャク",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-091.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-092",
+    "name": "羅植　クリスマスローズ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-092.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-093",
+    "name": "聖凶魔　アンドロマリウス",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-093.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-094",
+    "name": "コードアート　Ｒイダンボウ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-094.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-095",
+    "name": "小罠　ボールゾウ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-095.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-096",
+    "name": "幻竜　マラク",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-096.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-097",
+    "name": "蒼翠美　ウォーターアート",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-097.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-098",
+    "name": "壱ノ遊　ナイトプール",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-098.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-099",
+    "name": "コードメイズ　シバマタイシャ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-099.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-101",
+    "name": "みこみこ☆てへっ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-101.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-102",
+    "name": "羅石　グリンベリル",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-102.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-103",
+    "name": "ツヴァイ＝ベロド",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-103.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-104",
+    "name": "弐ノ遊 カミヨーヨー",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-104.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  },
+  {
+    "id": "WX24-P4-105",
+    "name": "羅菌 ミカヅキモ",
+    "subName": [],
+    "image": "WX24-P4/WX24-P4-105.webp",
+    "cardType": [],
+    "lrigTypeClass": [
+      ""
+    ],
+    "level": 0,
+    "color": [],
+    "lifeBurst": "null",
+    "tags": [
+      ""
+    ]
+  }
+]
