@@ -1,0 +1,37 @@
+name = "wixdex"
+compatibility_date = "2025-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+pages_build_output_dir = ".svelte-kit/cloudflare"
+
+# D1 (Phase B以降で database_id を埋める)
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "wixdex-prod"
+# database_id = "..."
+# migrations_dir = "migrations"
+
+# KV (Phase B以降で id を埋める)
+# [[kv_namespaces]]
+# binding = "OAUTH_STATE"
+# id = "..."
+
+# [[kv_namespaces]]
+# binding = "OAUTH_SESSION"
+# id = "..."
+
+# [[kv_namespaces]]
+# binding = "WIXDEX_SESSION"
+# id = "..."
+
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "..."
+
+# R2 (Phase A で bucket 作成後に id を埋める)
+# [[r2_buckets]]
+# binding = "CARD_IMAGES"
+# bucket_name = "wixdex-card-images"
+
+[vars]
+APP_URL = "http://localhost:5173"
