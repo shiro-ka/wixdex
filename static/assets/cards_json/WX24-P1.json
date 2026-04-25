@@ -1,0 +1,1009 @@
+[
+  {
+    "name": "セイクリッド・フォース",
+    "subName": ["せいくりっどふぉーす", "くりふぉ"],
+    "image": "WX24-P1/WX24-P1-001.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["白"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "シャイニング・クロック",
+    "subName": ["しゃいにんぐくろっく", "しゃいくろ"],
+    "image": "WX24-P1/WX24-P1-002.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["白"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "鏡花炎月",
+    "subName": ["きょうかえんげつ"],
+    "image": "WX24-P1/WX24-P1-003.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["赤"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "追憶浸火",
+    "subName": ["ついおくしんか"],
+    "image": "WX24-P1/WX24-P1-004.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["赤"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "クリアー・マインド",
+    "subName": ["くりあーまいんど", "くりまい"],
+    "image": "WX24-P1/WX24-P1-005.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["青"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "フローズン・ギア",
+    "subName": ["ふろーずんぎあ", "ふろぎあ"],
+    "image": "WX24-P1/WX24-P1-006.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["青"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "全力疾走",
+    "subName": ["じゃいあんとなっくる", "ぜんりょくしっそう", "じゃいな"],
+    "image": "WX24-P1/WX24-P1-007.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["緑"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "温故知新",
+    "subName": ["つたーだすとめもりー", "おんこちしん", "つただ"],
+    "image": "WX24-P1/WX24-P1-008.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["緑"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "ダーク・マイアズマ",
+    "subName": ["だーくまいあずま", "だくあず"],
+    "image": "WX24-P1/WX24-P1-009.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["黒"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "アビス・ノスタルジア",
+    "subName": ["あびすのすたるじあ", "あびのす", "あびすた"],
+    "image": "WX24-P1/WX24-P1-010.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["黒"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "月日の巫女タマヨリヒメ",
+    "subName": ["つきひのみこたまよりひめ"],
+    "image": "WX24-P1/WX24-P1-011.webp",
+    "cardType": ["ルリグ"],
+    "lrigTypeClass": ["タマ"],
+    "level": 3,
+    "color": ["白"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "閃花繚乱花代・参",
+    "subName": ["せんかりょうらんはなよさん"],
+    "image": "WX24-P1/WX24-P1-012.webp",
+    "cardType": ["ルリグ"],
+    "lrigTypeClass": ["花代"],
+    "level": 3,
+    "color": ["赤"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "ロストコード・ピルルク",
+    "subName": ["ろすとこーどぴるるく", "ろすこぴ"],
+    "image": "WX24-P1/WX24-P1-013.webp",
+    "cardType": ["ルリグ"],
+    "lrigTypeClass": ["ピルルク"],
+    "level": 3,
+    "color": ["青"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "讃型緑姫",
+    "subName": ["さんがたみどりひめ"],
+    "image": "WX24-P1/WX24-P1-014.webp",
+    "cardType": ["ルリグ"],
+    "lrigTypeClass": ["緑子"],
+    "level": 3,
+    "color": ["緑"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "挟界の閻魔ウリス",
+    "subName": ["きょうかいのえんまうりす"],
+    "image": "WX24-P1/WX24-P1-015.webp",
+    "cardType": ["ルリグ"],
+    "lrigTypeClass": ["ウリス"],
+    "level": 3,
+    "color": ["黒"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "イノセント・フラッシュ",
+    "subName": ["いのせんとふらっしゅ", "いのふら"],
+    "image": "WX24-P1/WX24-P1-016.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["白"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "ファイティング・アーム",
+    "subName": ["ふぁいてぃんぐあーむ"],
+    "image": "WX24-P1/WX24-P1-017.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["白"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "シャイニング・ソード",
+    "subName": ["しゃいにんぐそーど"],
+    "image": "WX24-P1/WX24-P1-018.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["白"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "正拳突火",
+    "subName": ["せいけんづか", "せいけんとっか"],
+    "image": "WX24-P1/WX24-P1-019.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["赤"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "玉石混煌",
+    "subName": ["ぎょくせきこんこう"],
+    "image": "WX24-P1/WX24-P1-020.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["赤"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "剣一炎敵",
+    "subName": ["けんいちえんてき"],
+    "image": "WX24-P1/WX24-P1-021.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["赤"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "スノー・サークル",
+    "subName": ["すのーさーくる", "すのさー"],
+    "image": "WX24-P1/WX24-P1-022.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["青"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "ドンドン・バキューム",
+    "subName": ["どんどんばきゅーむ", "どんばきゅ", "どんすい"],
+    "image": "WX24-P1/WX24-P1-023.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["青"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "アイス・アロー",
+    "subName": ["すいすあろー", "すいあろ"],
+    "image": "WX24-P1/WX24-P1-024.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["青"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "欣喜雀躍",
+    "subName": ["りふれっしゅだんす", "きんきじゃくやく", "りふだん"],
+    "image": "WX24-P1/WX24-P1-025.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["緑"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "剣戟森森",
+    "subName": ["でゅえるそーど", "けんげきしんしん", "でゅえそー"],
+    "image": "WX24-P1/WX24-P1-027.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["緑"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "イビル・プラン",
+    "subName": ["いびるぷらん", "いびぷら"],
+    "image": "WX24-P1/WX24-P1-028.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["黒"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "デーモン・サークル",
+    "subName": ["でーもんさーくる", "でもさー"],
+    "image": "WX24-P1/WX24-P1-029.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["黒"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "ダーク・ソード",
+    "subName": ["だーくそーど", "だくそ"],
+    "image": "WX24-P1/WX24-P1-030.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["黒"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "プロフィット・エンハンス",
+    "subName": ["ぷろふぃっとえんはんす", "ぷろえんは"],
+    "image": "WX24-P1/WX24-P1-031.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": [""],
+    "lifeBurst": "null",
+    "tags": ["リミットアッパー"]
+  },
+
+  {
+    "name": "シーク・エンハンス",
+    "subName": ["しーくえんはんす", "しくえんは"],
+    "image": "WX24-P1/WX24-P1-032.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": [""],
+    "lifeBurst": "null",
+    "tags": ["リミットアッパー"]
+  },
+
+  {
+    "name": "スモーク・ストップ",
+    "subName": ["すもーくすとっぷ", "すもすと"],
+    "image": "WX24-P1/WX24-P1-033.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": [""],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "スリップ・ストップ",
+    "subName": ["すりっぷすとっぷ", "すりすと"],
+    "image": "WX24-P1/WX24-P1-034.webp",
+    "cardType": ["アーツ"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": [""],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "クラス・ヒストリー",
+    "subName": ["くらすひすとりー", "くらひす"],
+    "image": "WX24-P1/WX24-P1-035.webp",
+    "cardType": ["ピース"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": [""],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "タマ・ほわいと",
+    "subName": ["たまほわいと"],
+    "image": "WX24-P1/WX24-P1-036.webp",
+    "cardType": ["アシスト"],
+    "lrigTypeClass": ["タマ"],
+    "level": 2,
+    "color": ["白"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "花代・木春菊",
+    "subName": ["はなよもくしゅんぎく"],
+    "image": "WX24-P1/WX24-P1-037.webp",
+    "cardType": ["アシスト"],
+    "lrigTypeClass": ["花代"],
+    "level": 2,
+    "color": ["赤"],
+    "lifeBurst": "null",
+    "tags": ["アタックフェイズ"]
+  },
+
+  {
+    "name": "緑姫・手腕",
+    "subName": ["みどりこしゅわん"],
+    "image": "WX24-P1/WX24-P1-038.webp",
+    "cardType": ["アシスト"],
+    "lrigTypeClass": ["緑子"],
+    "level": 2,
+    "color": ["緑"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "大装エナジェ",
+    "subName": ["たいそうえなじぇ"],
+    "image": "WX24-P1/WX24-P1-039.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：アーム"],
+    "level": 3,
+    "color": ["白"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "聖英姫キュリー",
+    "subName": ["せいえいききゅりー"],
+    "image": "WX24-P1/WX24-P1-040.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：英知"],
+    "level": 3,
+    "color": ["白"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "コードアンシエンツスフィンクス",
+    "subName": ["こーどあんしえんつすふぃんくす"],
+    "image": "WX24-P1/WX24-P1-041.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：古代兵器"],
+    "level": 3,
+    "color": ["白"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅闘輝石アダマスフィア",
+    "subName": ["らとうきせきあだますふぃあ"],
+    "image": "WX24-P1/WX24-P1-042.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：宝石"],
+    "level": 3,
+    "color": ["赤"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "コードアクセルダンプカー",
+    "subName": ["こーどあくせるだんぷかー"],
+    "image": "WX24-P1/WX24-P1-043.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：乗機"],
+    "level": 3,
+    "color": ["赤"],
+    "lifeBurst": "true",
+    "tags": ["ライズ"]
+  },
+
+  {
+    "name": "コードハートVキューム",
+    "subName": ["こーどはーとぶいきゅーむ", "こーどはーとばきゅーむ"],
+    "image": "WX24-P1/WX24-P1-044.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：電機"],
+    "level": 3,
+    "color": ["青"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅菌姫トーチュー・カソー",
+    "subName": ["らきんひめとーちゅーかそー"],
+    "image": "WX24-P1/WX24-P1-045.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：微菌"],
+    "level": 3,
+    "color": ["青"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "幻獣神オサコ",
+    "subName": ["げんじゅうしんおさこ"],
+    "image": "WX24-P1/WX24-P1-046.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：地獣"],
+    "level": 3,
+    "color": ["緑"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅星姫キャトミ",
+    "subName": ["らせいききゃとみ"],
+    "image": "WX24-P1/WX24-P1-047.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：宇宙"],
+    "level": 3,
+    "color": ["緑"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "凶魔姫アンナ・ミラージュ",
+    "subName": ["きょうまきあんなみらーじゅ", "あんみら"],
+    "image": "WX24-P1/WX24-P1-048.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：悪魔"],
+    "level": 3,
+    "color": ["黒"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "ドライ＝ブラックマンバ",
+    "subName": ["どらいぶらっくまんば", "どらい=ぶらっくまんば", "どらぶら"],
+    "image": "WX24-P1/WX24-P1-049.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：毒牙"],
+    "level": 3,
+    "color": ["黒"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "大幻蟲ベル・クリケット",
+    "subName": ["だいげんちゅうべるくりけっと"],
+    "image": "WX24-P1/WX24-P1-050.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：凶蟲"],
+    "level": 3,
+    "color": ["黒"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "小装ラウンド",
+    "subName": ["しょうそうらうんど"],
+    "image": "WX24-P1/WX24-P1-051.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：アーム"],
+    "level": 1,
+    "color": ["白"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "小装シチシトー",
+    "subName": ["しょうそうしちしとー"],
+    "image": "WX24-P1/WX24-P1-052.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：アーム"],
+    "level": 1,
+    "color": ["白"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅石アクロアイト",
+    "subName": ["らせきあくろあいと"],
+    "image": "WX24-P1/WX24-P1-053.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：宝石"],
+    "level": 1,
+    "color": ["白"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "中装トレット",
+    "subName": ["ちゅうそうとれっと"],
+    "image": "WX24-P1/WX24-P1-054.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：アーム"],
+    "level": 2,
+    "color": ["白"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "中装ライジョー",
+    "subName": ["ちゅうそうらいじょー"],
+    "image": "WX24-P1/WX24-P1-055.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：アーム"],
+    "level": 2,
+    "color": ["白"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "幻獣アルパカ",
+    "subName": ["げんじゅうあるぱか"],
+    "image": "WX24-P1/WX24-P1-056.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：地獣"],
+    "level": 2,
+    "color": ["白"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "マッスル・アーム",
+    "subName": ["まっするあーむ", "筋トレ"],
+    "image": "WX24-P1/WX24-P1-057.webp",
+    "cardType": ["スペル"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["白"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅闘石アメジスト",
+    "subName": ["らとうせきあめじすと"],
+    "image": "WX24-P1/WX24-P1-058.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：宝石"],
+    "level": 1,
+    "color": ["赤"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅石バナジナイト",
+    "subName": ["らせきばなじないと"],
+    "image": "WX24-P1/WX24-P1-059.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：宝石"],
+    "level": 1,
+    "color": ["赤"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "コードアートSイハンキ",
+    "subName": ["こーどあーとえすいはんき", "こーどあーとすいはんき"],
+    "image": "WX24-P1/WX24-P1-060.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：電機"],
+    "level": 1,
+    "color": ["赤"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅闘石ヒスイ",
+    "subName": ["らとうせきひすい"],
+    "image": "WX24-P1/WX24-P1-061.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：宝石"],
+    "level": 2,
+    "color": ["赤"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅石チェリークォーツ",
+    "subName": ["らせきちぇりーくぉーつ", "らせきちぇりーくおーつ"],
+    "image": "WX24-P1/WX24-P1-062.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：宝石"],
+    "level": 2,
+    "color": ["赤"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "紅魔フュール",
+    "subName": ["こうまふゅーる", "こうまふゆーる"],
+    "image": "WX24-P1/WX24-P1-063.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：悪魔"],
+    "level": 2,
+    "color": ["赤"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "溶岩の波乗",
+    "subName": ["ようがんのなみのり"],
+    "image": "WX24-P1/WX24-P1-064.webp",
+    "cardType": ["スペル"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["赤"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "コードアートSヨクセンキ",
+    "subName": ["こーどあーとえすよくせんき", "こーどあーとしょくせんき"],
+    "image": "WX24-P1/WX24-P1-065.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：電機"],
+    "level": 1,
+    "color": ["青"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "コードアートSコアボード",
+    "subName": ["こーどあーとえすこあぼーど", "こーどあーとすこあぼーど"],
+    "image": "WX24-P1/WX24-P1-066.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：電機"],
+    "level": 1,
+    "color": ["青"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "蒼魔フルカス",
+    "subName": ["あおまふるかす"],
+    "image": "WX24-P1/WX24-P1-067.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：悪魔"],
+    "level": 1,
+    "color": ["青"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "コードアートSマフォ",
+    "subName": ["こーどあーとえすまふぉ", "こーどあーとすまふぉ", "すまほ"],
+    "image": "WX24-P1/WX24-P1-068.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": [""],
+    "level": 2,
+    "color": ["青"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "コードアートSエーバー",
+    "subName": ["こーどあーとえすえーばー", "こーどあーとしぇーばー"],
+    "image": "WX24-P1/WX24-P1-069.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：電機"],
+    "level": 2,
+    "color": ["青"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "中装ハルパー",
+    "subName": ["ちゅうそうはるぱー"],
+    "image": "WX24-P1/WX24-P1-070.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：アーム"],
+    "level": 2,
+    "color": ["青"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "ＵＰＤＡＴＥ",
+    "subName": ["アップデート", "UPDATE"],
+    "image": "WX24-P1/WX24-P1-071.webp",
+    "cardType": ["スペル"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["青"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "幻闘獣ミャオ",
+    "subName": ["げんとうじゅうみゃお"],
+    "image": "WX24-P1/WX24-P1-072.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：地獣"],
+    "level": 1,
+    "color": ["緑"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "幻闘獣ベイア",
+    "subName": ["げんとうじゅうべいあ"],
+    "image": "WX24-P1/WX24-P1-073.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：地獣"],
+    "level": 0,
+    "color": ["緑"],
+    "lifeBurst": "null",
+    "tags": [""]
+  },
+
+  {
+    "name": "小装ジャボウ",
+    "subName": ["しょうそうじゃぼう"],
+    "image": "WX24-P1/WX24-P1-074.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏武：アーム"],
+    "level": 1,
+    "color": ["緑"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "幻獣ワオキツネザル",
+    "subName": ["げんじゅうわおきつねざる"],
+    "image": "WX24-P1/WX24-P1-075.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：地獣"],
+    "level": 2,
+    "color": ["緑"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "幻獣プレーリードッグ",
+    "subName": ["げんじゅうぷれーりーどっぐ"],
+    "image": "WX24-P1/WX24-P1-076.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：地獣"],
+    "level": 2,
+    "color": ["緑"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "コードアートTグルスイッチ",
+    "subName": ["こーどあーとてぃーぐるすいっち", "こーどあーととぐるすいっち"],
+    "image": "WX24-P1/WX24-P1-077.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏械：電機"],
+    "level": 2,
+    "color": ["緑"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "獣拳",
+    "subName": ["じゅうけん"],
+    "image": "WX24-P1/WX24-P1-078.webp",
+    "cardType": ["スペル"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["緑"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "凶魔フォラス",
+    "subName": ["きょうまふぉらす"],
+    "image": "WX24-P1/WX24-P1-079.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：悪魔"],
+    "level": 1,
+    "color": ["黒"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "凶魔ラウム",
+    "subName": ["きょうまらうむ"],
+    "image": "WX24-P1/WX24-P1-080.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：悪魔"],
+    "level": 1,
+    "color": ["黒"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "幻獣マレーバク",
+    "subName": ["げんじゅうまれーばく"],
+    "image": "WX24-P1/WX24-P1-081.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏生：地獣"],
+    "level": 1,
+    "color": ["黒"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "凶魔モリガ",
+    "subName": ["きょうまもりが"],
+    "image": "WX24-P1/WX24-P1-082.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：悪魔"],
+    "level": 2,
+    "color": ["黒"],
+    "lifeBurst": "false",
+    "tags": [""]
+  },
+
+  {
+    "name": "凶魔ブネ",
+    "subName": ["きょうまぶね"],
+    "image": "WX24-P1/WX24-P1-083.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏像：悪魔"],
+    "level": 2,
+    "color": ["黒"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "羅石オニキス",
+    "subName": ["らせきおにきす"],
+    "image": "WX24-P1/WX24-P1-084.webp",
+    "cardType": ["シグニ"],
+    "lrigTypeClass": ["奏羅：宝石"],
+    "level": 2,
+    "color": ["黒"],
+    "lifeBurst": "true",
+    "tags": [""]
+  },
+
+  {
+    "name": "デビル・サモン",
+    "subName": ["でびるさもん", "でびさも"],
+    "image": "WX24-P1/WX24-P1-085.webp",
+    "cardType": ["スペル"],
+    "lrigTypeClass": [""],
+    "level": 0,
+    "color": ["黒"],
+    "lifeBurst": "true",
+    "tags": [""]
+  }
+]
