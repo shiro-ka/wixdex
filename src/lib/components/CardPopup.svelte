@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Card } from '$lib/types';
   import StarIcon from './icons/StarIcon.svelte';
+  import { cardImageUrl } from '$lib/utils/cardImages';
 
   interface Props {
     card: Card | null;
@@ -23,7 +24,7 @@
     >
       <div class="flex w-full items-stretch justify-center">
         <img
-          src="/assets/cards_img/{card.image}"
+          src={cardImageUrl(card.image)}
           class="w-full aspect-[3/4] object-contain"
           alt={card.name}
         />

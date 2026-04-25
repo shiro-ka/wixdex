@@ -4,6 +4,7 @@
   import FolderIcon from './icons/FolderIcon.svelte';
   import CardImage from './CardImage.svelte';
   import type { Card } from '$lib/types';
+  import { cardImageUrl } from '$lib/utils/cardImages';
 
   interface Props {
     mainDeck: Card[];
@@ -93,7 +94,7 @@
         >
           <CardImage
             {card}
-            src="/assets/cards_img/{card.image}"
+            src={cardImageUrl(card.image)}
             class="w-full object-contain cursor-pointer"
             alt={card.name}
             {showLifeBurst}
@@ -124,7 +125,7 @@
         >
           <CardImage
             {card}
-            src="/assets/cards_img/{card.image}"
+            src={cardImageUrl(card.image)}
             class="w-full object-contain cursor-pointer"
             alt={card.name}
             {showLifeBurst}
@@ -148,7 +149,7 @@
           <div class="flex items-center w-full aspect-[2/3]">
             <CardImage
               {card}
-              src="/assets/cards_img/{card.image}"
+              src={cardImageUrl(card.image)}
               class="w-full object-contain cursor-pointer"
               alt={card.name}
               {showLifeBurst}

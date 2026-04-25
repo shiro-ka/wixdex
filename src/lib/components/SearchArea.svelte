@@ -12,6 +12,7 @@
   import StarIcon from './icons/StarIcon.svelte';
   import CircleCheckIcon from './icons/CircleCheckIcon.svelte';
   import FolderIcon from './icons/FolderIcon.svelte';
+  import { cardImageUrl } from '$lib/utils/cardImages';
   import SettingsPopup from './SettingsPopup.svelte';
   import SearchSettingsPopup from './SearchSettingsPopup.svelte';
   import TypeFilterContent from './dropdowns/TypeFilterContent.svelte';
@@ -112,7 +113,7 @@
     {#if hoveredCard}
       <div class="w-full h-full flex items-center justify-center">
         <img
-          src="/assets/cards_img/{hoveredCard.image}"
+          src={cardImageUrl(hoveredCard.image)}
           class="max-w-full max-h-full object-contain"
           alt={hoveredCard.name}
         />

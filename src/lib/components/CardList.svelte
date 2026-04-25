@@ -3,6 +3,7 @@
   import PlusIcon from './icons/PlusIcon.svelte';
   import FolderIcon from './icons/FolderIcon.svelte';
   import type { Card } from '$lib/types';
+  import { cardImageUrl } from '$lib/utils/cardImages';
 
   interface Props {
     cards: Card[];
@@ -149,7 +150,7 @@
         <div class="hidden md:flex items-center w-full aspect-[12/17]">
           <CardImage
             {card}
-            src="/assets/cards_img/{card.image}"
+            src={cardImageUrl(card.image)}
             class="object-contain"
             alt={card.name}
             {showLifeBurst}
