@@ -1,14 +1,13 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import type { Card, SavedDeck, DeckType } from '$lib/types';
+  import { page } from '$app/state';
+  import type { Card, DeckType } from '$lib/types';
   import { filterCards } from '$lib/utils/cardFilters';
   import { sortCandidateCards } from '$lib/utils/cardSorting';
   import { addCardToDeck, addMultipleCardsToDeck, removeCardFromDeck } from '$lib/utils/deckOperations';
-  import {
-    getAllDecks, persistDecks,
-    getSettings, saveSettings,
-    getFavorites, saveFavorites,
-  } from '$lib/utils/storage';
+  import { getSettings, saveSettings, getFavorites, saveFavorites } from '$lib/utils/storage';
+  import { CloudDeckSync } from '$lib/stores/cloudDeckSync.svelte';
+  import type { DeckSummary } from '$lib/types';
   import Navbar from '$lib/components/Navbar.svelte';
   import Sidebar from '$lib/components/Sidebar.svelte';
   import DeckArea from '$lib/components/DeckArea.svelte';
@@ -31,6 +30,11 @@
   let allCardData = $state<Card[]>([]);
   let loading = $state(true);
   let loadError = $state<string | null>(null);
+
+  let cardMap = $derived(new Map(allCardData.map((c) => [c.id ?? c.image, c] as const).filter(([k]) => !!k)));
+
+  // ── cloud sync ─────────────────────────────────────────────
+  const cloudSync = new CloudDeckSync(!!page.data.user);
 
   // ── deck state ─────────────────────────────────────────────
   let mainDeck = $state<Card[]>([]);
@@ -70,7 +74,6 @@
   let isDeckEditOpen = $state(false);
   let isShareOpen = $state(false);
   let activeDropdown = $state<'type' | 'lrigClass' | 'tag' | null>(null);
-  let savedDecks = $state<SavedDeck[]>([]);
 
   // ── filtered cards ─────────────────────────────────────────
   let filteredCards = $derived(filterCards(allCardData, {
@@ -257,55 +260,67 @@
   }
 
   // ── deck persistence ───────────────────────────────────────
-  function handleSave() {
-    if (currentDeckId) {
-      const decks = getAllDecks().map(d => d.id === currentDeckId
-        ? { ...d, name: currentDeckName, memo: currentDeckMemo, mainDeck, lrigDeck, candidateCards, updatedAt: Date.now() }
-        : d
-      );
-      persistDecks(decks);
-      currentDeckIsSaved = true;
-    } else {
+  async function handleSave() {
+    if (!currentDeckId) {
       const name = prompt('デッキ名を入力してください', 'New Deck');
       if (!name) return;
-      const now = Date.now();
-      const newDeck: SavedDeck = { id: `deck_${now}`, name, memo: '', mainDeck, lrigDeck, candidateCards, createdAt: now, updatedAt: now };
-      persistDecks([...getAllDecks(), newDeck]);
-      currentDeckId = newDeck.id;
-      currentDeckName = newDeck.name;
-      currentDeckMemo = '';
+      currentDeckName = name;
+    }
+    try {
+      const id = await cloudSync.save({
+        id: currentDeckId ?? undefined,
+        name: currentDeckName,
+        memo: currentDeckMemo,
+        mainDeck,
+        lrigDeck,
+        candidateCards,
+      });
+      currentDeckId = id;
       currentDeckIsSaved = true;
+    } catch {
+      // cloudSync.error is set; user sees it in UI if we add an error display
     }
   }
 
-  function handleDeckListOpen() {
-    savedDecks = getAllDecks();
+  async function handleDeckListOpen() {
+    await cloudSync.loadList();
     isDeckListOpen = true;
   }
 
-  function handleDeleteDeck(deckId: string) {
-    persistDecks(getAllDecks().filter(d => d.id !== deckId));
-    savedDecks = getAllDecks();
+  async function handleDeleteDeck(deckId: string) {
+    if (deckId === currentDeckId) {
+      handleNewDeck();
+    }
+    await cloudSync.delete(deckId);
   }
 
-  function handleLoadDeck(deck: SavedDeck) {
-    loadDeckData(deck.mainDeck, deck.lrigDeck, deck.candidateCards);
-    currentDeckId = deck.id;
-    currentDeckName = deck.name;
-    currentDeckMemo = deck.memo;
+  async function handleLoadDeck(deck: DeckSummary) {
+    const loaded = await cloudSync.loadFull(deck.id, cardMap);
+    if (!loaded) return;
+    loadDeckData(loaded.mainDeck, loaded.lrigDeck, loaded.candidateCards);
+    currentDeckId = loaded.id;
+    currentDeckName = loaded.name;
+    currentDeckMemo = loaded.memo;
     currentDeckIsSaved = true;
   }
 
-  function handleDeckEdit(name: string, memo: string) {
+  async function handleDeckEdit(name: string, memo: string) {
     if (!currentDeckId) return;
-    const decks = getAllDecks().map(d => d.id === currentDeckId
-      ? { ...d, name, memo, updatedAt: Date.now() }
-      : d
-    );
-    persistDecks(decks);
     currentDeckName = name;
     currentDeckMemo = memo;
-    currentDeckIsSaved = true;
+    try {
+      await cloudSync.save({
+        id: currentDeckId,
+        name,
+        memo,
+        mainDeck,
+        lrigDeck,
+        candidateCards,
+      });
+      currentDeckIsSaved = true;
+    } catch {
+      // error handled by cloudSync.error
+    }
   }
 
   function handleNewDeck() {
@@ -432,12 +447,13 @@
       onClose={() => { isSidebarOpen = false; }}
       onDeckListClick={handleDeckListOpen}
       onNewDeckClick={handleNewDeck}
+      user={page.data.user}
     />
 
     <DeckListModal
       isOpen={isDeckListOpen}
       onClose={() => { isDeckListOpen = false; }}
-      decks={savedDecks}
+      decks={cloudSync.decks}
       onSelectDeck={handleLoadDeck}
       onDeleteDeck={handleDeleteDeck}
     />

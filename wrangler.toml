@@ -4,29 +4,27 @@ compatibility_flags = ["nodejs_compat"]
 
 pages_build_output_dir = ".svelte-kit/cloudflare"
 
-# D1 (Phase B以降で database_id を埋める)
-# [[d1_databases]]
-# binding = "DB"
-# database_name = "wixdex-prod"
-# database_id = "..."
-# migrations_dir = "migrations"
+[[d1_databases]]
+binding = "DB"
+database_name = "wixdex-prod"
+database_id = "653419dc-03a9-45ed-8a41-c40a4f5f7a90"
+migrations_dir = "migrations"
 
-# KV (Phase B以降で id を埋める)
-# [[kv_namespaces]]
-# binding = "OAUTH_STATE"
-# id = "..."
+[[kv_namespaces]]
+binding = "OAUTH_STATE"
+id = "245187d80c4e42fdacd2e17b4cc51486"
 
-# [[kv_namespaces]]
-# binding = "OAUTH_SESSION"
-# id = "..."
+[[kv_namespaces]]
+binding = "OAUTH_SESSION"
+id = "94ad081eaad14043b94effea000c6ca9"
 
-# [[kv_namespaces]]
-# binding = "WIXDEX_SESSION"
-# id = "..."
+[[kv_namespaces]]
+binding = "WIXDEX_SESSION"
+id = "cf31a4c1699d45569144f0fa3ed73f67"
 
-# [[kv_namespaces]]
-# binding = "RATE_LIMIT"
-# id = "..."
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "62ad51eb191b4bb6949a279ccaf92343"
 
 [[r2_buckets]]
 binding = "CARD_IMAGES"

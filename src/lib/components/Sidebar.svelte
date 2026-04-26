@@ -6,9 +6,10 @@
     onClose: () => void;
     onDeckListClick: () => void;
     onNewDeckClick: () => void;
+    user?: { displayName: string } | null;
   }
 
-  let { isOpen, onClose, onDeckListClick, onNewDeckClick }: Props = $props();
+  let { isOpen, onClose, onDeckListClick, onNewDeckClick, user = null }: Props = $props();
 
   let isAnimating = $state(false);
   let shouldRender = $state(false);
@@ -66,6 +67,43 @@
         </svg>
         <span>デッキ一覧</span>
       </button>
+      <a href="/stats" onclick={onClose}
+        class="w-full flex items-center gap-3 px-4 py-3 bg-zinc-800/50 hover:bg-zinc-800 rounded-lg transition-colors text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 3v18h18" /><path d="M7 14l4 -4l4 4l5 -5" />
+        </svg>
+        <span>カード使用統計</span>
+      </a>
+    </div>
+
+    <div class="mt-4 pt-4 border-t border-neutral-700">
+      {#if user}
+        <div class="flex items-center gap-3 px-4 py-3 text-sm text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0">
+            <circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+          </svg>
+          <span class="truncate">{user.displayName}</span>
+        </div>
+        <a href="/account" onclick={onClose}
+          class="w-full flex items-center gap-3 px-4 py-3 bg-zinc-800/50 hover:bg-zinc-800 rounded-lg transition-colors text-white text-sm">
+          アカウント設定
+        </a>
+        <form method="POST" action="/api/auth/logout">
+          <button type="submit" onclick={onClose}
+            class="w-full flex items-center gap-3 px-4 py-3 mt-2 bg-zinc-800/50 hover:bg-zinc-800 rounded-lg transition-colors text-gray-400 hover:text-white text-sm">
+            ログアウト
+          </button>
+        </form>
+      {:else}
+        <a href="/login" onclick={onClose}
+          class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-orange-600 hover:bg-orange-500 rounded-lg transition-colors text-white font-medium text-sm">
+          ログイン / 登録
+        </a>
+        <p class="text-xs text-gray-500 text-center mt-2">ログインするとデッキをクラウドに保存できます</p>
+      {/if}
     </div>
 
     <div class="mt-auto flex items-center justify-center gap-8 py-4 border-t border-neutral-700">

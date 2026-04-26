@@ -19,3 +19,51 @@ export interface SavedDeck {
   createdAt: number;
   updatedAt: number;
 }
+
+// ── DTOs shared between server (D1) and client (cloudDeckSync) ─────────────
+
+export type DeckSlotKind = 'main' | 'lrig' | 'candidate';
+
+export interface DeckSlot {
+  slot: DeckSlotKind;
+  cardId: string;
+  count: number;
+}
+
+export interface DeckSummary {
+  id: string;
+  name: string;
+  memo: string;
+  isPublic: boolean;
+  mainCount: number;
+  lrigCount: number;
+  candidateCount: number;
+  createdAt: number;
+  updatedAt: number;
+}
+
+export interface DeckDetail {
+  id: string;
+  name: string;
+  memo: string;
+  isPublic: boolean;
+  slots: DeckSlot[];
+  createdAt: number;
+  updatedAt: number;
+}
+
+export interface DeckUpsert {
+  name: string;
+  memo: string;
+  isPublic?: boolean;
+  slots: DeckSlot[];
+}
+
+// ── Card usage aggregate (Phase D) ────────────────────────────────────────
+
+export interface CardUsage {
+  cardId: string;
+  deckCount: number;
+  totalCount: number;
+  lastUpdated: number;
+}

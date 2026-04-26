@@ -1,12 +1,12 @@
 <script lang="ts">
-  import type { SavedDeck } from '$lib/types';
+  import type { DeckSummary } from '$lib/types';
   import BaseModal from './BaseModal.svelte';
 
   interface Props {
     isOpen: boolean;
     onClose: () => void;
-    decks: SavedDeck[];
-    onSelectDeck: (deck: SavedDeck) => void;
+    decks: DeckSummary[];
+    onSelectDeck: (deck: DeckSummary) => void;
     onDeleteDeck: (deckId: string) => void;
   }
 
@@ -33,10 +33,10 @@
           >
             <div class="text-white font-medium">{deck.name}</div>
             <div class="text-sm text-gray-400 mt-1">
-              メイン: {deck.mainDeck.length}枚 / ルリグ: {deck.lrigDeck.length}枚
+              メイン: {deck.mainCount}枚 / ルリグ: {deck.lrigCount}枚
             </div>
             <div class="text-xs text-gray-500 mt-1">
-              {new Date(deck.updatedAt).toLocaleString('ja-JP')}
+              {new Date(deck.updatedAt * 1000).toLocaleString('ja-JP')}
             </div>
           </button>
           <button
