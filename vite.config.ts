@@ -30,15 +30,14 @@ export default defineConfig({
       workbox: {
         globPatterns: ['client/**/*.{js,css,ico,png,svg,webp,woff,woff2}'],
         runtimeCaching: [
-          // R2 カード画像 — PUBLIC_CARD_IMAGE_BASE_URL のホスト名に合わせて有効化
-          // {
-          //   urlPattern: ({ url }) => url.hostname === 'images.<独自ドメイン>',
-          //   handler: 'CacheFirst',
-          //   options: {
-          //     cacheName: 'card-images-v1',
-          //     expiration: { maxEntries: 1500, maxAgeSeconds: 60 * 60 * 24 * 180 },
-          //   },
-          // },
+          {
+            urlPattern: ({ url }) => url.hostname === 'pub-eaed63f9ee4b4b0e806344bd5b464e65.r2.dev',
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'card-images-v1',
+              expiration: { maxEntries: 1500, maxAgeSeconds: 60 * 60 * 24 * 180 },
+            },
+          },
           {
             urlPattern: /\/assets\/cards_json\/.*\.json$/,
             handler: 'StaleWhileRevalidate',
