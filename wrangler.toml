@@ -34,4 +34,3 @@ bucket_name = "wixdex-card-images"
 
 [vars]
 APP_URL = "http://localhost:5173"
-PUBLIC_CARD_IMAGE_BASE_URL = "https://pub-eaed63f9ee4b4b0e806344bd5b464e65.r2.dev"
