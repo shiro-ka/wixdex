@@ -17,7 +17,7 @@ echo "Uploading card images to R2 bucket: $BUCKET"
 
 while IFS= read -r -d '' file; do
   key="${file#$IMG_DIR/}"
-  if npx wrangler r2 object put "$BUCKET/$key" --file="$file" --content-type="image/webp" 2>/dev/null; then
+  if npx wrangler r2 object put "$BUCKET/$key" --file="$file" --content-type="image/webp" --remote 2>/dev/null; then
     TOTAL=$((TOTAL + 1))
     echo "  ✓ $key"
   else
