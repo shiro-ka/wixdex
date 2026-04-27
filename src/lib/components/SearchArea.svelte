@@ -38,6 +38,7 @@
     onTagFilter: (tag: string) => void;
     onCandidateFilter: () => void;
     onFavoriteFilter: () => void;
+    isLoggedIn: boolean;
     onReset: () => void;
     activeDropdown: 'type' | 'lrigClass' | 'tag' | null;
     onDropdownChange: (dropdown: 'type' | 'lrigClass' | 'tag' | null) => void;
@@ -52,7 +53,7 @@
     selectedLrigClasses, selectedTags, lifeBurstFilter, candidateFilter,
     favoriteFilter, onColorFilter, onTextSearch, onLevelFilter,
     onLifeBurstFilter, onCardTypeFilter, onLrigClassFilter, onTagFilter,
-    onCandidateFilter, onFavoriteFilter, onReset, activeDropdown,
+    onCandidateFilter, onFavoriteFilter, isLoggedIn, onReset, activeDropdown,
     onDropdownChange, showLifeBurst, onToggleLifeBurst, showCandidateIcon,
     onToggleCandidateIcon,
   }: Props = $props();
@@ -151,6 +152,7 @@
   <div class="flex flex-col">
     <!-- お気に入り/候補カード/カードタイプ/クラス/タグ -->
     <div class="flex w-full h-8 mb-2">
+      {#if isLoggedIn}
       <div
         class="group flex md:flex-1 items-center justify-center w-10 h-full mr-2 rounded-lg border border-gray-600/50 cursor-pointer transition-all {favoriteFilter ? 'bg-zinc-500/30' : 'bg-zinc-600/10'}"
         onclick={onFavoriteFilter}
@@ -160,6 +162,7 @@
           class="w-5 h-5 transition-all {favoriteFilter ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}"
         />
       </div>
+      {/if}
 
       <div
         id="folder-button"

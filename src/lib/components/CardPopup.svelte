@@ -8,9 +8,10 @@
     onClose: () => void;
     isFavorite: boolean;
     onToggleFavorite: () => void;
+    isLoggedIn: boolean;
   }
 
-  let { card, onClose, isFavorite, onToggleFavorite }: Props = $props();
+  let { card, onClose, isFavorite, onToggleFavorite, isLoggedIn }: Props = $props();
 </script>
 
 {#if card}
@@ -29,6 +30,7 @@
           alt={card.name}
         />
         <div class="w-32 flex flex-col items-center pt-2">
+          {#if isLoggedIn}
           <button
             onclick={onToggleFavorite}
             class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-700 transition-colors"
@@ -36,6 +38,7 @@
           >
             <StarIcon filled={isFavorite} class="w-6 h-6 text-gray-300" />
           </button>
+          {/if}
         </div>
       </div>
       <div class="w-full h-16 flex items-center justify-center"></div>

@@ -392,6 +392,7 @@
           onTagFilter={toggleTagFilter}
           onCandidateFilter={() => { candidateFilter = !candidateFilter; }}
           onFavoriteFilter={() => { favoriteFilter = !favoriteFilter; }}
+          isLoggedIn={!!page.data.user}
           onReset={resetFilters}
           {activeDropdown}
           onDropdownChange={(d) => { activeDropdown = d; }}
@@ -474,6 +475,7 @@
       onClose={() => { popupCard = null; }}
       isFavorite={popupCard ? isFavorite(popupCard) : false}
       onToggleFavorite={() => { if (popupCard) toggleFavorite(popupCard); }}
+      isLoggedIn={!!page.data.user}
     />
   </div>
 {/if}
