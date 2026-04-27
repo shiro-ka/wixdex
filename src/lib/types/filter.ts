@@ -1,5 +1,3 @@
-import type { Card } from './card';
-
 export interface FilterState {
   selectedColors: Set<string>;
   selectedLevels: Set<number>;
@@ -11,5 +9,5 @@ export interface FilterState {
   candidateFilter: boolean;
   candidateCards?: Card[];
   favoriteFilter: boolean;
-  favoriteCards?: Card[];
+  favoriteIds?: Set<string>;
 }

@@ -5,7 +5,7 @@
   import { filterCards } from '$lib/utils/cardFilters';
   import { sortCandidateCards } from '$lib/utils/cardSorting';
   import { addCardToDeck, addMultipleCardsToDeck, removeCardFromDeck } from '$lib/utils/deckOperations';
-  import { getSettings, saveSettings, getFavorites, saveFavorites } from '$lib/utils/storage';
+  import { getSettings, saveSettings } from '$lib/utils/storage';
   import { loadAllCards, buildCardMap } from '$lib/utils/cardData';
   import { CloudDeckSync } from '$lib/stores/cloudDeckSync.svelte';
   import type { DeckSummary } from '$lib/types';
@@ -63,7 +63,7 @@
   // ── settings & favorites ───────────────────────────────────
   let showLifeBurst = $state(false);
   let showCandidateIcon = $state(false);
-  let favoriteCards = $state<Card[]>([]);
+  let favoriteIds = $state<Set<string>>(new Set(page.data.favoriteIds ?? []));
 
   // ── UI state ───────────────────────────────────────────────
   let hoveredCard = $state<Card | null>(null);
@@ -86,7 +86,7 @@
     candidateFilter,
     candidateCards,
     favoriteFilter,
-    favoriteCards,
+    favoriteIds,
   }));
 
   // ── mount: load data & restore from storage ───────────────
@@ -109,8 +109,6 @@
     const settings = getSettings();
     showLifeBurst = settings.showLifeBurst;
     showCandidateIcon = settings.showCandidateIcon;
-    favoriteCards = getFavorites();
-
     loadAllCards()
       .then((cards) => {
         allCardData = cards;
@@ -239,18 +237,21 @@
   }
 
   // ── favorites ──────────────────────────────────────────────
-  const isSameCard = (a: Card, b: Card) => (!!a.id && a.id === b.id) || a.image === b.image;
-
-  function toggleFavorite(card: Card) {
-    const exists = favoriteCards.some(c => isSameCard(c, card));
-    favoriteCards = exists
-      ? favoriteCards.filter(c => !isSameCard(c, card))
-      : [...favoriteCards, card];
-    saveFavorites(favoriteCards);
+  async function toggleFavorite(card: Card) {
+    if (!page.data.user || !card.id) return;
+    const exists = favoriteIds.has(card.id);
+    favoriteIds = exists
+      ? new Set([...favoriteIds].filter(id => id !== card.id))
+      : new Set([...favoriteIds, card.id]);
+    await fetch('/api/favorites', {
+      method: exists ? 'DELETE' : 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cardId: card.id }),
+    });
   }
 
   function isFavorite(card: Card) {
-    return favoriteCards.some(c => isSameCard(c, card));
+    return !!card.id && favoriteIds.has(card.id);
   }
 
   // ── deck persistence ───────────────────────────────────────
