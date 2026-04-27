@@ -1,9 +1,6 @@
 import type { Card, SavedDeck, DeckSummary, DeckDetail, DeckSlotKind } from '$lib/types';
 import { getAllDecks, persistDecks } from '$lib/utils/storage';
-
-function cardKey(card: Card): string | null {
-  return card.id ?? card.image ?? null;
-}
+import { cardKey } from '$lib/utils/cardData';
 
 function cardsToSlots(cards: Card[], slot: DeckSlotKind): DeckDetail['slots'] {
   const counts = new Map<string, number>();

@@ -5,7 +5,7 @@ import type {
   DeckSlot,
   DeckUpsert,
   DeckSlotKind,
-} from '$lib/types/deck';
+} from '$lib/types';
 
 interface DeckRow {
   id: string;

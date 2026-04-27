@@ -3,29 +3,15 @@
   import type { Card } from '$lib/types';
   import type { PageData } from './$types';
   import { cardImageUrl } from '$lib/utils/cardImages';
+  import { loadAllCards, buildCardMap } from '$lib/utils/cardData';
 
   let { data }: { data: PageData } = $props();
-
-  const CARD_SETS = ['servant', 'WX25-P1', 'WX24-P2', 'WX24-P3', 'WX24-P4', 'WXDi-P16', 'WXDi-P15', 'WXDi-P13', 'WXDi-P12'];
 
   let cardLookup = $state<Map<string, Card>>(new Map());
 
   onMount(async () => {
     try {
-      const results = await Promise.all(
-        CARD_SETS.map((set) =>
-          fetch(`/assets/cards_json/${set}.json`).then((r) => {
-            if (!r.ok) throw new Error(`Failed: ${set}`);
-            return r.json() as Promise<Card[]>;
-          })
-        )
-      );
-      const map = new Map<string, Card>();
-      for (const card of results.flat()) {
-        const key = card.id ?? card.image;
-        if (key) map.set(key, card);
-      }
-      cardLookup = map;
+      cardLookup = buildCardMap(await loadAllCards());
     } catch {
       // ranking still renders with raw card_id fallback
     }
