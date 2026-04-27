@@ -31,4 +31,4 @@ binding = "CARD_IMAGES"
 bucket_name = "wixdex-card-images"
 
 [vars]
-APP_URL = "http://localhost:5173"
+APP_URL = "https://wixdex.pages.dev"
