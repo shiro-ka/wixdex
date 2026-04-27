@@ -1,4 +1,4 @@
-import type { CardUsage } from '$lib/types/deck';
+import type { CardUsage } from '$lib/types';
 
 interface UsageRow {
   card_id: string;

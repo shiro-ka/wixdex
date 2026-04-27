@@ -6,6 +6,7 @@
   import { sortCandidateCards } from '$lib/utils/cardSorting';
   import { addCardToDeck, addMultipleCardsToDeck, removeCardFromDeck } from '$lib/utils/deckOperations';
   import { getSettings, saveSettings, getFavorites, saveFavorites } from '$lib/utils/storage';
+  import { loadAllCards, buildCardMap } from '$lib/utils/cardData';
   import { CloudDeckSync } from '$lib/stores/cloudDeckSync.svelte';
   import type { DeckSummary } from '$lib/types';
   import Navbar from '$lib/components/Navbar.svelte';
@@ -24,14 +25,12 @@
   import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
   import ErrorMessage from '$lib/components/ErrorMessage.svelte';
 
-  const CARD_SETS = ['servant', 'WX25-P1', 'WX24-P2', 'WX24-P3', 'WX24-P4', 'WXDi-P16', 'WXDi-P15', 'WXDi-P13', 'WXDi-P12'];
-
   // ── card data ──────────────────────────────────────────────
   let allCardData = $state<Card[]>([]);
   let loading = $state(true);
   let loadError = $state<string | null>(null);
 
-  let cardMap = $derived(new Map(allCardData.map((c) => [c.id ?? c.image, c] as const).filter(([k]) => !!k)));
+  let cardMap = $derived(buildCardMap(allCardData));
 
   // ── cloud sync ─────────────────────────────────────────────
   const cloudSync = new CloudDeckSync(!!page.data.user);
@@ -112,20 +111,15 @@
     showCandidateIcon = settings.showCandidateIcon;
     favoriteCards = getFavorites();
 
-    Promise.all(
-      CARD_SETS.map(set =>
-        fetch(`/assets/cards_json/${set}.json`).then(r => {
-          if (!r.ok) throw new Error(`Failed to load ${set}.json`);
-          return r.json() as Promise<Card[]>;
-        })
-      )
-    ).then(results => {
-      allCardData = results.flat();
-      loading = false;
-    }).catch(err => {
-      loadError = err instanceof Error ? err.message : 'カードデータの読み込みに失敗しました';
-      loading = false;
-    });
+    loadAllCards()
+      .then((cards) => {
+        allCardData = cards;
+        loading = false;
+      })
+      .catch((err) => {
+        loadError = err instanceof Error ? err.message : 'カードデータの読み込みに失敗しました';
+        loading = false;
+      });
 
     return () => {
       document.removeEventListener('touchstart', onTouchStart);
