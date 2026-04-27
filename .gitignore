@@ -3,4 +3,7 @@ dist/
 .svelte-kit/
 .wrangler/
 .dev.vars
+.env
+.env.*
+!.env.example
 *.local
