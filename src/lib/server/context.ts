@@ -3,6 +3,7 @@ import { CloudflareStore } from './store.js';
 import { Db } from './db.js';
 import { DeckDb } from './decks.js';
 import { CardStatsDb } from './cardStats.js';
+import { FavoriteDb } from './favorites.js';
 
 export interface ServerContext {
   env: App.Platform['env'];
@@ -10,6 +11,7 @@ export interface ServerContext {
   db: Db;
   decks: DeckDb;
   cardStats: CardStatsDb;
+  favorites: FavoriteDb;
 }
 
 export function ctx(event: Pick<RequestEvent, 'platform'>): ServerContext {
@@ -20,6 +22,7 @@ export function ctx(event: Pick<RequestEvent, 'platform'>): ServerContext {
     db: new Db(env.DB),
     decks: new DeckDb(env.DB),
     cardStats: new CardStatsDb(env.DB),
+    favorites: new FavoriteDb(env.DB),
   };
 }
 

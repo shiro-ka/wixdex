@@ -16,12 +16,12 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
     candidateFilter,
     candidateCards,
     favoriteFilter,
-    favoriteCards,
+    favoriteIds,
   } = filters;
 
   return cards.filter(card => {
-    if (favoriteFilter && favoriteCards) {
-      if (!favoriteCards.some(c => isSameCard(c, card))) return false;
+    if (favoriteFilter) {
+      if (!card.id || !favoriteIds?.has(card.id)) return false;
     }
 
     if (candidateFilter && candidateCards) {
