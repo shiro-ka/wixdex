@@ -164,7 +164,7 @@
         </div>
         <CardImage
           {card}
-          src="/assets/cards_img/{card.image}"
+          src={cardImageUrl(card.image)}
           class="object-contain md:hidden"
           alt={card.name}
           {showLifeBurst}
