@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Card } from '$lib/types';
-  import StarIcon from './icons/StarIcon.svelte';
+  import IconStar from '@tabler/icons-svelte/icons/star';
+  import IconStarFilled from '@tabler/icons-svelte/icons/star-filled';
   import { cardImageUrl } from '$lib/utils/cardImages';
 
   interface Props {
@@ -36,7 +37,11 @@
             class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-700 transition-colors"
             title={isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'}
           >
-            <StarIcon filled={isFavorite} class="w-6 h-6 text-gray-300" />
+            {#if isFavorite}
+              <IconStarFilled class="w-6 h-6 text-gray-300" />
+            {:else}
+              <IconStar class="w-6 h-6 text-gray-300" />
+            {/if}
           </button>
           {/if}
         </div>

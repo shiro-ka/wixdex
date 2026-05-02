@@ -9,9 +9,25 @@
   import LifeBurstIcon from './icons/LifeBurstIcon.svelte';
   import CardTypeIcon from './icons/CardTypeIcon.svelte';
   import LrigClassIcon from './icons/LrigClassIcon.svelte';
-  import StarIcon from './icons/StarIcon.svelte';
-  import CircleCheckIcon from './icons/CircleCheckIcon.svelte';
-  import FolderIcon from './icons/FolderIcon.svelte';
+  import IconStar from '@tabler/icons-svelte/icons/star';
+  import IconStarFilled from '@tabler/icons-svelte/icons/star-filled';
+  import IconCircleCheck from '@tabler/icons-svelte/icons/circle-check';
+  import IconFolder from '@tabler/icons-svelte/icons/folder';
+  import IconFolderFilled from '@tabler/icons-svelte/icons/folder-filled';
+  import IconTag from '@tabler/icons-svelte/icons/tag';
+  import IconTagFilled from '@tabler/icons-svelte/icons/tag-filled';
+  import IconHexagonNumber1 from '@tabler/icons-svelte/icons/hexagon-number-1';
+  import IconHexagonNumber1Filled from '@tabler/icons-svelte/icons/hexagon-number-1-filled';
+  import IconHexagonNumber2 from '@tabler/icons-svelte/icons/hexagon-number-2';
+  import IconHexagonNumber2Filled from '@tabler/icons-svelte/icons/hexagon-number-2-filled';
+  import IconHexagonNumber3 from '@tabler/icons-svelte/icons/hexagon-number-3';
+  import IconHexagonNumber3Filled from '@tabler/icons-svelte/icons/hexagon-number-3-filled';
+  import IconCircleXFilled from '@tabler/icons-svelte/icons/circle-x-filled';
+  import IconCircleX from '@tabler/icons-svelte/icons/circle-x';
+  import IconAdjustments from '@tabler/icons-svelte/icons/adjustments';
+  import IconZoomCancelFilled from '@tabler/icons-svelte/icons/zoom-cancel-filled';
+  import IconSearch from '@tabler/icons-svelte/icons/search';
+  import IconLoader from '@tabler/icons-svelte/icons/loader';
   import { cardImageUrl } from '$lib/utils/cardImages';
   import SettingsPopup from './SettingsPopup.svelte';
   import SearchSettingsPopup from './SearchSettingsPopup.svelte';
@@ -136,7 +152,7 @@
         class="!text-gray-400 hover:!text-gray-300 !bg-transparent hover:bg-gray-700/50 rounded-lg p-1 transition-all"
         aria-label="チェック全解除"
       >
-        <CircleCheckIcon />
+        <IconCircleCheck class="w-5 h-5" />
       </button>
     </div>
     {#if expandedMenu === 'type'}
@@ -157,10 +173,11 @@
         class="group flex md:flex-1 items-center justify-center w-10 h-full mr-2 rounded-lg border border-gray-600/50 cursor-pointer transition-all {favoriteFilter ? 'bg-zinc-500/30' : 'bg-zinc-600/10'}"
         onclick={onFavoriteFilter}
       >
-        <StarIcon
-          filled={favoriteFilter}
-          class="w-5 h-5 transition-all {favoriteFilter ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}"
-        />
+        {#if favoriteFilter}
+          <IconStarFilled class="w-5 h-5 text-gray-300 transition-all" />
+        {:else}
+          <IconStar class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all" />
+        {/if}
       </div>
       {/if}
 
@@ -169,10 +186,11 @@
         class="group flex flex-1 items-center justify-center h-full mr-2 rounded-lg border border-gray-600/50 cursor-pointer transition-all {candidateFilter ? 'bg-zinc-500/30' : 'bg-zinc-600/10'}"
         onclick={onCandidateFilter}
       >
-        <FolderIcon
-          mode={candidateFilter ? 'filled' : 'default'}
-          class="w-5 h-5 transition-all {candidateFilter ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}"
-        />
+        {#if candidateFilter}
+          <IconFolderFilled class="w-5 h-5 text-gray-300 transition-all" />
+        {:else}
+          <IconFolder class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all" />
+        {/if}
       </div>
 
       <div class="flex w-fit md:flex-3 rounded-lg border border-gray-600/50 overflow-hidden">
@@ -199,16 +217,9 @@
           onclick={() => handleMenuClick('tag')}
         >
           {#if isTagFilterEnabled}
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 transition-all {activeDropdown === 'tag' || expandedMenu === 'tag' ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M11.172 2a3 3 0 0 1 2.121 .879l7.71 7.71a3.41 3.41 0 0 1 0 4.822l-5.592 5.592a3.41 3.41 0 0 1 -4.822 0l-7.71 -7.71a3 3 0 0 1 -.879 -2.121v-5.172a4 4 0 0 1 4 -4zm-3.672 3.5a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2" />
-            </svg>
+            <IconTagFilled class="w-5 h-5 transition-all {activeDropdown === 'tag' || expandedMenu === 'tag' ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}" />
           {:else}
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 transition-all {activeDropdown === 'tag' || expandedMenu === 'tag' ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-              <path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z" />
-            </svg>
+            <IconTag class="w-5 h-5 transition-all {activeDropdown === 'tag' || expandedMenu === 'tag' ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}" />
           {/if}
         </div>
       </div>
@@ -247,42 +258,21 @@
           >
             {#if level === 1}
               {#if selectedLevels.has(1)}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-gray-300 transition-all">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M10.425 1.414a3.33 3.33 0 0 1 3.216 0l6.775 3.995c.067 .04 .127 .084 .18 .133l.008 .007l.107 .076a3.223 3.223 0 0 1 1.284 2.39l.005 .203v7.284c0 1.175 -.643 2.256 -1.623 2.793l-6.804 4.302c-.98 .538 -2.166 .538 -3.2 -.032l-6.695 -4.237a3.226 3.226 0 0 1 -1.678 -2.826v-7.285a3.21 3.21 0 0 1 1.65 -2.808zm.952 5.803l-.084 .076l-2 2l-.083 .094a1 1 0 0 0 0 1.226l.083 .094l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l.293 -.293v5.586l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-8l-.006 -.114c-.083 -.777 -1.008 -1.16 -1.617 -.67z" />
-                </svg>
+                <IconHexagonNumber1Filled class="w-5 h-5 text-gray-300 transition-all" />
               {:else}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
-                  <path d="M10 10l2 -2v8" />
-                </svg>
+                <IconHexagonNumber1 class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all" />
               {/if}
             {:else if level === 2}
               {#if selectedLevels.has(2)}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-gray-300 transition-all">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M10.425 1.414a3.33 3.33 0 0 1 3.216 0l6.775 3.995c.067 .04 .127 .084 .18 .133l.008 .007l.107 .076a3.223 3.223 0 0 1 1.284 2.39l.005 .203v7.284c0 1.175 -.643 2.256 -1.623 2.793l-6.804 4.302c-.98 .538 -2.166 .538 -3.2 -.032l-6.695 -4.237a3.226 3.226 0 0 1 -1.678 -2.826v-7.285a3.21 3.21 0 0 1 1.65 -2.808zm2.575 5.586h-3l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h3v2h-2l-.15 .005a2 2 0 0 0 -1.844 1.838l-.006 .157v2l.005 .15a2 2 0 0 0 1.838 1.844l.157 .006h3l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007h-3v-2h2l.15 -.005a2 2 0 0 0 1.844 -1.838l.006 -.157v-2l-.005 -.15a2 2 0 0 0 -1.838 -1.844l-.157 -.006z" />
-                </svg>
+                <IconHexagonNumber2Filled class="w-5 h-5 text-gray-300 transition-all" />
               {:else}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
-                  <path d="M10 8h3a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2a1 1 0 0 0 -1 1v2a1 1 0 0 0 1 1h3" />
-                </svg>
+                <IconHexagonNumber2 class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all" />
               {/if}
             {:else}
               {#if selectedLevels.has(3)}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-gray-300 transition-all">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M10.425 1.414a3.33 3.33 0 0 1 3.216 0l6.775 3.995c.067 .04 .127 .084 .18 .133l.008 .007l.107 .076a3.223 3.223 0 0 1 1.284 2.39l.005 .203v7.284c0 1.175 -.643 2.256 -1.623 2.793l-6.804 4.302c-.98 .538 -2.166 .538 -3.2 -.032l-6.695 -4.237a3.226 3.226 0 0 1 -1.678 -2.826v-7.285a3.21 3.21 0 0 1 1.65 -2.808zm2.575 5.586h-2l-.15 .005a2 2 0 0 0 -1.85 1.995a1 1 0 0 0 1.974 .23l.02 -.113l.006 -.117h2v2h-2l-.133 .007c-1.111 .12 -1.154 1.73 -.128 1.965l.128 .021l.133 .007h2v2h-2l-.007 -.117a1 1 0 0 0 -1.993 .117a2 2 0 0 0 1.85 1.995l.15 .005h2l.15 -.005a2 2 0 0 0 1.844 -1.838l.006 -.157v-2l-.005 -.15a1.988 1.988 0 0 0 -.17 -.667l-.075 -.152l-.019 -.032l.02 -.03a2.01 2.01 0 0 0 .242 -.795l.007 -.174v-2l-.005 -.15a2 2 0 0 0 -1.838 -1.844l-.157 -.006z" />
-                </svg>
+                <IconHexagonNumber3Filled class="w-5 h-5 text-gray-300 transition-all" />
               {:else}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
-                  <path d="M10 9a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1" />
-                </svg>
+                <IconHexagonNumber3 class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all" />
               {/if}
             {/if}
           </div>
@@ -295,10 +285,7 @@
         onclick={onLifeBurstFilter}
       >
         {#if lifeBurstFilter === false}
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-gray-300 transition-all">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M12 2l.642 .005l.616 .017l.299 .013l.579 .034l.553 .046c4.687 .455 6.65 2.333 7.166 6.906l.03 .29l.046 .553l.041 .727l.006 .15l.017 .617l.005 .642l-.005 .642l-.017 .616l-.013 .299l-.034 .579l-.046 .553c-.455 4.687 -2.333 6.65 -6.906 7.166l-.29 .03l-.553 .046l-.727 .041l-.15 .006l-.617 .017l-.642 .005l-.642 -.005l-.616 -.017l-.299 -.013l-.579 -.034l-.553 -.046c-4.687 -.455 -6.65 -2.333 -7.166 -6.906l-.03 -.29l-.046 -.553l-.041 -.727l-.006 -.15l-.017 -.617l-.004 -.318v-.648l.004 -.318l.017 -.616l.013 -.299l.034 -.579l.046 -.553c.455 -4.687 2.333 -6.65 6.906 -7.166l.29 -.03l.553 -.046l.727 -.041l.15 -.006l.617 -.017c.21 -.003 .424 -.005 .642 -.005zm-1.489 7.14a1 1 0 0 0 -1.218 1.567l1.292 1.293l-1.292 1.293l-.083 .094a1 1 0 0 0 1.497 1.32l1.293 -1.292l1.293 1.292l.094 .083a1 1 0 0 0 1.32 -1.497l-1.292 -1.293l1.292 -1.293l.083 -.094a1 1 0 0 0 -1.497 -1.32l-1.293 1.292l-1.293 -1.292l-.094 -.083z" />
-          </svg>
+          <IconCircleXFilled class="w-5 h-5 text-gray-300 transition-all" />
         {:else}
           <LifeBurstIcon class="w-5 h-5 transition-all {lifeBurstFilter === true ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}" />
         {/if}
@@ -310,15 +297,7 @@
       <!-- 設定ボタン -->
       <div class="relative flex items-center justify-center w-10 h-full mr-2 rounded-lg bg-zinc-600/10 border border-gray-600/50 text-gray-400 hover:text-white cursor-pointer transition-all"
         onclick={() => { isSettingsOpen = !isSettingsOpen; }}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-          <path d="M4 6l8 0" /><path d="M16 6l4 0" />
-          <path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-          <path d="M4 12l2 0" /><path d="M10 12l10 0" />
-          <path d="M17 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-          <path d="M4 18l11 0" /><path d="M19 18l1 0" />
-        </svg>
+        <IconAdjustments class="w-5 h-5" />
         <SettingsPopup
           isOpen={isSettingsOpen}
           onClose={() => { isSettingsOpen = false; }}
@@ -336,16 +315,9 @@
           onclick={() => { isSearchSettingsOpen = !isSearchSettingsOpen; }}
         >
           {#if isSearchSettingsOpen}
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-gray-300">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M14 3.072a8 8 0 0 1 2.32 11.834l5.387 5.387a1 1 0 0 1 -1.414 1.414l-5.388 -5.387a8 8 0 0 1 -12.905 -6.32l.005 -.285a8 8 0 0 1 11.995 -6.643m-5.293 4.22a1 1 0 0 0 -1.414 1.415l1.292 1.293l-1.292 1.293a1 1 0 0 0 1.414 1.414l1.293 -1.292l1.293 1.292a1 1 0 0 0 1.414 -1.414l-1.292 -1.293l1.292 -1.293a1 1 0 1 0 -1.414 -1.414l-1.293 1.292z" />
-            </svg>
+            <IconZoomCancelFilled class="w-5 h-5 text-gray-300" />
           {:else}
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-              <path d="M21 21l-6 -6" />
-            </svg>
+            <IconSearch class="w-5 h-5" />
           {/if}
           <SearchSettingsPopup
             isOpen={isSearchSettingsOpen}
@@ -366,11 +338,7 @@
           class="flex w-12 h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer rounded-full transition-all"
           onclick={handleClear}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-            <path d="M10 10l4 4m0 -4l-4 4" />
-          </svg>
+          <IconCircleX class="w-5 h-5" />
         </div>
       </div>
 
@@ -379,13 +347,7 @@
         class="flex w-10 aspect-square bg-zinc-600/10 border border-gray-600/50 rounded-lg items-center justify-center text-gray-400 hover:text-white cursor-pointer"
         onclick={handleReset}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M12 6l0 -3" /><path d="M16.25 7.75l2.15 -2.15" />
-          <path d="M18 12l3 0" /><path d="M16.25 16.25l2.15 2.15" />
-          <path d="M12 18l0 3" /><path d="M7.75 16.25l-2.15 2.15" />
-          <path d="M6 12l-3 0" /><path d="M7.75 7.75l-2.15 -2.15" />
-        </svg>
+        <IconLoader class="w-5 h-5" />
       </div>
     </div>
   </div>

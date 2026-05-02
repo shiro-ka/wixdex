@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { Card } from '$lib/types';
   import BaseModal from './BaseModal.svelte';
+  import IconClipboard from '@tabler/icons-svelte/icons/clipboard';
+  import IconDownload from '@tabler/icons-svelte/icons/download';
   import { generateStackDeckImage, downloadCanvasAsImage, copyCanvasToClipboard } from '$lib/utils/deckImageExport';
 
   interface Props {
@@ -61,11 +63,7 @@
             disabled={isExporting || mainDeck.length === 0}
             title="クリップボードにコピー"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-white">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
-              <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
-            </svg>
+            <IconClipboard size={20} class="mx-auto text-white" />
           </button>
           <button
             class="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
@@ -73,12 +71,7 @@
             disabled={isExporting || mainDeck.length === 0}
             title="ダウンロード"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-white">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
-              <path d="M7 11l5 5l5 -5" />
-              <path d="M12 4l0 12" />
-            </svg>
+            <IconDownload size={20} class="mx-auto text-white" />
           </button>
         </div>
 
@@ -91,11 +84,7 @@
             disabled={isExporting || mainDeck.length === 0}
             title="クリップボードにコピー"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-white">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
-              <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
-            </svg>
+            <IconClipboard size={20} class="mx-auto text-white" />
           </button>
           <button
             class="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
@@ -103,12 +92,7 @@
             disabled={isExporting || mainDeck.length === 0}
             title="ダウンロード"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-auto text-white">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
-              <path d="M7 11l5 5l5 -5" />
-              <path d="M12 4l0 12" />
-            </svg>
+            <IconDownload size={20} class="mx-auto text-white" />
           </button>
         </div>
       </div>
