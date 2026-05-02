@@ -5,7 +5,7 @@
   import { filterCards } from '$lib/utils/cardFilters';
   import { sortCandidateCards } from '$lib/utils/cardSorting';
   import { addCardToDeck, addMultipleCardsToDeck, removeCardFromDeck } from '$lib/utils/deckOperations';
-  import { getSettings, saveSettings } from '$lib/utils/storage';
+  import { getSettings, saveSettings, getDraft, saveDraft } from '$lib/utils/storage';
   import { loadAllCards, buildCardMap } from '$lib/utils/cardData';
   import { CloudDeckSync } from '$lib/stores/cloudDeckSync.svelte';
   import type { DeckSummary } from '$lib/types';
@@ -33,7 +33,8 @@
   let cardMap = $derived(buildCardMap(allCardData));
 
   // ── cloud sync ─────────────────────────────────────────────
-  const cloudSync = new CloudDeckSync(!!page.data.user);
+  const isLoggedIn = !!page.data.user;
+  const cloudSync = new CloudDeckSync();
 
   // ── deck state ─────────────────────────────────────────────
   let mainDeck = $state<Card[]>([]);
@@ -64,6 +65,9 @@
   let showLifeBurst = $state(false);
   let showCandidateIcon = $state(false);
   let favoriteIds = $state<Set<string>>(new Set(page.data.favoriteIds ?? []));
+
+  // ── draft persistence ──────────────────────────────────────
+  let draftRestored = $state(false);
 
   // ── UI state ───────────────────────────────────────────────
   let hoveredCard = $state<Card | null>(null);
@@ -106,6 +110,20 @@
     document.addEventListener('touchstart', onTouchStart, { passive: true });
     document.addEventListener('touchmove', onTouchMove, { passive: false });
 
+    const draft = getDraft();
+    if (draft) {
+      mainDeck = draft.mainDeck;
+      lrigDeck = draft.lrigDeck;
+      candidateCards = draft.candidateCards;
+      currentDeckId = draft.currentDeckId;
+      currentDeckName = draft.currentDeckName;
+      currentDeckMemo = draft.currentDeckMemo;
+      if (draft.mainDeck.length > 0 || draft.lrigDeck.length > 0 || draft.currentDeckName) {
+        currentDeckIsSaved = false;
+      }
+    }
+    draftRestored = true;
+
     const settings = getSettings();
     showLifeBurst = settings.showLifeBurst;
     showCandidateIcon = settings.showCandidateIcon;
@@ -132,6 +150,11 @@
   $effect(() => {
     void mainDeck.length; void lrigDeck.length; void candidateCards.length;
     if (currentDeckId) currentDeckIsSaved = false;
+  });
+
+  $effect(() => {
+    if (!draftRestored) return;
+    saveDraft({ currentDeckId, currentDeckName, currentDeckMemo, mainDeck, lrigDeck, candidateCards });
   });
 
   // ── deck operations ────────────────────────────────────────
@@ -238,7 +261,7 @@
 
   // ── favorites ──────────────────────────────────────────────
   async function toggleFavorite(card: Card) {
-    if (!page.data.user || !card.id) return;
+    if (!isLoggedIn || !card.id) return;
     const exists = favoriteIds.has(card.id);
     favoriteIds = exists
       ? new Set([...favoriteIds].filter(id => id !== card.id))
@@ -256,6 +279,7 @@
 
   // ── deck persistence ───────────────────────────────────────
   async function handleSave() {
+    if (!isLoggedIn) return;
     if (!currentDeckId) {
       const name = prompt('デッキ名を入力してください', 'New Deck');
       if (!name) return;
@@ -278,6 +302,7 @@
   }
 
   async function handleDeckListOpen() {
+    if (!isLoggedIn) return;
     await cloudSync.loadList();
     isDeckListOpen = true;
   }
@@ -300,7 +325,7 @@
   }
 
   async function handleDeckEdit(name: string, memo: string) {
-    if (!currentDeckId) return;
+    if (!isLoggedIn || !currentDeckId) return;
     currentDeckName = name;
     currentDeckMemo = memo;
     try {
@@ -336,6 +361,7 @@
     <Navbar
       deckName={currentDeckName}
       isSaved={currentDeckIsSaved}
+      {isLoggedIn}
       onMenuClick={() => { isSidebarOpen = true; }}
       onSaveClick={handleSave}
       onDeckClick={() => { isDeckEditOpen = true; }}
@@ -392,7 +418,7 @@
           onTagFilter={toggleTagFilter}
           onCandidateFilter={() => { candidateFilter = !candidateFilter; }}
           onFavoriteFilter={() => { favoriteFilter = !favoriteFilter; }}
-          isLoggedIn={!!page.data.user}
+          {isLoggedIn}
           onReset={resetFilters}
           {activeDropdown}
           onDropdownChange={(d) => { activeDropdown = d; }}
@@ -460,6 +486,7 @@
       currentName={currentDeckName}
       currentMemo={currentDeckMemo}
       onSave={handleDeckEdit}
+      {isLoggedIn}
     />
 
     <ShareModal
@@ -475,7 +502,7 @@
       onClose={() => { popupCard = null; }}
       isFavorite={popupCard ? isFavorite(popupCard) : false}
       onToggleFavorite={() => { if (popupCard) toggleFavorite(popupCard); }}
-      isLoggedIn={!!page.data.user}
+      {isLoggedIn}
     />
   </div>
 {/if}

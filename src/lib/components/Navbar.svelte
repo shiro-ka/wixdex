@@ -7,13 +7,14 @@
   interface Props {
     deckName: string;
     isSaved: boolean;
+    isLoggedIn: boolean;
     onMenuClick: () => void;
     onSaveClick: () => void;
     onDeckClick: () => void;
     onShareClick: () => void;
   }
 
-  let { deckName, isSaved, onMenuClick, onSaveClick, onDeckClick, onShareClick }: Props = $props();
+  let { deckName, isSaved, isLoggedIn, onMenuClick, onSaveClick, onDeckClick, onShareClick }: Props = $props();
 </script>
 
 <nav class="flex-shrink-0">
@@ -34,8 +35,10 @@
           <IconShare class="w-4 h-4 text-gray-400" />
         </button>
         <button
-          class="!bg-transparent !p-0 w-8 h-10 flex items-center justify-center hover:bg-gray-700/50 transition-colors"
-          onclick={onSaveClick} aria-label="保存"
+          class="!bg-transparent !p-0 w-8 h-10 flex items-center justify-center transition-colors {isLoggedIn ? 'hover:bg-gray-700/50' : 'cursor-not-allowed opacity-40'}"
+          onclick={isLoggedIn ? onSaveClick : undefined}
+          disabled={!isLoggedIn}
+          aria-label="保存"
         >
           {#if isSaved}
             <IconDeviceFloppyFilled class="w-4 h-4 text-gray-400" />

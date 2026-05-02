@@ -7,10 +7,11 @@
     onClose: () => void;
     currentName: string;
     currentMemo: string;
+    isLoggedIn: boolean;
     onSave: (name: string, memo: string) => void;
   }
 
-  let { isOpen, onClose, currentName, currentMemo, onSave }: Props = $props();
+  let { isOpen, onClose, currentName, currentMemo, isLoggedIn, onSave }: Props = $props();
 
   let name = $state('');
   let memo = $state('');
@@ -35,7 +36,11 @@
     <!-- デッキ名 -->
     <div>
       <label class="block text-sm font-medium text-gray-300 mb-2">デッキ名</label>
-      {#if isNameEditMode}
+      {#if !isLoggedIn}
+        <div class="w-full px-3 py-2 bg-zinc-700/40 border border-gray-700 rounded-lg text-gray-500 cursor-not-allowed select-none">
+          {name || 'デッキ名を入力'}
+        </div>
+      {:else if isNameEditMode}
         <input
           type="text"
           bind:value={name}
@@ -57,7 +62,11 @@
     <!-- メモ -->
     <div>
       <label class="block text-sm font-medium text-gray-300 mb-2">メモ</label>
-      {#if isEditMode}
+      {#if !isLoggedIn}
+        <div class="w-full min-h-[200px] px-3 py-2 bg-zinc-700/40 border border-gray-700 rounded-lg text-gray-500 cursor-not-allowed prose prose-invert prose-sm max-w-none select-none">
+          {@html renderedMemo}
+        </div>
+      {:else if isEditMode}
         <textarea
           bind:value={memo}
           onblur={() => { isEditMode = false; }}
@@ -74,7 +83,11 @@
         </div>
       {/if}
       <p class="text-xs text-gray-500 mt-1">
-        {isEditMode ? 'マークダウン記法が使えます（クリック外で保存）' : 'クリックして編集'}
+        {#if !isLoggedIn}
+          <a href="/login" class="text-orange-400 hover:text-orange-300 transition-colors">ログインするとデッキを保存できます</a>
+        {:else}
+          {isEditMode ? 'マークダウン記法が使えます（クリック外で保存）' : 'クリックして編集'}
+        {/if}
       </p>
     </div>
   </div>
