@@ -1,11 +1,20 @@
-import type { SavedDeck } from '$lib/types';
+import type { Card } from '$lib/types';
 
-const DECKS_KEY = 'wixdex_saved_decks';
 const SETTINGS_KEY = 'wixdex_user_settings';
+const DRAFT_KEY = 'wixdex_draft';
 
 export interface UserSettings {
   showLifeBurst: boolean;
   showCandidateIcon: boolean;
+}
+
+export interface DraftState {
+  currentDeckId: string | null;
+  currentDeckName: string;
+  currentDeckMemo: string;
+  mainDeck: Card[];
+  lrigDeck: Card[];
+  candidateCards: Card[];
 }
 
 const DEFAULT_SETTINGS: UserSettings = {
@@ -32,8 +41,12 @@ function write(key: string, value: unknown): void {
   }
 }
 
-export const getAllDecks = (): SavedDeck[] => read<SavedDeck[]>(DECKS_KEY, []);
-export const persistDecks = (decks: SavedDeck[]): void => write(DECKS_KEY, decks);
-
 export const getSettings = (): UserSettings => ({ ...DEFAULT_SETTINGS, ...read<Partial<UserSettings>>(SETTINGS_KEY, {}) });
 export const saveSettings = (settings: UserSettings): void => write(SETTINGS_KEY, settings);
+
+export const getDraft = (): DraftState | null => read<DraftState | null>(DRAFT_KEY, null);
+export const saveDraft = (draft: DraftState): void => write(DRAFT_KEY, draft);
+export const clearDraft = (): void => {
+  if (typeof localStorage === 'undefined') return;
+  localStorage.removeItem(DRAFT_KEY);
+};

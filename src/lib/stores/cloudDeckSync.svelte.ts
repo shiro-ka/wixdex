@@ -1,5 +1,4 @@
 import type { Card, SavedDeck, DeckSummary, DeckDetail, DeckSlotKind } from '$lib/types';
-import { getAllDecks, persistDecks } from '$lib/utils/storage';
 import { cardKey } from '$lib/utils/cardData';
 
 function cardsToSlots(cards: Card[], slot: DeckSlotKind): DeckDetail['slots'] {
@@ -28,20 +27,6 @@ function slotsToCards(
   return result;
 }
 
-function savedDeckToSummary(d: SavedDeck): DeckSummary {
-  return {
-    id: d.id,
-    name: d.name,
-    memo: d.memo,
-    isPublic: false,
-    mainCount: d.mainDeck.length,
-    lrigCount: d.lrigDeck.length,
-    candidateCount: d.candidateCards.length,
-    createdAt: d.createdAt,
-    updatedAt: d.updatedAt,
-  };
-}
-
 interface DeckInput {
   id?: string;
   name: string;
@@ -56,18 +41,7 @@ export class CloudDeckSync {
   syncing = $state(false);
   error = $state<string | null>(null);
 
-  readonly isLoggedIn: boolean;
-
-  constructor(isLoggedIn: boolean) {
-    this.isLoggedIn = isLoggedIn;
-  }
-
   async loadList(): Promise<void> {
-    if (!this.isLoggedIn) {
-      this.decks = getAllDecks().map(savedDeckToSummary);
-      return;
-    }
-
     this.syncing = true;
     this.error = null;
     try {
@@ -82,10 +56,6 @@ export class CloudDeckSync {
   }
 
   async loadFull(id: string, cardMap: Map<string, Card>): Promise<SavedDeck | null> {
-    if (!this.isLoggedIn) {
-      return getAllDecks().find((d) => d.id === id) ?? null;
-    }
-
     const res = await fetch(`/api/decks/${id}`);
     if (!res.ok) return null;
     const data = (await res.json()) as DeckDetail;
@@ -104,34 +74,6 @@ export class CloudDeckSync {
 
   async save(deck: DeckInput): Promise<string> {
     const isNew = !deck.id || !this.decks.find((d) => d.id === deck.id);
-    const now = Date.now();
-
-    if (!this.isLoggedIn) {
-      const all = getAllDecks();
-      if (isNew) {
-        const newId = `deck_${now}`;
-        persistDecks([...all, { ...deck, id: newId, createdAt: now, updatedAt: now }]);
-        await this.loadList();
-        return newId;
-      }
-      persistDecks(
-        all.map((d) =>
-          d.id === deck.id
-            ? {
-                ...d,
-                name: deck.name,
-                memo: deck.memo,
-                mainDeck: deck.mainDeck,
-                lrigDeck: deck.lrigDeck,
-                candidateCards: deck.candidateCards,
-                updatedAt: now,
-              }
-            : d
-        )
-      );
-      await this.loadList();
-      return deck.id!;
-    }
 
     this.syncing = true;
     this.error = null;
@@ -184,11 +126,6 @@ export class CloudDeckSync {
   async delete(id: string): Promise<void> {
     const prev = this.decks;
     this.decks = this.decks.filter((d) => d.id !== id);
-
-    if (!this.isLoggedIn) {
-      persistDecks(getAllDecks().filter((d) => d.id !== id));
-      return;
-    }
 
     try {
       const res = await fetch(`/api/decks/${id}`, { method: 'DELETE' });
