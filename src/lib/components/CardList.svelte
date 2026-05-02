@@ -1,7 +1,9 @@
 <script lang="ts">
   import CardImage from './CardImage.svelte';
-  import PlusIcon from './icons/PlusIcon.svelte';
-  import FolderIcon from './icons/FolderIcon.svelte';
+  import IconPlus from '@tabler/icons-svelte/icons/plus';
+  import IconFolderPlus from '@tabler/icons-svelte/icons/folder-plus';
+  import IconFolderX from '@tabler/icons-svelte/icons/folder-x';
+  import IconNumber4 from '@tabler/icons-svelte/icons/number-4';
   import type { Card } from '$lib/types';
   import { cardImageUrl } from '$lib/utils/cardImages';
 
@@ -176,24 +178,24 @@
             class="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
             onclick={() => onAdd(card)} title="デッキに1枚追加"
           >
-            <PlusIcon class="w-5 h-5 text-gray-400" />
+            <IconPlus class="w-5 h-5 text-gray-400" />
           </button>
           <button
             class="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
             onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-gray-400">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M15 20v-15l-8 11h10" />
-            </svg>
+            <IconNumber4 class="w-5 h-5 text-gray-400" />
           </button>
           <button
             class="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
             onclick={() => { candidateFilter ? onRemoveFromCandidate(card) : onAddToCandidate(card); }}
             title={candidateFilter ? '候補カードから削除' : '候補カードに追加'}
           >
-            <FolderIcon mode={candidateFilter ? 'remove' : 'add'} class="w-5 h-5 text-gray-400" />
+            {#if candidateFilter}
+              <IconFolderX class="w-5 h-5 text-gray-400" />
+            {:else}
+              <IconFolderPlus class="w-5 h-5 text-gray-400" />
+            {/if}
           </button>
         </div>
       </div>

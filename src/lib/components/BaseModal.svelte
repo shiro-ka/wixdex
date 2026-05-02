@@ -9,7 +9,7 @@
     maxWidth?: 'sm' | 'md' | 'lg';
   }
 
-  import CloseIcon from './icons/CloseIcon.svelte';
+  import IconX from '@tabler/icons-svelte/icons/x';
 
   let { isOpen, onClose, title, children, maxWidth = 'md' }: Props = $props();
 
@@ -24,7 +24,7 @@
     <div class="flex items-center justify-between mb-4">
       <h2 class="text-xl font-bold text-white">{title}</h2>
       <button onclick={onClose} class="text-gray-400 hover:text-white transition-colors" aria-label="閉じる">
-        <CloseIcon />
+        <IconX class="w-6 h-6" />
       </button>
     </div>
     {@render children()}
