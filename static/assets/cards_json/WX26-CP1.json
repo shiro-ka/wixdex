@@ -1,0 +1,2632 @@
+[
+  {
+    "cardID": "WX26-CP1-001",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-001.webp",
+    "name": "FUTURE SESSION",
+    "subName": [
+      "ふューちャーせッしョん"
+    ],
+    "rarity": "LR",
+    "illust": "山吹色",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "白"
+    ],
+    "level": null,
+    "cost": {
+      "白": 1
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-002",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-002.webp",
+    "name": "雪花繚乱",
+    "subName": [
+      "せッかりョウらん"
+    ],
+    "rarity": "LR",
+    "illust": "はしもとなおや",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "白"
+    ],
+    "level": null,
+    "cost": {
+      "白": 1,
+      "無": 1
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-003",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-003.webp",
+    "name": "TRIAD FORCE",
+    "subName": [
+      "とらいアドふぉーす"
+    ],
+    "rarity": "LR",
+    "illust": "ロクシロコウシ",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "赤"
+    ],
+    "level": null,
+    "cost": {
+      "赤": 1
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-004",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-004.webp",
+    "name": "OVER THE BLAZE",
+    "subName": [
+      "オーバーザブれいズ"
+    ],
+    "rarity": "LR",
+    "illust": "bomi",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "赤"
+    ],
+    "level": null,
+    "cost": {
+      "赤": 1
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-005",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-005.webp",
+    "name": "Super Higher Dreamer!!!",
+    "subName": [
+      "すーパーはいやードりーまー"
+    ],
+    "rarity": "LR",
+    "illust": "ちゃきん",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "青"
+    ],
+    "level": null,
+    "cost": {
+      "青": 1
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-006",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-006.webp",
+    "name": "イノセントコール",
+    "subName": [
+      "いのせんとこーる"
+    ],
+    "rarity": "LR",
+    "illust": "神奈ぺろん",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "青"
+    ],
+    "level": null,
+    "cost": {
+      "青": 1,
+      "無": 1
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-007",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-007.webp",
+    "name": "TRINITY DIVINE",
+    "subName": [
+      "とりにてィディヴあいん"
+    ],
+    "rarity": "LR",
+    "illust": "BUZZ",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "緑"
+    ],
+    "level": null,
+    "cost": {
+      "緑": 1
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-008",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-008.webp",
+    "name": "激光 It's ME!",
+    "subName": [
+      "ゲッこウいッつみー"
+    ],
+    "rarity": "LR",
+    "illust": "北熊",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "緑"
+    ],
+    "level": null,
+    "cost": {
+      "緑": 1
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-009",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-009.webp",
+    "name": "ONENESS HARMONY",
+    "subName": [
+      "わんねすはーもにー"
+    ],
+    "rarity": "LR",
+    "illust": "夕子",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "黒"
+    ],
+    "level": null,
+    "cost": {
+      "黒": 1
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-010",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-010.webp",
+    "name": "Monochrome Eden",
+    "subName": [
+      "ものくろーむエデん"
+    ],
+    "rarity": "LR",
+    "illust": "モレシャン",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "黒"
+    ],
+    "level": null,
+    "cost": {
+      "黒": 1
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-011",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-011.webp",
+    "name": "この輝きは永遠に！",
+    "subName": [
+      "このかガやきはエいエんに"
+    ],
+    "rarity": "LC",
+    "illust": "",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "白"
+    ],
+    "level": null,
+    "cost": {
+      "白": 1
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-012",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-012.webp",
+    "name": "ジール・ライジングヴォルケーノ",
+    "subName": [
+      "ジーるらいジんグヴぉるけーの"
+    ],
+    "rarity": "LC",
+    "illust": "",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "赤"
+    ],
+    "level": null,
+    "cost": {
+      "赤": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-013",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-013.webp",
+    "name": "ジール・ファイアクリティカル",
+    "subName": [
+      "ジーるふあいアくりてィかる"
+    ],
+    "rarity": "LC",
+    "illust": "",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "赤"
+    ],
+    "level": null,
+    "cost": {
+      "赤": 1
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-014",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-014.webp",
+    "name": "リップル・シャイニーストリーム",
+    "subName": [
+      "りップるしャいにーすとりーむ"
+    ],
+    "rarity": "LC",
+    "illust": "",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "青"
+    ],
+    "level": null,
+    "cost": {
+      "青": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-015",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-015.webp",
+    "name": "リップル・ハンマースプラッシュ",
+    "subName": [
+      "りップるはんまーすプらッしュ"
+    ],
+    "rarity": "LC",
+    "illust": "",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "青"
+    ],
+    "level": null,
+    "cost": {
+      "青": 1
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-016",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-016.webp",
+    "name": "ミーティア・アステロイドシャワー",
+    "subName": [
+      "みーてィアアすてろいドしャわー"
+    ],
+    "rarity": "LC",
+    "illust": "",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "緑"
+    ],
+    "level": null,
+    "cost": {
+      "緑": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-017",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-017.webp",
+    "name": "ミーティア・ロケットストライク",
+    "subName": [
+      "みーてィアろけッとすとらいく"
+    ],
+    "rarity": "LC",
+    "illust": "",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "緑"
+    ],
+    "level": null,
+    "cost": {
+      "緑": 1
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-018",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-018.webp",
+    "name": "気高く咲いた雪の花！",
+    "subName": [
+      "けダかくさいたゆきのはな"
+    ],
+    "rarity": "LC",
+    "illust": "",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "黒"
+    ],
+    "level": null,
+    "cost": {
+      "黒": 1
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-019",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-019.webp",
+    "name": "ヴィオラ クロス ネージュ クレイモアスマッシャー",
+    "subName": [
+      "ヴィオらくろすねージュくれいもアすまッしャー"
+    ],
+    "rarity": "LC",
+    "illust": "",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "白黒"
+    ],
+    "level": null,
+    "cost": {
+      "白/黒": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-020",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-020.webp",
+    "name": "ゼッタイ歌姫宣言ッ！",
+    "subName": [
+      "ゼッたいウたひめせんゲんッ"
+    ],
+    "rarity": "LC",
+    "illust": "村上ヒサシ",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "無"
+    ],
+    "level": null,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-021",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-021.webp",
+    "name": "君とつなぐオーケストラ",
+    "subName": [
+      "きみとつなグオーけすとら"
+    ],
+    "rarity": "LC",
+    "illust": "緑QN",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "無"
+    ],
+    "level": null,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-022",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-022.webp",
+    "name": "QUINTET PULSE",
+    "subName": [
+      "くいんてッとパるす"
+    ],
+    "rarity": "LC",
+    "illust": "和菓子",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "無"
+    ],
+    "level": null,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-023",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-023.webp",
+    "name": "エスコート ダイヤモンド",
+    "subName": [
+      "エすこーとダいやもんド"
+    ],
+    "rarity": "LC",
+    "illust": "緑QN",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "無"
+    ],
+    "level": null,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-024",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-024.webp",
+    "name": "赤の女王＆白の女王",
+    "subName": [
+      "アかのジョオウアんドしろのジョオウ"
+    ],
+    "rarity": "LC",
+    "illust": "コウサク",
+    "cardType": [
+      "アーツ"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "無"
+    ],
+    "level": null,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-028",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-028.webp",
+    "name": "プリンセス・ネージュ レベル３",
+    "subName": [
+      "プりんせすねージュれベるさん"
+    ],
+    "rarity": "LC",
+    "illust": "エイチ",
+    "cardType": [
+      "ルリグ"
+    ],
+    "lrigTypeClass": [
+      "ネージュ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-032",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-032.webp",
+    "name": "プリンセス・ジール レベル３",
+    "subName": [
+      "プりんせすジーるれベるさん"
+    ],
+    "rarity": "LC",
+    "illust": "mado*pen",
+    "cardType": [
+      "ルリグ"
+    ],
+    "lrigTypeClass": [
+      "ジール"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-036",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-036.webp",
+    "name": "プリンセス・リップル レベル３",
+    "subName": [
+      "プりんせすりップるれベるさん"
+    ],
+    "rarity": "LC",
+    "illust": "茶ちえ",
+    "cardType": [
+      "ルリグ"
+    ],
+    "lrigTypeClass": [
+      "リップル"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-040",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-040.webp",
+    "name": "プリンセス・ミーティア レベル３",
+    "subName": [
+      "プりんせすみーてィアれベるさん"
+    ],
+    "rarity": "LC",
+    "illust": "pupps",
+    "cardType": [
+      "ルリグ"
+    ],
+    "lrigTypeClass": [
+      "ミーティア"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-044",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-044.webp",
+    "name": "プリンセス・ヴィオラ レベル３",
+    "subName": [
+      "プりんせすヴィオられベるさん"
+    ],
+    "rarity": "LC",
+    "illust": "アリオ",
+    "cardType": [
+      "ルリグ"
+    ],
+    "lrigTypeClass": [
+      "ヴィオラ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-045",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-045.webp",
+    "name": "花の騎士ピュリティ",
+    "subName": [
+      "はなのきしピュりてィ"
+    ],
+    "rarity": "SR",
+    "illust": "イチゼン",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-046",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-046.webp",
+    "name": "プリンセス・ジール＆ネージュ",
+    "subName": [
+      "プりんせすジーるアんドねージュ"
+    ],
+    "rarity": "SR",
+    "illust": "九十きゅうり",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-047",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-047.webp",
+    "name": "プリンセス・ヴィオラ＆ネージュ",
+    "subName": [
+      "プりんせすヴィオらアんドねージュ"
+    ],
+    "rarity": "SR",
+    "illust": "和菓子",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-048",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-048.webp",
+    "name": "プリンセス・ジール(テイクミーハイヤー)",
+    "subName": [
+      "プりんせすジーるていくみーはいやー"
+    ],
+    "rarity": "SR",
+    "illust": "mado*pen",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-049",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-049.webp",
+    "name": "プリンセス・リップル＆ジール",
+    "subName": [
+      "プりんせすりップるアんドジーる"
+    ],
+    "rarity": "SR",
+    "illust": "ぶんたん",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-050",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-050.webp",
+    "name": "プリンセス・ネージュ＆ジール",
+    "subName": [
+      "プりんせすねージュアんドジーる"
+    ],
+    "rarity": "SR",
+    "illust": "夕子",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-051",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-051.webp",
+    "name": "プリンセス・リップル(テイクミーハイヤー)",
+    "subName": [
+      "プりんせすりップるていくみーはいやー"
+    ],
+    "rarity": "SR",
+    "illust": "ロクシロコウシ",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-052",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-052.webp",
+    "name": "プリンセス・ミーティア＆リップル",
+    "subName": [
+      "プりんせすみーてィアアんドりップる"
+    ],
+    "rarity": "SR",
+    "illust": "霜月友",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-053",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-053.webp",
+    "name": "プリンセス・ジール＆リップル",
+    "subName": [
+      "プりんせすジーるアんドりップる"
+    ],
+    "rarity": "SR",
+    "illust": "イコール",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-054",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-054.webp",
+    "name": "プリンセス・ミーティア(テイクミーハイヤー)",
+    "subName": [
+      "プりんせすみーてィアていくみーはいやー"
+    ],
+    "rarity": "SR",
+    "illust": "BUZZ",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-055",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-055.webp",
+    "name": "プリンセス・ヴィオラ＆ミーティア",
+    "subName": [
+      "プりんせすヴィオらアんドみーてィア"
+    ],
+    "rarity": "SR",
+    "illust": "九十きゅうり",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-056",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-056.webp",
+    "name": "プリンセス・リップル＆ミーティア",
+    "subName": [
+      "プりんせすりップるアんドみーてィア"
+    ],
+    "rarity": "SR",
+    "illust": "ちゃきん",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-057",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-057.webp",
+    "name": "花の騎士シンシア",
+    "subName": [
+      "はなのきししんしア"
+    ],
+    "rarity": "SR",
+    "illust": "mado*pen",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-058",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-058.webp",
+    "name": "プリンセス・ネージュ＆ヴィオラ",
+    "subName": [
+      "プりんせすねージュアんドヴィオら"
+    ],
+    "rarity": "SR",
+    "illust": "くろなゆた",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-059",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-059.webp",
+    "name": "プリンセス・ミーティア＆ヴィオラ",
+    "subName": [
+      "プりんせすみーてィアアんドヴィオら"
+    ],
+    "rarity": "SR",
+    "illust": "山吹色",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-060",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-060.webp",
+    "name": "古海える",
+    "subName": [
+      "ふるみエる"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-061",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-061.webp",
+    "name": "奏美えな＆ろな",
+    "subName": [
+      "そウビエなアんドろな"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-062",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-062.webp",
+    "name": "姫崎みらい",
+    "subName": [
+      "ひめさきみらい"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-063",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-063.webp",
+    "name": "風花りり(ちびキャラ)",
+    "subName": [
+      "かザはなりりちビきャら"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-064",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-064.webp",
+    "name": "プリンセス・ネージュ(雪の花)",
+    "subName": [
+      "プりんせすねージュゆきのはな"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-065",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-065.webp",
+    "name": "風花りり(私服)",
+    "subName": [
+      "かザはなりりしふく"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-066",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-066.webp",
+    "name": "トーマ",
+    "subName": [
+      "とーま"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-067",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-067.webp",
+    "name": "プリンセス・ネージュ(蕾を開き、花は咲く)",
+    "subName": [
+      "プりんせすねージュつボみをひらきはなはさく"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-068",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-068.webp",
+    "name": "馳川はやて",
+    "subName": [
+      "はせガわはやて"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-069",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-069.webp",
+    "name": "日村みかん",
+    "subName": [
+      "ひむらみかん"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-070",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-070.webp",
+    "name": "迫水あさぎ",
+    "subName": [
+      "さこみズアさギ"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-071",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-071.webp",
+    "name": "識辺かがり(ちびキャラ)",
+    "subName": [
+      "しるベかガりちビきャら"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-072",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-072.webp",
+    "name": "プリンセス・ジール(熱情のリズム)",
+    "subName": [
+      "プりんせすジーるねつジョウのりズむ"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-073",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-073.webp",
+    "name": "識辺かがり(私服)",
+    "subName": [
+      "しるベかガりしふく"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-074",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-074.webp",
+    "name": "カメオさん",
+    "subName": [
+      "かめオさん"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-075",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-075.webp",
+    "name": "プリンセス・ジール(決意完了！)",
+    "subName": [
+      "プりんせすジーるけついかんりョウ"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-076",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-076.webp",
+    "name": "陽ノ下なつ",
+    "subName": [
+      "ひのもとなつ"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-077",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-077.webp",
+    "name": "佐藤かえで",
+    "subName": [
+      "さとウかエデ"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-078",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-078.webp",
+    "name": "曽本さき",
+    "subName": [
+      "そもとさき"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-079",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-079.webp",
+    "name": "空野みなも(ちびキャラ)",
+    "subName": [
+      "そらのみなもちビきャら"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-080",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-080.webp",
+    "name": "プリンセス・リップル(響け)",
+    "subName": [
+      "プりんせすりップるひビけ"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-081",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-081.webp",
+    "name": "空野みなも(私服)",
+    "subName": [
+      "そらのみなもしふく"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-082",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-082.webp",
+    "name": "ドドメさん",
+    "subName": [
+      "ドドめさん"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-083",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-083.webp",
+    "name": "プリンセス・リップル(女の子の一生懸命)",
+    "subName": [
+      "プりんせすりップるオんなのこのいッしョウけんめい"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-084",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-084.webp",
+    "name": "根津あいこ",
+    "subName": [
+      "ねヅアいこ"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-085",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-085.webp",
+    "name": "葉加瀬まなび",
+    "subName": [
+      "はかせまなビ"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-086",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-086.webp",
+    "name": "田中まい",
+    "subName": [
+      "たなかまい"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-087",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-087.webp",
+    "name": "一条ながせ(ちびキャラ)",
+    "subName": [
+      "いちジョウなガせちビきャら"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-088",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-088.webp",
+    "name": "プリンセス・ミーティア(あたしのキラキラ)",
+    "subName": [
+      "プりんせすみーてィアアたしのきらきら"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-089",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-089.webp",
+    "name": "一条ながせ(私服)",
+    "subName": [
+      "いちジョウなガせしふく"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-090",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-090.webp",
+    "name": "ダック軍曹＆副官",
+    "subName": [
+      "ダッくグんそウアんドふくかん"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-091",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-091.webp",
+    "name": "プリンセス・ミーティア(流星、闇を切り裂いて)",
+    "subName": [
+      "プりんせすみーてィアりュウせいやみをきりさいて"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-092",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-092.webp",
+    "name": "富良野まつり",
+    "subName": [
+      "ふらのまつり"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-093",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-093.webp",
+    "name": "諸星まいん",
+    "subName": [
+      "もろボしまいん"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-094",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-094.webp",
+    "name": "如月ぼたん",
+    "subName": [
+      "きさらギボたん"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-095",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-095.webp",
+    "name": "風花すみれ(ちびキャラ)",
+    "subName": [
+      "かザはなすみれちビきャら"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-096",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-096.webp",
+    "name": "プリンセス・ヴィオラ(雪の花)",
+    "subName": [
+      "プりんせすヴィオらゆきのはな"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-097",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-097.webp",
+    "name": "風花すみれ(私服)",
+    "subName": [
+      "かザはなすみれしふく"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-098",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-098.webp",
+    "name": "グリムさん",
+    "subName": [
+      "グりむさん"
+    ],
+    "rarity": "R",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-099",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-099.webp",
+    "name": "プリンセス・ヴィオラ(蕾を開き、花は咲く)",
+    "subName": [
+      "プりんせすヴィオらつボみをひらきはなはさく"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：プリオケ"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-100",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-100.webp",
+    "name": "ジュエルベル",
+    "subName": [
+      "ジュエるベる"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "スペル"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "無"
+    ],
+    "level": null,
+    "cost": {
+      "無": 1
+    },
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  },
+  {
+    "cardID": "WX26-CP1-101",
+    "productID": "WX26-CP1",
+    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-101.webp",
+    "name": "力を貸して！",
+    "subName": [
+      "ちからをかして"
+    ],
+    "rarity": "C",
+    "illust": "",
+    "cardType": [
+      "スペル"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "無"
+    ],
+    "level": null,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {},
+    "flavorText": "",
+    "faq": {},
+    "tags": [],
+    "additionalInfo": {}
+  }
+]
