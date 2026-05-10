@@ -153,8 +153,9 @@
   {:else}
   {#each cards as card, index (card.id ? `${card.id}-${index}` : `${card.image}-${index}`)}
     <div>
+      <!-- svelte-ignore a11y_no_static_element_interactions -->
       <div
-        class="flex flex-col items-center justify-center w-16 h-full cursor-pointer md:w-full"
+        class="flex flex-col w-16 md:w-full h-full border border-gray-600/50 rounded-lg"
         ontouchstart={(e) => handleTouchStart(e, card)}
         ontouchmove={(e) => handleTouchMove(e, card)}
         ontouchend={(e) => handleTouchEnd(e, card)}
@@ -183,28 +184,28 @@
           onmouseenter={() => onCardHover(card)}
           onclick={() => onCardClick(card)}
         />
-        <div class="hidden md:flex justify-center gap-2 w-full h-8">
+        <div class="hidden md:flex justify-center w-full h-8">
           <button
-            class="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
+            class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
             onclick={() => onAdd(card)} title="デッキに1枚追加"
           >
-            <IconPlus class="w-5 h-5 text-gray-400" />
+            <IconPlus class="w-5 h-5" />
           </button>
           <button
-            class="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
+            class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
             onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加"
           >
-            <IconNumber4 class="w-5 h-5 text-gray-400" />
+            <IconNumber4 class="w-5 h-5" />
           </button>
           <button
-            class="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
+            class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
             onclick={() => { candidateFilter ? onRemoveFromCandidate(card) : onAddToCandidate(card); }}
             title={candidateFilter ? '候補カードから削除' : '候補カードに追加'}
           >
             {#if candidateFilter}
-              <IconFolderX class="w-5 h-5 text-gray-400" />
+              <IconFolderX class="w-5 h-5" />
             {:else}
-              <IconFolderPlus class="w-5 h-5 text-gray-400" />
+              <IconFolderPlus class="w-5 h-5" />
             {/if}
           </button>
         </div>
