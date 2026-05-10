@@ -2,6 +2,7 @@ import type { Card } from "$lib/types";
 
 export const CARD_SETS = [
   "header",
+  "WX26-CP1",
   "WX25-P1",
   "WX24-P2",
   "WX24-P3",
