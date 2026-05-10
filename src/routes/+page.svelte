@@ -22,8 +22,6 @@
   import TypeFilterContent from '$lib/components/dropdowns/TypeFilterContent.svelte';
   import LrigClassFilterContent from '$lib/components/dropdowns/LrigClassFilterContent.svelte';
   import TagFilterContent from '$lib/components/dropdowns/TagFilterContent.svelte';
-  import LoadingSpinner from '$lib/components/LoadingSpinner.svelte';
-  import ErrorMessage from '$lib/components/ErrorMessage.svelte';
 
   // ── card data ──────────────────────────────────────────────
   let allCardData = $state<Card[]>([]);
@@ -352,12 +350,7 @@
   }
 </script>
 
-{#if loading}
-  <LoadingSpinner />
-{:else if loadError}
-  <ErrorMessage message={loadError} />
-{:else}
-  <div class="flex flex-col w-dvw h-dvh m-0 p-0 bg-zinc-900 overflow-hidden">
+<div class="flex flex-col w-dvw h-dvh m-0 p-0 bg-zinc-900 overflow-hidden">
     <Navbar
       deckName={currentDeckName}
       isSaved={currentDeckIsSaved}
@@ -386,6 +379,8 @@
       <div class="flex flex-3 flex-col lg:flex-row">
         <CardList
           cards={filteredCards}
+          {loading}
+          loadError={loadError}
           onAdd={addCard}
           onAddMultiple={addMultipleCards}
           onRemove={(card) => removeCard(card)}
@@ -505,4 +500,4 @@
       {isLoggedIn}
     />
   </div>
-{/if}
+</div>
