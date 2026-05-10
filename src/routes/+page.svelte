@@ -18,6 +18,7 @@
   import DeckListModal from '$lib/components/DeckListModal.svelte';
   import DeckEditModal from '$lib/components/DeckEditModal.svelte';
   import ShareModal from '$lib/components/ShareModal.svelte';
+  import StatsModal from '$lib/components/StatsModal.svelte';
   import FilterDropdown from '$lib/components/dropdowns/FilterDropdown.svelte';
   import TypeFilterContent from '$lib/components/dropdowns/TypeFilterContent.svelte';
   import LrigClassFilterContent from '$lib/components/dropdowns/LrigClassFilterContent.svelte';
@@ -74,6 +75,7 @@
   let isDeckListOpen = $state(false);
   let isDeckEditOpen = $state(false);
   let isShareOpen = $state(false);
+  let isStatsOpen = $state(false);
   let activeDropdown = $state<'type' | 'lrigClass' | 'tag' | null>(null);
 
   // ── filtered cards ─────────────────────────────────────────
@@ -464,6 +466,7 @@
       onClose={() => { isSidebarOpen = false; }}
       onDeckListClick={handleDeckListOpen}
       onNewDeckClick={handleNewDeck}
+      onStatsClick={() => { isStatsOpen = true; }}
       user={page.data.user}
     />
 
@@ -490,6 +493,12 @@
       deckName={currentDeckName}
       {mainDeck}
       {lrigDeck}
+    />
+
+    <StatsModal
+      isOpen={isStatsOpen}
+      onClose={() => { isStatsOpen = false; }}
+      {cardMap}
     />
 
     <CardPopup

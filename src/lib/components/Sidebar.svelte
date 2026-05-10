@@ -12,10 +12,11 @@
     onClose: () => void;
     onDeckListClick: () => void;
     onNewDeckClick: () => void;
+    onStatsClick: () => void;
     user?: { displayName: string } | null;
   }
 
-  let { isOpen, onClose, onDeckListClick, onNewDeckClick, user = null }: Props = $props();
+  let { isOpen, onClose, onDeckListClick, onNewDeckClick, onStatsClick, user = null }: Props = $props();
 
   const isLoggedIn = $derived(!!user);
 
@@ -46,7 +47,7 @@
     <div class="flex items-center justify-between mb-4">
       <h2 class="text-xl font-bold text-white">Menu</h2>
       <button onclick={onClose}
-        class="text-gray-400 hover:text-white !bg-transparent hover:bg-gray-700/50 rounded-lg p-1 transition-all"
+        class="text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg p-1 transition-all"
         aria-label="閉じる">
         <IconX class="w-6 h-6" />
       </button>
@@ -56,7 +57,7 @@
       <button
         onclick={isLoggedIn ? () => { onNewDeckClick(); onClose(); } : undefined}
         disabled={!isLoggedIn}
-        class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-white {isLoggedIn ? 'bg-zinc-800/50 hover:bg-zinc-800' : 'bg-zinc-800/20 opacity-40 cursor-not-allowed'}"
+        class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-white {!isLoggedIn ? 'opacity-40 cursor-not-allowed' : ''}"
       >
         <IconLibraryPlus class="w-5 h-5" />
         <span>新しいデッキを作成</span>
@@ -64,22 +65,17 @@
       <button
         onclick={isLoggedIn ? () => { onDeckListClick(); onClose(); } : undefined}
         disabled={!isLoggedIn}
-        class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-white {isLoggedIn ? 'bg-zinc-800/50 hover:bg-zinc-800' : 'bg-zinc-800/20 opacity-40 cursor-not-allowed'}"
+        class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-white {!isLoggedIn ? 'opacity-40 cursor-not-allowed' : ''}"
       >
         <IconLibrary class="w-5 h-5" />
         <span>デッキ一覧</span>
       </button>
-      {#if !isLoggedIn}
-        <a href="/login" onclick={onClose}
-          class="block text-center text-xs text-orange-400 hover:text-orange-300 transition-colors py-1">
-          ログインするとデッキを保存できます
-        </a>
-      {/if}
-      <a href="/stats" onclick={onClose}
-        class="w-full flex items-center gap-3 px-4 py-3 bg-zinc-800/50 hover:bg-zinc-800 rounded-lg transition-colors text-white">
+      <button
+        onclick={() => { onStatsClick(); onClose(); }}
+        class="w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-gray-100 transition-colors">
         <IconChartLine class="w-5 h-5" />
         <span>カード使用統計</span>
-      </a>
+      </button>
     </div>
 
     <div class="mt-4 pt-4 border-t border-neutral-700">
@@ -100,7 +96,7 @@
         </form>
       {:else}
         <a href="/login" onclick={onClose}
-          class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-orange-600 hover:bg-orange-500 rounded-lg transition-colors text-white font-medium text-sm">
+          class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-orange-500 hover:bg-orange-600 rounded-lg transition-colors text-white font-medium text-sm">
           ログイン / 登録
         </a>
       {/if}
@@ -108,11 +104,11 @@
 
     <div class="mt-auto flex items-center justify-center gap-8 py-4 border-t border-neutral-700">
       <a href="https://bsky.app/profile/wixdex.cards" target="_blank" rel="noopener noreferrer"
-        class="!text-neutral-100 hover:!text-orange-400 transition-colors" title="Bluesky">
+        class="text-neutral-100 hover:text-orange-400 transition-colors" title="Bluesky">
         <IconBrandBluesky class="w-6 h-6" />
       </a>
       <a href="https://github.com/shiro-ka/wixdex" target="_blank" rel="noopener noreferrer"
-        class="!text-neutral-100 hover:!text-orange-400 transition-colors" title="GitHub">
+        class="text-neutral-100 hover:text-orange-400 transition-colors" title="GitHub">
         <IconBrandGithub class="w-6 h-6" />
       </a>
     </div>
