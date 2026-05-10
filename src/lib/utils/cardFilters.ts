@@ -29,16 +29,16 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
     }
 
     const colorMatch = selectedColors.size === 0 ||
-      card.color.some(color => selectedColors.has(color));
+      (card.color ?? []).some(color => selectedColors.has(color));
 
     const levelMatch = selectedLevels.size === 0 ||
       selectedLevels.has(card.level);
 
     const cardTypeMatch = selectedCardTypes.size === 0 ||
-      card.cardType.some(type => selectedCardTypes.has(type));
+      (card.cardType ?? []).some(type => selectedCardTypes.has(type));
 
     const lrigClassMatch = selectedLrigClasses.size === 0 ||
-      card.lrigTypeClass.some(lrigClass => selectedLrigClasses.has(lrigClass));
+      (card.lrigTypeClass ?? []).some(lrigClass => selectedLrigClasses.has(lrigClass));
 
     const tagMatch = selectedTags.size === 0 ||
       (Array.isArray(card.tags) ? card.tags.some(tag => selectedTags.has(tag)) :
@@ -49,7 +49,7 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
 
     const textMatch = searchText === '' ||
       card.name.toLowerCase().includes(searchText.toLowerCase()) ||
-      card.subName.some(name => name.toLowerCase().includes(searchText.toLowerCase()));
+      (card.subName ?? []).some(name => name.toLowerCase().includes(searchText.toLowerCase()));
 
     return colorMatch && levelMatch && cardTypeMatch && lrigClassMatch && tagMatch && lifeBurstMatch && textMatch;
   });
