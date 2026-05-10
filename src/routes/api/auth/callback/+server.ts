@@ -24,7 +24,8 @@ export const GET: RequestHandler = async (event) => {
     did = session.did;
   } catch (err) {
     console.error('[/api/auth/callback] oauth callback failed:', err);
-    redirect(302, '/login?error=oauth_failed');
+    const params = new URLSearchParams({ error: 'oauth_failed', message: 'Bluesky認証に失敗しました。もう一度お試しください。' });
+    redirect(302, `/login?${params}`);
   }
 
   let handle = did;
