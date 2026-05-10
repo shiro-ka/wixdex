@@ -2,7 +2,7 @@
   {
     "cardID": "WX26-CP1-001",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-001.webp",
+    "image": "WX26-CP1/WX26-CP1-001.webp",
     "name": "FUTURE SESSION",
     "subName": [
       "ふゅーちゃーせっしょん"
@@ -42,7 +42,7 @@
   {
     "cardID": "WX26-CP1-002",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-002.webp",
+    "image": "WX26-CP1/WX26-CP1-002.webp",
     "name": "雪花繚乱",
     "subName": [
       "せっかりょうらん"
@@ -79,7 +79,7 @@
   {
     "cardID": "WX26-CP1-003",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-003.webp",
+    "image": "WX26-CP1/WX26-CP1-003.webp",
     "name": "TRIAD FORCE",
     "subName": [
       "とらいあどふぉーす"
@@ -118,7 +118,7 @@
   {
     "cardID": "WX26-CP1-004",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-004.webp",
+    "image": "WX26-CP1/WX26-CP1-004.webp",
     "name": "OVER THE BLAZE",
     "subName": [
       "おーばーざぶれいず"
@@ -154,7 +154,7 @@
   {
     "cardID": "WX26-CP1-005",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-005.webp",
+    "image": "WX26-CP1/WX26-CP1-005.webp",
     "name": "Super Higher Dreamer!!!",
     "subName": [
       "すーぱーはいやーどりーまー"
@@ -190,7 +190,7 @@
   {
     "cardID": "WX26-CP1-006",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-006.webp",
+    "image": "WX26-CP1/WX26-CP1-006.webp",
     "name": "イノセントコール",
     "subName": [
       "いのせんとこーる"
@@ -227,7 +227,7 @@
   {
     "cardID": "WX26-CP1-007",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-007.webp",
+    "image": "WX26-CP1/WX26-CP1-007.webp",
     "name": "TRINITY DIVINE",
     "subName": [
       "とりにてぃでぃぶあいん"
@@ -264,7 +264,7 @@
   {
     "cardID": "WX26-CP1-008",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-008.webp",
+    "image": "WX26-CP1/WX26-CP1-008.webp",
     "name": "激光 It's ME!",
     "subName": [
       "げっこういっつみー"
@@ -301,7 +301,7 @@
   {
     "cardID": "WX26-CP1-009",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-009.webp",
+    "image": "WX26-CP1/WX26-CP1-009.webp",
     "name": "ONENESS HARMONY",
     "subName": [
       "わんねすはーもにー"
@@ -338,7 +338,7 @@
   {
     "cardID": "WX26-CP1-010",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-010.webp",
+    "image": "WX26-CP1/WX26-CP1-010.webp",
     "name": "Monochrome Eden",
     "subName": [
       "ものくろーむえでん"
@@ -376,7 +376,7 @@
   {
     "cardID": "WX26-CP1-011",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-011.webp",
+    "image": "WX26-CP1/WX26-CP1-011.webp",
     "name": "この輝きは永遠に！",
     "subName": [
       "このかがやきはえいえんに"
@@ -412,7 +412,7 @@
   {
     "cardID": "WX26-CP1-012",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-012.webp",
+    "image": "WX26-CP1/WX26-CP1-012.webp",
     "name": "ジール・ライジングヴォルケーノ",
     "subName": [
       "じーるらいじんぐぶぉるけーの"
@@ -448,7 +448,7 @@
   {
     "cardID": "WX26-CP1-013",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-013.webp",
+    "image": "WX26-CP1/WX26-CP1-013.webp",
     "name": "ジール・ファイアクリティカル",
     "subName": [
       "じーるふあいあくりてぃかる"
@@ -484,7 +484,7 @@
   {
     "cardID": "WX26-CP1-014",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-014.webp",
+    "image": "WX26-CP1/WX26-CP1-014.webp",
     "name": "リップル・シャイニーストリーム",
     "subName": [
       "りっぷるしゃいにーすとりーむ"
@@ -520,7 +520,7 @@
   {
     "cardID": "WX26-CP1-015",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-015.webp",
+    "image": "WX26-CP1/WX26-CP1-015.webp",
     "name": "リップル・ハンマースプラッシュ",
     "subName": [
       "りっぷるはんまーすぷらっしゅ"
@@ -556,7 +556,7 @@
   {
     "cardID": "WX26-CP1-016",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-016.webp",
+    "image": "WX26-CP1/WX26-CP1-016.webp",
     "name": "ミーティア・アステロイドシャワー",
     "subName": [
       "みーてぃああすてろいどしゃわー"
@@ -592,7 +592,7 @@
   {
     "cardID": "WX26-CP1-017",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-017.webp",
+    "image": "WX26-CP1/WX26-CP1-017.webp",
     "name": "ミーティア・ロケットストライク",
     "subName": [
       "みーてぃあろけっとすとらいく"
@@ -628,7 +628,7 @@
   {
     "cardID": "WX26-CP1-018",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-018.webp",
+    "image": "WX26-CP1/WX26-CP1-018.webp",
     "name": "気高く咲いた雪の花！",
     "subName": [
       "けだかくさいたゆきのはな"
@@ -662,7 +662,7 @@
   {
     "cardID": "WX26-CP1-019",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-019.webp",
+    "image": "WX26-CP1/WX26-CP1-019.webp",
     "name": "ヴィオラ クロス ネージュ クレイモアスマッシャー",
     "subName": [
       "ぶぃおらくろすねーじゅくれいもあすまっしゃー"
@@ -698,7 +698,7 @@
   {
     "cardID": "WX26-CP1-020",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-020.webp",
+    "image": "WX26-CP1/WX26-CP1-020.webp",
     "name": "ゼッタイ歌姫宣言ッ！",
     "subName": [
       "ぜったいうたひめせんげんっ"
@@ -734,7 +734,7 @@
   {
     "cardID": "WX26-CP1-021",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-021.webp",
+    "image": "WX26-CP1/WX26-CP1-021.webp",
     "name": "君とつなぐオーケストラ",
     "subName": [
       "きみとつなぐおーけすとら"
@@ -770,7 +770,7 @@
   {
     "cardID": "WX26-CP1-022",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-022.webp",
+    "image": "WX26-CP1/WX26-CP1-022.webp",
     "name": "QUINTET PULSE",
     "subName": [
       "くいんてっとぱるす"
@@ -808,7 +808,7 @@
   {
     "cardID": "WX26-CP1-023",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-023.webp",
+    "image": "WX26-CP1/WX26-CP1-023.webp",
     "name": "エスコート ダイヤモンド",
     "subName": [
       "えすこーとだいやもんど"
@@ -842,7 +842,7 @@
   {
     "cardID": "WX26-CP1-024",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-024.webp",
+    "image": "WX26-CP1/WX26-CP1-024.webp",
     "name": "赤の女王＆白の女王",
     "subName": [
       "あかのじょおうあんどしろのじょおう"
@@ -876,7 +876,7 @@
   {
     "cardID": "WX26-CP1-028",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-028.webp",
+    "image": "WX26-CP1/WX26-CP1-028.webp",
     "name": "プリンセス・ネージュ レベル３",
     "subName": [
       "ぷりんせすねーじゅれべるさん"
@@ -913,7 +913,7 @@
   {
     "cardID": "WX26-CP1-032",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-032.webp",
+    "image": "WX26-CP1/WX26-CP1-032.webp",
     "name": "プリンセス・ジール レベル３",
     "subName": [
       "ぷりんせすじーるれべるさん"
@@ -950,7 +950,7 @@
   {
     "cardID": "WX26-CP1-036",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-036.webp",
+    "image": "WX26-CP1/WX26-CP1-036.webp",
     "name": "プリンセス・リップル レベル３",
     "subName": [
       "ぷりんせすりっぷるれべるさん"
@@ -986,7 +986,7 @@
   {
     "cardID": "WX26-CP1-040",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-040.webp",
+    "image": "WX26-CP1/WX26-CP1-040.webp",
     "name": "プリンセス・ミーティア レベル３",
     "subName": [
       "ぷりんせすみーてぃあれべるさん"
@@ -1024,7 +1024,7 @@
   {
     "cardID": "WX26-CP1-044",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-044.webp",
+    "image": "WX26-CP1/WX26-CP1-044.webp",
     "name": "プリンセス・ヴィオラ レベル３",
     "subName": [
       "ぷりんせすぶぃおられべるさん"
@@ -1060,7 +1060,7 @@
   {
     "cardID": "WX26-CP1-045",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-045.webp",
+    "image": "WX26-CP1/WX26-CP1-045.webp",
     "name": "花の騎士ピュリティ",
     "subName": [
       "はなのきしぴゅりてぃ"
@@ -1095,7 +1095,7 @@
   {
     "cardID": "WX26-CP1-046",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-046.webp",
+    "image": "WX26-CP1/WX26-CP1-046.webp",
     "name": "プリンセス・ジール＆ネージュ",
     "subName": [
       "ぷりんせすじーるあんどねーじゅ"
@@ -1130,7 +1130,7 @@
   {
     "cardID": "WX26-CP1-047",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-047.webp",
+    "image": "WX26-CP1/WX26-CP1-047.webp",
     "name": "プリンセス・ヴィオラ＆ネージュ",
     "subName": [
       "ぷりんせすぶぃおらあんどねーじゅ"
@@ -1168,7 +1168,7 @@
   {
     "cardID": "WX26-CP1-048",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-048.webp",
+    "image": "WX26-CP1/WX26-CP1-048.webp",
     "name": "プリンセス・ジール(テイクミーハイヤー)",
     "subName": [
       "ぷりんせすじーるていくみーはいやー"
@@ -1204,7 +1204,7 @@
   {
     "cardID": "WX26-CP1-049",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-049.webp",
+    "image": "WX26-CP1/WX26-CP1-049.webp",
     "name": "プリンセス・リップル＆ジール",
     "subName": [
       "ぷりんせすりっぷるあんどじーる"
@@ -1239,7 +1239,7 @@
   {
     "cardID": "WX26-CP1-050",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-050.webp",
+    "image": "WX26-CP1/WX26-CP1-050.webp",
     "name": "プリンセス・ネージュ＆ジール",
     "subName": [
       "ぷりんせすねーじゅあんどじーる"
@@ -1275,7 +1275,7 @@
   {
     "cardID": "WX26-CP1-051",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-051.webp",
+    "image": "WX26-CP1/WX26-CP1-051.webp",
     "name": "プリンセス・リップル(テイクミーハイヤー)",
     "subName": [
       "ぷりんせすりっぷるていくみーはいやー"
@@ -1310,7 +1310,7 @@
   {
     "cardID": "WX26-CP1-052",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-052.webp",
+    "image": "WX26-CP1/WX26-CP1-052.webp",
     "name": "プリンセス・ミーティア＆リップル",
     "subName": [
       "ぷりんせすみーてぃああんどりっぷる"
@@ -1343,7 +1343,7 @@
   {
     "cardID": "WX26-CP1-053",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-053.webp",
+    "image": "WX26-CP1/WX26-CP1-053.webp",
     "name": "プリンセス・ジール＆リップル",
     "subName": [
       "ぷりんせすじーるあんどりっぷる"
@@ -1379,7 +1379,7 @@
   {
     "cardID": "WX26-CP1-054",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-054.webp",
+    "image": "WX26-CP1/WX26-CP1-054.webp",
     "name": "プリンセス・ミーティア(テイクミーハイヤー)",
     "subName": [
       "ぷりんせすみーてぃあていくみーはいやー"
@@ -1414,7 +1414,7 @@
   {
     "cardID": "WX26-CP1-055",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-055.webp",
+    "image": "WX26-CP1/WX26-CP1-055.webp",
     "name": "プリンセス・ヴィオラ＆ミーティア",
     "subName": [
       "ぷりんせすぶぃおらあんどみーてぃあ"
@@ -1449,7 +1449,7 @@
   {
     "cardID": "WX26-CP1-056",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-056.webp",
+    "image": "WX26-CP1/WX26-CP1-056.webp",
     "name": "プリンセス・リップル＆ミーティア",
     "subName": [
       "ぷりんせすりっぷるあんどみーてぃあ"
@@ -1483,7 +1483,7 @@
   {
     "cardID": "WX26-CP1-057",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-057.webp",
+    "image": "WX26-CP1/WX26-CP1-057.webp",
     "name": "花の騎士シンシア",
     "subName": [
       "はなのきししんしあ"
@@ -1518,7 +1518,7 @@
   {
     "cardID": "WX26-CP1-058",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-058.webp",
+    "image": "WX26-CP1/WX26-CP1-058.webp",
     "name": "プリンセス・ネージュ＆ヴィオラ",
     "subName": [
       "ぷりんせすねーじゅあんどぶぃおら"
@@ -1553,7 +1553,7 @@
   {
     "cardID": "WX26-CP1-059",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-059.webp",
+    "image": "WX26-CP1/WX26-CP1-059.webp",
     "name": "プリンセス・ミーティア＆ヴィオラ",
     "subName": [
       "ぷりんせすみーてぃああんどぶぃおら"
@@ -1591,7 +1591,7 @@
   {
     "cardID": "WX26-CP1-060",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-060.webp",
+    "image": "WX26-CP1/WX26-CP1-060.webp",
     "name": "古海える",
     "subName": [
       "ふるみえる"
@@ -1627,7 +1627,7 @@
   {
     "cardID": "WX26-CP1-061",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-061.webp",
+    "image": "WX26-CP1/WX26-CP1-061.webp",
     "name": "奏美えな＆ろな",
     "subName": [
       "そうびえなあんどろな"
@@ -1663,7 +1663,7 @@
   {
     "cardID": "WX26-CP1-062",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-062.webp",
+    "image": "WX26-CP1/WX26-CP1-062.webp",
     "name": "姫崎みらい",
     "subName": [
       "ひめさきみらい"
@@ -1699,7 +1699,7 @@
   {
     "cardID": "WX26-CP1-063",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-063.webp",
+    "image": "WX26-CP1/WX26-CP1-063.webp",
     "name": "風花りり(ちびキャラ)",
     "subName": [
       "かざはなりりちびきゃら"
@@ -1734,7 +1734,7 @@
   {
     "cardID": "WX26-CP1-064",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-064.webp",
+    "image": "WX26-CP1/WX26-CP1-064.webp",
     "name": "プリンセス・ネージュ(雪の花)",
     "subName": [
       "ぷりんせすねーじゅゆきのはな"
@@ -1769,7 +1769,7 @@
   {
     "cardID": "WX26-CP1-065",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-065.webp",
+    "image": "WX26-CP1/WX26-CP1-065.webp",
     "name": "風花りり(私服)",
     "subName": [
       "かざはなりりしふく"
@@ -1802,7 +1802,7 @@
   {
     "cardID": "WX26-CP1-066",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-066.webp",
+    "image": "WX26-CP1/WX26-CP1-066.webp",
     "name": "トーマ",
     "subName": [
       "とーま"
@@ -1838,7 +1838,7 @@
   {
     "cardID": "WX26-CP1-067",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-067.webp",
+    "image": "WX26-CP1/WX26-CP1-067.webp",
     "name": "プリンセス・ネージュ(蕾を開き、花は咲く)",
     "subName": [
       "ぷりんせすねーじゅつぼみをひらきはなはさく"
@@ -1872,7 +1872,7 @@
   {
     "cardID": "WX26-CP1-068",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-068.webp",
+    "image": "WX26-CP1/WX26-CP1-068.webp",
     "name": "馳川はやて",
     "subName": [
       "はせがわはやて"
@@ -1907,7 +1907,7 @@
   {
     "cardID": "WX26-CP1-069",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-069.webp",
+    "image": "WX26-CP1/WX26-CP1-069.webp",
     "name": "日村みかん",
     "subName": [
       "ひむらみかん"
@@ -1942,7 +1942,7 @@
   {
     "cardID": "WX26-CP1-070",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-070.webp",
+    "image": "WX26-CP1/WX26-CP1-070.webp",
     "name": "迫水あさぎ",
     "subName": [
       "さこみずあさぎ"
@@ -1977,7 +1977,7 @@
   {
     "cardID": "WX26-CP1-071",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-071.webp",
+    "image": "WX26-CP1/WX26-CP1-071.webp",
     "name": "識辺かがり(ちびキャラ)",
     "subName": [
       "しるべかがりちびきゃら"
@@ -2013,7 +2013,7 @@
   {
     "cardID": "WX26-CP1-072",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-072.webp",
+    "image": "WX26-CP1/WX26-CP1-072.webp",
     "name": "プリンセス・ジール(熱情のリズム)",
     "subName": [
       "ぷりんせすじーるねつじょうのりずむ"
@@ -2045,7 +2045,7 @@
   {
     "cardID": "WX26-CP1-073",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-073.webp",
+    "image": "WX26-CP1/WX26-CP1-073.webp",
     "name": "識辺かがり(私服)",
     "subName": [
       "しるべかがりしふく"
@@ -2078,7 +2078,7 @@
   {
     "cardID": "WX26-CP1-074",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-074.webp",
+    "image": "WX26-CP1/WX26-CP1-074.webp",
     "name": "カメオさん",
     "subName": [
       "かめおさん"
@@ -2111,7 +2111,7 @@
   {
     "cardID": "WX26-CP1-075",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-075.webp",
+    "image": "WX26-CP1/WX26-CP1-075.webp",
     "name": "プリンセス・ジール(決意完了！)",
     "subName": [
       "ぷりんせすじーるけついかんりょう"
@@ -2143,7 +2143,7 @@
   {
     "cardID": "WX26-CP1-076",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-076.webp",
+    "image": "WX26-CP1/WX26-CP1-076.webp",
     "name": "陽ノ下なつ",
     "subName": [
       "ひのもとなつ"
@@ -2179,7 +2179,7 @@
   {
     "cardID": "WX26-CP1-077",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-077.webp",
+    "image": "WX26-CP1/WX26-CP1-077.webp",
     "name": "佐藤かえで",
     "subName": [
       "さとうかえで"
@@ -2215,7 +2215,7 @@
   {
     "cardID": "WX26-CP1-078",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-078.webp",
+    "image": "WX26-CP1/WX26-CP1-078.webp",
     "name": "曽本さき",
     "subName": [
       "そもとさき"
@@ -2250,7 +2250,7 @@
   {
     "cardID": "WX26-CP1-079",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-079.webp",
+    "image": "WX26-CP1/WX26-CP1-079.webp",
     "name": "空野みなも(ちびキャラ)",
     "subName": [
       "そらのみなもちびきゃら"
@@ -2286,7 +2286,7 @@
   {
     "cardID": "WX26-CP1-080",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-080.webp",
+    "image": "WX26-CP1/WX26-CP1-080.webp",
     "name": "プリンセス・リップル(響け)",
     "subName": [
       "ぷりんせすりっぷるひびけ"
@@ -2318,7 +2318,7 @@
   {
     "cardID": "WX26-CP1-081",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-081.webp",
+    "image": "WX26-CP1/WX26-CP1-081.webp",
     "name": "空野みなも(私服)",
     "subName": [
       "そらのみなもしふく"
@@ -2351,7 +2351,7 @@
   {
     "cardID": "WX26-CP1-082",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-082.webp",
+    "image": "WX26-CP1/WX26-CP1-082.webp",
     "name": "ドドメさん",
     "subName": [
       "どどめさん"
@@ -2384,7 +2384,7 @@
   {
     "cardID": "WX26-CP1-083",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-083.webp",
+    "image": "WX26-CP1/WX26-CP1-083.webp",
     "name": "プリンセス・リップル(女の子の一生懸命)",
     "subName": [
       "ぷりんせすりっぷるおんなのこのいっしょうけんめい"
@@ -2416,7 +2416,7 @@
   {
     "cardID": "WX26-CP1-084",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-084.webp",
+    "image": "WX26-CP1/WX26-CP1-084.webp",
     "name": "根津あいこ",
     "subName": [
       "ねづあいこ"
@@ -2452,7 +2452,7 @@
   {
     "cardID": "WX26-CP1-085",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-085.webp",
+    "image": "WX26-CP1/WX26-CP1-085.webp",
     "name": "葉加瀬まなび",
     "subName": [
       "はかせまなび"
@@ -2487,7 +2487,7 @@
   {
     "cardID": "WX26-CP1-086",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-086.webp",
+    "image": "WX26-CP1/WX26-CP1-086.webp",
     "name": "田中まい",
     "subName": [
       "たなかまい"
@@ -2523,7 +2523,7 @@
   {
     "cardID": "WX26-CP1-087",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-087.webp",
+    "image": "WX26-CP1/WX26-CP1-087.webp",
     "name": "一条ながせ(ちびキャラ)",
     "subName": [
       "いちじょうながせちびきゃら"
@@ -2558,7 +2558,7 @@
   {
     "cardID": "WX26-CP1-088",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-088.webp",
+    "image": "WX26-CP1/WX26-CP1-088.webp",
     "name": "プリンセス・ミーティア(あたしのキラキラ)",
     "subName": [
       "ぷりんせすみーてぃああたしのきらきら"
@@ -2590,7 +2590,7 @@
   {
     "cardID": "WX26-CP1-089",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-089.webp",
+    "image": "WX26-CP1/WX26-CP1-089.webp",
     "name": "一条ながせ(私服)",
     "subName": [
       "いちじょうながせしふく"
@@ -2623,7 +2623,7 @@
   {
     "cardID": "WX26-CP1-090",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-090.webp",
+    "image": "WX26-CP1/WX26-CP1-090.webp",
     "name": "ダック軍曹＆副官",
     "subName": [
       "だっくぐんそうあんどふくかん"
@@ -2656,7 +2656,7 @@
   {
     "cardID": "WX26-CP1-091",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-091.webp",
+    "image": "WX26-CP1/WX26-CP1-091.webp",
     "name": "プリンセス・ミーティア(流星、闇を切り裂いて)",
     "subName": [
       "ぷりんせすみーてぃありゅうせいやみをきりさいて"
@@ -2688,7 +2688,7 @@
   {
     "cardID": "WX26-CP1-092",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-092.webp",
+    "image": "WX26-CP1/WX26-CP1-092.webp",
     "name": "富良野まつり",
     "subName": [
       "ふらのまつり"
@@ -2723,7 +2723,7 @@
   {
     "cardID": "WX26-CP1-093",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-093.webp",
+    "image": "WX26-CP1/WX26-CP1-093.webp",
     "name": "諸星まいん",
     "subName": [
       "もろぼしまいん"
@@ -2758,7 +2758,7 @@
   {
     "cardID": "WX26-CP1-094",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-094.webp",
+    "image": "WX26-CP1/WX26-CP1-094.webp",
     "name": "如月ぼたん",
     "subName": [
       "きさらぎぼたん"
@@ -2794,7 +2794,7 @@
   {
     "cardID": "WX26-CP1-095",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-095.webp",
+    "image": "WX26-CP1/WX26-CP1-095.webp",
     "name": "風花すみれ(ちびキャラ)",
     "subName": [
       "かざはなすみれちびきゃら"
@@ -2829,7 +2829,7 @@
   {
     "cardID": "WX26-CP1-096",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-096.webp",
+    "image": "WX26-CP1/WX26-CP1-096.webp",
     "name": "プリンセス・ヴィオラ(雪の花)",
     "subName": [
       "ぷりんせすぶぃおらゆきのはな"
@@ -2861,7 +2861,7 @@
   {
     "cardID": "WX26-CP1-097",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-097.webp",
+    "image": "WX26-CP1/WX26-CP1-097.webp",
     "name": "風花すみれ(私服)",
     "subName": [
       "かざはなすみれしふく"
@@ -2894,7 +2894,7 @@
   {
     "cardID": "WX26-CP1-098",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-098.webp",
+    "image": "WX26-CP1/WX26-CP1-098.webp",
     "name": "グリムさん",
     "subName": [
       "ぐりむさん"
@@ -2927,7 +2927,7 @@
   {
     "cardID": "WX26-CP1-099",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-099.webp",
+    "image": "WX26-CP1/WX26-CP1-099.webp",
     "name": "プリンセス・ヴィオラ(蕾を開き、花は咲く)",
     "subName": [
       "ぷりんせすぶぃおらつぼみをひらきはなはさく"
@@ -2959,7 +2959,7 @@
   {
     "cardID": "WX26-CP1-100",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-100.webp",
+    "image": "WX26-CP1/WX26-CP1-100.webp",
     "name": "ジュエルベル",
     "subName": [
       "じゅえるべる"
@@ -2995,7 +2995,7 @@
   {
     "cardID": "WX26-CP1-101",
     "productID": "WX26-CP1",
-    "image": "public/assets/cards_img/WX26-CP1/WX26-CP1-101.webp",
+    "image": "WX26-CP1/WX26-CP1-101.webp",
     "name": "力を貸して！",
     "subName": [
       "ちからをかして"
