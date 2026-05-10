@@ -500,4 +500,3 @@
       {isLoggedIn}
     />
   </div>
-</div>
