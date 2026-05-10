@@ -9,6 +9,8 @@
 
   interface Props {
     cards: Card[];
+    loading?: boolean;
+    loadError?: string | null;
     onAdd: (card: Card) => void;
     onAddMultiple: (card: Card, count: number) => void;
     onRemove: (card: Card) => void;
@@ -23,7 +25,8 @@
   }
 
   let {
-    cards, onAdd, onAddMultiple, onCardHover,
+    cards, loading = false, loadError = null,
+    onAdd, onAddMultiple, onCardHover,
     onAddToCandidate, onRemoveFromCandidate,
     candidateFilter, onCardClick,
     showLifeBurst, showCandidateIcon, candidateCards,
@@ -141,6 +144,13 @@
   class="flex flex-1 gap-2 max-w-full py-3 mb-1 overflow-x-auto md:grid md:grid-cols-3 md:auto-rows-min md:px-2 md:rounded-xl md:border-1 md:border-gray-600/50 md:overflow-y-auto md:overflow-x-hidden"
   style="touch-action: pan-x"
 >
+  {#if loading}
+    <div class="col-span-3 flex items-center justify-center w-full h-32">
+      <div class="w-10 h-10 border-3 border-orange-400 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+  {:else if loadError}
+    <div class="col-span-3 flex items-center justify-center w-full h-32 text-red-400 text-sm px-4 text-center">{loadError}</div>
+  {:else}
   {#each cards as card, index (card.id ? `${card.id}-${index}` : `${card.image}-${index}`)}
     <div>
       <div
@@ -201,4 +211,5 @@
       </div>
     </div>
   {/each}
+  {/if}
 </div>
