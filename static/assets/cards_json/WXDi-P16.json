@@ -1,924 +1,2777 @@
 [
-    {
-        "id": "WXDi-P16-001A",
-        "name": "NEXT GATE",
-        "subName": ["ねくすとげーと","nextgate","ねくげー"],
-        "image": "WXDi-P16/WXDi-P16-001A.webp",
-        "cardType": ["ピース","ルリグ"],
-        "lrigTypeClass": ["タウィル","ウムル"],
-        "level": 0,
-        "color": ["白","黒"],
-        "lifeBurst": "null",
-        "tags": ["チームピース"]
-    },
-
-    {
-        "id": "WXDi-P16-002",
-        "name": "D-(A)LIVE!!",
-        "subName": ["でぃーあらいぶ","dalive","だりべ","だらいぶ"],
-        "image": "WXDi-P16/WXDi-P16-002.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass":[""],
-        "level": 0,
-        "color": ["赤","白","青"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女","チームピース"]
-    },
-
-    {
-        "id": "WXDi-P16-003",
-        "name": "純白の防壁",
-        "subName": ["じゅんぱくのぼうへき"],
-        "image": "WXDi-P16/WXDi-P16-003.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass":[""],
-        "level": 0,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-004",
-        "name": "真紅の熱線",
-        "subName": ["しんくのねっせん"],
-        "image": "WXDi-P16/WXDi-P16-004.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass":[""],
-        "level": 0,
-        "color": ["赤"],
-        "lifeBurst": "null",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-005",
-        "name": "キラキラ・ブルー",
-        "subName": ["きらきらぶるー"],
-        "image": "WXDi-P16/WXDi-P16-005.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass":[""],
-        "level": 0,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-006",
-        "name": "深緑クッキング",
-        "subName": ["しんりょくくっきんぐ"],
-        "image": "WXDi-P16/WXDi-P16-006.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass":[""],
-        "level": 0,
-        "color": ["緑"],
-        "lifeBurst": "null",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-007",
-        "name": "ブラック・サプライズ",
-        "subName": ["ぶらっくさぷらいず","ぶらさぷ"],
-        "image": "WXDi-P16/WXDi-P16-007.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass":[""],
-        "level": 0,
-        "color": ["黒"],
-        "lifeBurst": "null",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-008",
-        "name": "扉の俯瞰者タウィル＝トレ",
-        "subName": ["とびらのふかんしゃたうぃるとれ","とびらのふかんしゃたうぃる=とれ"],
-        "image": "WXDi-P16/WXDi-P16-008.webp",
-        "cardType": ["ルリグ"],
-        "lrigTypeClass": ["タウィル"],
-        "level": 3,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-009",
-        "name": "導きを集うガブリエラ",
-        "subName": ["みちびきをつどうがぶりえら"],
-        "image": "WXDi-P16/WXDi-P16-009.webp",
-        "cardType": ["ルリグ"],
-        "lrigTypeClass": ["ガブリエラ"],
-        "level": 3,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-010",
-        "name": "彼方へ輝くアザエラ",
-        "subName": ["かなたへかがやくあざえら"],
-        "image": "WXDi-P16/WXDi-P16-010.webp",
-        "cardType": ["ルリグ"],
-        "lrigTypeClass": ["アザエラ"],
-        "level": 3,
-        "color": ["赤"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-011",
-        "name": "希望の後先ミカエラ",
-        "subName": ["きぼうのあとさきみかえら"],
-        "image": "WXDi-P16/WXDi-P16-011.webp",
-        "cardType": ["ルリグ"],
-        "lrigTypeClass": ["ミカエラ"],
-        "level": 3,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-012",
-        "name": "収斂せし扉アト＝トレ",
-        "subName": ["しゅうれんせしとびらあととれ","しゅうれんせしとびらあと=とれ"],
-        "image": "WXDi-P16/WXDi-P16-012.webp",
-        "cardType": ["ルリグ"],
-        "lrigTypeClass": ["アト"],
-        "level": 3,
-        "color": ["緑"],
-        "lifeBurst": "null",
-        "tags": ["アンシエント・サプライズ"]
-    },
-
-    {
-        "id": "WXDi-P16-013",
-        "name": "扉の俯瞰者ウムル＝トレ",
-        "subName": ["とびらのふかんしゃうむるとれ","とびらのふかんしゃうむる=とれ"],
-        "image": "WXDi-P16/WXDi-P16-013.webp",
-        "cardType": ["ルリグ"],
-        "lrigTypeClass": ["ウムル"],
-        "level": 3,
-        "color": ["黒"],
-        "lifeBurst": "null",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-032",
-        "name": "凛々！！ガブリエラ",
-        "subName": ["りんりんがぶりえら","りんりん!!がぶりえら"],
-        "image": "WXDi-P16/WXDi-P16-032.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["ガブリエラ"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-033",
-        "name": "閃々！！ガブリエラ",
-        "subName": ["せんせんがぶりえら","せんせん!!がぶりえら"],
-        "image": "WXDi-P16/WXDi-P16-033.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["ガブリエラ"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-034",
-        "name": "煌々！！ガブリエラ",
-        "subName": ["こうこうがぶりえら","こうこう!!がぶりえら"],
-        "image": "WXDi-P16/WXDi-P16-034.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["ガブリエラ"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-035",
-        "name": "堂々！！ガブリエラ",
-        "subName": ["どうどうがぶりえら","どうどう!!がぶりえら"],
-        "image": "WXDi-P16/WXDi-P16-035.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["ガブリエラ"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女","アタックフェイズ"]
-    },
-
-    {
-        "id": "WXDi-P16-036",
-        "name": "バイバイ！！ガブリエラ",
-        "subName": ["ばいばいがぶりえら","ばいばい!!がぶりえら"],
-        "image": "WXDi-P16/WXDi-P16-036.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["ガブリエラ"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女","アタックフェイズ"]
-    },
-
-    {
-        "id": "WXDi-P16-037",
-        "name": "アザエラ「勇気の矢」",
-        "subName": ["あざえらゆうきのや","あざえら「ゆうきのや」"],
-        "image": "WXDi-P16/WXDi-P16-037.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["アザエラ"],
-        "level": 1,
-        "color": ["赤"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-038",
-        "name": "アザエラ「微笑みの翼」",
-        "subName": ["あざえらほほえみのつばさ","あざえら「ほほえみのつばさ」"],
-        "image": "WXDi-P16/WXDi-P16-038.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["アザエラ"],
-        "level": 1,
-        "color": ["赤"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-039",
-        "name": "アザエラ「逆転の炎」",
-        "subName": ["あざえらぎゃくてんのほのお","あざえら「ぎゃくてんのほのお」"],
-        "image": "WXDi-P16/WXDi-P16-039.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["アザエラ"],
-        "level": 2,
-        "color": ["赤"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-040",
-        "name": "アザエラ「勝利の拳」",
-        "subName": ["あざえらしょうりのこぶし","あざえら「しょうりのこぶし」"],
-        "image": "WXDi-P16/WXDi-P16-040.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["アザエラ"],
-        "level": 2,
-        "color": ["赤"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女","アタックフェイズ"]
-    },
-
-    {
-        "id": "WXDi-P16-041",
-        "name": "アザエラ「無敵の盾」",
-        "subName": ["あざえらむてきのたて","あざえら「むてきのたて」"],
-        "image": "WXDi-P16/WXDi-P16-041.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["アザエラ"],
-        "level": 2,
-        "color": ["赤"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女","アタックフェイズ"]
-    },
-
-    {
-        "id": "WXDi-P16-042",
-        "name": "突・ミカエラ",
-        "subName": ["とつみかえら"],
-        "image": "WXDi-P16/WXDi-P16-042.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["ミカエラ"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-043",
-        "name": "舞・ミカエラ",
-        "subName": ["まいみかえら"],
-        "image": "WXDi-P16/WXDi-P16-043.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["ミカエラ"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-044",
-        "name": "牙・ミカエラ",
-        "subName": ["きばみかえら"],
-        "image": "WXDi-P16/WXDi-P16-044.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["ミカエラ"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-045",
-        "name": "蹴・ミカエラ",
-        "subName": ["しゅうみかえら","けりみかえら"],
-        "image": "WXDi-P16/WXDi-P16-045.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["ミカエラ"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女","アタックフェイズ"]
-    },
-
-    {
-        "id": "WXDi-P16-046",
-        "name": "刃・ミカエラ",
-        "subName": ["やいばみかえら"],
-        "image": "WXDi-P16/WXDi-P16-046.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["ミカエラ"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["夢限少女","アタックフェイズ"]
-    },
-
-    {
-        "id": "WXDi-P16-048",
-        "name": "夢限紅天姫ゼウシアス",
-        "subName": ["むげんこうてんきぜうしあす"],
-        "image": "WXDi-P16/WXDi-P16-048.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏像：天使"],
-        "level": 3,
-        "color": ["赤"],
-        "lifeBurst": "false",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-049",
-        "name": "轟砲ヘビーマシンガン",
-        "subName": ["ごうほうべびーましんがん"],
-        "image": "WXDi-P16/WXDi-P16-049.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ウェポン"],
-        "level": 3,
-        "color": ["赤"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-051",
-        "name": "コードラビリンストビラ",
-        "subName": ["こーどらびりんすとびら"],
-        "image": "WXDi-P16/WXDi-P16-051.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏械：迷宮"],
-        "level": 3,
-        "color": ["緑"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-052",
-        "name": "幻獣神グリズリ",
-        "subName": ["げんじゅうしんぐりずり"],
-        "image": "WXDi-P16/WXDi-P16-052.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏生：地獣"],
-        "level": 3,
-        "color": ["緑"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-053",
-        "name": "凶将姫ソウソウ",
-        "subName": ["きょうしょうきそうそう"],
-        "image": "WXDi-P16/WXDi-P16-053.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏像：武勇"],
-        "level": 3,
-        "color": ["黒"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-055",
-        "name": "極門天姫ヨグニグラ",
-        "subName": ["ごくもんてんきよぐにぐら","きょくもんてんきよぐにぐら"],
-        "image": "WXDi-P16/WXDi-P16-055.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏像：天使","奏械：古代兵器"],
-        "level": 3,
-        "color": ["白","黒"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-058",
-        "name": "紡ぐ者//メモリア",
-        "subName": ["つむぐものめもりあ","つむぐもの//めもりあ","つぐめも"],
-        "image": "WXDi-P16/WXDi-P16-058.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏元"],
-        "level": 3,
-        "color": [""],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-059",
-        "name": "小装デウス//THE DOOR",
-        "subName": ["しょうそうでうすざどあー","しょうそうでうす//ざどあー","しょうそうでうすどあー","でうどあ"],
-        "image": "WXDi-P16/WXDi-P16-059.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["防衛派","奏武：アーム"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-060",
-        "name": "羅星ノヴァ//フェゾーネ",
-        "subName": ["らせいのヴぁふぇぞーね","らせいのヴぁ//ふぇぞーね","のヴぁぞーね"],
-        "image": "WXDi-P16/WXDi-P16-060.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏羅：宇宙"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-061",
-        "name": "小装カマカマ",
-        "subName": ["しょうそうかまかま"],
-        "image": "WXDi-P16/WXDi-P16-061.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：アーム"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-062",
-        "name": "コードライドマキナ//THE DOOR",
-        "subName": ["こーどらいどまきなざどあー","こーどらいどまきな//ざどあー","こーどらいどまきなどあー","まきどあ"],
-        "image": "WXDi-P16/WXDi-P16-062.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["防衛派","奏械：乗機"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-063",
-        "name": "爆砲アルト//ディソナ",
-        "subName": ["ばくほうあるとでぃそな"],
-        "image": "WXDi-P16/WXDi-P16-063.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ウェポン"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "false",
-        "tags": ["ディソナ"]
-    },
-
-    {
-        "id": "WXDi-P16-064",
-        "name": "コードアンチイオナ//THE DOOR",
-        "subName": ["こーどあんちいおなざどあー","こーどあんちいおな//ざどあー","こーどあんちいおなどあー"],
-        "image": "WXDi-P16/WXDi-P16-064.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["開放派","奏械：古代兵器"],
-        "level": 1,
-        "color": ["赤"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-065",
-        "name": "紅将リル//フェゾーネ",
-        "subName": ["こうしょうりるふぇぞーね","こうしょうりる//ふぇぞーね","りるぞーね"],
-        "image": "WXDi-P16/WXDi-P16-065.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏像：武勇"],
-        "level": 1,
-        "color": ["赤"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-066",
-        "name": "幻獣ラバピカ",
-        "subName": ["げんじゅうらばぴか"],
-        "image": "WXDi-P16/WXDi-P16-066.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏生：地獣"],
-        "level": 1,
-        "color": ["赤"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-067",
-        "name": "中装タマ//THE DOOR",
-        "subName": ["ちゅうそうたまざどあー","ちゅうそうたま//ざどあー","ちゅうそうたまどあー"],
-        "image": "WXDi-P16/WXDi-P16-067.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["開放派","奏武：アーム"],
-        "level": 2,
-        "color": ["赤"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-068",
-        "name": "コードライドレイラ//ディソナ",
-        "subName": ["こーどらいどれいらでぃそな","こーどらいどれいら//でぃそな"],
-        "image": "WXDi-P16/WXDi-P16-068.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏械：乗機"],
-        "level": 2,
-        "color": ["赤"],
-        "lifeBurst": "false",
-        "tags": ["ディソナ"]
-    },
-
-    {
-        "id": "WXDi-P16-069",
-        "name": "蒼美ふたせ//THE DOOR",
-        "subName": ["そうびふたせざどあー","そうびふたせ//ざどあー","そうびふたせどあー"],
-        "image": "WXDi-P16/WXDi-P16-069.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["開放派","奏像：美巧"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-070",
-        "name": "アイン＝サンガ//THE DOOR",
-        "subName": ["あいんさんがざどあー","あいん=さんが//ざどあー","あいんさんがどあー"],
-        "image": "WXDi-P16/WXDi-P16-070.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["防衛派","奏武：毒牙"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-071",
-        "name": "羅星タマゴ//フェゾーネ",
-        "subName": ["らせいたまごふぇぞーね","らせいたまご//ふぇぞーね"],
-        "image": "WXDi-P16/WXDi-P16-071.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏羅：宇宙"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-072",
-        "name": "蒼魔ムルムルン",
-        "subName": ["そうまむるむるん"],
-        "image": "WXDi-P16/WXDi-P16-072.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏像：悪魔"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-073",
-        "name": "蒼美アン//THE DOOR",
-        "subName": ["そうびあんざどあー","そうびあん//ざどあー","そうびあんどあー"],
-        "image": "WXDi-P16/WXDi-P16-073.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["開放派","奏像：美巧"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-074",
-        "name": "コードアンチマドカ//THE DOOR",
-        "subName": ["こーどあんちまどかざどあー","こーどあんちまどか//ざどあー","こーどあんちまどかどあー"],
-        "image": "WXDi-P16/WXDi-P16-074.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["防衛派","奏械：古代兵器"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-075",
-        "name": "幻水エルドラ//ディソナ",
-        "subName": ["げんすいえるどらでぃそな","げんすいえるどら//でぃそな"],
-        "image": "WXDi-P16/WXDi-P16-075.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏生：水獣"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "false",
-        "tags": ["ディソナ"]
-    },
-
-    {
-        "id": "WXDi-P16-076",
-        "name": "アイン＝ハナレ//THE DOOR",
-        "subName": ["あいんはなれざどあー","あいん=はなれ//ざどあー","あいんはなれどあー"],
-        "image": "WXDi-P16/WXDi-P16-076.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["闘争派","奏武：毒牙"],
-        "level": 1,
-        "color": ["緑"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-077",
-        "name": "翠魔バン//フェゾーネ",
-        "subName": ["すいまばんふぇぞーね","すいまばん//ふぇぞーね","ばんぞーね"],
-        "image": "WXDi-P16/WXDi-P16-077.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏像：悪魔"],
-        "level": 1,
-        "color": ["緑"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-078",
-        "name": "翠天ヴィーザル",
-        "subName": ["すいてんヴぃーざる"],
-        "image": "WXDi-P16/WXDi-P16-078.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏像：天使"],
-        "level": 1,
-        "color": ["緑"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-079",
-        "name": "羅星リメンバ//THE DOOR",
-        "subName": ["らせいりめんばざどあー","らせいりめんば//ざどあー","らせいりめんばどあー"],
-        "image": "WXDi-P16/WXDi-P16-079.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["闘争派","奏羅：宇宙"],
-        "level": 2,
-        "color": ["緑"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-080",
-        "name": "弍ノ遊アイヤイ//ディソナ",
-        "subName": ["にのゆうあいやいでぃそな","にのゆうあいやい//でぃそな"],
-        "image": "WXDi-P16/WXDi-P16-080.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：遊具"],
-        "level": 2,
-        "color": ["緑"],
-        "lifeBurst": "false",
-        "tags": ["ディソナ"]
-    },
-
-    {
-        "id": "WXDi-P16-081",
-        "name": "凶魔ハイティ//THE DOOR",
-        "subName": ["きょうまはいてぃざどあー","きょうまはいてぃ//ざどあー","きょうまはいてぃどあー"],
-        "image": "WXDi-P16/WXDi-P16-081.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["闘争派","奏像：悪魔"],
-        "level": 1,
-        "color": ["黒"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-082",
-        "name": "異血之遊グズ子//フェゾーネ",
-        "subName": ["いちのゆうぐずこふぇぞーね","いちのゆうぐずこ//ふぇぞーね","ずこぞーね"],
-        "image": "WXDi-P16/WXDi-P16-082.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：遊具"],
-        "level": 1,
-        "color": ["黒"],
-        "lifeBurst": "false",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-083",
-        "name": "凶魔アルフォウ//THE DOOR",
-        "subName": ["きょうまあるふぉうざどあー","きょうまあるふぉう//ざどあー","きょうまあるふぉうどあー"],
-        "image": "WXDi-P16/WXDi-P16-083.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["闘争派","奏像：悪魔"],
-        "level": 2,
-        "color": ["黒"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-084",
-        "name": "幻蟲ミュウ//ディソナ",
-        "subName": ["げんちゅうみゅうでぃそな","げんちゅうみゅう//でぃそな","みゅでぃ"],
-        "image": "WXDi-P16/WXDi-P16-084.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏生：凶蟲"],
-        "level": 2,
-        "color": ["黒"],
-        "lifeBurst": "true",
-        "tags": ["ディソナ"]
-    },
-
-    {
-        "id": "WXDi-P16-085",
-        "name": "羅原Pb",
-        "subName": ["らげんなまり","らげんぴーびー"],
-        "image": "WXDi-P16/WXDi-P16-085.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏羅：原子"],
-        "level": 2,
-        "color": ["黒"],
-        "lifeBurst": "true",
-        "tags": [""]
-    },
-
-    {
-        "id": "WXDi-P16-086",
-        "name": "コードアートL・マイク",
-        "subName": ["こーどあーとえるまいく","こーどあーとlまいく"],
-        "image": "WXDi-P16/WXDi-P16-086.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏械：電機"],
-        "level": 1,
-        "color": ["白","赤","緑"],
-        "lifeBurst": "false",
-        "tags": ["CardJockey"]
-    },
-
-    {
-        "id": "WXDi-P16-087",
-        "name": "羅石H・マイク",
-        "subName": ["らせきえいちまいく","らせきhまいく"],
-        "image": "WXDi-P16/WXDi-P16-087.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏羅：宝石"],
-        "level": 1,
-        "color": ["赤","白","青"],
-        "lifeBurst": "false",
-        "tags": ["NoLimit"]
-    },
-
-    {
-        "id": "WXDi-P16-088",
-        "name": "混天A・アロー",
-        "subName": ["こんてんえーあろー","こんてんaあろー"],
-        "image": "WXDi-P16/WXDi-P16-088.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏像：天使"],
-        "level": 1,
-        "color": ["赤","白","青"],
-        "lifeBurst": "false",
-        "tags": ["夢限少女"]
-    },
-
-    {
-        "id": "WXDi-P16-089",
-        "name": "コードライドE・カッター",
-        "subName": ["こーどらいどいーかったー","こーどらいどeかったー"],
-        "image": "WXDi-P16/WXDi-P16-089.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏械：乗機"],
-        "level": 1,
-        "color": ["赤","黒"],
-        "lifeBurst": "false",
-        "tags": ["デウス・エクス・マキナ"]
-    },
-
-    {
-        "id": "WXDi-P16-090",
-        "name": "羅星T・シンバル",
-        "subName": ["らせいてぃーしんばる","らせいtしんばる"],
-        "image": "WXDi-P16/WXDi-P16-090.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏羅：宇宙"],
-        "level": 1,
-        "color": ["青","白","緑"],
-        "lifeBurst": "false",
-        "tags": ["うちゅうのはじまり"]
-    },
-
-    {
-        "id": "WXDi-P16-091",
-        "name": "羅菌M・ジョーギ",
-        "subName": ["らきんえむじょーぎ","らきんmじょーぎ","らきんえむじょうぎ"],
-        "image": "WXDi-P16/WXDi-P16-091.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏羅：微菌"],
-        "level": 1,
-        "color": ["青","白","黒"],
-        "lifeBurst": "false",
-        "tags": ["きゅるきゅるーん"]
-    },
-
-    {
-        "id": "WXDi-P16-092",
-        "name": "コードメイズトルネンブラ",
-        "subName": ["こーどめいずとるねんぶら"],
-        "image": "WXDi-P16/WXDi-P16-092.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏械：迷宮"],
-        "level": 1,
-        "color": ["緑","赤","青"],
-        "lifeBurst": "true",
-        "tags": ["アンシエント・サプライズ"]
-    },
-
-    {
-        "id": "WXDi-P16-093",
-        "name": "アイン＝M・ボール",
-        "subName": ["あいんえむぼーる","あいん=mぼーる"],
-        "image": "WXDi-P16/WXDi-P16-093.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：毒牙"],
-        "level": 1,
-        "color": ["黒","青","緑"],
-        "lifeBurst": "true",
-        "tags": ["DIAGRAM"]
-    },
-
-    {
-        "id": "WXDi-P16-094",
-        "name": "未来への道標",
-        "subName": ["みらいへのみちしるべ"],
-        "image": "WXDi-P16/WXDi-P16-094.webp",
-        "cardType": ["スペル"],
-        "lrigTypeClass": [""],
-        "level": 0,
-        "color": [""],
-        "lifeBurst": "false",
-        "tags": [""]
-    }
+  {
+    "cardID": "WXDi-P16-001A",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-001A.webp",
+    "name": "NEXT GATE",
+    "subName": [
+      "ネクストゲート"
+    ],
+    "rarity": "LR",
+    "illust": "茶ちえ",
+    "cardType": [
+      "ピース"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "白",
+      "黒"
+    ],
+    "level": null,
+    "cost": {
+      "白": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "使用条件": "【ドリームチーム】白か黒のルリグを1体以上含む",
+      "": "このターンにあなたのセンタールリグがグロウしていない場合、チェックゾーンにあるこのカードを裏返し、あなたのセンタールリグはこの《扉の俯瞰者 ウトゥルス》にグロウコストを支払わずにグロウする。"
+    },
+    "flavorText": "「ここにもある、見えざる物語の理。さあ、扉よ、笑ってみせよ。」～ウムル～",
+    "faq": {
+      "このカードはルリグデッキにあるとき、ピースとルリグ両方として扱いますか?": "いいえ、このカードはルリグデッキにある場合はA面のピースとして扱い、ルリグとしては扱いません。",
+      "センタールリグが<ウムル>や<タウィル>ではなかったり、センタールリグのレベルが3ではない場合など、通常のグロウの条件を満たしていない場合にこのピースを使用するとどうなりますか?": "この効果によってグロウする場合でも、グロウ条件は満たす必要がありますので、ルリグタイプが合っていなかったりレベルが3ではない場合はグロウできません。チェックゾーンにあるこのカードは裏返っていたとしても使用が終了したピースとして、通常の使用手順通りゲームから除外されます。",
+      "このカードはディーヴァセレクションで、青の<ウムル>や赤の<タウィル>と一緒にデッキに入れられますか?また、レベル3の青の<ウムル>から《扉の俯瞰者 ウトゥルス》にグロウできますか?": "はい、可能です。このカードは効果によって裏返るまではA面のピースとしてのみ扱いますので、ディーヴァセレクションの繭の部屋「色の異なるルリグの同時使用制限」で裏面の《扉の俯瞰者 ウトゥルス》はデッキ構築時に参照されません。 また、このピースの使用条件(白か黒のルリグ1体以上)をアシストルリグで満たせるのであれば、レベル3の青の<ウムル>から《NEXT GATE》を使用して《扉の俯瞰者 ウトゥルス》にグロウすることができます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-002",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-002.webp",
+    "name": "D-(A)LIVE!!",
+    "subName": [
+      "ディーアライブ"
+    ],
+    "rarity": "LR",
+    "illust": "クロサワテツ",
+    "cardType": [
+      "ピース"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "赤",
+      "白",
+      "青"
+    ],
+    "level": null,
+    "cost": {
+      "赤": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "使用条件": "【チーム】<夢限少女>&全員レベル1以上",
+      "": "次の対戦相手のターンの間、あなたは対戦相手のルリグによってダメージを受けず、グロウフェイズ以外であなたのデッキと手札とエナゾーンにあるカードは対戦相手の効果によってトラッシュに移動しない。 次の対戦相手のターン終了時、カードを1枚引き【エナチャージ1】をする。 あなたのセンタールリグがレベル2以上の場合、次のあなたのエナフェイズ終了時まで、あなたのセンタールリグのリミットを+2する。"
+    },
+    "flavorText": "「これは、私たちが見た景色。」～アザエラ～",
+    "faq": {
+      "「次の対戦相手のターンの間」にかかる効果はどの部分ですか?": "その同じ文すべての「あなたは対戦相手のルリグによってダメージを受けず、グロウフェイズ以外であなたのデッキと手札とエナゾーンにあるカードは対戦相手の効果によってトラッシュに移動しない。」が、次の対戦相手のターンの間に発生します。",
+      "「ダメージを受けない」とはどういうことですか?": "ダメージを受けない場合、アタックによるダメージも効果によるダメージも防ぎます。「ダメージを与える」という効果は防ぎますが、「ライフクロスをクラッシュする」という効果はダメージではなく防げませんのでご注意ください。",
+      "このピースを使用した後、対戦相手の効果で手札を捨てる場合はどうなりますか?": "手札を捨てる場合も手札からトラッシュへの移動となりますので、このピースの効果によって手札に留まり、捨てられません。 ただし対戦相手の《羅原 まほまほ//メモリア》の自動能力「このシグニがアタックしたとき、対戦相手が手札を1枚捨てないかぎり、対戦相手のデッキの上からカードを4枚トラッシュに置く。」のような効果を受ける場合、手札を捨てられませんので捨てることを選べなくなります。",
+      "このピースを使用した後、対戦相手の効果でエナを支払う場合はどうなりますか?": "《ゆかゆか☆さ~ん》の自動能力「対戦相手のシグニ1体がアタックしたとき、対戦相手が《無》を支払わないかぎり、ターン終了時まで、そのシグニは能力を失う。」のようなエナコストの支払いの場合、それは効果による移動ではなくコストの支払いですので、このピースの影響なく支払うことができます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-003",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-003.webp",
+    "name": "純白の防壁",
+    "subName": [
+      "ジュンパクノボウヘキ"
+    ],
+    "rarity": "LR",
+    "illust": "ちゃきん",
+    "cardType": [
+      "ピース"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "白"
+    ],
+    "level": null,
+    "cost": {
+      "白": 3,
+      "無": 1
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "使用条件": "あなたの場に白のルリグがいる",
+      "": "あなたの場に白のルリグが2体以上いるかぎり、このピースの使用コストはあなたの場にいる白のルリグ1体につき《白×1》減る。 【ルリグバリア】2つを得る。(あなたが次にルリグからダメージを受ける場合、代わりに【ルリグバリア】1つを消費し、そのダメージを受けない)"
+    },
+    "flavorText": "「タマちゃん！今だよっ！」～アキノ～\n「ばりあ～！」～タマ～",
+    "faq": {
+      "【ルリグバリア】はどういう能力ですか?": "あなたがダメージを受ける場合、それがルリグからのダメージでありあなたが【ルリグバリア】を得ているのなら、それを1つ消費してそのダメージを防ぎます。ダメージの置き換えは強制であり、例えば【ルリグバリア】を持っているのにルリグからのダメージを通常通り受けるということは選べません。【ルリグバリア】は複数得ることもできます。上限はありません。 アタックによるダメージに限らず、ルリグの効果によるダメージも防ぎます(例:《頂点へ一歩 ヒラナ》のゲーム1能力など) 「ライフクロスをクラッシュする」という効果はダメージを与える効果ではないため、【ルリグバリア】で防ぐことはできません。(例:《炎妖舞 花代・惨》のエクシード4能力など)"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-004",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-004.webp",
+    "name": "真紅の熱線",
+    "subName": [
+      "シンクノネッセン"
+    ],
+    "rarity": "LR",
+    "illust": "夕子",
+    "cardType": [
+      "ピース"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "赤"
+    ],
+    "level": null,
+    "cost": {
+      "赤": 3,
+      "無": 2
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "使用条件": "あなたの場に赤のルリグがいる",
+      "": "あなたの場に赤のルリグが2体以上いるかぎり、このピースの使用コストはあなたの場にいる赤のルリグ1体につき《赤×1》減る。 対戦相手のライフクロス1枚をトラッシュに置く。"
+    },
+    "flavorText": "「絶対に負けないよ！」～ユヅキ～\n「最強だからね！」～エクス～",
+    "faq": {
+      "この効果で対戦相手のライフクロスをトラッシュに置く場合、そのカードのライフバーストは発動しますか?": "いいえ、発動しません。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-005",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-005.webp",
+    "name": "キラキラ・ブルー",
+    "subName": [
+      "キラキラブルー"
+    ],
+    "rarity": "LR",
+    "illust": "かわすみ",
+    "cardType": [
+      "ピース"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "青"
+    ],
+    "level": null,
+    "cost": {
+      "青": 3,
+      "無": 1
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "使用条件": "あなたの場に青のルリグがいる",
+      "": "あなたの場に青のルリグが2体以上いるかぎり、このピースの使用コストはあなたの場にいる青のルリグ1体につき《青×1》減る。 対戦相手のすべてのルリグとシグニをダウンし凍結する。次の対戦相手のドローフェイズの間、対戦相手はカードを合計1枚までしか引けない。"
+    },
+    "flavorText": "「みこみこ親衛隊のみんな～！」～みこみこ～\n「見ててね！おに～ちゃ―ん！」～あや～",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-006",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-006.webp",
+    "name": "深緑クッキング",
+    "subName": [
+      "シンリョククッキング"
+    ],
+    "rarity": "LR",
+    "illust": "コウサク",
+    "cardType": [
+      "ピース"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "緑"
+    ],
+    "level": null,
+    "cost": {
+      "緑": 3,
+      "無": 2
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "使用条件": "あなたの場に緑のルリグがいる",
+      "": "あなたの場に緑のルリグが2体以上いるかぎり、このピースの使用コストはあなたの場にいる緑のルリグ1体につき《緑×1》減る。 あなたのデッキをシャッフルし一番上のカードをライフクロスに加える。"
+    },
+    "flavorText": "「これが お菓子作り…」～バン～\n「上手上手♪」～メル～",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-007",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-007.webp",
+    "name": "ブラック・サプライズ",
+    "subName": [
+      "ブラックサプライズ"
+    ],
+    "rarity": "LR",
+    "illust": "モレシャン",
+    "cardType": [
+      "ピース"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "黒"
+    ],
+    "level": null,
+    "cost": {
+      "黒": 3
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "使用条件": "あなたの場に黒のルリグがいる",
+      "": "あなたの場に黒のルリグが2体以上いるかぎり、このピースの使用コストはあなたの場にいる黒のルリグ1体につき《黒×1》減る。 このターン、あなたの効果によって対戦相手のシグニのパワーが-(マイナス)される場合、代わりに2倍-(マイナス)される。 このターン、対戦相手のシグニがバニッシュされる場合、エナゾーンに置かれる代わりにトラッシュに置かれる。"
+    },
+    "flavorText": "「HA……」　差出人の名前をウリスはじっと見つめた。",
+    "faq": {
+      "このピースを使用した後、対戦相手のシグニがバニッシュされ、エナゾーンに置かれる代わりにトラッシュに置かれました。そのシグニが「バニッシュされたとき」の能力を持っていた場合、それは発動しますか?": "はい、発動します。この効果はバニッシュされた際の置き場所をエナゾーンからトラッシュに変更しているだけであり、バニッシュ自体はされています。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-008",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-008.webp",
+    "name": "扉の俯瞰者 タウィル=トレ",
+    "subName": [
+      "トビラノフカンシャタウィルトレ"
+    ],
+    "rarity": "LR",
+    "illust": "繭咲悠",
+    "cardType": [
+      "ルリグ"
+    ],
+    "lrigTypeClass": [
+      "タウィル"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {
+      "常": "あなたの白のシグニのパワーを+1000する。",
+      "出": "あなたのデッキの上からカードを4枚見る。その中からカードを1枚まで手札に加え、カードを1枚までトラッシュに置き、残りを好きな順番でデッキの一番下に置く。",
+      "起": "《ゲーム1回》《白×0》:対戦相手のシグニ1体を対象とし、あなたのトラッシュから白のカード7枚をデッキに加えてシャッフルする。そうした場合、それをトラッシュに置く。"
+    },
+    "flavorText": "「ほら　もうゆめじゃなかった」",
+    "faq": {
+      "トラッシュに白のカードが6枚しかない状況で下の起動能力を使用した場合、その6枚はデッキに加えられますか?": "いいえ、できません。白のカード7枚が無い場合は、1枚もデッキに加えることはできません。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-009",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-009.webp",
+    "name": "導きを集う ガブリエラ",
+    "subName": [
+      "ミチビキヲツドウガブリエラ"
+    ],
+    "rarity": "LR",
+    "illust": "よん",
+    "cardType": [
+      "ルリグ"
+    ],
+    "lrigTypeClass": [
+      "ガブリエラ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {
+      "自": "このルリグがアタックしたとき、あなたのシグニ1体を対象とし、次の対戦相手のターン終了時まで、それのパワーを+10000する。",
+      "出": "カードを1枚引き【エナチャージ1】をする。",
+      "起": "《ゲーム1回》《白×0》:クラフトの《インビンシブル・ストーリー》1枚をルリグデッキに加える。あなたのライフクロスが2枚以下の場合、このターン、そのピースの使用コストは《無×1》減る。"
+    },
+    "flavorText": "「さーさ！ガブリエラの登場です！」",
+    "faq": {
+      "自分のライフクロスが2枚のときに起動能力を使用し、その後に他の効果でライフクロスが1枚増えました。《インビンシブル・ストーリー》の使用コストはどうなりますか?": "ライフクロスが2枚以下かどうかは、この起動能力を使用し《インビンシブル・ストーリー》をルリグデッキに加えたときにだけ確認します。その後にライフクロスが増えたとしても、使用コストは《無×1》減っています。"
+    },
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-010",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-010.webp",
+    "name": "彼方へ輝く アザエラ",
+    "subName": [
+      "カナタヘカガヤクアザエラ"
+    ],
+    "rarity": "LR",
+    "illust": "茶ちえ",
+    "cardType": [
+      "ルリグ"
+    ],
+    "lrigTypeClass": [
+      "アザエラ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {
+      "自": "このルリグがアタックしたとき、対戦相手のエナゾーンにカードが2枚以上ある場合、対戦相手は自分のエナゾーンからカード1枚を選びトラッシュに置く。",
+      "出": "カードを1枚引き【エナチャージ1】をする。",
+      "起": "《ゲーム1回》《赤×0》:クラフトの《インビンシブル・ストーリー》1枚をルリグデッキに加える。対戦相手のライフクロスが2枚以下の場合、このターン、そのピースの使用コストは《無×1》減る。"
+    },
+    "flavorText": "「今ここに、夢限の世界を見せてあげる！」",
+    "faq": null,
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-011",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-011.webp",
+    "name": "希望の後先 ミカエラ",
+    "subName": [
+      "キボウノアトサキミカエラ"
+    ],
+    "rarity": "LR",
+    "illust": "夕子",
+    "cardType": [
+      "ルリグ"
+    ],
+    "lrigTypeClass": [
+      "ミカエラ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {
+      "自": "このルリグがアタックしたとき、対戦相手のシグニ1体を対象とし、それをデッキの一番下に置く。",
+      "出": "カードを1枚引き【エナチャージ1】をする。",
+      "起": "《ゲーム1回》《青×0》:クラフトの《インビンシブル・ストーリー》1枚をルリグデッキに加える。対戦相手の手札が2枚以下の場合、このターン、そのピースの使用コストは《無×1》減る。"
+    },
+    "flavorText": "「頂の景色か……。」",
+    "faq": {
+      "対戦相手の手札が2枚のときに起動能力を使用し、その後に他の効果で手札が1枚増えました。《インビンシブル・ストーリー》の使用コストはどうなりますか?": "手札が2枚以下かどうかは、この起動能力を使用し《インビンシブル・ストーリー》をルリグデッキに加えたときにだけ確認します。その後に手札が増えたとしても、使用コストは《無×1》減っています。"
+    },
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-012",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-012.webp",
+    "name": "収斂せし扉 アト=トレ",
+    "subName": [
+      "シュウレンセシトビラアトトレ"
+    ],
+    "rarity": "LR",
+    "illust": "かわすみ",
+    "cardType": [
+      "ルリグ"
+    ],
+    "lrigTypeClass": [
+      "アト"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {
+      "出": "あなたの手札からカードを3枚までエナゾーンに置く。",
+      "起1": "《ターン1回》《緑×0》:以下の2つから1つを選ぶ。 ①あなたの手札が0枚の場合、カードを2枚引く。 ②あなたのエナゾーンにカードがない場合、【エナチャージ2】をする。",
+      "起2": "《ゲーム1回》エナゾーンにあるすべてのカードをトラッシュに置き、手札をすべて捨てる:この方法でカードを合計5枚以上トラッシュに置いた場合、あなたのデッキをシャッフルし一番上のカードをライフクロスに加える。"
+    },
+    "flavorText": "「気づくことで生まレタ、私がトビラ。」",
+    "faq": {
+      "下の起動能力では、エナゾーンと手札にそれぞれカードがある必要がありますか?": "いいえ、片方のゾーンが0枚でも、もう片方のゾーンが5枚以上あれば条件を満たします。"
+    },
+    "tags": [
+      "アンシエント・サプライズ"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-013",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-013.webp",
+    "name": "扉の俯瞰者 ウムル=トレ",
+    "subName": [
+      "トビラノフカンシャウムルトレ"
+    ],
+    "rarity": "LR",
+    "illust": "mado*pen",
+    "cardType": [
+      "ルリグ"
+    ],
+    "lrigTypeClass": [
+      "ウムル"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {
+      "出": "各プレイヤーは自分のデッキの上からカードを3枚トラッシュに置く。",
+      "起1": "《ターン1回》《黒×0》:対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーをあなたのトラッシュにある黒のカード10枚につき-5000する。",
+      "起2": "《ゲーム1回》《黒×0》:あなたのトラッシュから黒のシグニを2枚まで対象とし、それらを場に出す。"
+    },
+    "flavorText": "「扉よ、どうじゃ楽しかったか。」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-032",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-032.webp",
+    "name": "凛々!!ガブリエラ",
+    "subName": [
+      "リンリンガブリエラ"
+    ],
+    "rarity": "LC",
+    "illust": "くろなゆた",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "ガブリエラ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 1,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出": "あなたのデッキの上からカードを3枚見る。その中からレベル1とレベル2とレベル3のシグニをそれぞれ1枚まで公開し手札に加え、残りを好きな順番でデッキの一番下に置く。"
+    },
+    "flavorText": "「そーら！」",
+    "faq": {
+      "この効果でデッキの上3枚を見た結果、レベル1が1枚しかありませんでした。そのレベル1のシグニは公開して手札に加えられますか?": "はい、可能です。1~3のすべてを公開する必要はなく、レベル1を1枚のみ手札に加えることもできます。"
+    },
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-033",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-033.webp",
+    "name": "閃々!!ガブリエラ",
+    "subName": [
+      "センセンガブリエラ"
+    ],
+    "rarity": "LC",
+    "illust": "れん",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "ガブリエラ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 1,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出": "対戦相手のパワー5000以下のシグニ1体を対象とし、それをトラッシュに置く。"
+    },
+    "flavorText": "「いよいしょ！」",
+    "faq": null,
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-034",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-034.webp",
+    "name": "煌々!!ガブリエラ",
+    "subName": [
+      "コウコウガブリエラ"
+    ],
+    "rarity": "LC",
+    "illust": "Tota",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "ガブリエラ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 2,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出1": "あなたのデッキの上からカードを5枚見る。その中からカードを2枚まで手札に加え、残りを好きな順番でデッキの一番下に置く。",
+      "出2": "次の対戦相手のターン終了時まで、このルリグは「【常】:対戦相手は《無》を支払わないかぎりシグニでアタックできない。」を得る。(アタックするごとに支払う)"
+    },
+    "flavorText": "「上から広がる景色、それは特権。」",
+    "faq": null,
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-035",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-035.webp",
+    "name": "堂々!!ガブリエラ",
+    "subName": [
+      "ドウドウガブリエラ"
+    ],
+    "rarity": "LC",
+    "illust": "山吹色",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "ガブリエラ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 2,
+    "cost": {
+      "無": 1
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ",
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出": "あなたのデッキの上からカードを5枚見る。その中からカードを1枚まで手札に加え、シグニを1枚まで場に出し、残りを好きな順番でデッキの一番下に置く。そのシグニの【出】能力は発動しない。"
+    },
+    "flavorText": "「祈りは勝利にではなく、楽しさのために。」",
+    "faq": null,
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-036",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-036.webp",
+    "name": "バイバイ!!ガブリエラ",
+    "subName": [
+      "バイバイガブリエラ"
+    ],
+    "rarity": "LC",
+    "illust": "ピスケ",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "ガブリエラ"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 2,
+    "cost": {
+      "無": 2
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ",
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出1": "対戦相手のシグニ1体を対象とし、ターン終了時まで、それは能力を失う。",
+      "出2": "対戦相手のシグニ1体を対象とし、ターン終了時まで、それは「【常】:アタックできない。」を得る。",
+      "出3": "《白》《無》:あなたのトラッシュから《ガードアイコン》を持つシグニ1枚を対象とし、それを手札に加える。 (【出】能力の:の左側はコストである。コストを支払わず発動しないことを選んでもよい)"
+    },
+    "flavorText": "「はい、ストップ！」",
+    "faq": {
+      "出現時能力は発動する順番を選べますか?": "はい、複数の出現時能力はそれぞれトリガーし、好きな順番に発動できます。ただし、2番目の出現時能力で「【常】:アタックできない。」を与えた後、同じシグニに1番目で能力を失わせた場合は「【常】:アタックできない。」も失いますのでご注意ください。"
+    },
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-037",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-037.webp",
+    "name": "アザエラ「勇気の矢」",
+    "subName": [
+      "アザエラユウキノヤ"
+    ],
+    "rarity": "LC",
+    "illust": "bomi",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "アザエラ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 1,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出1": "対戦相手のパワー5000以下のシグニ1体を対象とし、それをバニッシュする。",
+      "出2": "【エナチャージ1】"
+    },
+    "flavorText": "「はあっ！」",
+    "faq": null,
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-038",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-038.webp",
+    "name": "アザエラ「微笑みの翼」",
+    "subName": [
+      "アザエラホホエミノツバサ"
+    ],
+    "rarity": "LC",
+    "illust": "霜月友",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "アザエラ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 1,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出": "手札を4枚まで捨てる:この方法で捨てたカードの枚数に1を加えた枚数のカードを引く。"
+    },
+    "flavorText": "「何度でもやり直せる。」",
+    "faq": {
+      "出現時能力で、手札を1枚も捨てずに発動し、1枚だけ引けますか?": "はい、可能です。0枚に1を加えた枚数ですので1枚のカードを引けます。"
+    },
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-039",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-039.webp",
+    "name": "アザエラ「逆転の炎」",
+    "subName": [
+      "アザエラギャクテンノホノオ"
+    ],
+    "rarity": "LC",
+    "illust": "BUZZ",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "アザエラ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 2,
+    "cost": {
+      "無": 1
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出1": "対戦相手のパワー10000以下のシグニ1体を対象とし、それをバニッシュする。",
+      "出2": "次の対戦相手のターン終了時まで、このルリグは「【自】《ターン2回》:あなたか対戦相手のライフクロス1枚がクラッシュされたとき、カードを1枚引くか【エナチャージ1】をする。」を得る。"
+    },
+    "flavorText": "「これもまた戦略。」",
+    "faq": {
+      "下の出現時能力を発動した後、【ダブルクラッシュ】を持つシグニでアタックし、ライフクロス2枚をクラッシュしました。自動能力は発動しますか?": "はい、発動します。【ダブルクラッシュ】の場合、「ライフクロス1枚がクラッシュされたとき」が2回起こっていますので、2回発動します。"
+    },
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-040",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-040.webp",
+    "name": "アザエラ「勝利の拳」",
+    "subName": [
+      "アザエラショウリノコブシ"
+    ],
+    "rarity": "LC",
+    "illust": "ぶんたん",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "アザエラ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 2,
+    "cost": {
+      "無": 1
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ",
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出1": "対戦相手のパワー12000以下のシグニ1体を対象とし、それをバニッシュする。",
+      "出2": "《赤》《無》《無》《無》《無》:対戦相手のライフクロス1枚をクラッシュする。 (【出】能力の:の左側はコストである。コストを支払わず発動しないことを選んでもよい)"
+    },
+    "flavorText": "「ただ戦うだけではない力の使い方を。」",
+    "faq": {
+      "自分のターンに《アザエラ「勝利の拳」》にグロウし、下の出現時能力で対戦相手のライフクロスをクラッシュしました。そのライフクロスがライフバーストを持っていた場合、ライフバーストとこのルリグの上の出現時能力はどちらが先に発動しますか?": "それらはどちらもトリガー能力であり、トリガー能力はターンプレイヤー側が先に発動しますので、ターンプレイヤーである《アザエラ「勝利の拳」》の出現時能力が先となります。"
+    },
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-041",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-041.webp",
+    "name": "アザエラ「無敵の盾」",
+    "subName": [
+      "アザエラムテキノタテ"
+    ],
+    "rarity": "LC",
+    "illust": "画工鳥組",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "アザエラ"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 2,
+    "cost": {
+      "無": 3
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ",
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出": "ライフクロス1枚をトラッシュに置く:このターン、あなたはゲームに敗北しない。"
+    },
+    "flavorText": "「まだまだ戦いたいと思える……それが大切なこと。」",
+    "faq": null,
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-042",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-042.webp",
+    "name": "突・ミカエラ",
+    "subName": [
+      "トツミカエラ"
+    ],
+    "rarity": "LC",
+    "illust": "緑QN",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "ミカエラ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 1,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出": "カードを2枚引く。"
+    },
+    "flavorText": "「これが元祖さ。」",
+    "faq": null,
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-043",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-043.webp",
+    "name": "舞・ミカエラ",
+    "subName": [
+      "マイミカエラ"
+    ],
+    "rarity": "LC",
+    "illust": "はしもとなおや",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "ミカエラ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 1,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出": "手札を1枚捨てる:対戦相手の手札を見て1枚選び、捨てさせる。"
+    },
+    "flavorText": "「蒼き輝きよ、集え。」",
+    "faq": null,
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-044",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-044.webp",
+    "name": "牙・ミカエラ",
+    "subName": [
+      "キバミカエラ"
+    ],
+    "rarity": "LC",
+    "illust": "北熊",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "ミカエラ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 2,
+    "cost": {
+      "無": 1
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出1": "対戦相手のルリグ1体を対象とし、それを凍結する。",
+      "出2": "次の対戦相手のターン終了時まで、このルリグは「【常】:対戦相手のシグニの【自】能力は発動しない。」を得る。"
+    },
+    "flavorText": "「これは氷の牙、穿つ！」",
+    "faq": {
+      "下の出現時能力で、対戦相手のシグニの【ランサー】やライフバーストの発動を防げますか?": "いいえ、それらはトリガー能力ですが自動能力ではないため、この効果では防げず発動します。この効果で発動しなくなるのは【自】能力のアイコンが付いている能力のみです。"
+    },
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-045",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-045.webp",
+    "name": "蹴・ミカエラ",
+    "subName": [
+      "シュウミカエラ"
+    ],
+    "rarity": "LC",
+    "illust": "由利真珠郎",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "ミカエラ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 2,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ",
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出1": "対戦相手のシグニ1体を対象とし、それをダウンする。",
+      "出2": "《青》《無》《無》:対戦相手のダウン状態のシグニ1体を対象とし、それをデッキの一番下に置く。"
+    },
+    "flavorText": "「はっ！！」",
+    "faq": {
+      "上の出現時能力でシグニをダウンしてから、下の出現時能力でそれをデッキの一番下に置けますか?": "はい、可能です。"
+    },
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-046",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-046.webp",
+    "name": "刃・ミカエラ",
+    "subName": [
+      "ヤイバミカエラ"
+    ],
+    "rarity": "LC",
+    "illust": "エイチ",
+    "cardType": [
+      "アシストルリグ"
+    ],
+    "lrigTypeClass": [
+      "ミカエラ"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 2,
+    "cost": {
+      "無": 4
+    },
+    "power": null,
+    "timing": [
+      "メインフェイズ",
+      "アタックフェイズ"
+    ],
+    "lifeBurst": null,
+    "text": {
+      "出1": "対戦相手のシグニを2体まで対象とし、それらをダウンする。",
+      "出2": "手札を2枚捨てる:あなたのライフクロスの枚数が対戦相手より少ない場合、対戦相手のシグニ1体を対象とし、それをダウンする。 (【出】能力の:の左側はコストである。コストを支払わず発動しないことを選んでもよい)"
+    },
+    "flavorText": "「あきらめない、か。」",
+    "faq": null,
+    "tags": [
+      "夢限少女"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-047",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-047.webp",
+    "name": "羅星姫 サシェ//ディソナ",
+    "subName": [
+      "ラセイキサシェディソナ"
+    ],
+    "rarity": "SR",
+    "illust": "志月",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏羅：宇宙"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、《白》《無》《無》を支払ってもよい。そうした場合、次の対戦相手のメインフェイズ終了時まで、対戦相手のセンタールリグのリミットを-1する。",
+      "LB": "カードを2枚引く。このターン、あなたの手札にあるシグニは《ガードアイコン》を得る。(《ガードアイコン》を持つシグニは【ガード】を得る)"
+    },
+    "flavorText": "「不協和音？不思議な場所ですね。」",
+    "faq": {
+      "《羅星姫 サシェ//ディソナ》の自動能力で対戦相手のセンタールリグのリミットをー1した後、次の対戦相手のグロウフェイズに対戦相手のセンタールリグがグロウしました。リミットはー1されたままですか?": "いいえ、グロウした後はリミットはー1されません。「ターン終了時まで、」のように「~まで」と書かれた効果は発動した時点で該当するカードに影響を与えますので、グロウして別のカードになった場合はこの効果の影響を受けません。",
+      "ライフバーストを発動した後、新たに手札に入ったシグニも《ガードアイコン》を得ますか?": "はい、そのターン中であれば後から引いたカードも含めて、すべての手札のシグニが《ガードアイコン》を得ます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-048",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-048.webp",
+    "name": "夢限紅天姫 ゼウシアス",
+    "subName": [
+      "ムゲンコウテンキゼウシアス"
+    ],
+    "rarity": "SR",
+    "illust": "pupps",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：天使"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "チーム": "<夢限少女>",
+      "チーム自": "このシグニがアタックしたとき、以下の3つから2つまで選ぶ。 ①次の対戦相手のターン終了時まで、このシグニは【シャドウ】を得る。(このシグニは対戦相手によって対象にされない) ②対戦相手のパワー8000以下のシグニ1体を対象とし、手札を1枚捨ててもよい。そうした場合、それをバニッシュする。 ③対戦相手の手札を1枚見ないで選び、捨てさせる。"
+    },
+    "flavorText": "「これがキリフダというもの。」",
+    "faq": {
+      "【チーム】アイコンはどういう意味ですか?": "あなたのルリグ3体すべてが<〇〇〇>である場合に、【チーム常】【チーム自】【チーム出】【チーム起】が有効になります。このカードの場合、あなたのルリグ3体すべてが<夢限少女>であるなら、すぐ下の【チーム自】能力を発動することができます。",
+      "この能力で、同じ選択肢は選べますか?": "いいえ、特に記載のない限りは同じ選択肢は選べず、この能力は違う選択肢しか選べません。",
+      "3番目の選択肢を選んで対戦相手の捨てさせたカードを見た後に、他の選択肢をどうするか選べますか?": "いいえ、できません。この効果を発動する場合、まず選択肢を2つ選んでから、上から順番に処理します。例えば2番目と3番目を選んだ場合、2→3の順番で処理します。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-049",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-049.webp",
+    "name": "轟砲 ヘビーマシンガン",
+    "subName": [
+      "ゴウホウヘビーマシンガン"
+    ],
+    "rarity": "SR",
+    "illust": "イチゼン",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏武：ウェポン"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、以下の2つから1つを選ぶ。 ①あなたのライフクロスが3枚以上ある場合、対戦相手のパワー7000以下のシグニ1体を対象とし、それをバニッシュする。 ②あなたのライフクロスが2枚以下の場合、対戦相手のパワー12000以下のシグニ1体を対象とし、《赤》を支払ってもよい。そうした場合、それをバニッシュする。"
+    },
+    "flavorText": "「逆境でこそ俺の銃口は火をふくぜ！」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-050",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-050.webp",
+    "name": "羅原姫 ミルルン//フェゾーネ",
+    "subName": [
+      "ラゲンヒメミルルンフェゾーネ"
+    ],
+    "rarity": "SR",
+    "illust": "山吹色",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏羅：原子"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自1": "あなたのアタックフェイズ開始時、対戦相手のシグニ1体を対象とし、手札からスペルを1枚捨て《青》を支払ってもよい。そうした場合、それをバニッシュする。",
+      "自2": "このシグニがアタックしたとき、対戦相手の手札を見てスペル1枚を選び、捨てさせる。",
+      "LB": "どちらか1つを選ぶ。①対戦相手のシグニを2体まで対象とし、それらをダウンする。②カードを1枚引く。"
+    },
+    "flavorText": "「るんるんる～ん♪」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-051",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-051.webp",
+    "name": "コードラビリンス トビラ",
+    "subName": [
+      "コードラビリンストビラ"
+    ],
+    "rarity": "SR",
+    "illust": "緑QN",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏械：迷宮"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "起1": "《ターン1回》手札を2枚捨てる:このターン終了時、カードを2枚引くか【エナチャージ2】をする。",
+      "起2": "《緑》《無》:あなたの場に《収斂せし扉 アト=トレ》がいる場合、ターン終了時まで、このシグニは【ランサー】を得る。あなたのエナゾーンにカードが無い場合、代わりにターン終了時まで、このシグニは【Sランサー】を得る。",
+      "LB": "どちらか1つを選ぶ。①対戦相手のアップ状態のシグニ1体を対象とし、それをバニッシュする。②【エナチャージ1】"
+    },
+    "flavorText": "「主ヨ、タタカウノデス。」",
+    "faq": {
+      "上の起動能力を使用した後、このシグニがバニッシュされました。このターン終了時の効果はどうなりますか?": "ターン終了時にこのシグニが場になくとも、「このターン終了時」の能力は発動します。",
+      "自分の場に《収斂せし扉 アト=トレ》がいない状況で、下の起動能力を使用しました。エナゾーンにカードが無い場合、【Sランサー】を得ますか?": "いいえ、後半の効果も《収斂せし扉 アト=トレ》がいる前提となりますので、【Sランサー】は得ません。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-052",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-052.webp",
+    "name": "(名前不明)",
+    "subName": [
+      "ナマエフメイ"
+    ],
+    "rarity": "SR",
+    "illust": "夕子",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏生：地獣"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "このシグニがアタックしたとき、このシグニのパワーが20000以上の場合、対戦相手のパワー8000以下のシグニ1体を対象とし、それをバニッシュする。このシグニのパワーが30000以上の場合、代わりに対戦相手のパワー12000以下のシグニ1体を対象とし、それをバニッシュする。",
+      "起": "《ターン1回》アップ状態の他のシグニ1体をダウンする:ターン終了時まで、このシグニのパワーをこの方法でダウンしたシグニのパワーと同じだけ+(プラス)する。"
+    },
+    "flavorText": "「オイラに力を分けてくれーっ！」",
+    "faq": {
+      "このシグニのパワーが30000以上でアタックした場合、パワーが20000以上の場合とパワーが30000以上の場合の両方の効果が処理できますか?": "いいえ、パワーが30000以上の場合はパワーが20000以上の場合の効果の代わりに30000以上の効果が発生していますので、パワー12000以下のシグニ1体をバニッシュするのみとなります。",
+      "パワーが5000のシグニが、何らかの効果で+5000されパワー10000になっています。そのシグニを下の起動能力でダウンした場合、プラスされるパワーはいくつですか?": "ダウンした時点のそのシグニのパワーを参照しますので、+10000となります。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-053",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-053.webp",
+    "name": "凶将姫 ソウソウ",
+    "subName": [
+      "キョウショウキソウソウ"
+    ],
+    "rarity": "SR",
+    "illust": "bomi",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：武勇"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "このシグニがアタックしたとき、対戦相手のデッキの上からカードを4枚トラッシュに置く。その後、対戦相手のトラッシュにあるいずれかのカードと同じ名前の対戦相手のシグニ1体を対象とし、《黒》《黒》《無》を支払ってもよい。そうした場合、それをバニッシュする。",
+      "LB": "対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-10000する。"
+    },
+    "flavorText": "「曹操の話をすると、曹操がやって来る。」～中国のことわざ～",
+    "faq": {
+      "このシグニでアタックし、対戦相手のデッキの上から4枚をトラッシュに置いたら対戦相手のデッキが0枚になりました。残りの処理はどうなりますか?": "まずは、この自動能力を最後まで処理しますので、その後以降の効果を処理します。効果処理後、デッキが0枚ですのでリフレッシュを行います。",
+      "対戦相手のシグニを対象にするのはいつですか?": "対戦相手のデッキの上から4枚をトラッシュに置いた後となります。4枚をトラッシュに置いてから、条件に合うシグニを対象とします。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-054",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-054.webp",
+    "name": "幻水姫 アキノ//THE DOOR",
+    "subName": [
+      "ゲンスイヒメアキノザドアー"
+    ],
+    "rarity": "SR",
+    "illust": "かにゃぴぃ",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "防衛派"
+    ],
+    "color": [
+      "白",
+      "青"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "常": "このシグニは同じシグニゾーンに【ゲート】があるかぎり、「【常】:対戦相手のターンの間、このシグニのパワーは+5000され、このシグニは対戦相手の効果によってバニッシュされない。」を得る。",
+      "自": "このシグニがアタックしたとき、あなたの場に【ゲート】がある場合、以下の2つから1つを選ぶ。 ①対戦相手のパワー5000以下のシグニ1体を対象とし、それを手札に戻す。 ②カードを2枚引く。"
+    },
+    "flavorText": "「ヒラナちゃん、レイちゃん、今行くからね！」",
+    "faq": {
+      "【ゲート】とは何ですか?": "カードの効果によって、シグニゾーンに【ゲート】を置くことがあります。【ゲート】はシグニゾーン1つにつき1つまで置けます。【ゲート】が置かれているだけでは何も起きませんが、【ゲート】の有無を参照して効果が変わる事があります。",
+      "このシグニが「対戦相手の効果によってバニッシュされない」を得ているときに、対戦相手の効果でパワーがマイナスされ0になった場合、バニッシュされますか?": "はい、バニッシュされます。パワーをマイナスする効果が対戦相手の効果であっても、パワーが0以下になったことによるバニッシュはルール処理によるものですので、バニッシュされます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-055",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-055.webp",
+    "name": "極門天姫 ヨグニグラ",
+    "subName": [
+      "ゴクモンテンキヨグニグラ"
+    ],
+    "rarity": "SR",
+    "illust": "神奈ぺろん",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：天使"
+    ],
+    "color": [
+      "白",
+      "黒"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 12000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたの場にカード名に《扉の俯瞰者》を含むルリグがいる場合、以下の2つから1つを選ぶ。 ①あなたのトラッシュから《ガードアイコン》を持つシグニ1枚を対象とし、《白》を支払ってもよい。そうした場合、それを手札に加える。 ②対戦相手のシグニ1体を対象とし、《黒》を支払ってもよい。そうした場合、ターン終了時まで、それのパワーを-10000する。",
+      "起": "《ターン1回》《黒×0》:あなたのデッキの上からカードを3枚トラッシュに置く。"
+    },
+    "flavorText": "「我、極門の天使也。」",
+    "faq": {
+      "1番目の選択肢を選んだ場合、エナゾーンの《ガードアイコン》を持つシグニで《白》を支払い、それを対象として手札に加えられますか?": "いいえ、できません。対象を選ぶのは《白》を支払うより前となります。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-056",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-056.webp",
+    "name": "コードハート ピルルク//THE DOOR",
+    "subName": [
+      "コードハートピルルクザドアー"
+    ],
+    "rarity": "SR",
+    "illust": "ロクシロコウシ",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "解放派"
+    ],
+    "color": [
+      "青",
+      "赤"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、対戦相手のシグニ1体を対象とし、手札を1枚捨ててもよい。そうした場合、ターン終了時まで、それのパワーを-5000する。あなたの場にある<解放派>のシグニの下にカードが合計4枚以上ある場合、代わりにターン終了時まで、それのパワーを-8000する。",
+      "出": "あなたのトラッシュから<解放派>のシグニ1枚を対象とし、それをこのシグニの下に置く。"
+    },
+    "flavorText": "「みんなで力を合わせて、元の世界に帰りましょう！」",
+    "faq": {
+      "「シグニの下にあるカード」とはどの状態のカードですか?": "「シグニの下にあるカード」は、例えばこのカードの下の出現時能力のように、シグニの下にカードを置く効果で置いたり、【ライズ】で下に置かれたカードを指します。【チャーム】や【アクセ】などのシグニに付いた状態や、場のシグニが効果によって裏返った状態は該当しません。また「シグニの下にあるカード」は上のシグニが場を離れた場合、ルール処理でトラッシュに置かれるものです。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-057",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-057.webp",
+    "name": "凶翠魔姫 ウリス//THE DOOR",
+    "subName": [
+      "キョウスイマキウリスザドアー"
+    ],
+    "rarity": "SR",
+    "illust": "アリオ",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "闘争派"
+    ],
+    "color": [
+      "黒",
+      "緑"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自1": "《ターン1回》:あなたが《コインアイコン》を1枚以上支払ったとき、以下の2つから1つを選ぶ。①あなたのトラッシュから<闘争派>のシグニ1枚を対象とし、それをエナゾーンに置く。②あなたのエナゾーンからシグニ1枚を対象とし、それを手札に加える。",
+      "自2": "このシグニがアタックしたとき、このターンにあなたが《コインアイコン》を合計3枚以上支払っていた場合、対戦相手のシグニ1体を対象とし、《黒》《緑》《無》を支払ってもよい。そうした場合、それをバニッシュする。"
+    },
+    "flavorText": "「そんなに憂いた顔をしてどうしたのかしら？」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-058",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-058.webp",
+    "name": "紡ぐ者//メモリア",
+    "subName": [
+      "ツムグモノメモリア"
+    ],
+    "rarity": "SR",
+    "illust": "繭咲悠",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏元"
+    ],
+    "color": [
+      "無"
+    ],
+    "level": 3,
+    "cost": null,
+    "power": 10000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "常1": "このシグニはあなたの場にいるルリグが持つ色を得る。",
+      "常2": "対戦相手のターンの間、【シャドウ(このシグニが持つ色)】を得る。(このシグニは対戦相手の、該当する色の能力と効果によって対象にされない)",
+      "自": "あなたのアタックフェイズ開始時、このシグニと共通する色を持たない対戦相手のシグニ1体を対象とし、《無》《無》を支払ってもよい。そうした場合、それをバニッシュする。"
+    },
+    "flavorText": "仮想と現実が隔たれようと、物語は終わらない。",
+    "faq": {
+      "上の常時能力によって、このシグニがエナゾーンや手札、デッキにある間も自分の場のルリグの色を得ますか?": "いいえ、この常時能力はこのシグニが場にあるときにだけ有効となります。例えばエナゾーンでは色を得られず無色となります。",
+      "自分のルリグが3体あり、それぞれ別の色を持っていた場合、《紡ぐ者//メモリア》は常時能力で3つの色を得ますか?": "はい、センタールリグ・アシストルリグそれぞれが持つ色をすべて得ますので、3体別々の色であれば3つの色を得ます。",
+      "自分のルリグが無色で、場にある《紡ぐ者//メモリア》が無色の場合、2番目の常時能力で【シャドウ(無色)】を得ますか?": "いいえ、無色は色ではありませんので「このシグニが持つ色」ではありません。この場合、【シャドウ】の条件に該当する色がありませんので、【シャドウ】は機能しません。",
+      "下の自動能力では、対戦相手の無色であるシグニ(《サーバント #》など)をバニッシュできますか?": "はい、できます。無色は色を持っていませんので、例えば《紡ぐ者//メモリア》が無色であってもバニッシュできます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-059",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-059.webp",
+    "name": "小装 デウス//THE DOOR",
+    "subName": [
+      "ショウソウデウスザドアー"
+    ],
+    "rarity": "C",
+    "illust": "モレシャン",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "防衛派"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "常": "このシグニは同じシグニゾーンに【ゲート】があるかぎり、「【常】:対戦相手は追加で《無》を支払わないかぎり【ガード】ができない。」を得る。",
+      "自": "あなたのターン終了時、あなたの場に【ゲート】がある場合、あなたのシグニ1体を対象とし、次の対戦相手のターン終了時まで、それは【シャドウ(レベル2以下)】を得る。(このシグニは対戦相手のレベル2以下のルリグとレベル2以下のシグニによって対象にされない)"
+    },
+    "flavorText": "「いいぜ！相手してやるよ！」",
+    "faq": {
+      "【ゲート】とは何ですか?": "カードの効果によって、シグニゾーンに【ゲート】を置くことがあります。【ゲート】はシグニゾーン1つにつき1つまで置けます。【ゲート】が置かれているだけでは何も起きませんが、【ゲート】の有無を参照して効果が変わる事があります。",
+      "自分のシグニゾーン2つに【ゲート】があり、それらのシグニゾーンに《小装 デウス//THE DOOR》がある場合、上の常時能力は重複しますか?": "はい、重複します。対戦相手は追加で《無》《無》を支払わない限り【ガード】ができません。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-060",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-060.webp",
+    "name": "羅星 ノヴァ//フェゾーネ",
+    "subName": [
+      "ラセイノヴァフェゾーネ"
+    ],
+    "rarity": "R",
+    "illust": "ぶんたん",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏羅：宇宙"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのターン終了時、あなたのデッキの上からカードを4枚見る。その中から《ガードアイコン》を持つシグニ1枚を公開し手札に加え、残りを好きな順番でデッキの一番下に置く。"
+    },
+    "flavorText": "「フフフ…狂乱の宴が始まる。」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-061",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-061.webp",
+    "name": "小装 カマカマ",
+    "subName": [
+      "ショウソウカマカマ"
+    ],
+    "rarity": "C",
+    "illust": "蚊",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏武：アーム"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "起": "《ダウン》:次の対戦相手のターン終了時まで、このシグニのパワーを+7000する。",
+      "LB": "カードを1枚引く。このターン、あなたの手札にあるシグニは《ガードアイコン》を得る。(《ガードアイコン》を持つシグニは【ガード】を得る)"
+    },
+    "flavorText": "「誰が弱えェだけのザコだって！？」",
+    "faq": {
+      "ライフバーストを発動した後、新たに手札に入ったシグニも《ガードアイコン》を得ますか?": "はい、そのターン中であれば後から引いたカードも含めて、すべての手札のシグニが《ガードアイコン》を得ます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-062",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-062.webp",
+    "name": "コードライド マキナ//THE DOOR",
+    "subName": [
+      "コードライドマキナザドアー"
+    ],
+    "rarity": "C",
+    "illust": "コウサク",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "防衛派"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "常1": "このシグニは同じシグニゾーンに【ゲート】があるかぎり、「【自】:各アタックフェイズ開始時、対戦相手のシグニ1体を対象とし、対戦相手が《無》を支払わないかぎり、ターン終了時まで、それは能力を失う。」を得る。",
+      "常2": "同じシグニゾーンに【ゲート】があるあなたのシグニのパワーを+2000する。",
+      "LB": "あなたのデッキの上からカードを3枚見る。その中からシグニ1枚を公開し手札に加えるか場に出し、残りを好きな順番でデッキの一番下に置く。"
+    },
+    "flavorText": "「このドア、どうあっても開けさせない…。」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-063",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-063.webp",
+    "name": "爆砲 アルト//ディソナ",
+    "subName": [
+      "バクホウアルトディソナ"
+    ],
+    "rarity": "C",
+    "illust": "霜月友",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏武：ウェポン"
+    ],
+    "color": [
+      "白"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "LB": "対戦相手のシグニ1体を対象とし、ターン終了時まで、それは「【常】:アタックできない。」を得る。カードを1枚引く。"
+    },
+    "flavorText": "「ここはラビリンスと違うエリアのようね。」",
+    "faq": {
+      "自分のシグニ1体でアタックした際、対戦相手の《ママ ディフェンス》の効果でアタックが無効になりました。その次に《爆砲 アルト//ディソナ》がアタックした場合、そのアタックは一度目ですか?二度目ですか?": "二度目となります。アタックを宣言しダウン状態にしたことでアタックは成立しており、その後にそれが無効になったとしてもそれは一度目のアタックとして数えます。その次のアタックはそのターン二度目のアタックとなります。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-064",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-064.webp",
+    "name": "コードアンチ イオナ//THE DOOR",
+    "subName": [
+      "コードアンチイオナザドアー"
+    ],
+    "rarity": "C",
+    "illust": "ちゃきん",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "解放派"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのターン終了時、対戦相手のエナゾーンにカードが2枚以上ある場合、あなたのシグニの下から<解放派>のシグニ1枚をトラッシュに置いてもよい。そうした場合、対戦相手は自分のエナゾーンからカード1枚を選びトラッシュに置く。",
+      "常": "このカードの上にある<解放派>のシグニは「【自】:あなたのアタックフェイズ開始時、《赤》《無》《無》を支払ってもよい。そうした場合、ターン終了時まで、このシグニは【アサシン】を得る。」を得る。"
+    },
+    "flavorText": "「扉を開けて帰る…待ってて…！」",
+    "faq": {
+      "【アサシン】とはどういう能力ですか?": "【アサシン】を持ったシグニは、アタックした際に「正面にシグニがないかのように」対戦相手にダメージを与えます。逆に、【アサシン】を持つシグニは正面のシグニとバトルを行うことはできません。",
+      "「シグニの下にあるカード」とはどの状態のカードですか?": "「シグニの下にあるカード」は、例えばこのカードの下の出現時能力のように、シグニの下にカードを置く効果で置いたり、【ライズ】で下に置かれたカードを指します。【チャーム】や【アクセ】などのシグニに付いた状態や、場のシグニが効果によって裏返った状態は該当しません。また「シグニの下にあるカード」は上のシグニが場を離れた場合、ルール処理でトラッシュに置かれるものです。",
+      "<解放派>のシグニの下に《コードアンチ イオナ//THE DOOR》が2枚置かれている場合、その<解放派>のシグニは自動能力を2つ得ますか?": "はい、2枚の《コードアンチ イオナ//THE DOOR》からそれぞれ能力を得て、アタックフェイズ開始時には2つとも発動します。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-065",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-065.webp",
+    "name": "紅将 リル//フェゾーネ",
+    "subName": [
+      "コウショウリルフェゾーネ"
+    ],
+    "rarity": "R",
+    "illust": "okera",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：武勇"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "あなたのターン終了時、このターンに対戦相手のライフクロスが2枚以上クラッシュされていた場合、【エナチャージ1】をする。",
+      "起": "《ターン1回》《コインアイコン》:対戦相手のパワー2000以下のシグニ1体を対象とし、それをバニッシュする。",
+      "LB": "対戦相手のパワー8000以下のシグニ1体を対象とし、それをバニッシュする。"
+    },
+    "flavorText": "「そうだね、一緒に遊ぼう！」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-066",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-066.webp",
+    "name": "幻獣 ラバピカ",
+    "subName": [
+      "ゲンジュウ　ラバピカ"
+    ],
+    "rarity": "C",
+    "illust": "okera",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏生：地獣"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたのシグニ1体を対象とし、ターン終了時まで、それのパワーを+5000する。",
+      "LB": "手札を1枚捨て、カードを3枚引く。(手札を捨てられなくてもカードを引ける)"
+    },
+    "flavorText": "「力を貸すっきゅ～。」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-067",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-067.webp",
+    "name": "中装 タマ//THE DOOR",
+    "subName": [
+      "チュウソウタマザドアー"
+    ],
+    "rarity": "C",
+    "illust": "神奈ぺろん",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "解放派"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "出": "《無》:あなたのトラッシュから<解放派>のシグニ1枚を対象とし、それをこのシグニの下に置く。 (シグニの下に置かれたカードは、そのシグニが場を離れるとルールによってトラッシュに置かれる)",
+      "LB": "対戦相手のパワー8000以下のシグニ1体を対象とし、それをバニッシュする。"
+    },
+    "flavorText": "「タマ、だいじょうぶだよ！」",
+    "faq": {
+      "出現時能力のコストの《無》で支払ったカードが<解放派>のシグニの場合、それを対象として下に置けますか?": "はい、できます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-068",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-068.webp",
+    "name": "コードライド レイラ//ディソナ",
+    "subName": [
+      "コードライドレイラディソナ"
+    ],
+    "rarity": "C",
+    "illust": "bomi",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏械：乗機"
+    ],
+    "color": [
+      "赤"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {},
+    "flavorText": "「この姿なら本気が出せそうだ！」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-069",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-069.webp",
+    "name": "蒼美 ふたせ//THE DOOR",
+    "subName": [
+      "ソウビフタセザドアー"
+    ],
+    "rarity": "C",
+    "illust": "アカバネ",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "解放派"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのターン終了時、対戦相手のシグニ1体を対象とし、あなたのシグニの下から<解放派>のシグニ1枚をトラッシュに置いてもよい。そうした場合、それをデッキの一番下に置く。",
+      "常": "このカードの上にある<解放派>のシグニは「【自】:あなたのアタックフェイズ開始時、対戦相手のシグニ1体を対象とし、ターン終了時、それをデッキの一番下に置く。」を得る。"
+    },
+    "flavorText": "「一触即発…。」",
+    "faq": {
+      "「シグニの下にあるカード」とはどの状態のカードですか?": "「シグニの下にあるカード」は、例えばこのカードの下の出現時能力のように、シグニの下にカードを置く効果で置いたり、【ライズ】で下に置かれたカードを指します。【チャーム】や【アクセ】などのシグニに付いた状態や、場のシグニが効果によって裏返った状態は該当しません。また「シグニの下にあるカード」は上のシグニが場を離れた場合、ルール処理でトラッシュに置かれるものです。",
+      "<解放派>のシグニの下に《蒼美 ふたせ//THE DOOR》が2枚置かれている場合、その<解放派>のシグニは自動能力を2つ得ますか?": "はい、2枚の《蒼美 ふたせ//THE DOOR》からそれぞれ能力を得て、アタックフェイズ開始時には2つとも発動します。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-070",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-070.webp",
+    "name": "アイン=サンガ//THE DOOR",
+    "subName": [
+      "アインサンガザドアー"
+    ],
+    "rarity": "C",
+    "illust": "緑QN",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "防衛派"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "常": "このシグニは同じシグニゾーンに【ゲート】があるかぎり、「【自】:あなたのターン終了時、対戦相手のシグニ1体を対象とし、それをデッキの一番下に置く。」を得る。",
+      "自": "あなたのターン終了時、あなたの場に【ゲート】がある場合、あなたのシグニ1体を対象とし、次の対戦相手のターン終了時まで、それのパワーをあなたの手札1枚につき+1000する。"
+    },
+    "flavorText": "「少し下がってて。」",
+    "faq": {
+      "【ゲート】とは何ですか?": "カードの効果によって、シグニゾーンに【ゲート】を置くことがあります。【ゲート】はシグニゾーン1つにつき1つまで置けます。【ゲート】が置かれているだけでは何も起きませんが、【ゲート】の有無を参照して効果が変わる事があります。",
+      "下の自動能力が発動した後、手札の枚数が変わったらプラス修正の値も変わりますか?": "いいえ、手札の枚数を確認するのは発動時のみです。その後に手札が増減しても、プラス修正の値は変わりません。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-071",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-071.webp",
+    "name": "羅星 タマゴ//フェゾーネ",
+    "subName": [
+      "ラセイタマゴフェゾーネ"
+    ],
+    "rarity": "R",
+    "illust": "れん",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏羅：宇宙"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "起": "《ダウン》:対戦相手のシグニを2体まで対象とし、それらを凍結する。 (凍結されたシグニは次の自分のアップフェイズにアップしない)",
+      "LB": "対戦相手のシグニ1体を対象とし、それをダウンし凍結する。対戦相手は手札を1枚捨てる。"
+    },
+    "flavorText": "「時には休息も必要だからね！」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-072",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-072.webp",
+    "name": "蒼魔 ムルムルン",
+    "subName": [
+      "ソウマムルムルン"
+    ],
+    "rarity": "C",
+    "illust": "夕子",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：悪魔"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "このカードがコストか効果によって捨てられたとき、《無》を支払ってもよい。そうした場合、カードを1枚引く。"
+    },
+    "flavorText": "「ははっ！タダでは死なんよ！」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-073",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-073.webp",
+    "name": "蒼美 アン//THE DOOR",
+    "subName": [
+      "ソウビアンザドアー"
+    ],
+    "rarity": "C",
+    "illust": "匡吉",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "解放派"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "出": "手札から<解放派>のシグニ1枚をこのシグニの下に置く:カードを1枚引く。 (シグニの下に置かれたカードは、そのシグニが場を離れるとルールによってトラッシュに置かれる)",
+      "LB": "対戦相手のシグニ1体を対象とし、それをダウンし凍結する。カードを1枚引く。"
+    },
+    "flavorText": "「戦場が呼んでいる…。いざっ！」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-074",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-074.webp",
+    "name": "コードアンチ マドカ//THE DOOR",
+    "subName": [
+      "コードアンチマドカザドアー"
+    ],
+    "rarity": "C",
+    "illust": "アリオ",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "防衛派"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "常": "このシグニは同じシグニゾーンに【ゲート】があるかぎり、「【自】:あなたのアタックフェイズ開始時、対戦相手のシグニ1体を対象とし、《無》を支払ってもよい。そうした場合、ターン終了時まで、それのパワーを-5000する。」を得る。",
+      "自": "《ターン1回》:同じシグニゾーンに【ゲート】があるあなたのシグニ1体がバニッシュされたとき、対戦相手は手札を1枚捨てる。",
+      "LB": "カードを3枚引き、手札を1枚捨てる。"
+    },
+    "flavorText": "「マドカはこの世界が好きだから！」",
+    "faq": {
+      "【ゲート】とは何ですか?": "カードの効果によって、シグニゾーンに【ゲート】を置くことがあります。【ゲート】はシグニゾーン1つにつき1つまで置けます。【ゲート】が置かれているだけでは何も起きませんが、【ゲート】の有無を参照して効果が変わる事があります。",
+      "このシグニと同じシグニゾーンに【ゲート】があるときにこのシグニがバニッシュされました。下の自動能力は発動しますか?": "はい、発動します。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-075",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-075.webp",
+    "name": "幻水 エルドラ//ディソナ",
+    "subName": [
+      "ゲンスイエルドラディソナ"
+    ],
+    "rarity": "C",
+    "illust": "夕子",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏生：水獣"
+    ],
+    "color": [
+      "青"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {},
+    "flavorText": "「ほぇ～！ここがディソナっすか！？」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-076",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-076.webp",
+    "name": "アイン=ハナレ//THE DOOR",
+    "subName": [
+      "アインハナレザドアー"
+    ],
+    "rarity": "C",
+    "illust": "BUZZ",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "闘争派"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、このターンにあなたが《コインアイコン》を合計3枚以上支払っていた場合、対戦相手のパワー10000以上のシグニ1体を対象とし、《緑》《緑》を支払ってもよい。そうした場合、それをバニッシュする。",
+      "起": "《コインアイコン》:シグニ1体を対象とし、ターン終了時まで、それのパワーを+3000する。"
+    },
+    "flavorText": "「…分かりきっている理由をあえて聞くなんて、いじわるだよ、ウリス。」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-077",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-077.webp",
+    "name": "翠魔 バン//フェゾーネ",
+    "subName": [
+      "スイマバンフェゾーネ"
+    ],
+    "rarity": "R",
+    "illust": "緑QN",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：悪魔"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "起": "《緑》《緑》このシグニを場からトラッシュに置く:対戦相手は自分のパワー10000以上のシグニ1体を選びエナゾーンに置く。"
+    },
+    "flavorText": "「不思議ですね　音楽は気分が高まります」",
+    "faq": {
+      "起動能力で、対戦相手は自分の【シャドウ】を持つシグニを選べますか?": "はい、選べます。【シャドウ】は対戦相手の効果によって対象とならなくなる効果ですが、このカードの起動能力は対象を選んでいません。",
+      "《翠魔 バン//フェゾーネ》の起動能力でエナゾーンに置いたシグニが「バニッシュされたとき」の自動能力を持っていたとき、それは発動しますか?": "いいえ、この効果はバニッシュではありませんので発動しません。",
+      "対戦相手の《翠魔 バン//フェゾーネ》の起動能力で、自分は《先駆の大天使 アークゲイン》などの「効果を受けない」能力を持つシグニを選べますか?": "はい、選ぶことができます。また、この効果自体は対戦相手の効果ですので「効果を受けない」によって場から移動することを防ぎ、結果的に《先駆の大天使 アークゲイン》は場に残ります。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-078",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-078.webp",
+    "name": "翠天 ヴィーザル",
+    "subName": [
+      "スイテンヴィーザル"
+    ],
+    "rarity": "C",
+    "illust": "志月",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：天使"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、アップ状態のこのシグニをダウンしてもよい。そうした場合、【エナチャージ1】をする。",
+      "LB": "【エナチャージ1】をする。このターン、次にあなたがシグニによってダメージを受ける場合、代わりにダメージを受けない。"
+    },
+    "flavorText": "「どうだい？この靴。」",
+    "faq": {
+      "【シグニバリア】を持っているときに、このカードのライフバーストが発動しました。次にシグニによってダメージを受ける場合、どうなりますか?": "その場合、このライフバーストと【シグニバリア】の好きな方でダメージを防ぐことができます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-079",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-079.webp",
+    "name": "羅星 リメンバ//THE DOOR",
+    "subName": [
+      "ラセイリメンバザドアー"
+    ],
+    "rarity": "C",
+    "illust": "bomi",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "闘争派"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたの他の<闘争派>のシグニ1体を対象とし、次の対戦相手のターン終了時まで、それのパワーを+3000する。",
+      "起": "《ターン1回》《コインアイコン》《コインアイコン》:あなたのエナゾーンからシグニ1枚を対象とし、それを手札に加える。",
+      "LB": "【エナチャージ1】をする。このターン、次にあなたがルリグによってダメージを受ける場合、代わりにダメージを受けない。"
+    },
+    "flavorText": "「私は清衣ちゃんがいるところなら、どこでもいいです。」",
+    "faq": {
+      "【ルリグバリア】を持っているときに、このカードのライフバーストが発動しました。次にルリグによってダメージを受ける場合、どうなりますか?": "その場合、このライフバーストと【ルリグバリア】の好きな方でダメージを防ぐことができます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-080",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-080.webp",
+    "name": "弍ノ遊 アイヤイ//ディソナ",
+    "subName": [
+      "ニノユウアイヤイディソナ"
+    ],
+    "rarity": "C",
+    "illust": "ますん",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏武：遊具"
+    ],
+    "color": [
+      "緑"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {},
+    "flavorText": "「さぁ、さぁ、お立会い！」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-081",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-081.webp",
+    "name": "凶魔 ハイティ//THE DOOR",
+    "subName": [
+      "キョウマハイティザドアー"
+    ],
+    "rarity": "C",
+    "illust": "Tota",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "闘争派"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "起1": "このシグニを場からトラッシュに置く:このターンにあなたが《コインアイコン》を合計2枚以上支払っていた場合、対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-3000する。",
+      "起2": "《ターン1回》《コインアイコン》《コインアイコン》:対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-5000する。 (パワーが0以下のシグニはルールによってバニッシュされる)"
+    },
+    "flavorText": "「その扉を消せばいいのか？」",
+    "faq": {
+      "このターンに《コインアイコン》を合計2枚以上支払っていなくても、上の起動能力は使用できますか?": "はい、使用してこのシグニを場からトラッシュに置くことができます。効果は何も起こりません。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-082",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-082.webp",
+    "name": "異血之遊 グズ子//フェゾーネ",
+    "subName": [
+      "イチノユウグズコフェゾーネ"
+    ],
+    "rarity": "R",
+    "illust": "山吹色",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏武：遊具"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "このシグニが対戦相手のライフクロス1枚をクラッシュしたとき、対戦相手のシグニ1体を対象とし、このシグニを場からトラッシュに置いてもよい。そうした場合、ターン終了時まで、それのパワーを-5000する。 (パワーが0以下のシグニはルールによってバニッシュされる)",
+      "起": "《コインアイコン》《コインアイコン》:このカードをトラッシュから場に出す。(この能力はこのカードがトラッシュにある場合にしか使用できない)"
+    },
+    "flavorText": "「あんまり見ないでくださ～い！」",
+    "faq": {
+      "このシグニに何らかの効果で【ダブルクラッシュ】を与え、対戦相手のライフクロス2枚をクラッシュした場合は自動能力は2回発動しますか?": "2回発動しますが、このシグニを場からトラッシュに置くことは1回しかできないため、結果的に1体を-5000することしかできません。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-083",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-083.webp",
+    "name": "凶魔 アルフォウ//THE DOOR",
+    "subName": [
+      "キョウマアルフォウザドアー"
+    ],
+    "rarity": "C",
+    "illust": "エイチ",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "闘争派"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 5000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "起1": "《ターン1回》《黒》:あなたのトラッシュから<闘争派>のシグニ1枚を対象とし、それを場に出す。このターン終了時、このターンにあなたが《コインアイコン》を合計1枚以上支払っていなかった場合、それをトラッシュに置く。",
+      "起2": "《ターン1回》《コインアイコン》:あなたのデッキの上からカードを3枚トラッシュに置く。",
+      "LB": "あなたのトラッシュからシグニ1枚を対象とし、それを手札に加える。"
+    },
+    "flavorText": "「狙いを定めて…。」",
+    "faq": {
+      "上の起動能力で場に出したシグニが、同じターン中に手札に戻りました。ターン終了時、そのシグニを手札からトラッシュに置く必要はありますか?": "いいえ、その場合は手札に留まります。場に出した後にさらに別の領域に移動した場合、それは場にあったカードとは別のカードとして扱われます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-084",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-084.webp",
+    "name": "幻蟲 ミュウ//ディソナ",
+    "subName": [
+      "ゲンチュウミュウディソナ"
+    ],
+    "rarity": "C",
+    "illust": "はしもとなおや",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏生：凶蟲"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "LB": "対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-8000する。"
+    },
+    "flavorText": "「ディソナ…居心地がいい。」",
+    "faq": {
+      "《バン=ビッグバン》の効果などで、自分の《幻蟲 ミュウ//ディソナ》と対戦相手のレベル2以下のシグニが同時に場に出る場合、その出現時能力は発動しますか?": "いいえ、同時に出るレベル2以下のシグニの出現時能力は発動しません。",
+      "自分が《世界逆流》を使用している状態で、赤のシグニである《紅将 ランスロット》を場に出しました。《世界逆流》で得ている自動能力の①で対戦相手の《幻蟲 ミュウ//ディソナ》をバニッシュした場合、《紅将 ランスロット》自身の出現時能力を発動できますか?": "はい、発動できます。《幻蟲 ミュウ//ディソナ》は出現時能力のトリガーは防がず、発動のみを防ぎます。《紅将 ランスロット》を出すことで、その出現時能力と《世界逆流》の自動能力が同時にトリガーし、《世界逆流》を先に処理し《幻蟲 ミュウ//ディソナ》をバニッシュすることで《紅将 ランスロット》の出現時能力を発動することができます。出現時能力の発動を防ぐには、実際に発動するタイミングで《幻蟲 ミュウ//ディソナ》が場にある必要があります。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-085",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-085.webp",
+    "name": "羅原 Pb",
+    "subName": [
+      "ラゲンナマリ"
+    ],
+    "rarity": "C",
+    "illust": "れん",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏羅：原子"
+    ],
+    "color": [
+      "黒"
+    ],
+    "level": 2,
+    "cost": null,
+    "power": 8000,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "起": "手札からレベル1のシグニを1枚捨て、このシグニを場からトラッシュに置く:あなたのトラッシュからレベル3のシグニ1枚を対象とし、それを場に出す。",
+      "LB": "あなたのトラッシュから《ガードアイコン》を持たないレベル2以下のシグニ1枚を対象とし、それを手札に加えるか場に出す。"
+    },
+    "flavorText": "「な…なまってるって言うな～！」",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-086",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-086.webp",
+    "name": "コードアート L・マイク",
+    "subName": [
+      "コードアートエルマイク"
+    ],
+    "rarity": "R",
+    "illust": "コウサク",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏械：電機"
+    ],
+    "color": [
+      "白",
+      "赤",
+      "緑"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "チーム": "<Card Jockey>",
+      "チーム出": "手札を1枚捨てる:あなたのデッキの上からカードを4枚見る。その中からカードを1枚まで手札に加えるかエナゾーンに置き、好きな枚数のカードを好きな順番でデッキの一番下に置き、残りを好きな順番でデッキの一番上に戻す。",
+      "常": "あなたの場に<Card Jockey>のルリグが3体いないかぎり、このカードはすべての領域で色を失う。"
+    },
+    "flavorText": "「Get it Get it PUNCHLINE！」",
+    "faq": {
+      "【チーム】アイコンはどういう意味ですか?": "あなたのルリグ3体すべてが<〇〇〇>である場合に、【チーム常】【チーム自】【チーム出】【チーム起】が有効になります。このカードの場合、このシグニを出したときにあなたのルリグ3体すべてが<Card Jockey>であるなら、すぐ下の【チーム出】能力を発動することができます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-087",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-087.webp",
+    "name": "羅石 H・マイク",
+    "subName": [
+      "ラセキエイチマイク"
+    ],
+    "rarity": "R",
+    "illust": "bomi",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏羅：宝石"
+    ],
+    "color": [
+      "赤",
+      "白",
+      "青"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "チーム": "<No Limit>",
+      "チーム出": "カードを2枚引き、手札を2枚捨てる。その後、この方法で捨てたシグニのレベルの合計が3以下の場合、次の対戦相手のターン終了時まで、このシグニのパワーを+5000する。レベルの合計が4以上の場合、対戦相手のパワー2000以下のシグニ1体を対象とし、それをバニッシュする。",
+      "常": "あなたの場に<No Limit>のルリグが3体いないかぎり、このカードはすべての領域で色を失う。"
+    },
+    "flavorText": "「はじまりのKI・RA・ME・KIをあげる♪」",
+    "faq": {
+      "【チーム】アイコンはどういう意味ですか?": "あなたのルリグ3体すべてが<〇〇〇>である場合に、【チーム常】【チーム自】【チーム出】【チーム起】が有効になります。このカードの場合、このシグニを出したときにあなたのルリグ3体すべてが<No Limit>であるなら、すぐ下の【チーム出】能力を発動することができます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-088",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-088.webp",
+    "name": "混天 A・アロー",
+    "subName": [
+      "コンテンエーアロー"
+    ],
+    "rarity": "R",
+    "illust": "BUZZ",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏像：天使"
+    ],
+    "color": [
+      "赤",
+      "白",
+      "青"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "チーム": "<夢限少女>(あなたの場に<夢限少女>のルリグ3体がいるなら【チーム自】が有効になる)",
+      "チーム自": "《ターン1回》:あなたのルリグ1体がアタックしたとき、対戦相手が《無》を支払うか手札を1枚捨てるか自分のシグニ1体を場からトラッシュに置かないかぎり、対戦相手のライフクロス1枚をクラッシュする。",
+      "常": "あなたの場に<夢限少女>のルリグが3体いないかぎり、このカードはすべての領域で色を失う。"
+    },
+    "flavorText": "「一足飛びゅーん勝利まで一直線にDIVE！」",
+    "faq": {
+      "【チーム】アイコンはどういう意味ですか?": "あなたのルリグ3体すべてが<〇〇〇>である場合に、【チーム常】【チーム自】【チーム出】【チーム起】が有効になります。このカードの場合、あなたのルリグ3体すべてが<夢限少女>であるなら、すぐ下の【チーム自】能力を発動することができます。",
+      "自分の場に《混天 A・アロー》が2体あり、対戦相手のエナゾーンにカードがない状態で、自分のルリグがアタックしました。1体目の《混天 A・アロー》でライフクロスをクラッシュした場合、2体目の《混天 A・アロー》の発動時に対戦相手はクラッシュされたカードで《無》エナを支払えますか?": "クラッシュされたカードがライフバーストを持っていて、それを発動させることを選んだ場合、ライフバーストをチェックゾーンに置いたまま先にターンプレイヤーである2体目の《A・アロー》の能力を発動します。そうでない場合(ライフバーストがなかったり、発動させないことを選んだ場合)は、チェックゾーンに置かれたカードはそのままエナゾーンに置かれ、その後に《A・アロー》の能力を発動しますので、そのカードで《無》を支払うことができます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-089",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-089.webp",
+    "name": "コードライド E・カッター",
+    "subName": [
+      "コードライドイーカッター"
+    ],
+    "rarity": "R",
+    "illust": "エイチ",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏械：乗機"
+    ],
+    "color": [
+      "赤",
+      "黒"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "チーム": "<デウス・エクス・マキナ>",
+      "チーム自": "このシグニがアタックしたとき、対戦相手のパワー2000以下のシグニ1体を対象とし、それをバニッシュする。このシグニに【ソウル】が付いている場合、代わりに対戦相手のパワー3000以下のシグニ1体を対象とし、それをバニッシュする。",
+      "常": "あなたの場に<デウス・エクス・マキナ>のルリグが3体いないかぎり、このカードはすべての領域で色を失う。"
+    },
+    "flavorText": "「迷わず掴むよ、VICTORY！」",
+    "faq": {
+      "【チーム】アイコンはどういう意味ですか?": "あなたのルリグ3体すべてが<〇〇〇>である場合に、【チーム常】【チーム自】【チーム出】【チーム起】が有効になります。このカードの場合、あなたのルリグ3体すべてが<デウス・エクス・マキナ>であるなら、すぐ下の【チーム自】能力を発動することができます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-090",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-090.webp",
+    "name": "羅星 T・シンバル",
+    "subName": [
+      "ラセイティーシンバル"
+    ],
+    "rarity": "R",
+    "illust": "bomi",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏羅：宇宙"
+    ],
+    "color": [
+      "青",
+      "白",
+      "緑"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 3000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "チーム": "<うちゅうのはじまり>",
+      "チーム常": "このシグニのパワーはあなたの場にいるルリグのレベルの合計1につき+1000される。あなたの場にいるルリグのレベルの合計が7であるかぎり、このシグニは【シャドウ(レベル2以下のシグニ)】を得る。",
+      "常": "あなたの場に<うちゅうのはじまり>のルリグが3体いないかぎり、このカードはすべての領域で色を失う。"
+    },
+    "flavorText": "「はんぱない★ディストラクション！」",
+    "faq": {
+      "【チーム】アイコンはどういう意味ですか?": "あなたのルリグ3体すべてが<〇〇〇>である場合に、【チーム常】【チーム自】【チーム出】【チーム起】が有効になります。このカードの場合、あなたのルリグ3体すべてが<うちゅうのはじまり>であるなら、すぐ下の【チーム常】能力が有効になります。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-091",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-091.webp",
+    "name": "羅菌 M・ジョーギ",
+    "subName": [
+      "ラキンエムジョーギ"
+    ],
+    "rarity": "R",
+    "illust": "霜月友",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏羅：微菌"
+    ],
+    "color": [
+      "青",
+      "白",
+      "黒"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "チーム": "<きゅるきゅるーん☆>",
+      "チーム自": "あなたのアタックフェイズ開始時、対戦相手は《無》を支払わないかぎり、手札を1枚捨てる。",
+      "常": "あなたの場に<きゅるきゅるーん☆>のルリグが3体いないかぎり、このカードはすべての領域で色を失う。"
+    },
+    "flavorText": "「きゅるるん★きゅるるんるん★」",
+    "faq": {
+      "【チーム】アイコンはどういう意味ですか?": "あなたのルリグ3体すべてが<〇〇〇>である場合に、【チーム常】【チーム自】【チーム出】【チーム起】が有効になります。このカードの場合、あなたのルリグ3体すべてが<きゅるきゅるーん☆>であるなら、すぐ下の【チーム自】能力を発動することができます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-092",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-092.webp",
+    "name": "コードメイズ トルネンブラ",
+    "subName": [
+      "コードメイズトルネンブラ"
+    ],
+    "rarity": "R",
+    "illust": "匡吉",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏械：迷宮"
+    ],
+    "color": [
+      "緑",
+      "赤",
+      "青"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "チーム": "<アンシエント・サプライズ>(あなたの場に<アンシエント・サプライズ>のルリグ3体がいるなら【チーム自】が有効になる)",
+      "チーム自": "このシグニがアタックしたとき、以下の3つから1つを選ぶ。①対戦相手のパワー2000以下のシグニ1体を対象とし、それをバニッシュする。②カードを1枚引く。③【エナチャージ1】",
+      "常": "あなたの場に<アンシエント・サプライズ>のルリグが3体いないかぎり、このカードはすべての領域で色を失う。"
+    },
+    "flavorText": "「終末の音が鳴る。」",
+    "faq": {
+      "【チーム】アイコンはどういう意味ですか?": "あなたのルリグ3体すべてが<〇〇〇>である場合に、【チーム常】【チーム自】【チーム出】【チーム起】が有効になります。このカードの場合、あなたのルリグ3体すべてが<アンシエント・サプライズ>であるなら、すぐ下の【チーム自】能力を発動することができます。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-093",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-093.webp",
+    "name": "アイン=M・ボール",
+    "subName": [
+      "アインエムボール"
+    ],
+    "rarity": "R",
+    "illust": "かにかま",
+    "cardType": [
+      "シグニ"
+    ],
+    "lrigTypeClass": [
+      "奏武：毒牙"
+    ],
+    "color": [
+      "黒",
+      "青",
+      "緑"
+    ],
+    "level": 1,
+    "cost": null,
+    "power": 2000,
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "チーム": "<DIAGRAM>",
+      "チーム自": "あなたのアタックフェイズ開始時、対戦相手はカードを1枚引き、あなたは対戦相手の手札を1枚見ないで選び、捨てさせる。この効果で捨てられたシグニのレベル1につき対戦相手のデッキの上からカードを1枚トラッシュに置く。この効果でスペルが捨てられた場合、【エナチャージ1】をする。",
+      "常": "あなたの場に<DIAGRAM>のルリグが3体いないかぎり、このカードはすべての領域で色を失う。"
+    },
+    "flavorText": "「この強さ魅せつけてあげましょう。」",
+    "faq": {
+      "【チーム】アイコンはどういう意味ですか?": "あなたのルリグ3体すべてが<〇〇〇>である場合に、【チーム常】【チーム自】【チーム出】【チーム起】が有効になります。このカードの場合、あなたのルリグ3体すべてが<DIAGRAM>であるなら、すぐ下の【チーム自】能力を発動することができます。",
+      "この【チーム自】能力で《白熱する黒白》が捨てられた場合はどうなりますか?": "その場合、A面の《白熱する黒白》のみを参照し、スペルが捨てられた場合の効果を処理します。"
+    },
+    "tags": [],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-P16-094",
+    "productID": "WXDi-P16",
+    "image": "public/assets/cards_img/WXDi-P16/WXDi-P16-094.webp",
+    "name": "未来への道標",
+    "subName": [
+      "ミライヘノミチシルベ"
+    ],
+    "rarity": "C",
+    "illust": "pupps",
+    "cardType": [
+      "スペル"
+    ],
+    "lrigTypeClass": null,
+    "color": [
+      "無"
+    ],
+    "level": null,
+    "cost": {
+      "無": 1
+    },
+    "power": null,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "": "あなたの場にいるルリグ3体が同じチームの場合、以下の2つから1つを選ぶ。 ①あなたのトラッシュから【チーム】を持つシグニ1枚を対象とし、それを場に出す。次の対戦相手のターン終了時まで、それのパワーを+3000する。 ②あなたのデッキの上からカードを5枚見る。その中からカードを2枚までエナゾーンに置き、残りを好きな順番でデッキの一番下に置く。",
+      "LB": "あなたのトラッシュからシグニ1枚を対象とし、それを手札に加える。"
+    },
+    "flavorText": "「伝説とは、伝え説くこと。」～アザエラ～",
+    "faq": null,
+    "tags": [],
+    "additionalInfo": null
+  }
 ]
