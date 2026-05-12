@@ -1,1044 +1,3276 @@
 [
-    {
-        "name": "ティーパーティー",
-        "subName": ["てぃーぱーてぃー"],
-        "image": "WXDi/WXDi-CP02-001.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass": [""],
-        "level": 0,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["チームピース","ブルアカ","絆獲得"]
-    },
-
-    {
-        "name": "セミナー",
-        "subName": ["せみなー","のあゆう"],
-        "image": "WXDi/WXDi-CP02-002.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass": [""],
-        "level": 0,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["チームピース","ブルアカ","絆獲得"]
-    },
-
-    {
-        "name": "覆面水着団",
-        "subName": ["ふくめんみずぎだん","たいさくいいんかい"],
-        "image": "WXDi/WXDi-CP02-003.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass": [""],
-        "level": 0,
-        "color": ["緑"],
-        "lifeBurst": "null",
-        "tags": ["チームピース","ブルアカ","絆獲得"]
-    },
-
-    {
-        "name": "ゲヘナ学園風紀委員会",
-        "subName": ["げへながくえんふうきいいんかい"],
-        "image": "WXDi/WXDi-CP02-004.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass": [""],
-        "level": 0,
-        "color": ["黒"],
-        "lifeBurst": "null",
-        "tags": ["チームピース","ブルアカ","絆獲得"]
-    },
-
-    {
-        "name": "連邦生徒会",
-        "subName": ["れんぽうせいとかい"],
-        "image": "WXDi/WXDi-CP02-005.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass": [""],
-        "level": 0,
-        "color": ["無"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ","絆獲得"]
-    },
-
-    {
-        "name": "クロノス報道部",
-        "subName": ["くろのすほうどうぶ"],
-        "image": "WXDi/WXDi-CP02-006.webp",
-        "cardType": ["ピース"],
-        "lrigTypeClass": [""],
-        "level": 0,
-        "color": ["無"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ","絆獲得"]
-    },
-
-    {
-        "name": "白洲アズサ[intulit mortem]",
-        "subName": ["しらすあずさいんとゅーりっともるてむ","ばにたすばにたーたむ"],
-        "image": "WXDi/WXDi-CP02-007.webp",
-        "cardType": ["ルリグ"],
-        "lrigTypeClass": ["アズサ"],
-        "level": 3,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "美甘ネル[あぁ？ぶっ殺されてえか？]",
-        "subName": ["みかもねるあぁぶっころされてえか"],
-        "image": "WXDi/WXDi-CP02-008.webp",
-        "cardType": ["ルリグ"],
-        "lrigTypeClass": ["ネル"],
-        "level": 3,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "砂狼シロコ[ドローン召喚：火力支援]",
-        "subName": ["すなおおかみしろこどろーんしょうかんかりょくしえん"],
-        "image": "WXDi/WXDi-CP02-009.webp",
-        "cardType": ["ルリグ"],
-        "lrigTypeClass": ["シロコ"],
-        "level": 3,
-        "color": ["緑"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "空崎ヒナ[終幕イシュ・ボシェテ]",
-        "subName": ["そらさきひなしゅうまくいしゅぼしぇて"],
-        "image": "WXDi/WXDi-CP02-010.webp",
-        "cardType": ["ルリグ"],
-        "lrigTypeClass": ["ヒナ"],
-        "level": 3,
-        "color": ["黒"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "浦和ハナコ",
-        "subName": ["うらわはなこ"],
-        "image": "WXDi/WXDi-CP02-024.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["補習授業部"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "阿慈谷ヒフミ",
-        "subName": ["あじたにひふみ"],
-        "image": "WXDi/WXDi-CP02-025.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["補習授業部"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "浦和ハナコ[禁じられた遊びを始めましょう]",
-        "subName": ["うらわはなこきんじられたあそびをはじめましょう"],
-        "image": "WXDi/WXDi-CP02-026.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["補習授業部"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "浦和ハナコ(水着)",
-        "subName": ["うらわはなこみずぎ","みずぎはなこ"],
-        "image": "WXDi/WXDi-CP02-027.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["補習授業部"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ","アタックフェイズ"]
-    },
-
-    {
-        "name": "阿慈谷ヒフミ[助けて、ペロロ様！]",
-        "subName": ["あじたにひふみたすけてぺろろさま"],
-        "image": "WXDi/WXDi-CP02-028.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["補習授業部"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ","アタックフェイズ"]
-    },
-
-    {
-        "name": "阿慈谷ヒフミ(水着)",
-        "subName": ["あじたにひふみみずぎ","みずぎひふみ"],
-        "image": "WXDi/WXDi-CP02-029.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["補習授業部"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "一之瀬アスナ",
-        "subName": ["いちのせあすな"],
-        "image": "WXDi/WXDi-CP02-031.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["C&C"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "角楯カリン",
-        "subName": ["かくだてかりん"],
-        "image": "WXDi/WXDi-CP02-032.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["C&C"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "一之瀬アスナ[行っくよー！]",
-        "subName": ["いちのせあすないっくよー","いちのせあすないくよー"],
-        "image": "WXDi/WXDi-CP02-033.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["C&C"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ","アタックフェイズ"]
-    },
-
-    {
-        "name": "一之瀬アスナ(バニーガール)",
-        "subName": ["いちのせあすなばにーがーる","ばにーあすな"],
-        "image": "WXDi/WXDi-CP02-034.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["C&C"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "角楯カリン[ターゲット、排除する]",
-        "subName": ["かくだてかりんたーげっとはいじょする"],
-        "image": "WXDi/WXDi-CP02-035.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["C&C"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ","アタックフェイズ"]
-    },
-
-    {
-        "name": "角楯カリン(バニーガール)",
-        "subName": ["かくだてかりんばにーがーる","ばにーかりん"],
-        "image": "WXDi/WXDi-CP02-036.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["C&C"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "奥空アヤネ",
-        "subName": ["おくそらあやね"],
-        "image": "WXDi/WXDi-CP02-038.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["対策委員会"],
-        "level": 1,
-        "color": ["緑"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "十六夜ノノミ",
-        "subName": ["いざよいののみ"],
-        "image": "WXDi/WXDi-CP02-039.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["対策委員会"],
-        "level": 1,
-        "color": ["緑"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "奥空アヤネ[支援特急便]",
-        "subName": ["おくそらあやねしえんとっきゅうびん"],
-        "image": "WXDi/WXDi-CP02-040.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["対策委員会"],
-        "level": 2,
-        "color": ["緑"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ","アタックフェイズ"]
-    },
-
-    {
-        "name": "奥空アヤネ(水着)",
-        "subName": ["おくそらあやねみずぎ","みずぎあやね"],
-        "image": "WXDi/WXDi-CP02-041.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["対策委員会"],
-        "level": 2,
-        "color": ["緑"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "十六夜ノノミ[お仕置きの時間です～]",
-        "subName": ["いざよいののみおしおきのじかんですー",""],
-        "image": "WXDi/WXDi-CP02-042.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["対策委員会"],
-        "level": 2,
-        "color": ["緑"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "十六夜ノノミ(水着)",
-        "subName": ["いざよいののみみずぎ","みずぎののみ"],
-        "image": "WXDi/WXDi-CP02-043.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["対策委員会"],
-        "level": 2,
-        "color": ["緑"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "銀鏡イオリ",
-        "subName": ["しろみいおり"],
-        "image": "WXDi/WXDi-CP02-045.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["風紀委員会"],
-        "level": 1,
-        "color": ["黒"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "火宮チナツ",
-        "subName": ["ひのみやちなつ"],
-        "image": "WXDi/WXDi-CP02-046.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["風紀委員会"],
-        "level": 1,
-        "color": ["黒"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-    {
-        "name": "銀鏡イオリ[一網打尽]",
-        "subName": ["しろみいおりいちもうだじん"],
-        "image": "WXDi/WXDi-CP02-047.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["風紀委員会"],
-        "level": 2,
-        "color": ["黒"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "銀鏡イオリ(水着)",
-        "subName": ["しろみいおりみずぎ","みずぎいおり"],
-        "image": "WXDi/WXDi-CP02-048.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["風紀委員会"],
-        "level": 2,
-        "color": ["黒"],
-        "lifeBurst": "",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "火宮チナツ[戦傷治療]",
-        "subName": ["ひのみやちなつ","みずぎちなつ"],
-        "image": "WXDi/WXDi-CP02-049.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["風紀委員会"],
-        "level": 2,
-        "color": ["黒"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-    {
-        "name": "火宮チナツ(温泉)",
-        "subName": ["ひのみやちなつおんせん"],
-        "image": "WXDi/WXDi-CP02-050.webp",
-        "cardType": ["アシスト"],
-        "lrigTypeClass": ["風紀委員会"],
-        "level": 2,
-        "color": ["黒"],
-        "lifeBurst": "null",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "歌住サクラコ",
-        "subName": ["うたずみさくらこ"],
-        "image": "WXDi/WXDi-CP02-051.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["白"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "聖園ミカ",
-        "subName": ["みそのみか"],
-        "image": "WXDi/WXDi-CP02-052.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["白"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "蒼森ミネ",
-        "subName": ["あおもりみね"],
-        "image": "WXDi/WXDi-CP02-053.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["白"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "天童アリス",
-        "subName": ["てんどうありす"],
-        "image": "WXDi/WXDi-CP02-054.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["青"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "猫塚ヒビキ",
-        "subName": ["ねこづかひびき"],
-        "image": "WXDi/WXDi-CP02-055.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["青"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "早瀬ユウカ",
-        "subName": ["はやせゆうか"],
-        "image": "WXDi/WXDi-CP02-056.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["青"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "久田イズナ",
-        "subName": ["くだいずな"],
-        "image": "WXDi/WXDi-CP02-057.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["緑"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "小鳥遊ホシノ",
-        "subName": ["たかなしほしの"],
-        "image": "WXDi/WXDi-CP02-058.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["緑"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "狐坂ワカモ",
-        "subName": ["こさかわかも"],
-        "image": "WXDi/WXDi-CP02-059.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["緑"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "陸八魔アル",
-        "subName": ["りくはちまある"],
-        "image": "WXDi/WXDi-CP02-060.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["黒"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "棗イロハ",
-        "subName": ["なつめいろは"],
-        "image": "WXDi/WXDi-CP02-061.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["黒"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "黒舘ハルナ",
-        "subName": ["くろだてはるな"],
-        "image": "WXDi/WXDi-CP02-062.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["黒"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "下江コハル",
-        "subName": ["しもえこはる"],
-        "image": "WXDi/WXDi-CP02-063.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "守月スズミ",
-        "subName": ["もりづきすずみ"],
-        "image": "WXDi/WXDi-CP02-064.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "鷲見セリナ",
-        "subName": ["すみせりな"],
-        "image": "WXDi/WXDi-CP02-065.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "静山マシロ",
-        "subName": ["しずやまましろ"],
-        "image": "WXDi/WXDi-CP02-066.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "伊落マリー",
-        "subName": ["いおちまりー"],
-        "image": "WXDi/WXDi-CP02-067.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["白"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "古関ウイ",
-        "subName": ["こぜきうい"],
-        "image": "WXDi/WXDi-CP02-068.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "杏山カズサ",
-        "subName": ["きょうやまかずさ"],
-        "image": "WXDi/WXDi-CP02-069.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "桐藤ナギサ",
-        "subName": ["きりふじなぎさ"],
-        "image": "WXDi/WXDi-CP02-070.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "羽川ハスミ",
-        "subName": ["はねかわはすみ"],
-        "image": "WXDi/WXDi-CP02-071.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["白"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "剣先ツルギ",
-        "subName": ["けんざきつるぎ"],
-        "image": "WXDi/WXDi-CP02-072.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["白"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "室笠アカネ",
-        "subName": ["むろかさあかね"],
-        "image": "WXDi/WXDi-CP02-073.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "音瀬コタマ",
-        "subName": ["おとせこたま"],
-        "image": "WXDi/WXDi-CP02-074.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "黒崎コユキ",
-        "subName": ["くろさきこゆき"],
-        "image": "WXDi/WXDi-CP02-075.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "各務チヒロ",
-        "subName": ["かがみちひろ"],
-        "image": "WXDi/WXDi-CP02-076.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "花岡ユズ",
-        "subName": ["はなおかゆず"],
-        "image": "WXDi/WXDi-CP02-077.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["青"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "飛鳥馬トキ",
-        "subName": ["あすまとき"],
-        "image": "WXDi/WXDi-CP02-078.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "明星ヒマリ",
-        "subName": ["あけほしひまり"],
-        "image": "WXDi/WXDi-CP02-079.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "才羽モモイ",
-        "subName": ["さいばももい"],
-        "image": "WXDi/WXDi-CP02-080.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "才羽ミドリ",
-        "subName": ["さいばみどり"],
-        "image": "WXDi/WXDi-CP02-081.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["青"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "生塩ノア",
-        "subName": ["うしおのあ"],
-        "image": "WXDi/WXDi-CP02-082.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["青"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "勇美カエデ",
-        "subName": ["いさみかえで"],
-        "image": "WXDi/WXDi-CP02-083.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["緑"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "大野ツクヨ",
-        "subName": ["おおつくよ"],
-        "image": "WXDi/WXDi-CP02-084.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["緑"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "朝比奈フィーナ",
-        "subName": ["あさひなふぃーな"],
-        "image": "WXDi/WXDi-CP02-085.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["緑"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "千鳥ミチル",
-        "subName": ["ちどりみちる"],
-        "image": "WXDi/WXDi-CP02-086.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["緑"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "水羽ミモリ",
-        "subName": ["みずはみもり"],
-        "image": "WXDi/WXDi-CP02-087.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["緑"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "河和シズコ",
-        "subName": ["かわわしずこ"],
-        "image": "WXDi/WXDi-CP02-088.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["緑"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "黒見セリカ",
-        "subName": ["くろみせりか"],
-        "image": "WXDi/WXDi-CP02-089.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["緑"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "和楽チセ",
-        "subName": ["わらくちせ"],
-        "image": "WXDi/WXDi-CP02-090.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["緑"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "春日ツバキ",
-        "subName": ["かすがつばき"],
-        "image": "WXDi/WXDi-CP02-091.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["緑"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "桑上カホ",
-        "subName": ["くわかみかほ"],
-        "image": "WXDi/WXDi-CP02-092.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["緑"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "獅子堂イズミ",
-        "subName": ["ししどういずみ"],
-        "image": "WXDi/WXDi-CP02-093.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["黒"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "鬼方カヨコ",
-        "subName": ["おにかたかよこ"],
-        "image": "WXDi/WXDi-CP02-094.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["黒"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "牛牧ジュリ",
-        "subName": ["うしまきじゅり"],
-        "image": "WXDi/WXDi-CP02-095.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["黒"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "氷室セナ",
-        "subName": ["ひむろせな"],
-        "image": "WXDi/WXDi-CP02-096.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["黒"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "伊草ハルカ",
-        "subName": ["いぐさはるか"],
-        "image": "WXDi/WXDi-CP02-097.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 1,
-        "color": ["黒"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "鰐渕アカリ",
-        "subName": ["わにぶちあかり"],
-        "image": "WXDi/WXDi-CP02-098.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["黒"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "赤司ジュンコ",
-        "subName": ["あかしじゅんこ"],
-        "image": "WXDi/WXDi-CP02-099.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["黒"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "愛清フウカ",
-        "subName": ["あいきよふうか"],
-        "image": "WXDi/WXDi-CP02-100.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["黒"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "浅黄ムツキ",
-        "subName": ["あさぎむつき"],
-        "image": "WXDi/WXDi-CP02-101.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 2,
-        "color": ["黒"],
-        "lifeBurst": "false",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "天雨アコ",
-        "subName": ["あまうあこ"],
-        "image": "WXDi/WXDi-CP02-102.webp",
-        "cardType": ["シグニ"],
-        "lrigTypeClass": ["奏武：ブルアカ"],
-        "level": 3,
-        "color": ["黒"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ"]
-    },
-
-    {
-        "name": "物語の起動",
-        "subName": ["ものがたりのきどう","あろな"],
-        "image": "WXDi/WXDi-CP02-103.webp",
-        "cardType": ["スペル"],
-        "lrigTypeClass": [""],
-        "level": 0,
-        "color": ["無"],
-        "lifeBurst": "true",
-        "tags": ["ブルアカ","絆獲得"]
-    }
-
+  {
+    "cardID": "WXDi-CP02-001",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-001.png",
+    "name": "ティーパーティー",
+    "subName": "ティーパーティー",
+    "rarity": "LR",
+    "illust": "-",
+    "cardType": "ピース",
+    "lrigTypeClass": null,
+    "color": "白",
+    "level": null,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "": "【使用条件】【ドリームチーム】白のルリグを1体以上含む\n【使用条件】このゲームの間にあなたが《連邦生徒会》か《クロノス報道部》を使用している\nあなたのデッキの上からカードを5枚見る。その中からカードを1枚まで手札に加え、残りを好きな順番でデッキの一番下に置く。【シグニバリア】1つを得る。(あなたが次にシグニからダメージを受ける場合、代わりに【シグニバリア】1つを消費し、そのダメージを受けない)\nその後、あなたのルリグの下からカードを合計4枚ルリグトラッシュに置いてもよい。そうした場合、好きな生徒1人との絆を獲得する。"
+    },
+    "flavorText": null,
+    "faq": [
+      {
+        "q": null,
+        "a": "2025-04-25\nこちらのカードは、2025年4月26日以降、「好きな生徒との絆を獲得する」という効果は、生徒名ではなくカード名を宣言する効果に変更になりました。"
+      },
+      {
+        "q": null,
+        "a": "2023-10-23\nこちらのカードは、表記に誤りがございました。詳細な内容は『カード誤表記』をご覧ください。"
+      },
+      {
+        "q": "使用条件は両方を満たす必要がありますか？",
+        "a": "はい、どちらも満たさなければこのピースを使用できません。"
+      },
+      {
+        "q": "【シグニバリア】は、ダメージを受ける際に消費しないことは選べますか？",
+        "a": "いいえ、選べません。ダメージを受ける場合は強制で消費されます。ただし、他にもダメージを受けなくなる効果（《バン＝ダカーポ》の出現時能力など）がある場合、どれによって防ぐかは選ぶことができます。"
+      },
+      {
+        "q": "【ダブルクラッシュ】を持つシグニのアタックのダメージは【シグニバリア】１つで防げますか？",
+        "a": "はい、防げます。【ダブルクラッシュ】はアタックによってダメージを与える場合にクラッシュする枚数が2枚になるという効果であり、ダメージを与える回数自体は1回です。【シグニバリア】はその1回を防ぐことができます。"
+      },
+      {
+        "q": "対戦相手のシグニの【Ｓランサー】は、【シグニバリア】で防げますか？",
+        "a": "あなたのライフクロスが無い場合、【Ｓランサー】でダメージを与える効果は【シグニバリア】で防げます。あなたのライフクロスがある場合、【Ｓランサー】は【ランサー】同様にライフクロスをクラッシュするという効果ですので防ぐことができません。"
+      },
+      {
+        "q": "【シグニバリア】はルリグが能力を失ったら無くなりますか？",
+        "a": "いいえ、ルリグが得ている能力ではありませんので無くなりません。"
+      },
+      {
+        "q": "「好きな生徒1人との絆を獲得する」とは何ですか？",
+        "a": "「好きな生徒との絆を獲得する」という効果ではカード名を宣言し、そのカード名の絆を獲得します。絆を獲得したカード名のカードは、絆アイコンの能力が有効となります。生徒名ではなくカード名の宣言であることにご注意ください。《阿慈谷ヒフミ[助けて、ペロロ様！]》を宣言した場合、そのカードの絆能力は有効になりますが、《阿慈谷ヒフミ(水着)》の絆能力は有効になりません。また、複数種類が該当する宣言、例えば「阿慈谷ヒフミ」だけでは対戦相手に伝わらないので、正式名称で言ったり色やレベルなどその他の情報を合わせて言うなど、対戦相手にわかるように宣言してください。 絆を獲得する能力が複数あれば、その分だけ他の生徒との絆も獲得でき、失われることはありません。 誰との絆を獲得しているかの目印として、パックに封入されているトークンや公式イベントで配布されている絆チップをご活用ください。他のカードと混ざるような、ゲーム上不都合のあるデザインでなければご自身で目印を用意していただくことも可能です。また、メモとして書き留めておくことも可能です。目印やメモを活用して、どのカード名の絆を獲得していたかが後からわからなくならないよう、また対戦相手と認識に齟齬が出ないようご注意ください。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-002",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-002.png",
+    "name": "セミナー",
+    "subName": "セミナー",
+    "rarity": "LR",
+    "illust": "-",
+    "cardType": "ピース",
+    "lrigTypeClass": null,
+    "color": "青",
+    "level": null,
+    "cost": {
+      "無": 1
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "": "【使用条件】【ドリームチーム】青のルリグを1体以上含む\n【使用条件】このゲームの間にあなたが《連邦生徒会》か《クロノス報道部》を使用している\n対戦相手のルリグ1体を対象とし、それを凍結する。カードを4枚引く。(凍結されたルリグは次の自分のアップフェイズにアップしない)\nその後、あなたのルリグの下からカードを合計4枚ルリグトラッシュに置いてもよい。そうした場合、好きな生徒1人との絆を獲得する。"
+    },
+    "flavorText": null,
+    "faq": [
+      {
+        "q": null,
+        "a": "2025-04-25\nこちらのカードは、2025年4月26日以降、「好きな生徒との絆を獲得する」という効果は、生徒名ではなくカード名を宣言する効果に変更になりました。"
+      },
+      {
+        "q": "使用条件は両方を満たす必要がありますか？",
+        "a": "はい、どちらも満たさなければこのピースを使用できません。"
+      },
+      {
+        "q": "「好きな生徒1人との絆を獲得する」とは何ですか？",
+        "a": "「好きな生徒との絆を獲得する」という効果ではカード名を宣言し、そのカード名の絆を獲得します。絆を獲得したカード名のカードは、絆アイコンの能力が有効となります。生徒名ではなくカード名の宣言であることにご注意ください。《阿慈谷ヒフミ[助けて、ペロロ様！]》を宣言した場合、そのカードの絆能力は有効になりますが、《阿慈谷ヒフミ(水着)》の絆能力は有効になりません。また、複数種類が該当する宣言、例えば「阿慈谷ヒフミ」だけでは対戦相手に伝わらないので、正式名称で言ったり色やレベルなどその他の情報を合わせて言うなど、対戦相手にわかるように宣言してください。 絆を獲得する能力が複数あれば、その分だけ他の生徒との絆も獲得でき、失われることはありません。 誰との絆を獲得しているかの目印として、パックに封入されているトークンや公式イベントで配布されている絆チップをご活用ください。他のカードと混ざるような、ゲーム上不都合のあるデザインでなければご自身で目印を用意していただくことも可能です。また、メモとして書き留めておくことも可能です。目印やメモを活用して、どのカード名の絆を獲得していたかが後からわからなくならないよう、また対戦相手と認識に齟齬が出ないようご注意ください。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-003",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-003.png",
+    "name": "覆面水着団",
+    "subName": "フクメンミズギダン",
+    "rarity": "LR",
+    "illust": "-",
+    "cardType": "ピース",
+    "lrigTypeClass": null,
+    "color": "緑",
+    "level": null,
+    "cost": {
+      "無": 2
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "": "【使用条件】【ドリームチーム】緑のルリグを1体以上含む\n【使用条件】このゲームの間にあなたが《連邦生徒会》か《クロノス報道部》を使用している\nあなたのトラッシュにあるすべてのカードをデッキに加えてシャッフルし、あなたのデッキの上からカードを5枚見る。その中からカードを好きな枚数手札に加え、残りをエナゾーンに置く。\nその後、あなたのルリグの下からカードを合計4枚ルリグトラッシュに置いてもよい。そうした場合、好きな生徒1人との絆を獲得する。"
+    },
+    "flavorText": null,
+    "faq": [
+      {
+        "q": null,
+        "a": "2025-04-25\nこちらのカードは、2025年4月26日以降、「好きな生徒との絆を獲得する」という効果は、生徒名ではなくカード名を宣言する効果に変更になりました。"
+      },
+      {
+        "q": "使用条件は両方を満たす必要がありますか？",
+        "a": "はい、どちらも満たさなければこのピースを使用できません。"
+      },
+      {
+        "q": "「好きな生徒1人との絆を獲得する」とは何ですか？",
+        "a": "「好きな生徒との絆を獲得する」という効果ではカード名を宣言し、そのカード名の絆を獲得します。絆を獲得したカード名のカードは、絆アイコンの能力が有効となります。生徒名ではなくカード名の宣言であることにご注意ください。《阿慈谷ヒフミ[助けて、ペロロ様！]》を宣言した場合、そのカードの絆能力は有効になりますが、《阿慈谷ヒフミ(水着)》の絆能力は有効になりません。また、複数種類が該当する宣言、例えば「阿慈谷ヒフミ」だけでは対戦相手に伝わらないので、正式名称で言ったり色やレベルなどその他の情報を合わせて言うなど、対戦相手にわかるように宣言してください。 絆を獲得する能力が複数あれば、その分だけ他の生徒との絆も獲得でき、失われることはありません。 誰との絆を獲得しているかの目印として、パックに封入されているトークンや公式イベントで配布されている絆チップをご活用ください。他のカードと混ざるような、ゲーム上不都合のあるデザインでなければご自身で目印を用意していただくことも可能です。また、メモとして書き留めておくことも可能です。目印やメモを活用して、どのカード名の絆を獲得していたかが後からわからなくならないよう、また対戦相手と認識に齟齬が出ないようご注意ください。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-004",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-004.png",
+    "name": "ゲヘナ学園風紀委員会",
+    "subName": "ゲヘナガクエンフウキイインカイ",
+    "rarity": "LR",
+    "illust": "-",
+    "cardType": "ピース",
+    "lrigTypeClass": null,
+    "color": "黒",
+    "level": null,
+    "cost": {
+      "無": 2
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "": "【使用条件】【ドリームチーム】黒のルリグを1体以上含む\n【使用条件】このゲームの間にあなたが《連邦生徒会》か《クロノス報道部》を使用している\n対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-8000する。あなたのトラッシュから《ガードアイコン》を持たないシグニを3枚まで対象とし、それらを手札に加える。対戦相手のデッキの上からカードを8枚トラッシュに置く。\nその後、あなたのルリグの下からカードを合計4枚ルリグトラッシュに置いてもよい。そうした場合、好きな生徒1人との絆を獲得する。"
+    },
+    "flavorText": null,
+    "faq": [
+      {
+        "q": null,
+        "a": "2025-04-25\nこちらのカードは、2025年4月26日以降、「好きな生徒との絆を獲得する」という効果は、生徒名ではなくカード名を宣言する効果に変更になりました。"
+      },
+      {
+        "q": null,
+        "a": "2023-10-23\nこちらのカードは、表記に誤りがございました。詳細な内容は『カード誤表記』をご覧ください。"
+      },
+      {
+        "q": "使用条件は両方を満たす必要がありますか？",
+        "a": "はい、どちらも満たさなければこのピースを使用できません。"
+      },
+      {
+        "q": "対戦相手の場にシグニが1体もなくても、このピースを使えますか？",
+        "a": "はい、できます。その場合、最初の効果は無視し、その後の効果を順番に解決します。"
+      },
+      {
+        "q": "「好きな生徒1人との絆を獲得する」とは何ですか？",
+        "a": "「好きな生徒との絆を獲得する」という効果ではカード名を宣言し、そのカード名の絆を獲得します。絆を獲得したカード名のカードは、絆アイコンの能力が有効となります。生徒名ではなくカード名の宣言であることにご注意ください。《阿慈谷ヒフミ[助けて、ペロロ様！]》を宣言した場合、そのカードの絆能力は有効になりますが、《阿慈谷ヒフミ(水着)》の絆能力は有効になりません。また、複数種類が該当する宣言、例えば「阿慈谷ヒフミ」だけでは対戦相手に伝わらないので、正式名称で言ったり色やレベルなどその他の情報を合わせて言うなど、対戦相手にわかるように宣言してください。 絆を獲得する能力が複数あれば、その分だけ他の生徒との絆も獲得でき、失われることはありません。 誰との絆を獲得しているかの目印として、パックに封入されているトークンや公式イベントで配布されている絆チップをご活用ください。他のカードと混ざるような、ゲーム上不都合のあるデザインでなければご自身で目印を用意していただくことも可能です。また、メモとして書き留めておくことも可能です。目印やメモを活用して、どのカード名の絆を獲得していたかが後からわからなくならないよう、また対戦相手と認識に齟齬が出ないようご注意ください。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-005",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-005.png",
+    "name": "連邦生徒会",
+    "subName": "レンポウセイトカイ",
+    "rarity": "LR",
+    "illust": "-",
+    "cardType": "ピース",
+    "lrigTypeClass": null,
+    "color": "無",
+    "level": null,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "": "あなたのデッキの上からカードを3枚見る。その中から<ブルアカ>のシグニ1枚を公開し手札に加え、残りを好きな順番でデッキの一番下に置く。この方法で公開した生徒との絆を獲得する。(その生徒の【絆】能力が有効になる)"
+    },
+    "flavorText": null,
+    "faq": [
+      {
+        "q": "「絆を獲得する」とは何ですか？",
+        "a": "この効果で絆を獲得した生徒のカードは、絆アイコンの能力が有効となります。 誰との絆を獲得しているかの目印として、パックに封入されているトークンや公式イベントで配布されている絆チップをご活用ください。他のカードと混ざるような、ゲーム上不都合のあるデザインでなければご自身で目印を用意していただくことも可能です。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-006",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-006.png",
+    "name": "クロノス報道部",
+    "subName": "クロノスホウドウブ",
+    "rarity": "LR",
+    "illust": "-",
+    "cardType": "ピース",
+    "lrigTypeClass": null,
+    "color": "無",
+    "level": null,
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "": "カードを2枚引き、手札を2枚捨てる。その後、好きな生徒1人との絆を獲得する。\n(生徒とは、ブルーアーカイブにおけるキャラクターのことです。生徒との絆を獲得すると、その生徒のカードが持つ【絆】能力が有効になります。場や手札にいない生徒との絆も獲得できます。ルリグである生徒との絆を獲得した場合は、その生徒のすべてのカードの【絆】能力が有効になります。生徒との絆の数に上限はなく、失われることはありません!)"
+    },
+    "flavorText": null,
+    "faq": [
+      {
+        "q": null,
+        "a": "2025-04-25\nこちらのカードは、2025年4月26日以降、「好きな生徒との絆を獲得する」という効果は、生徒名ではなくカード名を宣言する効果に変更になりました。"
+      },
+      {
+        "q": "「好きな生徒1人との絆を獲得する」とは何ですか？",
+        "a": "「好きな生徒との絆を獲得する」という効果ではカード名を宣言し、そのカード名の絆を獲得します。絆を獲得したカード名のカードは、絆アイコンの能力が有効となります。生徒名ではなくカード名の宣言であることにご注意ください。《阿慈谷ヒフミ[助けて、ペロロ様！]》を宣言した場合、そのカードの絆能力は有効になりますが、《阿慈谷ヒフミ(水着)》の絆能力は有効になりません。また、複数種類が該当する宣言、例えば「阿慈谷ヒフミ」だけでは対戦相手に伝わらないので、正式名称で言ったり色やレベルなどその他の情報を合わせて言うなど、対戦相手にわかるように宣言してください。 絆を獲得する能力が複数あれば、その分だけ他の生徒との絆も獲得でき、失われることはありません。 誰との絆を獲得しているかの目印として、パックに封入されているトークンや公式イベントで配布されている絆チップをご活用ください。他のカードと混ざるような、ゲーム上不都合のあるデザインでなければご自身で目印を用意していただくことも可能です。また、メモとして書き留めておくことも可能です。目印やメモを活用して、どのカード名の絆を獲得していたかが後からわからなくならないよう、また対戦相手と認識に齟齬が出ないようご注意ください。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-007",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-007.png",
+    "name": "白洲アズサ[intulit mortem]",
+    "subName": "シラスアズサイントューリットモルテム",
+    "rarity": "LR",
+    "illust": "アリオ",
+    "cardType": "ルリグ",
+    "lrigTypeClass": [
+      "アズサ"
+    ],
+    "color": "白",
+    "level": "3",
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {
+      "起1": "《ターン1回》《白》《無》:対戦相手のシグニ1体を対象とし、それを手札に戻す。あなたのライフクロスが3枚以上ある場合、代わりにそれをトラッシュに置く。",
+      "起2": "《ゲーム1回》《白×0》:あなたのデッキの上からカードを7枚見る。その中からカードを2枚まで手札に加え、残りをシャッフルしてデッキの一番下に置く。",
+      "絆起": "《ターン1回》《無》:あなたのデッキの上からカードを3枚見る。その中からシグニ1枚を公開し手札に加え、残りを好きな順番でデッキの一番下に置く。"
+    },
+    "flavorText": "「vanitas vanitatum, et omnia vanitas」",
+    "faq": [
+      {
+        "q": "自分のデッキが6枚以下のときに、ゲーム1回の起動能力を使えますか？",
+        "a": "はい、できます。その場合、6枚以下のそのデッキを全て見て、2枚まで手札に加え、残りをシャッフルしてデッキにします。この効果終了後、デッキが0枚になっているのならリフレッシュを行い、デッキが1枚以上残っているならそのままゲームを進行します。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆は失われませんので、一度獲得すれば以降のターンは毎回使用が可能です。"
+      }
+    ],
+    "tags": [
+      "-\nコイン\n-"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-008",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-008.png",
+    "name": "美甘ネル[あぁ?ぶっ殺されてえか?]",
+    "subName": "ミカモネルアァブッコロサレテエカ",
+    "rarity": "LR",
+    "illust": "Hitoto*",
+    "cardType": "ルリグ",
+    "lrigTypeClass": [
+      "ネル"
+    ],
+    "color": "青",
+    "level": "3",
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、このターンにあなたが手札を2枚以上捨てていた場合、対戦相手のシグニ1体を対象とし、《青》を支払ってもよい。そうした場合、ターン終了時まで、それのパワーを-10000する。",
+      "起": "《ゲーム1回》《青×0》:カードを2枚引く。対戦相手の手札を1枚見ないで選び、捨てさせる。",
+      "絆起": "《ターン1回》《無》:カードを2枚引き、手札を1枚捨てる。"
+    },
+    "flavorText": "「ゴミは掃除しなきゃなぁ！！ 」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆は失われませんので、一度獲得すれば以降のターンは毎回使用が可能です。"
+      },
+      {
+        "q": "ゲーム1回の起動能力で対戦相手の手札を捨てさせた場合、自動能力の「手札を捨てた」枚数に数えますか？",
+        "a": "いいえ、対戦相手の手札を捨てさせた枚数は数えません。自動能力の条件はあなたがあなたの手札から捨てた枚数を数えます。"
+      }
+    ],
+    "tags": [
+      "-\nコイン\n-"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-009",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-009.png",
+    "name": "砂狼シロコ[ドローン召喚:火力支援]",
+    "subName": "スナオオカミシロコドローンショウカンカリョクシエン",
+    "rarity": "LR",
+    "illust": "霜月友",
+    "cardType": "ルリグ",
+    "lrigTypeClass": [
+      "シロコ"
+    ],
+    "color": "緑",
+    "level": "3",
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、このターンにあなたのエナゾーンにカードが2枚以上置かれていた場合、あなたのシグニ1体を対象とし、《緑》《無》を支払ってもよい。そうした場合、ターン終了時まで、それは【Sランサー】を得る。",
+      "起": "《ゲーム1回》《緑×0》:【エナチャージ3】をする。その後、あなたのエナゾーンからカードを1枚まで対象とし、それを手札に加える。",
+      "絆起": "《ターン1回》《無》:あなたのエナゾーンからシグニ1枚を対象とし、それを手札に加える。"
+    },
+    "flavorText": "「ターゲット、設定完了。」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆は失われませんので、一度獲得すれば以降のターンは毎回使用が可能です。"
+      },
+      {
+        "q": "【Sランサー】はどういう能力ですか？",
+        "a": "【Sランサー】を持つシグニがバトルにより対戦相手のシグニをバニッシュしたとき、対戦相手のライフクロスを1枚クラッシュし、対戦相手にライフクロスがない場合は対戦相手にダメージを与えます。【ランサー】【Sランサー】は複数持っていたとしても、一度のバトルで発動するのは１回のみです。"
+      }
+    ],
+    "tags": [
+      "-\nコイン\n-"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-010",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-010.png",
+    "name": "空崎ヒナ[終幕イシュ・ボシェテ]",
+    "subName": "ソラサキヒナシュウマクイシュボシェテ",
+    "rarity": "LR",
+    "illust": "かにゃぴぃ",
+    "cardType": "ルリグ",
+    "lrigTypeClass": [
+      "ヒナ"
+    ],
+    "color": "黒",
+    "level": "3",
+    "cost": null,
+    "power": null,
+    "timing": null,
+    "lifeBurst": null,
+    "text": {
+      "自": "《ターン1回》:あなたのターンの間、コストか効果1つによっていずれかのプレイヤーのデッキからカードが合計3枚以上トラッシュに置かれたとき、ターン終了時まで、対戦相手のすべてのシグニのパワーを-3000する。",
+      "起": "《ゲーム1回》《黒×0》:あなたのトラッシュからそれぞれレベルの異なるシグニ2枚を対象とし、それらを場に出す。",
+      "絆起": "《ターン1回》《無》《無》:あなたのトラッシュからシグニ1枚を対象とし、それを場に出す。"
+    },
+    "flavorText": "「こいつの出番。」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆は失われませんので、一度獲得すれば以降のターンは毎回使用が可能です。"
+      },
+      {
+        "q": "自動能力が発動した後、同じターン中に後から対戦相手の場に出たシグニも-3000されますか？",
+        "a": "いいえ、この効果が発動したときに対戦相手の場にあるシグニのみが、ターン終了時まで-3000されます。"
+      },
+      {
+        "q": "ゲーム1回の起動能力で、トラッシュの1枚のみを対象として場に出せますか？",
+        "a": "いいえ、この能力では2枚を対象とする必要がありますので、1体のみを対象にすることはできず場に出せません。"
+      },
+      {
+        "q": "自分のシグニゾーンに１つしか空きがないときに、ゲーム1回の起動能力を使用できますか？",
+        "a": "はい、トラッシュから適正なシグニ2枚を対象にできた場合はできます。その場合、対象にした2枚のうち1体を場に出します。"
+      },
+      {
+        "q": "絆アイコン能力で、《無》エナとして支払ったシグニをそのままこの効果で場に出せますか？",
+        "a": "はい、出せます。コストとして《無》《無》を支払ってから、あなたのトラッシュにあるシグニを対象とします。"
+      }
+    ],
+    "tags": [
+      "-\nコイン\n-"
+    ],
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-024",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-024.png",
+    "name": "浦和ハナコ",
+    "subName": "ウラワハナコ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "補習授業部"
+    ],
+    "color": "白",
+    "level": "1",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "対戦相手のレベル2以下のシグニ1体を対象とし、それを手札に戻す。"
+    },
+    "flavorText": "「行きますよ～?」",
+    "faq": null,
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-025",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-025.png",
+    "name": "阿慈谷ヒフミ",
+    "subName": "アジタニヒフミ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "補習授業部"
+    ],
+    "color": "白",
+    "level": "1",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "あなたのデッキの上からカードを5枚見る。その中からシグニを1枚までと、そのシグニと共通するクラスを持ち無色ではないシグニを1枚まで公開し手札に加え、残りを好きな順番でデッキの一番下に置く。"
+    },
+    "flavorText": "「えいっ。」",
+    "faq": [
+      {
+        "q": "自分のデッキが5枚以下のときにこの出現時能力を発動した場合、どうなりますか？",
+        "a": "その場合、5枚以下のそのデッキを全て見て、効果を処理します。この効果終了後、デッキが0枚になっているのならリフレッシュを行い、デッキが1枚以上残っているならそのままゲームを進行します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-026",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-026.png",
+    "name": "浦和ハナコ[禁じられた遊びを始めましょう]",
+    "subName": "ウラワハナコキンジラレタアソビヲハジメマショウ",
+    "rarity": "LC",
+    "illust": "茶ちえ",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "補習授業部"
+    ],
+    "color": "白",
+    "level": "2",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出1": "次の対戦相手のターン終了時まで、このルリグは「【常】:あなたのシグニのパワーを+5000する。」を得る。",
+      "出2": "あなたのトラッシュから《ガードアイコン》を持つシグニ1枚を対象とし、それを手札に加える。",
+      "絆出": "あなたのデッキの上からカードを7枚見る。その中から<ブルアカ>のカード1枚を公開し手札に加え、残りをシャッフルしてデッキの一番下に置く。"
+    },
+    "flavorText": "「ちゃんと、受け止めてくださいね？」",
+    "faq": [
+      {
+        "q": "出現時能力で得た常時能力では、後から場に出たシグニも+5000されますか？",
+        "a": "はい、次の対戦相手のターン終了時までは、後からあなたの場に出たシグニも+5000されます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-027",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-027.png",
+    "name": "浦和ハナコ(水着)",
+    "subName": "ウラワハナコミズギ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "補習授業部"
+    ],
+    "color": "白",
+    "level": "2",
+    "cost": {
+      "無": 2
+    },
+    "power": null,
+    "timing": "メインフェイズ\nアタックフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出1": "対戦相手のシグニ1体を対象とし、それを手札に戻す。",
+      "出2": "《白》《無》《無》:対戦相手のシグニ1体を対象とし、ターン終了時まで、それは能力を失う。",
+      "絆出": "あなたのデッキの上からカードを7枚見る。その中から<ブルアカ>のカード1枚を公開し手札に加え、残りをシャッフルしてデッキの一番下に置く。"
+    },
+    "flavorText": "「みなさ～ん、こちらへどうぞ?」",
+    "faq": [
+      {
+        "q": "複数の出現時能力は好きな順番で使えますか？",
+        "a": "はい、絆アイコンの出現時能力も含め、複数の出現時能力は好きな順番で発動できます。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-028",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-028.png",
+    "name": "阿慈谷ヒフミ[助けて、ペロロ様!]",
+    "subName": "アジタニヒフミタスケテペロロサマ",
+    "rarity": "LC",
+    "illust": "志月",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "補習授業部"
+    ],
+    "color": "白",
+    "level": "2",
+    "cost": {
+      "無": 3
+    },
+    "power": null,
+    "timing": "メインフェイズ\nアタックフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "クラフトの《ペロロ人形》1つを場に出す。",
+      "絆出": "あなたのデッキの上からカードを7枚見る。その中から<ブルアカ>のカード1枚を公開し手札に加え、残りをシャッフルしてデッキの一番下に置く。"
+    },
+    "flavorText": "「み、見つからない！どうしよう？」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      },
+      {
+        "q": "クラフトとは何ですか？",
+        "a": "クラフトとは、ゲーム中にカードの効果で作り出される代用カードとなります。クラフトの詳細ルールは用語集「クラフト」をご参照ください。場に出す際にはパックに封入されているトークンをご活用下さい。他のカードと混ざるような、ゲーム上不都合のあるデザインでなければご自身で用意していただくことも可能です。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-029",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-029.png",
+    "name": "阿慈谷ヒフミ(水着)",
+    "subName": "アジタニヒフミミズギ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "補習授業部"
+    ],
+    "color": "白",
+    "level": "2",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "《無》《無》《無》:クラフトの《クルセイダーちゃん》1つを場に出す。\n(【出】能力の:の左側はコストである。コストを支払わず発動しないことを選んでもよい)",
+      "絆出": "あなたのデッキの上からカードを7枚見る。その中から<ブルアカ>のカード1枚を公開し手札に加え、残りをシャッフルしてデッキの一番下に置く。"
+    },
+    "flavorText": "「せ、戦車前進です！」",
+    "faq": [
+      {
+        "q": "クラフトとは何ですか？",
+        "a": "クラフトとは、ゲーム中にカードの効果で作り出される代用カードとなります。クラフトの詳細ルールは用語集「クラフト」をご参照ください。場に出す際にはパックに封入されているトークンをご活用下さい。他のカードと混ざるような、ゲーム上不都合のあるデザインでなければご自身で用意していただくことも可能です。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-031",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-031.png",
+    "name": "一之瀬アスナ",
+    "subName": "イチノセアスナ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "C＆C"
+    ],
+    "color": "青",
+    "level": "1",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "カードを2枚引く。"
+    },
+    "flavorText": "「覚悟しなさい！」",
+    "faq": null,
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-032",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-032.png",
+    "name": "角楯カリン",
+    "subName": "カクダテカリン",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "C＆C"
+    ],
+    "color": "青",
+    "level": "1",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "対戦相手のレベル1のシグニ1体を対象とし、それをデッキの一番下に置く。"
+    },
+    "flavorText": "「外さない。」",
+    "faq": null,
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-033",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-033.png",
+    "name": "一之瀬アスナ[行っくよー!]",
+    "subName": "イチノセアスナイックヨー",
+    "rarity": "LC",
+    "illust": "アリオ",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "C＆C"
+    ],
+    "color": "青",
+    "level": "2",
+    "cost": {
+      "無": 1
+    },
+    "power": null,
+    "timing": "メインフェイズ\nアタックフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出1": "ターン終了時まで、このルリグは「【自】:対戦相手のシグニ1体がアタックしたとき、あなたはデッキの一番上のカードをチェックゾーンに置く。そのカードがアタックしたそのシグニと同じレベルのシグニの場合、そのアタックを無効にする。そのカードをチェックゾーンからトラッシュに置く。」を得る。",
+      "出2": "《青》:あなたのデッキの上からカードを5枚見る。それらのカードを好きな順番でデッキの一番上に戻す。",
+      "絆出": "手札から<ブルアカ>のカードを1枚捨てる:カードを2枚引く。"
+    },
+    "flavorText": "「イッツショータイム！」",
+    "faq": [
+      {
+        "q": "この自動能力は対戦相手のシグニがアタックするたびに発動しますか？",
+        "a": "はい、アタックするたびに毎回発動します。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-034",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-034.png",
+    "name": "一之瀬アスナ(バニーガール)",
+    "subName": "イチノセアスナバニーガール",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "C＆C"
+    ],
+    "color": "青",
+    "level": "2",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出1": "対戦相手の手札を2枚見ないで選び、捨てさせる。",
+      "出2": "《無》:ターン終了時まで、対戦相手のすべてのシグニのパワーを-3000する。\n(【出】能力と【絆出】能力の:の左側はコストである。コストを支払わず発動しないことを選んでもよい)",
+      "絆出": "手札から<ブルアカ>のカードを1枚捨てる:カードを2枚引く。"
+    },
+    "flavorText": "「じゃーん！見て見て！」",
+    "faq": [
+      {
+        "q": "2番目の出現時能力が発動した後、同じターン中に後から対戦相手の場に出たシグニも-3000されますか？",
+        "a": "いいえ、この効果が発動したときに対戦相手の場にあるシグニのみが、ターン終了時まで-3000されます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-035",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-035.png",
+    "name": "角楯カリン[ターゲット、排除する]",
+    "subName": "カクダテカリンターゲットハイジョスル",
+    "rarity": "LC",
+    "illust": "ナダレ",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "C＆C"
+    ],
+    "color": "青",
+    "level": "2",
+    "cost": {
+      "無": 3
+    },
+    "power": null,
+    "timing": "メインフェイズ\nアタックフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "対戦相手のシグニ1体を対象とし、それをデッキの一番下に置く。それのパワーが15000以上の場合、対戦相手は手札を1枚捨てる。\n(複数の【出】能力と【絆出】能力は好きな順番で発動できる)",
+      "絆出": "手札から<ブルアカ>のカードを1枚捨てる:カードを2枚引く。"
+    },
+    "flavorText": "「先生の敵は逃さない。」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-036",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-036.png",
+    "name": "角楯カリン(バニーガール)",
+    "subName": "カクダテカリンバニーガール",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "C＆C"
+    ],
+    "color": "青",
+    "level": "2",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "《無》《無》《無》《無》《無》《無》:対戦相手のすべてのシグニをデッキの一番下に置く。(置く順番は対戦相手が決める)",
+      "絆出": "手札から<ブルアカ>のカードを1枚捨てる:カードを2枚引く。"
+    },
+    "flavorText": "「目標……捉えた！」",
+    "faq": [
+      {
+        "q": "出現時能力を発動したら、対戦相手の手札やエナゾーン、トラッシュにあるシグニもデッキの一番下に置きますか？",
+        "a": "いいえ、この効果の影響を受けるのは対戦相手の場にシグニとして出ているシグニのみとなります。手札やエナゾーン、トラッシュには影響しません。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-038",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-038.png",
+    "name": "奥空アヤネ",
+    "subName": "オクソラアヤネ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "対策委員会"
+    ],
+    "color": "緑",
+    "level": "1",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "【エナチャージ2】(あなたのデッキの上からカードを2枚エナゾーンに置く)"
+    },
+    "flavorText": "「さあ！お願いします！」",
+    "faq": null,
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-039",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-039.png",
+    "name": "十六夜ノノミ",
+    "subName": "イザヨイノノミ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "対策委員会"
+    ],
+    "color": "緑",
+    "level": "1",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "対戦相手のパワー7000以上のシグニ1体を対象とし、それをバニッシュする。"
+    },
+    "flavorText": "「ノノミ～行きま～す」",
+    "faq": null,
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-040",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-040.png",
+    "name": "奥空アヤネ[支援特急便]",
+    "subName": "オクソラアヤネシエントッキュウビン",
+    "rarity": "LC",
+    "illust": "よん",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "対策委員会"
+    ],
+    "color": "緑",
+    "level": "2",
+    "cost": {
+      "無": 2
+    },
+    "power": null,
+    "timing": "メインフェイズ\nアタックフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "あなたのデッキをシャッフルし一番上のカードをライフクロスに加える。",
+      "絆出": "【エナチャージ1】をする。その後、あなたのエナゾーンから<ブルアカ>のカードを1枚まで対象とし、それを手札に加える。"
+    },
+    "flavorText": "「支援のタイミング……！ 逃しません！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-041",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-041.png",
+    "name": "奥空アヤネ(水着)",
+    "subName": "オクソラアヤネミズギ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "対策委員会"
+    ],
+    "color": "緑",
+    "level": "2",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "クラフトの《雨雲号》1つを場に出す。",
+      "絆出": "【エナチャージ1】をする。その後、あなたのエナゾーンから<ブルアカ>のカードを1枚まで対象とし、それを手札に加える。"
+    },
+    "flavorText": "「私も、手助けします！」",
+    "faq": [
+      {
+        "q": "クラフトとは何ですか？",
+        "a": "クラフトとは、ゲーム中にカードの効果で作り出される代用カードとなります。クラフトの詳細ルールは用語集「クラフト」をご参照ください。場に出す際にはパックに封入されているトークンをご活用下さい。他のカードと混ざるような、ゲーム上不都合のあるデザインでなければご自身で用意していただくことも可能です。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-042",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-042.png",
+    "name": "十六夜ノノミ[お仕置きの時間です~♣]",
+    "subName": "イザヨイノノミオシオキノジカンデスー",
+    "rarity": "LC",
+    "illust": "和菓子",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "対策委員会"
+    ],
+    "color": "緑",
+    "level": "2",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "《無》:対戦相手のレベル3以上のすべてのシグニをバニッシュする。\n(複数の【出】能力と【絆出】能力は好きな順番で発動できる)",
+      "絆出": "【エナチャージ1】をする。その後、あなたのエナゾーンから<ブルアカ>のカードを1枚まで対象とし、それを手札に加える。"
+    },
+    "flavorText": "「全弾発射～」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-043",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-043.png",
+    "name": "十六夜ノノミ(水着)",
+    "subName": "イザヨイノノミミズギ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "対策委員会"
+    ],
+    "color": "緑",
+    "level": "2",
+    "cost": {
+      "無": 2
+    },
+    "power": null,
+    "timing": "メインフェイズ\nアタックフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出1": "対戦相手のシグニ1体を対象とし、それをバニッシュする。",
+      "出2": "《緑》《無》《無》:対戦相手のシグニ1体を対象とし、このターン終了時、それをバニッシュする。\n(【出】能力の:の左側はコストである。コストを支払わず発動しないことを選んでもよい)",
+      "絆出": "【エナチャージ1】をする。その後、あなたのエナゾーンから<ブルアカ>のカードを1枚まで対象とし、それを手札に加える。"
+    },
+    "flavorText": "「スパイク～～☆」",
+    "faq": [
+      {
+        "q": "2番目の出現時能力で選んだ対戦相手のシグニが、そのターン中に手札に戻りました。ターン終了時の効果はどうなりますか？",
+        "a": "対象とした対戦相手のシグニが場から移動した場合、ターン終了時の効果は何もしません。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-045",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-045.png",
+    "name": "銀鏡イオリ",
+    "subName": "シロミイオリ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "風紀委員会"
+    ],
+    "color": "黒",
+    "level": "1",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-8000する。"
+    },
+    "flavorText": "「ゲヘナ風紀委員会のスナイパーを、舐めるな！」",
+    "faq": null,
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-046",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-046.png",
+    "name": "火宮チナツ",
+    "subName": "ヒノミヤチナツ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "風紀委員会"
+    ],
+    "color": "黒",
+    "level": "1",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "あなたのデッキの上からカードを2枚トラッシュに置く。その後、あなたのトラッシュから《ガードアイコン》を持たない、共通するクラスを持つシグニ2枚を対象とし、それらを手札に加える。"
+    },
+    "flavorText": "「バイタル正常、進んでください。」",
+    "faq": [
+      {
+        "q": "この能力で、トラッシュの1枚のみを対象として手札に加えられますか？",
+        "a": "いいえ、この能力では2枚を対象とする必要がありますので、1体のみを対象にすることはできず手札に加えられません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-047",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-047.png",
+    "name": "銀鏡イオリ[一網打尽]",
+    "subName": "シロミイオリイチモウダジン",
+    "rarity": "LC",
+    "illust": "アカバネ",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "風紀委員会"
+    ],
+    "color": "黒",
+    "level": "2",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "《無》:以下を3回行う。「対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-5000する。対戦相手のデッキの上からカードを2枚トラッシュに置く。」(1回行うたびに改めて対象を決める)",
+      "絆出": "あなたのトラッシュから<ブルアカ>のカード1枚を対象とし、それを手札に加える。"
+    },
+    "flavorText": "「覚悟しろ！規則違反者共め！」",
+    "faq": [
+      {
+        "q": "上の出現時能力の途中で対戦相手のデッキが0枚になった場合、リフレッシュしますか？",
+        "a": "デッキが0枚になった場合はルール処理によりリフレッシュを行いますが、ルール処理は効果の処理中には行いませんので、まずはこの出現時能力（3回の繰り返し）を最後まで処理します。その際、デッキが0枚である場合はデッキの上からカードをトラッシュに置く効果は無視します。出現時能力の処理後、リフレッシュを行います。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-048",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-048.png",
+    "name": "銀鏡イオリ(水着)",
+    "subName": "シロミイオリミズギ",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "風紀委員会"
+    ],
+    "color": "黒",
+    "level": "2",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ\nアタックフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-8000し、それは「【自】:アタックフェイズ終了時、ターン終了時まで、このシグニのパワーを-5000する。」を得る。",
+      "絆出": "あなたのトラッシュから<ブルアカ>のカード1枚を対象とし、それを手札に加える。"
+    },
+    "flavorText": "「せっかくの非番の日なんだけどな……。」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-049",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-049.png",
+    "name": "火宮チナツ[戦傷治療]",
+    "subName": "ヒノミヤチナツセンショウチリョウ",
+    "rarity": "LC",
+    "illust": "茶ちえ",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "風紀委員会"
+    ],
+    "color": "黒",
+    "level": "2",
+    "cost": {
+      "無": 1
+    },
+    "power": null,
+    "timing": "メインフェイズ\nアタックフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出1": "あなたのトラッシュから【ライフバースト】を持たないカード1枚を対象とし、それをライフクロスに加える。",
+      "出2": "《黒》《無》《無》《無》:あなたのトラッシュから【ライフバースト】を持たないカード1枚を対象とし、それをライフクロスに加える。",
+      "絆出": "あなたのトラッシュから<ブルアカ>のカード1枚を対象とし、それを手札に加える。"
+    },
+    "flavorText": "「助けが必要なら……私にお任せください。」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-050",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-050.png",
+    "name": "火宮チナツ(温泉)",
+    "subName": "ヒノミヤチナツオンセン",
+    "rarity": "LC",
+    "illust": "-",
+    "cardType": "アシストルリグ",
+    "lrigTypeClass": [
+      "風紀委員会"
+    ],
+    "color": "黒",
+    "level": "2",
+    "cost": {
+      "無": 0
+    },
+    "power": null,
+    "timing": "メインフェイズ",
+    "lifeBurst": null,
+    "text": {
+      "出": "《無》:ターン終了時まで、このルリグは「【自】《ターン1回》:あなたのシグニ1体が対戦相手のライフクロス1枚をクラッシュしたとき、そのシグニをアップし、ターン終了時まで、そのシグニは能力を失う。」を得る。",
+      "絆出": "あなたのトラッシュから<ブルアカ>のカード1枚を対象とし、それを手札に加える。"
+    },
+    "flavorText": "「仕方ありませんね。」",
+    "faq": [
+      {
+        "q": "この自動能力は自分のシグニが【ランサー】でライフクロスをクラッシュしたときも発動しますか？",
+        "a": "はい、発動します。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-051",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-051.png",
+    "name": "歌住サクラコ",
+    "subName": "ウタズミサクラコ",
+    "rarity": "SR",
+    "illust": "よん",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "3",
+    "cost": null,
+    "power": "10000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "常": "対戦相手のターンの間、あなたの他の<ブルアカ>のシグニのパワーを+2000する。",
+      "自": "このシグニがアタックしたとき、あなたのエナゾーンから<ブルアカ>のカード3枚をトラッシュに置いてもよい。そうした場合、このシグニをアップし、ターン終了時まで、このシグニは能力を失う。",
+      "絆自": "あなたのアタックフェイズ開始時、次の対戦相手のターン終了時まで、このシグニのパワーを+5000する。"
+    },
+    "flavorText": "「我らに恵みを与え給え。」",
+    "faq": [
+      {
+        "q": "絆アイコンの自動能力でパワーを+5000した後、自動能力でこのシグニが能力を失いました。自動能力で得たパワー+5000も無くなりますか？",
+        "a": "いいえ、能力を失うというのはテキストが消されるだけで、パワーやレベル等のテキスト外の数値には影響しませんので、パワーは+5000されたままとなります。ただし、常時能力も失いますので、そちらで他の＜ブルアカ＞のシグニを+2000していた効果は無くなります。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-052",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-052.png",
+    "name": "聖園ミカ",
+    "subName": "ミソノミカ",
+    "rarity": "SR",
+    "illust": "斎木こまり",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "3",
+    "cost": null,
+    "power": "10000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたの場にあるすべてのシグニが<ブルアカ>の場合、対戦相手のパワー8000以下のシグニ1体を対象とし、手札を1枚捨ててもよい。そうした場合、以下の2つから1つを選ぶ。\n①対戦相手のライフクロスが3枚以下の場合、それを手札に戻す。\n②対戦相手のライフクロスが4枚以上ある場合、それをトラッシュに置く。",
+      "絆出": "対戦相手のシグニ1体を対象とし、ターン終了時まで、それは能力を失う。"
+    },
+    "flavorText": "「あなた達のために……祈るね。」",
+    "faq": [
+      {
+        "q": null,
+        "a": "2023-11-02\nこちらのカードは、表記に誤りがございました。詳細な内容は『カード誤表記』をご覧ください。"
+      },
+      {
+        "q": "自動能力は、自分の場にあるシグニがこのシグニだけでも発動しますか？",
+        "a": "はい、発動します。＜ブルアカ＞以外のシグニがないのであれば、あなたの場のシグニが1体や2体であっても発動できます。"
+      },
+      {
+        "q": "自動能力は、条件を満たしていた場合、必ず対象を選びますか？",
+        "a": "はい、条件を満たしているのであれば対象を選び、それから手札を捨てるかどうかを決めます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      },
+      {
+        "q": "「能力を失う」とはどのような状態ですか？",
+        "a": "テキスト欄に記載されている情報が消えた扱いとなります。テキスト欄以外の、パワーやレベル、クラス、名前などはそのままとなります。「～を得る」のような効果で後から得ていた効果も失います。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-053",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-053.png",
+    "name": "蒼森ミネ",
+    "subName": "アオモリミネ",
+    "rarity": "SR",
+    "illust": "クロサワテツ",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "3",
+    "cost": null,
+    "power": "12000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自1": "《ターン1回》:対戦相手のターンの間、シグニ1体がアタックしたとき、対戦相手のシグニ1体を対象とし、ターン終了時まで、それは能力を失う。",
+      "自2": "あなたのターン終了時、あなたの他の<ブルアカ>のシグニ1体を対象とし、次の対戦相手のターン終了時まで、それのパワーを+10000する。",
+      "絆起": "アップ状態のルリグ2体をダウンする:対戦相手のレベル1のシグニ1体を対象とし、それを手札に戻す。",
+      "LB": "対戦相手のアップ状態のシグニ1体を対象とし、それをトラッシュに置く。"
+    },
+    "flavorText": "「戦場に救護の手を！」",
+    "faq": [
+      {
+        "q": "「能力を失う」とはどのような状態ですか？",
+        "a": "テキスト欄に記載されている情報が消えた扱いとなります。テキスト欄以外の、パワーやレベル、クラス、名前などはそのままとなります。「～を得る」のような効果で後から得ていた効果も失います。"
+      },
+      {
+        "q": "対戦相手のアタックしたシグニが「アタックしたとき」の能力を持っていました。このシグニの自動能力で能力を失わせる場合、それは発動しますか？",
+        "a": "どちらの能力も「アタックしたとき」にトリガーしますが、トリガーしている能力が複数ある場合はターンプレイヤー側を先に発動しますので、先に対戦相手のシグニの「アタックしたとき」が発動します。それが発動し終わった後で、このシグニの自動能力が発動し、シグニ1体を対象として能力を失わせます。"
+      },
+      {
+        "q": "上の自動能力は、アタックしているシグニ以外も対象にできますか？",
+        "a": "はい、対戦相手のシグニであればどれでも対象にできます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-054",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-054.png",
+    "name": "天童アリス",
+    "subName": "テンドウアリス",
+    "rarity": "SR",
+    "illust": "よん",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "3",
+    "cost": null,
+    "power": "10000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "このシグニがアタックしたとき、対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーをこのシグニの下にあるカード1枚につき-4000する。このシグニの下にあるすべてのカードをトラッシュに置く。",
+      "起": "手札から<ブルアカ>のカードを1枚捨てる:あなたのトラッシュから<ブルアカ>のカードを2枚まで対象とし、それらをこのシグニの下に置く。",
+      "絆自": "《ターン1回》:このシグニが対戦相手のライフクロス1枚をクラッシュしたとき、対戦相手は手札を1枚捨てる。"
+    },
+    "flavorText": "「ターゲット確認。 出力臨界点突破……！」",
+    "faq": [
+      {
+        "q": "このシグニがアタックし、自動能力で正面のシグニのパワーをマイナスしてバニッシュしました。このアタックで対戦相手にダメージを与えられますか？",
+        "a": "はい、与えられます。アタックした際、まずはアタックしたときの自動能力などを全て発動してからアタック自体の処理に入りますので、その時点で正面にシグニがなくなっていれば対戦相手にダメージを与えます。"
+      },
+      {
+        "q": "起動能力は何回も使えますか？",
+        "a": "はい、コストを支払える限り何回でも使用が可能です。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-055",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-055.png",
+    "name": "猫塚ヒビキ",
+    "subName": "ネコヅカヒビキ",
+    "rarity": "SR",
+    "illust": "コウサク",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "3",
+    "cost": null,
+    "power": "12000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自1": "あなたのアタックフェイズ開始時、あなたの場にあるすべてのシグニが<ブルアカ>の場合、対戦相手は手札を1枚捨てる。",
+      "自2": "このシグニがアタックしたとき、このターンにあなたが手札から<ブルアカ>のカードを1枚以上捨てていた場合、対戦相手は手札を1枚捨てる。",
+      "絆出": "手札から<ブルアカ>のカードを2枚捨てる:対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-10000する。"
+    },
+    "flavorText": "「それなりに……大変なことになるかも?」",
+    "faq": [
+      {
+        "q": "自動能力は、自分の場にあるシグニがこのシグニだけでも発動しますか？",
+        "a": "はい、発動します。＜ブルアカ＞以外のシグニがないのであれば、あなたの場のシグニが1体や2体であっても発動できます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-056",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-056.png",
+    "name": "早瀬ユウカ",
+    "subName": "ハヤセユウカ",
+    "rarity": "SR",
+    "illust": "山吹色",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "3",
+    "cost": null,
+    "power": "12000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "常": "対戦相手のターンの間、対戦相手の効果によってあなたの<ブルアカ>のシグニ1体が場を離れる場合、「手札を2枚捨てる」を行ってもよい。そうした場合、代わりにターン終了時まで、このシグニはこの能力を失う。",
+      "自": "あなたのアタックフェイズ開始時、あなたの場にあるすべてのシグニが<ブルアカ>の場合、カードを2枚引き、手札を1枚捨てる。",
+      "絆起": "アップ状態のルリグ2体をダウンする:カードを1枚引く。",
+      "LB": "対戦相手のアップ状態のシグニ1体を対象とし、それをデッキの一番下に置く。"
+    },
+    "flavorText": "「悲しみも、怒りもすべて因数分解してやるわ。」",
+    "faq": [
+      {
+        "q": "常時能力で、＜ブルアカ＞のシグニが場を離れる代わりに手札を2枚捨てた場合、そのシグニは場に留まりますか？",
+        "a": "はい、そのシグニは場に留まり、《早瀬ユウカ》は能力を失います。"
+      },
+      {
+        "q": "対戦相手の効果で自分の＜ブルアカ＞のシグニのパワーがマイナスされ、パワーが0以下になった場合、常時能力で「手札を2枚捨てる」を行えますか？",
+        "a": "いいえ、できません。パワーをマイナスする効果は対戦相手の効果であっても、「パワーが0以下になったことによりバニッシュする」のはルール処理となり、対戦相手の効果で離れるわけではありません。"
+      },
+      {
+        "q": "自動能力は、自分の場にあるシグニがこのシグニだけでも発動しますか？",
+        "a": "はい、発動します。＜ブルアカ＞以外のシグニがないのであれば、あなたの場のシグニが1体や2体であっても発動できます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      },
+      {
+        "q": "《早瀬ユウカ》と他に＜ブルアカ＞のシグニが2体あるときに、「すべてのシグニをバニッシュする」という効果を受けた場合、手札を6枚捨てて3体すべてを場に残せますか？",
+        "a": "いいえ、できません。常時能力をどれか1体に適用し、場を離れることを置き換えることで《早瀬ユウカ》は能力を失うのでそれ以上置き換えを適用することができません。この場合は1体しか場に残せません。"
+      },
+      {
+        "q": "対戦相手のターンに、対戦相手の効果によって《早瀬ユウカ》が場を離れることを常時能力で置き換え、場に留まりました。この効果で「手札を2枚捨てる」を行った際、《羅菌　アメーバ》を捨てていたら、《羅菌　アメーバ》の自動能力は発動しますか？",
+        "a": "いいえ、発動しません。《羅菌　アメーバ》の自動能力は対戦相手の効果によって捨てられたときに発動しますが、この場合に手札を捨てているのは《早瀬ユウカ》の常時能力によるものであり、対戦相手の効果で捨てさせられているわけではありません。対戦相手の効果を置き換えているのは「ターン終了時まで、このシグニはこの能力を失う。」の部分となります。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-057",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-057.png",
+    "name": "久田イズナ",
+    "subName": "クダイズナ",
+    "rarity": "SR",
+    "illust": "クロサワテツ",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "3",
+    "cost": null,
+    "power": "10000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "出": "手札から<ブルアカ>のカードを1枚エナゾーンに置く:あなたのエナゾーンから<ブルアカ>のカード1枚を対象とし、それを手札に加える。",
+      "起": "エナゾーンから<ブルアカ>のカード2枚をトラッシュに置く:ターン終了時まで、このシグニは「【常】:このシグニは正面のシグニのパワーが12000以上であるかぎり、【アサシン】を得る。」を得る。(【アサシン】を持つシグニがアタックすると正面のシグニとバトルをせず対戦相手にダメージを与える)",
+      "絆起": "《緑×0》:あなたのエナゾーンからこのカードを場に出す。"
+    },
+    "flavorText": "「これも忍術……！みたいなものです！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-058",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-058.png",
+    "name": "小鳥遊ホシノ",
+    "subName": "タカナシホシノ",
+    "rarity": "SR",
+    "illust": "和菓子",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "3",
+    "cost": null,
+    "power": "12000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自1": "あなたのアタックフェイズ開始時、あなたの場にあるすべてのシグニが<ブルアカ>の場合、【エナチャージ1】をし、あなたのライフクロスが2枚以下の場合、追加で【エナチャージ1】をする。",
+      "自2": "このシグニがバトルによってシグニ1体をバニッシュしたとき、対戦相手のパワー3000以下のシグニ1体を対象とし、それをバニッシュする。",
+      "絆出": "《無》《無》《無》:対戦相手のパワー8000以上のシグニ1体を対象とし、それをバニッシュする。"
+    },
+    "flavorText": "「盾だよ！集まって！」",
+    "faq": [
+      {
+        "q": "上の自動能力は、自分の場にあるシグニがこのシグニだけでも発動しますか？",
+        "a": "はい、発動します。＜ブルアカ＞以外のシグニがないのであれば、あなたの場のシグニが1体や2体であっても発動できます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-059",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-059.png",
+    "name": "狐坂ワカモ",
+    "subName": "コサカワカモ",
+    "rarity": "SR",
+    "illust": "北熊",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "3",
+    "cost": null,
+    "power": "10000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "《ターン1回》:このシグニが対戦相手のライフクロス1枚をクラッシュしたとき、あなたのエナゾーンから<ブルアカ>のカード3枚をトラッシュに置いてもよい。そうした場合、このターンの、次のルリグアタックステップ開始時、対戦相手のライフクロス1枚をクラッシュする。",
+      "絆起": "アップ状態のルリグ2体をダウンする:【エナチャージ1】",
+      "LB": "どちらか1つを選ぶ。①対戦相手のアップ状態のシグニ1体を対象とし、それをバニッシュする。②【エナチャージ1】"
+    },
+    "flavorText": "「さあ……貫かれたい子は誰かしら？」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      },
+      {
+        "q": "《火宮チナツ(温泉)》の出現時能力を発動した後、《狐坂ワカモ》でアタックしてライフクロスをクラッシュしました。《狐坂ワカモ》自身の自動能力を発動し、《火宮チナツ(温泉)》による能力で能力を失った場合、次のルリグアタックステップ開始時に《狐坂ワカモ》の効果で対戦相手のライフクロスはクラッシュされますか？",
+        "a": "はい、クラッシュされます。《狐坂ワカモ》の自動能力が発動した後に《狐坂ワカモ》が能力を失ったり場を離れたとしても、次のルリグアタックステップ開始時の能力は発動します。"
+      },
+      {
+        "q": "自分のルリグがダウンしている状況で、《狐坂ワカモ》が対戦相手のライフクロスをクラッシュし、自動能力が発動しました。ルリグがアタックできない状況でも、ルリグアタックステップ開始時の能力は発動しますか？",
+        "a": "はい、発動します。シグニやルリグがアタックできる状況かを問わず、各ステップは行われます。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-060",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-060.png",
+    "name": "陸八魔アル",
+    "subName": "リクハチマアル",
+    "rarity": "SR",
+    "illust": "はしもとなおや",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "3",
+    "cost": null,
+    "power": "12000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "このシグニがアタックしたとき、対戦相手のシグニ1体を対象とし、《黒》を支払ってもよい。そうした場合、ターン終了時まで、それのパワーをあなたのトラッシュにある<ブルアカ>のカード1枚につき-1000する。",
+      "出": "あなたのデッキの上からカードを3枚トラッシュに置く。この方法でトラッシュに置かれたシグニのレベルがすべて同じ場合、あなたは手札をすべて捨てる。",
+      "絆常": "【シャドウ(レベル2以下のシグニ)】"
+    },
+    "flavorText": "「どう？かっこいいでしょ？」",
+    "faq": [
+      {
+        "q": "このシグニがアタックし、自動能力で正面のシグニのパワーをマイナスしてバニッシュしました。このアタックで対戦相手にダメージを与えられますか？",
+        "a": "はい、与えられます。アタックした際、まずはアタックしたときの自動能力などを全て発動してからアタック自体の処理に入りますので、その時点で正面にシグニがなくなっていれば対戦相手にダメージを与えます。"
+      },
+      {
+        "q": "出現時能力は必ず発動しなければなりませんか？",
+        "a": "はい、コストのない出現時能力はかならず発動します。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      },
+      {
+        "q": "【シャドウ】はどういう能力ですか？",
+        "a": "対戦相手の効果で「シグニを対象とする」や「対象のシグニを」といったシグニを対象にする効果で選ばれることを防ぎます。逆に、「すべてのシグニをバニッシュする」といった効果では対象を選んでいませんので、防ぐことはできません（この場合はバニッシュされます）。【シャドウ（レベル２以下のシグニ）】の場合、レベル２以下のシグニであるカードによるライフバーストでも対象にされません。"
+      },
+      {
+        "q": "出現時能力でデッキの上から3枚をトラッシュに置いた際、内訳がLv2のシグニ2枚とスペル1枚でした。どうなりますか？",
+        "a": "その場合、スペルは除いて確認し、トラッシュに置かれたシグニ2枚のレベルは同じですので、あなたは手札をすべて捨てます。"
+      },
+      {
+        "q": "出現時能力でデッキの上から3枚をトラッシュに置いた際、3枚すべてがスペルでした。どうなりますか？",
+        "a": "3枚すべてがスペルの場合、参照できるシグニが存在せず、「トラッシュに置かれたシグニのレベルがすべて同じ」という条件は満たしていませんので、手札は捨てません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-061",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-061.png",
+    "name": "棗イロハ",
+    "subName": "ナツメイロハ",
+    "rarity": "SR",
+    "illust": "九十きゅうり",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "3",
+    "cost": null,
+    "power": "10000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "出": "《黒》:あなたのトラッシュから<ブルアカ>のシグニ1枚を対象とし、それを場に出す。",
+      "起": "手札から<ブルアカ>のカードを2枚捨てる:このシグニの下に《虎丸》が無い場合、クラフトの《虎丸》1つをこのシグニの下に置く。",
+      "絆起": "アップ状態のルリグ2体をダウンする:対戦相手のシグニを2体まで対象とし、ターン終了時まで、それらのパワーをそれぞれ-2000する。",
+      "LB": "対戦相手のレベル2以下のシグニ1体を対象とし、それをバニッシュする。"
+    },
+    "flavorText": "「はぁ、えっと、超無敵鉄甲『虎丸』、出撃……」",
+    "faq": [
+      {
+        "q": "出現時能力で、《黒》エナとして支払ったシグニをそのままこの効果で場に出せますか？",
+        "a": "はい、出せます。コストとして《黒》を支払ってから、あなたのトラッシュにあるシグニを対象とします。"
+      },
+      {
+        "q": "クラフトとは何ですか？",
+        "a": "クラフトとは、ゲーム中にカードの効果で作り出される代用カードとなります。クラフトの詳細ルールは用語集「クラフト」をご参照ください。場に出す際にはパックに封入されているトークンをご活用下さい。他のカードと混ざるような、ゲーム上不都合のあるデザインでなければご自身で用意していただくことも可能です。"
+      },
+      {
+        "q": "下に《虎丸》がある《棗イロハ》が場を離れた場合、下にあった《虎丸》はどうなりますか？",
+        "a": "シグニの下に置かれていたカードは、そのシグニが場を離れたらトラッシュに置かれます。《虎丸》はクラフトですので、トラッシュに置かれるかわりにゲームから除外されます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-062",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-062.png",
+    "name": "黒舘ハルナ",
+    "subName": "クロダテハルナ",
+    "rarity": "SR",
+    "illust": "コウサク",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "3",
+    "cost": null,
+    "power": "10000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたのトラッシュに<ブルアカ>のカードが5枚以上ある場合、対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-5000する。10枚以上ある場合、追加で対戦相手のデッキの上からカードを3枚トラッシュに置く。",
+      "絆出": "《黒》:対戦相手のシグニ1体を対象とし、このターン、あなたの効果によってそれのパワーが-(マイナス)される場合、代わりに2倍-(マイナス)される。"
+    },
+    "flavorText": "「スコヴィル値1000万級の激辛ですわ！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      },
+      {
+        "q": "自分のトラッシュに＜ブルアカ＞のカードが10枚以上ある状態で、《黒館ハルナ》の自動能力を発動しました。この際に対戦相手の場にシグニがなかったり、【シャドウ】を持つシグニしかなくシグニを対象にできない場合、対戦相手のデッキの上の3枚をトラッシュに置けますか？",
+        "a": "はい、できます。前半の効果でシグニを対象にできなくとも、10枚以上の条件を満たしていれば後半の効果で対戦相手のデッキの上から3枚をトラッシュに置けます。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-063",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-063.png",
+    "name": "下江コハル",
+    "subName": "シモエコハル",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "1",
+    "cost": null,
+    "power": "3000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのターン終了時、あなたのデッキの一番上を公開する。その後、そのカードが<ブルアカ>の場合、あなたの<ブルアカ>のシグニ1体を対象とし、次の対戦相手のターン終了時まで、それのパワーを+4000する。",
+      "絆常": "対戦相手のターンの間、このシグニは【シャドウ(レベル2以下)】を得る。(このシグニは対戦相手のレベル2以下のルリグとレベル2以下のシグニによって対象にされない)"
+    },
+    "flavorText": "「私のじゃないから！誤解しないで！」",
+    "faq": [
+      {
+        "q": null,
+        "a": "2023-11-02\nこちらのカードは、表記に誤りがございました。詳細な内容は『カード誤表記』をご覧ください。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      },
+      {
+        "q": "【シャドウ】はどういう能力ですか？",
+        "a": "対戦相手の効果で「シグニを対象とする」や「対象のシグニを」といったシグニを対象にする効果で選ばれることを防ぎます。逆に、「すべてのシグニをバニッシュする」といった効果では対象を選んでいませんので、防ぐことはできません（この場合はバニッシュされます）。【シャドウ（レベル２以下）】の場合、レベル2以下のルリグやシグニ、レベル２以下のシグニであるカードによるライフバーストでも対象にされません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-064",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-064.png",
+    "name": "守月スズミ",
+    "subName": "モリヅキスズミ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "1",
+    "cost": null,
+    "power": "2000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "出": "《白》:あなたの場に他の<ブルアカ>のシグニがある場合、ターン終了時まで、対戦相手のすべてのシグニは能力を失う。",
+      "絆常": "このシグニのパワーは+4000される。",
+      "LB": "どちらか1つを選ぶ。①ターン終了時まで、対戦相手のすべてのシグニは能力を失う。②カードを2枚引く。"
+    },
+    "flavorText": "「腰を抜かさせてあげましょう。」",
+    "faq": [
+      {
+        "q": "「能力を失う」とはどのような状態ですか？",
+        "a": "テキスト欄に記載されている情報が消えた扱いとなります。テキスト欄以外の、パワーやレベル、クラス、名前などはそのままとなります。「～を得る」のような効果で後から得ていた効果も失います。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      },
+      {
+        "q": "《守月スズミ》の出現時能力を使ったターン、何らかの効果で相手の場にシグニが出ました。そのシグニは能力を失いますか？",
+        "a": "いいえ、能力を失いません。《守月スズミ》の出現時能力は発動時に場にいる対戦相手のシグニの能力を失わせます。能力発動後に場に出たシグニは効果の影響を受けず、能力を失いません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-065",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-065.png",
+    "name": "鷲見セリナ",
+    "subName": "スミセリナ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "1",
+    "cost": null,
+    "power": "3000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "あなたのターン終了時、あなたのトラッシュから《ガードアイコン》を持つシグニ1枚を対象とし、あなたのエナゾーンから<ブルアカ>のカード2枚をトラッシュに置いてもよい。そうした場合、それを手札に加える。",
+      "絆常": "対戦相手のターンの間、このシグニは【シャドウ(レベル2以下)】を得る。",
+      "LB": "カードを1枚引く。このターン、あなたの手札にあるシグニは《ガードアイコン》を得る。(《ガードアイコン》を持つシグニは【ガード】を得る)"
+    },
+    "flavorText": "「補給品を受け取ってください！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      },
+      {
+        "q": "【シャドウ】はどういう能力ですか？",
+        "a": "対戦相手の効果で「シグニを対象とする」や「対象のシグニを」といったシグニを対象にする効果で選ばれることを防ぎます。逆に、「すべてのシグニをバニッシュする」といった効果では対象を選んでいませんので、防ぐことはできません（この場合はバニッシュされます）。【シャドウ（レベル２以下）】の場合、レベル2以下のルリグやシグニ、レベル２以下のシグニであるカードによるライフバーストでも対象にされません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-066",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-066.png",
+    "name": "静山マシロ",
+    "subName": "シズヤママシロ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "1",
+    "cost": null,
+    "power": "3000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたの他の<ブルアカ>のシグニ1体を対象とし、ターン終了時まで、それは「【常】:対戦相手のシグニがこのシグニとのバトルによってバニッシュされる場合、エナゾーンに置かれる代わりにトラッシュに置かれる。」を得る。",
+      "絆出": "手札から<ブルアカ>のカードを2枚捨てる:あなたのトラッシュから《ガードアイコン》を持つシグニ1枚を対象とし、それを手札に加える。"
+    },
+    "flavorText": "「ターゲット捕捉……距離は十分です。」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-067",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-067.png",
+    "name": "伊落マリー",
+    "subName": "イオチマリー",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "1",
+    "cost": null,
+    "power": "3000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "常": "対戦相手のターンの間、あなたの場に他の<ブルアカ>のシグニがあるかぎり、このシグニは【シャドウ(レベル1)】を得る。",
+      "自": "あなたのターン終了時、あなたの他の<ブルアカ>のシグニ1体を対象とし、次の対戦相手のターン終了時まで、それは【シャドウ(レベル1)】を得る。",
+      "絆出": "手札から<ブルアカ>のカードを2枚捨てる:あなたのトラッシュから《ガードアイコン》を持つシグニ1枚を対象とし、それを手札に加える。"
+    },
+    "flavorText": "「全ての方に、ご加護を……！」",
+    "faq": [
+      {
+        "q": "【シャドウ】はどういう能力ですか？",
+        "a": "対戦相手の効果で「シグニを対象とする」や「対象のシグニを」といったシグニを対象にする効果で選ばれることを防ぎます。逆に、「すべてのシグニをバニッシュする」といった効果では対象を選んでいませんので、防ぐことはできません（この場合はバニッシュされます）。【シャドウ（レベル1）】の場合、レベル1のルリグやシグニ、レベル1のシグニであるカードによるライフバーストでも対象にされません。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-068",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-068.png",
+    "name": "古関ウイ",
+    "subName": "コゼキウイ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "2",
+    "cost": null,
+    "power": "5000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "《ターン1回》:あなたのターンの間、あなたの効果によって対戦相手のシグニ1体が手札に戻るかトラッシュに置かれたとき、あなたのデッキの一番上を公開する。そのカードが<ブルアカ>の場合、【エナチャージ1】をする。",
+      "絆常": "対戦相手のターンの間、このシグニは【シャドウ(レベル2以下)】を得る。"
+    },
+    "flavorText": "「こ、今回だけですよ……！？」",
+    "faq": [
+      {
+        "q": "自分の効果で対戦相手の手札を捨てさせたとき、それがシグニでした。自動能力は発動しますか？",
+        "a": "いいえ、発動しません。この自動能力は、対戦相手の場にシグニとして出ているシグニが、場から手札に戻るか場からトラッシュに置かれた際に発動します。"
+      },
+      {
+        "q": "《静山マシロ》の自動能力により、自分のシグニが「【常】：対戦相手のシグニがこのシグニとのバトルによってバニッシュされる場合、エナゾーンに置かれる代わりにトラッシュに置かれる。」を得ました。そのシグニがバトルで対戦相手のシグニをバニッシュし、相手のシグニがトラッシュに置かれた場合は《古関ウイ》の自動能力は発動しますか？",
+        "a": "いいえ、発動しません。《静山マシロ》によって得られる能力は、バトルによってバニッシュされる場合に置かれる場所を置き換えているだけであり、カードの移動自体はバトルによって移動しています。あなたの効果が直接移動させているわけではありませんので、《古関ウイ》の自動能力は発動しません。"
+      },
+      {
+        "q": "【シャドウ】はどういう能力ですか？",
+        "a": "対戦相手の効果で「シグニを対象とする」や「対象のシグニを」といったシグニを対象にする効果で選ばれることを防ぎます。逆に、「すべてのシグニをバニッシュする」といった効果では対象を選んでいませんので、防ぐことはできません（この場合はバニッシュされます）。【シャドウ（レベル２以下）】の場合、レベル2以下のルリグやシグニ、レベル２以下のシグニであるカードによるライフバーストでも対象にされません。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-069",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-069.png",
+    "name": "杏山カズサ",
+    "subName": "キョウヤマカズサ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "2",
+    "cost": null,
+    "power": "8000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "起": "《ダウン》エナゾーンから<ブルアカ>のカード1枚をトラッシュに置く:対戦相手のレベル1のシグニ1体を対象とし、それを手札に戻す。",
+      "絆常": "このシグニのパワーは+4000される。"
+    },
+    "flavorText": "「悪く思わないでね」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-070",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-070.png",
+    "name": "桐藤ナギサ",
+    "subName": "キリフジナギサ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "2",
+    "cost": null,
+    "power": "8000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "あなたのターン終了時、あなたの他の<ブルアカ>のシグニのうち最もパワーの低いシグニ1体を対象とし、次の対戦相手のターン終了時まで、それのパワーを+4000する。",
+      "絆出": "手札から<ブルアカ>のカードを2枚捨てる:あなたのトラッシュから《ガードアイコン》を持つシグニ1枚を対象とし、それを手札に加える。",
+      "LB": "対戦相手のシグニ1体を対象とし、ターン終了時まで、それは「【常】:アタックできない。」を得る。カードを1枚引く。"
+    },
+    "flavorText": "「トリニティの砲撃術は優秀ですから。」",
+    "faq": [
+      {
+        "q": "自動能力発動時、自分の＜ブルアカ＞のシグニのうち最もパワーの低いシグニが2体ある場合、どうなりますか？",
+        "a": "その場合、そのうちの1体を選んで対象とし、効果を発動します。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-071",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-071.png",
+    "name": "羽川ハスミ",
+    "subName": "ハネカワハスミ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "2",
+    "cost": null,
+    "power": "8000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "常": "あなたの場に他の<ブルアカ>のシグニがあるかぎり、対戦相手のシグニがこのシグニとのバトルによってバニッシュされる場合、エナゾーンに置かれる代わりにトラッシュに置かれる。",
+      "絆常": "このシグニのパワーは+4000される。",
+      "LB": "あなたのデッキの上からカードを3枚見る。その中からシグニ1枚を公開し手札に加えるか場に出し、残りを好きな順番でデッキの一番下に置く。"
+    },
+    "flavorText": "「撃ち抜く……！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-072",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-072.png",
+    "name": "剣先ツルギ",
+    "subName": "ケンザキツルギ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "白",
+    "level": "3",
+    "cost": null,
+    "power": "12000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "このシグニがバトルによってシグニ1体をバニッシュしたとき、あなたのトラッシュから《ガードアイコン》を持つシグニ1枚を対象とし、手札から<ブルアカ>のカードを1枚捨ててもよい。そうした場合、それを手札に加える。",
+      "絆常": "対戦相手のシグニがこのシグニとのバトルによってバニッシュされる場合、エナゾーンに置かれる代わりにトラッシュに置かれる。",
+      "LB": "どちらか1つを選ぶ。①対戦相手のアップ状態のシグニ1体を対象とし、それを手札に戻す。②カードを1枚引く。"
+    },
+    "flavorText": "「無駄だああ！」",
+    "faq": [
+      {
+        "q": "絆アイコン能力が有効なときに、対戦相手のシグニとバトルしそれがトラッシュに置かれたときも、このシグニの自動能力は発動しますか？",
+        "a": "はい、発動します。この絆アイコン能力はバニッシュされる際の置かれる場所を変更しているだけであり、この場合もバトルでバニッシュしていますので、自動能力が発動します。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-073",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-073.png",
+    "name": "室笠アカネ",
+    "subName": "ムロカサアカネ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "1",
+    "cost": null,
+    "power": "3000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "出": "手札から<ブルアカ>のカードを2枚まで捨てる:この方法で捨てたカード1枚につきカードを1枚引く。",
+      "絆自": "あなたのアタックフェイズ開始時、アップ状態のこのシグニをダウンしてもよい。そうした場合、カードを1枚引く。",
+      "LB": "対戦相手のシグニ1体を対象とし、それをダウンし凍結する。カードを1枚引く。"
+    },
+    "flavorText": "「優雅に、排除いたします。」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-074",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-074.png",
+    "name": "音瀬コタマ",
+    "subName": "オトセコタマ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "1",
+    "cost": null,
+    "power": "2000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのターン終了時、このシグニがアップ状態の場合、あなたのデッキの一番上を公開する。そのカードが<ブルアカ>の場合、カードを1枚引く。",
+      "絆自": "あなたのアタックフェイズ開始時、手札を1枚捨ててもよい。そうした場合、対戦相手の手札を1枚見ないで選び、捨てさせる。"
+    },
+    "flavorText": "「傍受開始。」",
+    "faq": [
+      {
+        "q": "自動能力が発動してデッキの一番上が＜ブルアカ＞だった場合、それを引くことになりますか？",
+        "a": "はい、公開したカードがデッキの一番上のカードですので、それを引いて手札に加えます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      },
+      {
+        "q": "自分の場にダウン状態の《音瀬コタマ》と《秤アツコ》がある場合、ターン終了時に《音瀬コタマ》の自動能力は使用できますか？",
+        "a": "ターン終了時、《音瀬コタマ》の自動能力と《秤アツコ》の「【自】：あなたのターン終了時、あなたのすべての＜ブルアカ＞のシグニをアップする。」がトリガーします。《秤アツコ》を先に発動すれば、《音瀬コタマ》が発動する際にはアップ状態になっていますので、自動能力を処理できます。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-075",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-075.png",
+    "name": "黒崎コユキ",
+    "subName": "クロサキコユキ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "1",
+    "cost": null,
+    "power": "2000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたの場にあるすべてのシグニが<ブルアカ>の場合、手札を1枚捨ててもよい。そうした場合、対戦相手の手札を1枚見ないで選び、捨てさせる。",
+      "絆自": "あなたのアタックフェイズ開始時、アップ状態のこのシグニをダウンしてもよい。そうした場合、カードを1枚引く。"
+    },
+    "flavorText": "「結果良ければすべてオッケー！……ってね？」",
+    "faq": [
+      {
+        "q": "自動能力は、自分の場にあるシグニがこのシグニだけでも発動しますか？",
+        "a": "はい、発動します。＜ブルアカ＞以外のシグニがないのであれば、あなたの場のシグニが1体や2体であっても発動できます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-076",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-076.png",
+    "name": "各務チヒロ",
+    "subName": "カガミチヒロ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "1",
+    "cost": null,
+    "power": "2000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたの場にあるすべてのシグニが<ブルアカ>の場合、対戦相手のシグニ1体を対象とし、手札を1枚捨ててもよい。そうした場合、ターン終了時まで、それのパワーを-3000する。\n(パワーが0以下のシグニはルールによってバニッシュされる)",
+      "絆常": "このシグニのパワーは+4000される。"
+    },
+    "flavorText": "「もう少しセキュリティ意識を持った方が良い。」",
+    "faq": [
+      {
+        "q": "自動能力は、自分の場にあるシグニがこのシグニだけでも発動しますか？",
+        "a": "はい、発動します。＜ブルアカ＞以外のシグニがないのであれば、あなたの場のシグニが1体や2体であっても発動できます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-077",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-077.png",
+    "name": "花岡ユズ",
+    "subName": "ハナオカユズ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "1",
+    "cost": null,
+    "power": "3000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "《ターン2回》:あなたのターンの間、コストか効果1つによって、あなたが手札から<ブルアカ>のカードを1枚以上捨てたとき、《無》を支払ってもよい。そうした場合、カードを1枚引く。",
+      "絆自": "あなたのアタックフェイズ開始時、手札を1枚捨ててもよい。そうした場合、対戦相手の手札を1枚見ないで選び、捨てさせる。",
+      "LB": "あなたのデッキの上からカードを3枚見る。その中からシグニ1枚を公開し手札に加えるか場に出し、残りを好きな順番でデッキの一番下に置く。"
+    },
+    "flavorText": "「これは…面白いと思います。」",
+    "faq": [
+      {
+        "q": "「カードを2枚捨てる」というコストを支払った場合、自動能力は何回発動しますか？",
+        "a": "その場合、その2枚を捨てるのは一度の処理であり、この自動能力は「1枚以上捨てたとき」という条件ですので1回だけ発動します。別々の処理で2回捨てた場合にはこの自動能力は2回発動しますが、一度の処理で複数捨てても1回しか発動しません。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-078",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-078.png",
+    "name": "飛鳥馬トキ",
+    "subName": "アスマトキ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "2",
+    "cost": null,
+    "power": "5000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "起": "《ターン1回》手札から<ブルアカ>のカードを1枚捨てる:次の対戦相手のターン終了時まで、このシグニのパワーを+5000し、このシグニは「【自】:このシグニがアタックしたとき、対戦相手のシグニ1体を対象とし、《青》を支払ってもよい。そうした場合、ターン終了時まで、それのパワーを-5000する。」を得る。",
+      "絆自": "あなたのアタックフェイズ開始時、手札を1枚捨ててもよい。そうした場合、対戦相手の手札を1枚見ないで選び、捨てさせる。"
+    },
+    "flavorText": "「アビ・エシュフ、移行。」",
+    "faq": [
+      {
+        "q": "このシグニがアタックし、自動能力で正面のシグニのパワーをマイナスしてバニッシュしました。このアタックで対戦相手にダメージを与えられますか？",
+        "a": "はい、与えられます。アタックした際、まずはアタックしたときの自動能力などを全て発動してからアタック自体の処理に入りますので、その時点で正面にシグニがなくなっていれば対戦相手にダメージを与えます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-079",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-079.png",
+    "name": "明星ヒマリ",
+    "subName": "アケボシヒマリ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "2",
+    "cost": null,
+    "power": "8000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたの他の<ブルアカ>のシグニ1体を対象とし、アップ状態のこのシグニをダウンしてもよい。そうした場合、ターン終了時まで、それは「【自】:このシグニがアタックしたとき、対戦相手は手札を1枚捨てる。」を得る。",
+      "絆常": "このシグニのパワーは+4000される。",
+      "LB": "対戦相手のルリグかシグニ1体を対象とする。このターン、それがアタックしたとき、対戦相手が手札を3枚捨てないかぎり、そのアタックを無効にする。"
+    },
+    "flavorText": "「天才美少女ハッカーの真髄、お見せしましょう。」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-080",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-080.png",
+    "name": "才羽モモイ",
+    "subName": "サイバモモイ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "2",
+    "cost": null,
+    "power": "8000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたの場にあるすべてのシグニが<ブルアカ>の場合、手札を1枚捨ててもよい。そうした場合、以下の2つから1つを選ぶ。①対戦相手は手札を1枚捨てる。②あなたの場に《才羽ミドリ》がある場合、対戦相手の手札を1枚見ないで選び、捨てさせる。",
+      "絆常": "このシグニのパワーは+4000される。",
+      "LB": "対戦相手のシグニ1体を対象とし、それをダウンし凍結する。対戦相手は手札を1枚捨てる。"
+    },
+    "flavorText": "「私の、怒りの弾丸を食らえ！」",
+    "faq": [
+      {
+        "q": "自動能力は、自分の場にあるシグニがこのシグニだけでも発動しますか？",
+        "a": "はい、発動します。＜ブルアカ＞以外のシグニがないのであれば、あなたの場のシグニが1体や2体であっても発動できます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-081",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-081.png",
+    "name": "才羽ミドリ",
+    "subName": "サイバミドリ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "2",
+    "cost": null,
+    "power": "5000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、このターンにあなたが手札から<ブルアカ>のカードを1枚以上捨てていた場合、以下の2つから1つを選ぶ。①カードを1枚引く。②あなたの場に《才羽モモイ》がある場合、カードを2枚引き、手札を1枚捨てる。",
+      "絆自": "あなたのアタックフェイズ開始時、アップ状態のこのシグニをダウンしてもよい。そうした場合、カードを1枚引く。"
+    },
+    "flavorText": "「連続射撃！行きます！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-082",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-082.png",
+    "name": "生塩ノア",
+    "subName": "ウシオノア",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "青",
+    "level": "3",
+    "cost": null,
+    "power": "10000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "《ターン1回》:あなたのターンの間、コストか効果によってあなたが手札から<ブルアカ>のカードを1枚捨てたとき、対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-3000する。",
+      "絆自": "《ターン1回》:対戦相手のターンの間、あなたが手札から<ブルアカ>のカードを1枚捨てたとき、カードを1枚引く。",
+      "LB": "どちらか1つを選ぶ。①対戦相手のシグニを2体まで対象とし、それらをダウンする。②カードを1枚引く。"
+    },
+    "flavorText": "「ちょっと失礼……記録を開始します。」",
+    "faq": [
+      {
+        "q": "「カードを2枚捨てる」というコストで＜ブルアカ＞のカードを2枚捨てた場合、この自動能力は発動しますか？",
+        "a": "はい、発動します。ターン1回制限のある能力ですので、1回のみ発動します。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-083",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-083.png",
+    "name": "勇美カエデ",
+    "subName": "イサミカエデ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "1",
+    "cost": null,
+    "power": "3000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "出": "手札から<ブルアカ>のカードを1枚エナゾーンに置く:あなたの他の<ブルアカ>のシグニ1体を対象とし、次の対戦相手のターン終了時まで、それのパワーを+3000する。",
+      "絆常": "【シャドウ(パワー8000以下のシグニ)】",
+      "LB": "【エナチャージ1】をする。このターン、次にあなたがシグニによってダメージを受ける場合、代わりにダメージを受けない。"
+    },
+    "flavorText": "「信号弾、発射！行っけえぇぇっ！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      },
+      {
+        "q": "【シャドウ】はどういう能力ですか？",
+        "a": "対戦相手の効果で「シグニを対象とする」や「対象のシグニを」といったシグニを対象にする効果で選ばれることを防ぎます。逆に、「すべてのシグニをバニッシュする」といった効果では対象を選んでいませんので、防ぐことはできません（この場合はバニッシュされます）。【シャドウ（パワー8000以下のシグニ）】の場合、パワー8000以下のシグニであるカードによるライフバーストでも対象にされません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-084",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-084.png",
+    "name": "大野ツクヨ",
+    "subName": "オオノツクヨ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "1",
+    "cost": null,
+    "power": "3000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "起": "《ダウン》:次の対戦相手のターン終了時まで、このシグニのパワーを+4000し、このシグニは「【自】《ターン1回》:あなたのライフクロス1枚がクラッシュされたとき、あなたのデッキの一番上を公開する。そのカードが<ブルアカ>の場合、【エナチャージ1】をする。」を得る。",
+      "絆常": "このシグニのパワーは+4000される。"
+    },
+    "flavorText": "「忍法、変わり身の術……！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-085",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-085.png",
+    "name": "朝比奈フィーナ",
+    "subName": "アサヒナフィーナ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "1",
+    "cost": null,
+    "power": "2000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自1": "《ターン1回》:あなたのターンの間、あなたのエナゾーンにカード1枚が置かれたとき、ターン終了時まで、このシグニのパワーを+3000する。",
+      "自2": "このシグニがアタックしたとき、このシグニのパワーが5000以上であなたの場に他の<ブルアカ>のシグニがある場合、対戦相手のパワー2000以下のシグニ1体を対象とし、それをバニッシュする。",
+      "絆常": "このシグニのパワーは+4000される。"
+    },
+    "flavorText": "「ワタシの銃が、熱く燃え上がってマス。」",
+    "faq": [
+      {
+        "q": "このシグニがアタックし、下の自動能力で正面のシグニをバニッシュしました。このアタックで対戦相手にダメージを与えられますか？",
+        "a": "はい、与えられます。アタックした際、まずはアタックしたときの自動能力などを全て発動してからアタック自体の処理に入りますので、その時点で正面にシグニがなくなっていれば対戦相手にダメージを与えます。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-086",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-086.png",
+    "name": "千鳥ミチル",
+    "subName": "チドリミチル",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "1",
+    "cost": null,
+    "power": "2000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、このターンにコストか効果によってカードが1枚以上あなたのエナゾーンに置かれていた場合、対戦相手のパワー5000以下のシグニ1体を対象とし、あなたのエナゾーンから<ブルアカ>のカード1枚をトラッシュに置いてもよい。そうした場合、それをバニッシュする。",
+      "絆自": "《ターン1回》:このシグニが対戦相手のライフクロス1枚をクラッシュしたとき、【エナチャージ1】をする。"
+    },
+    "flavorText": "「忍術研究部の部長を、舐めるなぁっ！」",
+    "faq": [
+      {
+        "q": "このターンに対戦相手の効果によって自分のシグニがバニッシュされていた場合、自動能力は発動しますか？",
+        "a": "はい、効果によるバニッシュで場からあなたのエナゾーンにカードが置かれていますので、条件を満たしています。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-087",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-087.png",
+    "name": "水羽ミモリ",
+    "subName": "ミズハミモリ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "1",
+    "cost": null,
+    "power": "2000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "出": "あなたのエナゾーンに<ブルアカ>のカードが5枚以上ある場合、あなたのエナゾーンから<ブルアカ>のシグニを1枚まで対象とし、それを場に出す。",
+      "絆常": "【シャドウ(パワー8000以下のシグニ)】",
+      "LB": "【エナチャージ2】をする。その後、あなたのエナゾーンからシグニを1枚まで対象とし、それを手札に加える。"
+    },
+    "flavorText": "「皆さん、しっかり食べて頑張ってくださいね？」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      },
+      {
+        "q": "【シャドウ】はどういう能力ですか？",
+        "a": "対戦相手の効果で「シグニを対象とする」や「対象のシグニを」といったシグニを対象にする効果で選ばれることを防ぎます。逆に、「すべてのシグニをバニッシュする」といった効果では対象を選んでいませんので、防ぐことはできません（この場合はバニッシュされます）。【シャドウ（パワー8000以下のシグニ）】の場合、パワー8000以下のシグニであるカードによるライフバーストでも対象にされません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-088",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-088.png",
+    "name": "河和シズコ",
+    "subName": "カワワシズコ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "2",
+    "cost": null,
+    "power": "8000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "起": "《ダウン》:あなたのデッキの一番上を公開する。そのカードが<ブルアカ>の場合、【エナチャージ1】をする。",
+      "絆常": "このシグニのパワーは+4000される。",
+      "LB": "【エナチャージ1】をする。このターン、次にあなたがルリグによってダメージを受ける場合、代わりにダメージを受けない。"
+    },
+    "flavorText": "「百夜堂はどこへでも出張販売します！ あっ！茶器が……！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-089",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-089.png",
+    "name": "黒見セリカ",
+    "subName": "クロミセリカ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "2",
+    "cost": null,
+    "power": "5000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたのエナゾーンから<ブルアカ>のカード1枚をトラッシュに置いてもよい。そうした場合、ターン終了時まで、このシグニは「【常】:このシグニは正面のシグニのパワーが5000以下であるかぎり、【ランサー】を得る。」を得る。",
+      "絆自": "《ターン1回》:このシグニが対戦相手のライフクロス1枚をクラッシュしたとき、【エナチャージ1】をする。"
+    },
+    "flavorText": "「怒ってるってば！」",
+    "faq": [
+      {
+        "q": "このシグニの【ランサー】が発動してライフクロスをクラッシュした場合も、絆アイコン能力は発動しますか？",
+        "a": "はい、発動します。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-090",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-090.png",
+    "name": "和楽チセ",
+    "subName": "ワラクチセ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "2",
+    "cost": null,
+    "power": "5000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたのエナゾーンに<ブルアカ>のカードが3枚以上ある場合、対戦相手のパワー10000以下のシグニ1体を対象とし、《緑》《無》を支払ってもよい。そうした場合、それをバニッシュする。",
+      "絆自": "《ターン1回》:このシグニが対戦相手のライフクロス1枚をクラッシュしたとき、【エナチャージ1】をする。"
+    },
+    "flavorText": "「とりあえず燃やそっか。」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-091",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-091.png",
+    "name": "春日ツバキ",
+    "subName": "カスガツバキ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "2",
+    "cost": null,
+    "power": "8000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "出": "手札から<ブルアカ>のカードを1枚エナゾーンに置く:次の対戦相手のターン終了時まで、このシグニのパワーを+4000する。",
+      "絆常": "【シャドウ(パワー8000以下のシグニ)】(このシグニは対戦相手のパワー8000以下のシグニによって対象にされない)",
+      "LB": "【エナチャージ1】をする。その後、あなたのエナゾーンから<ブルアカ>のシグニを1枚まで対象とし、それを手札に加えるか場に出す。",
+      "": "いや、先生の邪魔はさせない。」"
+    },
+    "flavorText": "「誰も私の昼寝は……",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      },
+      {
+        "q": "【シャドウ】はどういう能力ですか？",
+        "a": "対戦相手の効果で「シグニを対象とする」や「対象のシグニを」といったシグニを対象にする効果で選ばれることを防ぎます。逆に、「すべてのシグニをバニッシュする」といった効果では対象を選んでいませんので、防ぐことはできません（この場合はバニッシュされます）。【シャドウ（パワー8000以下のシグニ）】の場合、パワー8000以下のシグニであるカードによるライフバーストでも対象にされません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-092",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-092.png",
+    "name": "桑上カホ",
+    "subName": "クワカミカホ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "緑",
+    "level": "3",
+    "cost": null,
+    "power": "12000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "あなたのアタックフェイズ開始時、あなたのデッキの一番上を公開する。そのカードが<ブルアカ>の場合、【エナチャージ1】をする。",
+      "絆出": "《緑》《緑》《無》:ターン終了時まで、このシグニのパワーを+10000し、このシグニは【Sランサー】を得る。(【Sランサー】を持つシグニがバトルでシグニをバニッシュしたとき、対戦相手のライフクロスがある場合はそれを1枚クラッシュする。無い場合は対戦相手にダメージを与える)",
+      "LB": "対戦相手のパワー7000以上のシグニ1体を対象とし、それをバニッシュする。"
+    },
+    "flavorText": "「チセちゃんっ！待って！！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      },
+      {
+        "q": "【Sランサー】はどういう能力ですか？",
+        "a": "【Sランサー】を持つシグニがバトルにより対戦相手のシグニをバニッシュしたとき、対戦相手のライフクロスを1枚クラッシュし、対戦相手にライフクロスがない場合は対戦相手にダメージを与えます。【ランサー】【Sランサー】は複数持っていたとしても、一度のバトルで発動するのは１回のみです。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-093",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-093.png",
+    "name": "獅子堂イズミ",
+    "subName": "シシドウイズミ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "1",
+    "cost": null,
+    "power": "2000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "このシグニがアタックしたとき、あなたの場にある<ブルアカ>のシグニ1体につき対戦相手のデッキの上からカードを1枚トラッシュに置く。",
+      "絆自": "あなたのアタックフェイズ開始時、対戦相手のデッキの上からカードを2枚トラッシュに置く。"
+    },
+    "flavorText": "「おおー！エネルギー充填！覚悟しなさい！」",
+    "faq": [
+      {
+        "q": "このシグニがアタックし、自分の場に《獅子堂イズミ》も含めて＜ブルアカ＞のシグニが3体あるので、対戦相手のデッキの上から3枚をトラッシュに置きました。そこで対戦相手のデッキが無くなった場合、どうなりますか？",
+        "a": "その場合、先にリフレッシュを行ってから、このシグニのアタックの処理を行います。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-094",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-094.png",
+    "name": "鬼方カヨコ",
+    "subName": "オニカタカヨコ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "1",
+    "cost": null,
+    "power": "2000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "自": "このシグニがアタックしたとき、このターンにあなたのデッキから<ブルアカ>のカードが1枚以上トラッシュに置かれていた場合、対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-2000する。\n(パワーが0以下のシグニはルールによってバニッシュされる)",
+      "絆自": "あなたのアタックフェイズ開始時、対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-2000する。"
+    },
+    "flavorText": "「これで戦況が変わるはず。」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-095",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-095.png",
+    "name": "牛牧ジュリ",
+    "subName": "ウシマキジュリ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "1",
+    "cost": null,
+    "power": "3000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "出": "エナゾーンから<ブルアカ>のカード1枚をトラッシュに置く:対戦相手のシグニ1体を対象とし、それを他のシグニゾーン1つに配置してもよい。ターン終了時まで、それのパワーを-3000する。",
+      "絆自": "あなたのアタックフェイズ開始時、対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-2000する。"
+    },
+    "flavorText": "「このままひっくり返せば……あれ……？」",
+    "faq": [
+      {
+        "q": "出現時能力で対戦相手のシグニを他のシグニゾーンに配置する場合、そこにもうシグニがあったら入れ替えになりますか？",
+        "a": "いいえ、この効果は入れ替えではありませんので、すでにシグニのあるシグニゾーンには移動できません。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-096",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-096.png",
+    "name": "氷室セナ",
+    "subName": "ヒムロセナ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "1",
+    "cost": null,
+    "power": "3000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "出": "《無》《無》:あなたのトラッシュから<ブルアカ>のカード1枚を対象とし、それを手札に加える。",
+      "絆自": "あなたのアタックフェイズ開始時、対戦相手のデッキの上からカードを2枚トラッシュに置く。",
+      "LB": "あなたのトラッシュから<ブルアカ>のシグニ1枚を対象とし、それを手札に加えるか場に出す。"
+    },
+    "flavorText": "「現場に急行します。」",
+    "faq": [
+      {
+        "q": "出現時能力で、《無》エナとして支払ったシグニをそのままこの効果で手札に加えられますか？",
+        "a": "はい、可能です。コストとして《無》《無》を支払ってから、あなたのトラッシュにある＜ブルアカ＞のシグニを対象とします。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-097",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-097.png",
+    "name": "伊草ハルカ",
+    "subName": "イグサハルカ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "1",
+    "cost": null,
+    "power": "2000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "常": "あなたのトラッシュに<ブルアカ>のカードが3枚以上あるかぎり、このシグニのパワーは+5000される。",
+      "出": "あなたのデッキの上からカードを3枚トラッシュに置く。",
+      "絆常": "このシグニのパワーは+4000される。",
+      "LB": "対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-8000する。"
+    },
+    "flavorText": "「ハルカ、行きます！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-098",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-098.png",
+    "name": "鰐渕アカリ",
+    "subName": "ワニブチアカリ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "2",
+    "cost": null,
+    "power": "5000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "出": "手札から<ブルアカ>のカードを2枚捨てる:対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-10000する。\n(パワーが0以下のシグニはルールによってバニッシュされる)",
+      "絆自": "あなたのアタックフェイズ開始時、対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-2000する。"
+    },
+    "flavorText": "「熱いうちに召し上がれ～」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-099",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-099.png",
+    "name": "赤司ジュンコ",
+    "subName": "アカシジュンコ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "2",
+    "cost": null,
+    "power": "8000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "起": "このシグニを場からトラッシュに置き、エナゾーンから<ブルアカ>のカード1枚をトラッシュに置く:対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーを-5000する。",
+      "絆常": "このシグニのパワーは+4000される。",
+      "LB": "対戦相手のシグニ1体を対象とし、手札を1枚捨ててもよい。そうした場合、ターン終了時まで、それのパワーを-12000する。"
+    },
+    "flavorText": "「お団子～お団子～うええ？！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-100",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-100.png",
+    "name": "愛清フウカ",
+    "subName": "アイキヨフウカ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "2",
+    "cost": null,
+    "power": "8000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "出": "トラッシュから<ブルアカ>のカード1枚をデッキの一番下に置く:あなたの<ブルアカ>のシグニ1体を対象とし、次の対戦相手のターン終了時まで、それのパワーを+2000する。",
+      "絆自": "あなたのアタックフェイズ開始時、対戦相手のデッキの上からカードを2枚トラッシュに置く。",
+      "LB": "あなたのトラッシュからシグニ1枚を対象とし、それを手札に加える。"
+    },
+    "flavorText": "「栄養満点の料理です！」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-101",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-101.png",
+    "name": "浅黄ムツキ",
+    "subName": "アサギムツキ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "2",
+    "cost": null,
+    "power": "5000",
+    "timing": null,
+    "lifeBurst": "false",
+    "text": {
+      "出": "エナゾーンから<ブルアカ>のカード1枚をトラッシュに置く:あなたのデッキの上からカードを3枚トラッシュに置く。その後、対戦相手のシグニ1体を対象とし、ターン終了時まで、それのパワーをこの方法でデッキからトラッシュに置かれた<ブルアカ>のシグニのレベルの合計1につき-1000する。",
+      "絆常": "このシグニのパワーは+4000される。"
+    },
+    "flavorText": "「ドキドキする時間がやってきたよ！」",
+    "faq": [
+      {
+        "q": "出現時能力で、自分のデッキの上から3枚をトラッシュに置いた時点でデッキが0枚になりました。どうなりますか？",
+        "a": "デッキが0枚になった場合はルール処理によりリフレッシュを行いますが、ルール処理は効果の処理中には行いませんので、まずはこの出現時能力を最後まで処理します。出現時能力の処理後に、リフレッシュを行います。"
+      },
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。獲得した絆は失われません。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-102",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-102.png",
+    "name": "天雨アコ",
+    "subName": "アマウアコ",
+    "rarity": "R",
+    "illust": "-",
+    "cardType": "シグニ",
+    "lrigTypeClass": [
+      "奏武",
+      "ブルアカ"
+    ],
+    "color": "黒",
+    "level": "3",
+    "cost": null,
+    "power": "10000",
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "自": "《ターン1回》:あなたの他の<ブルアカ>のシグニ1体がアタックしたとき、対戦相手のデッキの上からカードを5枚トラッシュに置く。",
+      "絆出": "《黒》《無》:このターン、パワーが0以下の対戦相手のシグニがバニッシュされる場合、エナゾーンに置かれる代わりにトラッシュに置かれる。",
+      "LB": "あなたのトラッシュから《ガードアイコン》を持たないシグニ1枚を対象とし、それを手札に加えるか場に出す。"
+    },
+    "flavorText": "「風紀委員の情報収集能力、お見せします。」",
+    "faq": [
+      {
+        "q": "絆アイコンの能力はどうすれば使えますか？",
+        "a": "カードの効果で「好きな生徒との絆を獲得する」という効果があり、その際にこの生徒の名前を宣言すれば絆アイコンの能力が有効となります。絆アイコンの出現時能力は、この生徒の絆を獲得してからこのカードを場に出せば発動します。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  },
+  {
+    "cardID": "WXDi-CP02-103",
+    "productID": "WXDi-CP02",
+    "image": "/assets/images/WXDi-CP02/WXDi-CP02-103.png",
+    "name": "物語の起動",
+    "subName": "モノガタリノキドウ",
+    "rarity": "C",
+    "illust": "-",
+    "cardType": "スペル",
+    "lrigTypeClass": null,
+    "color": "無",
+    "level": null,
+    "cost": {
+      "無": 1
+    },
+    "power": null,
+    "timing": null,
+    "lifeBurst": "true",
+    "text": {
+      "": "以下の2つから1つを選ぶ。\n①好きな生徒1人との絆を獲得する。(その生徒の【絆】能力が有効になる)\n②あなたのデッキの上からカードを5枚見る。その中から<ブルアカ>のシグニを1枚まで公開し手札に加え、残りを好きな順番でデッキの一番下に置く。\n【常】:このカードはすべての領域で<ブルアカ>として扱う。\nライフバースト:どちらか1つを選ぶ。①好きな生徒1人との絆を獲得する。②あなたのトラッシュからシグニ1枚を対象とし、それを手札に加える。"
+    },
+    "flavorText": "「むにゃ、カステラにはぁ……いちごミルクより……バナナミルクのほうが……。」～アロナ～",
+    "faq": [
+      {
+        "q": null,
+        "a": "2025-04-25\nこちらのカードは、2025年4月26日以降、「好きな生徒との絆を獲得する」という効果は、生徒名ではなくカード名を宣言する効果に変更になりました。"
+      },
+      {
+        "q": null,
+        "a": "2023-11-02\nこちらのカードは、表記に誤りがございました。詳細な内容は『カード誤表記』をご覧ください。"
+      },
+      {
+        "q": "常時能力は具体的にどういう能力ですか？",
+        "a": "このカードはカードのクラスを参照する際に＜ブルアカ＞として扱うことができます。例えば、「手札から＜ブルアカ＞のカード1枚をトラッシュに置く」というコストを支払えますし、「トラッシュから＜ブルアカ＞のカード1枚を手札に加える」という効果で手札に加えられます。 ただしシグニではなくスペルですので、「＜ブルアカ＞のシグニ」を参照する効果や能力では参照できません。"
+      },
+      {
+        "q": "「好きな生徒1人との絆を獲得する」とは何ですか？",
+        "a": "「好きな生徒との絆を獲得する」という効果ではカード名を宣言し、そのカード名の絆を獲得します。絆を獲得したカード名のカードは、絆アイコンの能力が有効となります。生徒名ではなくカード名の宣言であることにご注意ください。《阿慈谷ヒフミ[助けて、ペロロ様！]》を宣言した場合、そのカードの絆能力は有効になりますが、《阿慈谷ヒフミ(水着)》の絆能力は有効になりません。また、複数種類が該当する宣言、例えば「阿慈谷ヒフミ」だけでは対戦相手に伝わらないので、正式名称で言ったり色やレベルなどその他の情報を合わせて言うなど、対戦相手にわかるように宣言してください。 絆を獲得する能力が複数あれば、その分だけ他の生徒との絆も獲得でき、失われることはありません。 誰との絆を獲得しているかの目印として、パックに封入されているトークンや公式イベントで配布されている絆チップをご活用ください。他のカードと混ざるような、ゲーム上不都合のあるデザインでなければご自身で目印を用意していただくことも可能です。また、メモとして書き留めておくことも可能です。目印やメモを活用して、どのカード名の絆を獲得していたかが後からわからなくならないよう、また対戦相手と認識に齟齬が出ないようご注意ください。"
+      }
+    ],
+    "tags": null,
+    "additionalInfo": null
+  }
 ]
