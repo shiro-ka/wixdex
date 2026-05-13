@@ -43,6 +43,7 @@
 </script>
 
 {#if isInView}
+  <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
   <img
     bind:this={containerEl}
     {src} {alt}
@@ -50,6 +51,9 @@
     onload={() => { isLoaded = true; onLoadCallback?.(true); }}
     {onmouseenter} {onmouseleave} {onclick} {onwheel}
     {ontouchstart} {ontouchmove} {ontouchend}
+    role={onclick ? 'button' : undefined}
+    tabindex={onclick ? 0 : undefined}
+    onkeydown={onclick ? (e) => { if (e.key === 'Enter' || e.key === ' ') onclick(); } : undefined}
   />
 {:else}
   <div bind:this={containerEl} class="{className} bg-gray-700/20 animate-pulse"></div>

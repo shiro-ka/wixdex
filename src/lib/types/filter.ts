@@ -1,3 +1,5 @@
+import type { Card } from './card';
+
 export interface FilterState {
   selectedColors: Set<string>;
   selectedLevels: Set<number>;

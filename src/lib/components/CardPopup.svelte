@@ -16,14 +16,13 @@
 </script>
 
 {#if card}
-  <div
-    class="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
-    onclick={onClose}
-  >
-    <div
-      class="bg-gray-800 p-2 rounded-xl w-[90vw] max-w-4xl"
-      onclick={(e) => e.stopPropagation()}
-    >
+  <div class="fixed inset-0 flex items-center justify-center z-50">
+    <button
+      class="absolute inset-0 bg-black/70"
+      onclick={onClose}
+      aria-label="閉じる"
+    ></button>
+    <div class="relative bg-gray-800 p-2 rounded-xl w-[90vw] max-w-4xl z-10">
       <div class="flex w-full items-stretch justify-center">
         <img
           src={cardImageUrl(card.image)}

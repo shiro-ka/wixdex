@@ -35,12 +35,14 @@
   <div class="space-y-4">
     <!-- デッキ名 -->
     <div>
+      <!-- svelte-ignore a11y_label_has_associated_control -->
       <label class="block text-sm font-medium text-gray-300 mb-2">デッキ名</label>
       {#if !isLoggedIn}
         <div class="w-full px-3 py-2 bg-zinc-700/40 border border-gray-700 rounded-lg text-gray-500 cursor-not-allowed select-none">
           {name || 'デッキ名を入力'}
         </div>
       {:else if isNameEditMode}
+        <!-- svelte-ignore a11y_autofocus -->
         <input
           type="text"
           bind:value={name}
@@ -50,23 +52,26 @@
           placeholder="デッキ名を入力"
         />
       {:else}
-        <div
+        <button
+          type="button"
           onclick={() => { isNameEditMode = true; }}
-          class="w-full px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white cursor-text hover:bg-zinc-700/80 transition-colors"
+          class="w-full px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white text-left cursor-text hover:bg-zinc-700/80 transition-colors"
         >
           {name || 'デッキ名を入力'}
-        </div>
+        </button>
       {/if}
     </div>
 
     <!-- メモ -->
     <div>
+      <!-- svelte-ignore a11y_label_has_associated_control -->
       <label class="block text-sm font-medium text-gray-300 mb-2">メモ</label>
       {#if !isLoggedIn}
         <div class="w-full min-h-[200px] px-3 py-2 bg-zinc-700/40 border border-gray-700 rounded-lg text-gray-500 cursor-not-allowed prose prose-invert prose-sm max-w-none select-none">
           {@html renderedMemo}
         </div>
       {:else if isEditMode}
+        <!-- svelte-ignore a11y_autofocus -->
         <textarea
           bind:value={memo}
           onblur={() => { isEditMode = false; }}
@@ -75,12 +80,13 @@
           placeholder="メモを入力（マークダウン対応）"
         ></textarea>
       {:else}
-        <div
+        <button
+          type="button"
           onclick={() => { isEditMode = true; }}
-          class="w-full min-h-[200px] px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white prose prose-invert prose-sm max-w-none cursor-text hover:bg-zinc-700/80 transition-colors"
+          class="w-full min-h-[200px] px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white text-left prose prose-invert prose-sm max-w-none cursor-text hover:bg-zinc-700/80 transition-colors"
         >
           {@html renderedMemo}
-        </div>
+        </button>
       {/if}
       <p class="text-xs text-gray-500 mt-1">
         {#if !isLoggedIn}
