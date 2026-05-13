@@ -169,7 +169,8 @@
     <!-- お気に入り/候補カード/カードタイプ/クラス/タグ -->
     <div class="flex w-full h-8 mb-2">
       {#if isLoggedIn}
-      <div
+      <button
+        type="button"
         class="group flex md:flex-1 items-center justify-center w-10 h-full mr-2 rounded-lg border border-gray-600/50 cursor-pointer transition-all {favoriteFilter ? 'bg-zinc-500/30' : 'bg-zinc-600/10'}"
         onclick={onFavoriteFilter}
       >
@@ -178,10 +179,11 @@
         {:else}
           <IconStar class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all" />
         {/if}
-      </div>
+      </button>
       {/if}
 
-      <div
+      <button
+        type="button"
         id="folder-button"
         class="group flex flex-1 items-center justify-center h-full mr-2 rounded-lg border border-gray-600/50 cursor-pointer transition-all {candidateFilter ? 'bg-zinc-500/30' : 'bg-zinc-600/10'}"
         onclick={onCandidateFilter}
@@ -191,10 +193,11 @@
         {:else}
           <IconFolder class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all" />
         {/if}
-      </div>
+      </button>
 
       <div class="flex w-fit md:flex-3 rounded-lg border border-gray-600/50 overflow-hidden">
-        <div
+        <button
+          type="button"
           class="group flex flex-1 items-center justify-center w-10 h-full cursor-pointer transition-all {activeDropdown === 'type' || expandedMenu === 'type' ? 'bg-zinc-500/30' : 'bg-zinc-600/10'}"
           onclick={() => handleMenuClick('type')}
         >
@@ -202,8 +205,9 @@
             filled={isTypeFilterEnabled}
             class="w-5 h-5 transition-all {activeDropdown === 'type' || expandedMenu === 'type' ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}"
           />
-        </div>
-        <div
+        </button>
+        <button
+          type="button"
           class="group flex flex-1 items-center justify-center w-10 h-full cursor-pointer transition-all {activeDropdown === 'lrigClass' || expandedMenu === 'lrigClass' ? 'bg-zinc-500/30' : 'bg-zinc-600/10'}"
           onclick={() => handleMenuClick('lrigClass')}
         >
@@ -211,8 +215,9 @@
             filled={isLrigClassFilterEnabled}
             class="w-5 h-5 transition-all {activeDropdown === 'lrigClass' || expandedMenu === 'lrigClass' ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}"
           />
-        </div>
-        <div
+        </button>
+        <button
+          type="button"
           class="group flex flex-1 items-center justify-center w-10 h-full cursor-pointer transition-all {activeDropdown === 'tag' || expandedMenu === 'tag' ? 'bg-zinc-500/30' : 'bg-zinc-600/10'}"
           onclick={() => handleMenuClick('tag')}
         >
@@ -221,7 +226,7 @@
           {:else}
             <IconTag class="w-5 h-5 transition-all {activeDropdown === 'tag' || expandedMenu === 'tag' ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}" />
           {/if}
-        </div>
+        </button>
       </div>
     </div>
 
@@ -230,7 +235,8 @@
       <!-- 色検索 -->
       <div class="flex flex-5 mr-2 rounded-lg border border-gray-600/50 overflow-hidden">
         {#each [['白', 'text-yellow-100', 'text-yellow-200'], ['赤', 'text-red-400', 'text-red-400'], ['青', 'text-blue-400', 'text-blue-400'], ['緑', 'text-green-400', 'text-green-400'], ['黒', 'text-purple-400', 'text-purple-500']] as [color, activeClass, inactiveClass]}
-          <div
+          <button
+            type="button"
             class="flex flex-1 items-center justify-center cursor-pointer transition-all {selectedColors.has(color) ? 'bg-zinc-500/30' : 'bg-zinc-600/10'}"
             onclick={() => onColorFilter(color)}
           >
@@ -245,14 +251,15 @@
             {:else}
               <BlackIcon class="w-5 h-5 transition-all {selectedColors.has(color) ? activeClass : inactiveClass}" />
             {/if}
-          </div>
+          </button>
         {/each}
       </div>
 
       <!-- レベル検索 -->
       <div class="flex flex-3 mr-2 rounded-lg border border-gray-600/50 overflow-hidden">
         {#each [1, 2, 3] as level}
-          <div
+          <button
+            type="button"
             class="group flex flex-1 items-center justify-center cursor-pointer transition-all {selectedLevels.has(level) ? 'bg-zinc-500/30' : 'bg-zinc-600/10'}"
             onclick={() => onLevelFilter(level)}
           >
@@ -275,12 +282,13 @@
                 <IconHexagonNumber3 class="w-5 h-5 text-gray-400 group-hover:text-gray-300 transition-all" />
               {/if}
             {/if}
-          </div>
+          </button>
         {/each}
       </div>
 
       <!-- LB検索 -->
-      <div
+      <button
+        type="button"
         class="group flex items-center justify-center w-10 h-full rounded-lg border border-gray-600/50 cursor-pointer transition-all {lifeBurstFilter !== null ? 'bg-zinc-500/30' : 'bg-zinc-600/10'}"
         onclick={onLifeBurstFilter}
       >
@@ -289,14 +297,17 @@
         {:else}
           <LifeBurstIcon class="w-5 h-5 transition-all {lifeBurstFilter === true ? 'text-gray-300' : 'text-gray-400 group-hover:text-gray-300'}" />
         {/if}
-      </div>
+      </button>
     </div>
 
     <!-- テキスト/クリア/その他ボタン -->
     <div class="flex w-full h-8">
       <!-- 設定ボタン -->
-      <div class="relative flex items-center justify-center w-10 h-full mr-2 rounded-lg bg-zinc-600/10 border border-gray-600/50 text-gray-400 hover:text-white cursor-pointer transition-all"
-        onclick={() => { isSettingsOpen = !isSettingsOpen; }}>
+      <button
+        type="button"
+        class="relative flex items-center justify-center w-10 h-full mr-2 rounded-lg bg-zinc-600/10 border border-gray-600/50 text-gray-400 hover:text-white cursor-pointer transition-all"
+        onclick={() => { isSettingsOpen = !isSettingsOpen; }}
+      >
         <IconAdjustments class="w-5 h-5" />
         <SettingsPopup
           isOpen={isSettingsOpen}
@@ -306,11 +317,12 @@
           {showCandidateIcon}
           {onToggleCandidateIcon}
         />
-      </div>
+      </button>
 
       <!-- 検索入力 -->
       <div class="flex flex-1 mr-2 items-center bg-zinc-600/10 border border-gray-600/50 rounded-lg focus-within:ring-2 focus-within:ring-gray-500">
-        <div
+        <button
+          type="button"
           class="relative flex w-12 h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer transition-all"
           onclick={() => { isSearchSettingsOpen = !isSearchSettingsOpen; }}
         >
@@ -327,28 +339,30 @@
             onToggleSearchCardName={() => { searchCardName = !searchCardName; }}
             onToggleSearchCardText={() => { searchCardText = !searchCardText; }}
           />
-        </div>
+        </button>
         <input
           type="text"
           class="w-full h-full pb-[2px] ml-2 text-sm text-white placeholder-gray-400 focus:outline-none bg-transparent"
           bind:value={searchText}
           oninput={() => onTextSearch(searchText)}
         />
-        <div
+        <button
+          type="button"
           class="flex w-12 h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer rounded-full transition-all"
           onclick={handleClear}
         >
           <IconCircleX class="w-5 h-5" />
-        </div>
+        </button>
       </div>
 
       <!-- リセットボタン -->
-      <div
+      <button
+        type="button"
         class="flex w-10 aspect-square bg-zinc-600/10 border border-gray-600/50 rounded-lg items-center justify-center text-gray-400 hover:text-white cursor-pointer"
         onclick={handleReset}
       >
         <IconLoader class="w-5 h-5" />
-      </div>
+      </button>
     </div>
   </div>
 </div>

@@ -88,7 +88,7 @@
     </div>
     <div class="lrigDeck grid w-full h-[calc(32dvw-4rem)] sm:h-[8rem] lg:h-[calc(11dvw-3rem)] xl:h-[6rem] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1">
       {#each lrigDeck as card, index (`lrig-${card.id}-${index}`)}
-        <div class="flex items-center"
+        <div class="flex items-center" role="presentation"
           ontouchstart={(e) => handleTouchStart(e, `lrig-${card.id}-${index}`)}
           ontouchmove={(e) => handleTouchMove(e, `lrig-${card.id}-${index}`)}
           ontouchend={(e) => handleTouchEnd(e, `lrig-${card.id}-${index}`, card, index, 'lrig')}
@@ -119,7 +119,7 @@
     </div>
     <div class="mainDeck grid w-full h-[calc(90dvw-4rem)] lg:h-[calc(36dvw-3rem)] xl:h-[26rem] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1">
       {#each mainDeck as card, index (`main-${card.id}-${index}`)}
-        <div class="flex items-center"
+        <div class="flex items-center" role="presentation"
           ontouchstart={(e) => handleTouchStart(e, `main-${card.id}-${index}`)}
           ontouchmove={(e) => handleTouchMove(e, `main-${card.id}-${index}`)}
           ontouchend={(e) => handleTouchEnd(e, `main-${card.id}-${index}`, card, index, 'main')}
