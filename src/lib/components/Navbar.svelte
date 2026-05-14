@@ -3,6 +3,8 @@
   import IconDeviceFloppy from '@tabler/icons-svelte/icons/device-floppy';
   import IconDeviceFloppyFilled from '@tabler/icons-svelte/icons/device-floppy-filled';
   import IconMenu2 from '@tabler/icons-svelte/icons/menu-2';
+  import { navBtn } from '$lib/styles';
+  import clsx from 'clsx';
 
   interface Props {
     deckName: string;
@@ -23,19 +25,19 @@
     <div class="flex items-center gap-2">
       <div class="flex items-center border border-gray-600 rounded-lg overflow-hidden">
         <button
-          class="!bg-transparent !pl-4 h-10 flex items-center justify-center hover:bg-gray-700/50 transition-colors"
+          class={clsx(navBtn(), 'pl-4 h-10')}
           onclick={onDeckClick} aria-label="デッキ"
         >
           <span class="text-sm text-gray-400">{deckName || '新しいデッキ'}</span>
         </button>
         <button
-          class="!bg-transparent !p-0 w-8 h-10 flex items-center justify-center hover:bg-gray-700/50 transition-colors"
+          class={clsx(navBtn(), 'w-8 h-10')}
           onclick={onShareClick} aria-label="シェア"
         >
           <IconShare class="w-4 h-4 text-gray-400" />
         </button>
         <button
-          class="!bg-transparent !p-0 w-8 h-10 flex items-center justify-center transition-colors {isLoggedIn ? 'hover:bg-gray-700/50' : 'cursor-not-allowed opacity-40'}"
+          class={clsx(navBtn({ interactive: isLoggedIn }), 'w-8 h-10')}
           onclick={isLoggedIn ? onSaveClick : undefined}
           disabled={!isLoggedIn}
           aria-label="保存"
@@ -48,7 +50,7 @@
         </button>
       </div>
       <button
-        class="!bg-transparent !p-0 w-10 h-10 flex items-center justify-center hover:bg-gray-700/50 rounded-lg transition-colors"
+        class={clsx(navBtn(), 'w-10 h-10 rounded-lg')}
         onclick={onMenuClick} aria-label="メニュー"
       >
         <IconMenu2 class="w-6 h-6 text-gray-400" />

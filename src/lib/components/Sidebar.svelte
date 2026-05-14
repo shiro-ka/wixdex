@@ -6,6 +6,8 @@
   import IconUser from '@tabler/icons-svelte/icons/user';
   import IconBrandBluesky from '@tabler/icons-svelte/icons/brand-bluesky';
   import IconBrandGithub from '@tabler/icons-svelte/icons/brand-github';
+  import { sidebarBtn } from '$lib/styles';
+  import clsx from 'clsx';
 
   interface Props {
     isOpen: boolean;
@@ -57,7 +59,7 @@
       <button
         onclick={isLoggedIn ? () => { onNewDeckClick(); onClose(); } : undefined}
         disabled={!isLoggedIn}
-        class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-white {!isLoggedIn ? 'opacity-40 cursor-not-allowed' : ''}"
+        class={sidebarBtn({ disabled: !isLoggedIn })}
       >
         <IconLibraryPlus class="w-5 h-5" />
         <span>新しいデッキを作成</span>
@@ -65,7 +67,7 @@
       <button
         onclick={isLoggedIn ? () => { onDeckListClick(); onClose(); } : undefined}
         disabled={!isLoggedIn}
-        class="w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors text-white {!isLoggedIn ? 'opacity-40 cursor-not-allowed' : ''}"
+        class={sidebarBtn({ disabled: !isLoggedIn })}
       >
         <IconLibrary class="w-5 h-5" />
         <span>デッキ一覧</span>
@@ -84,13 +86,11 @@
           <IconUser size={20} class="shrink-0" />
           <span class="truncate">{user.displayName}</span>
         </div>
-        <a href="/account" onclick={onClose}
-          class="w-full flex items-center gap-3 px-4 py-3 bg-zinc-800/50 hover:bg-zinc-800 rounded-lg transition-colors text-white text-sm">
+        <a href="/account" onclick={onClose} class={sidebarBtn({ variant: 'action' })}>
           アカウント設定
         </a>
         <form method="POST" action="/api/auth/logout">
-          <button type="submit" onclick={onClose}
-            class="w-full flex items-center gap-3 px-4 py-3 mt-2 bg-zinc-800/50 hover:bg-zinc-800 rounded-lg transition-colors text-gray-400 hover:text-white text-sm">
+          <button type="submit" onclick={onClose} class={clsx(sidebarBtn({ variant: 'muted' }), 'mt-2')}>
             ログアウト
           </button>
         </form>

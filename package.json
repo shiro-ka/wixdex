@@ -29,6 +29,9 @@
     "@atproto/api": "^0.13.35",
     "@atproto/jwk-jose": "^0.1.11",
     "@atproto/oauth-client-node": "^0.3.17",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cva": "^0.0.0",
     "marked": "^15.0.0",
     "nanoid": "^5.1.9",
     "zod": "^3.25.0"
