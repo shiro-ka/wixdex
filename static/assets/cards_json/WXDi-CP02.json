@@ -2,7 +2,7 @@
   {
     "cardID": "WXDi-CP02-001",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-001.webp",
+    "image": "WXDi-CP02/WXDi-CP02-001.webp",
     "name": "ティーパーティー",
     "subName": "ティーパーティー",
     "rarity": "LR",
@@ -61,7 +61,7 @@
   {
     "cardID": "WXDi-CP02-002",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-002.webp",
+    "image": "WXDi-CP02/WXDi-CP02-002.webp",
     "name": "セミナー",
     "subName": "セミナー",
     "rarity": "LR",
@@ -100,7 +100,7 @@
   {
     "cardID": "WXDi-CP02-003",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-003.webp",
+    "image": "WXDi-CP02/WXDi-CP02-003.webp",
     "name": "覆面水着団",
     "subName": "フクメンミズギダン",
     "rarity": "LR",
@@ -139,7 +139,7 @@
   {
     "cardID": "WXDi-CP02-004",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-004.webp",
+    "image": "WXDi-CP02/WXDi-CP02-004.webp",
     "name": "ゲヘナ学園風紀委員会",
     "subName": "ゲヘナガクエンフウキイインカイ",
     "rarity": "LR",
@@ -186,7 +186,7 @@
   {
     "cardID": "WXDi-CP02-005",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-005.webp",
+    "image": "WXDi-CP02/WXDi-CP02-005.webp",
     "name": "連邦生徒会",
     "subName": "レンポウセイトカイ",
     "rarity": "LR",
@@ -217,7 +217,7 @@
   {
     "cardID": "WXDi-CP02-006",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-006.webp",
+    "image": "WXDi-CP02/WXDi-CP02-006.webp",
     "name": "クロノス報道部",
     "subName": "クロノスホウドウブ",
     "rarity": "LR",
@@ -252,7 +252,7 @@
   {
     "cardID": "WXDi-CP02-007",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-007.webp",
+    "image": "WXDi-CP02/WXDi-CP02-007.webp",
     "name": "白洲アズサ[intulit mortem]",
     "subName": "シラスアズサイントューリットモルテム",
     "rarity": "LR",
@@ -291,7 +291,7 @@
   {
     "cardID": "WXDi-CP02-008",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-008.webp",
+    "image": "WXDi-CP02/WXDi-CP02-008.webp",
     "name": "美甘ネル[あぁ?ぶっ殺されてえか?]",
     "subName": "ミカモネルアァブッコロサレテエカ",
     "rarity": "LR",
@@ -330,7 +330,7 @@
   {
     "cardID": "WXDi-CP02-009",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-009.webp",
+    "image": "WXDi-CP02/WXDi-CP02-009.webp",
     "name": "砂狼シロコ[ドローン召喚:火力支援]",
     "subName": "スナオオカミシロコドローンショウカンカリョクシエン",
     "rarity": "LR",
@@ -369,7 +369,7 @@
   {
     "cardID": "WXDi-CP02-010",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-010.webp",
+    "image": "WXDi-CP02/WXDi-CP02-010.webp",
     "name": "空崎ヒナ[終幕イシュ・ボシェテ]",
     "subName": "ソラサキヒナシュウマクイシュボシェテ",
     "rarity": "LR",
@@ -420,7 +420,7 @@
   {
     "cardID": "WXDi-CP02-024",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-024.webp",
+    "image": "WXDi-CP02/WXDi-CP02-024.webp",
     "name": "浦和ハナコ",
     "subName": "ウラワハナコ",
     "rarity": "LC",
@@ -448,7 +448,7 @@
   {
     "cardID": "WXDi-CP02-025",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-025.webp",
+    "image": "WXDi-CP02/WXDi-CP02-025.webp",
     "name": "阿慈谷ヒフミ",
     "subName": "アジタニヒフミ",
     "rarity": "LC",
@@ -481,7 +481,7 @@
   {
     "cardID": "WXDi-CP02-026",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-026.webp",
+    "image": "WXDi-CP02/WXDi-CP02-026.webp",
     "name": "浦和ハナコ[禁じられた遊びを始めましょう]",
     "subName": "ウラワハナコキンジラレタアソビヲハジメマショウ",
     "rarity": "LC",
@@ -520,7 +520,7 @@
   {
     "cardID": "WXDi-CP02-027",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-027.webp",
+    "image": "WXDi-CP02/WXDi-CP02-027.webp",
     "name": "浦和ハナコ(水着)",
     "subName": "ウラワハナコミズギ",
     "rarity": "LC",
@@ -555,7 +555,7 @@
   {
     "cardID": "WXDi-CP02-028",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-028.webp",
+    "image": "WXDi-CP02/WXDi-CP02-028.webp",
     "name": "阿慈谷ヒフミ[助けて、ペロロ様!]",
     "subName": "アジタニヒフミタスケテペロロサマ",
     "rarity": "LC",
@@ -597,7 +597,7 @@
   {
     "cardID": "WXDi-CP02-029",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-029.webp",
+    "image": "WXDi-CP02/WXDi-CP02-029.webp",
     "name": "阿慈谷ヒフミ(水着)",
     "subName": "アジタニヒフミミズギ",
     "rarity": "LC",
@@ -635,7 +635,7 @@
   {
     "cardID": "WXDi-CP02-031",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-031.webp",
+    "image": "WXDi-CP02/WXDi-CP02-031.webp",
     "name": "一之瀬アスナ",
     "subName": "イチノセアスナ",
     "rarity": "LC",
@@ -663,7 +663,7 @@
   {
     "cardID": "WXDi-CP02-032",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-032.webp",
+    "image": "WXDi-CP02/WXDi-CP02-032.webp",
     "name": "角楯カリン",
     "subName": "カクダテカリン",
     "rarity": "LC",
@@ -691,7 +691,7 @@
   {
     "cardID": "WXDi-CP02-033",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-033.webp",
+    "image": "WXDi-CP02/WXDi-CP02-033.webp",
     "name": "一之瀬アスナ[行っくよー!]",
     "subName": "イチノセアスナイックヨー",
     "rarity": "LC",
@@ -730,7 +730,7 @@
   {
     "cardID": "WXDi-CP02-034",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-034.webp",
+    "image": "WXDi-CP02/WXDi-CP02-034.webp",
     "name": "一之瀬アスナ(バニーガール)",
     "subName": "イチノセアスナバニーガール",
     "rarity": "LC",
@@ -769,7 +769,7 @@
   {
     "cardID": "WXDi-CP02-035",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-035.webp",
+    "image": "WXDi-CP02/WXDi-CP02-035.webp",
     "name": "角楯カリン[ターゲット、排除する]",
     "subName": "カクダテカリンターゲットハイジョスル",
     "rarity": "LC",
@@ -803,7 +803,7 @@
   {
     "cardID": "WXDi-CP02-036",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-036.webp",
+    "image": "WXDi-CP02/WXDi-CP02-036.webp",
     "name": "角楯カリン(バニーガール)",
     "subName": "カクダテカリンバニーガール",
     "rarity": "LC",
@@ -841,7 +841,7 @@
   {
     "cardID": "WXDi-CP02-038",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-038.webp",
+    "image": "WXDi-CP02/WXDi-CP02-038.webp",
     "name": "奥空アヤネ",
     "subName": "オクソラアヤネ",
     "rarity": "LC",
@@ -869,7 +869,7 @@
   {
     "cardID": "WXDi-CP02-039",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-039.webp",
+    "image": "WXDi-CP02/WXDi-CP02-039.webp",
     "name": "十六夜ノノミ",
     "subName": "イザヨイノノミ",
     "rarity": "LC",
@@ -897,7 +897,7 @@
   {
     "cardID": "WXDi-CP02-040",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-040.webp",
+    "image": "WXDi-CP02/WXDi-CP02-040.webp",
     "name": "奥空アヤネ[支援特急便]",
     "subName": "オクソラアヤネシエントッキュウビン",
     "rarity": "LC",
@@ -931,7 +931,7 @@
   {
     "cardID": "WXDi-CP02-041",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-041.webp",
+    "image": "WXDi-CP02/WXDi-CP02-041.webp",
     "name": "奥空アヤネ(水着)",
     "subName": "オクソラアヤネミズギ",
     "rarity": "LC",
@@ -969,7 +969,7 @@
   {
     "cardID": "WXDi-CP02-042",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-042.webp",
+    "image": "WXDi-CP02/WXDi-CP02-042.webp",
     "name": "十六夜ノノミ[お仕置きの時間です~♣]",
     "subName": "イザヨイノノミオシオキノジカンデスー",
     "rarity": "LC",
@@ -1003,7 +1003,7 @@
   {
     "cardID": "WXDi-CP02-043",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-043.webp",
+    "image": "WXDi-CP02/WXDi-CP02-043.webp",
     "name": "十六夜ノノミ(水着)",
     "subName": "イザヨイノノミミズギ",
     "rarity": "LC",
@@ -1042,7 +1042,7 @@
   {
     "cardID": "WXDi-CP02-045",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-045.webp",
+    "image": "WXDi-CP02/WXDi-CP02-045.webp",
     "name": "銀鏡イオリ",
     "subName": "シロミイオリ",
     "rarity": "LC",
@@ -1070,7 +1070,7 @@
   {
     "cardID": "WXDi-CP02-046",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-046.webp",
+    "image": "WXDi-CP02/WXDi-CP02-046.webp",
     "name": "火宮チナツ",
     "subName": "ヒノミヤチナツ",
     "rarity": "LC",
@@ -1103,7 +1103,7 @@
   {
     "cardID": "WXDi-CP02-047",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-047.webp",
+    "image": "WXDi-CP02/WXDi-CP02-047.webp",
     "name": "銀鏡イオリ[一網打尽]",
     "subName": "シロミイオリイチモウダジン",
     "rarity": "LC",
@@ -1141,7 +1141,7 @@
   {
     "cardID": "WXDi-CP02-048",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-048.webp",
+    "image": "WXDi-CP02/WXDi-CP02-048.webp",
     "name": "銀鏡イオリ(水着)",
     "subName": "シロミイオリミズギ",
     "rarity": "LC",
@@ -1175,7 +1175,7 @@
   {
     "cardID": "WXDi-CP02-049",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-049.webp",
+    "image": "WXDi-CP02/WXDi-CP02-049.webp",
     "name": "火宮チナツ[戦傷治療]",
     "subName": "ヒノミヤチナツセンショウチリョウ",
     "rarity": "LC",
@@ -1210,7 +1210,7 @@
   {
     "cardID": "WXDi-CP02-050",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-050.webp",
+    "image": "WXDi-CP02/WXDi-CP02-050.webp",
     "name": "火宮チナツ(温泉)",
     "subName": "ヒノミヤチナツオンセン",
     "rarity": "LC",
@@ -1248,7 +1248,7 @@
   {
     "cardID": "WXDi-CP02-051",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-051.webp",
+    "image": "WXDi-CP02/WXDi-CP02-051.webp",
     "name": "歌住サクラコ",
     "subName": "ウタズミサクラコ",
     "rarity": "SR",
@@ -1286,7 +1286,7 @@
   {
     "cardID": "WXDi-CP02-052",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-052.webp",
+    "image": "WXDi-CP02/WXDi-CP02-052.webp",
     "name": "聖園ミカ",
     "subName": "ミソノミカ",
     "rarity": "SR",
@@ -1335,7 +1335,7 @@
   {
     "cardID": "WXDi-CP02-053",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-053.webp",
+    "image": "WXDi-CP02/WXDi-CP02-053.webp",
     "name": "蒼森ミネ",
     "subName": "アオモリミネ",
     "rarity": "SR",
@@ -1382,7 +1382,7 @@
   {
     "cardID": "WXDi-CP02-054",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-054.webp",
+    "image": "WXDi-CP02/WXDi-CP02-054.webp",
     "name": "天童アリス",
     "subName": "テンドウアリス",
     "rarity": "SR",
@@ -1424,7 +1424,7 @@
   {
     "cardID": "WXDi-CP02-055",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-055.webp",
+    "image": "WXDi-CP02/WXDi-CP02-055.webp",
     "name": "猫塚ヒビキ",
     "subName": "ネコヅカヒビキ",
     "rarity": "SR",
@@ -1462,7 +1462,7 @@
   {
     "cardID": "WXDi-CP02-056",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-056.webp",
+    "image": "WXDi-CP02/WXDi-CP02-056.webp",
     "name": "早瀬ユウカ",
     "subName": "ハヤセユウカ",
     "rarity": "SR",
@@ -1517,7 +1517,7 @@
   {
     "cardID": "WXDi-CP02-057",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-057.webp",
+    "image": "WXDi-CP02/WXDi-CP02-057.webp",
     "name": "久田イズナ",
     "subName": "クダイズナ",
     "rarity": "SR",
@@ -1551,7 +1551,7 @@
   {
     "cardID": "WXDi-CP02-058",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-058.webp",
+    "image": "WXDi-CP02/WXDi-CP02-058.webp",
     "name": "小鳥遊ホシノ",
     "subName": "タカナシホシノ",
     "rarity": "SR",
@@ -1589,7 +1589,7 @@
   {
     "cardID": "WXDi-CP02-059",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-059.webp",
+    "image": "WXDi-CP02/WXDi-CP02-059.webp",
     "name": "狐坂ワカモ",
     "subName": "コサカワカモ",
     "rarity": "SR",
@@ -1631,7 +1631,7 @@
   {
     "cardID": "WXDi-CP02-060",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-060.webp",
+    "image": "WXDi-CP02/WXDi-CP02-060.webp",
     "name": "陸八魔アル",
     "subName": "リクハチマアル",
     "rarity": "SR",
@@ -1685,7 +1685,7 @@
   {
     "cardID": "WXDi-CP02-061",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-061.webp",
+    "image": "WXDi-CP02/WXDi-CP02-061.webp",
     "name": "棗イロハ",
     "subName": "ナツメイロハ",
     "rarity": "SR",
@@ -1732,7 +1732,7 @@
   {
     "cardID": "WXDi-CP02-062",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-062.webp",
+    "image": "WXDi-CP02/WXDi-CP02-062.webp",
     "name": "黒舘ハルナ",
     "subName": "クロダテハルナ",
     "rarity": "SR",
@@ -1769,7 +1769,7 @@
   {
     "cardID": "WXDi-CP02-063",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-063.webp",
+    "image": "WXDi-CP02/WXDi-CP02-063.webp",
     "name": "下江コハル",
     "subName": "シモエコハル",
     "rarity": "R",
@@ -1810,7 +1810,7 @@
   {
     "cardID": "WXDi-CP02-064",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-064.webp",
+    "image": "WXDi-CP02/WXDi-CP02-064.webp",
     "name": "守月スズミ",
     "subName": "モリヅキスズミ",
     "rarity": "C",
@@ -1852,7 +1852,7 @@
   {
     "cardID": "WXDi-CP02-065",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-065.webp",
+    "image": "WXDi-CP02/WXDi-CP02-065.webp",
     "name": "鷲見セリナ",
     "subName": "スミセリナ",
     "rarity": "R",
@@ -1890,7 +1890,7 @@
   {
     "cardID": "WXDi-CP02-066",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-066.webp",
+    "image": "WXDi-CP02/WXDi-CP02-066.webp",
     "name": "静山マシロ",
     "subName": "シズヤママシロ",
     "rarity": "C",
@@ -1923,7 +1923,7 @@
   {
     "cardID": "WXDi-CP02-067",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-067.webp",
+    "image": "WXDi-CP02/WXDi-CP02-067.webp",
     "name": "伊落マリー",
     "subName": "イオチマリー",
     "rarity": "C",
@@ -1961,7 +1961,7 @@
   {
     "cardID": "WXDi-CP02-068",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-068.webp",
+    "image": "WXDi-CP02/WXDi-CP02-068.webp",
     "name": "古関ウイ",
     "subName": "コゼキウイ",
     "rarity": "C",
@@ -2006,7 +2006,7 @@
   {
     "cardID": "WXDi-CP02-069",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-069.webp",
+    "image": "WXDi-CP02/WXDi-CP02-069.webp",
     "name": "杏山カズサ",
     "subName": "キョウヤマカズサ",
     "rarity": "R",
@@ -2039,7 +2039,7 @@
   {
     "cardID": "WXDi-CP02-070",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-070.webp",
+    "image": "WXDi-CP02/WXDi-CP02-070.webp",
     "name": "桐藤ナギサ",
     "subName": "キリフジナギサ",
     "rarity": "C",
@@ -2077,7 +2077,7 @@
   {
     "cardID": "WXDi-CP02-071",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-071.webp",
+    "image": "WXDi-CP02/WXDi-CP02-071.webp",
     "name": "羽川ハスミ",
     "subName": "ハネカワハスミ",
     "rarity": "C",
@@ -2111,7 +2111,7 @@
   {
     "cardID": "WXDi-CP02-072",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-072.webp",
+    "image": "WXDi-CP02/WXDi-CP02-072.webp",
     "name": "剣先ツルギ",
     "subName": "ケンザキツルギ",
     "rarity": "R",
@@ -2149,7 +2149,7 @@
   {
     "cardID": "WXDi-CP02-073",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-073.webp",
+    "image": "WXDi-CP02/WXDi-CP02-073.webp",
     "name": "室笠アカネ",
     "subName": "ムロカサアカネ",
     "rarity": "C",
@@ -2183,7 +2183,7 @@
   {
     "cardID": "WXDi-CP02-074",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-074.webp",
+    "image": "WXDi-CP02/WXDi-CP02-074.webp",
     "name": "音瀬コタマ",
     "subName": "オトセコタマ",
     "rarity": "C",
@@ -2224,7 +2224,7 @@
   {
     "cardID": "WXDi-CP02-075",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-075.webp",
+    "image": "WXDi-CP02/WXDi-CP02-075.webp",
     "name": "黒崎コユキ",
     "subName": "クロサキコユキ",
     "rarity": "C",
@@ -2261,7 +2261,7 @@
   {
     "cardID": "WXDi-CP02-076",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-076.webp",
+    "image": "WXDi-CP02/WXDi-CP02-076.webp",
     "name": "各務チヒロ",
     "subName": "カガミチヒロ",
     "rarity": "R",
@@ -2298,7 +2298,7 @@
   {
     "cardID": "WXDi-CP02-077",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-077.webp",
+    "image": "WXDi-CP02/WXDi-CP02-077.webp",
     "name": "花岡ユズ",
     "subName": "ハナオカユズ",
     "rarity": "R",
@@ -2336,7 +2336,7 @@
   {
     "cardID": "WXDi-CP02-078",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-078.webp",
+    "image": "WXDi-CP02/WXDi-CP02-078.webp",
     "name": "飛鳥馬トキ",
     "subName": "アスマトキ",
     "rarity": "C",
@@ -2373,7 +2373,7 @@
   {
     "cardID": "WXDi-CP02-079",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-079.webp",
+    "image": "WXDi-CP02/WXDi-CP02-079.webp",
     "name": "明星ヒマリ",
     "subName": "アケボシヒマリ",
     "rarity": "C",
@@ -2407,7 +2407,7 @@
   {
     "cardID": "WXDi-CP02-080",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-080.webp",
+    "image": "WXDi-CP02/WXDi-CP02-080.webp",
     "name": "才羽モモイ",
     "subName": "サイバモモイ",
     "rarity": "C",
@@ -2445,7 +2445,7 @@
   {
     "cardID": "WXDi-CP02-081",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-081.webp",
+    "image": "WXDi-CP02/WXDi-CP02-081.webp",
     "name": "才羽ミドリ",
     "subName": "サイバミドリ",
     "rarity": "R",
@@ -2478,7 +2478,7 @@
   {
     "cardID": "WXDi-CP02-082",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-082.webp",
+    "image": "WXDi-CP02/WXDi-CP02-082.webp",
     "name": "生塩ノア",
     "subName": "ウシオノア",
     "rarity": "R",
@@ -2516,7 +2516,7 @@
   {
     "cardID": "WXDi-CP02-083",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-083.webp",
+    "image": "WXDi-CP02/WXDi-CP02-083.webp",
     "name": "勇美カエデ",
     "subName": "イサミカエデ",
     "rarity": "C",
@@ -2554,7 +2554,7 @@
   {
     "cardID": "WXDi-CP02-084",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-084.webp",
+    "image": "WXDi-CP02/WXDi-CP02-084.webp",
     "name": "大野ツクヨ",
     "subName": "オオノツクヨ",
     "rarity": "R",
@@ -2587,7 +2587,7 @@
   {
     "cardID": "WXDi-CP02-085",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-085.webp",
+    "image": "WXDi-CP02/WXDi-CP02-085.webp",
     "name": "朝比奈フィーナ",
     "subName": "アサヒナフィーナ",
     "rarity": "C",
@@ -2625,7 +2625,7 @@
   {
     "cardID": "WXDi-CP02-086",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-086.webp",
+    "image": "WXDi-CP02/WXDi-CP02-086.webp",
     "name": "千鳥ミチル",
     "subName": "チドリミチル",
     "rarity": "C",
@@ -2662,7 +2662,7 @@
   {
     "cardID": "WXDi-CP02-087",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-087.webp",
+    "image": "WXDi-CP02/WXDi-CP02-087.webp",
     "name": "水羽ミモリ",
     "subName": "ミズハミモリ",
     "rarity": "R",
@@ -2700,7 +2700,7 @@
   {
     "cardID": "WXDi-CP02-088",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-088.webp",
+    "image": "WXDi-CP02/WXDi-CP02-088.webp",
     "name": "河和シズコ",
     "subName": "カワワシズコ",
     "rarity": "C",
@@ -2734,7 +2734,7 @@
   {
     "cardID": "WXDi-CP02-089",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-089.webp",
+    "image": "WXDi-CP02/WXDi-CP02-089.webp",
     "name": "黒見セリカ",
     "subName": "クロミセリカ",
     "rarity": "R",
@@ -2771,7 +2771,7 @@
   {
     "cardID": "WXDi-CP02-090",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-090.webp",
+    "image": "WXDi-CP02/WXDi-CP02-090.webp",
     "name": "和楽チセ",
     "subName": "ワラクチセ",
     "rarity": "C",
@@ -2804,7 +2804,7 @@
   {
     "cardID": "WXDi-CP02-091",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-091.webp",
+    "image": "WXDi-CP02/WXDi-CP02-091.webp",
     "name": "春日ツバキ",
     "subName": "カスガツバキ",
     "rarity": "C",
@@ -2843,7 +2843,7 @@
   {
     "cardID": "WXDi-CP02-092",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-092.webp",
+    "image": "WXDi-CP02/WXDi-CP02-092.webp",
     "name": "桑上カホ",
     "subName": "クワカミカホ",
     "rarity": "R",
@@ -2881,7 +2881,7 @@
   {
     "cardID": "WXDi-CP02-093",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-093.webp",
+    "image": "WXDi-CP02/WXDi-CP02-093.webp",
     "name": "獅子堂イズミ",
     "subName": "シシドウイズミ",
     "rarity": "R",
@@ -2918,7 +2918,7 @@
   {
     "cardID": "WXDi-CP02-094",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-094.webp",
+    "image": "WXDi-CP02/WXDi-CP02-094.webp",
     "name": "鬼方カヨコ",
     "subName": "オニカタカヨコ",
     "rarity": "C",
@@ -2951,7 +2951,7 @@
   {
     "cardID": "WXDi-CP02-095",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-095.webp",
+    "image": "WXDi-CP02/WXDi-CP02-095.webp",
     "name": "牛牧ジュリ",
     "subName": "ウシマキジュリ",
     "rarity": "C",
@@ -2988,7 +2988,7 @@
   {
     "cardID": "WXDi-CP02-096",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-096.webp",
+    "image": "WXDi-CP02/WXDi-CP02-096.webp",
     "name": "氷室セナ",
     "subName": "ヒムロセナ",
     "rarity": "R",
@@ -3026,7 +3026,7 @@
   {
     "cardID": "WXDi-CP02-097",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-097.webp",
+    "image": "WXDi-CP02/WXDi-CP02-097.webp",
     "name": "伊草ハルカ",
     "subName": "イグサハルカ",
     "rarity": "C",
@@ -3061,7 +3061,7 @@
   {
     "cardID": "WXDi-CP02-098",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-098.webp",
+    "image": "WXDi-CP02/WXDi-CP02-098.webp",
     "name": "鰐渕アカリ",
     "subName": "ワニブチアカリ",
     "rarity": "C",
@@ -3094,7 +3094,7 @@
   {
     "cardID": "WXDi-CP02-099",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-099.webp",
+    "image": "WXDi-CP02/WXDi-CP02-099.webp",
     "name": "赤司ジュンコ",
     "subName": "アカシジュンコ",
     "rarity": "C",
@@ -3128,7 +3128,7 @@
   {
     "cardID": "WXDi-CP02-100",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-100.webp",
+    "image": "WXDi-CP02/WXDi-CP02-100.webp",
     "name": "愛清フウカ",
     "subName": "アイキヨフウカ",
     "rarity": "C",
@@ -3162,7 +3162,7 @@
   {
     "cardID": "WXDi-CP02-101",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-101.webp",
+    "image": "WXDi-CP02/WXDi-CP02-101.webp",
     "name": "浅黄ムツキ",
     "subName": "アサギムツキ",
     "rarity": "R",
@@ -3199,7 +3199,7 @@
   {
     "cardID": "WXDi-CP02-102",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-102.webp",
+    "image": "WXDi-CP02/WXDi-CP02-102.webp",
     "name": "天雨アコ",
     "subName": "アマウアコ",
     "rarity": "R",
@@ -3233,7 +3233,7 @@
   {
     "cardID": "WXDi-CP02-103",
     "productID": "WXDi-CP02",
-    "image": "/assets/images/WXDi-CP02/WXDi-CP02-103.webp",
+    "image": "WXDi-CP02/WXDi-CP02-103.webp",
     "name": "物語の起動",
     "subName": "モノガタリノキドウ",
     "rarity": "C",
