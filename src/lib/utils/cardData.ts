@@ -3,14 +3,7 @@ import type { Card } from "$lib/types";
 export const CARD_SETS = [
   "header",
   "WX26-CP1",
-  "WX25-P1",
-  "WX24-P2",
-  "WX24-P3",
-  "WX24-P4",
-  "WXDi-P16",
-  "WXDi-P15",
-  "WXDi-P13",
-  "WXDi-P12",
+  "WX25-CP1",
 ];
 
 export function cardKey(card: Pick<Card, "id" | "image">): string | null {

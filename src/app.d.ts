@@ -1,4 +1,4 @@
-import type { KVNamespace, D1Database, R2Bucket } from '@cloudflare/workers-types';
+import type { KVNamespace, D1Database } from '@cloudflare/workers-types';
 
 declare global {
   namespace App {
@@ -21,7 +21,6 @@ declare global {
         WIXDEX_SESSION: KVNamespace;
         RATE_LIMIT: KVNamespace;
         OAUTH_PRIVATE_KEYS: string;
-        CARD_IMAGES: R2Bucket;
       };
       context: {
         waitUntil(promise: Promise<unknown>): void;

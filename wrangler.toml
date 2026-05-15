@@ -26,9 +26,6 @@ id = "cf31a4c1699d45569144f0fa3ed73f67"
 binding = "RATE_LIMIT"
 id = "62ad51eb191b4bb6949a279ccaf92343"
 
-[[r2_buckets]]
-binding = "CARD_IMAGES"
-bucket_name = "wixdex-card-images"
 
 [vars]
 APP_URL = "https://wixdex.cards"
