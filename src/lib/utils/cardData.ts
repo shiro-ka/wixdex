@@ -5,6 +5,7 @@ export const CARD_SETS = [
   "WX26-CP1",
   "WX25-P2",
   "WX25-CP1",
+  "WXDi-CP02",
 ];
 
 export function cardKey(card: Pick<Card, "id" | "image">): string | null {
