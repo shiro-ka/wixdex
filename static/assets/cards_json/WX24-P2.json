@@ -2,7 +2,7 @@
   {
     "cardID": "WX24-P2-001",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-001.png",
+    "image": "WX24-P2/WX24-P2-001.webp",
     "name": "インフィニット・フォース",
     "subName": "インフィニットフォース",
     "rarity": "LR",
@@ -37,7 +37,7 @@
   {
     "cardID": "WX24-P2-002",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-002.png",
+    "image": "WX24-P2/WX24-P2-002.webp",
     "name": "ホワイト・ウィッシュ",
     "subName": "ホワイトウィッシュ",
     "rarity": "LR",
@@ -72,7 +72,7 @@
   {
     "cardID": "WX24-P2-003",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-003.png",
+    "image": "WX24-P2/WX24-P2-003.webp",
     "name": "集中紅火",
     "subName": "シュウチュウコウカ",
     "rarity": "LR",
@@ -111,7 +111,7 @@
   {
     "cardID": "WX24-P2-004",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-004.png",
+    "image": "WX24-P2/WX24-P2-004.webp",
     "name": "熱願炎諦",
     "subName": "ネツガンエンテイ",
     "rarity": "LR",
@@ -137,7 +137,7 @@
   {
     "cardID": "WX24-P2-005",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-005.png",
+    "image": "WX24-P2/WX24-P2-005.webp",
     "name": "ロック・オン",
     "subName": "ロックオン",
     "rarity": "LR",
@@ -172,7 +172,7 @@
   {
     "cardID": "WX24-P2-006",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-006.png",
+    "image": "WX24-P2/WX24-P2-006.webp",
     "name": "アズール・ウィッシュ",
     "subName": "アズールウィッシュ",
     "rarity": "LR",
@@ -198,7 +198,7 @@
   {
     "cardID": "WX24-P2-007",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-007.png",
+    "image": "WX24-P2/WX24-P2-007.webp",
     "name": "虚心坦懐",
     "subName": "トゥルーハート",
     "rarity": "LR",
@@ -237,7 +237,7 @@
   {
     "cardID": "WX24-P2-008",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-008.png",
+    "image": "WX24-P2/WX24-P2-008.webp",
     "name": "加持祈禱",
     "subName": "エメラルドウィッシュ",
     "rarity": "LR",
@@ -272,7 +272,7 @@
   {
     "cardID": "WX24-P2-009",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-009.png",
+    "image": "WX24-P2/WX24-P2-009.webp",
     "name": "デッドリー・ポータル",
     "subName": "デッドリーポータル",
     "rarity": "LR",
@@ -303,7 +303,7 @@
   {
     "cardID": "WX24-P2-010",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-010.png",
+    "image": "WX24-P2/WX24-P2-010.webp",
     "name": "ブラック・ウィッシュ",
     "subName": "ブラックウィッシュ",
     "rarity": "LR",
@@ -329,7 +329,7 @@
   {
     "cardID": "WX24-P2-014",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-014.png",
+    "image": "WX24-P2/WX24-P2-014.webp",
     "name": "満月の使徒 小湊るう子",
     "subName": "マンゲツノシトコミナトルウコ",
     "rarity": "LC",
@@ -363,7 +363,7 @@
   {
     "cardID": "WX24-P2-018",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-018.png",
+    "image": "WX24-P2/WX24-P2-018.webp",
     "name": "熾炎舞 遊月・参",
     "subName": "シエンブユヅキサン",
     "rarity": "LC",
@@ -397,7 +397,7 @@
   {
     "cardID": "WX24-P2-022",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-022.png",
+    "image": "WX24-P2/WX24-P2-022.webp",
     "name": "あきら☆らっきー",
     "subName": "アキララッキー",
     "rarity": "LC",
@@ -435,7 +435,7 @@
   {
     "cardID": "WX24-P2-026",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-026.png",
+    "image": "WX24-P2/WX24-P2-026.webp",
     "name": "参式 一衣",
     "subName": "サンシキヒトエ",
     "rarity": "LC",
@@ -469,7 +469,7 @@
   {
     "cardID": "WX24-P2-030",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-030.png",
+    "image": "WX24-P2/WX24-P2-030.webp",
     "name": "エニグマ/メイデン イオナ",
     "subName": "エニグマメイデンイオナ",
     "rarity": "LC",
@@ -515,7 +515,7 @@
   {
     "cardID": "WX24-P2-031",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-031.png",
+    "image": "WX24-P2/WX24-P2-031.webp",
     "name": "カオス・クラウン",
     "subName": "カオスクラウン",
     "rarity": "LC",
@@ -546,7 +546,7 @@
   {
     "cardID": "WX24-P2-032",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-032.png",
+    "image": "WX24-P2/WX24-P2-032.webp",
     "name": "アンステイブル・シールド",
     "subName": "アンステイブルシールド",
     "rarity": "LC",
@@ -578,7 +578,7 @@
   {
     "cardID": "WX24-P2-033",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-033.png",
+    "image": "WX24-P2/WX24-P2-033.webp",
     "name": "能龍隠爪",
     "subName": "ノウリュウインソウ",
     "rarity": "LC",
@@ -609,7 +609,7 @@
   {
     "cardID": "WX24-P2-034",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-034.png",
+    "image": "WX24-P2/WX24-P2-034.webp",
     "name": "炎打一振",
     "subName": "エンダイッシン",
     "rarity": "LC",
@@ -640,7 +640,7 @@
   {
     "cardID": "WX24-P2-035",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-035.png",
+    "image": "WX24-P2/WX24-P2-035.webp",
     "name": "ステーショナリー・ワン",
     "subName": "ステーショナリーワン",
     "rarity": "LC",
@@ -671,7 +671,7 @@
   {
     "cardID": "WX24-P2-036",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-036.png",
+    "image": "WX24-P2/WX24-P2-036.webp",
     "name": "プリーズ・ストップ",
     "subName": "プリーズストップ",
     "rarity": "LC",
@@ -703,7 +703,7 @@
   {
     "cardID": "WX24-P2-037",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-037.png",
+    "image": "WX24-P2/WX24-P2-037.webp",
     "name": "蔓巻発条",
     "subName": "スパイラルソーン",
     "rarity": "LC",
@@ -738,7 +738,7 @@
   {
     "cardID": "WX24-P2-038",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-038.png",
+    "image": "WX24-P2/WX24-P2-038.webp",
     "name": "明窓浄机",
     "subName": "クリーンナップ",
     "rarity": "LC",
@@ -765,7 +765,7 @@
   {
     "cardID": "WX24-P2-039",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-039.png",
+    "image": "WX24-P2/WX24-P2-039.webp",
     "name": "グレイブ・イブニング",
     "subName": "グレイブイブニング",
     "rarity": "LC",
@@ -796,7 +796,7 @@
   {
     "cardID": "WX24-P2-040",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-040.png",
+    "image": "WX24-P2/WX24-P2-040.webp",
     "name": "シャドウ・ケージ",
     "subName": "シャドウケージ",
     "rarity": "LC",
@@ -822,7 +822,7 @@
   {
     "cardID": "WX24-P2-041",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-041.png",
+    "image": "WX24-P2/WX24-P2-041.webp",
     "name": "チャージ・エンハンス",
     "subName": "チャージエンハンス",
     "rarity": "LC",
@@ -853,7 +853,7 @@
   {
     "cardID": "WX24-P2-042",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-042.png",
+    "image": "WX24-P2/WX24-P2-042.webp",
     "name": "バカンス・チャージング",
     "subName": "バカンスチャージング",
     "rarity": "LC",
@@ -879,7 +879,7 @@
   {
     "cardID": "WX24-P2-043",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-043.png",
+    "image": "WX24-P2/WX24-P2-043.webp",
     "name": "カレイドスコープ",
     "subName": "カレイドスコープ",
     "rarity": "LC",
@@ -918,7 +918,7 @@
   {
     "cardID": "WX24-P2-044",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-044.png",
+    "image": "WX24-P2/WX24-P2-044.webp",
     "name": "遊月・レッドジャスパー",
     "subName": "ユヅキレッドジャスパー",
     "rarity": "LC",
@@ -952,7 +952,7 @@
   {
     "cardID": "WX24-P2-045",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-045.png",
+    "image": "WX24-P2/WX24-P2-045.webp",
     "name": "ピルルク/A-C",
     "subName": "ピルルクエニーチョイス",
     "rarity": "LC",
@@ -986,7 +986,7 @@
   {
     "cardID": "WX24-P2-046",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-046.png",
+    "image": "WX24-P2/WX24-P2-046.webp",
     "name": "ウリス・カース",
     "subName": "ウリスカース",
     "rarity": "LC",
@@ -1019,7 +1019,7 @@
   {
     "cardID": "WX24-P2-047",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-047.png",
+    "image": "WX24-P2/WX24-P2-047.webp",
     "name": "聖天姫 アダム",
     "subName": "セイテンキアダム",
     "rarity": "SR",
@@ -1064,7 +1064,7 @@
   {
     "cardID": "WX24-P2-048",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-048.png",
+    "image": "WX24-P2/WX24-P2-048.webp",
     "name": "聖魔姫 イヴ",
     "subName": "セイマキイウ゛",
     "rarity": "SR",
@@ -1097,7 +1097,7 @@
   {
     "cardID": "WX24-P2-049",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-049.png",
+    "image": "WX24-P2/WX24-P2-049.webp",
     "name": "大装 ツルマル",
     "subName": "タイソウツルマル",
     "rarity": "SR",
@@ -1136,7 +1136,7 @@
   {
     "cardID": "WX24-P2-050",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-050.png",
+    "image": "WX24-P2/WX24-P2-050.webp",
     "name": "幻闘竜姫 スヴァローグ",
     "subName": "ゲントウリュウキスウ゛ァローグ",
     "rarity": "SR",
@@ -1177,7 +1177,7 @@
   {
     "cardID": "WX24-P2-051",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-051.png",
+    "image": "WX24-P2/WX24-P2-051.webp",
     "name": "羅輝石 ドラゴアゲート",
     "subName": "ラキセキドラゴアゲート",
     "rarity": "SR",
@@ -1211,7 +1211,7 @@
   {
     "cardID": "WX24-P2-052",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-052.png",
+    "image": "WX24-P2/WX24-P2-052.webp",
     "name": "参ノ遊姫 ボールペンマワシ",
     "subName": "サンノユウキボールペンマワシ",
     "rarity": "SR",
@@ -1248,7 +1248,7 @@
   {
     "cardID": "WX24-P2-053",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-053.png",
+    "image": "WX24-P2/WX24-P2-053.webp",
     "name": "コードハート Dローン",
     "subName": "コードハートディーローン",
     "rarity": "SR",
@@ -1286,7 +1286,7 @@
   {
     "cardID": "WX24-P2-054",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-054.png",
+    "image": "WX24-P2/WX24-P2-054.webp",
     "name": "羅植姫 ジャックビーンズ",
     "subName": "ラショクヒメジャックビーンズ",
     "rarity": "SR",
@@ -1323,7 +1323,7 @@
   {
     "cardID": "WX24-P2-055",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-055.png",
+    "image": "WX24-P2/WX24-P2-055.webp",
     "name": "幻獣神 ヤマアラシ",
     "subName": "ゲンジュウシンヤマアラシ",
     "rarity": "SR",
@@ -1360,7 +1360,7 @@
   {
     "cardID": "WX24-P2-056",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-056.png",
+    "image": "WX24-P2/WX24-P2-056.webp",
     "name": "コードオーダー メロンパフェ",
     "subName": "コードオーダーメロンパフェ",
     "rarity": "SR",
@@ -1389,7 +1389,7 @@
   {
     "cardID": "WX24-P2-057",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-057.png",
+    "image": "WX24-P2/WX24-P2-057.webp",
     "name": "コードラビラント ルーブル",
     "subName": "コードラビラントルーブル",
     "rarity": "SR",
@@ -1423,7 +1423,7 @@
   {
     "cardID": "WX24-P2-058",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-058.png",
+    "image": "WX24-P2/WX24-P2-058.webp",
     "name": "凶魔姫 ハデス",
     "subName": "キョウマキハデス",
     "rarity": "SR",
@@ -1456,7 +1456,7 @@
   {
     "cardID": "WX24-P2-059",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-059.png",
+    "image": "WX24-P2/WX24-P2-059.webp",
     "name": "聖天 ヴィゾフニル",
     "subName": "セイテンウ゛ィゾフニル",
     "rarity": "C",
@@ -1484,7 +1484,7 @@
   {
     "cardID": "WX24-P2-060",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-060.png",
+    "image": "WX24-P2/WX24-P2-060.webp",
     "name": "聖魔 シャックス",
     "subName": "セイマシャックス",
     "rarity": "R",
@@ -1517,7 +1517,7 @@
   {
     "cardID": "WX24-P2-061",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-061.png",
+    "image": "WX24-P2/WX24-P2-061.webp",
     "name": "幻竜 ニホンヤモリ",
     "subName": "ゲンリュウニホンヤモリ",
     "rarity": "C",
@@ -1544,7 +1544,7 @@
   {
     "cardID": "WX24-P2-062",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-062.png",
+    "image": "WX24-P2/WX24-P2-062.webp",
     "name": "聖天 シャムシエル",
     "subName": "セイテンシャムシエル",
     "rarity": "R",
@@ -1572,7 +1572,7 @@
   {
     "cardID": "WX24-P2-063",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-063.png",
+    "image": "WX24-P2/WX24-P2-063.webp",
     "name": "聖魔 セーレ",
     "subName": "セイマセーレ",
     "rarity": "C",
@@ -1605,7 +1605,7 @@
   {
     "cardID": "WX24-P2-064",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-064.png",
+    "image": "WX24-P2/WX24-P2-064.webp",
     "name": "弐ノ遊 ペープサート",
     "subName": "ニノユウペープサート",
     "rarity": "C",
@@ -1633,7 +1633,7 @@
   {
     "cardID": "WX24-P2-065",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-065.png",
+    "image": "WX24-P2/WX24-P2-065.webp",
     "name": "イマジン・ビッカー",
     "subName": "イマジンビッカー",
     "rarity": "R",
@@ -1659,7 +1659,7 @@
   {
     "cardID": "WX24-P2-066",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-066.png",
+    "image": "WX24-P2/WX24-P2-066.webp",
     "name": "幻竜 ヤマトサウルス",
     "subName": "ゲンリュウヤマトサウルス",
     "rarity": "R",
@@ -1686,7 +1686,7 @@
   {
     "cardID": "WX24-P2-067",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-067.png",
+    "image": "WX24-P2/WX24-P2-067.webp",
     "name": "幻竜 ギータ",
     "subName": "ゲンリュウギータ",
     "rarity": "C",
@@ -1719,7 +1719,7 @@
   {
     "cardID": "WX24-P2-068",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-068.png",
+    "image": "WX24-P2/WX24-P2-068.webp",
     "name": "羅植 モミジ",
     "subName": "ラショクモミジ",
     "rarity": "C",
@@ -1751,7 +1751,7 @@
   {
     "cardID": "WX24-P2-069",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-069.png",
+    "image": "WX24-P2/WX24-P2-069.webp",
     "name": "小砲 パンジャン",
     "subName": "ショウホウパンジャン",
     "rarity": "R",
@@ -1784,7 +1784,7 @@
   {
     "cardID": "WX24-P2-070",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-070.png",
+    "image": "WX24-P2/WX24-P2-070.webp",
     "name": "幻竜 ズメイ",
     "subName": "ゲンリュウズメイ",
     "rarity": "C",
@@ -1811,7 +1811,7 @@
   {
     "cardID": "WX24-P2-071",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-071.png",
+    "image": "WX24-P2/WX24-P2-071.webp",
     "name": "幻闘竜 グリアナ",
     "subName": "ゲントウリュウグリアナ",
     "rarity": "R",
@@ -1844,7 +1844,7 @@
   {
     "cardID": "WX24-P2-072",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-072.png",
+    "image": "WX24-P2/WX24-P2-072.webp",
     "name": "コードメイズ アカレンガ",
     "subName": "コードメイズアカレンガ",
     "rarity": "C",
@@ -1881,7 +1881,7 @@
   {
     "cardID": "WX24-P2-073",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-073.png",
+    "image": "WX24-P2/WX24-P2-073.webp",
     "name": "爆竜の衝突",
     "subName": "バクリュウノショウトツ",
     "rarity": "R",
@@ -1907,7 +1907,7 @@
   {
     "cardID": "WX24-P2-074",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-074.png",
+    "image": "WX24-P2/WX24-P2-074.webp",
     "name": "壱ノ遊 フウリン",
     "subName": "イチノユウフウリン",
     "rarity": "R",
@@ -1934,7 +1934,7 @@
   {
     "cardID": "WX24-P2-075",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-075.png",
+    "image": "WX24-P2/WX24-P2-075.webp",
     "name": "壱ノ遊 キンギョスクイ",
     "subName": "イチノユウキンギョスクイ",
     "rarity": "C",
@@ -1967,7 +1967,7 @@
   {
     "cardID": "WX24-P2-076",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-076.png",
+    "image": "WX24-P2/WX24-P2-076.webp",
     "name": "蒼天 アケローン",
     "subName": "ソウテンアケローン",
     "rarity": "C",
@@ -1994,7 +1994,7 @@
   {
     "cardID": "WX24-P2-077",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-077.png",
+    "image": "WX24-P2/WX24-P2-077.webp",
     "name": "弍ノ遊 ミズフウセン",
     "subName": "ニノユウミズフウセン",
     "rarity": "C",
@@ -2027,7 +2027,7 @@
   {
     "cardID": "WX24-P2-078",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-078.png",
+    "image": "WX24-P2/WX24-P2-078.webp",
     "name": "弍ノ遊 ミズデッポウ",
     "subName": "ニノユウミズデッポウ",
     "rarity": "R",
@@ -2055,7 +2055,7 @@
   {
     "cardID": "WX24-P2-079",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-079.png",
+    "image": "WX24-P2/WX24-P2-079.webp",
     "name": "幻竜 ウミヘビ",
     "subName": "ゲンリュウウミヘビ",
     "rarity": "C",
@@ -2083,7 +2083,7 @@
   {
     "cardID": "WX24-P2-080",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-080.png",
+    "image": "WX24-P2/WX24-P2-080.webp",
     "name": "BUNNY CHARGE",
     "subName": "バニーチャージ",
     "rarity": "R",
@@ -2114,7 +2114,7 @@
   {
     "cardID": "WX24-P2-081",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-081.png",
+    "image": "WX24-P2/WX24-P2-081.webp",
     "name": "羅植 ボンサイ",
     "subName": "ラショクボンサイ",
     "rarity": "R",
@@ -2141,7 +2141,7 @@
   {
     "cardID": "WX24-P2-082",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-082.png",
+    "image": "WX24-P2/WX24-P2-082.webp",
     "name": "羅闘植 ローザリ",
     "subName": "ラトウショクローザリ",
     "rarity": "C",
@@ -2179,7 +2179,7 @@
   {
     "cardID": "WX24-P2-083",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-083.png",
+    "image": "WX24-P2/WX24-P2-083.webp",
     "name": "コードメイズ フラワーアーチ",
     "subName": "コードメイズフラワーアーチ",
     "rarity": "C",
@@ -2212,7 +2212,7 @@
   {
     "cardID": "WX24-P2-084",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-084.png",
+    "image": "WX24-P2/WX24-P2-084.webp",
     "name": "羅植 イケバナ",
     "subName": "ラショクイケバナ",
     "rarity": "C",
@@ -2239,7 +2239,7 @@
   {
     "cardID": "WX24-P2-085",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-085.png",
+    "image": "WX24-P2/WX24-P2-085.webp",
     "name": "羅植 ヤドリギ",
     "subName": "ラショクヤドリギ",
     "rarity": "R",
@@ -2273,7 +2273,7 @@
   {
     "cardID": "WX24-P2-086",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-086.png",
+    "image": "WX24-P2/WX24-P2-086.webp",
     "name": "翠魔 イシクマドウジ",
     "subName": "スイマイシクマドウジ",
     "rarity": "C",
@@ -2311,7 +2311,7 @@
   {
     "cardID": "WX24-P2-087",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-087.png",
+    "image": "WX24-P2/WX24-P2-087.webp",
     "name": "葉刃",
     "subName": "ヨウジン",
     "rarity": "R",
@@ -2342,7 +2342,7 @@
   {
     "cardID": "WX24-P2-088",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-088.png",
+    "image": "WX24-P2/WX24-P2-088.webp",
     "name": "コードメイズ シャッターガイ",
     "subName": "コードメイズシャッターガイ",
     "rarity": "R",
@@ -2374,7 +2374,7 @@
   {
     "cardID": "WX24-P2-089",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-089.png",
+    "image": "WX24-P2/WX24-P2-089.webp",
     "name": "コードメイズ オバケヤシキ",
     "subName": "コードメイズオバケヤシキ",
     "rarity": "C",
@@ -2407,7 +2407,7 @@
   {
     "cardID": "WX24-P2-090",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-090.png",
+    "image": "WX24-P2/WX24-P2-090.webp",
     "name": "壱ノ遊 カゲエ",
     "subName": "イチノユウカゲエ",
     "rarity": "C",
@@ -2443,7 +2443,7 @@
   {
     "cardID": "WX24-P2-091",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-091.png",
+    "image": "WX24-P2/WX24-P2-091.webp",
     "name": "コードメイズ オカヤマジョ",
     "subName": "コードメイズオカヤマジョ",
     "rarity": "C",
@@ -2475,7 +2475,7 @@
   {
     "cardID": "WX24-P2-092",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-092.png",
+    "image": "WX24-P2/WX24-P2-092.webp",
     "name": "コードメイズ アバケイ",
     "subName": "コードメイズアバケイ",
     "rarity": "R",
@@ -2513,7 +2513,7 @@
   {
     "cardID": "WX24-P2-093",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-093.png",
+    "image": "WX24-P2/WX24-P2-093.webp",
     "name": "羅植 カレハ",
     "subName": "ラショクカレハ",
     "rarity": "C",
@@ -2541,7 +2541,7 @@
   {
     "cardID": "WX24-P2-094",
     "productID": "WX24-P2",
-    "image": "/assets/images/WX24-P2/WX24-P2-094.png",
+    "image": "WX24-P2/WX24-P2-094.webp",
     "name": "スラッシング・ミラクル",
     "subName": "スラッシングミラクル",
     "rarity": "R",
