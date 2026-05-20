@@ -7,6 +7,7 @@ export const CARD_SETS = [
   "WX25-P2",
   "WX25-P1",
   "WX25-CP1",
+  "WX24-P3",
   "WXDi-CP02",
 ];
 
