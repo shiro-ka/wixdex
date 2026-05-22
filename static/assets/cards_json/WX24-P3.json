@@ -2,7 +2,7 @@
   {
     "cardID": "WX24-P3-001",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-001.webp",
+    "image": "WX24-P3/WX24-P3-001.webp",
     "name": "クリスタル・エクスプロージョン",
     "subName": [
       "クリスタルエクスプロージョン"
@@ -38,7 +38,7 @@
   {
     "cardID": "WX24-P3-002",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-002.webp",
+    "image": "WX24-P3/WX24-P3-002.webp",
     "name": "リメンバー・ミー",
     "subName": [
       "リメンバーミー"
@@ -74,7 +74,7 @@
   {
     "cardID": "WX24-P3-003",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-003.webp",
+    "image": "WX24-P3/WX24-P3-003.webp",
     "name": "勇気爆熱",
     "subName": [
       "ユウキバクネツ"
@@ -110,7 +110,7 @@
   {
     "cardID": "WX24-P3-004",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-004.webp",
+    "image": "WX24-P3/WX24-P3-004.webp",
     "name": "不敗炎話",
     "subName": [
       "フハイエンワ"
@@ -147,7 +147,7 @@
   {
     "cardID": "WX24-P3-005",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-005.webp",
+    "image": "WX24-P3/WX24-P3-005.webp",
     "name": "ブルー・オーバードライブ",
     "subName": [
       "ブルーオーバードライブ"
@@ -184,7 +184,7 @@
   {
     "cardID": "WX24-P3-006",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-006.webp",
+    "image": "WX24-P3/WX24-P3-006.webp",
     "name": "タイム・ダイバー・ダウン",
     "subName": [
       "タイムダイバーダウン"
@@ -220,7 +220,7 @@
   {
     "cardID": "WX24-P3-007",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-007.webp",
+    "image": "WX24-P3/WX24-P3-007.webp",
     "name": "栄耀栄華",
     "subName": [
       "リペアーウインド"
@@ -259,7 +259,7 @@
   {
     "cardID": "WX24-P3-008",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-008.webp",
+    "image": "WX24-P3/WX24-P3-008.webp",
     "name": "今昔之感",
     "subName": [
       "レトロスペクティブ"
@@ -296,7 +296,7 @@
   {
     "cardID": "WX24-P3-009",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-009.webp",
+    "image": "WX24-P3/WX24-P3-009.webp",
     "name": "ダーク・ブルーム",
     "subName": [
       "ダークブルーム"
@@ -332,7 +332,7 @@
   {
     "cardID": "WX24-P3-010",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-010.webp",
+    "image": "WX24-P3/WX24-P3-010.webp",
     "name": "パープル・デイズ",
     "subName": [
       "パープルデイズ"
@@ -369,7 +369,7 @@
   {
     "cardID": "WX24-P3-014",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-014.webp",
+    "image": "WX24-P3/WX24-P3-014.webp",
     "name": "占星術の巫女 リメンバ・ドウン",
     "subName": [
       "センセイジュツノミコリメンバドウン"
@@ -405,7 +405,7 @@
   {
     "cardID": "WX24-P3-018",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-018.webp",
+    "image": "WX24-P3/WX24-P3-018.webp",
     "name": "ちより 第三章",
     "subName": [
       "チヨリダイサンショウ"
@@ -442,7 +442,7 @@
   {
     "cardID": "WX24-P3-022",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-022.webp",
+    "image": "WX24-P3/WX24-P3-022.webp",
     "name": "エルドラ×マークⅢ BURST",
     "subName": [
       "エルドラマークスリーバースト"
@@ -477,7 +477,7 @@
   {
     "cardID": "WX24-P3-026",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-026.webp",
+    "image": "WX24-P3/WX24-P3-026.webp",
     "name": "回想の階層 アン=サード",
     "subName": [
       "カイソウノカイソウアンサード"
@@ -514,7 +514,7 @@
   {
     "cardID": "WX24-P3-030",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-030.webp",
+    "image": "WX24-P3/WX24-P3-030.webp",
     "name": "黒想の花嫁 アルフォウ",
     "subName": [
       "コクソウノハナヨメアルフォウ"
@@ -551,7 +551,7 @@
   {
     "cardID": "WX24-P3-031",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-031.webp",
+    "image": "WX24-P3/WX24-P3-031.webp",
     "name": "フォーチュン・エンヴィジョン",
     "subName": [
       "フォーチュンエンヴィジョン"
@@ -587,7 +587,7 @@
   {
     "cardID": "WX24-P3-032",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-032.webp",
+    "image": "WX24-P3/WX24-P3-032.webp",
     "name": "フォルトナ・ディフェンス",
     "subName": [
       "フォルトナディフェンス"
@@ -623,7 +623,7 @@
   {
     "cardID": "WX24-P3-033",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-033.webp",
+    "image": "WX24-P3/WX24-P3-033.webp",
     "name": "取捨炎択",
     "subName": [
       "シュシャエンタク"
@@ -660,7 +660,7 @@
   {
     "cardID": "WX24-P3-034",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-034.webp",
+    "image": "WX24-P3/WX24-P3-034.webp",
     "name": "炎官鳥",
     "subName": [
       "エンカンチョウ"
@@ -694,7 +694,7 @@
   {
     "cardID": "WX24-P3-035",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-035.webp",
+    "image": "WX24-P3/WX24-P3-035.webp",
     "name": "トレジャー・フィッシュ",
     "subName": [
       "トレジャーフィッシュ"
@@ -730,7 +730,7 @@
   {
     "cardID": "WX24-P3-036",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-036.webp",
+    "image": "WX24-P3/WX24-P3-036.webp",
     "name": "アンチ・スペル・バツ",
     "subName": [
       "アンチスペルバツ"
@@ -767,7 +767,7 @@
   {
     "cardID": "WX24-P3-037",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-037.webp",
+    "image": "WX24-P3/WX24-P3-037.webp",
     "name": "一筆啓上",
     "subName": [
       "ブラッシュスラッシュ"
@@ -803,7 +803,7 @@
   {
     "cardID": "WX24-P3-038",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-038.webp",
+    "image": "WX24-P3/WX24-P3-038.webp",
     "name": "日常茶飯",
     "subName": [
       "リラックスルーティン"
@@ -839,7 +839,7 @@
   {
     "cardID": "WX24-P3-039",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-039.webp",
+    "image": "WX24-P3/WX24-P3-039.webp",
     "name": "ブーケ・メイキング",
     "subName": [
       "ブーケメイキング"
@@ -875,7 +875,7 @@
   {
     "cardID": "WX24-P3-040",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-040.webp",
+    "image": "WX24-P3/WX24-P3-040.webp",
     "name": "パープル・ストーム",
     "subName": [
       "パープルストーム"
@@ -911,7 +911,7 @@
   {
     "cardID": "WX24-P3-041",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-041.webp",
+    "image": "WX24-P3/WX24-P3-041.webp",
     "name": "リステージ・エンハンス",
     "subName": [
       "リステージエンハンス"
@@ -947,7 +947,7 @@
   {
     "cardID": "WX24-P3-042",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-042.webp",
+    "image": "WX24-P3/WX24-P3-042.webp",
     "name": "マルチ・チャージング",
     "subName": [
       "マルチチャージング"
@@ -983,7 +983,7 @@
   {
     "cardID": "WX24-P3-043",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-043.webp",
+    "image": "WX24-P3/WX24-P3-043.webp",
     "name": "アシスト・ディフェンス",
     "subName": [
       "アシストディフェンス"
@@ -1017,7 +1017,7 @@
   {
     "cardID": "WX24-P3-044",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-044.webp",
+    "image": "WX24-P3/WX24-P3-044.webp",
     "name": "エルドラ!クロス・ライフ・クロス!",
     "subName": [
       "エルドラクロスライフクロス"
@@ -1055,7 +1055,7 @@
   {
     "cardID": "WX24-P3-045",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-045.webp",
+    "image": "WX24-P3/WX24-P3-045.webp",
     "name": "アン - 扇ギ",
     "subName": [
       "アンアオギ"
@@ -1095,7 +1095,7 @@
   {
     "cardID": "WX24-P3-046",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-046.webp",
+    "image": "WX24-P3/WX24-P3-046.webp",
     "name": "イオナ・クライシス",
     "subName": [
       "イオナクライシス"
@@ -1136,7 +1136,7 @@
   {
     "cardID": "WX24-P3-047",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-047.webp",
+    "image": "WX24-P3/WX24-P3-047.webp",
     "name": "羅星姫 ホロスコープ",
     "subName": [
       "ラセイキホロスコープ"
@@ -1171,7 +1171,7 @@
   {
     "cardID": "WX24-P3-048",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-048.webp",
+    "image": "WX24-P3/WX24-P3-048.webp",
     "name": "聖天姫 ラジエル",
     "subName": [
       "セイテンキラジエル"
@@ -1204,7 +1204,7 @@
   {
     "cardID": "WX24-P3-049",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-049.webp",
+    "image": "WX24-P3/WX24-P3-049.webp",
     "name": "聖魔姫 アリオーシュ",
     "subName": [
       "セイマキアリオーシュ"
@@ -1238,7 +1238,7 @@
   {
     "cardID": "WX24-P3-050",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-050.webp",
+    "image": "WX24-P3/WX24-P3-050.webp",
     "name": "大罠 バーニングチョリソー",
     "subName": [
       "ダイビンバーニングチョリソー"
@@ -1276,7 +1276,7 @@
   {
     "cardID": "WX24-P3-051",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-051.webp",
+    "image": "WX24-P3/WX24-P3-051.webp",
     "name": "幻竜姫 ヴリトラ",
     "subName": [
       "ゲンリュウキヴリトラ"
@@ -1313,7 +1313,7 @@
   {
     "cardID": "WX24-P3-052",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-052.webp",
+    "image": "WX24-P3/WX24-P3-052.webp",
     "name": "幻闘水姫 ナマコズ",
     "subName": [
       "ゲントウスイヒメナマコズ"
@@ -1349,7 +1349,7 @@
   {
     "cardID": "WX24-P3-053",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-053.webp",
+    "image": "WX24-P3/WX24-P3-053.webp",
     "name": "参ノ遊姫 フンスイショー",
     "subName": [
       "サンノユウキフンスイショー"
@@ -1386,7 +1386,7 @@
   {
     "cardID": "WX24-P3-054",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-054.webp",
+    "image": "WX24-P3/WX24-P3-054.webp",
     "name": "蒼将姫 ヤマトタケル",
     "subName": [
       "ソウショウキヤマトタケル"
@@ -1421,7 +1421,7 @@
   {
     "cardID": "WX24-P3-055",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-055.webp",
+    "image": "WX24-P3/WX24-P3-055.webp",
     "name": "翠美姫 スイボク",
     "subName": [
       "スイビキスイボク"
@@ -1458,7 +1458,7 @@
   {
     "cardID": "WX24-P3-056",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-056.webp",
+    "image": "WX24-P3/WX24-P3-056.webp",
     "name": "羅植姫 フラスタ",
     "subName": [
       "ラショクヒメフラスタ"
@@ -1494,7 +1494,7 @@
   {
     "cardID": "WX24-P3-057",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-057.webp",
+    "image": "WX24-P3/WX24-P3-057.webp",
     "name": "凶魔姫 サユラギ",
     "subName": [
       "キョウマキサユラギ"
@@ -1529,7 +1529,7 @@
   {
     "cardID": "WX24-P3-058",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-058.webp",
+    "image": "WX24-P3/WX24-P3-058.webp",
     "name": "コードラビリンス バンリ",
     "subName": [
       "コードラビリンスバンリ"
@@ -1564,7 +1564,7 @@
   {
     "cardID": "WX24-P3-059",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-059.webp",
+    "image": "WX24-P3/WX24-P3-059.webp",
     "name": "羅星 ブーテス",
     "subName": [
       "ラセイブーテス"
@@ -1598,7 +1598,7 @@
   {
     "cardID": "WX24-P3-060",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-060.webp",
+    "image": "WX24-P3/WX24-P3-060.webp",
     "name": "羅星 スペースデブリ",
     "subName": [
       "ラセイスペースデブリ"
@@ -1633,7 +1633,7 @@
   {
     "cardID": "WX24-P3-061",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-061.webp",
+    "image": "WX24-P3/WX24-P3-061.webp",
     "name": "聖美 デッサンパン",
     "subName": [
       "セイビデッサンパン"
@@ -1666,7 +1666,7 @@
   {
     "cardID": "WX24-P3-062",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-062.webp",
+    "image": "WX24-P3/WX24-P3-062.webp",
     "name": "羅星 ナントロク",
     "subName": [
       "ラセイナントロク"
@@ -1700,7 +1700,7 @@
   {
     "cardID": "WX24-P3-063",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-063.webp",
+    "image": "WX24-P3/WX24-P3-063.webp",
     "name": "羅星 ルナカー",
     "subName": [
       "ラセイルナカー"
@@ -1736,7 +1736,7 @@
   {
     "cardID": "WX24-P3-064",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-064.webp",
+    "image": "WX24-P3/WX24-P3-064.webp",
     "name": "聖魔 アバドン",
     "subName": [
       "セイマアバドン"
@@ -1770,7 +1770,7 @@
   {
     "cardID": "WX24-P3-065",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-065.webp",
+    "image": "WX24-P3/WX24-P3-065.webp",
     "name": "ゲット・タロット",
     "subName": [
       "ゲットタロット"
@@ -1803,7 +1803,7 @@
   {
     "cardID": "WX24-P3-066",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-066.webp",
+    "image": "WX24-P3/WX24-P3-066.webp",
     "name": "小罠 ファイヤートーチ",
     "subName": [
       "ショウビンファイヤートーチ"
@@ -1838,7 +1838,7 @@
   {
     "cardID": "WX24-P3-067",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-067.webp",
+    "image": "WX24-P3/WX24-P3-067.webp",
     "name": "小罠 カサマワシ",
     "subName": [
       "ショウビンカサマワシ"
@@ -1873,7 +1873,7 @@
   {
     "cardID": "WX24-P3-068",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-068.webp",
+    "image": "WX24-P3/WX24-P3-068.webp",
     "name": "幻水 デメキン",
     "subName": [
       "ゲンスイデメキン"
@@ -1905,7 +1905,7 @@
   {
     "cardID": "WX24-P3-069",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-069.webp",
+    "image": "WX24-P3/WX24-P3-069.webp",
     "name": "中罠 ヒノワクグリ",
     "subName": [
       "チュウビンヒノワクグリ"
@@ -1941,7 +1941,7 @@
   {
     "cardID": "WX24-P3-070",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-070.webp",
+    "image": "WX24-P3/WX24-P3-070.webp",
     "name": "中罠 トラピーズ",
     "subName": [
       "チュウビントラピーズ"
@@ -1976,7 +1976,7 @@
   {
     "cardID": "WX24-P3-071",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-071.webp",
+    "image": "WX24-P3/WX24-P3-071.webp",
     "name": "紅美 トウロウ",
     "subName": [
       "クビトウロウ"
@@ -2009,7 +2009,7 @@
   {
     "cardID": "WX24-P3-072",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-072.webp",
+    "image": "WX24-P3/WX24-P3-072.webp",
     "name": "悪戯の仕込",
     "subName": [
       "イタズラノシコミ"
@@ -2044,7 +2044,7 @@
   {
     "cardID": "WX24-P3-073",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-073.webp",
+    "image": "WX24-P3/WX24-P3-073.webp",
     "name": "幻水 ゴマフ",
     "subName": [
       "ゲンスイゴマフ"
@@ -2076,7 +2076,7 @@
   {
     "cardID": "WX24-P3-074",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-074.webp",
+    "image": "WX24-P3/WX24-P3-074.webp",
     "name": "幻水 ラッコ",
     "subName": [
       "ゲンスイラッコ"
@@ -2109,7 +2109,7 @@
   {
     "cardID": "WX24-P3-075",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-075.webp",
+    "image": "WX24-P3/WX24-P3-075.webp",
     "name": "蒼魔 マーメイド",
     "subName": [
       "ソウママーメイド"
@@ -2143,7 +2143,7 @@
   {
     "cardID": "WX24-P3-076",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-076.webp",
+    "image": "WX24-P3/WX24-P3-076.webp",
     "name": "幻水 ノコギリザメ",
     "subName": [
       "ゲンスイノコギリザメ"
@@ -2175,7 +2175,7 @@
   {
     "cardID": "WX24-P3-077",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-077.webp",
+    "image": "WX24-P3/WX24-P3-077.webp",
     "name": "幻水 マンボウ",
     "subName": [
       "ゲンスイマンボウ"
@@ -2208,7 +2208,7 @@
   {
     "cardID": "WX24-P3-078",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-078.webp",
+    "image": "WX24-P3/WX24-P3-078.webp",
     "name": "羅星 ピクシス",
     "subName": [
       "ラセイピクシス"
@@ -2243,7 +2243,7 @@
   {
     "cardID": "WX24-P3-079",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-079.webp",
+    "image": "WX24-P3/WX24-P3-079.webp",
     "name": "SEA SPRAY",
     "subName": [
       "シースプレー"
@@ -2276,7 +2276,7 @@
   {
     "cardID": "WX24-P3-080",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-080.webp",
+    "image": "WX24-P3/WX24-P3-080.webp",
     "name": "翠美 モネ",
     "subName": [
       "スイビモネ"
@@ -2308,7 +2308,7 @@
   {
     "cardID": "WX24-P3-081",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-081.webp",
+    "image": "WX24-P3/WX24-P3-081.webp",
     "name": "翠美 グレーズ",
     "subName": [
       "スイビグレーズ"
@@ -2341,7 +2341,7 @@
   {
     "cardID": "WX24-P3-082",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-082.webp",
+    "image": "WX24-P3/WX24-P3-082.webp",
     "name": "羅星 リトルグレイ",
     "subName": [
       "ラセイリトルグレイ"
@@ -2375,7 +2375,7 @@
   {
     "cardID": "WX24-P3-083",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-083.webp",
+    "image": "WX24-P3/WX24-P3-083.webp",
     "name": "翠美 エッチング",
     "subName": [
       "スイビエッチング"
@@ -2408,7 +2408,7 @@
   {
     "cardID": "WX24-P3-084",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-084.webp",
+    "image": "WX24-P3/WX24-P3-084.webp",
     "name": "翠美 テンペラ",
     "subName": [
       "スイビテンペラ"
@@ -2443,7 +2443,7 @@
   {
     "cardID": "WX24-P3-085",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-085.webp",
+    "image": "WX24-P3/WX24-P3-085.webp",
     "name": "中罠 アシククリ",
     "subName": [
       "チュウビンアシククリ"
@@ -2480,7 +2480,7 @@
   {
     "cardID": "WX24-P3-086",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-086.webp",
+    "image": "WX24-P3/WX24-P3-086.webp",
     "name": "写本",
     "subName": [
       "シャホン"
@@ -2513,7 +2513,7 @@
   {
     "cardID": "WX24-P3-087",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-087.webp",
+    "image": "WX24-P3/WX24-P3-087.webp",
     "name": "凶魔 グリムヒルド",
     "subName": [
       "キョウマグリムヒルド"
@@ -2547,7 +2547,7 @@
   {
     "cardID": "WX24-P3-088",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-088.webp",
+    "image": "WX24-P3/WX24-P3-088.webp",
     "name": "凶魔 ストラス",
     "subName": [
       "キョウマストラス"
@@ -2580,7 +2580,7 @@
   {
     "cardID": "WX24-P3-089",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-089.webp",
+    "image": "WX24-P3/WX24-P3-089.webp",
     "name": "小罠 アワセカガミ",
     "subName": [
       "ショウビンアワセカガミ"
@@ -2615,7 +2615,7 @@
   {
     "cardID": "WX24-P3-090",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-090.webp",
+    "image": "WX24-P3/WX24-P3-090.webp",
     "name": "凶魔 アオヒゲ",
     "subName": [
       "キョウマアオヒゲ"
@@ -2647,7 +2647,7 @@
   {
     "cardID": "WX24-P3-091",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-091.webp",
+    "image": "WX24-P3/WX24-P3-091.webp",
     "name": "凶魔 ダンタリオン",
     "subName": [
       "キョウマダンタリオン"
@@ -2682,7 +2682,7 @@
   {
     "cardID": "WX24-P3-092",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-092.webp",
+    "image": "WX24-P3/WX24-P3-092.webp",
     "name": "幻水 メルルーサ",
     "subName": [
       "ゲンスイメルルーサ"
@@ -2717,7 +2717,7 @@
   {
     "cardID": "WX24-P3-093",
     "productID": "WX24-P3",
-    "image": "public/assets/cards_img/WX24-P3/WX24-P3-093.webp",
+    "image": "WX24-P3/WX24-P3-093.webp",
     "name": "(名前不明)",
     "subName": [
       "ナマエフメイ"
