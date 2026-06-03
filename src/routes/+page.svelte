@@ -1,14 +1,12 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { page } from '$app/state';
-  import type { Card, DeckType } from '$lib/types';
-  import { filterCards } from '$lib/utils/cardFilters';
-  import { sortCandidateCards } from '$lib/utils/cardSorting';
-  import { addCardToDeck, addMultipleCardsToDeck, removeCardFromDeck } from '$lib/utils/deckOperations';
+  import type { Card, DeckSummary } from '$lib/types';
   import { getSettings, saveSettings, getDraft, saveDraft } from '$lib/utils/storage';
   import { loadAllCards, buildCardMap } from '$lib/utils/cardData';
   import { CloudDeckSync } from '$lib/stores/cloudDeckSync.svelte';
-  import type { DeckSummary } from '$lib/types';
+  import { DeckBuilderStore } from '$lib/stores/deckBuilder.svelte';
+  import { FilterStore } from '$lib/stores/filterStore.svelte';
   import Navbar from '$lib/components/Navbar.svelte';
   import Sidebar from '$lib/components/Sidebar.svelte';
   import DeckArea from '$lib/components/DeckArea.svelte';
@@ -33,36 +31,11 @@
 
   let cardMap = $derived(buildCardMap(allCardData));
 
-  // ── cloud sync ─────────────────────────────────────────────
+  // ── stores ─────────────────────────────────────────────────
   const isLoggedIn = !!page.data.user;
   const cloudSync = new CloudDeckSync();
-
-  // ── deck state ─────────────────────────────────────────────
-  let mainDeck = $state<Card[]>([]);
-  let lrigDeck = $state<Card[]>([]);
-  let candidateCards = $state<Card[]>([]);
-
-  let lifeBurstCount = $derived(mainDeck.filter(c => c.lifeBurst === true).length);
-  let sortedCandidateCards = $derived(sortCandidateCards(candidateCards));
-
-  // ── current deck metadata ──────────────────────────────────
-  let currentDeckId = $state<string | null>(null);
-  let currentDeckName = $state('');
-  let currentDeckMemo = $state('');
-  let currentDeckIsSaved = $state(true);
-
-  // ── filter state ───────────────────────────────────────────
-  let selectedColors = $state<Set<string>>(new Set());
-  let selectedLevels = $state<Set<number>>(new Set());
-  let selectedCardTypes = $state<Set<string>>(new Set());
-  let selectedLrigClasses = $state<Set<string>>(new Set());
-  let selectedTags = $state<Set<string>>(new Set());
-  let lifeBurstFilter = $state<boolean | null>(null);
-  let searchText = $state('');
-  let searchName = $state(true);
-  let searchInText = $state(false);
-  let candidateFilter = $state(false);
-  let favoriteFilter = $state(false);
+  const deck = new DeckBuilderStore();
+  const filter = new FilterStore();
 
   // ── settings & favorites ───────────────────────────────────
   let showLifeBurst = $state(false);
@@ -86,21 +59,7 @@
   let activeDropdown = $state<'type' | 'lrigClass' | 'tag' | null>(null);
 
   // ── filtered cards ─────────────────────────────────────────
-  let filteredCards = $derived(filterCards(allCardData, {
-    selectedColors,
-    selectedLevels,
-    selectedCardTypes,
-    selectedLrigClasses,
-    selectedTags,
-    lifeBurstFilter,
-    searchText,
-    searchName,
-    searchInText,
-    candidateFilter,
-    candidateCards,
-    favoriteFilter,
-    favoriteIds,
-  }));
+  let filteredCards = $derived(filter.apply(allCardData, deck.candidateCards, favoriteIds));
 
   // ── mount: load data & restore from storage ───────────────
   onMount(() => {
@@ -120,17 +79,7 @@
     document.addEventListener('touchmove', onTouchMove, { passive: false });
 
     const draft = getDraft();
-    if (draft) {
-      mainDeck = draft.mainDeck;
-      lrigDeck = draft.lrigDeck;
-      candidateCards = draft.candidateCards;
-      currentDeckId = draft.currentDeckId;
-      currentDeckName = draft.currentDeckName;
-      currentDeckMemo = draft.currentDeckMemo;
-      if (draft.mainDeck.length > 0 || draft.lrigDeck.length > 0 || draft.currentDeckName) {
-        currentDeckIsSaved = false;
-      }
-    }
+    if (draft) deck.restoreFromDraft(draft);
     draftRestored = true;
 
     const settings = getSettings();
@@ -153,109 +102,13 @@
   });
 
   $effect(() => {
-    document.title = currentDeckName ? `${currentDeckName} - wixdex` : 'wixdex';
-  });
-
-  $effect(() => {
-    void mainDeck.length; void lrigDeck.length; void candidateCards.length;
-    if (currentDeckId) currentDeckIsSaved = false;
+    document.title = deck.name ? `${deck.name} - wixdex` : 'wixdex';
   });
 
   $effect(() => {
     if (!draftRestored) return;
-    saveDraft({ currentDeckId, currentDeckName, currentDeckMemo, mainDeck, lrigDeck, candidateCards });
+    saveDraft(deck.toDraft());
   });
-
-  // ── deck operations ────────────────────────────────────────
-  function addCard(card: Card) {
-    const result = addCardToDeck(card, mainDeck, lrigDeck);
-    mainDeck = result.mainDeck;
-    lrigDeck = result.lrigDeck;
-  }
-
-  function addMultipleCards(card: Card, count: number) {
-    const result = addMultipleCardsToDeck(card, count, mainDeck, lrigDeck);
-    mainDeck = result.mainDeck;
-    lrigDeck = result.lrigDeck;
-  }
-
-  function removeCard(card: Card, specificIndex: number | null = null, deckType: DeckType | null = null) {
-    const result = removeCardFromDeck(card, mainDeck, lrigDeck, specificIndex, deckType);
-    mainDeck = result.mainDeck;
-    lrigDeck = result.lrigDeck;
-    const remainingInMain = result.mainDeck.filter(c => c.cardID === card.cardID).length;
-    const remainingInLrig = result.lrigDeck.filter(c => c.cardID === card.cardID).length;
-    if (remainingInMain === 0 && remainingInLrig === 0) {
-      if (!candidateCards.some(c => c.cardID === card.cardID)) {
-        candidateCards = [...candidateCards, card];
-      }
-    }
-  }
-
-  function addToCandidate(card: Card) {
-    if (!candidateCards.some(c => c.image === card.image)) {
-      candidateCards = [...candidateCards, card];
-    }
-  }
-
-  function removeFromCandidate(card: Card) {
-    candidateCards = candidateCards.filter(c => c.image !== card.image);
-  }
-
-  function loadDeckData(main: Card[], lrig: Card[], candidate: Card[]) {
-    mainDeck = main;
-    lrigDeck = lrig;
-    candidateCards = candidate;
-  }
-
-  // ── filter operations ──────────────────────────────────────
-  function toggleColorFilter(color: string) {
-    const s = new Set(selectedColors);
-    s.has(color) ? s.delete(color) : s.add(color);
-    selectedColors = s;
-  }
-
-  function toggleLevelFilter(level: number) {
-    const s = new Set(selectedLevels);
-    s.has(level) ? s.delete(level) : s.add(level);
-    selectedLevels = s;
-  }
-
-  function toggleCardTypeFilter(type: string) {
-    const s = new Set(selectedCardTypes);
-    s.has(type) ? s.delete(type) : s.add(type);
-    selectedCardTypes = s;
-  }
-
-  function toggleLrigClassFilter(lrigClass: string) {
-    const s = new Set(selectedLrigClasses);
-    s.has(lrigClass) ? s.delete(lrigClass) : s.add(lrigClass);
-    selectedLrigClasses = s;
-  }
-
-  function toggleTagFilter(tag: string) {
-    const s = new Set(selectedTags);
-    s.has(tag) ? s.delete(tag) : s.add(tag);
-    selectedTags = s;
-  }
-
-  function toggleLifeBurstFilter() {
-    if (lifeBurstFilter === null) lifeBurstFilter = true;
-    else if (lifeBurstFilter === true) lifeBurstFilter = false;
-    else lifeBurstFilter = null;
-  }
-
-  function resetFilters() {
-    selectedColors = new Set();
-    selectedLevels = new Set();
-    selectedCardTypes = new Set();
-    selectedLrigClasses = new Set();
-    selectedTags = new Set();
-    lifeBurstFilter = null;
-    searchText = '';
-    candidateFilter = false;
-    favoriteFilter = false;
-  }
 
   // ── settings ───────────────────────────────────────────────
   function toggleShowLifeBurst() {
@@ -287,23 +140,22 @@
     return !!card.cardID && favoriteIds.has(card.cardID);
   }
 
-  // ── deck persistence ───────────────────────────────────────
+  // ── deck persistence orchestration ─────────────────────────
   // 新規・既存どちらも保存する統合関数
   async function saveDeck(name: string, memo: string) {
     if (!isLoggedIn) return;
-    currentDeckName = name;
-    currentDeckMemo = memo;
+    deck.setMeta(name, memo);
     try {
       const id = await cloudSync.save({
-        id: currentDeckId ?? undefined,
-        name: currentDeckName,
-        memo: currentDeckMemo,
-        mainDeck,
-        lrigDeck,
-        candidateCards,
+        id: deck.id ?? undefined,
+        name: deck.name,
+        memo: deck.memo,
+        mainDeck: deck.mainDeck,
+        lrigDeck: deck.lrigDeck,
+        candidateCards: deck.candidateCards,
       });
-      currentDeckId = id;
-      currentDeckIsSaved = true;
+      deck.id = id;
+      deck.markSaved();
     } catch {
       // cloudSync.error is set; user sees it in UI if we add an error display
     }
@@ -312,10 +164,10 @@
   // ヘッダーの保存ボタン: 新規はモーダルを開き、既存は即保存
   function handleSaveClick() {
     if (!isLoggedIn) return;
-    if (!currentDeckId) {
+    if (!deck.id) {
       isDeckEditOpen = true;
     } else {
-      saveDeck(currentDeckName, currentDeckMemo);
+      saveDeck(deck.name, deck.memo);
     }
   }
 
@@ -325,46 +177,38 @@
     isDeckListOpen = true;
   }
 
-  function requestDeleteDeck(deck: DeckSummary) {
-    deckPendingDelete = deck;
+  function requestDeleteDeck(d: DeckSummary) {
+    deckPendingDelete = d;
   }
 
   async function confirmDeleteDeck() {
-    const deck = deckPendingDelete;
+    const d = deckPendingDelete;
     deckPendingDelete = null;
-    if (!deck) return;
-    if (deck.id === currentDeckId) {
+    if (!d) return;
+    if (d.id === deck.id) {
       handleNewDeck();
     }
-    await cloudSync.delete(deck.id);
+    await cloudSync.delete(d.id);
   }
 
   function cancelDeleteDeck() {
     deckPendingDelete = null;
   }
 
-  async function handleLoadDeck(deck: DeckSummary) {
-    const loaded = await cloudSync.loadFull(deck.id, cardMap);
+  async function handleLoadDeck(d: DeckSummary) {
+    const loaded = await cloudSync.loadFull(d.id, cardMap);
     if (!loaded) return;
-    loadDeckData(loaded.mainDeck, loaded.lrigDeck, loaded.candidateCards);
-    currentDeckId = loaded.id;
-    currentDeckName = loaded.name;
-    currentDeckMemo = loaded.memo;
-    currentDeckIsSaved = true;
+    deck.load(loaded);
   }
 
   function handleNewDeck() {
-    currentDeckId = null;
-    currentDeckName = '';
-    currentDeckMemo = '';
-    currentDeckIsSaved = true;
-    loadDeckData([], [], []);
+    deck.reset();
   }
 
   // ── 未保存変更のガード ──────────────────────────────────────
   // 未保存の変更があるときはワンクッション挟む
   function guardUnsaved(action: () => void) {
-    if (currentDeckIsSaved) {
+    if (deck.isSaved) {
       action();
     } else {
       pendingAction = action;
@@ -376,8 +220,8 @@
     guardUnsaved(handleNewDeck);
   }
 
-  function requestLoadDeck(deck: DeckSummary) {
-    guardUnsaved(() => { handleLoadDeck(deck); });
+  function requestLoadDeck(d: DeckSummary) {
+    guardUnsaved(() => { handleLoadDeck(d); });
   }
 
   function runPendingAction() {
@@ -388,9 +232,9 @@
   }
 
   async function handleConfirmSave() {
-    await saveDeck(currentDeckName, currentDeckMemo);
+    await saveDeck(deck.name, deck.memo);
     // 保存成功時のみ続行（失敗時はモーダルを残してリトライ/破棄を選べる）
-    if (currentDeckIsSaved) runPendingAction();
+    if (deck.isSaved) runPendingAction();
   }
 
   function handleConfirmCancel() {
@@ -401,8 +245,8 @@
 
 <div class="flex flex-col w-dvw h-dvh m-0 p-0 bg-zinc-900 overflow-hidden">
     <Navbar
-      deckName={currentDeckName}
-      isSaved={currentDeckIsSaved}
+      deckName={deck.name}
+      isSaved={deck.isSaved}
       {isLoggedIn}
       onMenuClick={() => { isSidebarOpen = true; }}
       onSaveClick={handleSaveClick}
@@ -412,16 +256,16 @@
 
     <div class="flex flex-col flex-1 w-full max-w-screen-sm mx-auto overflow-hidden md:flex-1 lg:flex-row lg:max-w-screen-xl lg:mb-4 2xl:max-w-[84vw]">
       <DeckArea
-        {mainDeck}
-        {lrigDeck}
+        mainDeck={deck.mainDeck}
+        lrigDeck={deck.lrigDeck}
         onCardHover={(card) => { hoveredCard = card; }}
-        onAdd={addCard}
-        onAddMultiple={addMultipleCards}
-        onRemove={removeCard}
-        candidateCards={sortedCandidateCards}
-        onRemoveFromCandidate={removeFromCandidate}
+        onAdd={deck.addCard}
+        onAddMultiple={deck.addMultiple}
+        onRemove={deck.removeCard}
+        candidateCards={deck.sortedCandidateCards}
+        onRemoveFromCandidate={deck.removeFromCandidate}
         onCardClick={(card) => { popupCard = card; }}
-        {lifeBurstCount}
+        lifeBurstCount={deck.lifeBurstCount}
         {showLifeBurst}
       />
 
@@ -430,44 +274,44 @@
           cards={filteredCards}
           {loading}
           loadError={loadError}
-          onAdd={addCard}
-          onAddMultiple={addMultipleCards}
-          onRemove={(card) => removeCard(card)}
+          onAdd={deck.addCard}
+          onAddMultiple={deck.addMultiple}
+          onRemove={(card) => deck.removeCard(card)}
           onCardHover={(card) => { hoveredCard = card; }}
-          onAddToCandidate={addToCandidate}
-          onRemoveFromCandidate={removeFromCandidate}
-          {candidateFilter}
+          onAddToCandidate={deck.addToCandidate}
+          onRemoveFromCandidate={deck.removeFromCandidate}
+          candidateFilter={filter.candidateFilter}
           onCardClick={(card) => { popupCard = card; }}
           {showLifeBurst}
           {showCandidateIcon}
-          {candidateCards}
+          candidateCards={deck.candidateCards}
         />
 
         <SearchArea
           {hoveredCard}
-          {selectedColors}
-          {selectedLevels}
-          {selectedCardTypes}
-          {selectedLrigClasses}
-          {selectedTags}
-          {lifeBurstFilter}
-          {candidateFilter}
-          {favoriteFilter}
-          onColorFilter={toggleColorFilter}
-          onTextSearch={(t) => { searchText = t; }}
-          {searchName}
-          {searchInText}
-          onToggleSearchName={() => { searchName = !searchName; }}
-          onToggleSearchInText={() => { searchInText = !searchInText; }}
-          onLevelFilter={toggleLevelFilter}
-          onLifeBurstFilter={toggleLifeBurstFilter}
-          onCardTypeFilter={toggleCardTypeFilter}
-          onLrigClassFilter={toggleLrigClassFilter}
-          onTagFilter={toggleTagFilter}
-          onCandidateFilter={() => { candidateFilter = !candidateFilter; }}
-          onFavoriteFilter={() => { favoriteFilter = !favoriteFilter; }}
+          selectedColors={filter.selectedColors}
+          selectedLevels={filter.selectedLevels}
+          selectedCardTypes={filter.selectedCardTypes}
+          selectedLrigClasses={filter.selectedLrigClasses}
+          selectedTags={filter.selectedTags}
+          lifeBurstFilter={filter.lifeBurstFilter}
+          candidateFilter={filter.candidateFilter}
+          favoriteFilter={filter.favoriteFilter}
+          onColorFilter={filter.toggleColor}
+          onTextSearch={filter.setSearchText}
+          searchName={filter.searchName}
+          searchInText={filter.searchInText}
+          onToggleSearchName={filter.toggleSearchName}
+          onToggleSearchInText={filter.toggleSearchInText}
+          onLevelFilter={filter.toggleLevel}
+          onLifeBurstFilter={filter.toggleLifeBurst}
+          onCardTypeFilter={filter.toggleCardType}
+          onLrigClassFilter={filter.toggleLrigClass}
+          onTagFilter={filter.toggleTag}
+          onCandidateFilter={filter.toggleCandidate}
+          onFavoriteFilter={filter.toggleFavorite}
           {isLoggedIn}
-          onReset={resetFilters}
+          onReset={filter.reset}
           {activeDropdown}
           onDropdownChange={(d) => { activeDropdown = d; }}
           {showLifeBurst}
@@ -483,33 +327,27 @@
       isOpen={activeDropdown === 'type'}
       onClose={() => { activeDropdown = null; }}
       title="カードタイプ検索"
-      onClearAll={() => { selectedCardTypes.forEach(t => toggleCardTypeFilter(t)); }}
+      onClearAll={filter.clearCardTypes}
     >
-      {#snippet children()}
-        <TypeFilterContent selectedTypes={selectedCardTypes} onToggle={toggleCardTypeFilter} />
-      {/snippet}
+      <TypeFilterContent selectedTypes={filter.selectedCardTypes} onToggle={filter.toggleCardType} />
     </FilterDropdown>
 
     <FilterDropdown
       isOpen={activeDropdown === 'lrigClass'}
       onClose={() => { activeDropdown = null; }}
       title="ルリグタイプ/クラス検索"
-      onClearAll={() => { selectedLrigClasses.forEach(c => toggleLrigClassFilter(c)); }}
+      onClearAll={filter.clearLrigClasses}
     >
-      {#snippet children()}
-        <LrigClassFilterContent selectedLrigClasses={selectedLrigClasses} onToggle={toggleLrigClassFilter} />
-      {/snippet}
+      <LrigClassFilterContent selectedLrigClasses={filter.selectedLrigClasses} onToggle={filter.toggleLrigClass} />
     </FilterDropdown>
 
     <FilterDropdown
       isOpen={activeDropdown === 'tag'}
       onClose={() => { activeDropdown = null; }}
       title="タグ検索"
-      onClearAll={() => { selectedTags.forEach(t => toggleTagFilter(t)); }}
+      onClearAll={filter.clearTags}
     >
-      {#snippet children()}
-        <TagFilterContent {selectedTags} onToggle={toggleTagFilter} />
-      {/snippet}
+      <TagFilterContent selectedTags={filter.selectedTags} onToggle={filter.toggleTag} />
     </FilterDropdown>
 
     <Sidebar
@@ -532,8 +370,8 @@
     <DeckEditModal
       isOpen={isDeckEditOpen}
       onClose={() => { isDeckEditOpen = false; }}
-      currentName={currentDeckName}
-      currentMemo={currentDeckMemo}
+      currentName={deck.name}
+      currentMemo={deck.memo}
       onSave={saveDeck}
       {isLoggedIn}
     />
@@ -548,7 +386,7 @@
     <DeleteDeckConfirmModal
       isOpen={!!deckPendingDelete}
       deckName={deckPendingDelete?.name ?? ''}
-      hasUnsavedChanges={deckPendingDelete?.id === currentDeckId && !currentDeckIsSaved}
+      hasUnsavedChanges={deckPendingDelete?.id === deck.id && !deck.isSaved}
       onConfirm={confirmDeleteDeck}
       onCancel={cancelDeleteDeck}
     />
@@ -556,9 +394,9 @@
     <ShareModal
       isOpen={isShareOpen}
       onClose={() => { isShareOpen = false; }}
-      deckName={currentDeckName}
-      {mainDeck}
-      {lrigDeck}
+      deckName={deck.name}
+      mainDeck={deck.mainDeck}
+      lrigDeck={deck.lrigDeck}
     />
 
     <StatsModal

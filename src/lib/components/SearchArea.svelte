@@ -237,7 +237,7 @@
     <div class="flex w-full h-8 mb-2">
       <!-- 色検索 -->
       <div class="flex flex-5 mr-2 {filterGroup}">
-        {#each [['白', 'text-yellow-100', 'text-yellow-200'], ['赤', 'text-red-400', 'text-red-400'], ['青', 'text-blue-400', 'text-blue-400'], ['緑', 'text-green-400', 'text-green-400'], ['黒', 'text-purple-400', 'text-purple-500']] as [color, activeClass, inactiveClass]}
+        {#each [['白', 'text-yellow-100', 'text-yellow-200'], ['赤', 'text-red-400', 'text-red-400'], ['青', 'text-blue-400', 'text-blue-400'], ['緑', 'text-green-400', 'text-green-400'], ['黒', 'text-purple-400', 'text-purple-500']] as [color, activeClass, inactiveClass] (color)}
           <button
             type="button"
             class={clsx(filterToggle({ active: selectedColors.has(color) }), 'flex-1')}
@@ -260,7 +260,7 @@
 
       <!-- レベル検索 -->
       <div class="flex flex-3 mr-2 {filterGroup}">
-        {#each [1, 2, 3] as level}
+        {#each [1, 2, 3] as level (level)}
           <button
             type="button"
             class={clsx(filterToggle({ active: selectedLevels.has(level) }), 'flex-1')}

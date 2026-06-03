@@ -167,7 +167,7 @@
     return node.querySelector('img');
   }
 
-  function handleTouchStart(e: TouchEvent, card: Card) {
+  function handleTouchStart(e: TouchEvent, _card: Card) {
     const node = e.currentTarget as HTMLElement;
     const touch = e.touches[0];
     touchStates.set(node, {
@@ -292,7 +292,7 @@
         </button>
         <button
           class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-          onclick={() => { candidateFilter ? onRemoveFromCandidate(card) : onAddToCandidate(card); }}
+          onclick={() => { if (candidateFilter) onRemoveFromCandidate(card); else onAddToCandidate(card); }}
           title={candidateFilter ? '候補カードから削除' : '候補カードに追加'}
         >
           {#if candidateFilter}

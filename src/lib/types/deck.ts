@@ -7,7 +7,7 @@ export interface DeckState {
 
 export type DeckType = 'main' | 'lrig';
 
-export interface DeckOperationResult extends DeckState {}
+export type DeckOperationResult = DeckState;
 
 export interface SavedDeck {
   id: string;

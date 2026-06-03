@@ -29,7 +29,7 @@ function aggregateSlots(slots: DeckSlot[]): Map<string, number> {
   return totals;
 }
 
-function computeUsageDelta(oldSlots: DeckSlot[], newSlots: DeckSlot[]): UsageDelta[] {
+export function computeUsageDelta(oldSlots: DeckSlot[], newSlots: DeckSlot[]): UsageDelta[] {
   const oldTotals = aggregateSlots(oldSlots);
   const newTotals = aggregateSlots(newSlots);
   const cardIds = new Set<string>([...oldTotals.keys(), ...newTotals.keys()]);
