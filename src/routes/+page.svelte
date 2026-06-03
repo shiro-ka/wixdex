@@ -102,7 +102,7 @@
   });
 
   $effect(() => {
-    document.title = deck.name ? `${deck.name} - wixdex` : 'wixdex';
+    document.title = deck.name ? `wixdex - ${deck.name}` : 'wixdex';
   });
 
   $effect(() => {
