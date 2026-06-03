@@ -17,6 +17,8 @@
   import CardPopup from '$lib/components/CardPopup.svelte';
   import DeckListModal from '$lib/components/DeckListModal.svelte';
   import DeckEditModal from '$lib/components/DeckEditModal.svelte';
+  import UnsavedConfirmModal from '$lib/components/UnsavedConfirmModal.svelte';
+  import DeleteDeckConfirmModal from '$lib/components/DeleteDeckConfirmModal.svelte';
   import ShareModal from '$lib/components/ShareModal.svelte';
   import StatsModal from '$lib/components/StatsModal.svelte';
   import FilterDropdown from '$lib/components/dropdowns/FilterDropdown.svelte';
@@ -78,6 +80,9 @@
   let isDeckEditOpen = $state(false);
   let isShareOpen = $state(false);
   let isStatsOpen = $state(false);
+  let isUnsavedConfirmOpen = $state(false);
+  let pendingAction = $state<(() => void) | null>(null);
+  let deckPendingDelete = $state<DeckSummary | null>(null);
   let activeDropdown = $state<'type' | 'lrigClass' | 'tag' | null>(null);
 
   // ── filtered cards ─────────────────────────────────────────
@@ -320,11 +325,22 @@
     isDeckListOpen = true;
   }
 
-  async function handleDeleteDeck(deckId: string) {
-    if (deckId === currentDeckId) {
+  function requestDeleteDeck(deck: DeckSummary) {
+    deckPendingDelete = deck;
+  }
+
+  async function confirmDeleteDeck() {
+    const deck = deckPendingDelete;
+    deckPendingDelete = null;
+    if (!deck) return;
+    if (deck.id === currentDeckId) {
       handleNewDeck();
     }
-    await cloudSync.delete(deckId);
+    await cloudSync.delete(deck.id);
+  }
+
+  function cancelDeleteDeck() {
+    deckPendingDelete = null;
   }
 
   async function handleLoadDeck(deck: DeckSummary) {
@@ -343,6 +359,43 @@
     currentDeckMemo = '';
     currentDeckIsSaved = true;
     loadDeckData([], [], []);
+  }
+
+  // ── 未保存変更のガード ──────────────────────────────────────
+  // 未保存の変更があるときはワンクッション挟む
+  function guardUnsaved(action: () => void) {
+    if (currentDeckIsSaved) {
+      action();
+    } else {
+      pendingAction = action;
+      isUnsavedConfirmOpen = true;
+    }
+  }
+
+  function requestNewDeck() {
+    guardUnsaved(handleNewDeck);
+  }
+
+  function requestLoadDeck(deck: DeckSummary) {
+    guardUnsaved(() => { handleLoadDeck(deck); });
+  }
+
+  function runPendingAction() {
+    const action = pendingAction;
+    pendingAction = null;
+    isUnsavedConfirmOpen = false;
+    action?.();
+  }
+
+  async function handleConfirmSave() {
+    await saveDeck(currentDeckName, currentDeckMemo);
+    // 保存成功時のみ続行（失敗時はモーダルを残してリトライ/破棄を選べる）
+    if (currentDeckIsSaved) runPendingAction();
+  }
+
+  function handleConfirmCancel() {
+    pendingAction = null;
+    isUnsavedConfirmOpen = false;
   }
 </script>
 
@@ -463,7 +516,7 @@
       isOpen={isSidebarOpen}
       onClose={() => { isSidebarOpen = false; }}
       onDeckListClick={handleDeckListOpen}
-      onNewDeckClick={handleNewDeck}
+      onNewDeckClick={requestNewDeck}
       onStatsClick={() => { isStatsOpen = true; }}
       user={page.data.user}
     />
@@ -472,8 +525,8 @@
       isOpen={isDeckListOpen}
       onClose={() => { isDeckListOpen = false; }}
       decks={cloudSync.decks}
-      onSelectDeck={handleLoadDeck}
-      onDeleteDeck={handleDeleteDeck}
+      onSelectDeck={requestLoadDeck}
+      onRequestDeleteDeck={requestDeleteDeck}
     />
 
     <DeckEditModal
@@ -483,6 +536,21 @@
       currentMemo={currentDeckMemo}
       onSave={saveDeck}
       {isLoggedIn}
+    />
+
+    <UnsavedConfirmModal
+      isOpen={isUnsavedConfirmOpen}
+      onCancel={handleConfirmCancel}
+      onSave={handleConfirmSave}
+      onDiscard={runPendingAction}
+    />
+
+    <DeleteDeckConfirmModal
+      isOpen={!!deckPendingDelete}
+      deckName={deckPendingDelete?.name ?? ''}
+      hasUnsavedChanges={deckPendingDelete?.id === currentDeckId && !currentDeckIsSaved}
+      onConfirm={confirmDeleteDeck}
+      onCancel={cancelDeleteDeck}
     />
 
     <ShareModal
