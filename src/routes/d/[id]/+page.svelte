@@ -38,7 +38,7 @@
 </script>
 
 <svelte:head>
-  <title>{data.deck.name} - wixdex</title>
+  <title>wixdex - {data.deck.name}</title>
   <meta property="og:title" content={data.deck.name} />
   <meta property="og:description" content="WIXOSS デッキ — wixdex" />
   <meta name="twitter:card" content="summary" />
