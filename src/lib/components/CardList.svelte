@@ -32,6 +32,24 @@
     showLifeBurst, showCandidateIcon, candidateCards,
   }: Props = $props();
 
+  // Defer card list DOM update to next RAF so filter buttons update instantly
+  let displayedCards = $state<Card[]>(cards);
+  let _rafId: number | null = null;
+  $effect(() => {
+    const snapshot = cards;
+    if (_rafId !== null) cancelAnimationFrame(_rafId);
+    _rafId = requestAnimationFrame(() => {
+      displayedCards = snapshot;
+      _rafId = null;
+    });
+    return () => { if (_rafId !== null) cancelAnimationFrame(_rafId); };
+  });
+
+  // O(1) candidate lookup
+  let candidateKeySet = $derived(new Set(
+    candidateCards.flatMap(c => [c.cardID, c.image].filter((v): v is string => v != null))
+  ));
+
   interface TouchState {
     startY: number;
     startX: number;
@@ -45,7 +63,7 @@
   const touchStates = new Map<HTMLElement, TouchState>();
 
   function isCardInCandidates(card: Card): boolean {
-    return candidateCards.some(c => (!!c.cardID && c.cardID === card.cardID) || c.image === card.image);
+    return (card.cardID != null && candidateKeySet.has(card.cardID)) || candidateKeySet.has(card.image);
   }
 
   function getImg(node: HTMLElement): HTMLImageElement | null {
@@ -151,7 +169,7 @@
   {:else if loadError}
     <div class="col-span-3 flex items-center justify-center w-full h-32 text-red-400 text-sm px-4 text-center">{loadError}</div>
   {:else}
-  {#each cards as card, index (card.cardID ? `${card.cardID}-${index}` : `${card.image}-${index}`)}
+  {#each displayedCards as card (card.cardID ?? card.image)}
     <div>
       <!-- svelte-ignore a11y_no_static_element_interactions -->
       <div
