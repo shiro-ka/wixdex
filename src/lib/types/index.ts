@@ -1,4 +1,4 @@
-export type { Card, CardColor, CardLevel, LifeBurstValue } from './card';
+export type { Card, CardColor, CardText, CardFaq } from './card';
 export type {
   DeckState,
   DeckType,

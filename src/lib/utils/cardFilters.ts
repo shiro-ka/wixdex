@@ -1,7 +1,7 @@
 import type { Card, FilterState } from '$lib/types';
 
 const isSameCard = (card1: Card, card2: Card): boolean => {
-  return (!!card1.id && card1.id === card2.id) || (card1.image === card2.image);
+  return (!!card1.cardID && card1.cardID === card2.cardID) || (card1.image === card2.image);
 };
 
 export function filterCards(cards: Card[], filters: FilterState): Card[] {
@@ -13,15 +13,19 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
     selectedTags,
     lifeBurstFilter,
     searchText,
+    searchName,
+    searchInText,
     candidateFilter,
     candidateCards,
     favoriteFilter,
     favoriteIds,
   } = filters;
 
+  const query = searchText.trim().toLowerCase();
+
   return cards.filter(card => {
     if (favoriteFilter) {
-      if (!card.id || !favoriteIds?.has(card.id)) return false;
+      if (!card.cardID || !favoriteIds?.has(card.cardID)) return false;
     }
 
     if (candidateFilter && candidateCards) {
@@ -29,27 +33,31 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
     }
 
     const colorMatch = selectedColors.size === 0 ||
-      (card.color ?? []).some(color => selectedColors.has(color));
+      card.color.some(color => selectedColors.has(color));
 
     const levelMatch = selectedLevels.size === 0 ||
-      selectedLevels.has(card.level);
+      (card.level !== null && selectedLevels.has(card.level));
 
     const cardTypeMatch = selectedCardTypes.size === 0 ||
-      (card.cardType ?? []).some(type => selectedCardTypes.has(type));
+      card.cardType.some(type => selectedCardTypes.has(type));
 
     const lrigClassMatch = selectedLrigClasses.size === 0 ||
       (card.lrigTypeClass ?? []).some(lrigClass => selectedLrigClasses.has(lrigClass));
 
     const tagMatch = selectedTags.size === 0 ||
-      (Array.isArray(card.tags) ? card.tags.some(tag => selectedTags.has(tag)) :
-       typeof card.tags === 'string' && card.tags !== '' && selectedTags.has(card.tags));
+      card.tags.some(tag => selectedTags.has(tag));
 
     const lifeBurstMatch = lifeBurstFilter === null ||
-      card.lifeBurst === lifeBurstFilter.toString();
+      card.lifeBurst === lifeBurstFilter;
 
-    const textMatch = searchText === '' ||
-      card.name.toLowerCase().includes(searchText.toLowerCase()) ||
-      (card.subName ?? []).some(name => name.toLowerCase().includes(searchText.toLowerCase()));
+    let textMatch = query === '';
+    if (!textMatch && searchName) {
+      textMatch = card.name.toLowerCase().includes(query) ||
+        card.subName.some(name => name.toLowerCase().includes(query));
+    }
+    if (!textMatch && searchInText) {
+      textMatch = card.text.some(t => t.body.toLowerCase().includes(query));
+    }
 
     return colorMatch && levelMatch && cardTypeMatch && lrigClassMatch && tagMatch && lifeBurstMatch && textMatch;
   });

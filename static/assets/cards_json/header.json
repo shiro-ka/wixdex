@@ -1,21 +1,27 @@
 {
+  "cardID": null,
+  "productID": null,
+  "image": "WXDi-P02/WXDi-P02-096.webp",
   "name": "サーバント＃",
   "subName": [
-    "サーバント#",
-    "さーばんとしゃーぷ"
+    "さーばんとしゃーぷ",
+    "サーバント#"
   ],
-  "image": "WXDi-P02/WXDi-P02-096.webp",
+  "rarity": "",
+  "illust": "",
   "cardType": [
     "サーバント"
   ],
-  "lrigTypeClass": [
-    ""
-  ],
+  "lrigTypeClass": null,
+  "color": [],
   "level": 0,
-  "color": [
-    ""
-  ],
-  "lifeBurst": "true",
+  "cost": null,
+  "power": null,
+  "timing": null,
+  "lifeBurst": true,
+  "text": [],
+  "flavorText": "",
+  "faq": [],
   "tags": [
     "サーバント"
   ]

@@ -87,11 +87,11 @@
       <span class="text-base md:text-lg">Lrig Deck</span>
     </div>
     <div class="lrigDeck grid w-full h-[calc(32dvw-4rem)] sm:h-[8rem] lg:h-[calc(11dvw-3rem)] xl:h-[6rem] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1">
-      {#each lrigDeck as card, index (`lrig-${card.id}-${index}`)}
+      {#each lrigDeck as card, index (`lrig-${card.cardID}-${index}`)}
         <div class="flex items-center" role="presentation"
-          ontouchstart={(e) => handleTouchStart(e, `lrig-${card.id}-${index}`)}
-          ontouchmove={(e) => handleTouchMove(e, `lrig-${card.id}-${index}`)}
-          ontouchend={(e) => handleTouchEnd(e, `lrig-${card.id}-${index}`, card, index, 'lrig')}
+          ontouchstart={(e) => handleTouchStart(e, `lrig-${card.cardID}-${index}`)}
+          ontouchmove={(e) => handleTouchMove(e, `lrig-${card.cardID}-${index}`)}
+          ontouchend={(e) => handleTouchEnd(e, `lrig-${card.cardID}-${index}`, card, index, 'lrig')}
         >
           <CardImage
             {card}
@@ -118,11 +118,11 @@
       </div>
     </div>
     <div class="mainDeck grid w-full h-[calc(90dvw-4rem)] lg:h-[calc(36dvw-3rem)] xl:h-[26rem] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1">
-      {#each mainDeck as card, index (`main-${card.id}-${index}`)}
+      {#each mainDeck as card, index (`main-${card.cardID}-${index}`)}
         <div class="flex items-center" role="presentation"
-          ontouchstart={(e) => handleTouchStart(e, `main-${card.id}-${index}`)}
-          ontouchmove={(e) => handleTouchMove(e, `main-${card.id}-${index}`)}
-          ontouchend={(e) => handleTouchEnd(e, `main-${card.id}-${index}`, card, index, 'main')}
+          ontouchstart={(e) => handleTouchStart(e, `main-${card.cardID}-${index}`)}
+          ontouchmove={(e) => handleTouchMove(e, `main-${card.cardID}-${index}`)}
+          ontouchend={(e) => handleTouchEnd(e, `main-${card.cardID}-${index}`, card, index, 'main')}
         >
           <CardImage
             {card}
@@ -145,7 +145,7 @@
       <span class="text-base md:text-lg">Folder</span>
     </div>
     <div class="grid grid-cols-5 auto-rows-min gap-2 w-full overflow-y-auto xl:grid-cols-6">
-      {#each candidateCards as card, index (`candidate-${card.id}-${index}`)}
+      {#each candidateCards as card, index (`candidate-${card.cardID}-${index}`)}
         <div class="flex flex-col">
           <div class="flex items-center w-full aspect-[2/3]">
             <CardImage
