@@ -53,7 +53,7 @@ export const navBtn = cva(
   {
     variants: {
       interactive: {
-        true:  'hover:bg-gray-700/50',
+        true:  'group',
         false: 'cursor-not-allowed opacity-40',
       },
     },
