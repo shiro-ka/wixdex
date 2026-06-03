@@ -22,7 +22,7 @@ function slotSig(cards: Card[]): string {
 
 type LoadableDeck = Pick<
   SavedDeck,
-  'id' | 'name' | 'memo' | 'mainDeck' | 'lrigDeck' | 'candidateCards'
+  'id' | 'name' | 'memo' | 'isPublic' | 'mainDeck' | 'lrigDeck' | 'candidateCards'
 >;
 
 /**
@@ -37,6 +37,7 @@ export class DeckBuilderStore {
   id = $state<string | null>(null);
   name = $state('');
   memo = $state('');
+  isPublic = $state(false);
 
   savedSnapshot = $state(this.signature());
 
@@ -111,6 +112,7 @@ export class DeckBuilderStore {
     this.id = deck.id;
     this.name = deck.name;
     this.memo = deck.memo;
+    this.isPublic = deck.isPublic;
     this.markSaved();
   }
 
@@ -119,6 +121,7 @@ export class DeckBuilderStore {
     this.id = null;
     this.name = '';
     this.memo = '';
+    this.isPublic = false;
     this.mainDeck = [];
     this.lrigDeck = [];
     this.candidateCards = [];
@@ -133,6 +136,7 @@ export class DeckBuilderStore {
     this.id = draft.currentDeckId;
     this.name = draft.currentDeckName;
     this.memo = draft.currentDeckMemo;
+    this.isPublic = draft.isPublic ?? false;
   }
 
   toDraft(): DraftState {
@@ -140,6 +144,7 @@ export class DeckBuilderStore {
       currentDeckId: this.id,
       currentDeckName: this.name,
       currentDeckMemo: this.memo,
+      isPublic: this.isPublic,
       mainDeck: this.mainDeck,
       lrigDeck: this.lrigDeck,
       candidateCards: this.candidateCards,

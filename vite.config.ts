@@ -51,7 +51,7 @@ export default defineConfig({
             handler: 'NetworkOnly',
           },
         ],
-        navigateFallbackDenylist: [/^\/api\//, /^\/login/, /^\/signup/, /^\/auth\//, /^\/decks/, /^\/account/, /^\/stats/],
+        navigateFallbackDenylist: [/^\/api\//, /^\/login/, /^\/signup/, /^\/auth\//, /^\/decks/, /^\/account/, /^\/stats/, /^\/d\//],
       },
     }),
   ],

@@ -31,6 +31,7 @@ interface DeckInput {
   id?: string;
   name: string;
   memo: string;
+  isPublic?: boolean;
   mainDeck: Card[];
   lrigDeck: Card[];
   candidateCards: Card[];
@@ -64,6 +65,7 @@ export class CloudDeckSync {
       id: data.id,
       name: data.name,
       memo: data.memo,
+      isPublic: data.isPublic,
       mainDeck: slotsToCards(data.slots, 'main', cardMap),
       lrigDeck: slotsToCards(data.slots, 'lrig', cardMap),
       candidateCards: slotsToCards(data.slots, 'candidate', cardMap),
@@ -81,7 +83,7 @@ export class CloudDeckSync {
       const body = {
         name: deck.name,
         memo: deck.memo,
-        isPublic: false,
+        isPublic: deck.isPublic ?? false,
         slots: [
           ...cardsToSlots(deck.mainDeck, 'main'),
           ...cardsToSlots(deck.lrigDeck, 'lrig'),

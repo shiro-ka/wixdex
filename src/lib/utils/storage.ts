@@ -12,6 +12,7 @@ export interface DraftState {
   currentDeckId: string | null;
   currentDeckName: string;
   currentDeckMemo: string;
+  isPublic: boolean;
   mainDeck: Card[];
   lrigDeck: Card[];
   candidateCards: Card[];
