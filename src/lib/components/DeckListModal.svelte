@@ -8,16 +8,14 @@
     onClose: () => void;
     decks: DeckSummary[];
     onSelectDeck: (deck: DeckSummary) => void;
-    onDeleteDeck: (deckId: string) => void;
+    onRequestDeleteDeck: (deck: DeckSummary) => void;
   }
 
-  let { isOpen, onClose, decks, onSelectDeck, onDeleteDeck }: Props = $props();
+  let { isOpen, onClose, decks, onSelectDeck, onRequestDeleteDeck }: Props = $props();
 
-  function handleDelete(e: MouseEvent, deckId: string, deckName: string) {
+  function handleDelete(e: MouseEvent, deck: DeckSummary) {
     e.stopPropagation();
-    if (window.confirm(`「${deckName}」を削除しますか？`)) {
-      onDeleteDeck(deckId);
-    }
+    onRequestDeleteDeck(deck);
   }
 </script>
 
@@ -41,7 +39,7 @@
             </div>
           </button>
           <button
-            onclick={(e) => handleDelete(e, deck.id, deck.name)}
+            onclick={(e) => handleDelete(e, deck)}
             class="flex items-center justify-center w-12 text-gray-400 hover:text-red-400 transition-colors"
             title="デッキを削除"
           >
