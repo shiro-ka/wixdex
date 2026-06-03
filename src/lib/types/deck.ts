@@ -13,6 +13,7 @@ export interface SavedDeck {
   id: string;
   name: string;
   memo: string;
+  isPublic: boolean;
   mainDeck: Card[];
   lrigDeck: Card[];
   candidateCards: Card[];
@@ -57,6 +58,18 @@ export interface DeckUpsert {
   memo: string;
   isPublic?: boolean;
   slots: DeckSlot[];
+}
+
+/** 公開デッキの読み取り専用ビュー（所有者チェック無し・is_public=1 のみ）。
+ *  author は将来の作者表示用に保持（現状 UI 未使用）。 */
+export interface PublicDeckDetail {
+  id: string;
+  name: string;
+  memo: string;
+  slots: DeckSlot[];
+  createdAt: number;
+  updatedAt: number;
+  author: { displayName: string; blueskyHandle: string | null };
 }
 
 // ── Card usage aggregate (Phase D) ────────────────────────────────────────

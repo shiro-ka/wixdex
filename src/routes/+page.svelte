@@ -150,6 +150,7 @@
         id: deck.id ?? undefined,
         name: deck.name,
         memo: deck.memo,
+        isPublic: deck.isPublic,
         mainDeck: deck.mainDeck,
         lrigDeck: deck.lrigDeck,
         candidateCards: deck.candidateCards,
@@ -175,6 +176,13 @@
     if (!isLoggedIn) return;
     await cloudSync.loadList();
     isDeckListOpen = true;
+  }
+
+  // 公開/非公開トグル: 即座に保存して反映する（保存済みデッキのみ）
+  async function setDeckPublic(next: boolean) {
+    if (!isLoggedIn || !deck.id) return;
+    deck.isPublic = next;
+    await saveDeck(deck.name, deck.memo);
   }
 
   function requestDeleteDeck(d: DeckSummary) {
@@ -397,6 +405,10 @@
       deckName={deck.name}
       mainDeck={deck.mainDeck}
       lrigDeck={deck.lrigDeck}
+      deckId={deck.id}
+      isPublic={deck.isPublic}
+      {isLoggedIn}
+      onSetPublic={setDeckPublic}
     />
 
     <StatsModal

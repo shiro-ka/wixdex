@@ -5,6 +5,7 @@ import type {
   DeckSlot,
   DeckUpsert,
   DeckSlotKind,
+  PublicDeckDetail,
 } from '$lib/types';
 
 interface DeckRow {
@@ -113,6 +114,48 @@ export class DeckDb {
       })),
       createdAt: row.created_at,
       updatedAt: row.updated_at,
+    };
+  }
+
+  /** 公開デッキ（is_public=1）を所有者チェック無しで取得。作者情報も同時取得。 */
+  async getPublicDeck(id: string): Promise<PublicDeckDetail | null> {
+    const row = await this.d1
+      .prepare(
+        `SELECT d.id, d.name, d.memo, d.created_at, d.updated_at,
+                u.display_name AS author_name, u.bluesky_handle AS author_handle
+         FROM decks d JOIN users u ON u.id = d.user_id
+         WHERE d.id = ? AND d.is_public = 1`
+      )
+      .bind(id)
+      .first<{
+        id: string;
+        name: string;
+        memo: string;
+        created_at: number;
+        updated_at: number;
+        author_name: string;
+        author_handle: string | null;
+      }>();
+
+    if (!row) return null;
+
+    const cardRows = await this.d1
+      .prepare('SELECT slot, card_id, count FROM deck_cards WHERE deck_id = ?')
+      .bind(id)
+      .all<{ slot: string; card_id: string; count: number }>();
+
+    return {
+      id: row.id,
+      name: row.name,
+      memo: row.memo,
+      slots: cardRows.results.map((r) => ({
+        slot: r.slot as DeckSlotKind,
+        cardId: r.card_id,
+        count: r.count,
+      })),
+      createdAt: row.created_at,
+      updatedAt: row.updated_at,
+      author: { displayName: row.author_name, blueskyHandle: row.author_handle },
     };
   }
 
