@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+  import { get } from 'svelte/store';
+  import { createVirtualizer, type SvelteVirtualizer } from '@tanstack/svelte-virtual';
   import CardImage from './CardImage.svelte';
   import IconPlus from '@tabler/icons-svelte/icons/plus';
   import IconFolderPlus from '@tabler/icons-svelte/icons/folder-plus';
@@ -32,24 +35,122 @@
     showLifeBurst, showCandidateIcon, candidateCards,
   }: Props = $props();
 
-  // Defer card list DOM update to next RAF so filter buttons update instantly
-  let displayedCards = $state<Card[]>(cards);
-  let _rafId: number | null = null;
-  $effect(() => {
-    const snapshot = cards;
-    if (_rafId !== null) cancelAnimationFrame(_rafId);
-    _rafId = requestAnimationFrame(() => {
-      displayedCards = snapshot;
-      _rafId = null;
-    });
-    return () => { if (_rafId !== null) cancelAnimationFrame(_rafId); };
-  });
+  // ── virtualization geometry ────────────────────────────────
+  // Desktop: a 3-column vertical grid handled by TanStack's `lanes`.
+  // Mobile: a single-row horizontal strip.
+  const COLS = 3;
+  const GAP = 8;          // gap between grid columns/rows (px)
+  const PAD_X = 8;        // horizontal inset of the grid (px)
+  const STRIP_W = 64;     // mobile card width (w-16)
+  const STRIP_GAP = 8;    // mobile gap between cards
+  const STRIP_STRIDE = STRIP_W + STRIP_GAP;
+
+  let scrollEl = $state<HTMLDivElement | null>(null);
+  let isMd = $state(false);
+  let containerWidth = $state(0);
+
+  let colWidth = $derived(
+    containerWidth > 0 ? (containerWidth - PAD_X * 2 - GAP * (COLS - 1)) / COLS : 0,
+  );
+  // Estimate only — measureElement reports the real height once a row renders.
+  let estRowHeight = $derived(colWidth > 0 ? colWidth * (17 / 12) + 42 : 180);
+  function laneLeft(lane: number): number {
+    return PAD_X + lane * (colWidth + GAP);
+  }
 
   // O(1) candidate lookup
   let candidateKeySet = $derived(new Set(
     candidateCards.flatMap(c => [c.cardID, c.image].filter((v): v is string => v != null))
   ));
 
+  function isCardInCandidates(card: Card): boolean {
+    return (card.cardID != null && candidateKeySet.has(card.cardID)) || candidateKeySet.has(card.image);
+  }
+
+  // ── TanStack virtualizers (one per layout, only the active one mounts) ──
+  // `count` starts at 0; the $effect below keeps it (and the other options) in
+  // sync with the reactive `cards` once the component is live.
+  const gridV = createVirtualizer<HTMLDivElement, HTMLDivElement>({
+    count: 0,
+    getScrollElement: () => scrollEl,
+    estimateSize: () => estRowHeight,
+    overscan: 12,
+    lanes: COLS,
+  });
+
+  const stripV = createVirtualizer<HTMLDivElement, HTMLDivElement>({
+    count: 0,
+    getScrollElement: () => scrollEl,
+    estimateSize: () => STRIP_STRIDE,
+    overscan: 10,
+    horizontal: true,
+  });
+
+  // Keep the active virtualizer's options in sync. `get()` reads the instance
+  // without adding a lasting subscription (the template already subscribes via
+  // `$gridV` / `$stripV`), so this never re-mounts or loops.
+  $effect(() => {
+    const count = cards.length;
+    if (isMd) {
+      const est = estRowHeight;
+      get(gridV).setOptions({
+        count,
+        getScrollElement: () => scrollEl,
+        estimateSize: () => est,
+        overscan: 12,
+        lanes: COLS,
+      });
+    } else {
+      get(stripV).setOptions({
+        count,
+        getScrollElement: () => scrollEl,
+        estimateSize: () => STRIP_STRIDE,
+        overscan: 10,
+        horizontal: true,
+      });
+    }
+  });
+
+  // A new filter result starts from the top. Keyed on length so unrelated
+  // updates (e.g. stashing a card while the filter is unchanged) don't jump
+  // the scroll position.
+  let prevCount = -1;
+  $effect(() => {
+    const count = cards.length;
+    if (count !== prevCount) {
+      prevCount = count;
+      scrollEl?.scrollTo({ top: 0, left: 0 });
+    }
+  });
+
+  function measure(node: HTMLDivElement, virtualizer: SvelteVirtualizer<HTMLDivElement, HTMLDivElement>) {
+    virtualizer.measureElement(node);
+    return {
+      update(v: SvelteVirtualizer<HTMLDivElement, HTMLDivElement>) { v.measureElement(node); },
+    };
+  }
+
+  onMount(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    isMd = mq.matches;
+    const onMq = (e: MediaQueryListEvent) => { isMd = e.matches; };
+    mq.addEventListener('change', onMq);
+
+    // Seed the width synchronously so the first grid layout isn't zero-width
+    // while we wait for the ResizeObserver's first async callback.
+    if (scrollEl) containerWidth = scrollEl.clientWidth;
+    const ro = new ResizeObserver(entries => {
+      containerWidth = entries[0].contentRect.width;
+    });
+    if (scrollEl) ro.observe(scrollEl);
+
+    return () => {
+      mq.removeEventListener('change', onMq);
+      ro.disconnect();
+    };
+  });
+
+  // ── touch gestures (swipe to add / hold over folder to stash) ──
   interface TouchState {
     startY: number;
     startX: number;
@@ -61,10 +162,6 @@
   }
 
   const touchStates = new Map<HTMLElement, TouchState>();
-
-  function isCardInCandidates(card: Card): boolean {
-    return (card.cardID != null && candidateKeySet.has(card.cardID)) || candidateKeySet.has(card.image);
-  }
 
   function getImg(node: HTMLElement): HTMLImageElement | null {
     return node.querySelector('img');
@@ -158,43 +255,20 @@
   }
 </script>
 
-<div
-  class="flex flex-1 gap-2 max-w-full py-3 mb-1 overflow-x-auto md:grid md:grid-cols-3 md:auto-rows-min md:px-2 md:rounded-xl md:border-1 md:border-gray-600/50 md:overflow-y-auto md:overflow-x-hidden"
-  style="touch-action: pan-x"
->
-  {#if loading}
-    <div class="col-span-3 flex items-center justify-center w-full h-32">
-      <div class="w-10 h-10 border-3 border-orange-400 border-t-transparent rounded-full animate-spin"></div>
-    </div>
-  {:else if loadError}
-    <div class="col-span-3 flex items-center justify-center w-full h-32 text-red-400 text-sm px-4 text-center">{loadError}</div>
-  {:else}
-  {#each displayedCards as card (card.cardID ?? card.image)}
-    <div>
-      <!-- svelte-ignore a11y_no_static_element_interactions -->
-      <div
-        class="flex flex-col w-16 md:w-full h-full border border-gray-600/50 rounded-lg"
-        ontouchstart={(e) => handleTouchStart(e, card)}
-        ontouchmove={(e) => handleTouchMove(e, card)}
-        ontouchend={(e) => handleTouchEnd(e, card)}
-      >
-        <div class="hidden md:flex items-center w-full aspect-[12/17]">
-          <CardImage
-            {card}
-            src={cardImageUrl(card.image)}
-            class="object-contain"
-            alt={card.name}
-            {showLifeBurst}
-            {showCandidateIcon}
-            isInCandidates={isCardInCandidates(card)}
-            onmouseenter={() => onCardHover(card)}
-            onclick={() => onCardClick(card)}
-          />
-        </div>
+{#snippet cardCell(card: Card, withButtons: boolean)}
+  <!-- svelte-ignore a11y_no_static_element_interactions -->
+  <div
+    class="flex flex-col {withButtons ? 'w-full' : 'w-16'} h-full border border-gray-600/50 rounded-lg"
+    ontouchstart={(e) => handleTouchStart(e, card)}
+    ontouchmove={(e) => handleTouchMove(e, card)}
+    ontouchend={(e) => handleTouchEnd(e, card)}
+  >
+    {#if withButtons}
+      <div class="flex items-center w-full aspect-[12/17]">
         <CardImage
           {card}
           src={cardImageUrl(card.image)}
-          class="object-contain md:hidden"
+          class="object-contain"
           alt={card.name}
           {showLifeBurst}
           {showCandidateIcon}
@@ -202,33 +276,92 @@
           onmouseenter={() => onCardHover(card)}
           onclick={() => onCardClick(card)}
         />
-        <div class="hidden md:flex justify-center w-full h-8">
-          <button
-            class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-            onclick={() => onAdd(card)} title="デッキに1枚追加"
-          >
-            <IconPlus class="w-5 h-5" />
-          </button>
-          <button
-            class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-            onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加"
-          >
-            <IconNumber4 class="w-5 h-5" />
-          </button>
-          <button
-            class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-            onclick={() => { candidateFilter ? onRemoveFromCandidate(card) : onAddToCandidate(card); }}
-            title={candidateFilter ? '候補カードから削除' : '候補カードに追加'}
-          >
-            {#if candidateFilter}
-              <IconFolderX class="w-5 h-5" />
-            {:else}
-              <IconFolderPlus class="w-5 h-5" />
-            {/if}
-          </button>
-        </div>
       </div>
+      <div class="flex justify-center w-full h-8">
+        <button
+          class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+          onclick={() => onAdd(card)} title="デッキに1枚追加"
+        >
+          <IconPlus class="w-5 h-5" />
+        </button>
+        <button
+          class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+          onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加"
+        >
+          <IconNumber4 class="w-5 h-5" />
+        </button>
+        <button
+          class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+          onclick={() => { candidateFilter ? onRemoveFromCandidate(card) : onAddToCandidate(card); }}
+          title={candidateFilter ? '候補カードから削除' : '候補カードに追加'}
+        >
+          {#if candidateFilter}
+            <IconFolderX class="w-5 h-5" />
+          {:else}
+            <IconFolderPlus class="w-5 h-5" />
+          {/if}
+        </button>
+      </div>
+    {:else}
+      <CardImage
+        {card}
+        src={cardImageUrl(card.image)}
+        class="object-contain"
+        alt={card.name}
+        {showLifeBurst}
+        {showCandidateIcon}
+        isInCandidates={isCardInCandidates(card)}
+        onmouseenter={() => onCardHover(card)}
+        onclick={() => onCardClick(card)}
+      />
+    {/if}
+  </div>
+{/snippet}
+
+<div
+  bind:this={scrollEl}
+  class="flex-1 min-h-0 max-w-full py-3 mb-1 {isMd
+    ? 'rounded-xl border border-gray-600/50 overflow-y-auto overflow-x-hidden'
+    : 'overflow-x-auto overflow-y-hidden'}"
+  style="touch-action: pan-x"
+>
+  {#if loading}
+    <div class="flex items-center justify-center w-full h-32">
+      <div class="w-10 h-10 border-3 border-orange-400 border-t-transparent rounded-full animate-spin"></div>
     </div>
-  {/each}
+  {:else if loadError}
+    <div class="flex items-center justify-center w-full h-32 text-red-400 text-sm px-4 text-center">{loadError}</div>
+  {:else if isMd}
+    <!-- Desktop: virtualized 3-column grid -->
+    <div class="relative w-full" style="height: {$gridV.getTotalSize()}px">
+      {#each $gridV.getVirtualItems() as row (cards[row.index]?.cardID ?? cards[row.index]?.image ?? row.index)}
+        {@const card = cards[row.index]}
+        {#if card}
+          <div
+            data-index={row.index}
+            use:measure={$gridV}
+            class="absolute top-0 pb-2"
+            style="left: {laneLeft(row.lane)}px; width: {colWidth}px; transform: translateY({row.start}px)"
+          >
+            {@render cardCell(card, true)}
+          </div>
+        {/if}
+      {/each}
+    </div>
+  {:else}
+    <!-- Mobile: virtualized horizontal strip -->
+    <div class="relative h-full" style="width: {$stripV.getTotalSize()}px">
+      {#each $stripV.getVirtualItems() as item (cards[item.index]?.cardID ?? cards[item.index]?.image ?? item.index)}
+        {@const card = cards[item.index]}
+        {#if card}
+          <div
+            class="absolute top-0 h-full"
+            style="left: 0; width: {STRIP_W}px; transform: translateX({item.start}px)"
+          >
+            {@render cardCell(card, false)}
+          </div>
+        {/if}
+      {/each}
+    </div>
   {/if}
 </div>
