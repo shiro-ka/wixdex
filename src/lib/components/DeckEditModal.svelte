@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { marked } from 'marked';
+  import { browser } from '$app/environment';
+  import { renderMemoHtml } from '$lib/utils/markdown';
   import BaseModal from './BaseModal.svelte';
 
   interface Props {
@@ -32,7 +33,9 @@
     onClose();
   }
 
-  let renderedMemo = $derived(marked(memo || '*メモをクリックして編集*') as string);
+  // marked→DOMPurify で無害化。DOMPurify はブラウザ DOM が必要なため browser ガード。
+  // モーダルは CSR でのみ表示されるので SSR では空文字で十分。
+  let renderedMemo = $derived(browser ? renderMemoHtml(memo) : '');
 </script>
 
 <BaseModal {isOpen} {onClose} title="デッキ編集" maxWidth="lg">
@@ -72,6 +75,8 @@
       <label class="block text-sm font-medium text-gray-300 mb-2">メモ</label>
       {#if !isLoggedIn}
         <div class="w-full min-h-[200px] px-3 py-2 bg-zinc-700/40 border border-gray-700 rounded-lg text-gray-500 cursor-not-allowed prose prose-invert prose-sm max-w-none select-none">
+          <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
+          <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html renderedMemo}
         </div>
       {:else if isEditMode}
@@ -89,6 +94,8 @@
           onclick={() => { isEditMode = true; }}
           class="w-full min-h-[200px] px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white text-left prose prose-invert prose-sm max-w-none cursor-text hover:bg-zinc-700/80 transition-colors"
         >
+          <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
+          <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html renderedMemo}
         </button>
       {/if}
