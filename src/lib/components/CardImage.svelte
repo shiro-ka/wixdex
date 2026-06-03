@@ -32,7 +32,7 @@
   }: Props = $props();
 
   let isImageLoaded = $state(false);
-  const hasLifeBurst = $derived(card.lifeBurst === 'true');
+  const hasLifeBurst = $derived(card.lifeBurst === true);
 </script>
 
 <div class="relative inline-block">

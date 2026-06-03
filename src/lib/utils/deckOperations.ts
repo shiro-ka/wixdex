@@ -62,7 +62,7 @@ export function removeCardFromDeck(
     return { mainDeck, lrigDeck };
   }
   if (isLrigCard(card)) {
-    const index = lrigDeck.findIndex(c => c.id === card.id);
+    const index = lrigDeck.findIndex(c => c.cardID === card.cardID);
     if (index !== -1) {
       const newLrigDeck = [...lrigDeck];
       newLrigDeck.splice(index, 1);
@@ -71,7 +71,7 @@ export function removeCardFromDeck(
     return { mainDeck, lrigDeck };
   }
   if (isMainDeckCard(card)) {
-    const index = mainDeck.findIndex(c => c.id === card.id);
+    const index = mainDeck.findIndex(c => c.cardID === card.cardID);
     if (index !== -1) {
       const newMainDeck = [...mainDeck];
       newMainDeck.splice(index, 1);

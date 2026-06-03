@@ -49,6 +49,10 @@
     favoriteFilter: boolean;
     onColorFilter: (color: string) => void;
     onTextSearch: (text: string) => void;
+    searchName: boolean;
+    searchInText: boolean;
+    onToggleSearchName: () => void;
+    onToggleSearchInText: () => void;
     onLevelFilter: (level: number) => void;
     onLifeBurstFilter: () => void;
     onCardTypeFilter: (type: string) => void;
@@ -69,7 +73,8 @@
   let {
     hoveredCard, selectedColors, selectedLevels, selectedCardTypes,
     selectedLrigClasses, selectedTags, lifeBurstFilter, candidateFilter,
-    favoriteFilter, onColorFilter, onTextSearch, onLevelFilter,
+    favoriteFilter, onColorFilter, onTextSearch, searchName, searchInText,
+    onToggleSearchName, onToggleSearchInText, onLevelFilter,
     onLifeBurstFilter, onCardTypeFilter, onLrigClassFilter, onTagFilter,
     onCandidateFilter, onFavoriteFilter, isLoggedIn, onReset, activeDropdown,
     onDropdownChange, showLifeBurst, onToggleLifeBurst, showCandidateIcon,
@@ -79,8 +84,6 @@
   let searchText = $state('');
   let isSettingsOpen = $state(false);
   let isSearchSettingsOpen = $state(false);
-  let searchCardName = $state(true);
-  let searchCardText = $state(false);
   let expandedMenu = $state<'type' | 'lrigClass' | 'tag'>('type');
   let isLargeScreen = $state(false);
 
@@ -334,10 +337,10 @@
           <SearchSettingsPopup
             isOpen={isSearchSettingsOpen}
             onClose={() => { isSearchSettingsOpen = false; }}
-            {searchCardName}
-            {searchCardText}
-            onToggleSearchCardName={() => { searchCardName = !searchCardName; }}
-            onToggleSearchCardText={() => { searchCardText = !searchCardText; }}
+            searchCardName={searchName}
+            searchCardText={searchInText}
+            onToggleSearchCardName={onToggleSearchName}
+            onToggleSearchCardText={onToggleSearchInText}
           />
         </button>
         <input

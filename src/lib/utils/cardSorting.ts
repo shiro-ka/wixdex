@@ -44,7 +44,7 @@ export function sortLrigDeck(lrigDeck: Card[]): Card[] {
       const levelDiff = getLevel(a.card) - getLevel(b.card);
       if (levelDiff !== 0) return levelDiff;
     }
-    const idDiff = (a.card.id ?? '').localeCompare(b.card.id ?? '');
+    const idDiff = (a.card.cardID ?? '').localeCompare(b.card.cardID ?? '');
     if (idDiff !== 0) return idDiff;
     return a.index - b.index;
   }).map(item => item.card);
@@ -60,7 +60,7 @@ export function sortMainDeck(mainDeck: Card[]): Card[] {
     }
     const colorDiff = getColorPriority(a.card) - getColorPriority(b.card);
     if (colorDiff !== 0) return colorDiff;
-    const idDiff = (a.card.id ?? '').localeCompare(b.card.id ?? '');
+    const idDiff = (a.card.cardID ?? '').localeCompare(b.card.cardID ?? '');
     if (idDiff !== 0) return idDiff;
     return a.index - b.index;
   }).map(item => item.card);
@@ -88,7 +88,7 @@ export function sortCandidateCards(candidateCards: Card[]): Card[] {
       const colorDiff = getColorPriority(a.card) - getColorPriority(b.card);
       if (colorDiff !== 0) return colorDiff;
     }
-    const idDiff = (a.card.id ?? '').localeCompare(b.card.id ?? '');
+    const idDiff = (a.card.cardID ?? '').localeCompare(b.card.cardID ?? '');
     if (idDiff !== 0) return idDiff;
     return a.index - b.index;
   }).map(item => item.card);

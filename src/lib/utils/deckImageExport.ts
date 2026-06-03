@@ -9,7 +9,7 @@ interface CardStack {
 export function groupMainDeckCards(mainDeck: Card[]): CardStack[] {
   const cardMap = new Map<string, CardStack>();
   mainDeck.forEach(card => {
-    const id = card.id || card.image;
+    const id = card.cardID || card.image;
     if (cardMap.has(id)) cardMap.get(id)!.count++;
     else cardMap.set(id, { card, count: 1 });
   });
@@ -19,12 +19,12 @@ export function groupMainDeckCards(mainDeck: Card[]): CardStack[] {
 export function getCenterLrig(lrigDeck: Card[]): Card | null {
   const lrigs = lrigDeck.filter(card => card.cardType?.[0] === 'ルリグ');
   if (lrigs.length === 0) return null;
-  return lrigs.reduce((max, card) => card.level > max.level ? card : max, lrigs[0]);
+  return lrigs.reduce((max, card) => (card.level ?? 0) > (max.level ?? 0) ? card : max, lrigs[0]);
 }
 
 export function getOtherLrigCards(lrigDeck: Card[], centerLrig: Card | null): Card[] {
   if (!centerLrig) return lrigDeck;
-  return lrigDeck.filter(card => card.id !== centerLrig.id || card.image !== centerLrig.image);
+  return lrigDeck.filter(card => card.cardID !== centerLrig.cardID || card.image !== centerLrig.image);
 }
 
 export function loadImage(src: string): Promise<HTMLImageElement> {

@@ -25,7 +25,7 @@
 
   let isLoaded = $state(false);
   let isInView = $state(false);
-  let containerEl: HTMLElement = $state() as HTMLElement;
+  let imgEl: HTMLImageElement;
 
   onMount(() => {
     const observer = new IntersectionObserver(entries => {
@@ -37,24 +37,21 @@
       }
     }, { rootMargin: '100px' });
 
-    observer.observe(containerEl);
+    observer.observe(imgEl);
     return () => observer.disconnect();
   });
 </script>
 
-{#if isInView}
-  <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-  <img
-    bind:this={containerEl}
-    {src} {alt}
-    class="{className} transition-opacity duration-300 {isLoaded ? 'opacity-100' : 'opacity-0'}"
-    onload={() => { isLoaded = true; onLoadCallback?.(true); }}
-    {onmouseenter} {onmouseleave} {onclick} {onwheel}
-    {ontouchstart} {ontouchmove} {ontouchend}
-    role={onclick ? 'button' : undefined}
-    tabindex={onclick ? 0 : undefined}
-    onkeydown={onclick ? (e) => { if (e.key === 'Enter' || e.key === ' ') onclick(); } : undefined}
-  />
-{:else}
-  <div bind:this={containerEl} class="{className} bg-gray-700/20 animate-pulse"></div>
-{/if}
+<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+<img
+  bind:this={imgEl}
+  src={isInView ? src : undefined}
+  {alt}
+  class="{className} transition-opacity duration-300 {isLoaded ? 'opacity-100' : 'opacity-0'}"
+  onload={() => { isLoaded = true; onLoadCallback?.(true); }}
+  {onmouseenter} {onmouseleave} {onclick} {onwheel}
+  {ontouchstart} {ontouchmove} {ontouchend}
+  role={onclick ? 'button' : undefined}
+  tabindex={onclick ? 0 : undefined}
+  onkeydown={onclick ? (e) => { if (e.key === 'Enter' || e.key === ' ') onclick(); } : undefined}
+/>

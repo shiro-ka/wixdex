@@ -40,7 +40,7 @@
   let lrigDeck = $state<Card[]>([]);
   let candidateCards = $state<Card[]>([]);
 
-  let lifeBurstCount = $derived(mainDeck.filter(c => c.lifeBurst === 'true').length);
+  let lifeBurstCount = $derived(mainDeck.filter(c => c.lifeBurst === true).length);
   let sortedCandidateCards = $derived(sortCandidateCards(candidateCards));
 
   // ── current deck metadata ──────────────────────────────────
@@ -57,6 +57,8 @@
   let selectedTags = $state<Set<string>>(new Set());
   let lifeBurstFilter = $state<boolean | null>(null);
   let searchText = $state('');
+  let searchName = $state(true);
+  let searchInText = $state(false);
   let candidateFilter = $state(false);
   let favoriteFilter = $state(false);
 
@@ -87,6 +89,8 @@
     selectedTags,
     lifeBurstFilter,
     searchText,
+    searchName,
+    searchInText,
     candidateFilter,
     candidateCards,
     favoriteFilter,
@@ -174,10 +178,10 @@
     const result = removeCardFromDeck(card, mainDeck, lrigDeck, specificIndex, deckType);
     mainDeck = result.mainDeck;
     lrigDeck = result.lrigDeck;
-    const remainingInMain = result.mainDeck.filter(c => c.id === card.id).length;
-    const remainingInLrig = result.lrigDeck.filter(c => c.id === card.id).length;
+    const remainingInMain = result.mainDeck.filter(c => c.cardID === card.cardID).length;
+    const remainingInLrig = result.lrigDeck.filter(c => c.cardID === card.cardID).length;
     if (remainingInMain === 0 && remainingInLrig === 0) {
-      if (!candidateCards.some(c => c.id === card.id)) {
+      if (!candidateCards.some(c => c.cardID === card.cardID)) {
         candidateCards = [...candidateCards, card];
       }
     }
@@ -261,20 +265,21 @@
 
   // ── favorites ──────────────────────────────────────────────
   async function toggleFavorite(card: Card) {
-    if (!isLoggedIn || !card.id) return;
-    const exists = favoriteIds.has(card.id);
+    if (!isLoggedIn || !card.cardID) return;
+    const cardID = card.cardID;
+    const exists = favoriteIds.has(cardID);
     favoriteIds = exists
-      ? new Set([...favoriteIds].filter(id => id !== card.id))
-      : new Set([...favoriteIds, card.id]);
+      ? new Set([...favoriteIds].filter(id => id !== cardID))
+      : new Set([...favoriteIds, cardID]);
     await fetch('/api/favorites', {
       method: exists ? 'DELETE' : 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ cardId: card.id }),
+      body: JSON.stringify({ cardId: cardID }),
     });
   }
 
   function isFavorite(card: Card) {
-    return !!card.id && favoriteIds.has(card.id);
+    return !!card.cardID && favoriteIds.has(card.cardID);
   }
 
   // ── deck persistence ───────────────────────────────────────
@@ -408,6 +413,10 @@
           {favoriteFilter}
           onColorFilter={toggleColorFilter}
           onTextSearch={(t) => { searchText = t; }}
+          {searchName}
+          {searchInText}
+          onToggleSearchName={() => { searchName = !searchName; }}
+          onToggleSearchInText={() => { searchInText = !searchInText; }}
           onLevelFilter={toggleLevelFilter}
           onLifeBurstFilter={toggleLifeBurstFilter}
           onCardTypeFilter={toggleCardTypeFilter}

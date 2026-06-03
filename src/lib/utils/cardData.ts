@@ -19,8 +19,8 @@ export const CARD_SETS = [
   "WXDi-P11",
 ];
 
-export function cardKey(card: Pick<Card, "id" | "image">): string | null {
-  return card.id ?? card.image ?? null;
+export function cardKey(card: Pick<Card, "cardID" | "image">): string | null {
+  return card.cardID ?? card.image ?? null;
 }
 
 export async function loadAllCards(
