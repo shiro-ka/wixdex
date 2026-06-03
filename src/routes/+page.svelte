@@ -283,13 +283,11 @@
   }
 
   // ── deck persistence ───────────────────────────────────────
-  async function handleSave() {
+  // 新規・既存どちらも保存する統合関数
+  async function saveDeck(name: string, memo: string) {
     if (!isLoggedIn) return;
-    if (!currentDeckId) {
-      const name = prompt('デッキ名を入力してください', 'New Deck');
-      if (!name) return;
-      currentDeckName = name;
-    }
+    currentDeckName = name;
+    currentDeckMemo = memo;
     try {
       const id = await cloudSync.save({
         id: currentDeckId ?? undefined,
@@ -303,6 +301,16 @@
       currentDeckIsSaved = true;
     } catch {
       // cloudSync.error is set; user sees it in UI if we add an error display
+    }
+  }
+
+  // ヘッダーの保存ボタン: 新規はモーダルを開き、既存は即保存
+  function handleSaveClick() {
+    if (!isLoggedIn) return;
+    if (!currentDeckId) {
+      isDeckEditOpen = true;
+    } else {
+      saveDeck(currentDeckName, currentDeckMemo);
     }
   }
 
@@ -329,25 +337,6 @@
     currentDeckIsSaved = true;
   }
 
-  async function handleDeckEdit(name: string, memo: string) {
-    if (!isLoggedIn || !currentDeckId) return;
-    currentDeckName = name;
-    currentDeckMemo = memo;
-    try {
-      await cloudSync.save({
-        id: currentDeckId,
-        name,
-        memo,
-        mainDeck,
-        lrigDeck,
-        candidateCards,
-      });
-      currentDeckIsSaved = true;
-    } catch {
-      // error handled by cloudSync.error
-    }
-  }
-
   function handleNewDeck() {
     currentDeckId = null;
     currentDeckName = '';
@@ -363,7 +352,7 @@
       isSaved={currentDeckIsSaved}
       {isLoggedIn}
       onMenuClick={() => { isSidebarOpen = true; }}
-      onSaveClick={handleSave}
+      onSaveClick={handleSaveClick}
       onDeckClick={() => { isDeckEditOpen = true; }}
       onShareClick={() => { isShareOpen = true; }}
     />
@@ -492,7 +481,7 @@
       onClose={() => { isDeckEditOpen = false; }}
       currentName={currentDeckName}
       currentMemo={currentDeckMemo}
-      onSave={handleDeckEdit}
+      onSave={saveDeck}
       {isLoggedIn}
     />
 

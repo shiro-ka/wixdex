@@ -18,12 +18,16 @@
   let isEditMode = $state(false);
   let isNameEditMode = $state(false);
 
+  // モーダルを開くたびに現在のデッキ名・メモへリセット（未保存の編集は破棄）
   $effect(() => {
-    name = currentName;
-    memo = currentMemo;
+    if (isOpen) {
+      name = currentName;
+      memo = currentMemo;
+    }
   });
 
-  function handleClose() {
+  function handleSaveClick() {
+    if (!isLoggedIn) return;
     onSave(name, memo);
     onClose();
   }
@@ -31,7 +35,7 @@
   let renderedMemo = $derived(marked(memo || '*メモをクリックして編集*') as string);
 </script>
 
-<BaseModal {isOpen} onClose={handleClose} title="デッキ編集" maxWidth="lg">
+<BaseModal {isOpen} {onClose} title="デッキ編集" maxWidth="lg">
   <div class="space-y-4">
     <!-- デッキ名 -->
     <div>
@@ -92,9 +96,19 @@
         {#if !isLoggedIn}
           <a href="/login" class="text-orange-400 hover:text-orange-300 transition-colors">ログインするとデッキを保存できます</a>
         {:else}
-          {isEditMode ? 'マークダウン記法が使えます（クリック外で保存）' : 'クリックして編集'}
+          {isEditMode ? 'マークダウン記法が使えます' : 'クリックして編集'}
         {/if}
       </p>
     </div>
+
+    <!-- 保存ボタン -->
+    <button
+      type="button"
+      onclick={handleSaveClick}
+      disabled={!isLoggedIn}
+      class="w-full rounded-lg bg-orange-600 py-2 font-semibold text-white hover:bg-orange-500 active:bg-orange-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-orange-600"
+    >
+      保存
+    </button>
   </div>
 </BaseModal>
