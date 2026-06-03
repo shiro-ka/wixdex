@@ -1,3 +1,37 @@
+<script module lang="ts">
+  // One shared IntersectionObserver for every lazy image, instead of one per
+  // image. Filter toggles mount/unmount thousands of images at once, and a
+  // per-image observer made that churn far heavier than it needs to be.
+  const callbacks = new WeakMap<Element, () => void>();
+  let sharedObserver: IntersectionObserver | null = null;
+
+  function getObserver(): IntersectionObserver | null {
+    if (typeof IntersectionObserver === 'undefined') return null;
+    sharedObserver ??= new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const cb = callbacks.get(entry.target);
+        sharedObserver!.unobserve(entry.target);
+        callbacks.delete(entry.target);
+        cb?.();
+      }
+    }, { rootMargin: '100px' });
+    return sharedObserver;
+  }
+
+  function observe(el: Element, cb: () => void) {
+    const observer = getObserver();
+    if (!observer) { cb(); return; }
+    callbacks.set(el, cb);
+    observer.observe(el);
+  }
+
+  function unobserve(el: Element) {
+    callbacks.delete(el);
+    sharedObserver?.unobserve(el);
+  }
+</script>
+
 <script lang="ts">
   import { onMount } from 'svelte';
 
@@ -28,17 +62,8 @@
   let imgEl: HTMLImageElement;
 
   onMount(() => {
-    const observer = new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          isInView = true;
-          observer.unobserve(entry.target);
-        }
-      }
-    }, { rootMargin: '100px' });
-
-    observer.observe(imgEl);
-    return () => observer.disconnect();
+    observe(imgEl, () => { isInView = true; });
+    return () => unobserve(imgEl);
   });
 </script>
 

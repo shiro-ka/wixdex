@@ -29,6 +29,7 @@
     "@atproto/api": "^0.13.35",
     "@atproto/jwk-jose": "^0.1.11",
     "@atproto/oauth-client-node": "^0.3.17",
+    "@tanstack/svelte-virtual": "^3.13.28",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cva": "^0.0.0",
