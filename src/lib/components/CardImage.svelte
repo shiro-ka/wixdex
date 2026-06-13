@@ -19,6 +19,7 @@
     ontouchstart?: (e: TouchEvent) => void;
     ontouchmove?: (e: TouchEvent) => void;
     ontouchend?: (e: TouchEvent) => void;
+    fadeToken?: unknown;
   }
 
   let {
@@ -29,6 +30,7 @@
     isInCandidates = false,
     onmouseenter, onmouseleave, onclick, onwheel,
     ontouchstart, ontouchmove, ontouchend,
+    fadeToken,
   }: Props = $props();
 
   let isImageLoaded = $state(false);
@@ -37,7 +39,7 @@
 
 <div class="relative inline-block">
   <LazyImage
-    {src} {alt} class={className}
+    {src} {alt} class={className} {fadeToken}
     {onmouseenter} {onmouseleave} {onclick} {onwheel}
     {ontouchstart} {ontouchmove} {ontouchend}
     onload={(v) => { isImageLoaded = v; }}
