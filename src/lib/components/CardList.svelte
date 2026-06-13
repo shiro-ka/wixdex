@@ -273,6 +273,7 @@
           {showLifeBurst}
           {showCandidateIcon}
           isInCandidates={isCardInCandidates(card)}
+          fadeToken={cards}
           onmouseenter={() => onCardHover(card)}
           onclick={() => onCardClick(card)}
         />
@@ -311,6 +312,7 @@
         {showLifeBurst}
         {showCandidateIcon}
         isInCandidates={isCardInCandidates(card)}
+        fadeToken={cards}
         onmouseenter={() => onCardHover(card)}
         onclick={() => onCardClick(card)}
       />
