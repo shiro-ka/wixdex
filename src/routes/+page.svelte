@@ -28,7 +28,6 @@
   let allCardData = $state<Card[]>([]);
   let loading = $state(true);
   let loadError = $state<string | null>(null);
-
   let cardMap = $derived(buildCardMap(allCardData));
 
   // ── stores ─────────────────────────────────────────────────
@@ -72,7 +71,9 @@
     };
     const onTouchMove = (e: TouchEvent) => {
       const deltaY = e.touches[0].clientY - startY;
-      const isImg = (touchedElement as HTMLElement)?.closest?.('img') || (touchedElement as HTMLElement)?.tagName === 'IMG';
+      const isImg =
+        (touchedElement as HTMLElement)?.closest?.('img') ||
+        (touchedElement as HTMLElement)?.tagName === 'IMG';
       if (deltaY > 0 && window.scrollY === 0 && isImg) e.preventDefault();
     };
     document.addEventListener('touchstart', onTouchStart, { passive: true });
@@ -127,7 +128,7 @@
     const cardID = card.cardID;
     const exists = favoriteIds.has(cardID);
     favoriteIds = exists
-      ? new Set([...favoriteIds].filter(id => id !== cardID))
+      ? new Set([...favoriteIds].filter((id) => id !== cardID))
       : new Set([...favoriteIds, cardID]);
     await fetch('/api/favorites', {
       method: exists ? 'DELETE' : 'POST',
@@ -229,7 +230,9 @@
   }
 
   function requestLoadDeck(d: DeckSummary) {
-    guardUnsaved(() => { handleLoadDeck(d); });
+    guardUnsaved(() => {
+      handleLoadDeck(d);
+    });
   }
 
   function runPendingAction() {
@@ -252,176 +255,219 @@
 </script>
 
 <div class="flex flex-col w-dvw h-dvh m-0 p-0 bg-zinc-900 overflow-hidden">
-    <Navbar
-      deckName={deck.name}
-      isSaved={deck.isSaved}
-      {isLoggedIn}
-      onMenuClick={() => { isSidebarOpen = true; }}
-      onSaveClick={handleSaveClick}
-      onDeckClick={() => { isDeckEditOpen = true; }}
-      onShareClick={() => { isShareOpen = true; }}
-    />
+  <Navbar
+    deckName={deck.name}
+    isSaved={deck.isSaved}
+    {isLoggedIn}
+    onMenuClick={() => {
+      isSidebarOpen = true;
+    }}
+    onSaveClick={handleSaveClick}
+    onDeckClick={() => {
+      isDeckEditOpen = true;
+    }}
+    onShareClick={() => {
+      isShareOpen = true;
+    }}
+  />
 
-    <div class="flex flex-col flex-1 w-full max-w-screen-sm mx-auto overflow-hidden md:flex-1 lg:flex-row lg:max-w-screen-xl lg:mb-4 2xl:max-w-[84vw]">
-      <DeckArea
-        mainDeck={deck.mainDeck}
-        lrigDeck={deck.lrigDeck}
-        onCardHover={(card) => { hoveredCard = card; }}
-        onAdd={deck.addCard}
-        onAddMultiple={deck.addMultiple}
-        onRemove={deck.removeCard}
-        candidateCards={deck.sortedCandidateCards}
-        onRemoveFromCandidate={deck.removeFromCandidate}
-        onCardClick={(card) => { popupCard = card; }}
-        lifeBurstCount={deck.lifeBurstCount}
-        {showLifeBurst}
-      />
-
-      <div class="flex flex-3 flex-col lg:flex-row">
-        <CardList
-          cards={filteredCards}
-          {loading}
-          loadError={loadError}
-          onAdd={deck.addCard}
-          onAddMultiple={deck.addMultiple}
-          onRemove={(card) => deck.removeCard(card)}
-          onCardHover={(card) => { hoveredCard = card; }}
-          onAddToCandidate={deck.addToCandidate}
-          onRemoveFromCandidate={deck.removeFromCandidate}
-          candidateFilter={filter.candidateFilter}
-          onCardClick={(card) => { popupCard = card; }}
-          {showLifeBurst}
-          {showCandidateIcon}
-          candidateCards={deck.candidateCards}
-        />
-
-        <SearchArea
-          {hoveredCard}
-          selectedColors={filter.selectedColors}
-          selectedLevels={filter.selectedLevels}
-          selectedCardTypes={filter.selectedCardTypes}
-          selectedLrigClasses={filter.selectedLrigClasses}
-          selectedTags={filter.selectedTags}
-          lifeBurstFilter={filter.lifeBurstFilter}
-          candidateFilter={filter.candidateFilter}
-          favoriteFilter={filter.favoriteFilter}
-          onColorFilter={filter.toggleColor}
-          onTextSearch={filter.setSearchText}
-          searchName={filter.searchName}
-          searchInText={filter.searchInText}
-          onToggleSearchName={filter.toggleSearchName}
-          onToggleSearchInText={filter.toggleSearchInText}
-          onLevelFilter={filter.toggleLevel}
-          onLifeBurstFilter={filter.toggleLifeBurst}
-          onCardTypeFilter={filter.toggleCardType}
-          onLrigClassFilter={filter.toggleLrigClass}
-          onTagFilter={filter.toggleTag}
-          onCandidateFilter={filter.toggleCandidate}
-          onFavoriteFilter={filter.toggleFavorite}
-          {isLoggedIn}
-          onReset={filter.reset}
-          {activeDropdown}
-          onDropdownChange={(d) => { activeDropdown = d; }}
-          {showLifeBurst}
-          onToggleLifeBurst={toggleShowLifeBurst}
-          {showCandidateIcon}
-          onToggleCandidateIcon={toggleShowCandidateIcon}
-        />
-      </div>
-    </div>
-
-    <!-- ドロップダウンメニュー -->
-    <FilterDropdown
-      isOpen={activeDropdown === 'type'}
-      onClose={() => { activeDropdown = null; }}
-      title="カードタイプ検索"
-      onClearAll={filter.clearCardTypes}
-    >
-      <TypeFilterContent selectedTypes={filter.selectedCardTypes} onToggle={filter.toggleCardType} />
-    </FilterDropdown>
-
-    <FilterDropdown
-      isOpen={activeDropdown === 'lrigClass'}
-      onClose={() => { activeDropdown = null; }}
-      title="ルリグタイプ/クラス検索"
-      onClearAll={filter.clearLrigClasses}
-    >
-      <LrigClassFilterContent selectedLrigClasses={filter.selectedLrigClasses} onToggle={filter.toggleLrigClass} />
-    </FilterDropdown>
-
-    <FilterDropdown
-      isOpen={activeDropdown === 'tag'}
-      onClose={() => { activeDropdown = null; }}
-      title="タグ検索"
-      onClearAll={filter.clearTags}
-    >
-      <TagFilterContent selectedTags={filter.selectedTags} onToggle={filter.toggleTag} />
-    </FilterDropdown>
-
-    <Sidebar
-      isOpen={isSidebarOpen}
-      onClose={() => { isSidebarOpen = false; }}
-      onDeckListClick={handleDeckListOpen}
-      onNewDeckClick={requestNewDeck}
-      onStatsClick={() => { isStatsOpen = true; }}
-      user={page.data.user}
-    />
-
-    <DeckListModal
-      isOpen={isDeckListOpen}
-      onClose={() => { isDeckListOpen = false; }}
-      decks={cloudSync.decks}
-      onSelectDeck={requestLoadDeck}
-      onRequestDeleteDeck={requestDeleteDeck}
-    />
-
-    <DeckEditModal
-      isOpen={isDeckEditOpen}
-      onClose={() => { isDeckEditOpen = false; }}
-      currentName={deck.name}
-      currentMemo={deck.memo}
-      onSave={saveDeck}
-      {isLoggedIn}
-    />
-
-    <UnsavedConfirmModal
-      isOpen={isUnsavedConfirmOpen}
-      onCancel={handleConfirmCancel}
-      onSave={handleConfirmSave}
-      onDiscard={runPendingAction}
-    />
-
-    <DeleteDeckConfirmModal
-      isOpen={!!deckPendingDelete}
-      deckName={deckPendingDelete?.name ?? ''}
-      hasUnsavedChanges={deckPendingDelete?.id === deck.id && !deck.isSaved}
-      onConfirm={confirmDeleteDeck}
-      onCancel={cancelDeleteDeck}
-    />
-
-    <ShareModal
-      isOpen={isShareOpen}
-      onClose={() => { isShareOpen = false; }}
-      deckName={deck.name}
+  <div
+    class="flex flex-col flex-1 w-full max-w-screen-sm mx-auto overflow-hidden md:flex-1 lg:flex-row lg:max-w-screen-xl lg:mb-4 2xl:max-w-[84vw]"
+  >
+    <DeckArea
       mainDeck={deck.mainDeck}
       lrigDeck={deck.lrigDeck}
-      deckId={deck.id}
-      isPublic={deck.isPublic}
-      {isLoggedIn}
-      onSetPublic={setDeckPublic}
+      onCardHover={(card) => {
+        hoveredCard = card;
+      }}
+      onAdd={deck.addCard}
+      onAddMultiple={deck.addMultiple}
+      onRemove={deck.removeCard}
+      candidateCards={deck.sortedCandidateCards}
+      onRemoveFromCandidate={deck.removeFromCandidate}
+      onCardClick={(card) => {
+        popupCard = card;
+      }}
+      lifeBurstCount={deck.lifeBurstCount}
+      {showLifeBurst}
     />
 
-    <StatsModal
-      isOpen={isStatsOpen}
-      onClose={() => { isStatsOpen = false; }}
-      {cardMap}
-    />
+    <div class="flex flex-3 flex-col lg:flex-row">
+      <CardList
+        cards={filteredCards}
+        {loading}
+        {loadError}
+        onAdd={deck.addCard}
+        onAddMultiple={deck.addMultiple}
+        onRemove={(card) => deck.removeCard(card)}
+        onCardHover={(card) => {
+          hoveredCard = card;
+        }}
+        onAddToCandidate={deck.addToCandidate}
+        onRemoveFromCandidate={deck.removeFromCandidate}
+        candidateFilter={filter.candidateFilter}
+        onCardClick={(card) => {
+          popupCard = card;
+        }}
+        {showLifeBurst}
+        {showCandidateIcon}
+        candidateCards={deck.candidateCards}
+      />
 
-    <CardPopup
-      card={popupCard}
-      onClose={() => { popupCard = null; }}
-      isFavorite={popupCard ? isFavorite(popupCard) : false}
-      onToggleFavorite={() => { if (popupCard) toggleFavorite(popupCard); }}
-      {isLoggedIn}
-    />
+      <SearchArea
+        {hoveredCard}
+        selectedColors={filter.selectedColors}
+        selectedLevels={filter.selectedLevels}
+        selectedCardTypes={filter.selectedCardTypes}
+        selectedLrigClasses={filter.selectedLrigClasses}
+        selectedTags={filter.selectedTags}
+        lifeBurstFilter={filter.lifeBurstFilter}
+        candidateFilter={filter.candidateFilter}
+        favoriteFilter={filter.favoriteFilter}
+        onColorFilter={filter.toggleColor}
+        onTextSearch={filter.setSearchText}
+        searchName={filter.searchName}
+        searchInText={filter.searchInText}
+        onToggleSearchName={filter.toggleSearchName}
+        onToggleSearchInText={filter.toggleSearchInText}
+        onLevelFilter={filter.toggleLevel}
+        onLifeBurstFilter={filter.toggleLifeBurst}
+        onCardTypeFilter={filter.toggleCardType}
+        onLrigClassFilter={filter.toggleLrigClass}
+        onTagFilter={filter.toggleTag}
+        onCandidateFilter={filter.toggleCandidate}
+        onFavoriteFilter={filter.toggleFavorite}
+        {isLoggedIn}
+        onReset={filter.reset}
+        {activeDropdown}
+        onDropdownChange={(d) => {
+          activeDropdown = d;
+        }}
+        {showLifeBurst}
+        onToggleLifeBurst={toggleShowLifeBurst}
+        {showCandidateIcon}
+        onToggleCandidateIcon={toggleShowCandidateIcon}
+      />
+    </div>
   </div>
+
+  <!-- ドロップダウンメニュー -->
+  <FilterDropdown
+    isOpen={activeDropdown === 'type'}
+    onClose={() => {
+      activeDropdown = null;
+    }}
+    title="カードタイプ検索"
+    onClearAll={filter.clearCardTypes}
+  >
+    <TypeFilterContent selectedTypes={filter.selectedCardTypes} onToggle={filter.toggleCardType} />
+  </FilterDropdown>
+
+  <FilterDropdown
+    isOpen={activeDropdown === 'lrigClass'}
+    onClose={() => {
+      activeDropdown = null;
+    }}
+    title="ルリグタイプ/クラス検索"
+    onClearAll={filter.clearLrigClasses}
+  >
+    <LrigClassFilterContent
+      selectedLrigClasses={filter.selectedLrigClasses}
+      onToggle={filter.toggleLrigClass}
+    />
+  </FilterDropdown>
+
+  <FilterDropdown
+    isOpen={activeDropdown === 'tag'}
+    onClose={() => {
+      activeDropdown = null;
+    }}
+    title="タグ検索"
+    onClearAll={filter.clearTags}
+  >
+    <TagFilterContent selectedTags={filter.selectedTags} onToggle={filter.toggleTag} />
+  </FilterDropdown>
+
+  <Sidebar
+    isOpen={isSidebarOpen}
+    onClose={() => {
+      isSidebarOpen = false;
+    }}
+    onDeckListClick={handleDeckListOpen}
+    onNewDeckClick={requestNewDeck}
+    onStatsClick={() => {
+      isStatsOpen = true;
+    }}
+    user={page.data.user}
+  />
+
+  <DeckListModal
+    isOpen={isDeckListOpen}
+    onClose={() => {
+      isDeckListOpen = false;
+    }}
+    decks={cloudSync.decks}
+    onSelectDeck={requestLoadDeck}
+    onRequestDeleteDeck={requestDeleteDeck}
+  />
+
+  <DeckEditModal
+    isOpen={isDeckEditOpen}
+    onClose={() => {
+      isDeckEditOpen = false;
+    }}
+    currentName={deck.name}
+    currentMemo={deck.memo}
+    onSave={saveDeck}
+    {isLoggedIn}
+  />
+
+  <UnsavedConfirmModal
+    isOpen={isUnsavedConfirmOpen}
+    onCancel={handleConfirmCancel}
+    onSave={handleConfirmSave}
+    onDiscard={runPendingAction}
+  />
+
+  <DeleteDeckConfirmModal
+    isOpen={!!deckPendingDelete}
+    deckName={deckPendingDelete?.name ?? ''}
+    hasUnsavedChanges={deckPendingDelete?.id === deck.id && !deck.isSaved}
+    onConfirm={confirmDeleteDeck}
+    onCancel={cancelDeleteDeck}
+  />
+
+  <ShareModal
+    isOpen={isShareOpen}
+    onClose={() => {
+      isShareOpen = false;
+    }}
+    deckName={deck.name}
+    mainDeck={deck.mainDeck}
+    lrigDeck={deck.lrigDeck}
+    deckId={deck.id}
+    isPublic={deck.isPublic}
+    {isLoggedIn}
+    onSetPublic={setDeckPublic}
+  />
+
+  <StatsModal
+    isOpen={isStatsOpen}
+    onClose={() => {
+      isStatsOpen = false;
+    }}
+    {cardMap}
+  />
+
+  <CardPopup
+    card={popupCard}
+    onClose={() => {
+      popupCard = null;
+    }}
+    isFavorite={popupCard ? isFavorite(popupCard) : false}
+    onToggleFavorite={() => {
+      if (popupCard) toggleFavorite(popupCard);
+    }}
+    {isLoggedIn}
+  />
+</div>
