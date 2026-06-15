@@ -2013,7 +2013,7 @@
     },
     "power": null,
     "timing": null,
-    "lifeBurst": null,
+    "lifeBurst": false,
     "text": [
       {
         "label": "",
@@ -2257,7 +2257,7 @@
     },
     "power": null,
     "timing": null,
-    "lifeBurst": null,
+    "lifeBurst": false,
     "text": [
       {
         "label": "",
@@ -3061,7 +3061,7 @@
     },
     "power": null,
     "timing": null,
-    "lifeBurst": null,
+    "lifeBurst": false,
     "text": [
       {
         "label": "",

@@ -1,33 +1,39 @@
-import type { Card } from "$lib/types";
+import type { Card } from '$lib/types';
 
 export const CARD_SETS = [
-  "header",
-  "WX26-CP1",
-  "WX25-P3",
-  "WX25-P2",
-  "WX25-P1",
-  "WX25-CP1",
-  "WX24-P4",
-  "WX24-P3",
-  "WX24-P2",
-  "WX24-P1",
-  "WXDi-P16",
-  "WXDi-P15",
-  "WXDi-CP02",
-  "WXDi-P14",
-  "WXDi-CP01",
-  "WXDi-P11",
-  "WXDi-P10",
-  "WXDi-P09",
+  'header',
+  'WX26-CP1',
+  'WX25-P3',
+  'WX25-P2',
+  'WX25-P1',
+  'WX25-CP1',
+  'WX24-P4',
+  'WX24-P3',
+  'WX24-P2',
+  'WX24-P1',
+  'WXDi-P16',
+  'WXDi-P15',
+  'WXDi-CP02',
+  'WXDi-P14',
+  'WXDi-P13',
+  'WXDi-P12',
+  'WXDi-CP01',
+  'WXDi-P11',
+  'WXDi-P10',
+  'WXDi-P09',
+  'WXDi-P08',
+  'WXDi-P07',
+  'WXDi-P06',
+  'WXDi-P05',
+  'WXDi-P04',
+  'WXDi-P03',
 ];
 
-export function cardKey(card: Pick<Card, "cardID" | "image">): string | null {
+export function cardKey(card: Pick<Card, 'cardID' | 'image'>): string | null {
   return card.cardID ?? card.image ?? null;
 }
 
-export async function loadAllCards(
-  fetchImpl: typeof fetch = fetch,
-): Promise<Card[]> {
+export async function loadAllCards(fetchImpl: typeof fetch = fetch): Promise<Card[]> {
   const results = await Promise.all(
     CARD_SETS.map((set) =>
       fetchImpl(`/assets/cards_json/${set}.json`).then((r) => {
