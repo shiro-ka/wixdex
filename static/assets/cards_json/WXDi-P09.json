@@ -2155,7 +2155,7 @@
     },
     "power": null,
     "timing": null,
-    "lifeBurst": null,
+    "lifeBurst": false,
     "text": [
       {
         "label": "",
