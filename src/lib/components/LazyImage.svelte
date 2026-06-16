@@ -101,6 +101,7 @@
   src={isInView ? src : undefined}
   {alt}
   decoding="async"
+  crossorigin="anonymous"
   class="{className} {fade ? 'transition-opacity duration-300' : ''} {isLoaded ? 'opacity-100' : 'opacity-0'}"
   onload={() => { isLoaded = true; onLoadCallback?.(true); }}
   {onmouseenter} {onmouseleave} {onclick} {onwheel}
