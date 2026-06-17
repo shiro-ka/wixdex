@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CheckboxIcon from '../icons/CheckboxIcon.svelte';
+  import FilterChecklist from './FilterChecklist.svelte';
 
   interface Props {
     selectedLrigClasses: Set<string>;
@@ -23,19 +23,7 @@
     '天使', '武勇', '英知', '美巧', '悪魔', '宇宙', '鉱石', '宝石', '原子', '植物', '微菌', '怪異',
     '龍獣', '水獣', '空獣', '地獣', '凶蟲', '精元',
   ];
+  const items = lrigClasses.map((c) => ({ value: c, label: c }));
 </script>
 
-<div class="max-h-[48dvh] overflow-y-auto">
-  <div class="grid grid-cols-3 gap-2">
-    {#each lrigClasses as lrigClass (lrigClass)}
-      {@const checked = selectedLrigClasses.has(lrigClass)}
-      <button type="button" class="group flex items-center space-x-2 text-white cursor-pointer" onclick={() => onToggle(lrigClass)}>
-        <CheckboxIcon
-          {checked}
-          class="w-5 h-5 flex-shrink-0 transition-colors {checked ? 'text-orange-400' : 'text-gray-400 group-hover:text-gray-300'}"
-        />
-        <span class="text-sm">{lrigClass}</span>
-      </button>
-    {/each}
-  </div>
-</div>
+<FilterChecklist {items} selected={selectedLrigClasses} {onToggle} columns={3} />

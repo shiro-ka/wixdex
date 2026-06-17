@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CheckboxIcon from '../icons/CheckboxIcon.svelte';
+  import FilterChecklist from './FilterChecklist.svelte';
 
   interface Props {
     selectedTypes: Set<string>;
@@ -7,25 +7,14 @@
   }
   let { selectedTypes, onToggle }: Props = $props();
 
-  const types: [string, string][] = [
-    ['ルリグ', 'ルリグ（センター）'],
-    ['アシスト', 'アシストルリグ'],
-    ['ピース', 'ピース'],
-    ['アーツ', 'アーツ'],
-    ['シグニ', 'シグニ'],
-    ['スペル', 'スペル'],
+  const items = [
+    { value: 'ルリグ', label: 'ルリグ（センター）' },
+    { value: 'アシスト', label: 'アシストルリグ' },
+    { value: 'ピース', label: 'ピース' },
+    { value: 'アーツ', label: 'アーツ' },
+    { value: 'シグニ', label: 'シグニ' },
+    { value: 'スペル', label: 'スペル' },
   ];
 </script>
 
-<div class="grid grid-cols-2 gap-3">
-  {#each types as [value, label] (value)}
-    {@const checked = selectedTypes.has(value)}
-    <button type="button" class="group flex items-center space-x-2 text-white cursor-pointer" onclick={() => onToggle(value)}>
-      <CheckboxIcon
-        {checked}
-        class="w-5 h-5 flex-shrink-0 transition-colors {checked ? 'text-orange-400' : 'text-gray-400 group-hover:text-gray-300'}"
-      />
-      <span class="text-sm">{label}</span>
-    </button>
-  {/each}
-</div>
+<FilterChecklist {items} selected={selectedTypes} {onToggle} columns={2} />

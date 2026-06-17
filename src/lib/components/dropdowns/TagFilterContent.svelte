@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CheckboxIcon from '../icons/CheckboxIcon.svelte';
+  import FilterChecklist from './FilterChecklist.svelte';
 
   interface Props {
     selectedTags: Set<string>;
@@ -15,17 +15,7 @@
     'DIAGRAM', 'ディソナ', 'ライズ', 'アタックフェイズ',
     'サーバント', '原子', '地獣', '悪魔',
   ];
+  const items = tags.map((t) => ({ value: t, label: t }));
 </script>
 
-<div class="grid grid-cols-2 gap-3 max-h-96 overflow-y-auto">
-  {#each tags as tag (tag)}
-    {@const checked = selectedTags.has(tag)}
-    <button type="button" class="group flex items-center space-x-2 text-white cursor-pointer" onclick={() => onToggle(tag)}>
-      <CheckboxIcon
-        {checked}
-        class="w-5 h-5 flex-shrink-0 transition-colors {checked ? 'text-orange-400' : 'text-gray-400 group-hover:text-gray-300'}"
-      />
-      <span class="text-sm">{tag}</span>
-    </button>
-  {/each}
-</div>
+<FilterChecklist {items} selected={selectedTags} {onToggle} columns={2} />
