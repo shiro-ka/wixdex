@@ -343,7 +343,7 @@
             data-index={row.index}
             use:measure={$gridV}
             class="absolute top-0 pb-2"
-            style="left: {laneLeft(row.lane)}px; width: {colWidth}px; transform: translateY({row.start}px)"
+            style="left: {Math.round(laneLeft(row.lane))}px; width: {colWidth}px; transform: translateY({Math.round(row.start)}px)"
           >
             {@render cardCell(card, true)}
           </div>
@@ -358,7 +358,7 @@
         {#if card}
           <div
             class="absolute top-0 h-full"
-            style="left: 0; width: {STRIP_W}px; transform: translateX({item.start}px)"
+            style="left: 0; width: {STRIP_W}px; transform: translateX({Math.round(item.start)}px)"
           >
             {@render cardCell(card, false)}
           </div>
