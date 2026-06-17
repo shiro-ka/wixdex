@@ -1,59 +1,25 @@
 <script module lang="ts">
-  // One shared IntersectionObserver for every lazy image, instead of one per
-  // image. Filter toggles mount/unmount thousands of images at once, and a
-  // per-image observer made that churn far heavier than it needs to be.
-  const callbacks = new WeakMap<Element, () => void>();
-  let sharedObserver: IntersectionObserver | null = null;
-
-  function getObserver(): IntersectionObserver | null {
-    if (typeof IntersectionObserver === 'undefined') return null;
-    sharedObserver ??= new IntersectionObserver(entries => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        const cb = callbacks.get(entry.target);
-        sharedObserver!.unobserve(entry.target);
-        callbacks.delete(entry.target);
-        cb?.();
-      }
-    }, { rootMargin: '100px' });
-    return sharedObserver;
-  }
-
-  function observe(el: Element, cb: () => void) {
-    const observer = getObserver();
-    if (!observer) { cb(); return; }
-    callbacks.set(el, cb);
-    observer.observe(el);
-  }
-
-  function unobserve(el: Element) {
-    callbacks.delete(el);
-    sharedObserver?.unobserve(el);
-  }
-
-  // Fade-in is meant as a cover-up while an image first loads — not a thing to
-  // replay every time virtualization re-mounts a card on scroll-back. We record
-  // which srcs have already faded in for the current list "generation" (the
-  // `fadeToken`, i.e. the filtered `cards` array reference). A new token means
-  // the filter changed: clear the record so the fresh list fades once again.
-  // No token (deck / shared views) opts out and keeps the plain fade-on-mount.
+  // Fade-in should mark a genuine list change (initial load / filter change),
+  // not scrolling. `fadeToken` is the filtered `cards` array reference — a new
+  // one means the list changed. On change we open a short window: cards that
+  // mount within it are the new on-screen batch and fade in; cards revealed
+  // later by scrolling fall outside it and just appear. No token (deck / shared
+  // views) opts out and keeps the plain fade-on-mount.
   let shownToken: unknown;
-  const shownSrcs = new Set<string>();
+  let fadeWindowUntil = 0;
 
-  function shouldFadeIn(src: string, token: unknown): boolean {
+  function shouldFadeIn(token: unknown): boolean {
     if (token === undefined) return true;
     if (token !== shownToken) {
       shownToken = token;
-      shownSrcs.clear();
+      fadeWindowUntil = performance.now() + 150;
     }
-    if (shownSrcs.has(src)) return false;
-    shownSrcs.add(src);
-    return true;
+    return performance.now() <= fadeWindowUntil;
   }
 </script>
 
 <script lang="ts">
-  import { onMount, untrack } from 'svelte';
+  import { untrack } from 'svelte';
 
   interface Props {
     src: string;
@@ -80,25 +46,20 @@
     fadeToken,
   }: Props = $props();
 
+  // Decided once per mount. Fade only if this mount lands inside a fade window
+  // (just after the list changed); scroll-revealed cards land outside it.
+  const fade = untrack(() => shouldFadeIn(fadeToken));
+
   let isLoaded = $state(false);
-  let isInView = $state(false);
-  let imgEl: HTMLImageElement;
-
-  // Decided once per mount: virtualization re-mounts the component on every
-  // scroll-back, so a fresh `false` here means "first time we're showing this
-  // src for this list", which is exactly when we want the fade.
-  const fade = untrack(() => shouldFadeIn(src, fadeToken));
-
-  onMount(() => {
-    observe(imgEl, () => { isInView = true; });
-    return () => unobserve(imgEl);
-  });
 </script>
 
+<!-- The image loads on mount. The card list is virtualized, so only cells near
+     the viewport are mounted (the grid's overscan acts as the preload buffer) —
+     no separate IntersectionObserver, which couldn't see past the inner scroll
+     container's clip anyway. Non-virtualized callers (deck) mount a small set. -->
 <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 <img
-  bind:this={imgEl}
-  src={isInView ? src : undefined}
+  {src}
   {alt}
   decoding="async"
   crossorigin="anonymous"
