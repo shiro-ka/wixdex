@@ -57,6 +57,7 @@
     </div>
 
     <div class="space-y-2">
+      <p>Deck</p>
       <button
         onclick={isLoggedIn ? () => { onNewDeckClick(); onClose(); } : undefined}
         disabled={!isLoggedIn}
@@ -82,6 +83,7 @@
     </div>
 
     <div class="mt-4 pt-4 border-t border-neutral-700">
+      <p>Account</p>
       {#if user}
         <div class="flex items-center gap-3 px-4 py-3 text-sm text-gray-400">
           <IconUser size={20} class="shrink-0" />
