@@ -60,6 +60,17 @@
   // ── filtered cards ─────────────────────────────────────────
   let filteredCards = $derived(filter.apply(allCardData, deck.candidateCards, favoriteIds));
 
+  // ── card popup: 採用枚数・候補状態 ─────────────────────────
+  function copiesInDeck(card: Card): number {
+    const key = card.cardID ?? card.image;
+    const match = (c: Card) => (c.cardID ?? c.image) === key;
+    return deck.mainDeck.filter(match).length + deck.lrigDeck.filter(match).length;
+  }
+  let popupCount = $derived(popupCard ? copiesInDeck(popupCard) : 0);
+  let popupInCandidate = $derived(
+    popupCard ? deck.candidateCards.some((c) => c.image === popupCard!.image) : false,
+  );
+
   // ── mount: load data & restore from storage ───────────────
   onMount(() => {
     // pull-to-refresh prevention (image swipe gestures conflict with scroll-to-refresh)
@@ -469,5 +480,12 @@
       if (popupCard) toggleFavorite(popupCard);
     }}
     {isLoggedIn}
+    count={popupCount}
+    isInCandidate={popupInCandidate}
+    onAdd={deck.addCard}
+    onAddMultiple={deck.addMultiple}
+    onRemove={(card) => deck.removeCard(card)}
+    onAddToCandidate={deck.addToCandidate}
+    onRemoveFromCandidate={deck.removeFromCandidate}
   />
 </div>
