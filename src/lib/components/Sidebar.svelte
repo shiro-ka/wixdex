@@ -4,6 +4,7 @@
   import IconLibrary from '@tabler/icons-svelte/icons/library';
   import IconChartLine from '@tabler/icons-svelte/icons/chart-line';
   import IconUser from '@tabler/icons-svelte/icons/user';
+  import { IconLink } from '@tabler/icons-svelte/IconLink.svelte';
   import IconBrandBluesky from '@tabler/icons-svelte/icons/brand-bluesky';
   import IconBrandGithub from '@tabler/icons-svelte/icons/brand-github';
   import { sidebarBtn } from '$lib/styles';
@@ -102,15 +103,39 @@
       {/if}
     </div>
 
-    <div class="mt-auto flex items-center justify-center gap-8 py-4 border-t border-neutral-700">
-      <a href="https://bsky.app/profile/wixdex.cards" target="_blank" rel="noopener noreferrer"
-        class="text-neutral-100 hover:text-orange-400 transition-colors" title="Bluesky">
-        <IconBrandBluesky class="w-6 h-6" />
-      </a>
-      <a href="https://github.com/shiro-ka/wixdex" target="_blank" rel="noopener noreferrer"
-        class="text-neutral-100 hover:text-orange-400 transition-colors" title="GitHub">
-        <IconBrandGithub class="w-6 h-6" />
-      </a>
+    <div class="mt-auto gap-8 py-4 border-t border-neutral-700">
+      <p class=""><IconLink stroke={2} /> Link</p>
+      <div class="flex">
+        <a href="https://bsky.app/profile/wixdex.cards" target="_blank" rel="noopener noreferrer"
+          class="text-neutral-100 hover:text-orange-400 transition-colors" title="Bluesky">
+          <IconBrandBluesky class="w-6 h-6" />
+        </a>
+        <div>
+          <p>Mado (準備中)</p>
+          <p>バグ報告・要望など</p>
+        </div>
+      </div>
+      <div class="flex">
+        <a href="https://bsky.app/profile/wixdex.cards" target="_blank" rel="noopener noreferrer"
+          class="text-neutral-100 hover:text-orange-400 transition-colors" title="Bluesky">
+          <IconBrandBluesky class="w-6 h-6" />
+        </a>
+        <div>
+          <p>Bluesky</p>
+          <p>bot稼働中...</p>
+        </div>
+      </div>
+      <div class="flex">
+        <a href="https://github.com/shiro-ka/wixdex" target="_blank" rel="noopener noreferrer"
+          class="text-neutral-100 hover:text-orange-400 transition-colors" title="GitHub">
+          <IconBrandGithub class="w-6 h-6" />
+        </a>
+        <div>
+          <p>GitHub</p>
+          <p>スパゲッティコード公開中</p>
+        </div>
+      </div>
     </div>
+
   </div>
 {/if}
