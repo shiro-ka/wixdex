@@ -4,7 +4,7 @@
   import IconLibrary from '@tabler/icons-svelte/icons/library';
   import IconChartLine from '@tabler/icons-svelte/icons/chart-line';
   import IconUser from '@tabler/icons-svelte/icons/user';
-  import { IconLink } from '@tabler/icons-svelte/IconLink.svelte';
+  import IconLink from '@tabler/icons-svelte/icons/link';
   import IconBrandBluesky from '@tabler/icons-svelte/icons/brand-bluesky';
   import IconBrandGithub from '@tabler/icons-svelte/icons/brand-github';
   import { sidebarBtn } from '$lib/styles';
