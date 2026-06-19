@@ -44,7 +44,7 @@
   <div class="fixed inset-0 flex items-center justify-center z-50 p-3">
     <button class="absolute inset-0 bg-black/70" onclick={onClose} aria-label="閉じる"></button>
 
-    <div class="relative z-10 flex flex-col lg:flex-row w-full max-w-4xl h-[82vh] lg:h-[82vh] bg-zinc-800 rounded-xl overflow-hidden">
+    <div class="relative z-10 flex flex-col lg:flex-row w-full max-w-4xl h-[82vw] lg:h-[82vh] bg-zinc-800 rounded-xl overflow-hidden">
       <button
         class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center rounded-lg bg-zinc-900/60 text-gray-300 hover:text-white transition-colors"
         onclick={onClose} aria-label="閉じる"

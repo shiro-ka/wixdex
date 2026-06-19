@@ -102,6 +102,7 @@
             alt={card.name}
             {showLifeBurst}
             {rotateLandscape}
+            fade={false}
             onmouseenter={() => onCardHover(card)}
             onwheel={(e) => handleWheel(e, card, index, 'lrig')}
             onclick={() => onCardClick(card)}
@@ -134,6 +135,7 @@
             alt={card.name}
             {showLifeBurst}
             {rotateLandscape}
+            fade={false}
             onmouseenter={() => onCardHover(card)}
             onwheel={(e) => handleWheel(e, card, index, 'main')}
             onclick={() => onCardClick(card)}
@@ -150,12 +152,12 @@
     </div>
     <div class="grid grid-cols-5 auto-rows-min gap-2 w-full overflow-y-auto xl:grid-cols-6">
       {#each candidateCards as card, index (`candidate-${card.cardID}-${index}`)}
-        <div class="flex flex-col">
-          <div class="flex items-center w-full aspect-[2/3]">
+        <div class="flex flex-col w-full border border-gray-600/50 rounded-lg">
+          <div class="flex items-center w-full aspect-[12/17]">
             <CardImage
               {card}
               src={cardImageUrl(card.image)}
-              class="w-full object-contain cursor-pointer"
+              class="object-contain cursor-pointer"
               alt={card.name}
               {showLifeBurst}
               {rotateLandscape}
@@ -163,18 +165,18 @@
               onclick={() => onCardClick(card)}
             />
           </div>
-          <div class="flex justify-center gap-2 w-full h-8">
-            <button class="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
+          <div class="flex justify-center w-full h-8">
+            <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
               onclick={() => onAdd(card)} title="デッキに1枚追加">
-              <IconPlus class="w-5 h-5 text-gray-400" />
+              <IconPlus class="w-[18px] h-[18px]" />
             </button>
-            <button class="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
+            <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
               onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加">
-              <IconNumber4 class="w-5 h-5 text-gray-400" />
+              <IconNumber4 class="w-[18px] h-[18px]" />
             </button>
-            <button class="flex flex-1 items-center justify-center p-0 rounded-lg bg-zinc-600/10 hover:bg-zinc-500/30 border border-gray-600/50 transition-all"
+            <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
               onclick={() => onRemoveFromCandidate(card)} title="候補カードから削除">
-              <IconFolderX class="w-5 h-5 text-gray-400" />
+              <IconFolderX class="w-[18px] h-[18px]" />
             </button>
           </div>
         </div>
