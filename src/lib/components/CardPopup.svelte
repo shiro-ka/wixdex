@@ -44,7 +44,7 @@
   <div class="fixed inset-0 flex items-center justify-center z-50 p-3">
     <button class="absolute inset-0 bg-black/70" onclick={onClose} aria-label="閉じる"></button>
 
-    <div class="relative z-10 flex flex-col lg:flex-row w-full max-w-4xl h-[82vh] lg:h-auto lg:max-h-[92vh] bg-zinc-800 rounded-xl overflow-hidden">
+    <div class="relative z-10 flex flex-col lg:flex-row w-full max-w-4xl h-[82vh] lg:h-[82vh] bg-zinc-800 rounded-xl overflow-hidden">
       <button
         class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center rounded-lg bg-zinc-900/60 text-gray-300 hover:text-white transition-colors"
         onclick={onClose} aria-label="閉じる"
@@ -66,13 +66,18 @@
 
       <!-- 画像 + 操作バー -->
       <div class="{tab === 'info' ? 'hidden lg:flex' : 'flex'} flex-col flex-1 min-h-0 lg:flex-none p-3 lg:w-1/2">
-        <img
-          src={cardImageUrl(card.image)}
-          alt={card.name}
-          decoding="async"
-          crossorigin="anonymous"
-          class="w-full flex-1 min-h-0 object-contain rounded-lg lg:flex-none lg:max-h-[72vh]"
-        />
+        <!-- カード画像欄: 12/17 の固定箱を使える高さに合わせて中央表示（横長カードもレターボックス） -->
+        <div class="flex items-center justify-center min-h-0 flex-1">
+          <div class="flex items-center justify-center h-full max-w-full aspect-[12/17]">
+            <img
+              src={cardImageUrl(card.image)}
+              alt={card.name}
+              decoding="async"
+              crossorigin="anonymous"
+              class="max-w-full max-h-full object-contain rounded-lg"
+            />
+          </div>
+        </div>
 
         <div class="flex items-center gap-1.5 mt-3 shrink-0">
           <div class="flex items-center justify-center min-w-12 h-10 px-2 rounded-lg bg-zinc-900/60 text-lg font-bold text-white tabular-nums">{count}</div>
