@@ -8,9 +8,11 @@
     onToggleLifeBurst: () => void;
     showCandidateIcon: boolean;
     onToggleCandidateIcon: () => void;
+    rotateLandscape: boolean;
+    onToggleRotateLandscape: () => void;
   }
 
-  let { isOpen, onClose, showLifeBurst, onToggleLifeBurst, showCandidateIcon, onToggleCandidateIcon }: Props = $props();
+  let { isOpen, onClose, showLifeBurst, onToggleLifeBurst, showCandidateIcon, onToggleCandidateIcon, rotateLandscape, onToggleRotateLandscape }: Props = $props();
 
   let isClosing = $state(false);
   let shouldRender = $state(false);
@@ -54,6 +56,13 @@
             class="w-5 h-5 flex-shrink-0 transition-colors {showCandidateIcon ? 'text-orange-400' : 'text-gray-400 group-hover:text-gray-300'}"
           />
           <span class="text-sm">候補カードアイコンを表示</span>
+        </button>
+        <button type="button" class="group flex items-center space-x-2 text-white cursor-pointer w-full" onclick={onToggleRotateLandscape}>
+          <CheckboxIcon
+            checked={rotateLandscape}
+            class="w-5 h-5 flex-shrink-0 transition-colors {rotateLandscape ? 'text-orange-400' : 'text-gray-400 group-hover:text-gray-300'}"
+          />
+          <span class="text-sm">横向きのカードを縦に表示</span>
         </button>
       </div>
     </div>

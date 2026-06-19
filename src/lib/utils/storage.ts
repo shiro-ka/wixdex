@@ -6,6 +6,7 @@ const DRAFT_KEY = 'wixdex_draft';
 export interface UserSettings {
   showLifeBurst: boolean;
   showCandidateIcon: boolean;
+  rotateLandscape: boolean;
 }
 
 export interface DraftState {
@@ -21,6 +22,7 @@ export interface DraftState {
 const DEFAULT_SETTINGS: UserSettings = {
   showLifeBurst: false,
   showCandidateIcon: false,
+  rotateLandscape: false,
 };
 
 function read<T>(key: string, fallback: T): T {

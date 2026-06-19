@@ -39,6 +39,7 @@
   // ── settings & favorites ───────────────────────────────────
   let showLifeBurst = $state(false);
   let showCandidateIcon = $state(false);
+  let rotateLandscape = $state(false);
   let favoriteIds = $state<Set<string>>(new Set(page.data.favoriteIds ?? []));
 
   // ── draft persistence ──────────────────────────────────────
@@ -97,6 +98,7 @@
     const settings = getSettings();
     showLifeBurst = settings.showLifeBurst;
     showCandidateIcon = settings.showCandidateIcon;
+    rotateLandscape = settings.rotateLandscape;
     loadAllCards()
       .then((cards) => {
         allCardData = cards;
@@ -125,12 +127,17 @@
   // ── settings ───────────────────────────────────────────────
   function toggleShowLifeBurst() {
     showLifeBurst = !showLifeBurst;
-    saveSettings({ showLifeBurst, showCandidateIcon });
+    saveSettings({ showLifeBurst, showCandidateIcon, rotateLandscape });
   }
 
   function toggleShowCandidateIcon() {
     showCandidateIcon = !showCandidateIcon;
-    saveSettings({ showLifeBurst, showCandidateIcon });
+    saveSettings({ showLifeBurst, showCandidateIcon, rotateLandscape });
+  }
+
+  function toggleRotateLandscape() {
+    rotateLandscape = !rotateLandscape;
+    saveSettings({ showLifeBurst, showCandidateIcon, rotateLandscape });
   }
 
   // ── favorites ──────────────────────────────────────────────
@@ -301,6 +308,7 @@
       }}
       lifeBurstCount={deck.lifeBurstCount}
       {showLifeBurst}
+      {rotateLandscape}
     />
 
     <div class="flex flex-3 flex-col lg:flex-row">
@@ -322,6 +330,7 @@
         }}
         {showLifeBurst}
         {showCandidateIcon}
+        {rotateLandscape}
         candidateCards={deck.candidateCards}
       />
 
@@ -358,6 +367,8 @@
         onToggleLifeBurst={toggleShowLifeBurst}
         {showCandidateIcon}
         onToggleCandidateIcon={toggleShowCandidateIcon}
+        {rotateLandscape}
+        onToggleRotateLandscape={toggleRotateLandscape}
       />
     </div>
   </div>

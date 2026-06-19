@@ -19,11 +19,13 @@
     onCardClick: (card: Card) => void;
     lifeBurstCount: number;
     showLifeBurst: boolean;
+    rotateLandscape: boolean;
   }
 
   let {
     mainDeck, lrigDeck, onCardHover, onAdd, onAddMultiple, onRemove,
     candidateCards, onRemoveFromCandidate, onCardClick, lifeBurstCount, showLifeBurst,
+    rotateLandscape,
   }: Props = $props();
 
   interface TouchState {
@@ -99,6 +101,7 @@
             class="w-full object-contain cursor-pointer"
             alt={card.name}
             {showLifeBurst}
+            {rotateLandscape}
             onmouseenter={() => onCardHover(card)}
             onwheel={(e) => handleWheel(e, card, index, 'lrig')}
             onclick={() => onCardClick(card)}
@@ -130,6 +133,7 @@
             class="w-full object-contain cursor-pointer"
             alt={card.name}
             {showLifeBurst}
+            {rotateLandscape}
             onmouseenter={() => onCardHover(card)}
             onwheel={(e) => handleWheel(e, card, index, 'main')}
             onclick={() => onCardClick(card)}
@@ -154,6 +158,7 @@
               class="w-full object-contain cursor-pointer"
               alt={card.name}
               {showLifeBurst}
+              {rotateLandscape}
               onmouseenter={() => onCardHover(card)}
               onclick={() => onCardClick(card)}
             />
