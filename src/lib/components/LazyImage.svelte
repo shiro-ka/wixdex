@@ -32,7 +32,7 @@
     ontouchstart?: (e: TouchEvent) => void;
     ontouchmove?: (e: TouchEvent) => void;
     ontouchend?: (e: TouchEvent) => void;
-    onload?: (loaded: boolean) => void;
+    onload?: (img: HTMLImageElement) => void;
     /** Identifies the current list generation; a new value re-enables fade-in. */
     fadeToken?: unknown;
   }
@@ -64,7 +64,7 @@
   decoding="async"
   crossorigin="anonymous"
   class="{className} {fade ? 'transition-opacity duration-300' : ''} {isLoaded ? 'opacity-100' : 'opacity-0'}"
-  onload={() => { isLoaded = true; onLoadCallback?.(true); }}
+  onload={(e) => { isLoaded = true; onLoadCallback?.(e.currentTarget as HTMLImageElement); }}
   {onmouseenter} {onmouseleave} {onclick} {onwheel}
   {ontouchstart} {ontouchmove} {ontouchend}
   role={onclick ? 'button' : undefined}

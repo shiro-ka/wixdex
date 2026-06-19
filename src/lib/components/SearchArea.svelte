@@ -68,6 +68,8 @@
     onToggleLifeBurst: () => void;
     showCandidateIcon: boolean;
     onToggleCandidateIcon: () => void;
+    rotateLandscape: boolean;
+    onToggleRotateLandscape: () => void;
   }
 
   let {
@@ -78,7 +80,7 @@
     onLifeBurstFilter, onCardTypeFilter, onLrigClassFilter, onTagFilter,
     onCandidateFilter, onFavoriteFilter, isLoggedIn, onReset, activeDropdown,
     onDropdownChange, showLifeBurst, onToggleLifeBurst, showCandidateIcon,
-    onToggleCandidateIcon,
+    onToggleCandidateIcon, rotateLandscape, onToggleRotateLandscape,
   }: Props = $props();
 
   let searchText = $state('');
@@ -319,6 +321,8 @@
           {onToggleLifeBurst}
           {showCandidateIcon}
           {onToggleCandidateIcon}
+          {rotateLandscape}
+          {onToggleRotateLandscape}
         />
       </button>
 

@@ -25,6 +25,7 @@
     showLifeBurst: boolean;
     showCandidateIcon: boolean;
     candidateCards: Card[];
+    rotateLandscape: boolean;
   }
 
   let {
@@ -32,7 +33,7 @@
     onAdd, onAddMultiple, onCardHover,
     onAddToCandidate, onRemoveFromCandidate,
     candidateFilter, onCardClick,
-    showLifeBurst, showCandidateIcon, candidateCards,
+    showLifeBurst, showCandidateIcon, candidateCards, rotateLandscape,
   }: Props = $props();
 
   // ── virtualization geometry ────────────────────────────────
@@ -258,7 +259,7 @@
 {#snippet cardCell(card: Card, withButtons: boolean)}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
-    class="flex flex-col {withButtons ? 'w-full' : 'w-16'} h-full border border-gray-600/50 rounded-lg"
+    class="flex flex-col {withButtons ? 'w-full border border-gray-600/50 rounded-lg' : 'w-16 justify-center'} h-full"
     ontouchstart={(e) => handleTouchStart(e, card)}
     ontouchmove={(e) => handleTouchMove(e, card)}
     ontouchend={(e) => handleTouchEnd(e, card)}
@@ -272,6 +273,7 @@
           alt={card.name}
           {showLifeBurst}
           {showCandidateIcon}
+          {rotateLandscape}
           isInCandidates={isCardInCandidates(card)}
           fadeToken={cards}
           onmouseenter={() => onCardHover(card)}
@@ -311,6 +313,7 @@
         alt={card.name}
         {showLifeBurst}
         {showCandidateIcon}
+        {rotateLandscape}
         isInCandidates={isCardInCandidates(card)}
         fadeToken={cards}
         onmouseenter={() => onCardHover(card)}
