@@ -45,9 +45,9 @@
   <div class="fixed inset-0 flex items-center justify-center z-50 p-3">
     <button class="absolute inset-0 bg-black/70" onclick={onClose} aria-label="閉じる"></button>
 
-    <div class="relative z-10 flex flex-col lg:flex-row w-full max-w-4xl max-h-[92vh] bg-gray-800 rounded-xl overflow-y-auto lg:overflow-hidden">
+    <div class="relative z-10 flex flex-col lg:flex-row w-full max-w-4xl max-h-[92vh] bg-zinc-800 rounded-xl overflow-y-auto lg:overflow-hidden">
       <button
-        class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center rounded-lg bg-gray-900/60 text-gray-300 hover:text-white transition-colors"
+        class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center rounded-lg bg-zinc-900/60 text-gray-300 hover:text-white transition-colors"
         onclick={onClose} aria-label="閉じる"
       >
         <IconX class="w-5 h-5" />
@@ -103,7 +103,7 @@
       </div>
 
       <!-- 情報パネル -->
-      <div class="flex flex-col min-h-0 lg:w-1/2 lg:border-l border-gray-700/60">
+      <div class="flex flex-col min-h-0 lg:w-1/2 lg:border-l border-zinc-700/60">
         <button
           class="lg:hidden flex items-center justify-center gap-1 h-10 mx-3 mb-3 rounded-lg bg-zinc-700/40 text-gray-300 text-sm"
           onclick={() => (showInfo = !showInfo)}
