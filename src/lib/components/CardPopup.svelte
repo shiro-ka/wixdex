@@ -84,7 +84,7 @@
             <IconNumber4 class="w-5 h-5" />
           </button>
           <button
-            class="flex-1 h-10 flex items-center justify-center rounded-lg bg-zinc-700/50 hover:bg-zinc-600/60 transition-colors {isInCandidate ? 'text-blue-400' : 'text-gray-200'}"
+            class="flex-1 h-10 flex items-center justify-center rounded-lg bg-zinc-700/50 hover:bg-zinc-600/60 transition-colors {isInCandidate ? 'text-gray-100' : 'text-gray-400'}"
             onclick={() => (isInCandidate ? onRemoveFromCandidate(card) : onAddToCandidate(card))}
             title={isInCandidate ? '候補から削除' : '候補に追加'}
           >
