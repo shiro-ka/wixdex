@@ -54,6 +54,18 @@ export function validateUsername(raw: string): { ok: true; value: string } | { o
   return { ok: true, value: name };
 }
 
+/** デッキ公開URLの slug 検証。/@user/[slug] のユーザー内名前空間用（予約語は不要）。 */
+export const SLUG_MAX = 50;
+const SLUG_RE = /^[a-z0-9_-]+$/;
+
+export function validateSlug(raw: string): { ok: true; value: string } | { ok: false; error: string } {
+  const slug = raw.trim().toLowerCase();
+  if (slug.length < 1) return { ok: false, error: 'URLを入力してください。' };
+  if (slug.length > SLUG_MAX) return { ok: false, error: `${SLUG_MAX}文字以下にしてください。` };
+  if (!SLUG_RE.test(slug)) return { ok: false, error: '使えるのは英小文字・数字・ハイフン・アンダースコアです。' };
+  return { ok: true, value: slug };
+}
+
 const randomChars = customAlphabet('abcdefghijkmnpqrstuvwxyz23456789', 8);
 
 /** ランダムな username 候補を生成（登録時の「おまかせ」ボタン用）。 */

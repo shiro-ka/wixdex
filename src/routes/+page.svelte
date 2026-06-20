@@ -175,6 +175,7 @@
         candidateCards: deck.candidateCards,
       });
       deck.id = id;
+      if (!deck.slug) deck.slug = id; // 新規保存時の既定 slug は id
       deck.markSaved();
     } catch {
       // cloudSync.error is set; user sees it in UI if we add an error display
@@ -195,6 +196,16 @@
     if (!isLoggedIn) return;
     await cloudSync.loadList();
     isDeckListOpen = true;
+  }
+
+  // デッキ公開URL(slug)の変更。成功したらストアにも反映。
+  async function updateDeckSlug(
+    slug: string,
+  ): Promise<{ ok: boolean; error?: string; slug?: string }> {
+    if (!deck.id) return { ok: false, error: 'デッキを保存してください。' };
+    const res = await cloudSync.updateSlug(deck.id, slug);
+    if (res.ok) deck.slug = res.slug;
+    return res;
   }
 
   // 公開/非公開トグル: 即座に保存して反映する（保存済みデッキのみ）
@@ -468,10 +479,12 @@
     mainDeck={deck.mainDeck}
     lrigDeck={deck.lrigDeck}
     deckId={deck.id}
+    currentSlug={deck.slug || deck.id}
     ownerAtName={page.data.user ? (page.data.user.username ?? page.data.user.blueskyHandle) : null}
     isPublic={deck.isPublic}
     {isLoggedIn}
     onSetPublic={setDeckPublic}
+    onUpdateSlug={updateDeckSlug}
   />
 
   <StatsModal

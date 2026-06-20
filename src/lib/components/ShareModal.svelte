@@ -15,21 +15,61 @@
     deckId: string | null;
     /** 公開URLのユーザー名部分(username or bskyハンドル)。未設定なら URL を発行できない。 */
     ownerAtName: string | null;
+    /** デッキ公開URLの slug（現在値）。 */
+    currentSlug: string | null;
     isPublic: boolean;
     isLoggedIn: boolean;
     onSetPublic: (next: boolean) => void | Promise<void>;
+    onUpdateSlug: (slug: string) => Promise<{ ok: boolean; error?: string; slug?: string }>;
   }
 
-  let { isOpen, onClose, deckName, mainDeck, lrigDeck, deckId, ownerAtName, isPublic, isLoggedIn, onSetPublic }: Props = $props();
+  let {
+    isOpen, onClose, deckName, mainDeck, lrigDeck, deckId, ownerAtName, currentSlug,
+    isPublic, isLoggedIn, onSetPublic, onUpdateSlug,
+  }: Props = $props();
 
   let isExporting = $state(false);
   let publishing = $state(false);
   let copied = $state(false);
 
-  // slug は現状 deckId と同値（Phase 3 で slug 変更UIを入れたら deck.slug に差し替える）。
+  // 編集中(editSlug)と確定済み(savedSlug)を分け、URLは確定値から作る。
+  let savedSlug = $state('');
+  let editSlug = $state('');
+  let slugSaving = $state(false);
+  let slugError = $state('');
+  let editingSlug = $state(false);
+
+  // デッキが切り替わったら slug 状態を同期。
+  $effect(() => {
+    const s = currentSlug ?? deckId ?? '';
+    savedSlug = s;
+    editSlug = s;
+    editingSlug = false;
+    slugError = '';
+  });
+
   let publicUrl = $derived(
-    browser && deckId && ownerAtName ? `${location.origin}/@${ownerAtName}/${deckId}` : ''
+    browser && savedSlug && ownerAtName ? `${location.origin}/@${ownerAtName}/${savedSlug}` : ''
   );
+
+  async function saveSlug() {
+    if (slugSaving || editSlug === savedSlug) {
+      editingSlug = false;
+      return;
+    }
+    slugSaving = true;
+    slugError = '';
+    const res = await onUpdateSlug(editSlug);
+    if (res.ok) {
+      // サーバーで小文字正規化された値を採用（typed の大小と食い違わないように）。
+      savedSlug = res.slug ?? editSlug;
+      editSlug = savedSlug;
+      editingSlug = false;
+    } else {
+      slugError = res.error ?? '変更できませんでした。';
+    }
+    slugSaving = false;
+  }
 
   async function togglePublish() {
     if (publishing) return;
@@ -124,7 +164,44 @@
                 {copied ? 'コピー済' : 'コピー'}
               </button>
             </div>
-            <p class="text-gray-500 text-xs mt-1">リンクを知っている人がこのデッキを閲覧できます。</p>
+
+            {#if editingSlug}
+              <div class="mt-2">
+                <div class="flex h-9 items-center rounded-lg bg-zinc-800 border border-zinc-700 focus-within:border-orange-500">
+                  <span class="pl-2 text-gray-500 text-xs whitespace-nowrap">/@{ownerAtName}/</span>
+                  <input
+                    type="text"
+                    bind:value={editSlug}
+                    autocapitalize="none"
+                    autocomplete="off"
+                    spellcheck="false"
+                    class="w-full bg-transparent px-1 text-white text-xs focus:outline-none"
+                  />
+                  <button
+                    type="button"
+                    onclick={saveSlug}
+                    disabled={slugSaving}
+                    class="px-3 h-full text-orange-400 hover:text-orange-300 text-xs disabled:opacity-50"
+                  >
+                    {slugSaving ? '...' : '保存'}
+                  </button>
+                </div>
+                {#if slugError}
+                  <p class="text-red-400 text-xs mt-1">{slugError}</p>
+                {/if}
+              </div>
+            {:else}
+              <div class="flex items-center justify-between mt-1">
+                <p class="text-gray-500 text-xs">リンクを知っている人がこのデッキを閲覧できます。</p>
+                <button
+                  type="button"
+                  onclick={() => (editingSlug = true)}
+                  class="text-gray-400 hover:text-gray-200 text-xs underline shrink-0"
+                >
+                  URLを編集
+                </button>
+              </div>
+            {/if}
           {:else}
             <p class="text-yellow-500 text-xs mt-3">
               共有URLを発行するには
