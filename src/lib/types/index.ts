@@ -10,6 +10,7 @@ export type {
   DeckDetail,
   DeckUpsert,
   PublicDeckDetail,
+  PublicDeckSummary,
   CardUsage,
 } from './deck';
 export type { FilterState } from './filter';
