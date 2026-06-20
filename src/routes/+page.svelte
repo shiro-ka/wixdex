@@ -290,7 +290,7 @@
   />
 
   <div
-    class="flex flex-col flex-1 w-full max-w-screen-sm mx-auto overflow-hidden md:flex-1 lg:flex-row lg:max-w-screen-xl lg:mb-4 2xl:max-w-[84vw]"
+    class="flex flex-col flex-1 w-full max-w-screen-sm mx-auto overflow-hidden md:flex-row md:max-w-none md:mb-4 lg:max-w-screen-xl 2xl:max-w-[84vw]"
   >
     <DeckArea
       mainDeck={deck.mainDeck}
@@ -311,7 +311,7 @@
       {rotateLandscape}
     />
 
-    <div class="flex flex-3 flex-col lg:flex-row">
+    <div class="flex flex-3 flex-col min-h-0 md:flex-1 lg:flex-3 lg:flex-row">
       <CardList
         cards={filteredCards}
         {loading}

@@ -2,10 +2,11 @@
   import LifeBurstIcon from './icons/LifeBurstIcon.svelte';
   import IconPlus from '@tabler/icons-svelte/icons/plus';
   import IconFolderX from '@tabler/icons-svelte/icons/folder-x';
-  import IconNumber4 from '@tabler/icons-svelte/icons/number-4';
+  import IconBoxMultiple4 from '@tabler/icons-svelte/icons/box-multiple-4';
   import CardImage from './CardImage.svelte';
   import type { Card } from '$lib/types';
   import { cardImageUrl } from '$lib/utils/cardImages';
+  import { isMainDeckCard } from '$lib/utils/cardTypeUtils';
 
   interface Props {
     mainDeck: Card[];
@@ -82,13 +83,13 @@
   }
 </script>
 
-<div class="flex flex-col px-2 mb-2 md:mb-1 md:flex-2">
+<div class="flex flex-col px-2 mb-2 md:mb-1 md:flex-1 lg:flex-2">
   <!-- ルリグデッキ -->
   <div class="h-fit px-4 py-2 mb-2 bg-zinc-600/10 border border-gray-600/30 rounded-xl">
     <div class="flex w-full">
       <span class="text-base md:text-lg">Lrig Deck</span>
     </div>
-    <div class="lrigDeck grid w-full h-[calc(32dvw-4rem)] sm:h-[8rem] lg:h-[calc(11dvw-3rem)] xl:h-[6rem] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1">
+    <div class="lrigDeck grid w-full h-[calc(32dvw-4rem)] sm:h-[8rem] md:h-[calc(14dvw-2rem)] lg:h-[calc(11dvw-3rem)] xl:h-[6rem] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1">
       {#each lrigDeck as card, index (`lrig-${card.cardID}-${index}`)}
         <div class="flex items-center" role="presentation"
           ontouchstart={(e) => handleTouchStart(e, `lrig-${card.cardID}-${index}`)}
@@ -121,7 +122,7 @@
         <span class="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px] text-sm md:text-base">{lifeBurstCount}</span>
       </div>
     </div>
-    <div class="mainDeck grid w-full h-[calc(90dvw-4rem)] lg:h-[calc(36dvw-3rem)] xl:h-[26rem] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1">
+    <div class="mainDeck grid w-full h-[calc(90dvw-4rem)] md:h-[calc(45dvw-3rem)] lg:h-[calc(36dvw-3rem)] xl:h-[26rem] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1">
       {#each mainDeck as card, index (`main-${card.cardID}-${index}`)}
         <div class="flex items-center" role="presentation"
           ontouchstart={(e) => handleTouchStart(e, `main-${card.cardID}-${index}`)}
@@ -170,10 +171,12 @@
               onclick={() => onAdd(card)} title="デッキに1枚追加">
               <IconPlus class="w-[18px] h-[18px]" />
             </button>
-            <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-              onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加">
-              <IconNumber4 class="w-[18px] h-[18px]" />
-            </button>
+            {#if isMainDeckCard(card)}
+              <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+                onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加">
+                <IconBoxMultiple4 class="w-[18px] h-[18px]" />
+              </button>
+            {/if}
             <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
               onclick={() => onRemoveFromCandidate(card)} title="候補カードから削除">
               <IconFolderX class="w-[18px] h-[18px]" />
