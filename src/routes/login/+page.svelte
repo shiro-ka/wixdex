@@ -36,8 +36,23 @@
 </svelte:head>
 
 <main class="flex min-h-screen items-center justify-center bg-zinc-950 p-4">
-  <div class="w-full max-w-sm rounded-2xl bg-zinc-900 border border-zinc-800 p-7 shadow-xl">
-    <h1 class="mb-5 text-center text-xl font-bold text-white">wixdex</h1>
+  <div class="grid w-full max-w-4xl overflow-hidden rounded-2xl border border-zinc-800 shadow-xl lg:grid-cols-2">
+    <!-- 左: ブランディング（PCのみ。空白の黒画面を埋める） -->
+    <div class="hidden flex-col justify-between bg-gradient-to-br from-orange-600 to-orange-800 p-10 text-white lg:flex">
+      <div>
+        <h1 class="text-3xl font-bold tracking-tight">wixdex</h1>
+        <p class="mt-3 text-orange-100">WIXOSS デッキビルダー</p>
+      </div>
+      <ul class="space-y-2 text-sm text-orange-100/90">
+        <li>カードを集めてデッキを構築</li>
+        <li>デッキを公開してシェア</li>
+        <li>Bluesky 連携でかんたんログイン</li>
+      </ul>
+    </div>
+
+    <!-- 右: 認証フォーム -->
+    <div class="bg-zinc-900 p-7 sm:p-10">
+    <h1 class="mb-5 text-center text-xl font-bold text-white lg:hidden">wixdex</h1>
 
     <!-- タブ切替 -->
     <div class="mb-6 flex rounded-lg bg-zinc-800/60 p-1">
@@ -178,6 +193,7 @@
         <IconBrandBluesky class="h-5 w-5" />
         {blueskyLoading ? '接続中...' : 'Bluesky で続ける'}
       </button>
+    </div>
     </div>
   </div>
 </main>
