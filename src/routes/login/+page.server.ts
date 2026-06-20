@@ -114,6 +114,7 @@ export const actions: Actions = {
       email_verified: 0,
       password_hash: passwordHash,
       display_name: displayName,
+      username: null, // Phase 2: 登録直後に username 決定フローへ誘導する
       bluesky_did: null,
       bluesky_handle: null,
     });

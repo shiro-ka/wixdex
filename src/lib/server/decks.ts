@@ -159,6 +159,48 @@ export class DeckDb {
     };
   }
 
+  /** 公開デッキを (所有者id, slug) で取得。/@user/[slug] ルート用。作者情報も同梱。 */
+  async getPublicDeckBySlug(userId: string, slug: string): Promise<PublicDeckDetail | null> {
+    const row = await this.d1
+      .prepare(
+        `SELECT d.id, d.name, d.memo, d.created_at, d.updated_at,
+                u.display_name AS author_name, u.bluesky_handle AS author_handle
+         FROM decks d JOIN users u ON u.id = d.user_id
+         WHERE d.user_id = ? AND d.slug = ? AND d.is_public = 1`
+      )
+      .bind(userId, slug)
+      .first<{
+        id: string;
+        name: string;
+        memo: string;
+        created_at: number;
+        updated_at: number;
+        author_name: string;
+        author_handle: string | null;
+      }>();
+
+    if (!row) return null;
+
+    const cardRows = await this.d1
+      .prepare('SELECT slot, card_id, count FROM deck_cards WHERE deck_id = ?')
+      .bind(row.id)
+      .all<{ slot: string; card_id: string; count: number }>();
+
+    return {
+      id: row.id,
+      name: row.name,
+      memo: row.memo,
+      slots: cardRows.results.map((r) => ({
+        slot: r.slot as DeckSlotKind,
+        cardId: r.card_id,
+        count: r.count,
+      })),
+      createdAt: row.created_at,
+      updatedAt: row.updated_at,
+      author: { displayName: row.author_name, blueskyHandle: row.author_handle },
+    };
+  }
+
   private usageStatements(deltas: UsageDelta[], now: number) {
     return deltas.map((d) =>
       this.d1
@@ -194,9 +236,10 @@ export class DeckDb {
     await this.d1.batch([
       this.d1
         .prepare(
-          'INSERT INTO decks (id, user_id, name, memo, is_public, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)'
+          'INSERT INTO decks (id, user_id, name, memo, slug, is_public, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
         )
-        .bind(id, userId, data.name, data.memo, data.isPublic ? 1 : 0, now, now),
+        // slug は初期値として内部idを流用。後からユーザーが変更可能(Phase 3)。
+        .bind(id, userId, data.name, data.memo, id, data.isPublic ? 1 : 0, now, now),
       ...data.slots.map((s) =>
         this.d1
           .prepare(
