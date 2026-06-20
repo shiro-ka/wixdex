@@ -1,11 +1,12 @@
 <script lang="ts">
   import type { Card } from '$lib/types';
   import { cardImageUrl } from '$lib/utils/cardImages';
+  import { isMainDeckCard } from '$lib/utils/cardTypeUtils';
   import IconStar from '@tabler/icons-svelte/icons/star';
   import IconStarFilled from '@tabler/icons-svelte/icons/star-filled';
   import IconPlus from '@tabler/icons-svelte/icons/plus';
   import IconMinus from '@tabler/icons-svelte/icons/minus';
-  import IconNumber4 from '@tabler/icons-svelte/icons/number-4';
+  import IconBoxMultiple4 from '@tabler/icons-svelte/icons/box-multiple-4';
   import IconFolderPlus from '@tabler/icons-svelte/icons/folder-plus';
   import IconFolderX from '@tabler/icons-svelte/icons/folder-x';
   import IconX from '@tabler/icons-svelte/icons/x';
@@ -26,130 +27,192 @@
   }
 
   let {
-    card, onClose, isFavorite, onToggleFavorite, isLoggedIn,
-    count, isInCandidate,
-    onAdd, onAddMultiple, onRemove, onAddToCandidate, onRemoveFromCandidate,
+    card,
+    onClose,
+    isFavorite,
+    onToggleFavorite,
+    isLoggedIn,
+    count,
+    isInCandidate,
+    onAdd,
+    onAddMultiple,
+    onRemove,
+    onAddToCandidate,
+    onRemoveFromCandidate,
   }: Props = $props();
 
-  // モバイルはタブ切替。カードが変わるたびに画像タブへ戻す。
+  // モバイルは画像/情報のタブ切替。カードが変わるたびに画像タブへ戻す。
   let tab = $state<'card' | 'info'>('card');
-  $effect(() => { if (card) tab = 'card'; });
+  $effect(() => {
+    if (card) tab = 'card';
+  });
 </script>
 
+<!-- メタ情報のラベル片（種族・色・コスト等） -->
 {#snippet chip(label: string)}
   <span class="px-1.5 py-0.5 rounded bg-zinc-700 text-xs text-gray-200">{label}</span>
 {/snippet}
 
+<!-- モバイルのタブボタン -->
+{#snippet tabButton(value: 'card' | 'info', label: string)}
+  <button
+    class="px-6 h-9 rounded-lg text-sm transition-colors {tab === value
+      ? 'bg-zinc-700 text-white'
+      : 'bg-zinc-700/30 text-gray-400'}"
+    onclick={() => (tab = value)}
+  >
+    {label}
+  </button>
+{/snippet}
+
+<!-- 操作バーのアイコンボタン（追加/削除/候補/お気に入りで共通） -->
+{#snippet actionButton(
+  Icon: typeof IconX,
+  onclick: () => void,
+  title: string,
+  colorClass: string,
+  disabled: boolean,
+)}
+  <button
+    class="flex-1 h-10 flex items-center justify-center rounded-lg bg-zinc-700/50 hover:bg-zinc-600/60 transition-colors disabled:opacity-30 {colorClass}"
+    {onclick}
+    {title}
+    {disabled}
+  >
+    <Icon class="w-5 h-5" />
+  </button>
+{/snippet}
+
 {#if card}
   <div class="fixed inset-0 flex items-center justify-center z-50 p-3">
+    <!-- 背景クリックで閉じる -->
     <button class="absolute inset-0 bg-black/70" onclick={onClose} aria-label="閉じる"></button>
 
-    <div class="relative z-10 flex flex-col lg:flex-row w-full max-w-4xl h-[82vw] lg:h-[82vh] bg-zinc-800 rounded-xl overflow-hidden">
+    <!-- モーダル本体 -->
+    <div
+      class="relative z-10 flex flex-col lg:flex-row w-full max-w-4xl h-[68vh] bg-zinc-800 rounded-xl overflow-hidden"
+    >
+      <!-- 右上の閉じるボタン -->
       <button
         class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center rounded-lg bg-zinc-900/60 text-gray-300 hover:text-white transition-colors"
-        onclick={onClose} aria-label="閉じる"
+        onclick={onClose}
+        aria-label="閉じる"
       >
         <IconX class="w-5 h-5" />
       </button>
 
-      <!-- モバイル用タブ切替 -->
+      <!-- タブ切替（モバイルのみ。PCは左右同時表示なので不要） -->
       <div class="lg:hidden flex shrink-0 justify-center gap-1.5 p-3 pb-0">
-        <button
-          class="px-6 h-9 rounded-lg text-sm transition-colors {tab === 'card' ? 'bg-zinc-700 text-white' : 'bg-zinc-700/30 text-gray-400'}"
-          onclick={() => (tab = 'card')}
-        >カード</button>
-        <button
-          class="px-6 h-9 rounded-lg text-sm transition-colors {tab === 'info' ? 'bg-zinc-700 text-white' : 'bg-zinc-700/30 text-gray-400'}"
-          onclick={() => (tab = 'info')}
-        >情報</button>
+        {@render tabButton('card', 'カード')}
+        {@render tabButton('info', '情報')}
       </div>
 
-      <!-- 画像 + 操作バー -->
-      <div class="{tab === 'info' ? 'hidden lg:flex' : 'flex'} flex-col flex-1 min-h-0 lg:flex-none p-3 lg:w-1/2">
-        <!-- カード画像欄: 12/17 の固定箱を使える高さに合わせて中央表示（横長カードもレターボックス） -->
+      <!-- 左: カード画像 + 操作バー。モバイルでも常に描画し、全体の高さ基準になる -->
+      <div class="flex flex-col flex-1 min-h-0 p-3 lg:flex-none lg:w-1/2">
+        <!-- 画像欄: 余ったスペースを埋め、画像はその枠内に収める(object-contain) -->
         <div class="flex items-center justify-center min-h-0 flex-1">
-          <div class="flex items-center justify-center h-full max-w-full aspect-[12/17]">
-            <img
-              src={cardImageUrl(card.image)}
-              alt={card.name}
-              decoding="async"
-              crossorigin="anonymous"
-              class="max-w-full max-h-full object-contain rounded-lg"
-            />
-          </div>
+          <img
+            src={cardImageUrl(card.image)}
+            alt={card.name}
+            decoding="async"
+            crossorigin="anonymous"
+            class="max-w-full max-h-full object-contain rounded-lg"
+          />
         </div>
 
+        <!-- 操作バー: -1 / 枚数 / +1 / (+4) / 候補 / (お気に入り) -->
         <div class="flex items-center gap-1.5 mt-3 shrink-0">
-          <div class="flex items-center justify-center min-w-12 h-10 px-2 rounded-lg bg-zinc-900/60 text-lg font-bold text-white tabular-nums">{count}</div>
-          <button
-            class="flex-1 h-10 flex items-center justify-center rounded-lg bg-zinc-700/50 hover:bg-zinc-600/60 text-gray-200 transition-colors disabled:opacity-30"
-            onclick={() => onRemove(card)} disabled={count === 0} title="1枚減らす"
-          >
-            <IconMinus class="w-5 h-5" />
-          </button>
-          <button
-            class="flex-1 h-10 flex items-center justify-center rounded-lg bg-zinc-700/50 hover:bg-zinc-600/60 text-gray-200 transition-colors"
-            onclick={() => onAdd(card)} title="1枚追加"
-          >
-            <IconPlus class="w-5 h-5" />
-          </button>
-          <button
-            class="flex-1 h-10 flex items-center justify-center rounded-lg bg-zinc-700/50 hover:bg-zinc-600/60 text-gray-200 transition-colors"
-            onclick={() => onAddMultiple(card, 4)} title="4枚追加"
-          >
-            <IconNumber4 class="w-5 h-5" />
-          </button>
-          <button
-            class="flex-1 h-10 flex items-center justify-center rounded-lg bg-zinc-700/50 hover:bg-zinc-600/60 transition-colors {isInCandidate ? 'text-gray-100' : 'text-gray-400'}"
-            onclick={() => (isInCandidate ? onRemoveFromCandidate(card) : onAddToCandidate(card))}
-            title={isInCandidate ? '候補から削除' : '候補に追加'}
-          >
-            {#if isInCandidate}<IconFolderX class="w-5 h-5" />{:else}<IconFolderPlus class="w-5 h-5" />{/if}
-          </button>
+          {@render actionButton(
+            IconMinus,
+            () => onRemove(card),
+            '1枚減らす',
+            'text-gray-200',
+            count === 0,
+          )}
+          <div class="flex items-center justify-center min-w-8 text-lg font-bold text-white tabular-nums">
+            {count}
+          </div>
+          {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', 'text-gray-200', false)}
+          <!-- +4 はメインデッキ札(シグニ/スペル/サーバント)のみ。ルリグ/アシスト/ピース/アーツでは出さない -->
+          {#if isMainDeckCard(card)}
+            {@render actionButton(
+              IconBoxMultiple4,
+              () => onAddMultiple(card, 4),
+              '4枚追加',
+              'text-gray-200',
+              false,
+            )}
+          {/if}
+          {@render actionButton(
+            isInCandidate ? IconFolderX : IconFolderPlus,
+            () => (isInCandidate ? onRemoveFromCandidate(card) : onAddToCandidate(card)),
+            isInCandidate ? '候補から削除' : '候補に追加',
+            isInCandidate ? 'text-gray-100' : 'text-gray-400',
+            false,
+          )}
           {#if isLoggedIn}
-            <button
-              class="flex-1 h-10 flex items-center justify-center rounded-lg bg-zinc-700/50 hover:bg-zinc-600/60 transition-colors {isFavorite ? 'text-yellow-400' : 'text-gray-200'}"
-              onclick={onToggleFavorite}
-              title={isFavorite ? 'お気に入りから削除' : 'お気に入りに追加'}
-            >
-              {#if isFavorite}<IconStarFilled class="w-5 h-5" />{:else}<IconStar class="w-5 h-5" />{/if}
-            </button>
+            {@render actionButton(
+              isFavorite ? IconStarFilled : IconStar,
+              onToggleFavorite,
+              isFavorite ? 'お気に入りから削除' : 'お気に入りに追加',
+              isFavorite ? 'text-yellow-400' : 'text-gray-200',
+              false,
+            )}
           {/if}
         </div>
       </div>
 
-      <!-- 情報パネル -->
-      <div class="{tab === 'card' ? 'hidden lg:flex' : 'flex'} flex-col flex-1 min-h-0 lg:flex-none lg:w-1/2 lg:border-l border-zinc-700/60">
-        <div class="flex-1 min-h-0 overflow-y-auto px-4 pb-4 pt-3 lg:pt-4">
+      <!-- 右: 情報パネル。モバイルはカード側に重なるオーバーレイ(タブバー h-12 の下)、PCは右カラム -->
+      <div
+        class="{tab === 'card'
+          ? 'hidden lg:flex'
+          : 'flex'} flex-col absolute inset-x-0 bottom-0 top-12 z-10 bg-zinc-800 lg:relative lg:inset-auto lg:z-auto lg:flex-none lg:w-1/2 lg:border-l border-zinc-700/60"
+      >
+        <div class="flex-1 min-h-0 overflow-y-auto lg:absolute lg:inset-0 px-4 pb-4 pt-3 lg:pt-4">
           <h2 class="text-lg font-bold text-white pr-8">{card.name}</h2>
-          {#if card.subName.length}
+          {#if card.subName?.length}
             <p class="text-xs text-gray-400 mt-0.5">{card.subName.join(' / ')}</p>
           {/if}
 
+          <!-- メタ情報 -->
           <div class="flex flex-wrap gap-1.5 mt-2">
-            {#each card.cardType as t (t)}{@render chip(t)}{/each}
+            {#each card.cardType ?? [] as t (t)}{@render chip(t)}{/each}
             {#if card.level !== null}{@render chip(`Lv${card.level}`)}{/if}
-            {#each card.color as c (c)}{@render chip(c)}{/each}
-            {#if card.cost}{#each Object.entries(card.cost) as [col, n] (col)}{@render chip(`${col}×${n}`)}{/each}{/if}
+            {#each card.color ?? [] as c (c)}{@render chip(c)}{/each}
+            {#if card.cost}
+              {#each Object.entries(card.cost) as [col, n] (col)}{@render chip(
+                  `${col}×${n}`,
+                )}{/each}
+            {/if}
             {#if card.power !== null}{@render chip(`${card.power}`)}{/if}
-            {#if card.lrigTypeClass}{#each card.lrigTypeClass as lc (lc)}{@render chip(lc)}{/each}{/if}
+            {#if card.lrigTypeClass}
+              {#each card.lrigTypeClass as lc (lc)}{@render chip(lc)}{/each}
+            {/if}
           </div>
 
-          {#if card.text.length}
+          <!-- カードテキスト -->
+          {#if card.text?.length}
             <div class="mt-3 space-y-2">
               {#each card.text as t, i (i)}
                 <div class="text-sm text-gray-200 leading-relaxed">
-                  {#if t.label}<span class="inline-block px-1.5 mr-1 rounded bg-zinc-600 text-xs text-gray-100 align-middle">{t.label}</span>{/if}<span class="whitespace-pre-line">{t.body}</span>
+                  {#if t.label}
+                    <span
+                      class="inline-block px-1.5 mr-1 rounded bg-zinc-600 text-xs text-gray-100 align-middle"
+                      >{t.label}</span
+                    >
+                  {/if}<span class="whitespace-pre-line">{t.body}</span>
                 </div>
               {/each}
             </div>
           {/if}
 
+          <!-- フレーバーテキスト -->
           {#if card.flavorText}
             <p class="mt-3 text-xs text-gray-400 italic whitespace-pre-line">{card.flavorText}</p>
           {/if}
 
-          {#if card.faq.length}
+          <!-- FAQ -->
+          {#if card.faq?.length}
             <div class="mt-4">
               <h3 class="text-sm font-bold text-orange-400 mb-1.5">FAQ</h3>
               <div class="space-y-2">

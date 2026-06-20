@@ -6,9 +6,10 @@
   import IconPlus from '@tabler/icons-svelte/icons/plus';
   import IconFolderPlus from '@tabler/icons-svelte/icons/folder-plus';
   import IconFolderX from '@tabler/icons-svelte/icons/folder-x';
-  import IconNumber4 from '@tabler/icons-svelte/icons/number-4';
+  import IconBoxMultiple4 from '@tabler/icons-svelte/icons/box-multiple-4';
   import type { Card } from '$lib/types';
   import { cardImageUrl } from '$lib/utils/cardImages';
+  import { isMainDeckCard } from '$lib/utils/cardTypeUtils';
 
   interface Props {
     cards: Card[];
@@ -287,12 +288,14 @@
         >
           <IconPlus class="w-5 h-5" />
         </button>
-        <button
-          class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-          onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加"
-        >
-          <IconNumber4 class="w-5 h-5" />
-        </button>
+        {#if isMainDeckCard(card)}
+          <button
+            class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+            onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加"
+          >
+            <IconBoxMultiple4 class="w-5 h-5" />
+          </button>
+        {/if}
         <button
           class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
           onclick={() => { if (candidateFilter) onRemoveFromCandidate(card); else onAddToCandidate(card); }}
