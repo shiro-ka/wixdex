@@ -11,11 +11,16 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
       manifest: {
+        id: '/',
         name: 'wixdex - WIXOSSデッキビルダー',
         short_name: 'wixdex',
         description: 'WIXOSSのデッキ構築ツール',
+        lang: 'ja',
         start_url: '/',
+        scope: '/',
         display: 'standalone',
+        orientation: 'any',
+        categories: ['games', 'utilities'],
         background_color: '#18181b',
         theme_color: '#f97316',
         icons: [
@@ -63,7 +68,9 @@ export default defineConfig({
             handler: 'NetworkOnly',
           },
         ],
-        navigateFallbackDenylist: [/^\/api\//, /^\/login/, /^\/signup/, /^\/auth\//, /^\/decks/, /^\/account/, /^\/stats/, /^\/d\//],
+        // SSR/サーバー必須ルートは SPA シェルへフォールバックさせない。
+        // (/@… = 公開プロフィール/共有デッキ, /settings = 認証必須, /login = フォームアクション)
+        navigateFallbackDenylist: [/^\/api\//, /^\/login/, /^\/settings/, /^\/@/],
       },
     }),
   ],
