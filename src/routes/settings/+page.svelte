@@ -4,6 +4,7 @@
   import IconDice from '@tabler/icons-svelte/icons/dice-5';
   import { randomUsername } from '$lib/utils/atName';
   import { untrack } from 'svelte';
+  import PageHeader from '$lib/components/PageHeader.svelte';
 
   let { data, form }: { data: PageData; form: unknown } = $props();
 
@@ -39,14 +40,14 @@
 </svelte:head>
 
 <main class="min-h-dvh bg-zinc-900 text-white">
-  <div class="mx-auto max-w-lg px-4 py-8">
-    <div class="mb-6 flex items-center justify-between">
-      <h1 class="text-2xl font-bold">設定</h1>
-      <a href="/" class="text-sm text-zinc-400 hover:text-zinc-200">← 戻る</a>
-    </div>
+  <PageHeader />
 
+  <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:py-12">
+    <h1 class="mb-6 text-2xl font-bold sm:text-3xl">設定</h1>
+
+    <div class="grid items-start gap-4 lg:grid-cols-2">
     <!-- アカウント概要 -->
-    <div class="mb-4 rounded-xl bg-zinc-800/60 p-5">
+    <div class="rounded-xl bg-zinc-800/60 p-5">
       <p class="text-sm text-zinc-400">表示名</p>
       <p class="text-white">{data.user.displayName}</p>
       {#if data.user.email}
@@ -60,7 +61,7 @@
     </div>
 
     <!-- ユーザー名 / ページURL -->
-    <section class="mb-4 rounded-xl bg-zinc-800/60 p-5">
+    <section class="rounded-xl bg-zinc-800/60 p-5">
       <h2 class="mb-3 text-lg font-semibold">ページURL</h2>
       {#if canEditUsername}
         {#if f?.action === 'changeUsername'}
@@ -110,7 +111,7 @@
     </section>
 
     {#if data.user.email}
-      <section class="mb-4 rounded-xl bg-zinc-800/60 p-5">
+      <section class="rounded-xl bg-zinc-800/60 p-5">
         <h2 class="mb-3 text-lg font-semibold">パスワード変更</h2>
         {#if f?.action === 'changePassword'}
           {#if f?.error}
@@ -135,7 +136,7 @@
       </section>
     {/if}
 
-    <section class="mb-6 rounded-xl bg-zinc-800/60 p-5">
+    <section class="rounded-xl bg-zinc-800/60 p-5">
       <h2 class="mb-3 text-lg font-semibold">Bluesky 連携</h2>
       {#if f?.action === 'unlinkBluesky'}
         {#if f?.error}
@@ -164,9 +165,10 @@
         </div>
       {/if}
     </section>
+    </div>
 
     <button type="button" onclick={logout}
-      class="rounded-lg bg-zinc-800 px-4 py-2 text-sm font-semibold text-zinc-300 hover:bg-zinc-700">
+      class="mt-6 rounded-lg bg-zinc-800 px-4 py-2 text-sm font-semibold text-zinc-300 hover:bg-zinc-700">
       ログアウト
     </button>
   </div>

@@ -8,6 +8,7 @@
   import { renderMemoHtml } from '$lib/utils/markdown';
   import { cardImageUrl } from '$lib/utils/cardImages';
   import CardImage from '$lib/components/CardImage.svelte';
+  import PageHeader from '$lib/components/PageHeader.svelte';
 
   let { data }: { data: PageData } = $props();
 
@@ -45,17 +46,22 @@
 </svelte:head>
 
 <div class="min-h-dvh bg-zinc-900 text-white">
-  <div class="max-w-screen-lg mx-auto px-4 py-6">
-    <div class="flex items-center justify-between gap-3 mb-1">
-      <h1 class="text-xl font-bold truncate">{data.deck.name}</h1>
+  <PageHeader>
+    {#snippet right()}
       <a
         href="/"
-        class="shrink-0 px-4 py-2 bg-orange-600 hover:bg-orange-500 rounded-lg text-sm font-medium transition-colors"
+        class="rounded-lg bg-orange-600 px-4 py-2 text-sm font-medium transition-colors hover:bg-orange-500"
       >
         自分も作る
       </a>
+    {/snippet}
+  </PageHeader>
+
+  <div class="max-w-screen-xl mx-auto px-4 py-6 sm:px-6 lg:py-10">
+    <div class="mb-1">
+      <h1 class="text-2xl font-bold truncate sm:text-3xl">{data.deck.name}</h1>
     </div>
-    <a href="/@{data.atName}" class="mb-4 inline-block text-sm text-zinc-400 hover:text-zinc-200">
+    <a href="/@{data.atName}" class="mb-6 inline-block text-sm text-zinc-400 hover:text-zinc-200">
       @{data.atName} のデッキ
     </a>
 
@@ -74,7 +80,7 @@
     {:else}
       <section class="mb-4 bg-zinc-600/10 border border-gray-600/30 rounded-xl p-4">
         <h2 class="text-base mb-2">Lrig Deck <span class="text-gray-400 text-sm">({lrigDeck.length})</span></h2>
-        <div class="grid grid-cols-4 sm:grid-cols-8 gap-1">
+        <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1.5">
           {#each lrigDeck as card, i (`lrig-${card.cardID}-${i}`)}
             <CardImage {card} src={cardImageUrl(card.image)} alt={card.name} class="w-full object-contain" showLifeBurst />
           {/each}
@@ -86,7 +92,7 @@
           <h2 class="text-base">Main Deck <span class="text-gray-400 text-sm">({mainDeck.length})</span></h2>
           <span class="text-sm text-gray-400">LB {lifeBurstCount}</span>
         </div>
-        <div class="grid grid-cols-5 sm:grid-cols-8 lg:grid-cols-10 gap-1">
+        <div class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5">
           {#each mainDeck as card, i (`main-${card.cardID}-${i}`)}
             <CardImage {card} src={cardImageUrl(card.image)} alt={card.name} class="w-full object-contain" showLifeBurst />
           {/each}
