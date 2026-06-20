@@ -1,8 +1,15 @@
 <script lang="ts">
   import type { ActionData, PageData } from './$types';
   import { startBlueskyAuth } from '$lib/utils/blueskyAuthClient';
+  import IconBrandBluesky from '@tabler/icons-svelte/icons/brand-bluesky';
+  import { untrack } from 'svelte';
 
   let { form, data }: { form: ActionData; data: PageData } = $props();
+
+  // ログイン / 新規登録 の切替。フォームがどちらかでエラーを返したらそのタブを開く（初期値のみ参照）。
+  let mode = $state<'login' | 'register'>(
+    untrack(() => (form?.mode === 'register' ? 'register' : 'login')),
+  );
 
   let blueskyHandle = $state('');
   let blueskyLoading = $state(false);
@@ -15,72 +22,115 @@
     if (!result.ok) blueskyError = result.error;
     blueskyLoading = false;
   }
+
+  const inputClass =
+    'w-full rounded-lg bg-zinc-800 px-3 py-2 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500/70 transition';
 </script>
 
 <svelte:head>
-  <title>ログイン — wixdex</title>
+  <title>{mode === 'login' ? 'ログイン' : '新規登録'} — wixdex</title>
 </svelte:head>
 
-<main class="flex min-h-screen items-center justify-center bg-gray-950 p-4">
-  <div class="w-full max-w-sm rounded-xl bg-gray-900 p-8 shadow-xl">
-    <h1 class="mb-6 text-2xl font-bold text-white">ログイン</h1>
+<main class="flex min-h-screen items-center justify-center bg-zinc-950 p-4">
+  <div class="w-full max-w-sm rounded-2xl bg-zinc-900 border border-zinc-800 p-7 shadow-xl">
+    <h1 class="mb-5 text-center text-xl font-bold text-white">wixdex</h1>
+
+    <!-- タブ切替 -->
+    <div class="mb-6 flex rounded-lg bg-zinc-800/60 p-1">
+      <button
+        type="button"
+        onclick={() => (mode = 'login')}
+        class="flex-1 rounded-md py-2 text-sm font-medium transition-colors {mode === 'login'
+          ? 'bg-zinc-700 text-white'
+          : 'text-zinc-400 hover:text-zinc-200'}"
+      >
+        ログイン
+      </button>
+      <button
+        type="button"
+        onclick={() => (mode = 'register')}
+        class="flex-1 rounded-md py-2 text-sm font-medium transition-colors {mode === 'register'
+          ? 'bg-zinc-700 text-white'
+          : 'text-zinc-400 hover:text-zinc-200'}"
+      >
+        新規登録
+      </button>
+    </div>
 
     {#if data.oauthError}
-      <p class="mb-4 rounded-lg bg-red-900/50 px-4 py-3 text-sm text-red-300">{data.oauthError}</p>
+      <p class="mb-4 rounded-lg bg-red-900/40 px-4 py-3 text-sm text-red-300">{data.oauthError}</p>
     {/if}
-
     {#if form?.error}
-      <p class="mb-4 rounded-lg bg-red-900/50 px-4 py-3 text-sm text-red-300">{form.error}</p>
+      <p class="mb-4 rounded-lg bg-red-900/40 px-4 py-3 text-sm text-red-300">{form.error}</p>
     {/if}
 
-    <form method="POST" class="space-y-4">
+    <!-- メール認証フォーム。action でログイン/登録を切替 -->
+    <form method="POST" action="?/{mode}" class="space-y-4">
+      {#if mode === 'register'}
+        <div>
+          <label for="displayName" class="mb-1 block text-sm text-zinc-300">表示名</label>
+          <input
+            id="displayName"
+            name="displayName"
+            type="text"
+            required
+            maxlength="64"
+            class={inputClass}
+            placeholder="あなたの名前"
+          />
+        </div>
+      {/if}
       <div>
-        <label for="email" class="mb-1 block text-sm text-gray-300">メールアドレス</label>
+        <label for="email" class="mb-1 block text-sm text-zinc-300">メールアドレス</label>
         <input
           id="email"
           name="email"
           type="email"
           required
-          class="w-full rounded-lg bg-gray-800 px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          autocomplete="email"
+          class={inputClass}
           placeholder="you@example.com"
         />
       </div>
       <div>
-        <label for="password" class="mb-1 block text-sm text-gray-300">パスワード</label>
+        <label for="password" class="mb-1 block text-sm text-zinc-300">
+          パスワード{mode === 'register' ? '（8文字以上）' : ''}
+        </label>
         <input
           id="password"
           name="password"
           type="password"
           required
-          class="w-full rounded-lg bg-gray-800 px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          minlength={mode === 'register' ? 8 : undefined}
+          autocomplete={mode === 'register' ? 'new-password' : 'current-password'}
+          class={inputClass}
         />
       </div>
       <button
         type="submit"
-        class="w-full rounded-lg bg-blue-600 py-2 font-semibold text-white hover:bg-blue-500 active:bg-blue-700"
+        class="w-full rounded-lg bg-orange-500 py-2.5 font-semibold text-white transition-colors hover:bg-orange-600 active:bg-orange-700"
       >
-        ログイン
+        {mode === 'login' ? 'ログイン' : 'アカウント作成'}
       </button>
     </form>
 
     <div class="my-6 flex items-center gap-3">
-      <div class="h-px flex-1 bg-gray-700"></div>
-      <span class="text-sm text-gray-500">または</span>
-      <div class="h-px flex-1 bg-gray-700"></div>
+      <div class="h-px flex-1 bg-zinc-800"></div>
+      <span class="text-xs text-zinc-500">または</span>
+      <div class="h-px flex-1 bg-zinc-800"></div>
     </div>
 
+    <!-- Bluesky（ログイン・登録共通。OAuth側で新規/既存を吸収） -->
     <div class="space-y-3">
-      <div>
-        <label for="bluesky-handle" class="mb-1 block text-sm text-gray-300">Bluesky ハンドル</label>
-        <input
-          id="bluesky-handle"
-          type="text"
-          bind:value={blueskyHandle}
-          placeholder="you.bsky.social"
-          class="w-full rounded-lg bg-gray-800 px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-sky-500"
-          onkeydown={(e) => e.key === 'Enter' && loginWithBluesky()}
-        />
-      </div>
+      <input
+        id="bluesky-handle"
+        type="text"
+        bind:value={blueskyHandle}
+        placeholder="you.bsky.social"
+        autocomplete="off"
+        class={inputClass}
+        onkeydown={(e) => e.key === 'Enter' && loginWithBluesky()}
+      />
       {#if blueskyError}
         <p class="text-sm text-red-400">{blueskyError}</p>
       {/if}
@@ -88,15 +138,11 @@
         type="button"
         onclick={loginWithBluesky}
         disabled={blueskyLoading}
-        class="w-full rounded-lg bg-sky-600 py-2 font-semibold text-white hover:bg-sky-500 disabled:opacity-50 active:bg-sky-700"
+        class="flex w-full items-center justify-center gap-2 rounded-lg bg-sky-600 py-2.5 font-semibold text-white transition-colors hover:bg-sky-500 active:bg-sky-700 disabled:opacity-50"
       >
-        {blueskyLoading ? '接続中...' : 'Bluesky でログイン'}
+        <IconBrandBluesky class="h-5 w-5" />
+        {blueskyLoading ? '接続中...' : 'Bluesky で続ける'}
       </button>
     </div>
-
-    <p class="mt-6 text-center text-sm text-gray-400">
-      アカウントをお持ちでない方は
-      <a href="/signup" class="text-blue-400 hover:underline">新規登録</a>
-    </p>
   </div>
 </main>
