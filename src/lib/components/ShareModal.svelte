@@ -13,18 +13,23 @@
     mainDeck: Card[];
     lrigDeck: Card[];
     deckId: string | null;
+    /** 公開URLのユーザー名部分(username or bskyハンドル)。未設定なら URL を発行できない。 */
+    ownerAtName: string | null;
     isPublic: boolean;
     isLoggedIn: boolean;
     onSetPublic: (next: boolean) => void | Promise<void>;
   }
 
-  let { isOpen, onClose, deckName, mainDeck, lrigDeck, deckId, isPublic, isLoggedIn, onSetPublic }: Props = $props();
+  let { isOpen, onClose, deckName, mainDeck, lrigDeck, deckId, ownerAtName, isPublic, isLoggedIn, onSetPublic }: Props = $props();
 
   let isExporting = $state(false);
   let publishing = $state(false);
   let copied = $state(false);
 
-  let publicUrl = $derived(browser && deckId ? `${location.origin}/d/${deckId}` : '');
+  // slug は現状 deckId と同値（Phase 3 で slug 変更UIを入れたら deck.slug に差し替える）。
+  let publicUrl = $derived(
+    browser && deckId && ownerAtName ? `${location.origin}/@${ownerAtName}/${deckId}` : ''
+  );
 
   async function togglePublish() {
     if (publishing) return;
@@ -102,23 +107,30 @@
           </button>
         </div>
         {#if isPublic}
-          <div class="flex h-9 gap-2 mt-3">
-            <input
-              type="text"
-              readonly
-              value={publicUrl}
-              class="flex-1 px-2 bg-zinc-800 border border-zinc-700 rounded-lg text-gray-300 text-xs select-all focus:outline-none"
-            />
-            <button
-              type="button"
-              onclick={copyLink}
-              class="flex items-center gap-1 px-3 bg-zinc-700 hover:bg-zinc-600 rounded-lg text-white text-xs transition-colors"
-            >
-              <IconClipboard size={16} />
-              {copied ? 'コピー済' : 'コピー'}
-            </button>
-          </div>
-          <p class="text-gray-500 text-xs mt-1">リンクを知っている人がこのデッキを閲覧できます。</p>
+          {#if publicUrl}
+            <div class="flex h-9 gap-2 mt-3">
+              <input
+                type="text"
+                readonly
+                value={publicUrl}
+                class="flex-1 px-2 bg-zinc-800 border border-zinc-700 rounded-lg text-gray-300 text-xs select-all focus:outline-none"
+              />
+              <button
+                type="button"
+                onclick={copyLink}
+                class="flex items-center gap-1 px-3 bg-zinc-700 hover:bg-zinc-600 rounded-lg text-white text-xs transition-colors"
+              >
+                <IconClipboard size={16} />
+                {copied ? 'コピー済' : 'コピー'}
+              </button>
+            </div>
+            <p class="text-gray-500 text-xs mt-1">リンクを知っている人がこのデッキを閲覧できます。</p>
+          {:else}
+            <p class="text-yellow-500 text-xs mt-3">
+              共有URLを発行するには
+              <a href="/settings" class="underline hover:text-yellow-400">設定</a>でユーザー名を決めてください。
+            </p>
+          {/if}
         {/if}
       {/if}
     </div>

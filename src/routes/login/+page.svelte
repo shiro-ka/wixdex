@@ -2,7 +2,9 @@
   import type { ActionData, PageData } from './$types';
   import { startBlueskyAuth } from '$lib/utils/blueskyAuthClient';
   import IconBrandBluesky from '@tabler/icons-svelte/icons/brand-bluesky';
+  import IconDice from '@tabler/icons-svelte/icons/dice-5';
   import { untrack } from 'svelte';
+  import { randomUsername } from '$lib/utils/atName';
 
   let { form, data }: { form: ActionData; data: PageData } = $props();
 
@@ -10,6 +12,8 @@
   let mode = $state<'login' | 'register'>(
     untrack(() => (form?.mode === 'register' ? 'register' : 'login')),
   );
+
+  let username = $state('');
 
   let blueskyHandle = $state('');
   let blueskyLoading = $state(false);
@@ -78,6 +82,37 @@
             class={inputClass}
             placeholder="あなたの名前"
           />
+        </div>
+        <div>
+          <label for="username" class="mb-1 block text-sm text-zinc-300">
+            ユーザー名 <span class="text-zinc-500">(URLになります: /@…)</span>
+          </label>
+          <div class="flex gap-2">
+            <div class="flex flex-1 items-center rounded-lg bg-zinc-800 focus-within:ring-2 focus-within:ring-orange-500/70">
+              <span class="pl-3 text-zinc-500">@</span>
+              <input
+                id="username"
+                name="username"
+                type="text"
+                required
+                bind:value={username}
+                autocapitalize="none"
+                autocomplete="off"
+                spellcheck="false"
+                class="w-full bg-transparent px-1.5 py-2 text-white placeholder-zinc-500 focus:outline-none"
+                placeholder="your_name"
+              />
+            </div>
+            <button
+              type="button"
+              onclick={() => (username = randomUsername())}
+              title="おまかせ生成"
+              class="flex shrink-0 items-center justify-center rounded-lg bg-zinc-800 px-3 text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-white"
+            >
+              <IconDice class="h-5 w-5" />
+            </button>
+          </div>
+          <p class="mt-1 text-xs text-zinc-500">英小文字・数字・ハイフン・アンダースコア（後から変更できます）</p>
         </div>
       {/if}
       <div>

@@ -7,6 +7,7 @@ declare global {
         id: string;
         email: string | null;
         displayName: string;
+        username: string | null;
         blueskyDid: string | null;
         blueskyHandle: string | null;
       };

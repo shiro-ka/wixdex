@@ -17,6 +17,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         id: session.userId,
         email: session.email,
         displayName: session.displayName,
+        username: session.username ?? null,
         blueskyDid: session.blueskyDid,
         blueskyHandle: session.blueskyHandle,
       };
@@ -35,6 +36,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         id: 'dev-user',
         email: 'dev@example.com',
         displayName: 'Dev User',
+        username: 'devuser',
         blueskyDid: 'did:plc:devuser',
         blueskyHandle: 'dev.local',
       };
