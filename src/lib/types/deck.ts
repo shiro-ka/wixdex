@@ -13,6 +13,7 @@ export interface SavedDeck {
   id: string;
   name: string;
   memo: string;
+  slug: string;
   isPublic: boolean;
   mainDeck: Card[];
   lrigDeck: Card[];
@@ -35,6 +36,7 @@ export interface DeckSummary {
   id: string;
   name: string;
   memo: string;
+  slug: string;
   isPublic: boolean;
   mainCount: number;
   lrigCount: number;
@@ -47,6 +49,7 @@ export interface DeckDetail {
   id: string;
   name: string;
   memo: string;
+  slug: string;
   isPublic: boolean;
   slots: DeckSlot[];
   createdAt: number;

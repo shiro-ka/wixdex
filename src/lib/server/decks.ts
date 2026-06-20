@@ -14,6 +14,7 @@ interface DeckRow {
   user_id: string;
   name: string;
   memo: string;
+  slug: string | null;
   is_public: number;
   created_at: number;
   updated_at: number;
@@ -81,6 +82,7 @@ export class DeckDb {
       id: row.id,
       name: row.name,
       memo: row.memo,
+      slug: row.slug ?? row.id,
       isPublic: row.is_public === 1,
       mainCount: countMap.get(row.id)?.main ?? 0,
       lrigCount: countMap.get(row.id)?.lrig ?? 0,
@@ -107,6 +109,7 @@ export class DeckDb {
       id: row.id,
       name: row.name,
       memo: row.memo,
+      slug: row.slug ?? row.id,
       isPublic: row.is_public === 1,
       slots: cardRows.results.map((r) => ({
         slot: r.slot as DeckSlotKind,
@@ -292,6 +295,7 @@ export class DeckDb {
       id,
       name: data.name,
       memo: data.memo,
+      slug: id,
       isPublic: data.isPublic ?? false,
       slots: data.slots,
       createdAt: now,
@@ -301,9 +305,9 @@ export class DeckDb {
 
   async updateDeck(id: string, userId: string, data: DeckUpsert): Promise<DeckDetail | null> {
     const existing = await this.d1
-      .prepare('SELECT id, created_at FROM decks WHERE id = ? AND user_id = ?')
+      .prepare('SELECT id, slug, created_at FROM decks WHERE id = ? AND user_id = ?')
       .bind(id, userId)
-      .first<{ id: string; created_at: number }>();
+      .first<{ id: string; slug: string | null; created_at: number }>();
 
     if (!existing) return null;
 
@@ -332,11 +336,36 @@ export class DeckDb {
       id,
       name: data.name,
       memo: data.memo,
+      slug: existing.slug ?? id,
       isPublic: data.isPublic ?? false,
       slots: data.slots,
       createdAt: existing.created_at,
       updatedAt: now,
     };
+  }
+
+  /**
+   * デッキの公開URL(slug)を変更。slug は検証・正規化済みで渡すこと。
+   * 'notfound'=本人のデッキでない / 'taken'=同ユーザー内で重複 / 'ok'=成功。
+   */
+  async updateSlug(id: string, userId: string, slug: string): Promise<'ok' | 'taken' | 'notfound'> {
+    const existing = await this.d1
+      .prepare('SELECT id FROM decks WHERE id = ? AND user_id = ?')
+      .bind(id, userId)
+      .first<{ id: string }>();
+    if (!existing) return 'notfound';
+
+    const clash = await this.d1
+      .prepare('SELECT id FROM decks WHERE user_id = ? AND slug = ? AND id != ?')
+      .bind(userId, slug, id)
+      .first<{ id: string }>();
+    if (clash) return 'taken';
+
+    await this.d1
+      .prepare('UPDATE decks SET slug = ?, updated_at = ? WHERE id = ? AND user_id = ?')
+      .bind(slug, Math.floor(Date.now() / 1000), id, userId)
+      .run();
+    return 'ok';
   }
 
   async deleteDeck(id: string, userId: string): Promise<boolean> {
