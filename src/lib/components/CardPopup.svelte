@@ -90,7 +90,7 @@
 
     <!-- モーダル本体 -->
     <div
-      class="relative z-10 flex flex-col lg:flex-row w-full max-w-4xl h-[68vh] bg-zinc-800 rounded-xl overflow-hidden"
+      class="relative z-10 flex flex-col xl:flex-row w-full max-w-4xl h-[68vh] bg-zinc-800 rounded-xl overflow-hidden"
     >
       <!-- 右上の閉じるボタン -->
       <button
@@ -102,13 +102,13 @@
       </button>
 
       <!-- タブ切替（モバイルのみ。PCは左右同時表示なので不要） -->
-      <div class="lg:hidden flex shrink-0 justify-center gap-1.5 p-3 pb-0">
+      <div class="xl:hidden flex shrink-0 justify-center gap-1.5 p-3 pb-0">
         {@render tabButton('card', 'カード')}
         {@render tabButton('info', '情報')}
       </div>
 
       <!-- 左: カード画像 + 操作バー。モバイルでも常に描画し、全体の高さ基準になる -->
-      <div class="flex flex-col flex-1 min-h-0 p-3 lg:flex-none lg:w-1/2">
+      <div class="flex flex-col flex-1 min-h-0 p-3 xl:flex-none xl:w-1/2">
         <!-- 画像欄: 余ったスペースを埋め、画像はその枠内に収める(object-contain) -->
         <div class="flex items-center justify-center min-h-0 flex-1">
           <img
@@ -165,10 +165,10 @@
       <!-- 右: 情報パネル。モバイルはカード側に重なるオーバーレイ(タブバー h-12 の下)、PCは右カラム -->
       <div
         class="{tab === 'card'
-          ? 'hidden lg:flex'
-          : 'flex'} flex-col absolute inset-x-0 bottom-0 top-12 z-10 bg-zinc-800 lg:relative lg:inset-auto lg:z-auto lg:flex-none lg:w-1/2 lg:border-l border-zinc-700/60"
+          ? 'hidden xl:flex'
+          : 'flex'} flex-col absolute inset-x-0 bottom-0 top-12 z-10 bg-zinc-800 xl:relative xl:inset-auto xl:z-auto xl:flex-none xl:w-1/2 xl:border-l border-zinc-700/60"
       >
-        <div class="flex-1 min-h-0 overflow-y-auto lg:absolute lg:inset-0 px-4 pb-4 pt-3 lg:pt-4">
+        <div class="flex-1 min-h-0 overflow-y-auto xl:absolute xl:inset-0 px-4 pb-4 pt-3 xl:pt-4">
           <h2 class="text-lg font-bold text-white pr-8">{card.name}</h2>
           {#if card.subName?.length}
             <p class="text-xs text-gray-400 mt-0.5">{card.subName.join(' / ')}</p>
