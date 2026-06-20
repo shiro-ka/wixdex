@@ -5,6 +5,7 @@ import { createSession } from '$lib/server/auth';
 import { hashPassword, verifyPassword } from '$lib/server/password';
 import { checkRateLimit, incrementRateLimit } from '$lib/server/rate-limit';
 import { newUserId } from '$lib/server/ids';
+import { validateUsername } from '$lib/utils/atName';
 import { z } from 'zod';
 
 const loginSchema = z.object({
@@ -64,6 +65,7 @@ export const actions: Actions = {
       userId: user.id,
       email: user.email,
       displayName: user.display_name,
+      username: user.username,
       blueskyDid: user.bluesky_did,
       blueskyHandle: user.bluesky_handle,
     });
@@ -96,11 +98,21 @@ export const actions: Actions = {
       return fail(400, { mode: 'register', error: `入力内容を確認してください: ${issues}` });
     }
 
+    // username はURLキーになるので専用バリデーション（予約語・文字種）。
+    const usernameCheck = validateUsername(String(data.get('username') ?? ''));
+    if (!usernameCheck.ok) {
+      return fail(400, { mode: 'register', error: `ユーザー名: ${usernameCheck.error}` });
+    }
+    const username = usernameCheck.value;
+
     const { email, password, displayName } = parsed.data;
 
     const existing = await db.getUserByEmail(email);
     if (existing) {
       return fail(409, { mode: 'register', error: 'このメールアドレスはすでに登録されています。' });
+    }
+    if (await db.getUserByUsername(username)) {
+      return fail(409, { mode: 'register', error: 'このユーザー名はすでに使われています。' });
     }
 
     await incrementRateLimit(store, ip, 'signup');
@@ -114,7 +126,7 @@ export const actions: Actions = {
       email_verified: 0,
       password_hash: passwordHash,
       display_name: displayName,
-      username: null, // Phase 2: 登録直後に username 決定フローへ誘導する
+      username,
       bluesky_did: null,
       bluesky_handle: null,
     });
@@ -123,6 +135,7 @@ export const actions: Actions = {
       userId: id,
       email,
       displayName,
+      username,
       blueskyDid: null,
       blueskyHandle: null,
     });

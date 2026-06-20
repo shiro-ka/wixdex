@@ -16,7 +16,11 @@
     onDeckListClick: () => void;
     onNewDeckClick: () => void;
     onStatsClick: () => void;
-    user?: { displayName: string } | null;
+    user?: {
+      displayName: string;
+      username: string | null;
+      blueskyHandle: string | null;
+    } | null;
   }
 
   let {
@@ -29,6 +33,8 @@
   }: Props = $props();
 
   const isLoggedIn = $derived(!!user);
+  // マイページのURLキー: メアド勢=username / bsky勢=ハンドル。未設定なら非表示。
+  const myAtName = $derived(user ? (user.username ?? user.blueskyHandle) : null);
 
   let isAnimating = $state(false);
   let shouldRender = $state(false);
@@ -143,8 +149,13 @@
           <IconUser size={20} class="shrink-0" />
           <span class="truncate">{user.displayName}</span>
         </div>
-        <a href="/account" onclick={onClose} class={sidebarBtn({ variant: 'action' })}>
-          アカウント設定
+        {#if myAtName}
+          <a href="/@{myAtName}" onclick={onClose} class={sidebarBtn({ variant: 'action' })}>
+            マイページ
+          </a>
+        {/if}
+        <a href="/settings" onclick={onClose} class={sidebarBtn({ variant: 'action' })}>
+          設定
         </a>
         <form method="POST" action="/api/auth/logout">
           <button

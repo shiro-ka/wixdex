@@ -468,6 +468,7 @@
     mainDeck={deck.mainDeck}
     lrigDeck={deck.lrigDeck}
     deckId={deck.id}
+    ownerAtName={page.data.user ? (page.data.user.username ?? page.data.user.blueskyHandle) : null}
     isPublic={deck.isPublic}
     {isLoggedIn}
     onSetPublic={setDeckPublic}

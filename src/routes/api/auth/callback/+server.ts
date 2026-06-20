@@ -46,6 +46,7 @@ export const GET: RequestHandler = async (event) => {
     userId: user.id,
     email: user.email,
     displayName: user.display_name,
+    username: user.username,
     blueskyDid: did,
     blueskyHandle: handle,
   });
