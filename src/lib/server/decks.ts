@@ -6,6 +6,7 @@ import type {
   DeckUpsert,
   DeckSlotKind,
   PublicDeckDetail,
+  PublicDeckSummary,
 } from '$lib/types';
 
 interface DeckRow {
@@ -157,6 +158,43 @@ export class DeckDb {
       updatedAt: row.updated_at,
       author: { displayName: row.author_name, blueskyHandle: row.author_handle },
     };
+  }
+
+  /** 公開プロフィール用: あるユーザーの公開デッキ一覧（slug付き）。 */
+  async listPublicDecks(userId: string): Promise<PublicDeckSummary[]> {
+    const rows = await this.d1
+      .prepare(
+        'SELECT id, name, slug, updated_at FROM decks WHERE user_id = ? AND is_public = 1 ORDER BY updated_at DESC'
+      )
+      .bind(userId)
+      .all<{ id: string; name: string; slug: string | null; updated_at: number }>();
+
+    if (!rows.results.length) return [];
+
+    const deckIds = rows.results.map((r) => r.id);
+    const placeholders = deckIds.map(() => '?').join(',');
+    const cardRows = await this.d1
+      .prepare(
+        `SELECT deck_id, slot, SUM(count) as total FROM deck_cards WHERE deck_id IN (${placeholders}) GROUP BY deck_id, slot`
+      )
+      .bind(...deckIds)
+      .all<{ deck_id: string; slot: string; total: number }>();
+
+    const countMap = new Map<string, { main: number; lrig: number }>();
+    for (const row of cardRows.results) {
+      if (!countMap.has(row.deck_id)) countMap.set(row.deck_id, { main: 0, lrig: 0 });
+      const c = countMap.get(row.deck_id)!;
+      if (row.slot === 'main') c.main = row.total;
+      else if (row.slot === 'lrig') c.lrig = row.total;
+    }
+
+    return rows.results.map((r) => ({
+      slug: r.slug ?? r.id,
+      name: r.name,
+      mainCount: countMap.get(r.id)?.main ?? 0,
+      lrigCount: countMap.get(r.id)?.lrig ?? 0,
+      updatedAt: r.updated_at,
+    }));
   }
 
   /** 公開デッキを (所有者id, slug) で取得。/@user/[slug] ルート用。作者情報も同梱。 */

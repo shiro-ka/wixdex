@@ -72,6 +72,15 @@ export interface PublicDeckDetail {
   author: { displayName: string; blueskyHandle: string | null };
 }
 
+/** 公開プロフィールに並べる公開デッキの要約。slug は /@user/[slug] のURL用。 */
+export interface PublicDeckSummary {
+  slug: string;
+  name: string;
+  mainCount: number;
+  lrigCount: number;
+  updatedAt: number;
+}
+
 // ── Card usage aggregate (Phase D) ────────────────────────────────────────
 
 export interface CardUsage {
