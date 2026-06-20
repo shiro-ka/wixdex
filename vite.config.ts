@@ -9,7 +9,8 @@ export default defineConfig({
     sveltekit(),
     SvelteKitPWA({
       registerType: 'autoUpdate',
-      injectRegister: 'auto',
+      // SvelteKitでは自動injectが効かないため +layout.svelte で virtual:pwa-register を明示登録する。
+      injectRegister: false,
       manifest: {
         id: '/',
         name: 'wixdex - WIXOSSデッキビルダー',

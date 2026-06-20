@@ -1,3 +1,5 @@
+/// <reference types="vite-plugin-pwa/info" />
+/// <reference types="vite-plugin-pwa/vanillajs" />
 import type { KVNamespace, D1Database } from '@cloudflare/workers-types';
 
 declare global {
