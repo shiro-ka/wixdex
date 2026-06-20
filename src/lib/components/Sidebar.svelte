@@ -154,9 +154,7 @@
             マイページ
           </a>
         {/if}
-        <a href="/settings" onclick={onClose} class={sidebarBtn({ variant: 'action' })}>
-          設定
-        </a>
+        <a href="/settings" onclick={onClose} class={sidebarBtn({ variant: 'action' })}> 設定 </a>
         <form method="POST" action="/api/auth/logout">
           <button
             type="submit"
@@ -201,7 +199,7 @@
       {@render linkRow(
         IconBrandGithub,
         'GitHub',
-        'スパゲッティコード公開中',
+        'apkリリースもあります',
         'https://github.com/shiro-ka/wixdex',
       )}
     </div>
