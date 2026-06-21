@@ -30,7 +30,7 @@
 
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:py-12">
     <!-- プロフィールヘッダ -->
-    <header class="mb-8 flex items-center gap-4 border-b border-zinc-800 pb-8">
+    <header class="mb-8 flex items-center gap-4 border-b border-gray-600/30 pb-8">
       <div
         class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-2xl font-bold text-orange-500 ring-1 ring-zinc-700 sm:h-20 sm:w-20"
       >
@@ -67,7 +67,7 @@
           {#each decks as deck (deck.slug)}
             <a
               href="/@{profile.atName}/{deck.slug}"
-              class="block rounded-xl border border-zinc-700/50 bg-zinc-800 p-4 transition-colors hover:border-zinc-600 hover:bg-zinc-700"
+              class="block rounded-xl border border-gray-600/30 bg-zinc-600/10 p-4 transition-colors hover:border-gray-500/50 hover:bg-zinc-600/20"
             >
               <div class="truncate font-medium text-white">{deck.name}</div>
               <div class="mt-1 text-sm text-zinc-400">
