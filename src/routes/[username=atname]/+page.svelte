@@ -32,7 +32,7 @@
     <!-- プロフィールヘッダ -->
     <header class="mb-8 flex items-center gap-4 border-b border-zinc-800 pb-8">
       <div
-        class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-orange-700 text-2xl font-bold text-white sm:h-20 sm:w-20"
+        class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-2xl font-bold text-orange-500 ring-1 ring-zinc-700 sm:h-20 sm:w-20"
       >
         {profile.displayName.charAt(0).toUpperCase()}
       </div>
