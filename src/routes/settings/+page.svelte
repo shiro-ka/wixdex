@@ -47,7 +47,7 @@
 
     <div class="grid items-start gap-4 lg:grid-cols-2">
     <!-- アカウント概要 -->
-    <div class="rounded-xl bg-zinc-800/60 p-5">
+    <div class="rounded-xl border border-gray-600/30 bg-zinc-600/10 p-5">
       <p class="text-sm text-zinc-400">表示名</p>
       <p class="text-white">{data.user.displayName}</p>
       {#if data.user.email}
@@ -61,7 +61,7 @@
     </div>
 
     <!-- ユーザー名 / ページURL -->
-    <section class="rounded-xl bg-zinc-800/60 p-5">
+    <section class="rounded-xl border border-gray-600/30 bg-zinc-600/10 p-5">
       <h2 class="mb-3 text-lg font-semibold">ページURL</h2>
       {#if canEditUsername}
         {#if f?.action === 'changeUsername'}
@@ -111,7 +111,7 @@
     </section>
 
     {#if data.user.email}
-      <section class="rounded-xl bg-zinc-800/60 p-5">
+      <section class="rounded-xl border border-gray-600/30 bg-zinc-600/10 p-5">
         <h2 class="mb-3 text-lg font-semibold">パスワード変更</h2>
         {#if f?.action === 'changePassword'}
           {#if f?.error}
@@ -136,7 +136,7 @@
       </section>
     {/if}
 
-    <section class="rounded-xl bg-zinc-800/60 p-5">
+    <section class="rounded-xl border border-gray-600/30 bg-zinc-600/10 p-5">
       <h2 class="mb-3 text-lg font-semibold">Bluesky 連携</h2>
       {#if f?.action === 'unlinkBluesky'}
         {#if f?.error}

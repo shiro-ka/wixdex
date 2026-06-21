@@ -35,10 +35,10 @@
   <title>{mode === 'login' ? 'ログイン' : '新規登録'} — wixdex</title>
 </svelte:head>
 
-<main class="flex min-h-screen items-center justify-center bg-zinc-950 p-4">
-  <div class="grid w-full max-w-4xl overflow-hidden rounded-2xl border border-zinc-800 shadow-xl lg:grid-cols-2">
+<main class="flex min-h-screen items-center justify-center bg-zinc-900 p-4">
+  <div class="grid w-full max-w-4xl overflow-hidden rounded-2xl border border-gray-600/30 bg-zinc-600/10 shadow-xl lg:grid-cols-2">
     <!-- 左: ブランディング（PCのみ。zincダーク、オレンジは差し色のみ） -->
-    <div class="hidden flex-col justify-between border-r border-zinc-800 bg-gradient-to-br from-zinc-900 to-zinc-950 p-10 lg:flex">
+    <div class="hidden flex-col justify-between border-r border-gray-600/30 bg-zinc-600/10 p-10 lg:flex">
       <div>
         <h1 class="text-3xl font-bold tracking-tight text-white">wix<span class="text-orange-500">dex</span></h1>
         <p class="mt-3 text-zinc-400">WIXOSS デッキビルダー</p>
@@ -51,7 +51,7 @@
     </div>
 
     <!-- 右: 認証フォーム -->
-    <div class="bg-zinc-900 p-7 sm:p-10">
+    <div class="p-7 sm:p-10">
     <h1 class="mb-5 text-center text-xl font-bold text-white lg:hidden">wixdex</h1>
 
     <!-- タブ切替 -->

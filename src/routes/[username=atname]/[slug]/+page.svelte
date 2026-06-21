@@ -66,7 +66,7 @@
     </a>
 
     {#if renderedMemo}
-      <div class="prose prose-invert prose-sm max-w-none mb-6 bg-zinc-800/50 rounded-xl p-4">
+      <div class="prose prose-invert prose-sm max-w-none mb-6 rounded-xl border border-gray-600/30 bg-zinc-600/10 p-4">
         <!-- renderedMemo は DOMPurify.sanitize 済み -->
         <!-- eslint-disable-next-line svelte/no-at-html-tags -->
         {@html renderedMemo}
