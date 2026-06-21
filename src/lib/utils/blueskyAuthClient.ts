@@ -1,13 +1,13 @@
 export type StartBlueskyAuthResult = { ok: true } | { ok: false; error: string };
 
-export async function startBlueskyAuth(handle: string): Promise<StartBlueskyAuthResult> {
-  const trimmed = handle.trim();
-  if (!trimmed) return { ok: false, error: 'ハンドルを入力してください。' };
+export async function startBlueskyAuth(handle?: string): Promise<StartBlueskyAuthResult> {
+  const trimmed = handle?.trim() ?? '';
   try {
+    // ハンドル省略時はサーバー側で bsky.social へ直行（入力不要のGoogle方式）。
     const res = await fetch('/api/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ handle: trimmed }),
+      body: JSON.stringify(trimmed ? { handle: trimmed } : {}),
     });
     const json = (await res.json()) as { redirectUrl?: string; message?: string };
     if (!res.ok) return { ok: false, error: json.message ?? 'エラーが発生しました。' };

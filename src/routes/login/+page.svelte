@@ -18,11 +18,12 @@
   let blueskyHandle = $state('');
   let blueskyLoading = $state(false);
   let blueskyError = $state('');
+  let showHandleInput = $state(false); // 別PDS用のハンドル入力（通常は隠す）
 
-  async function loginWithBluesky() {
+  async function loginWithBluesky(handle?: string) {
     blueskyLoading = true;
     blueskyError = '';
-    const result = await startBlueskyAuth(blueskyHandle);
+    const result = await startBlueskyAuth(handle);
     if (!result.ok) blueskyError = result.error;
     blueskyLoading = false;
   }
@@ -170,29 +171,52 @@
       <div class="h-px flex-1 bg-zinc-800"></div>
     </div>
 
-    <!-- Bluesky（ログイン・登録共通。OAuth側で新規/既存を吸収） -->
+    <!-- Bluesky（ログイン・登録共通。bsky.social へ直行＝ハンドル入力不要） -->
     <div class="space-y-3">
-      <input
-        id="bluesky-handle"
-        type="text"
-        bind:value={blueskyHandle}
-        placeholder="you.bsky.social"
-        autocomplete="off"
-        class={inputClass}
-        onkeydown={(e) => e.key === 'Enter' && loginWithBluesky()}
-      />
-      {#if blueskyError}
-        <p class="text-sm text-red-400">{blueskyError}</p>
-      {/if}
       <button
         type="button"
-        onclick={loginWithBluesky}
+        onclick={() => loginWithBluesky()}
         disabled={blueskyLoading}
         class="flex w-full items-center justify-center gap-2 rounded-lg bg-sky-600 py-2.5 font-semibold text-white transition-colors hover:bg-sky-500 active:bg-sky-700 disabled:opacity-50"
       >
         <IconBrandBluesky class="h-5 w-5" />
         {blueskyLoading ? '接続中...' : 'Bluesky で続ける'}
       </button>
+      {#if blueskyError}
+        <p class="text-sm text-red-400">{blueskyError}</p>
+      {/if}
+
+      <!-- bsky.social 以外のPDS利用者向け（普段は隠す） -->
+      <button
+        type="button"
+        onclick={() => (showHandleInput = !showHandleInput)}
+        class="block w-full text-center text-xs text-zinc-500 transition-colors hover:text-zinc-300"
+      >
+        別のサーバー(PDS)のアカウント
+      </button>
+      {#if showHandleInput}
+        <div class="space-y-2">
+          <input
+            id="bluesky-handle"
+            type="text"
+            bind:value={blueskyHandle}
+            placeholder="you.example.com"
+            autocapitalize="none"
+            autocomplete="off"
+            spellcheck="false"
+            class={inputClass}
+            onkeydown={(e) => e.key === 'Enter' && loginWithBluesky(blueskyHandle)}
+          />
+          <button
+            type="button"
+            onclick={() => loginWithBluesky(blueskyHandle)}
+            disabled={blueskyLoading}
+            class="w-full rounded-lg bg-zinc-700 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-600 disabled:opacity-50"
+          >
+            このハンドルで続ける
+          </button>
+        </div>
+      {/if}
     </div>
     </div>
   </div>
