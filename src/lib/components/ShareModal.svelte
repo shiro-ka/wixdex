@@ -4,7 +4,7 @@
   import BaseModal from './BaseModal.svelte';
   import IconClipboard from '@tabler/icons-svelte/icons/clipboard';
   import IconDownload from '@tabler/icons-svelte/icons/download';
-  import { generateStackDeckImage, downloadCanvasAsImage, copyCanvasToClipboard } from '$lib/utils/deckImageExport';
+  import { generateDeckImage, downloadCanvasAsImage, copyCanvasToClipboard } from '$lib/utils/deckImageExport';
 
   interface Props {
     isOpen: boolean;
@@ -96,7 +96,7 @@
     if (isExporting || mainDeck.length === 0) return;
     isExporting = true;
     try {
-      const canvas = await generateStackDeckImage(deckName, mainDeck, lrigDeck);
+      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck);
       downloadCanvasAsImage(canvas, `${deckName || 'deck'}.${format}`, format);
     } catch (error) {
       console.error('Failed to export image:', error);
@@ -110,7 +110,7 @@
     if (isExporting || mainDeck.length === 0) return;
     isExporting = true;
     try {
-      const canvas = await generateStackDeckImage(deckName, mainDeck, lrigDeck);
+      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck);
       await copyCanvasToClipboard(canvas);
       alert('画像をクリップボードにコピーしました。');
     } catch (error) {
@@ -214,8 +214,8 @@
 
     <!-- 画像エクスポート -->
     <div class="pt-4 border-t border-zinc-700">
-      <h4 class="text-white text-sm font-semibold mb-2">画像エクスポート（製作中）</h4>
-      <p class="text-gray-400 text-xs mb-3">スタック式デッキ画像 (16:9)</p>
+      <h4 class="text-white text-sm font-semibold mb-2">画像エクスポート</h4>
+      <p class="text-gray-400 text-xs mb-3">デッキリスト画像（8列）</p>
 
       <div class="flex h-10 gap-3">
         <!-- JPG -->
