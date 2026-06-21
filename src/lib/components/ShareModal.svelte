@@ -19,13 +19,14 @@
     currentSlug: string | null;
     isPublic: boolean;
     isLoggedIn: boolean;
+    rotateLandscape: boolean;
     onSetPublic: (next: boolean) => void | Promise<void>;
     onUpdateSlug: (slug: string) => Promise<{ ok: boolean; error?: string; slug?: string }>;
   }
 
   let {
     isOpen, onClose, deckName, mainDeck, lrigDeck, deckId, ownerAtName, currentSlug,
-    isPublic, isLoggedIn, onSetPublic, onUpdateSlug,
+    isPublic, isLoggedIn, rotateLandscape, onSetPublic, onUpdateSlug,
   }: Props = $props();
 
   let isExporting = $state(false);
@@ -96,7 +97,7 @@
     if (isExporting || mainDeck.length === 0) return;
     isExporting = true;
     try {
-      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck);
+      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck, rotateLandscape);
       downloadCanvasAsImage(canvas, `${deckName || 'deck'}.${format}`, format);
     } catch (error) {
       console.error('Failed to export image:', error);
@@ -110,7 +111,7 @@
     if (isExporting || mainDeck.length === 0) return;
     isExporting = true;
     try {
-      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck);
+      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck, rotateLandscape);
       await copyCanvasToClipboard(canvas);
       alert('画像をクリップボードにコピーしました。');
     } catch (error) {

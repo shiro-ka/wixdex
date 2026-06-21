@@ -11,6 +11,43 @@ export function loadImage(src: string): Promise<HTMLImageElement> {
   });
 }
 
+/** スロット(x,y,W,H)内に画像をアスペクト維持で収める（object-contain 相当・引き伸ばさない）。 */
+function drawContain(
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
+  x: number,
+  y: number,
+  W: number,
+  H: number,
+) {
+  const scale = Math.min(W / img.naturalWidth, H / img.naturalHeight);
+  const dw = img.naturalWidth * scale;
+  const dh = img.naturalHeight * scale;
+  ctx.drawImage(img, x + (W - dw) / 2, y + (H - dh) / 2, dw, dh);
+}
+
+/** 横向き画像を90°回転し、縦スロットにアスペクト維持で収める（アプリの rotateLandscape 相当）。 */
+function drawRotatedContain(
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
+  x: number,
+  y: number,
+  W: number,
+  H: number,
+) {
+  const iw = img.naturalWidth;
+  const ih = img.naturalHeight;
+  // 回転後は幅↔高さが入れ替わるので、収まり判定もそれに合わせる。
+  const scale = Math.min(W / ih, H / iw);
+  const dw = iw * scale;
+  const dh = ih * scale;
+  ctx.save();
+  ctx.translate(x + W / 2, y + H / 2);
+  ctx.rotate(Math.PI / 2);
+  ctx.drawImage(img, -dw / 2, -dh / 2, dw, dh);
+  ctx.restore();
+}
+
 /**
  * デッキリスト欄と同じ「8列 × ルリグ1行＋メイン5行」のデッキ画像を生成する。
  * スタック表示はせず、渡された配列順（＝アプリ表示と同じソート済み順）でそのまま並べる。
@@ -20,6 +57,7 @@ export async function generateDeckImage(
   deckName: string,
   mainDeck: Card[],
   lrigDeck: Card[],
+  rotateLandscape = false,
 ): Promise<HTMLCanvasElement> {
   const COLS = 8;
   const CARD_W = 188;
@@ -87,7 +125,13 @@ export async function generateDeckImage(
 
   for (const { s, img } of loaded) {
     if (img) {
-      ctx.drawImage(img, s.x, s.y, CARD_W, CARD_H);
+      const landscape = img.naturalWidth > img.naturalHeight;
+      if (rotateLandscape && landscape) {
+        drawRotatedContain(ctx, img, s.x, s.y, CARD_W, CARD_H);
+      } else {
+        // 縦長はスロットを埋め、横長は引き伸ばさず横のまま収める（レターボックス）
+        drawContain(ctx, img, s.x, s.y, CARD_W, CARD_H);
+      }
     } else {
       // ロード失敗時は欠けが分かるようプレースホルダを描く
       ctx.fillStyle = '#27272a';

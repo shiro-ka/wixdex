@@ -483,6 +483,7 @@
     ownerAtName={page.data.user ? (page.data.user.username ?? page.data.user.blueskyHandle) : null}
     isPublic={deck.isPublic}
     {isLoggedIn}
+    {rotateLandscape}
     onSetPublic={setDeckPublic}
     onUpdateSlug={updateDeckSlug}
   />
