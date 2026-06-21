@@ -23,7 +23,8 @@ export default defineConfig({
         orientation: 'any',
         categories: ['games', 'utilities'],
         background_color: '#18181b',
-        theme_color: '#f97316',
+        // ステータスバー/ナビバー色にも使われる。ダークアプリなので暗色で統一（オレンジは画面内のアクセントに留める）。
+        theme_color: '#18181b',
         icons: [
           {
             src: '/icon-192.png',
