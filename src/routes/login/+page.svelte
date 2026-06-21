@@ -36,7 +36,7 @@
 </svelte:head>
 
 <main class="flex min-h-screen items-center justify-center bg-zinc-900 p-4">
-  <div class="grid w-full max-w-4xl overflow-hidden rounded-2xl border border-gray-600/30 bg-zinc-600/10 shadow-xl lg:grid-cols-2">
+  <div class="grid w-full max-w-4xl min-h-[42rem] overflow-hidden rounded-2xl border border-gray-600/30 bg-zinc-600/10 shadow-xl lg:grid-cols-2">
     <!-- 左: ブランディング（PCのみ。zincダーク、オレンジは差し色のみ） -->
     <div class="hidden flex-col justify-between border-r border-gray-600/30 bg-zinc-600/10 p-10 lg:flex">
       <div>
