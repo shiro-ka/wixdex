@@ -2,7 +2,7 @@ import { fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
 import { ctx } from '$lib/server/context';
 import { createSession } from '$lib/server/auth';
-import { hashPassword, verifyPassword } from '$lib/server/password';
+import { hashPassword, verifyPassword, needsRehash } from '$lib/server/password';
 import { checkRateLimit, incrementRateLimit } from '$lib/server/rate-limit';
 import { newUserId } from '$lib/server/ids';
 import { validateUsername } from '$lib/utils/atName';
@@ -59,6 +59,16 @@ export const actions: Actions = {
         mode: 'login',
         error: 'メールアドレスまたはパスワードが正しくありません。',
       });
+    }
+
+    // 旧パラメータ(回数少なめ)のハッシュなら、ログイン成功のついでに現行強度へ再保存。
+    // 失敗してもログインは続行する(致命的でない)。
+    if (needsRehash(user.password_hash)) {
+      try {
+        await db.updateUser(user.id, { password_hash: await hashPassword(password) });
+      } catch {
+        /* rehash 失敗は無視 */
+      }
     }
 
     await createSession(cookies, env, store, {
