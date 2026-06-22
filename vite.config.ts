@@ -58,11 +58,14 @@ export default defineConfig({
             },
           },
           {
+            // カードDBは数MB。SWRだと毎回裏で再DLしてしまうので CacheFirst で再DLを止める。
+            // 新セットは新URL=キャッシュミスで必ず取得される。既存ファイルの訂正を即反映したいときは
+            // cacheName を card-data-v3, v4… と上げてクライアントに再取得させる。
             urlPattern: /\/assets\/cards_json\/.*\.json$/,
-            handler: 'StaleWhileRevalidate',
+            handler: 'CacheFirst',
             options: {
-              cacheName: 'card-data-v1',
-              expiration: { maxAgeSeconds: 60 * 60 * 24 * 7 },
+              cacheName: 'card-data-v2',
+              expiration: { maxEntries: 100, maxAgeSeconds: 60 * 60 * 24 * 30 },
             },
           },
           {
