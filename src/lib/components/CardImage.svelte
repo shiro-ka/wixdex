@@ -22,6 +22,8 @@
     ontouchmove?: (e: TouchEvent) => void;
     ontouchend?: (e: TouchEvent) => void;
     fadeToken?: unknown;
+    /** Hard opt-out of fade-in (deck cells). */
+    fade?: boolean;
   }
 
   let {
@@ -34,6 +36,7 @@
     onmouseenter, onmouseleave, onclick, onwheel,
     ontouchstart, ontouchmove, ontouchend,
     fadeToken,
+    fade = true,
   }: Props = $props();
 
   let isImageLoaded = $state(false);
@@ -46,7 +49,7 @@
 
 <div class="relative {rotated ? 'block w-full aspect-[12/17] overflow-hidden [container-type:size]' : 'inline-block'}">
   <LazyImage
-    {src} {alt} {fadeToken}
+    {src} {alt} {fadeToken} {fade}
     class={rotated
       ? 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 w-[100cqh] h-[100cqw] max-w-none object-contain cursor-pointer'
       : className}

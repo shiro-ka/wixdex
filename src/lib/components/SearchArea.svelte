@@ -135,7 +135,7 @@
   let tagActive = $derived(activeDropdown === 'tag' || expandedMenu === 'tag');
 </script>
 
-<div class="flex flex-col px-2 pb-4 md:pb-1 md:w-96">
+<div class="flex flex-col px-2 pb-4 md:pb-1 lg:w-96">
   <!-- ホバープレビュー -->
   <div class="hidden lg:block w-full aspect-[3/4] p-4 mb-2 bg-gray-600/10 rounded-xl">
     {#if hoveredCard}
@@ -193,10 +193,11 @@
       </button>
       {/if}
 
+      <!-- 候補フィルタ: デスクトップは Folder が常時表示されるのでフィルタ不要 → md以上で非表示 -->
       <button
         type="button"
         id="folder-button"
-        class={clsx(filterToggle({ active: candidateFilter }), 'flex-1 h-full mr-2', filterBorder)}
+        class={clsx(filterToggle({ active: candidateFilter }), 'flex-1 h-full mr-2 md:hidden', filterBorder)}
         onclick={onCandidateFilter}
       >
         {#if candidateFilter}
@@ -327,7 +328,7 @@
       </button>
 
       <!-- 検索入力 -->
-      <div class="flex flex-1 mr-2 items-center bg-zinc-600/10 {filterBorder} focus-within:ring-2 focus-within:ring-gray-500">
+      <div class="flex flex-1 mr-2 items-center bg-zinc-600/10 {filterBorder} has-[input:focus]:ring-2 has-[input:focus]:ring-gray-500">
         <button
           type="button"
           class="relative flex w-12 h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer transition-all"

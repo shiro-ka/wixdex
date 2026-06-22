@@ -6,6 +6,7 @@ import type {
   DeckUpsert,
   DeckSlotKind,
   PublicDeckDetail,
+  PublicDeckSummary,
 } from '$lib/types';
 
 interface DeckRow {
@@ -13,6 +14,7 @@ interface DeckRow {
   user_id: string;
   name: string;
   memo: string;
+  slug: string | null;
   is_public: number;
   created_at: number;
   updated_at: number;
@@ -80,6 +82,7 @@ export class DeckDb {
       id: row.id,
       name: row.name,
       memo: row.memo,
+      slug: row.slug ?? row.id,
       isPublic: row.is_public === 1,
       mainCount: countMap.get(row.id)?.main ?? 0,
       lrigCount: countMap.get(row.id)?.lrig ?? 0,
@@ -106,6 +109,7 @@ export class DeckDb {
       id: row.id,
       name: row.name,
       memo: row.memo,
+      slug: row.slug ?? row.id,
       isPublic: row.is_public === 1,
       slots: cardRows.results.map((r) => ({
         slot: r.slot as DeckSlotKind,
@@ -159,6 +163,85 @@ export class DeckDb {
     };
   }
 
+  /** 公開プロフィール用: あるユーザーの公開デッキ一覧（slug付き）。 */
+  async listPublicDecks(userId: string): Promise<PublicDeckSummary[]> {
+    const rows = await this.d1
+      .prepare(
+        'SELECT id, name, slug, updated_at FROM decks WHERE user_id = ? AND is_public = 1 ORDER BY updated_at DESC'
+      )
+      .bind(userId)
+      .all<{ id: string; name: string; slug: string | null; updated_at: number }>();
+
+    if (!rows.results.length) return [];
+
+    const deckIds = rows.results.map((r) => r.id);
+    const placeholders = deckIds.map(() => '?').join(',');
+    const cardRows = await this.d1
+      .prepare(
+        `SELECT deck_id, slot, SUM(count) as total FROM deck_cards WHERE deck_id IN (${placeholders}) GROUP BY deck_id, slot`
+      )
+      .bind(...deckIds)
+      .all<{ deck_id: string; slot: string; total: number }>();
+
+    const countMap = new Map<string, { main: number; lrig: number }>();
+    for (const row of cardRows.results) {
+      if (!countMap.has(row.deck_id)) countMap.set(row.deck_id, { main: 0, lrig: 0 });
+      const c = countMap.get(row.deck_id)!;
+      if (row.slot === 'main') c.main = row.total;
+      else if (row.slot === 'lrig') c.lrig = row.total;
+    }
+
+    return rows.results.map((r) => ({
+      slug: r.slug ?? r.id,
+      name: r.name,
+      mainCount: countMap.get(r.id)?.main ?? 0,
+      lrigCount: countMap.get(r.id)?.lrig ?? 0,
+      updatedAt: r.updated_at,
+    }));
+  }
+
+  /** 公開デッキを (所有者id, slug) で取得。/@user/[slug] ルート用。作者情報も同梱。 */
+  async getPublicDeckBySlug(userId: string, slug: string): Promise<PublicDeckDetail | null> {
+    const row = await this.d1
+      .prepare(
+        `SELECT d.id, d.name, d.memo, d.created_at, d.updated_at,
+                u.display_name AS author_name, u.bluesky_handle AS author_handle
+         FROM decks d JOIN users u ON u.id = d.user_id
+         WHERE d.user_id = ? AND d.slug = ? AND d.is_public = 1`
+      )
+      .bind(userId, slug)
+      .first<{
+        id: string;
+        name: string;
+        memo: string;
+        created_at: number;
+        updated_at: number;
+        author_name: string;
+        author_handle: string | null;
+      }>();
+
+    if (!row) return null;
+
+    const cardRows = await this.d1
+      .prepare('SELECT slot, card_id, count FROM deck_cards WHERE deck_id = ?')
+      .bind(row.id)
+      .all<{ slot: string; card_id: string; count: number }>();
+
+    return {
+      id: row.id,
+      name: row.name,
+      memo: row.memo,
+      slots: cardRows.results.map((r) => ({
+        slot: r.slot as DeckSlotKind,
+        cardId: r.card_id,
+        count: r.count,
+      })),
+      createdAt: row.created_at,
+      updatedAt: row.updated_at,
+      author: { displayName: row.author_name, blueskyHandle: row.author_handle },
+    };
+  }
+
   private usageStatements(deltas: UsageDelta[], now: number) {
     return deltas.map((d) =>
       this.d1
@@ -194,9 +277,10 @@ export class DeckDb {
     await this.d1.batch([
       this.d1
         .prepare(
-          'INSERT INTO decks (id, user_id, name, memo, is_public, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?)'
+          'INSERT INTO decks (id, user_id, name, memo, slug, is_public, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
         )
-        .bind(id, userId, data.name, data.memo, data.isPublic ? 1 : 0, now, now),
+        // slug は初期値として内部idを流用。後からユーザーが変更可能(Phase 3)。
+        .bind(id, userId, data.name, data.memo, id, data.isPublic ? 1 : 0, now, now),
       ...data.slots.map((s) =>
         this.d1
           .prepare(
@@ -211,6 +295,7 @@ export class DeckDb {
       id,
       name: data.name,
       memo: data.memo,
+      slug: id,
       isPublic: data.isPublic ?? false,
       slots: data.slots,
       createdAt: now,
@@ -220,9 +305,9 @@ export class DeckDb {
 
   async updateDeck(id: string, userId: string, data: DeckUpsert): Promise<DeckDetail | null> {
     const existing = await this.d1
-      .prepare('SELECT id, created_at FROM decks WHERE id = ? AND user_id = ?')
+      .prepare('SELECT id, slug, created_at FROM decks WHERE id = ? AND user_id = ?')
       .bind(id, userId)
-      .first<{ id: string; created_at: number }>();
+      .first<{ id: string; slug: string | null; created_at: number }>();
 
     if (!existing) return null;
 
@@ -251,11 +336,36 @@ export class DeckDb {
       id,
       name: data.name,
       memo: data.memo,
+      slug: existing.slug ?? id,
       isPublic: data.isPublic ?? false,
       slots: data.slots,
       createdAt: existing.created_at,
       updatedAt: now,
     };
+  }
+
+  /**
+   * デッキの公開URL(slug)を変更。slug は検証・正規化済みで渡すこと。
+   * 'notfound'=本人のデッキでない / 'taken'=同ユーザー内で重複 / 'ok'=成功。
+   */
+  async updateSlug(id: string, userId: string, slug: string): Promise<'ok' | 'taken' | 'notfound'> {
+    const existing = await this.d1
+      .prepare('SELECT id FROM decks WHERE id = ? AND user_id = ?')
+      .bind(id, userId)
+      .first<{ id: string }>();
+    if (!existing) return 'notfound';
+
+    const clash = await this.d1
+      .prepare('SELECT id FROM decks WHERE user_id = ? AND slug = ? AND id != ?')
+      .bind(userId, slug, id)
+      .first<{ id: string }>();
+    if (clash) return 'taken';
+
+    await this.d1
+      .prepare('UPDATE decks SET slug = ?, updated_at = ? WHERE id = ? AND user_id = ?')
+      .bind(slug, Math.floor(Date.now() / 1000), id, userId)
+      .run();
+    return 'ok';
   }
 
   async deleteDeck(id: string, userId: string): Promise<boolean> {

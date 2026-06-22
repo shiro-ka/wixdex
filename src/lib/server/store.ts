@@ -2,6 +2,7 @@ export interface AppSession {
   userId: string;
   email: string | null;
   displayName: string;
+  username: string | null;
   blueskyDid: string | null;
   blueskyHandle: string | null;
 }

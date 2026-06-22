@@ -1,32 +1,6 @@
 import type { Card } from '$lib/types';
 import { cardImageUrl } from '$lib/utils/cardImages';
 
-interface CardStack {
-  card: Card;
-  count: number;
-}
-
-export function groupMainDeckCards(mainDeck: Card[]): CardStack[] {
-  const cardMap = new Map<string, CardStack>();
-  mainDeck.forEach(card => {
-    const id = card.cardID || card.image;
-    if (cardMap.has(id)) cardMap.get(id)!.count++;
-    else cardMap.set(id, { card, count: 1 });
-  });
-  return Array.from(cardMap.values());
-}
-
-export function getCenterLrig(lrigDeck: Card[]): Card | null {
-  const lrigs = lrigDeck.filter(card => card.cardType?.[0] === 'ルリグ');
-  if (lrigs.length === 0) return null;
-  return lrigs.reduce((max, card) => (card.level ?? 0) > (max.level ?? 0) ? card : max, lrigs[0]);
-}
-
-export function getOtherLrigCards(lrigDeck: Card[], centerLrig: Card | null): Card[] {
-  if (!centerLrig) return lrigDeck;
-  return lrigDeck.filter(card => card.cardID !== centerLrig.cardID || card.image !== centerLrig.image);
-}
-
 export function loadImage(src: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -37,106 +11,169 @@ export function loadImage(src: string): Promise<HTMLImageElement> {
   });
 }
 
-export async function generateStackDeckImage(
-  deckName: string, mainDeck: Card[], lrigDeck: Card[]
+/** スロット(x,y,W,H)内に画像をアスペクト維持で収める（object-contain 相当・引き伸ばさない）。 */
+function drawContain(
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
+  x: number,
+  y: number,
+  W: number,
+  H: number,
+) {
+  const scale = Math.min(W / img.naturalWidth, H / img.naturalHeight);
+  const dw = img.naturalWidth * scale;
+  const dh = img.naturalHeight * scale;
+  ctx.drawImage(img, x + (W - dw) / 2, y + (H - dh) / 2, dw, dh);
+}
+
+/** 横向き画像を90°回転し、縦スロットにアスペクト維持で収める（アプリの rotateLandscape 相当）。 */
+function drawRotatedContain(
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
+  x: number,
+  y: number,
+  W: number,
+  H: number,
+) {
+  const iw = img.naturalWidth;
+  const ih = img.naturalHeight;
+  // 回転後は幅↔高さが入れ替わるので、収まり判定もそれに合わせる。
+  const scale = Math.min(W / ih, H / iw);
+  const dw = iw * scale;
+  const dh = ih * scale;
+  ctx.save();
+  ctx.translate(x + W / 2, y + H / 2);
+  ctx.rotate(Math.PI / 2);
+  ctx.drawImage(img, -dw / 2, -dh / 2, dw, dh);
+  ctx.restore();
+}
+
+/**
+ * デッキリスト欄と同じ「8列 × ルリグ1行＋メイン5行」のデッキ画像を生成する。
+ * スタック表示はせず、渡された配列順（＝アプリ表示と同じソート済み順）でそのまま並べる。
+ * グリッドが固定なので出力比率もほぼ固定（標準デッキで約 1616×1772 ≒ ほぼ1:1）。
+ */
+export async function generateDeckImage(
+  deckName: string,
+  mainDeck: Card[],
+  lrigDeck: Card[],
+  rotateLandscape = false,
 ): Promise<HTMLCanvasElement> {
+  const COLS = 8;
+  const CARD_W = 188;
+  const CARD_H = Math.round((CARD_W * 17) / 12); // カード比 12:17
+  const GAP = 8;
+  const PAD = 28;
+  const HEADER_H = 72; // デッキ名
+  const SECTION_GAP = 16; // ルリグ↔メインの間
+
+  const lrigRows = Math.max(1, Math.ceil(lrigDeck.length / COLS));
+  const mainRows = Math.max(1, Math.ceil(mainDeck.length / COLS));
+  const gridW = COLS * CARD_W + (COLS - 1) * GAP;
+  const lrigGridH = lrigRows * CARD_H + (lrigRows - 1) * GAP;
+  const mainGridH = mainRows * CARD_H + (mainRows - 1) * GAP;
+
+  const width = PAD * 2 + gridW;
+  const height = PAD + HEADER_H + lrigGridH + SECTION_GAP + mainGridH + PAD;
+
   const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('Canvas context not available');
 
-  const width = 1920, height = 1080;
-  canvas.width = width; canvas.height = height;
+  // 背景（アプリと同じ zinc-900）
   ctx.fillStyle = '#18181b';
   ctx.fillRect(0, 0, width, height);
 
-  const headerHeight = 80;
-  ctx.fillStyle = '#27272a';
-  ctx.fillRect(0, 0, width, headerHeight);
+  // ヘッダ: デッキ名
   ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 36px sans-serif';
+  ctx.font = 'bold 40px sans-serif';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
-  ctx.fillText(deckName || '無題のデッキ', 40, headerHeight / 2);
+  ctx.fillText(deckName || '無題のデッキ', PAD, PAD + HEADER_H / 2);
 
-  const cardWidth = 120, cardHeight = 168, margin = 10, startY = headerHeight + 20;
-  const lrigStartX = 20;
-  const centerLrig = getCenterLrig(lrigDeck);
-  const otherLrigCards = getOtherLrigCards(lrigDeck, centerLrig);
+  const lrigTop = PAD + HEADER_H;
+  const mainTop = lrigTop + lrigGridH + SECTION_GAP;
 
-  const imageLoadPromises: Promise<{ img: HTMLImageElement; x: number; y: number; isStack?: boolean; count?: number } | null>[] = [];
-
-  if (centerLrig) {
-    const x = lrigStartX + cardWidth + margin;
-    const y = startY;
-    imageLoadPromises.push(
-      loadImage(cardImageUrl(centerLrig.image)).then(img => ({ img, x, y })).catch(() => null)
-    );
+  interface Slot {
+    card: Card;
+    x: number;
+    y: number;
   }
+  const slots: Slot[] = [];
+  const place = (cards: Card[], top: number) => {
+    cards.forEach((card, i) => {
+      slots.push({
+        card,
+        x: PAD + (i % COLS) * (CARD_W + GAP),
+        y: top + Math.floor(i / COLS) * (CARD_H + GAP),
+      });
+    });
+  };
+  place(lrigDeck, lrigTop);
+  place(mainDeck, mainTop);
 
-  let lrigX = lrigStartX, lrigY = startY + cardHeight + margin, lrigCol = 0;
-  for (const card of otherLrigCards) {
-    const x = lrigX, y = lrigY;
-    imageLoadPromises.push(
-      loadImage(cardImageUrl(card.image)).then(img => ({ img, x, y })).catch(() => null)
-    );
-    lrigCol++;
-    if (lrigCol >= 4) { lrigCol = 0; lrigX = lrigStartX; lrigY += cardHeight + margin; }
-    else lrigX += cardWidth + margin;
-  }
+  // 画像を並列ロード（失敗は null）してから順に描画
+  const loaded = await Promise.all(
+    slots.map((s) =>
+      loadImage(cardImageUrl(s.card.image))
+        .then((img) => ({ s, img }))
+        .catch(() => ({ s, img: null as HTMLImageElement | null })),
+    ),
+  );
 
-  const mainStartX = lrigStartX + (cardWidth + margin) * 4 + 40;
-  const cardStacks = groupMainDeckCards(mainDeck);
-  let mainX = mainStartX, mainY = startY, mainRow = 0;
-
-  for (const stack of cardStacks) {
-    const x = mainX, y = mainY;
-    imageLoadPromises.push(
-      loadImage(cardImageUrl(stack.card.image)).then(img => ({
-        img, x, y, isStack: true, count: stack.count
-      })).catch(() => null)
-    );
-    mainRow++;
-    if (mainRow >= 3) { mainRow = 0; mainX += cardWidth + margin; mainY = startY; }
-    else mainY += cardHeight + margin;
-  }
-
-  const loadedImages = await Promise.all(imageLoadPromises);
-  for (const item of loadedImages) {
-    if (!item) continue;
-    ctx.drawImage(item.img, item.x, item.y, cardWidth, cardHeight);
-    if (item.isStack && item.count) {
-      const countBgHeight = 28, countBgY = item.y + cardHeight - countBgHeight;
-      ctx.fillStyle = 'rgba(0,0,0,0.7)';
-      ctx.fillRect(item.x, countBgY, cardWidth, countBgHeight);
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 20px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(`×${item.count}`, item.x + cardWidth / 2, countBgY + countBgHeight / 2);
+  for (const { s, img } of loaded) {
+    if (img) {
+      const landscape = img.naturalWidth > img.naturalHeight;
+      if (rotateLandscape && landscape) {
+        drawRotatedContain(ctx, img, s.x, s.y, CARD_W, CARD_H);
+      } else {
+        // 縦長はスロットを埋め、横長は引き伸ばさず横のまま収める（レターボックス）
+        drawContain(ctx, img, s.x, s.y, CARD_W, CARD_H);
+      }
+    } else {
+      // ロード失敗時は欠けが分かるようプレースホルダを描く
+      ctx.fillStyle = '#27272a';
+      ctx.fillRect(s.x, s.y, CARD_W, CARD_H);
+      ctx.strokeStyle = 'rgba(120,120,130,0.4)';
+      ctx.strokeRect(s.x + 0.5, s.y + 0.5, CARD_W - 1, CARD_H - 1);
     }
   }
+
   return canvas;
 }
 
-export function downloadCanvasAsImage(canvas: HTMLCanvasElement, filename: string, format: 'png' | 'jpg' = 'png') {
+export function downloadCanvasAsImage(
+  canvas: HTMLCanvasElement,
+  filename: string,
+  format: 'png' | 'jpg' = 'png',
+) {
   const mimeType = format === 'png' ? 'image/png' : 'image/jpeg';
-  canvas.toBlob(blob => {
+  canvas.toBlob((blob) => {
     if (!blob) return;
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = url; a.download = filename; a.click();
+    a.href = url;
+    a.download = filename;
+    a.click();
     URL.revokeObjectURL(url);
   }, mimeType);
 }
 
 export async function copyCanvasToClipboard(canvas: HTMLCanvasElement): Promise<void> {
   return new Promise((resolve, reject) => {
-    canvas.toBlob(async blob => {
-      if (!blob) { reject(new Error('Failed to create blob')); return; }
+    canvas.toBlob(async (blob) => {
+      if (!blob) {
+        reject(new Error('Failed to create blob'));
+        return;
+      }
       try {
         await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
         resolve();
-      } catch (error) { reject(error); }
+      } catch (error) {
+        reject(error);
+      }
     }, 'image/png');
   });
 }

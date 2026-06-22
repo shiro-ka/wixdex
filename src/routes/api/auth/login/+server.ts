@@ -6,8 +6,11 @@ import { checkRateLimit, incrementRateLimit } from '$lib/server/rate-limit';
 import { z } from 'zod';
 
 const schema = z.object({
-  handle: z.string().min(1).max(255),
+  // 省略時は bsky.social のエントリーウェイへ直行（ハンドル入力不要のGoogle方式）。
+  handle: z.string().max(255).optional(),
 });
+
+const DEFAULT_ENTRYWAY = 'https://bsky.social';
 
 export const POST: RequestHandler = async (event) => {
   const { request, getClientAddress } = event;
@@ -22,13 +25,16 @@ export const POST: RequestHandler = async (event) => {
   const body = await request.json().catch(() => null);
   const parsed = schema.safeParse(body);
   if (!parsed.success) {
-    return json({ error: 'Invalid request', message: 'ハンドルを入力してください。' }, { status: 400 });
+    return json({ error: 'Invalid request', message: '不正なリクエストです。' }, { status: 400 });
   }
+
+  // ハンドル指定があればそれを、無ければ bsky.social のログインページへ直行。
+  const target = parsed.data.handle?.trim() || DEFAULT_ENTRYWAY;
 
   try {
     await incrementRateLimit(store, ip, 'oauth-start');
     const client = await createOAuthClient(env, store);
-    const url = await client.authorize(parsed.data.handle, { scope: 'atproto transition:generic' });
+    const url = await client.authorize(target, { scope: 'atproto transition:generic' });
     return json({ redirectUrl: url.toString() });
   } catch (err) {
     console.error('[/api/auth/login]', err);

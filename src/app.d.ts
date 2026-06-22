@@ -1,3 +1,5 @@
+/// <reference types="vite-plugin-pwa/info" />
+/// <reference types="vite-plugin-pwa/vanillajs" />
 import type { KVNamespace, D1Database } from '@cloudflare/workers-types';
 
 declare global {
@@ -7,6 +9,7 @@ declare global {
         id: string;
         email: string | null;
         displayName: string;
+        username: string | null;
         blueskyDid: string | null;
         blueskyHandle: string | null;
       };

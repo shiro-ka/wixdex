@@ -176,6 +176,7 @@
         candidateCards: deck.candidateCards,
       });
       deck.id = id;
+      if (!deck.slug) deck.slug = id; // 新規保存時の既定 slug は id
       deck.markSaved();
     } catch {
       // cloudSync.error is set; user sees it in UI if we add an error display
@@ -196,6 +197,16 @@
     if (!isLoggedIn) return;
     await cloudSync.loadList();
     isDeckListOpen = true;
+  }
+
+  // デッキ公開URL(slug)の変更。成功したらストアにも反映。
+  async function updateDeckSlug(
+    slug: string,
+  ): Promise<{ ok: boolean; error?: string; slug?: string }> {
+    if (!deck.id) return { ok: false, error: 'デッキを保存してください。' };
+    const res = await cloudSync.updateSlug(deck.id, slug);
+    if (res.ok) deck.slug = res.slug;
+    return res;
   }
 
   // 公開/非公開トグル: 即座に保存して反映する（保存済みデッキのみ）
@@ -291,7 +302,7 @@
   />
 
   <div
-    class="flex flex-col flex-1 w-full max-w-screen-sm mx-auto overflow-hidden md:flex-1 lg:flex-row lg:max-w-screen-xl lg:mb-4 2xl:max-w-[84vw]"
+    class="flex flex-col flex-1 w-full max-w-screen-sm mx-auto overflow-hidden md:flex-row md:max-w-none md:mb-4 lg:max-w-screen-xl 2xl:max-w-[84vw]"
   >
     <DeckArea
       mainDeck={deck.mainDeck}
@@ -312,7 +323,7 @@
       {rotateLandscape}
     />
 
-    <div class="flex flex-3 flex-col lg:flex-row">
+    <div class="flex flex-3 flex-col min-h-0 md:flex-1 lg:flex-3 lg:flex-row">
       <CardList
         cards={filteredCards}
         {loading}
@@ -469,9 +480,13 @@
     mainDeck={deck.mainDeck}
     lrigDeck={deck.lrigDeck}
     deckId={deck.id}
+    currentSlug={deck.slug || deck.id}
+    ownerAtName={page.data.user ? (page.data.user.username ?? page.data.user.blueskyHandle) : null}
     isPublic={deck.isPublic}
     {isLoggedIn}
+    {rotateLandscape}
     onSetPublic={setDeckPublic}
+    onUpdateSlug={updateDeckSlug}
   />
 
   <StatsModal
