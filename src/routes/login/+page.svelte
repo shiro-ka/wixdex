@@ -8,9 +8,11 @@
 
   let { form, data }: { form: ActionData; data: PageData } = $props();
 
-  // ログイン / 新規登録 の切替。フォームがどちらかでエラーを返したらそのタブを開く（初期値のみ参照）。
-  let mode = $state<'login' | 'register'>(
-    untrack(() => (form?.mode === 'register' ? 'register' : 'login')),
+  // ログイン / 新規登録 / パスワード再設定 の切替。フォームが返したモードで初期タブを開く（初期値のみ参照）。
+  let mode = $state<'login' | 'register' | 'forgot'>(
+    untrack(() =>
+      form?.mode === 'register' ? 'register' : form?.mode === 'forgot' ? 'forgot' : 'login',
+    ),
   );
 
   let username = $state('');
@@ -55,35 +57,80 @@
     <div class="p-7 sm:p-10">
     <h1 class="mb-5 text-center text-xl font-bold text-white lg:hidden">wixdex</h1>
 
-    <!-- タブ切替 -->
-    <div class="mb-6 flex rounded-lg bg-zinc-800/60 p-1">
-      <button
-        type="button"
-        onclick={() => (mode = 'login')}
-        class="flex-1 rounded-md py-2 text-sm font-medium transition-colors {mode === 'login'
-          ? 'bg-zinc-700 text-white'
-          : 'text-zinc-400 hover:text-zinc-200'}"
-      >
-        ログイン
-      </button>
-      <button
-        type="button"
-        onclick={() => (mode = 'register')}
-        class="flex-1 rounded-md py-2 text-sm font-medium transition-colors {mode === 'register'
-          ? 'bg-zinc-700 text-white'
-          : 'text-zinc-400 hover:text-zinc-200'}"
-      >
-        新規登録
-      </button>
-    </div>
+    <!-- タブ切替（再設定モードでは隠す） -->
+    {#if mode !== 'forgot'}
+      <div class="mb-6 flex rounded-lg bg-zinc-800/60 p-1">
+        <button
+          type="button"
+          onclick={() => (mode = 'login')}
+          class="flex-1 rounded-md py-2 text-sm font-medium transition-colors {mode === 'login'
+            ? 'bg-zinc-700 text-white'
+            : 'text-zinc-400 hover:text-zinc-200'}"
+        >
+          ログイン
+        </button>
+        <button
+          type="button"
+          onclick={() => (mode = 'register')}
+          class="flex-1 rounded-md py-2 text-sm font-medium transition-colors {mode === 'register'
+            ? 'bg-zinc-700 text-white'
+            : 'text-zinc-400 hover:text-zinc-200'}"
+        >
+          新規登録
+        </button>
+      </div>
+    {/if}
 
     {#if data.oauthError}
       <p class="mb-4 rounded-lg bg-red-900/40 px-4 py-3 text-sm text-red-300">{data.oauthError}</p>
     {/if}
-    {#if form?.error}
+    {#if data.resetDone}
+      <p class="mb-4 rounded-lg bg-green-900/40 px-4 py-3 text-sm text-green-300">
+        パスワードを再設定しました。新しいパスワードでログインしてください。
+      </p>
+    {/if}
+    {#if form && 'error' in form && form.error}
       <p class="mb-4 rounded-lg bg-red-900/40 px-4 py-3 text-sm text-red-300">{form.error}</p>
     {/if}
+    {#if form && form.mode === 'forgot' && 'success' in form && form.success}
+      <p class="mb-4 rounded-lg bg-green-900/40 px-4 py-3 text-sm text-green-300">
+        入力されたメールアドレスが登録されていれば、再設定用のリンクを送信しました。メールをご確認ください。
+      </p>
+    {/if}
 
+    {#if mode === 'forgot'}
+      <!-- パスワード再設定: メールアドレス入力 -->
+      <p class="mb-4 text-sm text-zinc-400">
+        登録したメールアドレスを入力してください。パスワード再設定用のリンクをお送りします。
+      </p>
+      <form method="POST" action="?/forgotPassword" class="space-y-4">
+        <div>
+          <label for="forgot-email" class="mb-1 block text-sm text-zinc-300">メールアドレス</label>
+          <input
+            id="forgot-email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            class={inputClass}
+            placeholder="you@example.com"
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-full rounded-lg bg-orange-500 py-2.5 font-semibold text-white transition-colors hover:bg-orange-600 active:bg-orange-700"
+        >
+          再設定リンクを送る
+        </button>
+      </form>
+      <button
+        type="button"
+        onclick={() => (mode = 'login')}
+        class="mt-4 block w-full text-center text-sm text-zinc-400 transition-colors hover:text-zinc-200"
+      >
+        ← ログインに戻る
+      </button>
+    {:else}
     <!-- メール認証フォーム。action でログイン/登録を切替 -->
     <form method="POST" action="?/{mode}" class="space-y-4">
       {#if mode === 'register'}
@@ -165,6 +212,18 @@
       </button>
     </form>
 
+    {#if mode === 'login'}
+      <button
+        type="button"
+        onclick={() => (mode = 'forgot')}
+        class="mt-3 block w-full text-center text-sm text-zinc-400 transition-colors hover:text-zinc-200"
+      >
+        パスワードをお忘れですか？
+      </button>
+    {/if}
+    {/if}
+
+    {#if mode !== 'forgot'}
     <div class="my-6 flex items-center gap-3">
       <div class="h-px flex-1 bg-zinc-800"></div>
       <span class="text-xs text-zinc-500">または</span>
@@ -218,6 +277,7 @@
         </div>
       {/if}
     </div>
+    {/if}
     </div>
   </div>
 </main>

@@ -84,4 +84,24 @@ export class CloudflareStore {
     const val = await this.env.RATE_LIMIT.get<{ count: number }>(key, 'json');
     return val?.count ?? 0;
   }
+
+  // ── Password reset tokens (KV, short TTL) ─────────────────────────────────
+  // 専用namespaceは作らず RATE_LIMIT に prefix付きで間借りする(キーが衝突しないため安全)。
+  // 値はトークンのハッシュをキーに、userId だけを保存。単回使用で del する。
+
+  async setPasswordReset(tokenHash: string, userId: string, ttlSeconds: number): Promise<void> {
+    await this.env.RATE_LIMIT.put(`pwreset:${tokenHash}`, JSON.stringify({ userId }), {
+      expirationTtl: ttlSeconds,
+    });
+  }
+
+  async getPasswordReset(tokenHash: string): Promise<{ userId: string } | undefined> {
+    return (
+      (await this.env.RATE_LIMIT.get<{ userId: string }>(`pwreset:${tokenHash}`, 'json')) ?? undefined
+    );
+  }
+
+  async delPasswordReset(tokenHash: string): Promise<void> {
+    await this.env.RATE_LIMIT.delete(`pwreset:${tokenHash}`);
+  }
 }

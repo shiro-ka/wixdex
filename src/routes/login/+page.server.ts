@@ -1,9 +1,11 @@
 import { fail, redirect } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
-import { ctx } from '$lib/server/context';
+import { ctx, getAppUrl } from '$lib/server/context';
 import { createSession } from '$lib/server/auth';
 import { hashPassword, verifyPassword, needsRehash } from '$lib/server/password';
 import { checkRateLimit, incrementRateLimit } from '$lib/server/rate-limit';
+import { sendEmail, passwordResetEmail } from '$lib/server/email';
+import { generateResetToken, hashResetToken, RESET_TTL } from '$lib/server/passwordReset';
 import { newUserId } from '$lib/server/ids';
 import { validateUsername } from '$lib/utils/atName';
 import { z } from 'zod';
@@ -23,7 +25,11 @@ export const load: PageServerLoad = async ({ locals, url }) => {
   if (locals.user) redirect(302, '/');
   const error = url.searchParams.get('error');
   const message = url.searchParams.get('message');
-  return { oauthError: error ? (message ?? error) : null };
+  return {
+    oauthError: error ? (message ?? error) : null,
+    // /reset 完了後の戻り先。成功メッセージ表示用。
+    resetDone: url.searchParams.get('reset') === 'success',
+  };
 };
 
 export const actions: Actions = {
@@ -151,5 +157,36 @@ export const actions: Actions = {
     });
 
     redirect(302, '/');
+  },
+
+  // パスワード再設定メールの送信リクエスト。
+  // アカウントの有無に関わらず常に同じ成功応答を返す(存在を漏らさない)。
+  forgotPassword: async (event) => {
+    const { request, getClientAddress } = event;
+    const { env, store, db } = ctx(event);
+    const ip = getClientAddress();
+
+    const { allowed } = await checkRateLimit(store, ip, 'pwreset');
+    if (!allowed) {
+      return fail(429, { mode: 'forgot', error: 'リクエストが多すぎます。15分後に再試行してください。' });
+    }
+    await incrementRateLimit(store, ip, 'pwreset');
+
+    const data = await request.formData();
+    const parsed = z.string().email().safeParse(String(data.get('email') ?? '').trim());
+
+    // メール形式が妥当 かつ パスワード持ちのアカウントが存在する時だけ送信。
+    // それ以外でも応答は同じ(成功)にして、登録の有無を判別させない。
+    if (parsed.success) {
+      const user = await db.getUserByEmail(parsed.data);
+      if (user?.password_hash) {
+        const token = generateResetToken();
+        await store.setPasswordReset(await hashResetToken(token), user.id, RESET_TTL);
+        const resetUrl = `${getAppUrl(env)}/reset/${token}`;
+        await sendEmail(env, parsed.data, passwordResetEmail(resetUrl));
+      }
+    }
+
+    return { mode: 'forgot', success: true };
   },
 };
