@@ -139,6 +139,20 @@ export async function generateDeckImage(
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('Canvas context not available');
 
+  // アプリ本体と同じ Zen Maru Gothic で描く。canvas は描画前にフォント読込完了を待たないと
+  // 黙って別フォントにフォールバックするので、使用weightを明示ロードしておく。
+  // (deckName を text ヒントに渡し、Google Fonts の必要な unicode-range サブセットを取りに行かせる)
+  const family = '"Zen Maru Gothic", sans-serif';
+  try {
+    await Promise.all([
+      document.fonts.load(`700 56px "Zen Maru Gothic"`, `${deckName}Lrig DeckMain Deck`),
+      document.fonts.load(`400 32px "Zen Maru Gothic"`, 'LB0123456789'),
+    ]);
+    await document.fonts.ready;
+  } catch {
+    // 読込に失敗しても sans-serif フォールバックで続行（family にフォールバック指定済み）
+  }
+
   // 背景
   ctx.fillStyle = pal.pageBg;
   ctx.fillRect(0, 0, width, height);
@@ -147,7 +161,7 @@ export async function generateDeckImage(
 
   // ヘッダ左: デッキ名
   ctx.fillStyle = pal.deckName;
-  ctx.font = 'bold 56px sans-serif';
+  ctx.font = `bold 56px ${family}`;
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
   ctx.fillText(deckName || '無題のデッキ', PAD, headerMid);
@@ -179,11 +193,11 @@ export async function generateDeckImage(
     const ty = boxY + BOX_PAD;
     ctx.textBaseline = 'top';
     ctx.textAlign = 'left';
-    ctx.font = 'bold 40px sans-serif';
+    ctx.font = `bold 40px ${family}`;
     ctx.fillStyle = pal.title;
     ctx.fillText(label, PAD + BOX_PAD, ty);
     if (lb !== undefined) {
-      ctx.font = '32px sans-serif';
+      ctx.font = `32px ${family}`;
       ctx.fillStyle = pal.muted;
       ctx.textAlign = 'right';
       ctx.fillText(`LB ${lb}`, PAD + boxW - BOX_PAD, ty + 8);
