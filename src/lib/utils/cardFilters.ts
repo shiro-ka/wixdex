@@ -50,7 +50,8 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
     const lifeBurstMatch = lifeBurstFilter === null ||
       card.lifeBurst === lifeBurstFilter;
 
-    let textMatch = query === '';
+    // 検索対象が両方OFFのときは入力を無視する(0件トラップを防ぐ)
+    let textMatch = query === '' || (!searchName && !searchInText);
     if (!textMatch && searchName) {
       textMatch = card.name.toLowerCase().includes(query) ||
         card.subName.some(name => name.toLowerCase().includes(query));

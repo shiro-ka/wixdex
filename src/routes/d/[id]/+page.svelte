@@ -3,7 +3,7 @@
   import { browser } from '$app/environment';
   import type { PageData } from './$types';
   import type { Card, DeckSlot } from '$lib/types';
-  import { loadAllCards, buildCardMap } from '$lib/utils/cardData';
+  import { loadAllCards, buildCardMap, buildOrderMap } from '$lib/utils/cardData';
   import { sortMainDeck, sortLrigDeck } from '$lib/utils/cardSorting';
   import { renderMemoHtml } from '$lib/utils/markdown';
   import { cardImageUrl } from '$lib/utils/cardImages';
@@ -14,6 +14,7 @@
   let cards = $state<Card[]>([]);
   let loading = $state(true);
   let cardMap = $derived(buildCardMap(cards));
+  let orderMap = $derived(buildOrderMap(cards));
 
   function resolve(slots: DeckSlot[], kind: 'main' | 'lrig'): Card[] {
     const out: Card[] = [];
@@ -25,8 +26,8 @@
     return out;
   }
 
-  let mainDeck = $derived(sortMainDeck(resolve(data.deck.slots, 'main')));
-  let lrigDeck = $derived(sortLrigDeck(resolve(data.deck.slots, 'lrig')));
+  let mainDeck = $derived(sortMainDeck(resolve(data.deck.slots, 'main'), orderMap));
+  let lrigDeck = $derived(sortLrigDeck(resolve(data.deck.slots, 'lrig'), orderMap));
   let lifeBurstCount = $derived(mainDeck.filter((c) => c.lifeBurst === true).length);
   let renderedMemo = $derived(browser && data.deck.memo ? renderMemoHtml(data.deck.memo) : '');
 

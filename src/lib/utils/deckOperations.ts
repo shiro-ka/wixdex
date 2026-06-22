@@ -3,23 +3,25 @@ import { isLrigCard, isMainDeckCard } from './cardTypeUtils';
 import { canAddCard } from './deckValidation';
 import { sortLrigDeck, sortMainDeck } from './cardSorting';
 
-export function addCardToDeck(card: Card, mainDeck: Card[], lrigDeck: Card[]): DeckOperationResult {
+export function addCardToDeck(
+  card: Card, mainDeck: Card[], lrigDeck: Card[], orderMap?: Map<string, number>
+): DeckOperationResult {
   const validation = canAddCard(card, mainDeck, lrigDeck);
   if (!validation.valid) {
     console.warn(validation.error);
     return { mainDeck, lrigDeck };
   }
   if (isLrigCard(card)) {
-    return { mainDeck, lrigDeck: sortLrigDeck([...lrigDeck, card]) };
+    return { mainDeck, lrigDeck: sortLrigDeck([...lrigDeck, card], orderMap) };
   }
   if (isMainDeckCard(card)) {
-    return { mainDeck: sortMainDeck([...mainDeck, card]), lrigDeck };
+    return { mainDeck: sortMainDeck([...mainDeck, card], orderMap), lrigDeck };
   }
   return { mainDeck, lrigDeck };
 }
 
 export function addMultipleCardsToDeck(
-  card: Card, count: number, mainDeck: Card[], lrigDeck: Card[]
+  card: Card, count: number, mainDeck: Card[], lrigDeck: Card[], orderMap?: Map<string, number>
 ): DeckOperationResult {
   let newMainDeck = [...mainDeck];
   let newLrigDeck = [...lrigDeck];
@@ -38,8 +40,8 @@ export function addMultipleCardsToDeck(
   }
 
   if (addedCount > 0) {
-    if (isLrigCard(card)) newLrigDeck = sortLrigDeck(newLrigDeck);
-    else if (isMainDeckCard(card)) newMainDeck = sortMainDeck(newMainDeck);
+    if (isLrigCard(card)) newLrigDeck = sortLrigDeck(newLrigDeck, orderMap);
+    else if (isMainDeckCard(card)) newMainDeck = sortMainDeck(newMainDeck, orderMap);
   }
   return { mainDeck: newMainDeck, lrigDeck: newLrigDeck };
 }
