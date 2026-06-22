@@ -219,9 +219,9 @@
       <p class="text-gray-400 text-xs mb-3">デッキリスト画像（8列）</p>
 
       <div class="flex h-10 gap-3">
-        <!-- JPG -->
+        <!-- 画像(JPG)。コピーはブラウザ制約によりPNGで書き込まれる(貼り付け互換のため)。 -->
         <div class="flex flex-1 px-1 bg-zinc-800 rounded-lg border border-zinc-700">
-          <div class="flex flex-1 text-white font-medium text-sm items-center justify-center">JPG</div>
+          <div class="flex flex-1 text-white font-medium text-sm items-center justify-center">画像</div>
           <button
             class="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             onclick={handleCopyToClipboard}
@@ -234,28 +234,7 @@
             class="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             onclick={() => handleExportImage('jpg')}
             disabled={isExporting || mainDeck.length === 0}
-            title="ダウンロード"
-          >
-            <IconDownload size={20} class="mx-auto text-white" />
-          </button>
-        </div>
-
-        <!-- PNG -->
-        <div class="flex flex-1 px-1 bg-zinc-800 rounded-lg border border-zinc-700">
-          <div class="flex flex-1 text-white font-medium text-sm items-center justify-center">PNG</div>
-          <button
-            class="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            onclick={handleCopyToClipboard}
-            disabled={isExporting || mainDeck.length === 0}
-            title="クリップボードにコピー"
-          >
-            <IconClipboard size={20} class="mx-auto text-white" />
-          </button>
-          <button
-            class="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            onclick={() => handleExportImage('png')}
-            disabled={isExporting || mainDeck.length === 0}
-            title="ダウンロード"
+            title="JPGでダウンロード"
           >
             <IconDownload size={20} class="mx-auto text-white" />
           </button>
