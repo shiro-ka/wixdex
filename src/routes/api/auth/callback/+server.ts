@@ -28,20 +28,26 @@ export const GET: RequestHandler = async (event) => {
     redirect(302, `/login?${params}`);
   }
 
+  // 認証で確定するのは DID のみ。handle / 表示名は AppView から「検証済み」の値だけ採用する。
+  // AppView は handle を双方向検証(DID⇄handle)してから配信し、未検証なら 'handle.invalid' を返す。
+  // PDS の自己申告(describeRepo)を信用しないことで、@handle のなりすまし表示を防ぐ。
   let handle = did;
+  let displayName = '';
   try {
     const res = await fetch(
-      `https://bsky.social/xrpc/com.atproto.repo.describeRepo?repo=${encodeURIComponent(did)}`
+      `https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor=${encodeURIComponent(did)}`,
+      { signal: AbortSignal.timeout(5000) }
     );
     if (res.ok) {
-      const data = (await res.json()) as { handle?: string };
-      handle = data.handle ?? did;
+      const data = (await res.json()) as { handle?: string; displayName?: string };
+      if (data.handle && data.handle !== 'handle.invalid') handle = data.handle;
+      if (data.displayName) displayName = data.displayName;
     }
   } catch {
-    // fall back to DID
+    // 取得失敗時は DID 表示にフォールバック
   }
 
-  const user = await db.upsertBlueskyUser(did, handle, handle);
+  const user = await db.upsertBlueskyUser(did, handle, displayName || handle);
   await createSession(cookies, env, store, {
     userId: user.id,
     email: user.email,

@@ -14,6 +14,18 @@ export interface UserRow {
 }
 
 export class Db {
+  /** updateUser で UPDATE を許可するカラム。これ以外のキーは無視する。 */
+  private static readonly UPDATABLE_COLUMNS = new Set([
+    'email',
+    'email_verified',
+    'password_hash',
+    'display_name',
+    'username',
+    'bluesky_did',
+    'bluesky_handle',
+    'updated_at',
+  ]);
+
   constructor(private d1: App.Platform['env']['DB']) {}
 
   async getUserById(id: string): Promise<UserRow | null> {
@@ -87,7 +99,11 @@ export class Db {
 
   async updateUser(id: string, fields: Partial<Omit<UserRow, 'id' | 'created_at'>>): Promise<void> {
     const now = Math.floor(Date.now() / 1000);
-    const entries = Object.entries({ ...fields, updated_at: now });
+    // カラム名は SQL 文字列に直接埋め込むため、許可リスト外のキーは弾く(注入防止の防御策)。
+    const entries = Object.entries({ ...fields, updated_at: now }).filter(([k]) =>
+      Db.UPDATABLE_COLUMNS.has(k)
+    );
+    if (!entries.length) return;
     const set = entries.map(([k]) => `${k} = ?`).join(', ');
     const values = entries.map(([, v]) => v);
     await this.d1
