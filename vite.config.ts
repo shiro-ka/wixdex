@@ -20,6 +20,8 @@ export default defineConfig({
         start_url: '/',
         scope: '/',
         display: 'standalone',
+        // OS の自動回転設定に従う（横レイアウトも活かす）。
+        // 「基本回らない・回したいとき回せる」は端末側の自動回転トグルで実現する。
         orientation: 'any',
         categories: ['games', 'utilities'],
         background_color: '#18181b',
