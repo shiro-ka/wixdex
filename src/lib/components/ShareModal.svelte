@@ -4,7 +4,7 @@
   import BaseModal from './BaseModal.svelte';
   import IconClipboard from '@tabler/icons-svelte/icons/clipboard';
   import IconDownload from '@tabler/icons-svelte/icons/download';
-  import { generateStackDeckImage, downloadCanvasAsImage, copyCanvasToClipboard } from '$lib/utils/deckImageExport';
+  import { generateDeckImage, downloadCanvasAsImage, copyCanvasToClipboard } from '$lib/utils/deckImageExport';
 
   interface Props {
     isOpen: boolean;
@@ -13,18 +13,64 @@
     mainDeck: Card[];
     lrigDeck: Card[];
     deckId: string | null;
+    /** 公開URLのユーザー名部分(username or bskyハンドル)。未設定なら URL を発行できない。 */
+    ownerAtName: string | null;
+    /** デッキ公開URLの slug（現在値）。 */
+    currentSlug: string | null;
     isPublic: boolean;
     isLoggedIn: boolean;
+    rotateLandscape: boolean;
     onSetPublic: (next: boolean) => void | Promise<void>;
+    onUpdateSlug: (slug: string) => Promise<{ ok: boolean; error?: string; slug?: string }>;
   }
 
-  let { isOpen, onClose, deckName, mainDeck, lrigDeck, deckId, isPublic, isLoggedIn, onSetPublic }: Props = $props();
+  let {
+    isOpen, onClose, deckName, mainDeck, lrigDeck, deckId, ownerAtName, currentSlug,
+    isPublic, isLoggedIn, rotateLandscape, onSetPublic, onUpdateSlug,
+  }: Props = $props();
 
   let isExporting = $state(false);
   let publishing = $state(false);
   let copied = $state(false);
 
-  let publicUrl = $derived(browser && deckId ? `${location.origin}/d/${deckId}` : '');
+  // 編集中(editSlug)と確定済み(savedSlug)を分け、URLは確定値から作る。
+  let savedSlug = $state('');
+  let editSlug = $state('');
+  let slugSaving = $state(false);
+  let slugError = $state('');
+  let editingSlug = $state(false);
+
+  // デッキが切り替わったら slug 状態を同期。
+  $effect(() => {
+    const s = currentSlug ?? deckId ?? '';
+    savedSlug = s;
+    editSlug = s;
+    editingSlug = false;
+    slugError = '';
+  });
+
+  let publicUrl = $derived(
+    browser && savedSlug && ownerAtName ? `${location.origin}/@${ownerAtName}/${savedSlug}` : ''
+  );
+
+  async function saveSlug() {
+    if (slugSaving || editSlug === savedSlug) {
+      editingSlug = false;
+      return;
+    }
+    slugSaving = true;
+    slugError = '';
+    const res = await onUpdateSlug(editSlug);
+    if (res.ok) {
+      // サーバーで小文字正規化された値を採用（typed の大小と食い違わないように）。
+      savedSlug = res.slug ?? editSlug;
+      editSlug = savedSlug;
+      editingSlug = false;
+    } else {
+      slugError = res.error ?? '変更できませんでした。';
+    }
+    slugSaving = false;
+  }
 
   async function togglePublish() {
     if (publishing) return;
@@ -51,7 +97,7 @@
     if (isExporting || mainDeck.length === 0) return;
     isExporting = true;
     try {
-      const canvas = await generateStackDeckImage(deckName, mainDeck, lrigDeck);
+      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck, rotateLandscape);
       downloadCanvasAsImage(canvas, `${deckName || 'deck'}.${format}`, format);
     } catch (error) {
       console.error('Failed to export image:', error);
@@ -65,7 +111,7 @@
     if (isExporting || mainDeck.length === 0) return;
     isExporting = true;
     try {
-      const canvas = await generateStackDeckImage(deckName, mainDeck, lrigDeck);
+      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck, rotateLandscape);
       await copyCanvasToClipboard(canvas);
       alert('画像をクリップボードにコピーしました。');
     } catch (error) {
@@ -102,31 +148,75 @@
           </button>
         </div>
         {#if isPublic}
-          <div class="flex h-9 gap-2 mt-3">
-            <input
-              type="text"
-              readonly
-              value={publicUrl}
-              class="flex-1 px-2 bg-zinc-800 border border-zinc-700 rounded-lg text-gray-300 text-xs select-all focus:outline-none"
-            />
-            <button
-              type="button"
-              onclick={copyLink}
-              class="flex items-center gap-1 px-3 bg-zinc-700 hover:bg-zinc-600 rounded-lg text-white text-xs transition-colors"
-            >
-              <IconClipboard size={16} />
-              {copied ? 'コピー済' : 'コピー'}
-            </button>
-          </div>
-          <p class="text-gray-500 text-xs mt-1">リンクを知っている人がこのデッキを閲覧できます。</p>
+          {#if publicUrl}
+            <div class="flex h-9 gap-2 mt-3">
+              <input
+                type="text"
+                readonly
+                value={publicUrl}
+                class="flex-1 px-2 bg-zinc-800 border border-zinc-700 rounded-lg text-gray-300 text-xs select-all focus:outline-none"
+              />
+              <button
+                type="button"
+                onclick={copyLink}
+                class="flex items-center gap-1 px-3 bg-zinc-700 hover:bg-zinc-600 rounded-lg text-white text-xs transition-colors"
+              >
+                <IconClipboard size={16} />
+                {copied ? 'コピー済' : 'コピー'}
+              </button>
+            </div>
+
+            {#if editingSlug}
+              <div class="mt-2">
+                <div class="flex h-9 items-center rounded-lg bg-zinc-800 border border-zinc-700 focus-within:border-orange-500">
+                  <span class="pl-2 text-gray-500 text-xs whitespace-nowrap">/@{ownerAtName}/</span>
+                  <input
+                    type="text"
+                    bind:value={editSlug}
+                    autocapitalize="none"
+                    autocomplete="off"
+                    spellcheck="false"
+                    class="w-full bg-transparent px-1 text-white text-xs focus:outline-none"
+                  />
+                  <button
+                    type="button"
+                    onclick={saveSlug}
+                    disabled={slugSaving}
+                    class="px-3 h-full text-orange-400 hover:text-orange-300 text-xs disabled:opacity-50"
+                  >
+                    {slugSaving ? '...' : '保存'}
+                  </button>
+                </div>
+                {#if slugError}
+                  <p class="text-red-400 text-xs mt-1">{slugError}</p>
+                {/if}
+              </div>
+            {:else}
+              <div class="flex items-center justify-between mt-1">
+                <p class="text-gray-500 text-xs">リンクを知っている人がこのデッキを閲覧できます。</p>
+                <button
+                  type="button"
+                  onclick={() => (editingSlug = true)}
+                  class="text-gray-400 hover:text-gray-200 text-xs underline shrink-0"
+                >
+                  URLを編集
+                </button>
+              </div>
+            {/if}
+          {:else}
+            <p class="text-yellow-500 text-xs mt-3">
+              共有URLを発行するには
+              <a href="/settings" class="underline hover:text-yellow-400">設定</a>でユーザー名を決めてください。
+            </p>
+          {/if}
         {/if}
       {/if}
     </div>
 
     <!-- 画像エクスポート -->
     <div class="pt-4 border-t border-zinc-700">
-      <h4 class="text-white text-sm font-semibold mb-2">画像エクスポート（製作中）</h4>
-      <p class="text-gray-400 text-xs mb-3">スタック式デッキ画像 (16:9)</p>
+      <h4 class="text-white text-sm font-semibold mb-2">画像エクスポート</h4>
+      <p class="text-gray-400 text-xs mb-3">デッキリスト画像（8列）</p>
 
       <div class="flex h-10 gap-3">
         <!-- JPG -->

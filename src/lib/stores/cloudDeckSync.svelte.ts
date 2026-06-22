@@ -65,6 +65,7 @@ export class CloudDeckSync {
       id: data.id,
       name: data.name,
       memo: data.memo,
+      slug: data.slug,
       isPublic: data.isPublic,
       mainDeck: slotsToCards(data.slots, 'main', cardMap),
       lrigDeck: slotsToCards(data.slots, 'lrig', cardMap),
@@ -104,6 +105,7 @@ export class CloudDeckSync {
         id: saved.id,
         name: saved.name,
         memo: saved.memo,
+        slug: saved.slug,
         isPublic: saved.isPublic,
         mainCount: deck.mainDeck.length,
         lrigCount: deck.lrigDeck.length,
@@ -122,6 +124,24 @@ export class CloudDeckSync {
       throw new Error(this.error);
     } finally {
       this.syncing = false;
+    }
+  }
+
+  /** デッキの公開URL(slug)を変更。成功時はローカル一覧も更新。 */
+  async updateSlug(id: string, slug: string): Promise<{ ok: true; slug: string } | { ok: false; error: string }> {
+    try {
+      const res = await fetch(`/api/decks/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug }),
+      });
+      if (res.status === 409) return { ok: false, error: 'このURLはすでに使われています。' };
+      if (!res.ok) return { ok: false, error: 'URLの変更に失敗しました。' };
+      const data = (await res.json()) as { slug: string };
+      this.decks = this.decks.map((d) => (d.id === id ? { ...d, slug: data.slug } : d));
+      return { ok: true, slug: data.slug };
+    } catch {
+      return { ok: false, error: 'URLの変更に失敗しました。' };
     }
   }
 

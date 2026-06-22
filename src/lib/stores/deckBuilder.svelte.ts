@@ -22,7 +22,7 @@ function slotSig(cards: Card[]): string {
 
 type LoadableDeck = Pick<
   SavedDeck,
-  'id' | 'name' | 'memo' | 'isPublic' | 'mainDeck' | 'lrigDeck' | 'candidateCards'
+  'id' | 'name' | 'memo' | 'slug' | 'isPublic' | 'mainDeck' | 'lrigDeck' | 'candidateCards'
 >;
 
 /**
@@ -37,6 +37,7 @@ export class DeckBuilderStore {
   id = $state<string | null>(null);
   name = $state('');
   memo = $state('');
+  slug = $state(''); // デッキ公開URLの slug。未保存なら空、保存後は既定で id と同値。
   isPublic = $state(false);
 
   /** カードキー -> 読み込み順(発売順)。ソートの最終キー。データ読込後に setCardOrder で注入。 */
@@ -122,6 +123,7 @@ export class DeckBuilderStore {
     this.id = deck.id;
     this.name = deck.name;
     this.memo = deck.memo;
+    this.slug = deck.slug;
     this.isPublic = deck.isPublic;
     this.markSaved();
   }
@@ -131,6 +133,7 @@ export class DeckBuilderStore {
     this.id = null;
     this.name = '';
     this.memo = '';
+    this.slug = '';
     this.isPublic = false;
     this.mainDeck = [];
     this.lrigDeck = [];
@@ -146,6 +149,7 @@ export class DeckBuilderStore {
     this.id = draft.currentDeckId;
     this.name = draft.currentDeckName;
     this.memo = draft.currentDeckMemo;
+    this.slug = draft.currentDeckSlug ?? '';
     this.isPublic = draft.isPublic ?? false;
   }
 
@@ -154,6 +158,7 @@ export class DeckBuilderStore {
       currentDeckId: this.id,
       currentDeckName: this.name,
       currentDeckMemo: this.memo,
+      currentDeckSlug: this.slug,
       isPublic: this.isPublic,
       mainDeck: this.mainDeck,
       lrigDeck: this.lrigDeck,

@@ -13,6 +13,7 @@ export interface SavedDeck {
   id: string;
   name: string;
   memo: string;
+  slug: string;
   isPublic: boolean;
   mainDeck: Card[];
   lrigDeck: Card[];
@@ -35,6 +36,7 @@ export interface DeckSummary {
   id: string;
   name: string;
   memo: string;
+  slug: string;
   isPublic: boolean;
   mainCount: number;
   lrigCount: number;
@@ -47,6 +49,7 @@ export interface DeckDetail {
   id: string;
   name: string;
   memo: string;
+  slug: string;
   isPublic: boolean;
   slots: DeckSlot[];
   createdAt: number;
@@ -70,6 +73,15 @@ export interface PublicDeckDetail {
   createdAt: number;
   updatedAt: number;
   author: { displayName: string; blueskyHandle: string | null };
+}
+
+/** 公開プロフィールに並べる公開デッキの要約。slug は /@user/[slug] のURL用。 */
+export interface PublicDeckSummary {
+  slug: string;
+  name: string;
+  mainCount: number;
+  lrigCount: number;
+  updatedAt: number;
 }
 
 // ── Card usage aggregate (Phase D) ────────────────────────────────────────

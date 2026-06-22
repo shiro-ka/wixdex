@@ -9,15 +9,22 @@ export default defineConfig({
     sveltekit(),
     SvelteKitPWA({
       registerType: 'autoUpdate',
-      injectRegister: 'auto',
+      // SvelteKitでは自動injectが効かないため +layout.svelte で virtual:pwa-register を明示登録する。
+      injectRegister: false,
       manifest: {
+        id: '/',
         name: 'wixdex - WIXOSSデッキビルダー',
         short_name: 'wixdex',
         description: 'WIXOSSのデッキ構築ツール',
+        lang: 'ja',
         start_url: '/',
+        scope: '/',
         display: 'standalone',
+        orientation: 'any',
+        categories: ['games', 'utilities'],
         background_color: '#18181b',
-        theme_color: '#f97316',
+        // ステータスバー/ナビバー色にも使われる。ダークアプリなので暗色で統一（オレンジは画面内のアクセントに留める）。
+        theme_color: '#18181b',
         icons: [
           {
             src: '/icon-192.png',
@@ -63,7 +70,9 @@ export default defineConfig({
             handler: 'NetworkOnly',
           },
         ],
-        navigateFallbackDenylist: [/^\/api\//, /^\/login/, /^\/signup/, /^\/auth\//, /^\/decks/, /^\/account/, /^\/stats/, /^\/d\//],
+        // SSR/サーバー必須ルートは SPA シェルへフォールバックさせない。
+        // (/@… = 公開プロフィール/共有デッキ, /settings = 認証必須, /login = フォームアクション)
+        navigateFallbackDenylist: [/^\/api\//, /^\/login/, /^\/settings/, /^\/@/],
       },
     }),
   ],

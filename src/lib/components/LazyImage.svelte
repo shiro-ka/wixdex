@@ -35,6 +35,8 @@
     onload?: (img: HTMLImageElement) => void;
     /** Identifies the current list generation; a new value re-enables fade-in. */
     fadeToken?: unknown;
+    /** Hard opt-out of fade-in (e.g. deck cells, added/removed rapid-fire). */
+    fade?: boolean;
   }
 
   let {
@@ -44,11 +46,12 @@
     ontouchstart, ontouchmove, ontouchend,
     onload: onLoadCallback,
     fadeToken,
+    fade: fadeEnabled = true,
   }: Props = $props();
 
   // Decided once per mount. Fade only if this mount lands inside a fade window
   // (just after the list changed); scroll-revealed cards land outside it.
-  const fade = untrack(() => shouldFadeIn(fadeToken));
+  const fade = untrack(() => fadeEnabled && shouldFadeIn(fadeToken));
 
   let isLoaded = $state(false);
 </script>
