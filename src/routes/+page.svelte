@@ -3,7 +3,7 @@
   import { page } from '$app/state';
   import type { Card, DeckSummary } from '$lib/types';
   import { getSettings, saveSettings, getDraft, saveDraft } from '$lib/utils/storage';
-  import { loadAllCards, buildCardMap } from '$lib/utils/cardData';
+  import { loadAllCards, buildCardMap, buildOrderMap } from '$lib/utils/cardData';
   import { CloudDeckSync } from '$lib/stores/cloudDeckSync.svelte';
   import { DeckBuilderStore } from '$lib/stores/deckBuilder.svelte';
   import { FilterStore } from '$lib/stores/filterStore.svelte';
@@ -102,6 +102,7 @@
     loadAllCards()
       .then((cards) => {
         allCardData = cards;
+        deck.setCardOrder(buildOrderMap(cards));
         loading = false;
       })
       .catch((err) => {

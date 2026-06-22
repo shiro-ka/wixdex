@@ -5,7 +5,7 @@ import {
   addMultipleCardsToDeck,
   removeCardFromDeck,
 } from '$lib/utils/deckOperations';
-import { sortCandidateCards } from '$lib/utils/cardSorting';
+import { sortCandidateCards, sortMainDeck, sortLrigDeck } from '$lib/utils/cardSorting';
 
 /** デッキ内容の署名。名前・メモ・各スロットのカード別枚数を順不同で安定化したもの。 */
 function slotSig(cards: Card[]): string {
@@ -39,10 +39,13 @@ export class DeckBuilderStore {
   memo = $state('');
   isPublic = $state(false);
 
+  /** カードキー -> 読み込み順(発売順)。ソートの最終キー。データ読込後に setCardOrder で注入。 */
+  orderMap = $state<Map<string, number> | undefined>(undefined);
+
   savedSnapshot = $state(this.signature());
 
   lifeBurstCount = $derived(this.mainDeck.filter((c) => c.lifeBurst === true).length);
-  sortedCandidateCards = $derived(sortCandidateCards(this.candidateCards));
+  sortedCandidateCards = $derived(sortCandidateCards(this.candidateCards, this.orderMap));
   isSaved = $derived(this.signature() === this.savedSnapshot);
 
   signature(): string {
@@ -60,14 +63,21 @@ export class DeckBuilderStore {
     this.savedSnapshot = this.signature();
   }
 
+  /** 読み込み順(発売順)を注入し、既存のデッキ内容も並べ直す。データ読込完了後に1回呼ぶ。 */
+  setCardOrder(orderMap: Map<string, number>): void {
+    this.orderMap = orderMap;
+    this.mainDeck = sortMainDeck(this.mainDeck, orderMap);
+    this.lrigDeck = sortLrigDeck(this.lrigDeck, orderMap);
+  }
+
   addCard = (card: Card): void => {
-    const r = addCardToDeck(card, this.mainDeck, this.lrigDeck);
+    const r = addCardToDeck(card, this.mainDeck, this.lrigDeck, this.orderMap);
     this.mainDeck = r.mainDeck;
     this.lrigDeck = r.lrigDeck;
   };
 
   addMultiple = (card: Card, count: number): void => {
-    const r = addMultipleCardsToDeck(card, count, this.mainDeck, this.lrigDeck);
+    const r = addMultipleCardsToDeck(card, count, this.mainDeck, this.lrigDeck, this.orderMap);
     this.mainDeck = r.mainDeck;
     this.lrigDeck = r.lrigDeck;
   };
@@ -106,8 +116,8 @@ export class DeckBuilderStore {
 
   /** クラウドから読み込んだデッキを反映し、保存済み状態にする。 */
   load(deck: LoadableDeck): void {
-    this.mainDeck = deck.mainDeck;
-    this.lrigDeck = deck.lrigDeck;
+    this.mainDeck = sortMainDeck(deck.mainDeck, this.orderMap);
+    this.lrigDeck = sortLrigDeck(deck.lrigDeck, this.orderMap);
     this.candidateCards = deck.candidateCards;
     this.id = deck.id;
     this.name = deck.name;

@@ -56,3 +56,16 @@ export function buildCardMap(cards: Card[]): Map<string, Card> {
   }
   return map;
 }
+
+/**
+ * カードキー -> 読み込み順インデックスの対応表。
+ * loadAllCards() の並び(CARD_SETS 順 = 発売順)をソートの最終キーとして使うために構築する。
+ */
+export function buildOrderMap(cards: Card[]): Map<string, number> {
+  const map = new Map<string, number>();
+  cards.forEach((card, index) => {
+    const key = cardKey(card);
+    if (key !== null && !map.has(key)) map.set(key, index);
+  });
+  return map;
+}

@@ -178,7 +178,7 @@
   <!-- 検索欄 -->
   <div class="flex flex-col">
     <!-- お気に入り/候補カード/カードタイプ/クラス/タグ -->
-    <div class="flex w-full h-8 mb-2">
+    <div class="flex w-full h-10 lg:h-8 mb-2">
       {#if isLoggedIn}
       <button
         type="button"
@@ -236,7 +236,7 @@
     </div>
 
     <!-- 色/Lv/LB -->
-    <div class="flex w-full h-8 mb-2">
+    <div class="flex w-full h-10 lg:h-8 mb-2">
       <!-- 色検索 -->
       <div class="flex flex-5 mr-2 {filterGroup}">
         {#each [['白', 'text-yellow-100', 'text-yellow-200'], ['赤', 'text-red-400', 'text-red-400'], ['青', 'text-blue-400', 'text-blue-400'], ['緑', 'text-green-400', 'text-green-400'], ['黒', 'text-purple-400', 'text-purple-500']] as [color, activeClass, inactiveClass] (color)}
@@ -306,7 +306,7 @@
     </div>
 
     <!-- テキスト/クリア/その他ボタン -->
-    <div class="flex w-full h-8">
+    <div class="flex w-full h-10 lg:h-8">
       <!-- 設定ボタン -->
       <button
         type="button"

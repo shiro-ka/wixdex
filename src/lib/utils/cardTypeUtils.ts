@@ -16,28 +16,35 @@ export const DECK_LIMITS = {
   ARTS: 6,
 } as const;
 
+/**
+ * カードの主種別。構築ルール上の種別は常に cardType の先頭で判定する。
+ * (例: ピースだが裏面ルリグのカードは ['ピース', ...] となり「ピース」としてのみ扱う)
+ * 先頭が主種別であることはデータ生成側 (convert_cards.py) が保証する。
+ */
+function primaryType(card: Card): string {
+  return card.cardType?.[0] ?? '';
+}
+
 export function isLrigCard(card: Card): boolean {
-  const cardType = card.cardType?.[0] ?? '';
-  return CARD_TYPES.LRIG.includes(cardType as never);
+  return CARD_TYPES.LRIG.includes(primaryType(card) as never);
 }
 
 export function isMainDeckCard(card: Card): boolean {
-  const cardType = card.cardType?.[0] ?? '';
-  return CARD_TYPES.MAIN.includes(cardType as never);
+  return CARD_TYPES.MAIN.includes(primaryType(card) as never);
 }
 
 export function isCenterLrig(card: Card): boolean {
-  return card.cardType?.includes('ルリグ') ?? false;
+  return primaryType(card) === 'ルリグ';
 }
 
 export function isAssist(card: Card): boolean {
-  return card.cardType?.includes('アシスト') ?? false;
+  return primaryType(card) === 'アシスト';
 }
 
 export function isPiece(card: Card): boolean {
-  return card.cardType?.includes('ピース') ?? false;
+  return primaryType(card) === 'ピース';
 }
 
 export function isArts(card: Card): boolean {
-  return card.cardType?.includes('アーツ') ?? false;
+  return primaryType(card) === 'アーツ';
 }
