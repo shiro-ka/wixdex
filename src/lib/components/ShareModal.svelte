@@ -4,7 +4,14 @@
   import BaseModal from './BaseModal.svelte';
   import IconClipboard from '@tabler/icons-svelte/icons/clipboard';
   import IconDownload from '@tabler/icons-svelte/icons/download';
-  import { generateDeckImage, downloadCanvasAsImage, copyCanvasToClipboard } from '$lib/utils/deckImageExport';
+  import IconSun from '@tabler/icons-svelte/icons/sun';
+  import IconMoon from '@tabler/icons-svelte/icons/moon';
+  import {
+    generateDeckImage,
+    downloadCanvasAsImage,
+    copyCanvasToClipboard,
+    type DeckImageTheme,
+  } from '$lib/utils/deckImageExport';
 
   interface Props {
     isOpen: boolean;
@@ -93,11 +100,27 @@
     }
   }
 
+  // 画像出力オプション（列数・テーマ）。出力時にまとめて渡す。
+  let imageCols = $state<8 | 10>(8);
+  let imageTheme = $state<DeckImageTheme>('dark');
+
+  const imageOptions = () => ({
+    rotateLandscape,
+    columns: imageCols,
+    theme: imageTheme,
+  });
+
+  // セグメントトグルの見た目（active/inactive）。
+  const segBtn = (active: boolean) =>
+    `flex flex-1 items-center justify-center gap-1 rounded-md py-1.5 text-sm font-medium transition-colors ${
+      active ? 'bg-zinc-700 text-white' : 'text-zinc-400 hover:text-zinc-200'
+    }`;
+
   async function handleExportImage(format: 'png' | 'jpg') {
     if (isExporting || mainDeck.length === 0) return;
     isExporting = true;
     try {
-      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck, rotateLandscape);
+      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck, imageOptions());
       downloadCanvasAsImage(canvas, `${deckName || 'deck'}.${format}`, format);
     } catch (error) {
       console.error('Failed to export image:', error);
@@ -111,7 +134,7 @@
     if (isExporting || mainDeck.length === 0) return;
     isExporting = true;
     try {
-      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck, rotateLandscape);
+      const canvas = await generateDeckImage(deckName, mainDeck, lrigDeck, imageOptions());
       await copyCanvasToClipboard(canvas);
       alert('画像をクリップボードにコピーしました。');
     } catch (error) {
@@ -215,13 +238,28 @@
 
     <!-- 画像エクスポート -->
     <div class="pt-4 border-t border-zinc-700">
-      <h4 class="text-white text-sm font-semibold mb-2">画像エクスポート</h4>
-      <p class="text-gray-400 text-xs mb-3">デッキリスト画像（8列）</p>
+      <h4 class="text-white text-sm font-semibold mb-3">画像エクスポート</h4>
+
+      <!-- オプション: 列数 / テーマ -->
+      <div class="flex gap-3 mb-3">
+        <div class="flex flex-1 rounded-lg border border-zinc-700 bg-zinc-800 p-1">
+          <button type="button" class={segBtn(imageCols === 8)} onclick={() => (imageCols = 8)}>8列</button>
+          <button type="button" class={segBtn(imageCols === 10)} onclick={() => (imageCols = 10)}>10列</button>
+        </div>
+        <div class="flex flex-1 rounded-lg border border-zinc-700 bg-zinc-800 p-1">
+          <button type="button" class={segBtn(imageTheme === 'dark')} onclick={() => (imageTheme = 'dark')}>
+            <IconMoon size={16} /> ダーク
+          </button>
+          <button type="button" class={segBtn(imageTheme === 'light')} onclick={() => (imageTheme = 'light')}>
+            <IconSun size={16} /> ライト
+          </button>
+        </div>
+      </div>
 
       <div class="flex h-10 gap-3">
         <!-- 画像(JPG)。コピーはブラウザ制約によりPNGで書き込まれる(貼り付け互換のため)。 -->
         <div class="flex flex-1 px-1 bg-zinc-800 rounded-lg border border-zinc-700">
-          <div class="flex flex-1 text-white font-medium text-sm items-center justify-center">画像</div>
+          <div class="flex flex-1 text-white font-medium text-sm items-center justify-center">ダウンロード</div>
           <button
             class="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             onclick={handleCopyToClipboard}

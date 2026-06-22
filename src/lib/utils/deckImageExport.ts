@@ -48,32 +48,81 @@ function drawRotatedContain(
   ctx.restore();
 }
 
+export type DeckImageTheme = 'dark' | 'light';
+
+export interface DeckImageOptions {
+  rotateLandscape?: boolean;
+  /** 横の列数。8列(メイン5行) or 10列(メイン4行)。 */
+  columns?: number;
+  /** 配色。light は完全な白を避けたグレー寄りの淡色（白ロゴが同化しないように）。 */
+  theme?: DeckImageTheme;
+}
+
+interface Palette {
+  pageBg: string;
+  boxFill: string;
+  boxStroke: string;
+  deckName: string;
+  title: string;
+  muted: string;
+  placeholderFill: string;
+  placeholderStroke: string;
+}
+
+const PALETTES: Record<DeckImageTheme, Palette> = {
+  dark: {
+    pageBg: '#18181b', // zinc-900（アプリ本体と同じ）
+    boxFill: 'rgba(82, 82, 91, 0.10)',
+    boxStroke: 'rgba(75, 85, 99, 0.30)',
+    deckName: '#ffffff',
+    title: '#e4e4e7',
+    muted: '#9ca3af',
+    placeholderFill: '#27272a',
+    placeholderStroke: 'rgba(120, 120, 130, 0.4)',
+  },
+  light: {
+    pageBg: '#e4e4e7', // zinc-200。完全な白は避ける（白ロゴが同化＆野暮ったいため）
+    boxFill: 'rgba(255, 255, 255, 0.55)',
+    boxStroke: 'rgba(63, 63, 70, 0.18)',
+    deckName: '#18181b',
+    title: '#27272a',
+    muted: '#71717a',
+    placeholderFill: '#d4d4d8',
+    placeholderStroke: 'rgba(82, 82, 91, 0.35)',
+  },
+};
+
 /**
  * アプリ本体と同じ見た目のデッキ画像を生成する。
  * ヘッダ（左=デッキ名 / 右=wixdexロゴ）＋ ルリグ/メインを zinc ハコに入れた縦長レイアウト。
  * スタック表示はせず、渡された配列順（＝アプリ表示と同じソート済み順）でそのまま並べる。
- * グリッドが固定なので出力比率もほぼ固定。
+ * 横幅は固定(1600px)で、列数とテーマを options で切り替えられる。
  */
 export async function generateDeckImage(
   deckName: string,
   mainDeck: Card[],
   lrigDeck: Card[],
-  rotateLandscape = false,
+  options: DeckImageOptions = {},
 ): Promise<HTMLCanvasElement> {
-  const COLS = 8;
-  const CARD_W = 188;
-  const CARD_H = Math.round((CARD_W * 17) / 12); // カード比 12:17
+  const { rotateLandscape = false, columns = 8, theme = 'dark' } = options;
+  const pal = PALETTES[theme];
+  const WIDTH = 1600; // 出力幅は固定。高さだけデッキ枚数で動的に伸びる。
+  const COLS = columns;
   const GAP = 8;
   const PAD = 28; // 画像外周の余白
-  const HEADER_H = 84; // デッキ名 + ロゴ
   const BOX_PAD = 20; // ハコ内側の余白
-  const BOX_TITLE_H = 46; // ハコ内のセクション見出し領域
+  const HEADER_H = 100; // デッキ名 + ロゴ
+  const BOX_TITLE_H = 64; // ハコ内のセクション見出し領域
   const SECTION_GAP = 16; // ルリグハコ↔メインハコの間
   const RADIUS = 16; // ハコ角丸（rounded-xl 相当）
 
+  // 固定幅からカード1枚の幅を逆算する（WIDTH=1600 は COLS=8 で割り切れて端数が出ない）。
+  const gridW = WIDTH - PAD * 2 - BOX_PAD * 2;
+  const CARD_W = Math.floor((gridW - (COLS - 1) * GAP) / COLS);
+  const CARD_H = Math.round((CARD_W * 17) / 12); // カード比 12:17
+
   const lrigRows = Math.max(1, Math.ceil(lrigDeck.length / COLS));
   const mainRows = Math.max(1, Math.ceil(mainDeck.length / COLS));
-  const gridW = COLS * CARD_W + (COLS - 1) * GAP;
   const lrigGridH = lrigRows * CARD_H + (lrigRows - 1) * GAP;
   const mainGridH = mainRows * CARD_H + (mainRows - 1) * GAP;
 
@@ -90,21 +139,21 @@ export async function generateDeckImage(
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('Canvas context not available');
 
-  // 背景（アプリと同じ zinc-900）
-  ctx.fillStyle = '#18181b';
+  // 背景
+  ctx.fillStyle = pal.pageBg;
   ctx.fillRect(0, 0, width, height);
 
   const headerMid = PAD + HEADER_H / 2;
 
   // ヘッダ左: デッキ名
-  ctx.fillStyle = '#ffffff';
-  ctx.font = 'bold 42px sans-serif';
+  ctx.fillStyle = pal.deckName;
+  ctx.font = 'bold 56px sans-serif';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
   ctx.fillText(deckName || '無題のデッキ', PAD, headerMid);
 
-  // ヘッダ右: wixdex ファビコンを控えめに（小さめ＋わずかに透過）
-  const LOGO_H = 44;
+  // ヘッダ右: wixdex ファビコンを控えめに
+  const LOGO_H = 56;
   try {
     const logo = await loadImage('/wixdex.png');
     const scale = LOGO_H / logo.naturalHeight;
@@ -118,28 +167,26 @@ export async function generateDeckImage(
   const drawBox = (x: number, y: number, w: number, h: number) => {
     ctx.beginPath();
     ctx.roundRect(x, y, w, h, RADIUS);
-    ctx.fillStyle = 'rgba(82, 82, 91, 0.10)';
+    ctx.fillStyle = pal.boxFill;
     ctx.fill();
     ctx.lineWidth = 2;
-    ctx.strokeStyle = 'rgba(75, 85, 99, 0.30)';
+    ctx.strokeStyle = pal.boxStroke;
     ctx.stroke();
   };
 
-  // ハコ内のセクション見出し（左=ラベル+枚数 / 任意で右=LB数）
-  const drawTitle = (label: string, count: number, boxY: number, lb?: number) => {
+  // ハコ内のセクション見出し（左=ラベル / 任意で右=LB数）。枚数は見れば分かるので出さない。
+  const drawTitle = (label: string, boxY: number, lb?: number) => {
     const ty = boxY + BOX_PAD;
     ctx.textBaseline = 'top';
     ctx.textAlign = 'left';
-    ctx.font = 'bold 28px sans-serif';
-    ctx.fillStyle = '#e4e4e7';
+    ctx.font = 'bold 40px sans-serif';
+    ctx.fillStyle = pal.title;
     ctx.fillText(label, PAD + BOX_PAD, ty);
-    const lw = ctx.measureText(label).width;
-    ctx.font = '22px sans-serif';
-    ctx.fillStyle = '#9ca3af';
-    ctx.fillText(`(${count})`, PAD + BOX_PAD + lw + 10, ty + 4);
     if (lb !== undefined) {
+      ctx.font = '32px sans-serif';
+      ctx.fillStyle = pal.muted;
       ctx.textAlign = 'right';
-      ctx.fillText(`LB ${lb}`, PAD + boxW - BOX_PAD, ty + 4);
+      ctx.fillText(`LB ${lb}`, PAD + boxW - BOX_PAD, ty + 8);
     }
   };
 
@@ -149,8 +196,8 @@ export async function generateDeckImage(
 
   drawBox(PAD, lrigBoxY, boxW, lrigBoxH);
   drawBox(PAD, mainBoxY, boxW, mainBoxH);
-  drawTitle('Lrig Deck', lrigDeck.length, lrigBoxY);
-  drawTitle('Main Deck', mainDeck.length, mainBoxY, lbCount);
+  drawTitle('Lrig Deck', lrigBoxY);
+  drawTitle('Main Deck', mainBoxY, lbCount);
 
   const lrigTop = lrigBoxY + BOX_PAD + BOX_TITLE_H;
   const mainTop = mainBoxY + BOX_PAD + BOX_TITLE_H;
@@ -193,9 +240,9 @@ export async function generateDeckImage(
       }
     } else {
       // ロード失敗時は欠けが分かるようプレースホルダを描く
-      ctx.fillStyle = '#27272a';
+      ctx.fillStyle = pal.placeholderFill;
       ctx.fillRect(s.x, s.y, CARD_W, CARD_H);
-      ctx.strokeStyle = 'rgba(120,120,130,0.4)';
+      ctx.strokeStyle = pal.placeholderStroke;
       ctx.strokeRect(s.x + 0.5, s.y + 0.5, CARD_W - 1, CARD_H - 1);
     }
   }
