@@ -21,7 +21,7 @@ export const RESERVED_USERNAMES = new Set([
   'account', 'settings', 'login', 'logout', 'signup', 'signin', 'register',
   'api', 'd', 'deck', 'decks', 'stats', 'admin', 'about', 'help', 'terms',
   'privacy', 'static', 'assets', 'favicon', 'robots', 'sitemap', 'new',
-  'me', 'you', 'null', 'undefined', 'support', 'official', 'wixdex', 'mado',
+  'me', 'you', 'null', 'undefined', 'support', 'official',
   'og', 'profile', 'user', 'users', 'home', 'search',
 ]);
 
