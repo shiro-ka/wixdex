@@ -180,10 +180,18 @@ export const actions: Actions = {
     if (parsed.success) {
       const user = await db.getUserByEmail(parsed.data);
       if (user?.password_hash) {
-        const token = generateResetToken();
-        await store.setPasswordReset(await hashResetToken(token), user.id, RESET_TTL);
-        const resetUrl = `${getAppUrl(env)}/reset/${token}`;
-        await sendEmail(env, parsed.data, passwordResetEmail(resetUrl));
+        const userId = user.id;
+        const email = parsed.data;
+        // トークン保存とメール送信はバックグラウンドで実行し、応答時間をアカウント有無で揃える
+        // （存在する時だけ送信完了を待つと、その遅延で存在を推測されるため）。
+        const job = (async () => {
+          const token = generateResetToken();
+          await store.setPasswordReset(await hashResetToken(token), userId, RESET_TTL);
+          await sendEmail(env, email, passwordResetEmail(`${getAppUrl(env)}/reset/${token}`));
+        })().catch((err) => console.error('[forgotPassword] 背景処理失敗:', err));
+        // 本番(Pages)は waitUntil で worker を生かして完走させる。
+        // ローカルは context が無くても floating promise として完走する。
+        event.platform?.context?.waitUntil?.(job);
       }
     }
 
