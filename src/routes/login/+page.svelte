@@ -192,7 +192,7 @@
       </div>
       <div>
         <label for="password" class="mb-1 block text-sm text-zinc-300">
-          パスワード{mode === 'register' ? '（8文字以上）' : ''}
+          パスワード{mode === 'register' ? '（8〜128文字）' : ''}
         </label>
         <input
           id="password"
