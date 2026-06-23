@@ -1,7 +1,8 @@
-// OWASP 2023 推奨 (PBKDF2-HMAC-SHA256)。ハッシュ/検証はログイン・登録時のみなので Workers CPU 内で十分。
+// PBKDF2-HMAC-SHA256。⚠️ Cloudflare Workers の Web Crypto は反復回数を 100,000 までに制限しているため
+// （超えると NotSupportedError で落ちる）、OWASP推奨の60万ではなく Workers 上限の 10万を使う。
 // 反復回数は保存文字列にも書き込み、verify は「保存値の回数」で計算する → 後からこの定数を上げても
 // 既存ハッシュは壊れず、ログイン成功時に needsRehash() 経由で新パラメータへ移行できる。
-const ITERATIONS = 600_000;
+const ITERATIONS = 100_000;
 const HASH_ALGO = 'SHA-256';
 const PREFIX = `pbkdf2$sha256$${ITERATIONS}`;
 
