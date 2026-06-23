@@ -126,7 +126,7 @@
             <input id="currentPassword" name="currentPassword" type="password" required class={inputClass} />
           </div>
           <div>
-            <label for="newPassword" class="mb-1 block text-sm text-zinc-300">新しいパスワード（8文字以上）</label>
+            <label for="newPassword" class="mb-1 block text-sm text-zinc-300">新しいパスワード（8〜128文字）</label>
             <input id="newPassword" name="newPassword" type="password" required minlength="8" class={inputClass} />
           </div>
           <button type="submit" class="rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange-600">
