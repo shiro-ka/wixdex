@@ -111,10 +111,14 @@
       <div class="flex flex-col flex-1 min-h-0 p-3 xl:flex-none xl:w-1/2">
         <!-- 画像欄: 余ったスペースを埋め、画像はその枠内に収める(object-contain) -->
         <div class="flex items-center justify-center min-h-0 flex-1">
+          <!-- グリッドでバイトはキャッシュ済みだが、モーダルは拡大表示するため
+               「その大サイズでのデコード」が新規に走る。async だと枠だけ先に出て画像が
+               ワンテンポ遅れるので、sync で枠と同時に描画する（1枚だけ＆デコードは数ms）。-->
           <img
             src={cardImageUrl(card.image)}
             alt={card.name}
-            decoding="async"
+            decoding="sync"
+            fetchpriority="high"
             crossorigin="anonymous"
             class="max-w-full max-h-full object-contain rounded-lg"
           />

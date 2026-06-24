@@ -7,11 +7,13 @@ import { checkRateLimit, incrementRateLimit } from '$lib/server/rate-limit';
 import { sendEmail, passwordResetEmail } from '$lib/server/email';
 import { generateResetToken, hashResetToken, RESET_TTL } from '$lib/server/passwordReset';
 import { newUserId } from '$lib/server/ids';
-import { validateUsername } from '$lib/utils/atName';
+import { validateUsername, normalizeUsername } from '$lib/utils/atName';
 import { z } from 'zod';
 
 const loginSchema = z.object({
-  email: z.string().email(),
+  // メールアドレス or ユーザー名。ユーザー名は文字種上 "@" を含まないので、
+  // "@" の有無でどちらを照合するか一意に判別できる。
+  identifier: z.string().min(1).max(255),
   password: z.string().min(1),
 });
 
@@ -49,21 +51,25 @@ export const actions: Actions = {
 
     const data = await request.formData();
     const parsed = loginSchema.safeParse({
-      email: data.get('email'),
+      identifier: data.get('identifier'),
       password: data.get('password'),
     });
     if (!parsed.success) {
-      return fail(400, { mode: 'login', error: 'メールアドレスとパスワードを入力してください。' });
+      return fail(400, { mode: 'login', error: 'メールアドレス（またはユーザー名）とパスワードを入力してください。' });
     }
 
-    const { email, password } = parsed.data;
-    const user = await db.getUserByEmail(email);
+    const { identifier, password } = parsed.data;
+    const id = identifier.trim();
+    // "@" を含むならメールアドレス、含まなければユーザー名として照合する。
+    const user = id.includes('@')
+      ? await db.getUserByEmail(id)
+      : await db.getUserByUsername(normalizeUsername(id));
 
     if (!user || !user.password_hash || !(await verifyPassword(password, user.password_hash))) {
       await incrementRateLimit(store, ip, 'login');
       return fail(401, {
         mode: 'login',
-        error: 'メールアドレスまたはパスワードが正しくありません。',
+        error: 'メールアドレス（またはユーザー名）かパスワードが正しくありません。',
       });
     }
 

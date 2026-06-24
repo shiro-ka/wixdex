@@ -5,6 +5,7 @@
   import { randomUsername } from '$lib/utils/atName';
   import { untrack } from 'svelte';
   import PageHeader from '$lib/components/PageHeader.svelte';
+  import { logout } from '$lib/utils/logout';
 
   let { data, form }: { data: PageData; form: unknown } = $props();
 
@@ -24,11 +25,6 @@
     const result = await startBlueskyAuth(blueskyHandle);
     if (!result.ok) blueskyLinkError = result.error;
     blueskyLoading = false;
-  }
-
-  async function logout() {
-    await fetch('/api/auth/logout', { method: 'POST' });
-    window.location.href = '/';
   }
 
   const inputClass =

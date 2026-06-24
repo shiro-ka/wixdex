@@ -17,6 +17,44 @@
 
   let username = $state('');
 
+  // ユーザー名の事前判定（フォーカスを外した時に確認）。
+  // 入力中は idle に戻し、blur / おまかせ生成のたびに /api/username-check へ問い合わせる。
+  let usernameStatus = $state<'idle' | 'checking' | 'ok' | 'taken'>('idle');
+  let usernameMsg = $state('');
+  let checkSeq = 0; // 古い応答が新しい結果を上書きしないように
+
+  function resetUsernameCheck() {
+    usernameStatus = 'idle';
+    usernameMsg = '';
+    checkSeq++; // 進行中の応答を無効化
+  }
+
+  async function checkUsername() {
+    const u = username.trim();
+    if (!u) {
+      resetUsernameCheck();
+      return;
+    }
+    const seq = ++checkSeq;
+    usernameStatus = 'checking';
+    usernameMsg = '';
+    try {
+      const res = await fetch(`/api/username-check?u=${encodeURIComponent(u)}`);
+      const data = (await res.json()) as { available: boolean; error?: string };
+      if (seq !== checkSeq) return; // 入力が変わった/別の確認が走った → この応答は破棄
+      if (data.available) {
+        usernameStatus = 'ok';
+        usernameMsg = 'このユーザー名は使えます';
+      } else {
+        usernameStatus = 'taken';
+        usernameMsg = data.error ?? 'このユーザー名は使用できません。';
+      }
+    } catch {
+      if (seq !== checkSeq) return;
+      resetUsernameCheck(); // 通信失敗時は黙ってヒント表示に戻す（登録時に最終判定される）
+    }
+  }
+
   let blueskyHandle = $state('');
   let blueskyLoading = $state(false);
   let blueskyError = $state('');
@@ -159,6 +197,8 @@
                 type="text"
                 required
                 bind:value={username}
+                oninput={resetUsernameCheck}
+                onblur={checkUsername}
                 autocapitalize="none"
                 autocomplete="off"
                 spellcheck="false"
@@ -168,28 +208,56 @@
             </div>
             <button
               type="button"
-              onclick={() => (username = randomUsername())}
+              onclick={() => {
+                username = randomUsername();
+                checkUsername();
+              }}
               title="おまかせ生成"
               class="flex shrink-0 items-center justify-center rounded-lg bg-zinc-800 px-3 text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-white"
             >
               <IconDice class="h-5 w-5" />
             </button>
           </div>
-          <p class="mt-1 text-xs text-zinc-500">英小文字・数字・ハイフン・アンダースコア（後から変更できます）</p>
+          {#if usernameStatus === 'checking'}
+            <p class="mt-1 text-xs text-zinc-400">確認中…</p>
+          {:else if usernameStatus === 'ok'}
+            <p class="mt-1 text-xs text-green-400">{usernameMsg}</p>
+          {:else if usernameStatus === 'taken'}
+            <p class="mt-1 text-xs text-red-400">{usernameMsg}</p>
+          {:else}
+            <p class="mt-1 text-xs text-zinc-500">英小文字・数字・ハイフン・アンダースコア（後から変更できます）</p>
+          {/if}
         </div>
       {/if}
-      <div>
-        <label for="email" class="mb-1 block text-sm text-zinc-300">メールアドレス</label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          autocomplete="email"
-          class={inputClass}
-          placeholder="you@example.com"
-        />
-      </div>
+      {#if mode === 'register'}
+        <div>
+          <label for="email" class="mb-1 block text-sm text-zinc-300">メールアドレス</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            class={inputClass}
+            placeholder="you@example.com"
+          />
+        </div>
+      {:else}
+        <div>
+          <label for="identifier" class="mb-1 block text-sm text-zinc-300">メールアドレス または ユーザー名</label>
+          <input
+            id="identifier"
+            name="identifier"
+            type="text"
+            required
+            autocapitalize="none"
+            autocomplete="username"
+            spellcheck="false"
+            class={inputClass}
+            placeholder="you@example.com / your_name"
+          />
+        </div>
+      {/if}
       <div>
         <label for="password" class="mb-1 block text-sm text-zinc-300">
           パスワード{mode === 'register' ? '（8〜128文字）' : ''}

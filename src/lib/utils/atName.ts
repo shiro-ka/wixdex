@@ -35,6 +35,11 @@ function hasBlockedSubstring(name: string): boolean {
   return BLOCKED_SUBSTRINGS.some((s) => name.includes(s));
 }
 
+/** 含まれていたブロック語を返す（無ければ null）。エラーメッセージで原因を示すため。 */
+function matchedBlockedSubstring(name: string): string | null {
+  return BLOCKED_SUBSTRINGS.find((s) => name.includes(s)) ?? null;
+}
+
 /** 小文字化・トリム。保存も照合もこの正規形で行う。 */
 export function normalizeUsername(raw: string): string {
   return raw.trim().toLowerCase();
@@ -60,9 +65,10 @@ export function validateUsername(raw: string): { ok: true; value: string } | { o
   const name = normalizeUsername(raw);
   if (name.length < USERNAME_MIN) return { ok: false, error: `${USERNAME_MIN}文字以上にしてください。` };
   if (name.length > USERNAME_MAX) return { ok: false, error: `${USERNAME_MAX}文字以下にしてください。` };
-  if (!USERNAME_RE.test(name)) return { ok: false, error: '使えるのは英小文字・数字・ハイフン・アンダースコアです。' };
+  if (!USERNAME_RE.test(name)) return { ok: false, error: '使えるのは英小文字・数字・ハイフン・アンダースコアです（@ や . は使えません）。' };
   if (RESERVED_USERNAMES.has(name)) return { ok: false, error: 'このユーザー名は使用できません。' };
-  if (hasBlockedSubstring(name)) return { ok: false, error: 'このユーザー名は使用できません。' };
+  const blocked = matchedBlockedSubstring(name);
+  if (blocked) return { ok: false, error: `「${blocked}」を含む名前は使用できません。` };
   return { ok: true, value: name };
 }
 
