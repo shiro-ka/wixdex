@@ -182,7 +182,7 @@
       {#if isLoggedIn}
       <button
         type="button"
-        class={clsx(filterToggle({ active: favoriteFilter }), 'md:flex-1 w-10 h-full mr-2', filterBorder)}
+        class={clsx(filterToggle({ active: favoriteFilter }), 'flex-1 h-full mr-2', filterBorder)}
         onclick={onFavoriteFilter}
       >
         {#if favoriteFilter}
@@ -207,7 +207,7 @@
         {/if}
       </button>
 
-      <div class="flex w-fit md:flex-3 {filterGroup}">
+      <div class="flex flex-3 {filterGroup}">
         <button
           type="button"
           class={clsx(filterToggle({ active: typeActive }), 'flex-1 w-10 h-full')}
