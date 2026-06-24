@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { browser } from '$app/environment';
+  import { page } from '$app/state';
   import type { PageData } from './$types';
   import type { Card, DeckSlot } from '$lib/types';
   import { loadAllCards, buildCardMap, buildOrderMap } from '$lib/utils/cardData';
@@ -40,10 +41,11 @@
 </script>
 
 <svelte:head>
-  <title>wixdex - {data.deck.name}</title>
-  <meta property="og:title" content={data.deck.name} />
-  <meta property="og:description" content="WIXOSS デッキ — wixdex" />
-  <meta name="twitter:card" content="summary" />
+  <title>{data.deck.name} — wixdex</title>
+  <meta property="og:title" content="{data.deck.name} — wixdex" />
+  <meta property="og:description" content="WIXOSS デッキ — wixdex で公開中" />
+  <meta property="og:url" content={page.url.origin + page.url.pathname} />
+  <!-- twitter:card / og:image は app.html の共通デフォルト（summary_large_image）を使う -->
 </svelte:head>
 
 <div class="min-h-dvh bg-zinc-900 text-white">

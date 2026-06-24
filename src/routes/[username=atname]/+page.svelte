@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageData } from './$types';
+  import { page } from '$app/state';
   import IconBrandBluesky from '@tabler/icons-svelte/icons/brand-bluesky';
   import PageHeader from '$lib/components/PageHeader.svelte';
 
@@ -12,8 +13,10 @@
 
 <svelte:head>
   <title>{profile.displayName} (@{profile.atName}) — wixdex</title>
-  <meta property="og:title" content="{profile.displayName} — wixdex" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:title" content="{profile.displayName} (@{profile.atName}) — wixdex" />
+  <meta property="og:description" content="{profile.displayName} さんのデッキ一覧 — wixdex" />
+  <meta property="og:url" content={page.url.origin + page.url.pathname} />
+  <!-- twitter:card / og:image は app.html の共通デフォルト（summary_large_image）を使う -->
 </svelte:head>
 
 <div class="min-h-dvh bg-zinc-900 text-white">
