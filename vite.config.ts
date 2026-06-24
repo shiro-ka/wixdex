@@ -51,12 +51,18 @@ export default defineConfig({
       workbox: {
         globPatterns: ['client/**/*.{js,css,ico,png,svg,webp,woff,woff2}'],
         runtimeCaching: [
-          // ⚠️ カード画像(R2)は SW で握らない（あえてルールを書かない＝SW素通り）。
-          // 症状: TWA/PWA でモーダル画像がオンライン時だけ遅く、機内モードにすると速かった。
-          // ＝SWがオンライン時に画像取得を遅延させていた（CacheFirstでも online で network に行く挙動）。
-          // 一方プレーンなブラウザは速い＝ブラウザのネイティブHTTPキャッシュ経路は速い。
-          // R2に immutable Cache-Control を焼いた今、ネイティブキャッシュだけで完璧に効くので、
-          // SWを通さずブラウザに任せる方が速い（速いブラウザと同じ経路になる）。
+          {
+            // カード画像(R2)。CacheFirst で一度取得したら以降はキャッシュから即配信。
+            // R2は Vary: Origin を付けるので ignoreVary で URL のみでマッチ。
+            // R2側に immutable Cache-Control も焼き済み（再検証を止める）。
+            urlPattern: ({ url }) => url.hostname === 'pub-eaed63f9ee4b4b0e806344bd5b464e65.r2.dev',
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'card-images-v2',
+              expiration: { maxEntries: 1500, maxAgeSeconds: 60 * 60 * 24 * 180 },
+              matchOptions: { ignoreVary: true },
+            },
+          },
           {
             // カードDBは数MB。SWRだと毎回裏で再DLしてしまうので CacheFirst で再DLを止める。
             // 新セットは新URL=キャッシュミスで必ず取得される。既存ファイルの訂正を即反映したいときは
