@@ -11,3 +11,6 @@ dist/
 node_modules
 static/assets/cards_data/
 .claude/settings.local.json
+
+# シェルスクリプトはローカル運用ツール扱い（git管理外）。必要なら git add -f で個別追跡可。
+*.sh
