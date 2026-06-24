@@ -10,4 +10,4 @@ dist/
 *.local
 node_modules
 static/assets/cards_data/
-.claude/
+.claude/settings.local.json
