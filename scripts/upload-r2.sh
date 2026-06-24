@@ -17,7 +17,10 @@ echo "Uploading card images to R2 bucket: $BUCKET"
 
 while IFS= read -r -d '' file; do
   key="${file#$IMG_DIR/}"
-  if npx wrangler r2 object put "$BUCKET/$key" --file="$file" --content-type="image/webp" --remote 2>/dev/null; then
+  # カード画像はファイル名で一意＝中身は不変。長期 immutable キャッシュにして
+  # ブラウザの再検証(条件付きGET/304の往復)を止める。Cache-Control が無いと
+  # モバイルでモーダルを開くたびに再検証が走り、画像表示が1秒近く遅れる。
+  if npx wrangler r2 object put "$BUCKET/$key" --file="$file" --content-type="image/webp" --cache-control="public, max-age=31536000, immutable" --remote 2>/dev/null; then
     TOTAL=$((TOTAL + 1))
     echo "  ✓ $key"
   else
