@@ -111,13 +111,14 @@
       <div class="flex flex-col flex-1 min-h-0 p-3 xl:flex-none xl:w-1/2">
         <!-- 画像欄: 余ったスペースを埋め、画像はその枠内に収める(object-contain) -->
         <div class="flex items-center justify-center min-h-0 flex-1">
-          <!-- グリッドでバイトはキャッシュ済みだが、モーダルは拡大表示するため
-               「その大サイズでのデコード」が新規に走る。async だと枠だけ先に出て画像が
-               ワンテンポ遅れるので、sync で枠と同時に描画する（1枚だけ＆デコードは数ms）。-->
+          <!-- モーダルは拡大表示＝高DPR端末では原寸近い大サイズのデコードが走る。
+               sync だとそれをメインスレッドでブロックし、APK/PWAで「枠だけ出て画像が0.5s空白」
+               になる（PCはCPUが速く露見しない）。async にして非ブロックで別スレッドデコードさせる
+               （fetchpriority=high で取得は優先）。リスト(LazyImage)も async で問題なし。-->
           <img
             src={cardImageUrl(card.image)}
             alt={card.name}
-            decoding="sync"
+            decoding="async"
             fetchpriority="high"
             crossorigin="anonymous"
             class="max-w-full max-h-full object-contain rounded-lg"
