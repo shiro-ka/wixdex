@@ -7,6 +7,19 @@
     <meta name="theme-color" content="#18181b" />
     <meta name="description" content="WIXOSSのデッキ構築ツール" />
     <link rel="apple-touch-icon" href="%sveltekit.assets%/wixdex.png" />
+
+    <!-- OGP 全ページ共通デフォルト。
+         og:title / og:description / og:url は各ページの <svelte:head> で個別に指定する
+         （ここに書くと先勝ちでページ側を上書きしてしまうため、ここには置かない）。
+         og:image は絶対URL必須。画像は static/og.png（1200x630）を差し替えれば即反映。 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="wixdex" />
+    <meta property="og:image" content="https://wixdex.cards/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="wixdex — WIXOSS デッキビルダー" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://wixdex.cards/og.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       rel="preconnect"

@@ -284,6 +284,13 @@
   }
 </script>
 
+<svelte:head>
+  <title>wixdex — WIXOSS デッキビルダー</title>
+  <meta property="og:title" content="wixdex — WIXOSS デッキビルダー" />
+  <meta property="og:description" content="WIXOSS（ディーヴァ）のデッキを構築・公開・シェアできるツール。" />
+  <meta property="og:url" content="https://wixdex.cards/" />
+</svelte:head>
+
 <div class="flex flex-col w-dvw h-dvh m-0 p-0 bg-zinc-900 overflow-hidden">
   <Navbar
     deckName={deck.name}
