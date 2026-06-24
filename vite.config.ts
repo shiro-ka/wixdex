@@ -57,6 +57,10 @@ export default defineConfig({
             options: {
               cacheName: 'card-images-v1',
               expiration: { maxEntries: 1500, maxAgeSeconds: 60 * 60 * 24 * 180 },
+              // R2 のレスポンスは Vary: Origin 付き。これがあると cache.match が
+              // Origin ヘッダ差で外れてキャッシュヒットせず再取得になりうる。
+              // 画像はオリジン固定なので Vary を無視して URL だけでマッチさせる。
+              matchOptions: { ignoreVary: true },
             },
           },
           {
