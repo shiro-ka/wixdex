@@ -111,15 +111,14 @@
       <div class="flex flex-col flex-1 min-h-0 p-3 xl:flex-none xl:w-1/2">
         <!-- 画像欄: 余ったスペースを埋め、画像はその枠内に収める(object-contain) -->
         <div class="flex items-center justify-center min-h-0 flex-1">
-          <!-- モーダルは拡大表示＝高DPR端末では原寸近い大サイズのデコードが走る。
-               sync だとそれをメインスレッドでブロックし、APK/PWAで「枠だけ出て画像が0.5s空白」
-               になる（PCはCPUが速く露見しない）。async にして非ブロックで別スレッドデコードさせる
-               （fetchpriority=high で取得は優先）。リスト(LazyImage)も async で問題なし。-->
+          <!-- リスト(LazyImage)と同じ属性に揃える（decoding=async + crossorigin のみ）。
+               以前付けていた fetchpriority="high" は Chrome 系でのみモーダル画像が遅くなる原因の疑い
+               （Firefox はこの属性を無視するため影響なし＝Chromeだけ遅い症状と一致）。
+               リスト画像はこの属性が無く Chrome でも速いので、それに合わせる。-->
           <img
             src={cardImageUrl(card.image)}
             alt={card.name}
             decoding="async"
-            fetchpriority="high"
             crossorigin="anonymous"
             class="max-w-full max-h-full object-contain rounded-lg"
           />
