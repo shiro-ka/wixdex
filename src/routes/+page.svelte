@@ -4,6 +4,7 @@
   import type { Card, DeckSummary } from '$lib/types';
   import { getSettings, saveSettings, getDraft, saveDraft } from '$lib/utils/storage';
   import { loadAllCards, buildCardMap, buildOrderMap } from '$lib/utils/cardData';
+  import { cardImageUrl } from '$lib/utils/cardImages';
   import { CloudDeckSync } from '$lib/stores/cloudDeckSync.svelte';
   import { DeckBuilderStore } from '$lib/stores/deckBuilder.svelte';
   import { FilterStore } from '$lib/stores/filterStore.svelte';
@@ -67,6 +68,23 @@
     const match = (c: Card) => (c.cardID ?? c.image) === key;
     return deck.mainDeck.filter(match).length + deck.lrigDeck.filter(match).length;
   }
+  // モーダルはカードを拡大表示するため「その大サイズでのデコード」が新規に走る。
+  // PCは数msだがモバイル(APK/弱CPU)は数十msかかり、<img decoding="sync"> だと
+  // そのデコード待ちでモーダル表示自体がカクつく。タップ時に裏でデコードを温めて
+  // から開くことで、開いた瞬間に画像が出る（PCは元々一瞬なので体感は変わらない）。
+  async function openCardPopup(card: Card) {
+    const probe = new Image();
+    probe.crossOrigin = 'anonymous';
+    probe.src = cardImageUrl(card.image);
+    try {
+      // デコードが極端に遅い/壊れていても開けなくならないよう安全タイムアウト付き。
+      await Promise.race([probe.decode(), new Promise((r) => setTimeout(r, 400))]);
+    } catch {
+      /* デコード失敗でも開く（モーダル側の img が再試行する） */
+    }
+    popupCard = card;
+  }
+
   let popupCount = $derived(popupCard ? copiesInDeck(popupCard) : 0);
   let popupInCandidate = $derived(
     popupCard ? deck.candidateCards.some((c) => c.image === popupCard!.image) : false,
@@ -322,9 +340,7 @@
       onRemove={deck.removeCard}
       candidateCards={deck.sortedCandidateCards}
       onRemoveFromCandidate={deck.removeFromCandidate}
-      onCardClick={(card) => {
-        popupCard = card;
-      }}
+      onCardClick={openCardPopup}
       lifeBurstCount={deck.lifeBurstCount}
       {showLifeBurst}
       {rotateLandscape}
@@ -344,9 +360,7 @@
         onAddToCandidate={deck.addToCandidate}
         onRemoveFromCandidate={deck.removeFromCandidate}
         candidateFilter={filter.candidateFilter}
-        onCardClick={(card) => {
-          popupCard = card;
-        }}
+        onCardClick={openCardPopup}
         {showLifeBurst}
         {showCandidateIcon}
         {rotateLandscape}
