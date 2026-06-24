@@ -8,6 +8,7 @@
   import IconBrandBluesky from '@tabler/icons-svelte/icons/brand-bluesky';
   import IconBrandGithub from '@tabler/icons-svelte/icons/brand-github';
   import { sidebarBtn } from '$lib/styles';
+  import { logout } from '$lib/utils/logout';
   import clsx from 'clsx';
 
   interface Props {
@@ -155,15 +156,16 @@
           </a>
         {/if}
         <a href="/settings" onclick={onClose} class={sidebarBtn({ variant: 'action' })}> 設定 </a>
-        <form method="POST" action="/api/auth/logout">
-          <button
-            type="submit"
-            onclick={onClose}
-            class={clsx(sidebarBtn({ variant: 'muted' }), 'mt-2')}
-          >
-            ログアウト
-          </button>
-        </form>
+        <button
+          type="button"
+          onclick={() => {
+            onClose();
+            logout();
+          }}
+          class={clsx(sidebarBtn({ variant: 'muted' }), 'mt-2')}
+        >
+          ログアウト
+        </button>
       {:else}
         <a
           href="/login"
