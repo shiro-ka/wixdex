@@ -111,15 +111,14 @@
       <div class="flex flex-col flex-1 min-h-0 p-3 xl:flex-none xl:w-1/2">
         <!-- 画像欄: 余ったスペースを埋め、画像はその枠内に収める(object-contain) -->
         <div class="flex items-center justify-center min-h-0 flex-1">
-          <!-- リスト(LazyImage)と同じ属性に揃える（decoding=async + crossorigin のみ）。
-               以前付けていた fetchpriority="high" は Chrome 系でのみモーダル画像が遅くなる原因の疑い
-               （Firefox はこの属性を無視するため影響なし＝Chromeだけ遅い症状と一致）。
-               リスト画像はこの属性が無く Chrome でも速いので、それに合わせる。-->
+          <!-- crossorigin は付けない（表示専用。canvas出力は別途 loadImage が自前でCORS取得）。
+               crossorigin を付けると CORS リクエストになり R2 が Vary: Origin を返す→Chrome が
+               immutable を無視して毎回 304 再検証し、モーダル画像が遅くなる（Firefoxは免疫）。
+               no-cors にすれば Vary が付かずキャッシュがそのまま効く。リスト(LazyImage)も同様に外した。-->
           <img
             src={cardImageUrl(card.image)}
             alt={card.name}
             decoding="async"
-            crossorigin="anonymous"
             class="max-w-full max-h-full object-contain rounded-lg"
           />
         </div>
