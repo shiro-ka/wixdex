@@ -65,7 +65,6 @@
   {src}
   {alt}
   decoding="async"
-  crossorigin="anonymous"
   class="{className} {fade ? 'transition-opacity duration-300' : ''} {isLoaded ? 'opacity-100' : 'opacity-0'}"
   onload={(e) => { isLoaded = true; onLoadCallback?.(e.currentTarget as HTMLImageElement); }}
   {onmouseenter} {onmouseleave} {onclick} {onwheel}
