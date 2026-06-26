@@ -4,6 +4,7 @@
   import type { Card, DeckSummary } from '$lib/types';
   import { getSettings, saveSettings, getDraft, saveDraft } from '$lib/utils/storage';
   import { loadAllCards, buildCardMap, buildOrderMap } from '$lib/utils/cardData';
+  import { canAddCard } from '$lib/utils/deckValidation';
   import { CloudDeckSync } from '$lib/stores/cloudDeckSync.svelte';
   import { DeckBuilderStore } from '$lib/stores/deckBuilder.svelte';
   import { FilterStore } from '$lib/stores/filterStore.svelte';
@@ -68,6 +69,10 @@
     return deck.mainDeck.filter(match).length + deck.lrigDeck.filter(match).length;
   }
   let popupCount = $derived(popupCard ? copiesInDeck(popupCard) : 0);
+  // カードタイプ別の上限(同名/デッキサイズ/センター・アシスト・ピース・アーツ枠)を考慮した「あと1枚足せるか」
+  let popupCanAdd = $derived(
+    popupCard ? canAddCard(popupCard, deck.mainDeck, deck.lrigDeck).valid : false,
+  );
   let popupInCandidate = $derived(
     popupCard ? deck.candidateCards.some((c) => c.image === popupCard!.image) : false,
   );
@@ -511,6 +516,7 @@
     }}
     {isLoggedIn}
     count={popupCount}
+    canAdd={popupCanAdd}
     isInCandidate={popupInCandidate}
     onAdd={deck.addCard}
     onAddMultiple={deck.addMultiple}

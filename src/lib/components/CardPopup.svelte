@@ -19,6 +19,8 @@
     onToggleFavorite: () => void;
     isLoggedIn: boolean;
     count: number;
+    /** これ以上デッキに追加できるか（カードタイプ別の上限を考慮した判定）。false で + / +4 をグレーアウト。 */
+    canAdd: boolean;
     isInCandidate: boolean;
     onAdd: (card: Card) => void;
     onAddMultiple: (card: Card, count: number) => void;
@@ -34,6 +36,7 @@
     onToggleFavorite,
     isLoggedIn,
     count,
+    canAdd,
     isInCandidate,
     onAdd,
     onAddMultiple,
@@ -142,7 +145,7 @@
           <div class="flex items-center justify-center min-w-8 text-lg font-bold text-white tabular-nums">
             {count}
           </div>
-          {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', 'text-gray-200', false)}
+          {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', 'text-gray-200', !canAdd)}
           <!-- +4 はメインデッキ札(シグニ/スペル/サーバント)のみ。ルリグ/アシスト/ピース/アーツでは出さない -->
           {#if isMainDeckCard(card)}
             {@render actionButton(
@@ -150,7 +153,7 @@
               () => onAddMultiple(card, 4),
               '4枚追加',
               'text-gray-200',
-              false,
+              !canAdd,
             )}
           {/if}
           {@render actionButton(
