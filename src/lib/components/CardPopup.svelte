@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { fade, scale } from 'svelte/transition';
   import type { Card } from '$lib/types';
   import { cardImageUrl } from '$lib/utils/cardImages';
   import { isMainDeckCard } from '$lib/utils/cardTypeUtils';
@@ -86,11 +87,17 @@
 {#if card}
   <div class="fixed inset-0 flex items-center justify-center z-50 p-3">
     <!-- 背景クリックで閉じる -->
-    <button class="absolute inset-0 bg-black/70" onclick={onClose} aria-label="閉じる"></button>
+    <button
+      class="absolute inset-0 bg-black/70"
+      onclick={onClose}
+      aria-label="閉じる"
+      transition:fade={{ duration: 130 }}
+    ></button>
 
-    <!-- モーダル本体 -->
+    <!-- モーダル本体（背景フェード＋軽くスケール。ツールなので控えめ＆やや速め） -->
     <div
       class="relative z-10 flex flex-col xl:flex-row w-full max-w-4xl h-[68vh] bg-zinc-800 rounded-xl overflow-hidden"
+      transition:scale={{ start: 0.97, opacity: 0, duration: 150 }}
     >
       <!-- 右上の閉じるボタン -->
       <button
