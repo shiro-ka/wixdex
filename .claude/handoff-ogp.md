@@ -1,99 +1,97 @@
 # 引き継ぎ: OGP対応
 
-作成日: 2026-06-24 / 引き継ぎ先: PC開発チーム(画像デザインが必要なため)
-方針(確定済み): **まず静的OGP→後で動的**。リリース優先で確実に埋める。
+最終更新: 2026-06-29 / 引き継ぎ元: スマホ開発チーム → 引き継ぎ先: PC開発チーム
+
+## ステータス
+
+- **静的OGP: 対応済み**（`static/og.png` を作成・配置、メタ配線も完了）
+- **動的OGP: 未着手**（PCチームへパス。理由は下記「PCチームに任せること」）
 
 ---
 
-## 0. TL;DR(PCチームが今やること)
+## 1. やったこと（静的OGP）
 
-1. **`static/og.png`(1200×630 / PNG)を作って置く** ← これが無いと現状 og:image が404。最優先。
-2. デプロイして、X(Twitter) Card Validator / 各SNSのデバッガで表示確認。
-3. (任意・後回し)動的OGP。下の「動的OGP」セクション参照。
+### 完了内容
+- `static/og.png`（1200×630 / PNG / 約14KB / セーフエリア60px確保）を作成・配置。
+  - これが無いと `og:image` が404だった。これで解消。
+  - デザイン: ダーク背景 `#18181b` + オレンジ矢印ロゴ（`static/wixdex.png`）+ ワードマーク
+    `wix`(白)/`dex`(オレンジ `#f97316`) + タグライン「WIXOSS デッキビルダー」(zinc-400)。
+- **書体はUIと同一の `Zen Maru Gothic`**（丸ゴシック）で焼いた。UIの `src/app.css` / `src/app.html`
+  が読んでいるのと同じフォント。
+- メタタグ配線は元々完了済み（`src/app.html` の共通デフォルト + 各ページの `<svelte:head>` で
+  og:title/description/url を上書き。OGPは同一プロパティ先勝ちなので可変部分だけ個別指定）。
 
----
-
-## 1. 現状 (実装済み・コミット済み)
-
-メタタグの配線は**全部完了**している。足りないのは**画像ファイル `static/og.png` だけ**。
-
-### 共通デフォルト: `src/app.html`
-```html
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="wixdex" />
-<meta property="og:image" content="https://wixdex.cards/og.png" />   ← この実体が未配置(404)
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="wixdex — WIXOSS デッキビルダー" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://wixdex.cards/og.png" />  ← 同上
-```
-
-### ページ個別(og:title / og:description / og:url)
-OGPは「同一プロパティは先勝ち」なので、可変部分は各ページの `<svelte:head>` に置いてある:
-- `src/routes/+page.svelte`(ホーム)
-- `src/routes/[username=atname]/+page.svelte`(プロフィール) — `{displayName} (@{atName}) — wixdex`
-- `src/routes/[username=atname]/[slug]/+page.svelte`(共有デッキ) — `{deck.name} — wixdex`
-
-→ **og:image は全ページ共通で `static/og.png` を使う**(個別指定していない)。
-
-## 2. やるべきこと: 静的OGP画像 `static/og.png`
-
-`static/` 直下に置くだけで `https://wixdex.cards/og.png` で配信され、即反映される。
-
-### 仕様
-- ファイル: **`static/og.png`**
-- サイズ: **正確に 1200×630px**(OGP標準。これ以外だと切れる/弾かれる)
-- 形式: PNG(JPGでも可)、容量目安 **300KB以下**
-- セーフエリア: 端から **60px** は余白に(SNSの角丸/トリミング対策)
-
-### デザイン指針(`static/wixdex.png` のロゴはオレンジの矢印アイコンのみ、文字なし)
-- 背景: ダーク `#18181b`(アプリのテーマ色と統一)
-- ワードマーク: `wix`(白)+`dex`(オレンジ `#f97316` 系)
-- ロゴ: 既存のオレンジ矢印アイコン
-- タグライン: 「WIXOSS デッキビルダー」
-- ※あくまで指針。デザインはチームの裁量でOK。
-
-## 3. 確認方法
-
-デプロイ後:
-- X(Twitter): https://cards-dev.twitter.com/validator
-- Facebook/OGP全般: https://developers.facebook.com/tools/debug/
-- 各SNSはOGPを**強くキャッシュする**ので、画像差し替え時はデバッガで再取得させること。
-- クローラはJSを実行せず**SSRのHTML**しか読まない。SvelteKitはSSRするので `<svelte:head>` の
-  タグはHTMLに出ている(確認は `curl https://wixdex.cards/@user/deck | grep og:`)。
+### 生成方法（再生成したい時のため）
+- この開発環境は **fontconfig が壊れている**ため、Pillow等の一般的なテキスト描画は不可
+  （pipもネット制限で不可）。
+- 回避策: **`sharp` の `text` 入力 + `fontfile` 直指定**でフォントファイルを明示的に渡すと、
+  fontconfig を実質バイパスして描画できる（`Fontconfig error` ログは出るが非致命）。
+- フォントは **Google Fonts の `&text=` サブセット機能**で「使う文字だけ」を取得して使った:
+  `https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700&text=wixdex`
+  （woff2非対応のUAで叩くとTTFを返す。`url(...)` の中の `/l/font?kit=...` がTTF実体）。
+  → wixdexワードマーク用(700)とタグライン用(500)の極小TTF(2KB/5KB)を取得して `sharp` に渡した。
 
 ---
 
-## 4. 動的OGP(後回し / 知見の引き継ぎ)
+## 2. 知見（重要・フォント問題の正体）
 
-現状は全ページ同じ `og.png`。将来は「デッキ共有リンクならそのデッキ名」「プロフィールならユーザー名」を
-画像に焼きたい、という要望がある。**まだ着手しない**が、調査済みの結論を残す。
+「動的OGPは日本語フォントが鬼門」と言われる理由を切り分けて記録する。フォントの話は**別々の2箇所**で出る:
 
-### OGPの仕組みとフォント問題(なぜ難しいか)
-- クローラはSSR HTMLの `og:image`(ただのURL)を取りに来るだけ。中身が静的か動的かは問わない。
-- 動的に画像を作る = サーバー/エッジで画像を生成する必要があるが、**エッジ環境にはシステムフォントが無い**
-  (この開発環境でも fontconfig が壊れていてテキストが描画できなかった)。日本語フォントは4〜16MBあり
-  Workersのバンドル制限とも相性が悪い。これが「動的OGPでフォントが鬼門」と言われる理由。
+1. **UIの文字** — `app.html` が Google Fonts から `Zen Maru Gothic` を `<link>` で読むだけ。ブラウザが
+   描画するので何の問題もない。**既に動作中。**
+2. **画像に文字を「焼く」とき（OGP）** — ここだけが難所:
+   - サーバー/エッジ（Cloudflare）には**システムフォントが無い**。ブラウザと違い「Google Fonts読めば出る」
+     が通用せず、**フォントファイルを自前で用意して描画エンジンに渡す**必要がある。
+   - 日本語フォントは全文字入りだと数MB級でデカく、Workersのバンドル制限と相性が悪い。
+   - 確認: クローラはJSを実行せず**SSR HTML**の `og:image`(ただのURL)を取りに来るだけ。中身が静的か
+     動的かは問わない。`curl https://wixdex.cards/@user/deck | grep og:` でタグが出ているか確認可。
+   - 各SNSはOGPを**強くキャッシュ**するので、差し替え時はデバッガ
+     （X: cards-dev.twitter.com/validator, FB: developers.facebook.com/tools/debug）で再取得させる。
 
-### 現実的な2つの実装パス(どちらも実現可能)
-1. **リクエスト時生成 + 動的サブセット**(`@vercel/og` 系)
-   - `satori`(レイアウト→SVG)+ `resvg-wasm`(SVG→PNG)。
-   - **描画する文字だけ**をGoogle Fonts動的サブセットAPIから都度取得(数十KB)→ satoriにBuffer渡し。
-   - 結果を Cache API / KV にキャッシュ(同一デッキは2回目以降スキップ。クローラは1回踏むだけ)。
-   - 注意: 初回は数百ms、フォント取得がネットワーク依存、resvg-wasm初期化コスト。
-2. **保存時に事前生成 → R2**(wixdex向けにはこちらが筋が良い)
-   - wixdexは**既にクライアント側canvasで完璧なデッキ画像を生成できている**ので、デッキ保存時に
-     その画像をR2へ上げ、`og:image` をそのURLにするだけ。**サーバーのフォント問題ゼロ**・生成失敗リスクほぼゼロ・
-     クローラには静的画像で爆速。
-   - プロフィール(ユーザー名だけ載せたい等)、保存時生成でカバーしづらいページは①を部分採用するハイブリッドも可。
+**結論: フォントを理由に動的OGPを諦める必要はゼロ。** UIと同じ `Zen Maru Gothic` を動的OGPでも使える
+（下記の方法でフォントを供給するだけ）。
 
-### 推奨
-リリースは静的`og.png`で十分。動的は②(保存時→R2、既存canvas流用)を軸に、必要なページだけ①、が低リスク。
+---
+
+## 3. 動的OGPの方針（スマホ班と確定済み）
+
+### スコープ（確定）
+動的OGPに載せるのは **デッキタイトル + ロゴ + ユーザー名 だけ**でよい。
+- カード画像はOGPの縮小表示では潰れて見えないので**載せない**。
+- → レイアウトが単純なので実装が確実・低リスク。
+
+### 実装パス（推奨: ①リクエスト時生成）
+- **① リクエスト時生成 + キャッシュ**（推奨）
+  - `satori`(レイアウト→SVG) + `resvg-wasm`(SVG→PNG)。OGP用エンドポイントを `+server.ts` で1個追加。
+  - デッキ名/ユーザー名は **既存のD1(`DB`)から読む**（共有デッキは
+    `src/routes/[username=atname]/[slug]/+page.server.ts` が既に同じデータを読んでいる、流用可）。
+  - 生成結果は **Cache API か既存KV にキャッシュ**（同一デッキは2回目以降スキップ。クローラは1回踏むだけ）。
+  - **R2バケットは不要**。adapter-cloudflareのサーバーランタイムは既に動いており、D1/KVもバインド済み
+    （`wrangler.toml` 参照）なので、**新規のCFダッシュボード作業はほぼ不要＝デプロイのみ**。
+  - フォント供給（UIと同じ `Zen Maru Gothic` を維持する2択）:
+    - (a) リクエスト時に `&text=<デッキ名>` で必要グリフだけ取得 → satoriにBuffer渡し（軽量・毎回ネット依存）。
+    - (b) Zen Maru Gothic の「常用漢字+かな」サブセット(数百KB〜)をリポジトリに同梱（ネット非依存・少し重い）。
+  - 既知の動作ライブラリ: `workers-og` / `@cf-wasm/og` 系。resvg-wasmのCF動作・JPフォント周りだけ一度PoCを。
+- **② 保存時生成 → R2**（今回は非推奨）
+  - R2バケット作成 + 書き込みバインド + 認証が要る＝**CFガッツリ作業**。スコープが「タイトル+名前」だけなら
+    ①で十分なので、わざわざR2を立てる必要はない。将来フルのデッキ画像をOGPに使いたくなったら再検討。
+
+---
+
+## 4. PCチームに任せること
+
+1. **デプロイ**（静的og.pngを本番へ）。デプロイ後、X/FBのデバッガで `og:image` 表示確認＋キャッシュ再取得。
+   - ※スマホ班の環境は **wrangler未セットアップ**のため、ここから先はPC側で。
+2. **動的OGPの実装**（着手するなら）。上記「3. 方針」の①を軸に。スコープはタイトル+ロゴ+ユーザー名。
+   - wrangler環境が整っているPC側でコード→ローカル `wrangler pages dev` 検証→デプロイ、が素直。
 
 ---
 
 ## 5. 関連ファイル
-- `src/app.html` — OGP共通デフォルト
-- `src/routes/+page.svelte` / `[username=atname]/+page.svelte` / `[username=atname]/[slug]/+page.svelte` — ページ個別の og:title/description/url
-- `static/` — ここに `og.png` を置く(未配置)
+- `static/og.png` — 静的OGP画像（**対応済み**）
+- `static/wixdex.png` — オレンジ矢印ロゴ（256×256, 文字なし）
+- `src/app.html` — OGP共通デフォルト（og:image = https://wixdex.cards/og.png）/ UIフォントの `<link>`
+- `src/app.css` — UIフォント定義（`Zen Maru Gothic`）
+- `src/routes/+page.svelte` / `[username=atname]/+page.svelte` / `[username=atname]/[slug]/+page.svelte`
+  — ページ個別の og:title/description/url
+- `wrangler.toml` — D1(`DB`)・KV各種バインド済み（動的OGPのデータ読み出し/キャッシュに流用可）
