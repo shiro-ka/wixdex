@@ -61,6 +61,11 @@ export const navBtn = cva(
   }
 );
 
+// 主要CTA: ツールの線形デザインに合わせたオレンジのアウトライン。
+// サイズ(px/py/h)は使用側で足す。
+export const ctaOutline =
+  'rounded-lg border border-orange-500/70 text-orange-400 transition-colors hover:border-orange-400 hover:bg-orange-500/10 hover:text-orange-300';
+
 // 繰り返し使う静的なクラス断片
 export const filterBorder = 'rounded-lg border border-gray-600/50';
 export const filterGroup = 'rounded-lg border border-gray-600/50 overflow-hidden';

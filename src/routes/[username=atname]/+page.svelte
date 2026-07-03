@@ -20,16 +20,7 @@
 </svelte:head>
 
 <div class="min-h-dvh bg-zinc-900 text-white">
-  <PageHeader>
-    {#snippet right()}
-      <a
-        href="/"
-        class="rounded-lg bg-orange-600 px-4 py-2 text-sm font-medium transition-colors hover:bg-orange-500"
-      >
-        デッキを作る
-      </a>
-    {/snippet}
-  </PageHeader>
+  <PageHeader />
 
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:py-12">
     <!-- プロフィールヘッダ -->
