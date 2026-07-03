@@ -14,9 +14,11 @@
   interface Props {
     isOpen: boolean;
     onClose: () => void;
-    onDeckListClick: () => void;
-    onNewDeckClick: () => void;
-    onStatsClick: () => void;
+    onDeckListClick?: () => void;
+    onNewDeckClick?: () => void;
+    onStatsClick?: () => void;
+    // ツール(トップ)以外のページではデッキ操作系メニューを出さない
+    showDeckTools?: boolean;
     user?: {
       displayName: string;
       username: string | null;
@@ -30,6 +32,7 @@
     onDeckListClick,
     onNewDeckClick,
     onStatsClick,
+    showDeckTools = true,
     user = null,
   }: Props = $props();
 
@@ -103,45 +106,47 @@
       </button>
     </div>
 
-    <div class="space-y-1">
-      {@render sectionLabel('Menu')}
-      <button
-        onclick={isLoggedIn
-          ? () => {
-              onNewDeckClick();
-              onClose();
-            }
-          : undefined}
-        disabled={!isLoggedIn}
-        class={sidebarBtn({ disabled: !isLoggedIn })}
-      >
-        <IconLibraryPlus class="w-5 h-5" />
-        <span>新しいデッキを作成</span>
-      </button>
-      <button
-        onclick={isLoggedIn
-          ? () => {
-              onDeckListClick();
-              onClose();
-            }
-          : undefined}
-        disabled={!isLoggedIn}
-        class={sidebarBtn({ disabled: !isLoggedIn })}
-      >
-        <IconLibrary class="w-5 h-5" />
-        <span>デッキ一覧</span>
-      </button>
-      <button
-        onclick={() => {
-          onStatsClick();
-          onClose();
-        }}
-        class="w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-gray-100 transition-colors"
-      >
-        <IconChartLine class="w-5 h-5" />
-        <span>カード使用統計</span>
-      </button>
-    </div>
+    {#if showDeckTools}
+      <div class="space-y-1">
+        {@render sectionLabel('Menu')}
+        <button
+          onclick={isLoggedIn
+            ? () => {
+                onNewDeckClick?.();
+                onClose();
+              }
+            : undefined}
+          disabled={!isLoggedIn}
+          class={sidebarBtn({ disabled: !isLoggedIn })}
+        >
+          <IconLibraryPlus class="w-5 h-5" />
+          <span>新しいデッキを作成</span>
+        </button>
+        <button
+          onclick={isLoggedIn
+            ? () => {
+                onDeckListClick?.();
+                onClose();
+              }
+            : undefined}
+          disabled={!isLoggedIn}
+          class={sidebarBtn({ disabled: !isLoggedIn })}
+        >
+          <IconLibrary class="w-5 h-5" />
+          <span>デッキ一覧</span>
+        </button>
+        <button
+          onclick={() => {
+            onStatsClick?.();
+            onClose();
+          }}
+          class="w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-gray-100 transition-colors"
+        >
+          <IconChartLine class="w-5 h-5" />
+          <span>カード使用統計</span>
+        </button>
+      </div>
+    {/if}
 
     <div class="mt-auto space-y-1">
       {@render sectionLabel('Account')}
