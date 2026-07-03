@@ -16,10 +16,8 @@
   let isSidebarOpen = $state(false);
 </script>
 
-<header
-  class="sticky top-0 z-10 flex-shrink-0 border-b border-zinc-800 bg-zinc-900/80 backdrop-blur"
->
-  <div class="mx-auto flex max-w-screen-xl items-center justify-between px-4 py-2">
+<header class="flex-shrink-0">
+  <div class="flex items-center justify-between px-4 py-2">
     <a href="/" class="flex items-center gap-2 transition-opacity hover:opacity-80">
       <img src="/wixdex.png" alt="wixdex" class="h-7" />
       <span class="text-lg font-bold tracking-tight text-white">wixdex</span>
