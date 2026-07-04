@@ -34,11 +34,11 @@ id = "62ad51eb191b4bb6949a279ccaf92343"
 APP_URL = "https://wixdex.cards"
 
 # ============================================================
-# preview 環境（main以外のブランチ / https://dev.wixdex.cards）
+# preview 環境（main以外のブランチ / https://dev.wixdex.pages.dev）
 # ※ DB/KV は staging 専用リソース。本番データとは完全に分離
 # ============================================================
 [env.preview.vars]
-APP_URL = "https://dev.wixdex.cards"
+APP_URL = "https://dev.wixdex.pages.dev"
 
 [[env.preview.d1_databases]]
 binding = "DB"
