@@ -4,6 +4,10 @@ compatibility_flags = ["nodejs_compat"]
 
 pages_build_output_dir = ".svelte-kit/cloudflare"
 
+# ============================================================
+# production 環境（main ブランチ / https://wixdex.cards）
+# ※ トップレベルの設定が Pages の production に適用される
+# ============================================================
 [[d1_databases]]
 binding = "DB"
 database_name = "wixdex-prod"
@@ -26,6 +30,34 @@ id = "cf31a4c1699d45569144f0fa3ed73f67"
 binding = "RATE_LIMIT"
 id = "62ad51eb191b4bb6949a279ccaf92343"
 
-
 [vars]
 APP_URL = "https://wixdex.cards"
+
+# ============================================================
+# preview 環境（main以外のブランチ / https://dev.wixdex.cards）
+# ※ DB/KV は staging 専用リソース。本番データとは完全に分離
+# ============================================================
+[env.preview.vars]
+APP_URL = "https://dev.wixdex.cards"
+
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "wixdex-stg"
+database_id = "2fe67d65-a24e-4634-b5b6-61a4e2e0ce84"
+migrations_dir = "migrations"
+
+[[env.preview.kv_namespaces]]
+binding = "OAUTH_STATE"
+id = "c48f375cd6bc4891a7bb63050ee3a700"
+
+[[env.preview.kv_namespaces]]
+binding = "OAUTH_SESSION"
+id = "1c9322dee056448e962f16a876e796cf"
+
+[[env.preview.kv_namespaces]]
+binding = "WIXDEX_SESSION"
+id = "3bb0c362f87541458b306e1d2f49d96c"
+
+[[env.preview.kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "e46bcfd04d3541fdb9d028600feb4902"
