@@ -86,13 +86,22 @@
   let searchText = $state('');
   let isSettingsOpen = $state(false);
   let isSearchSettingsOpen = $state(false);
-  let expandedMenu = $state<'type' | 'lrigClass' | 'tag'>('type');
   let isLargeScreen = $state(false);
+
+  // PCは拡張パネルが常時表示なので「開いていない」状態が存在しない。
+  // → PCに入った時点で activeDropdown が空なら 'type' を選択済みにしておく。
+  function seedForLargeScreen() {
+    if (isLargeScreen && activeDropdown === null) onDropdownChange('type');
+  }
 
   onMount(() => {
     const mq = window.matchMedia('(min-width: 1024px)');
     isLargeScreen = mq.matches;
-    const handler = (e: MediaQueryListEvent) => { isLargeScreen = e.matches; };
+    seedForLargeScreen();
+    const handler = (e: MediaQueryListEvent) => {
+      isLargeScreen = e.matches;
+      seedForLargeScreen();
+    };
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   });
@@ -107,19 +116,23 @@
     onReset();
   }
 
-  function toggleDropdown(name: 'type' | 'lrigClass' | 'tag') {
-    onDropdownChange(activeDropdown === name ? null : name);
-  }
-
   function handleMenuClick(name: 'type' | 'lrigClass' | 'tag') {
-    if (!isLargeScreen) toggleDropdown(name);
-    expandedMenu = name;
+    if (isLargeScreen) {
+      // PCは常時パネル表示。閉じる概念がないので常に選択（同じタブ再クリックでも維持）。
+      onDropdownChange(name);
+    } else {
+      // スマホ/タブレットはドロップダウン。同じタブなら閉じ、違えば開く。
+      onDropdownChange(activeDropdown === name ? null : name);
+    }
   }
 
-  function clearExpandedMenu() {
-    if (expandedMenu === 'type') {
+  // PCパネルに表示するタブ。activeDropdown が唯一の真実で、null時のみ既定の 'type'。
+  let panelTab = $derived(activeDropdown ?? 'type');
+
+  function clearPanelTab() {
+    if (panelTab === 'type') {
       selectedCardTypes.forEach(t => onCardTypeFilter(t));
-    } else if (expandedMenu === 'lrigClass') {
+    } else if (panelTab === 'lrigClass') {
       selectedLrigClasses.forEach(c => onLrigClassFilter(c));
     } else {
       selectedTags.forEach(t => onTagFilter(t));
@@ -130,13 +143,12 @@
   let isLrigClassFilterEnabled = $derived(selectedLrigClasses.size > 0);
   let isTagFilterEnabled = $derived(selectedTags.size > 0);
 
-  // PC(lg以上)は拡張パネルが常時表示なので、選択中タブ(expandedMenu)をハイライト。
-  // スマホはドロップダウン開閉式なので、開いているもの(activeDropdown)だけをハイライトし、
-  // どれも閉じているときは3つとも非アクティブ(通常背景)にする。
-  // ※ expandedMenu の初期値 'type' をスマホでも見てしまうと、未開時にカードタイプだけ明るくなる。
-  let typeActive = $derived(isLargeScreen ? expandedMenu === 'type' : activeDropdown === 'type');
-  let lrigActive = $derived(isLargeScreen ? expandedMenu === 'lrigClass' : activeDropdown === 'lrigClass');
-  let tagActive = $derived(isLargeScreen ? expandedMenu === 'tag' : activeDropdown === 'tag');
+  // ハイライトは画面幅に依らず単一ロジック:「アクティブなタブのボタン背景を明るくする」。
+  // PCでは activeDropdown が常に非null（閉じる操作がない）なので、必ずどれか1つが明るい。
+  // スマホはドロップダウンを開いたものだけが明るく、全て閉じていれば3つとも通常背景になる。
+  let typeActive = $derived(activeDropdown === 'type');
+  let lrigActive = $derived(activeDropdown === 'lrigClass');
+  let tagActive = $derived(activeDropdown === 'tag');
 </script>
 
 <div class="flex flex-col px-2 pb-4 md:pb-1 lg:w-96">
@@ -157,22 +169,22 @@
   <div class="hidden lg:flex flex-1 flex-col mb-2 bg-gray-600/10 border border-gray-600/50 rounded-xl p-4 min-h-0">
     <div class="flex justify-between items-center mb-4">
       <h3 class="text-base text-white">
-        {#if expandedMenu === 'type'}カードタイプ検索
-        {:else if expandedMenu === 'lrigClass'}ルリグタイプ/クラス検索
+        {#if panelTab === 'type'}カードタイプ検索
+        {:else if panelTab === 'lrigClass'}ルリグタイプ/クラス検索
         {:else}タグ検索
         {/if}
       </h3>
       <button
-        onclick={clearExpandedMenu}
+        onclick={clearPanelTab}
         class="text-gray-400 hover:text-gray-300 hover:bg-gray-700/50 rounded-lg p-1 transition-all"
         aria-label="チェック全解除"
       >
         <IconCircleCheck class="w-5 h-5" />
       </button>
     </div>
-    {#if expandedMenu === 'type'}
+    {#if panelTab === 'type'}
       <TypeFilterContent selectedTypes={selectedCardTypes} onToggle={onCardTypeFilter} />
-    {:else if expandedMenu === 'lrigClass'}
+    {:else if panelTab === 'lrigClass'}
       <LrigClassFilterContent {selectedLrigClasses} onToggle={onLrigClassFilter} />
     {:else}
       <TagFilterContent {selectedTags} onToggle={onTagFilter} />
