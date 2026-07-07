@@ -56,7 +56,30 @@ main に保護をかけたので、必ず Pull Request 経由でマージする�
   - ルートを各SNSデバッガに通して OGP カードが出る（X: cards-dev.twitter.com/validator）。
 - 問題があれば dev で直して再度 PR。
 
+## 追記(2026-07-07): ベータ前リファクタ完了 + 判断待ち1件
+
+ツール側(サイトルート `/`)の最終リファクタパスを実施済み。dev は svelte-check 0 errors /
+test 45/45 でグリーン。追加コミット: `3633990f`(データ整合/サーバ堅牢化/モバイルUX一括) /
+`93b91c88`(デッキセル安定キー & タッチ領域拡大) / `37ba0ddf`(password テスト修正)。
+
+### ★ 自宅班への判断依頼: Sv5(レート制限の原子化)を見送りでよいか
+- ログイン等のレート制限は `store.incrRate` が KV の read-modify-write で**意図的に非原子**
+  (コードに「non-atomic — eventual consistency acceptable」と明記)。
+- 「increment-first」に変えても KV では原子性が得られず、かつ「失敗時のみカウント」を壊して
+  **成功ログインもカウント→正規ユーザーをロック**する副作用が出る。→ バンドエイドなので今回見送り。
+- **提案**: 濫用が観測されたら Durable Objects 版レート制限を正式リリース枠で導入。この方針でクローズしてよいか判断を。
+
+### ★ マージ前に staging で実機スモークテスト推奨
+特に致命バグ修正(cloudDeckSync のデッキ複製)は静的レビューのみ。実際に staging で
+「デッキ保存→再訪(下書き復元)→一覧を開かず再保存」して**複製されない(更新される)こと**を確認してから main へ。
+
+### 見送った他の項目(post-beta backlog)
+モーダルのEscキー閉じ/フォーカス制御(キーボードショートカット機能で一括)、
+card_usage_aggregate の write-skew、username-check のレート制限。詳細はエージェントのメモリ
+`post-beta-backlog` 参照(自宅で Claude を起動すれば MEMORY.md 経由で自動的に見える)。
+
 ## メモ
 
 - 外出先リモコン環境は Node 未インストール & git 操作不可のため、ここまでの検証は静的レビューのみ。
   自宅環境では `npm ci` 後に `npm run check`（svelte-check）/ `npm test` を回してから流すと安心。
+  (※ 外出先環境にも後から Node 22 をユーザー空間に導入済みなので、今後はその場で check/test 可能)
