@@ -48,7 +48,9 @@
     if (isOpen) {
       shouldRender = true;
       clearTimeout(timer);
-      setTimeout(() => {
+      // timer に保持しないと、10ms 以内に閉じられた時にこの遅延発火を cleanup で
+      // 止められず isAnimating が固まる。開き側のタイマーも timer で管理する。
+      timer = setTimeout(() => {
         isAnimating = true;
       }, 10);
     } else {

@@ -23,12 +23,16 @@
 
   $effect(() => {
     if (!isOpen) return;
+    // 開閉を繰り返した時に前回の in-flight fetch が後から解決して
+    // 表示を上書きしないよう、cleanup でキャンセルフラグを立てる。
+    let cancelled = false;
     loading = true;
     error = null;
     fetch('/api/stats/cards')
       .then(r => r.json())
-      .then(data => { ranking = data; loading = false; })
-      .catch(() => { error = '読み込みに失敗しました'; loading = false; });
+      .then(data => { if (cancelled) return; ranking = data; loading = false; })
+      .catch(() => { if (cancelled) return; error = '読み込みに失敗しました'; loading = false; });
+    return () => { cancelled = true; };
   });
 
   const ranked = $derived(

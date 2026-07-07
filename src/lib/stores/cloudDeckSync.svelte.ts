@@ -76,7 +76,11 @@ export class CloudDeckSync {
   }
 
   async save(deck: DeckInput): Promise<string> {
-    const isNew = !deck.id || !this.decks.find((d) => d.id === deck.id);
+    // 新規判定は deck.id の有無だけで行う。
+    // 一覧(this.decks)は開くまでロードされない(空)ことがあり、find に依存すると
+    // 「下書き復元した保存済みデッキを一覧を開かず保存」で既存デッキを新規POSTして
+    // 複製してしまう。存在しないidへのPUTはサーバが404で弾く(=silent複製より安全)。
+    const isNew = !deck.id;
 
     this.syncing = true;
     this.error = null;
