@@ -293,7 +293,10 @@
   <title>wixdex — WIXOSS デッキビルダー</title>
   <meta property="og:title" content="wixdex — WIXOSS デッキビルダー" />
   <meta property="og:description" content="WIXOSS（ディーヴァ）のデッキを構築・公開・シェアできるツール。" />
-  <meta property="og:url" content="https://wixdex.cards/" />
+  <!-- og:url は環境のオリジンに追従（ユーザー/デッキページと同じ動的パターンに統一）。
+       staging では staging のURLになり、貼ったカードから実際のテスト対象ページへ戻れる。
+       og:image は app.html の共通デフォルト（常に本番 og.png）を使うので、見た目は本番と同一。 -->
+  <meta property="og:url" content={page.url.origin + page.url.pathname} />
 </svelte:head>
 
 <div class="flex flex-col w-dvw h-dvh m-0 p-0 bg-zinc-900 overflow-hidden">
