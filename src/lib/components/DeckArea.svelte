@@ -38,6 +38,22 @@
 
   const touchStateMap = new Map<string, TouchState>();
 
+  // {#each} のキーに配列 index を混ぜると、追加/削除でのソートで位置がずれた全セルが
+  // 再マウントされ画像が再デコードされる。カード種別ごとの出現回数で安定キーを振り、
+  // 同一カードのコピーは位置が変わってもキー不変=DOM移動で済むようにする。
+  function withKeys(cards: Card[], prefix: string): { card: Card; key: string; index: number }[] {
+    const seen = new Map<string, number>();
+    return cards.map((card, index) => {
+      const id = card.cardID ?? card.image;
+      const n = seen.get(id) ?? 0;
+      seen.set(id, n + 1);
+      return { card, key: `${prefix}-${id}-${n}`, index };
+    });
+  }
+  let lrigKeyed = $derived(withKeys(lrigDeck, 'lrig'));
+  let mainKeyed = $derived(withKeys(mainDeck, 'main'));
+  let candidateKeyed = $derived(withKeys(candidateCards, 'candidate'));
+
   function handleWheel(e: WheelEvent, card: Card, index: number, deckType: 'main' | 'lrig') {
     e.preventDefault();
     const threshold = 30;
@@ -90,11 +106,11 @@
       <span class="text-base md:text-lg">Lrig Deck</span>
     </div>
     <div class="lrigDeck grid w-full h-[calc(32dvw-4rem)] sm:h-[8rem] md:h-[calc(14dvw-2rem)] lg:h-[calc(11dvw-3rem)] xl:h-[6rem] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1">
-      {#each lrigDeck as card, index (`lrig-${card.cardID}-${index}`)}
+      {#each lrigKeyed as { card, key, index } (key)}
         <div class="flex items-center" role="presentation"
-          ontouchstart={(e) => handleTouchStart(e, `lrig-${card.cardID}-${index}`)}
-          ontouchmove={(e) => handleTouchMove(e, `lrig-${card.cardID}-${index}`)}
-          ontouchend={(e) => handleTouchEnd(e, `lrig-${card.cardID}-${index}`, card, index, 'lrig')}
+          ontouchstart={(e) => handleTouchStart(e, key)}
+          ontouchmove={(e) => handleTouchMove(e, key)}
+          ontouchend={(e) => handleTouchEnd(e, key, card, index, 'lrig')}
         >
           <CardImage
             {card}
@@ -123,11 +139,11 @@
       </div>
     </div>
     <div class="mainDeck grid w-full h-[calc(90dvw-4rem)] md:h-[calc(45dvw-3rem)] lg:h-[calc(36dvw-3rem)] xl:h-[26rem] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1">
-      {#each mainDeck as card, index (`main-${card.cardID}-${index}`)}
+      {#each mainKeyed as { card, key, index } (key)}
         <div class="flex items-center" role="presentation"
-          ontouchstart={(e) => handleTouchStart(e, `main-${card.cardID}-${index}`)}
-          ontouchmove={(e) => handleTouchMove(e, `main-${card.cardID}-${index}`)}
-          ontouchend={(e) => handleTouchEnd(e, `main-${card.cardID}-${index}`, card, index, 'main')}
+          ontouchstart={(e) => handleTouchStart(e, key)}
+          ontouchmove={(e) => handleTouchMove(e, key)}
+          ontouchend={(e) => handleTouchEnd(e, key, card, index, 'main')}
         >
           <CardImage
             {card}
@@ -152,7 +168,7 @@
       <span class="text-base md:text-lg">Folder</span>
     </div>
     <div class="grid grid-cols-5 auto-rows-min gap-2 w-full overflow-y-auto xl:grid-cols-6">
-      {#each candidateCards as card, index (`candidate-${card.cardID}-${index}`)}
+      {#each candidateKeyed as { card, key } (key)}
         <div class="flex flex-col w-full border border-gray-600/50 rounded-lg">
           <div class="flex items-center w-full aspect-[12/17]">
             <CardImage
@@ -166,7 +182,7 @@
               onclick={() => onCardClick(card)}
             />
           </div>
-          <div class="flex justify-center w-full h-8">
+          <div class="flex justify-center w-full h-10">
             <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
               onclick={() => onAdd(card)} title="デッキに1枚追加">
               <IconPlus class="w-[18px] h-[18px]" />
