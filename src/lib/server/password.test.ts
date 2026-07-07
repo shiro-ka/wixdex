@@ -46,7 +46,10 @@ describe('password', () => {
   });
 
   it('needsRehash: 旧回数は true / 現行は false / 不正形式は true', async () => {
-    const old = await makeHash('pw', 200_000);
+    // 現行 ITERATIONS(100,000) より「少ない」= 弱いハッシュが再ハッシュ対象。
+    // ※ Workers 上限に合わせ ITERATIONS を下げた経緯があるため、少ない回数で表現する
+    //   （多い回数=より強いハッシュはあえて焼き直さないのが needsRehash の正しい挙動）。
+    const old = await makeHash('pw', 50_000);
     const fresh = await hashPassword('pw');
     expect(needsRehash(old)).toBe(true);
     expect(needsRehash(fresh)).toBe(false);
