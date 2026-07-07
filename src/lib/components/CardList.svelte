@@ -55,7 +55,8 @@
     containerWidth > 0 ? (containerWidth - PAD_X * 2 - GAP * (COLS - 1)) / COLS : 0,
   );
   // Estimate only — measureElement reports the real height once a row renders.
-  let estRowHeight = $derived(colWidth > 0 ? colWidth * (17 / 12) + 42 : 180);
+  // +50 はカード下のボタン行(h-10=40px)＋間隔ぶんの見込み。
+  let estRowHeight = $derived(colWidth > 0 ? colWidth * (17 / 12) + 50 : 180);
   function laneLeft(lane: number): number {
     return PAD_X + lane * (colWidth + GAP);
   }
@@ -281,7 +282,7 @@
           onclick={() => onCardClick(card)}
         />
       </div>
-      <div class="flex justify-center w-full h-8">
+      <div class="flex justify-center w-full h-10">
         <button
           class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
           onclick={() => onAdd(card)} title="デッキに1枚追加"
