@@ -142,7 +142,7 @@
             'text-gray-200',
             count === 0,
           )}
-          <div class="flex items-center justify-center min-w-8 text-lg font-bold text-white tabular-nums">
+          <div class="flex-1 flex items-center justify-center text-lg font-bold text-white tabular-nums">
             {count}
           </div>
           {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', 'text-gray-200', !canAdd)}
