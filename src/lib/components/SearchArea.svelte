@@ -130,9 +130,13 @@
   let isLrigClassFilterEnabled = $derived(selectedLrigClasses.size > 0);
   let isTagFilterEnabled = $derived(selectedTags.size > 0);
 
-  let typeActive = $derived(activeDropdown === 'type' || expandedMenu === 'type');
-  let lrigActive = $derived(activeDropdown === 'lrigClass' || expandedMenu === 'lrigClass');
-  let tagActive = $derived(activeDropdown === 'tag' || expandedMenu === 'tag');
+  // PC(lg以上)は拡張パネルが常時表示なので、選択中タブ(expandedMenu)をハイライト。
+  // スマホはドロップダウン開閉式なので、開いているもの(activeDropdown)だけをハイライトし、
+  // どれも閉じているときは3つとも非アクティブ(通常背景)にする。
+  // ※ expandedMenu の初期値 'type' をスマホでも見てしまうと、未開時にカードタイプだけ明るくなる。
+  let typeActive = $derived(isLargeScreen ? expandedMenu === 'type' : activeDropdown === 'type');
+  let lrigActive = $derived(isLargeScreen ? expandedMenu === 'lrigClass' : activeDropdown === 'lrigClass');
+  let tagActive = $derived(isLargeScreen ? expandedMenu === 'tag' : activeDropdown === 'tag');
 </script>
 
 <div class="flex flex-col px-2 pb-4 md:pb-1 lg:w-96">
