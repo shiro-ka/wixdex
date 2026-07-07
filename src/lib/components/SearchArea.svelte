@@ -106,7 +106,16 @@
     return () => mq.removeEventListener('change', handler);
   });
 
+  // テキスト検索は全カードに対する絞り込みを走らせるので、キー入力ごとの実行は
+  // 低スペック端末で重い。150ms デバウンスしてから store へ反映する。
+  let searchDebounce: ReturnType<typeof setTimeout>;
+  function handleSearchInput() {
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(() => onTextSearch(searchText), 150);
+  }
+
   function handleClear() {
+    clearTimeout(searchDebounce);
     searchText = '';
     onTextSearch('');
   }
@@ -325,12 +334,17 @@
     <!-- テキスト/クリア/その他ボタン -->
     <div class="flex w-full h-10 lg:h-8">
       <!-- 設定ボタン -->
-      <button
-        type="button"
-        class="relative flex items-center justify-center w-10 h-full mr-2 bg-zinc-600/10 {filterBorder} text-gray-400 hover:text-white cursor-pointer transition-all"
-        onclick={() => { isSettingsOpen = !isSettingsOpen; }}
-      >
-        <IconAdjustments class="w-5 h-5" />
+      <!-- ポップアップをボタンの内側に置くと、オプションのクリックが外側ボタンへ
+           バブリングして即閉じる & button の入れ子で不正HTML。relative な div で
+           トグルボタンとポップアップを兄弟にして解消する。 -->
+      <div class="relative w-10 h-full mr-2">
+        <button
+          type="button"
+          class="flex items-center justify-center w-full h-full bg-zinc-600/10 {filterBorder} text-gray-400 hover:text-white cursor-pointer transition-all"
+          onclick={() => { isSettingsOpen = !isSettingsOpen; }}
+        >
+          <IconAdjustments class="w-5 h-5" />
+        </button>
         <SettingsPopup
           isOpen={isSettingsOpen}
           onClose={() => { isSettingsOpen = false; }}
@@ -341,20 +355,23 @@
           {rotateLandscape}
           {onToggleRotateLandscape}
         />
-      </button>
+      </div>
 
       <!-- 検索入力 -->
       <div class="flex flex-1 mr-2 items-center bg-zinc-600/10 {filterBorder} has-[input:focus]:ring-2 has-[input:focus]:ring-gray-500">
-        <button
-          type="button"
-          class="relative flex w-12 h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer transition-all"
-          onclick={() => { isSearchSettingsOpen = !isSearchSettingsOpen; }}
-        >
-          {#if isSearchSettingsOpen}
-            <IconZoomCancelFilled class="w-5 h-5 text-gray-300" />
-          {:else}
-            <IconSearch class="w-5 h-5" />
-          {/if}
+        <!-- 同上: ポップアップを button の外(relative div の兄弟)に出す -->
+        <div class="relative w-12 h-full">
+          <button
+            type="button"
+            class="flex w-full h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer transition-all"
+            onclick={() => { isSearchSettingsOpen = !isSearchSettingsOpen; }}
+          >
+            {#if isSearchSettingsOpen}
+              <IconZoomCancelFilled class="w-5 h-5 text-gray-300" />
+            {:else}
+              <IconSearch class="w-5 h-5" />
+            {/if}
+          </button>
           <SearchSettingsPopup
             isOpen={isSearchSettingsOpen}
             onClose={() => { isSearchSettingsOpen = false; }}
@@ -363,12 +380,12 @@
             onToggleSearchCardName={onToggleSearchName}
             onToggleSearchCardText={onToggleSearchInText}
           />
-        </button>
+        </div>
         <input
           type="text"
           class="w-full h-full pb-[2px] ml-2 text-sm text-white placeholder-gray-400 focus:outline-none bg-transparent"
           bind:value={searchText}
-          oninput={() => onTextSearch(searchText)}
+          oninput={handleSearchInput}
         />
         <button
           type="button"

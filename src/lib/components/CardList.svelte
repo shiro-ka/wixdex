@@ -331,7 +331,7 @@
   class="flex-1 min-h-0 max-w-full py-3 mb-1 {isMd
     ? 'rounded-xl border border-gray-600/50 overflow-y-auto overflow-x-hidden'
     : 'overflow-x-auto overflow-y-hidden'}"
-  style="touch-action: pan-x"
+  style="touch-action: {isMd ? 'pan-y' : 'pan-x'}"
 >
   {#if loading}
     <div class="flex items-center justify-center w-full h-32">
