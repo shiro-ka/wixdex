@@ -51,6 +51,10 @@
 html, body {
   width: 100%;
   margin: 0;
+  /* 上から引っ張ったときのプルリフレッシュ(誤爆)を抑止。
+     判定はルートのスクロール境界(html)を見るので、body だけでなく html にも指定する。
+     Chrome/Firefox(Android)とも overscroll-behavior でプルリフレッシュを止められる。 */
+  overscroll-behavior-y: none;
 }
 
 /* 通常ページ(設定/プロフィール/共有デッキ/ログイン)はドキュメントフローでスクロール。
