@@ -4,9 +4,9 @@
   import IconLibrary from '@tabler/icons-svelte/icons/library';
   import IconChartLine from '@tabler/icons-svelte/icons/chart-line';
   import IconUser from '@tabler/icons-svelte/icons/user';
-  import IconWindow from '@tabler/icons-svelte/icons/window';
   import IconBrandBluesky from '@tabler/icons-svelte/icons/brand-bluesky';
   import IconBrandGithub from '@tabler/icons-svelte/icons/brand-github';
+  import IconMado from '$lib/components/icons/IconMado.svelte';
   import { sidebarBtn } from '$lib/styles';
   import { logout } from '$lib/utils/logout';
   import clsx from 'clsx';
@@ -69,7 +69,13 @@
 {/snippet}
 
 <!-- 外部リンク1行（アイコン + タイトル + 説明） -->
-{#snippet linkRow(Icon: typeof IconWindow, title: string, desc: string, href: string)}
+{#snippet linkRow(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Icon: any,
+  title: string,
+  desc: string,
+  href: string,
+)}
   <a
     {href}
     target="_blank"
@@ -187,18 +193,12 @@
     <div class="mt-6 space-y-1">
       {@render sectionLabel('Link')}
 
-      <!-- Mado: 準備中なので非リンク（ミュート表示） -->
-      <div class="flex items-center gap-3 px-2 py-2 rounded-lg text-gray-400 cursor-default">
-        <IconWindow class="w-6 h-6 shrink-0" />
-        <div class="min-w-0">
-          <p class="text-sm font-medium leading-tight flex items-center gap-1.5">
-            Mado
-            <span class="text-[10px] px-1 py-0.5 rounded bg-zinc-700 text-gray-400">準備中</span>
-          </p>
-          <p class="text-xs text-gray-500 leading-tight">バグ報告・要望など</p>
-        </div>
-      </div>
-
+      {@render linkRow(
+        IconMado,
+        'Mado',
+        'バグ報告・要望など',
+        'https://mado.blue/@ffffffflower.bsky.social/wixdex',
+      )}
       {@render linkRow(
         IconBrandBluesky,
         'Bluesky',
