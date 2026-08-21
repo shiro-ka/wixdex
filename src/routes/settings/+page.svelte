@@ -26,9 +26,6 @@
     if (!result.ok) blueskyLinkError = result.error;
     blueskyLoading = false;
   }
-
-  const inputClass =
-    'w-full rounded-lg bg-zinc-800 px-3 py-2 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500/70 transition';
 </script>
 
 <svelte:head>
@@ -43,7 +40,7 @@
 
     <div class="grid items-start gap-4 lg:grid-cols-2">
       <!-- アカウント概要 -->
-      <div class="rounded-xl border border-gray-600/30 bg-zinc-600/10 p-5">
+      <div data-suisou-surface="panel">
         <p class="text-sm text-zinc-400">表示名</p>
         <p class="text-white">{data.user.displayName}</p>
         {#if data.user.email}
@@ -64,8 +61,8 @@
       </div>
 
       <!-- ユーザー名 / ページURL -->
-      <section class="rounded-xl border border-gray-600/30 bg-zinc-600/10 p-5">
-        <h2 class="mb-3 text-lg font-semibold">ページURL</h2>
+      <section data-suisou-surface="panel">
+        <h2 class="mb-3" data-suisou-text="s16 w700">ページURL</h2>
         {#if canEditUsername}
           {#if f?.action === 'changeUsername'}
             {#if f?.error}
@@ -76,10 +73,8 @@
           {/if}
           <form method="POST" action="?/changeUsername" class="space-y-2">
             <div class="flex gap-2">
-              <div
-                class="flex flex-1 items-center rounded-lg bg-zinc-800 focus-within:ring-2 focus-within:ring-orange-500/70"
-              >
-                <span class="pl-3 text-zinc-500">/@</span>
+              <div class="flex flex-1 items-center" data-suisou-button-group>
+                <span class="prefix">/@</span>
                 <input
                   name="username"
                   type="text"
@@ -88,7 +83,7 @@
                   autocapitalize="none"
                   autocomplete="off"
                   spellcheck="false"
-                  class="w-full bg-transparent px-1.5 py-2 text-white placeholder-zinc-500 focus:outline-none"
+                  data-suisou-field
                   placeholder="your_name"
                 />
               </div>
@@ -96,9 +91,9 @@
                 type="button"
                 onclick={() => (username = randomUsername())}
                 title="おまかせ生成"
-                class="flex shrink-0 items-center justify-center rounded-lg bg-zinc-800 px-3 text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-white"
+                data-suisou-button="plain icon"
               >
-                <IconDice class="h-5 w-5" />
+                <IconDice />
               </button>
             </div>
             <p class="text-xs text-zinc-500">
@@ -116,8 +111,8 @@
       </section>
 
       {#if data.user.email}
-        <section class="rounded-xl border border-gray-600/30 bg-zinc-600/10 p-5">
-          <h2 class="mb-3 text-lg font-semibold">パスワード変更</h2>
+        <section data-suisou-surface="panel">
+          <h2 class="mb-3" data-suisou-text="s16 w700">パスワード変更</h2>
           {#if f?.action === 'changePassword'}
             {#if f?.error}
               <p class="mb-3 text-sm text-red-400">{f.error}</p>
@@ -135,7 +130,7 @@
                 name="currentPassword"
                 type="password"
                 required
-                class={inputClass}
+                data-suisou-field="block"
               />
             </div>
             <div>
@@ -148,7 +143,7 @@
                 type="password"
                 required
                 minlength="8"
-                class={inputClass}
+                data-suisou-field="block"
               />
             </div>
             <button type="submit" data-suisou-button="outline"> 変更する </button>
@@ -156,8 +151,8 @@
         </section>
       {/if}
 
-      <section class="rounded-xl border border-gray-600/30 bg-zinc-600/10 p-5">
-        <h2 class="mb-3 text-lg font-semibold">Bluesky 連携</h2>
+      <section data-suisou-surface="panel">
+        <h2 class="mb-3" data-suisou-text="s16 w700">Bluesky 連携</h2>
         {#if f?.action === 'unlinkBluesky'}
           {#if f?.error}
             <p class="mb-3 text-sm text-red-400">{f.error}</p>
@@ -168,12 +163,7 @@
         {#if data.user.blueskyHandle}
           <p class="mb-3 text-sm text-zinc-300">@{data.user.blueskyHandle} と連携中</p>
           <form method="POST" action="?/unlinkBluesky">
-            <button
-              type="submit"
-              class="rounded-lg bg-red-800 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
-            >
-              連携解除
-            </button>
+            <button type="submit" data-suisou-button="danger">連携解除</button>
           </form>
         {:else}
           <div class="space-y-3">
@@ -181,7 +171,7 @@
               type="text"
               bind:value={blueskyHandle}
               placeholder="you.bsky.social"
-              class={inputClass}
+              data-suisou-field="block"
             />
             {#if blueskyLinkError}
               <p class="text-sm text-red-400">{blueskyLinkError}</p>
@@ -199,12 +189,16 @@
       </section>
     </div>
 
-    <button
-      type="button"
-      onclick={logout}
-      class="mt-6 rounded-lg bg-zinc-800 px-4 py-2 text-sm font-semibold text-zinc-300 hover:bg-zinc-700"
-    >
+    <button type="button" class="mt-6" data-suisou-button="plain" onclick={logout}>
       ログアウト
     </button>
   </div>
 </main>
+
+<style>
+  /* Bluesky 連携ボタンはブランド色なので Suisou に寄せない（sky のまま） */
+  .prefix {
+    padding-left: var(--suisou-space-2);
+    color: var(--suisou-text-disabled);
+  }
+</style>
