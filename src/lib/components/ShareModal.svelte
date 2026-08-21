@@ -196,7 +196,7 @@
             {#if editingSlug}
               <div class="mt-2">
                 <div class="flex items-center" data-suisou-button-group>
-                  <span class="prefix">/@{ownerAtName}/</span>
+                  <span data-suisou-affix class="text-xs">/@{ownerAtName}/</span>
                   <input
                     type="text"
                     bind:value={editSlug}
@@ -325,14 +325,3 @@
     </div>
   </div>
 </BaseModal>
-
-<style>
-  /* settings の /@ と同じ扱い。囲いは連結（button-group）が持つので、
-     接頭辞は素の文字でいい */
-  .prefix {
-    padding-left: var(--suisou-space-2);
-    color: var(--suisou-text-disabled);
-    font-size: var(--suisou-size-12);
-    white-space: nowrap;
-  }
-</style>

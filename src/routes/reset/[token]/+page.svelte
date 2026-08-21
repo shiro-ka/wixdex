@@ -13,11 +13,13 @@
     <h1 class="mb-6 text-center text-xl font-bold text-white">パスワード再設定</h1>
 
     {#if !data.valid || (form && 'expired' in form && form.expired)}
-      <p class="banner mb-6">このリンクは無効か、有効期限（30分）が切れています。</p>
+      <p data-suisou-banner="error" role="alert" class="mb-6">
+        このリンクは無効か、有効期限（30分）が切れています。
+      </p>
       <a href="/login" data-suisou-button="outline wide"> ログイン画面へ戻る </a>
     {:else}
       {#if form?.error}
-        <p class="banner mb-4">{form.error}</p>
+        <p data-suisou-banner="error" role="alert" class="mb-4">{form.error}</p>
       {/if}
       <form method="POST" class="space-y-4">
         <div>
@@ -40,15 +42,3 @@
     {/if}
   </div>
 </main>
-
-<style>
-  .banner {
-    border: 1px solid var(--suisou-error);
-    border-radius: var(--suisou-radius);
-    padding: var(--suisou-space-2) var(--suisou-space-3);
-    background: var(--suisou-error-surface);
-    color: var(--suisou-text-main);
-    font-size: var(--suisou-size-14);
-    line-height: var(--suisou-lh-14);
-  }
-</style>
