@@ -319,35 +319,29 @@
         />
       </div>
       <div class="flex justify-center w-full h-10">
-        <button
-          class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-          onclick={() => onAdd(card)}
-          title="デッキに1枚追加"
-        >
-          <IconPlus class="w-5 h-5" />
+        <button class="cell" data-suisou-button onclick={() => onAdd(card)} title="デッキに1枚追加">
+          <IconPlus />
         </button>
         {#if isMainDeckCard(card)}
           <button
-            class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+            class="cell"
+            data-suisou-button
             onclick={() => onAddMultiple(card, 4)}
             title="デッキに4枚追加"
           >
-            <IconBoxMultiple4 class="w-5 h-5" />
+            <IconBoxMultiple4 />
           </button>
         {/if}
         <button
-          class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+          class="cell"
+          data-suisou-button
           onclick={() => {
             if (candidateFilter) onRemoveFromCandidate(card);
             else onAddToCandidate(card);
           }}
           title={candidateFilter ? '候補カードから削除' : '候補カードに追加'}
         >
-          {#if candidateFilter}
-            <IconFolderX class="w-5 h-5" />
-          {:else}
-            <IconFolderPlus class="w-5 h-5" />
-          {/if}
+          {#if candidateFilter}<IconFolderX />{:else}<IconFolderPlus />{/if}
         </button>
       </div>
     {:else}
@@ -421,3 +415,13 @@
     </div>
   {/if}
 </div>
+
+<style>
+  /* 升目に広がるボタン。セルの高さ(h-10)は仮想リストの計測に効くので動かさない */
+  .cell {
+    flex: 1 1 auto;
+    height: 100%;
+    padding: 0;
+    min-width: 0;
+  }
+</style>

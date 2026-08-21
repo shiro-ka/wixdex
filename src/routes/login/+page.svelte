@@ -67,9 +67,6 @@
     if (!result.ok) blueskyError = result.error;
     blueskyLoading = false;
   }
-
-  const inputClass =
-    'w-full rounded-lg bg-zinc-800 px-3 py-2 text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-orange-500/70 transition';
 </script>
 
 <svelte:head>
@@ -78,7 +75,8 @@
 
 <main class="flex min-h-screen items-center justify-center bg-zinc-900 p-4">
   <div
-    class="grid w-full max-w-4xl min-h-[45rem] overflow-hidden rounded-2xl border border-gray-600/30 bg-zinc-600/10 lg:grid-cols-2"
+    class="grid w-full max-w-4xl min-h-[45rem] overflow-hidden lg:grid-cols-2"
+    data-suisou-surface="panel bleed"
   >
     <!-- 左: ブランディング（PCのみ。zincダーク、オレンジは差し色のみ） -->
     <div
@@ -109,22 +107,22 @@
 
       <!-- タブ切替（再設定モードでは隠す） -->
       {#if mode !== 'forgot'}
-        <div class="mb-6 flex rounded-lg bg-zinc-800/60 p-1">
+        <div class="mb-6 flex" data-suisou-button-group>
           <button
             type="button"
+            class="tab"
+            data-suisou-button="neutral"
+            aria-pressed={mode === 'login'}
             onclick={() => (mode = 'login')}
-            class="flex-1 rounded-md py-2 text-sm font-medium transition-colors {mode === 'login'
-              ? 'bg-zinc-700 text-white'
-              : 'text-zinc-400 hover:text-zinc-200'}"
           >
             ログイン
           </button>
           <button
             type="button"
+            class="tab"
+            data-suisou-button="neutral"
+            aria-pressed={mode === 'register'}
             onclick={() => (mode = 'register')}
-            class="flex-1 rounded-md py-2 text-sm font-medium transition-colors {mode === 'register'
-              ? 'bg-zinc-700 text-white'
-              : 'text-zinc-400 hover:text-zinc-200'}"
           >
             新規登録
           </button>
@@ -132,20 +130,20 @@
       {/if}
 
       {#if data.oauthError}
-        <p class="mb-4 rounded-lg bg-red-900/40 px-4 py-3 text-sm text-red-300">
+        <p class="banner mb-4">
           {data.oauthError}
         </p>
       {/if}
       {#if data.resetDone}
-        <p class="mb-4 rounded-lg bg-green-900/40 px-4 py-3 text-sm text-green-300">
+        <p class="banner-ok mb-4">
           パスワードを再設定しました。新しいパスワードでログインしてください。
         </p>
       {/if}
       {#if form && 'error' in form && form.error}
-        <p class="mb-4 rounded-lg bg-red-900/40 px-4 py-3 text-sm text-red-300">{form.error}</p>
+        <p class="banner mb-4">{form.error}</p>
       {/if}
       {#if form && form.mode === 'forgot' && 'success' in form && form.success}
-        <p class="mb-4 rounded-lg bg-green-900/40 px-4 py-3 text-sm text-green-300">
+        <p class="banner-ok mb-4">
           入力されたメールアドレスが登録されていれば、再設定用のリンクを送信しました。メールをご確認ください。
         </p>
       {/if}
@@ -165,16 +163,11 @@
               type="email"
               required
               autocomplete="email"
-              class={inputClass}
+              data-suisou-field="block"
               placeholder="you@example.com"
             />
           </div>
-          <button
-            type="submit"
-            class="w-full rounded-lg bg-orange-500 py-2.5 font-semibold text-white transition-colors hover:bg-orange-600 active:bg-orange-700"
-          >
-            再設定リンクを送る
-          </button>
+          <button type="submit" data-suisou-button="outline wide">再設定リンクを送る</button>
         </form>
         <button
           type="button"
@@ -195,7 +188,7 @@
                 type="text"
                 required
                 maxlength="64"
-                class={inputClass}
+                data-suisou-field="block"
                 placeholder="あなたの名前"
               />
             </div>
@@ -204,10 +197,8 @@
                 ユーザー名 <span class="text-zinc-500">(URLになります: /@…)</span>
               </label>
               <div class="flex gap-2">
-                <div
-                  class="flex flex-1 items-center rounded-lg bg-zinc-800 focus-within:ring-2 focus-within:ring-orange-500/70"
-                >
-                  <span class="pl-3 text-zinc-500">@</span>
+                <div class="flex flex-1 items-center" data-suisou-button-group>
+                  <span class="prefix">@</span>
                   <input
                     id="username"
                     name="username"
@@ -219,7 +210,7 @@
                     autocapitalize="none"
                     autocomplete="off"
                     spellcheck="false"
-                    class="w-full bg-transparent px-1.5 py-2 text-white placeholder-zinc-500 focus:outline-none"
+                    data-suisou-field
                     placeholder="your_name"
                   />
                 </div>
@@ -230,9 +221,9 @@
                     checkUsername();
                   }}
                   title="おまかせ生成"
-                  class="flex shrink-0 items-center justify-center rounded-lg bg-zinc-800 px-3 text-zinc-400 transition-colors hover:bg-zinc-700 hover:text-white"
+                  data-suisou-button="plain icon"
                 >
-                  <IconDice class="h-5 w-5" />
+                  <IconDice />
                 </button>
               </div>
               {#if usernameStatus === 'checking'}
@@ -257,7 +248,7 @@
                 type="email"
                 required
                 autocomplete="email"
-                class={inputClass}
+                data-suisou-field="block"
                 placeholder="you@example.com"
               />
             </div>
@@ -274,7 +265,7 @@
                 autocapitalize="none"
                 autocomplete="username"
                 spellcheck="false"
-                class={inputClass}
+                data-suisou-field="block"
                 placeholder="you@example.com / your_name"
               />
             </div>
@@ -290,13 +281,10 @@
               required
               minlength={mode === 'register' ? 8 : undefined}
               autocomplete={mode === 'register' ? 'new-password' : 'current-password'}
-              class={inputClass}
+              data-suisou-field="block"
             />
           </div>
-          <button
-            type="submit"
-            class="w-full rounded-lg bg-orange-500 py-2.5 font-semibold text-white transition-colors hover:bg-orange-600 active:bg-orange-700"
-          >
+          <button type="submit" data-suisou-button="outline wide">
             {mode === 'login' ? 'ログイン' : 'アカウント作成'}
           </button>
         </form>
@@ -352,14 +340,14 @@
                 autocapitalize="none"
                 autocomplete="off"
                 spellcheck="false"
-                class={inputClass}
+                data-suisou-field="block"
                 onkeydown={(e) => e.key === 'Enter' && loginWithBluesky(blueskyHandle)}
               />
               <button
                 type="button"
+                data-suisou-button="plain wide"
                 onclick={() => loginWithBluesky(blueskyHandle)}
                 disabled={blueskyLoading}
-                class="w-full rounded-lg bg-zinc-700 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-600 disabled:opacity-50"
               >
                 このハンドルで続ける
               </button>
@@ -370,3 +358,29 @@
     </div>
   </div>
 </main>
+
+<style>
+  /* 認証画面の現場実装。タブの伸ばし方・バナー・合成入力の接頭辞だけ。
+     Bluesky のボタンはブランド色なので Suisou に寄せない（sky のまま） */
+  .tab {
+    flex: 1 1 auto;
+  }
+  .banner,
+  .banner-ok {
+    border: 1px solid var(--suisou-error);
+    border-radius: var(--suisou-radius);
+    padding: var(--suisou-space-2) var(--suisou-space-3);
+    background: var(--suisou-error-surface);
+    color: var(--suisou-text-main);
+    font-size: var(--suisou-size-14);
+    line-height: var(--suisou-lh-14);
+  }
+  .banner-ok {
+    border-color: var(--suisou-success);
+    background: var(--suisou-success-surface);
+  }
+  .prefix {
+    padding-left: var(--suisou-space-2);
+    color: var(--suisou-text-disabled);
+  }
+</style>
