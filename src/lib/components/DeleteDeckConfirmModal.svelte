@@ -17,25 +17,14 @@
   <div class="space-y-4">
     <p class="text-gray-300">「{deckName}」を削除しますか？</p>
     {#if hasUnsavedChanges}
-      <p class="text-sm text-orange-400">
+      <!-- 注意の文言なので warning（accent の橙ではなく意味色）。 -->
+      <p class="text-sm text-yellow-500">
         このデッキには未保存の変更があります。削除すると失われます。
       </p>
     {/if}
     <div class="flex flex-col gap-2">
-      <button
-        type="button"
-        onclick={onConfirm}
-        class="w-full rounded-lg bg-red-600 py-2 font-semibold text-white hover:bg-red-500 active:bg-red-700 transition-colors"
-      >
-        削除する
-      </button>
-      <button
-        type="button"
-        onclick={onCancel}
-        class="w-full rounded-lg py-2 font-medium text-gray-400 hover:text-gray-200 transition-colors"
-      >
-        キャンセル
-      </button>
+      <button type="button" onclick={onConfirm} data-suisou-button="danger wide">削除する</button>
+      <button type="button" onclick={onCancel} data-suisou-button="wide">キャンセル</button>
     </div>
   </div>
 </BaseModal>

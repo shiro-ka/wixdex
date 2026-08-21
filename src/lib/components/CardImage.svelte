@@ -80,7 +80,10 @@
     }}
   />
   {#if showLifeBurst && hasLifeBurst && isImageLoaded}
-    <div class="absolute bottom-1 right-1 bg-orange-500 rounded-full p-0.5">
+    <div
+      class="absolute bottom-1 right-1 rounded-full p-0.5"
+      style="background: var(--badge-lifeburst)"
+    >
       <LifeBurstIcon class="w-3 h-3 text-white" />
     </div>
   {/if}
