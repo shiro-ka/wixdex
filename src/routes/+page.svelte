@@ -292,7 +292,10 @@
 <svelte:head>
   <title>wixdex — WIXOSS デッキビルダー</title>
   <meta property="og:title" content="wixdex — WIXOSS デッキビルダー" />
-  <meta property="og:description" content="WIXOSS（ディーヴァ）のデッキを構築・公開・シェアできるツール。" />
+  <meta
+    property="og:description"
+    content="WIXOSS（ディーヴァ）のデッキを構築・公開・シェアできるツール。"
+  />
   <!-- og:url は環境のオリジンに追従（ユーザー/デッキページと同じ動的パターンに統一）。
        staging では staging のURLになり、貼ったカードから実際のテスト対象ページへ戻れる。
        og:image は app.html の共通デフォルト（常に本番 og.png）を使うので、見た目は本番と同一。 -->
@@ -330,7 +333,9 @@
       onRemove={deck.removeCard}
       candidateCards={deck.sortedCandidateCards}
       onRemoveFromCandidate={deck.removeFromCandidate}
-      onCardClick={(card) => { popupCard = card; }}
+      onCardClick={(card) => {
+        popupCard = card;
+      }}
       lifeBurstCount={deck.lifeBurstCount}
       {showLifeBurst}
       {rotateLandscape}
@@ -350,7 +355,9 @@
         onAddToCandidate={deck.addToCandidate}
         onRemoveFromCandidate={deck.removeFromCandidate}
         candidateFilter={filter.candidateFilter}
-        onCardClick={(card) => { popupCard = card; }}
+        onCardClick={(card) => {
+          popupCard = card;
+        }}
         {showLifeBurst}
         {showCandidateIcon}
         {rotateLandscape}

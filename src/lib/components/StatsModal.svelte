@@ -29,10 +29,20 @@
     loading = true;
     error = null;
     fetch('/api/stats/cards')
-      .then(r => r.json())
-      .then(data => { if (cancelled) return; ranking = data; loading = false; })
-      .catch(() => { if (cancelled) return; error = '読み込みに失敗しました'; loading = false; });
-    return () => { cancelled = true; };
+      .then((r) => r.json())
+      .then((data) => {
+        if (cancelled) return;
+        ranking = data;
+        loading = false;
+      })
+      .catch(() => {
+        if (cancelled) return;
+        error = '読み込みに失敗しました';
+        loading = false;
+      });
+    return () => {
+      cancelled = true;
+    };
   });
 
   const ranked = $derived(
@@ -42,7 +52,7 @@
       deckCount: r.deckCount,
       totalCount: r.totalCount,
       card: cardMap.get(r.cardId),
-    }))
+    })),
   );
 </script>
 

@@ -47,32 +47,70 @@
   --color-green-400: var(--suisou-success);
   --color-yellow-400: var(--suisou-warning);
   --color-yellow-500: var(--suisou-warning);
+  /* ★取りこぼしを塞ぐ（2026-08-21）。BaseModal と2つのポップアップの罫が
+     neutral-700 で、zinc/gray しか見ていなかったブリッジを素通りしていた
+     ―― 実物で「モーダルに枠線が付くはずでは？」と指摘されて発覚した。 */
+  --color-neutral-700: var(--suisou-line-strong);
+  --color-red-500: var(--suisou-error);
+  --color-red-600: var(--suisou-error-active);
+  --color-green-300: var(--suisou-success);
+  --color-green-500: var(--suisou-success);
+  --color-green-900: var(--suisou-success-surface);
 }
 
 @keyframes slide-down {
-  from { transform: translateY(-100%); }
-  to   { transform: translateY(0); }
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 @keyframes slide-up {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-100%); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fade-out {
-  from { opacity: 1; transform: translateY(0); }
-  to   { opacity: 0; transform: translateY(-8px); }
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
 }
 
-.animate-slide-down { animation: slide-down 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-.animate-slide-up   { animation: slide-up   0.2s  cubic-bezier(0.7, 0, 0.84, 0) forwards; }
-.animate-fade-in    { animation: fade-in    0.3s  cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards; opacity: 0; }
-.animate-fade-out   { animation: fade-out   0.15s cubic-bezier(0.7, 0, 0.84, 0) forwards; }
+.animate-slide-down {
+  animation: slide-down 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-slide-up {
+  animation: slide-up 0.2s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+.animate-fade-in {
+  animation: fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+  opacity: 0;
+}
+.animate-fade-out {
+  animation: fade-out 0.15s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
 
 :root {
   /* 書体・文字色・下地は Suisou（data-suisou-root）が持つ。ここは描画のチューニングだけ */
@@ -83,7 +121,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   margin: 0;
   /* 上から引っ張ったときのプルリフレッシュ(誤爆)を抑止。
@@ -114,11 +153,15 @@ body {
     color: inherit;
     cursor: pointer;
   }
-  button:focus:not(:focus-visible) { outline: none; }
+  button:focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 /* カスタムスクロールバー */
-.overflow-x-auto::-webkit-scrollbar { height: 16px; }
+.overflow-x-auto::-webkit-scrollbar {
+  height: 16px;
+}
 .overflow-x-auto::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
@@ -131,7 +174,19 @@ body {
   background-clip: padding-box;
   transition: background 0.3s ease;
 }
-.overflow-x-auto::-webkit-scrollbar-thumb:hover  { background: rgba(255, 255, 255, 0.5);  background-clip: padding-box; }
-.overflow-x-auto::-webkit-scrollbar-thumb:active { background: rgba(255, 255, 255, 0.6);  background-clip: padding-box; }
-.overflow-x-auto::-webkit-scrollbar-button { width: 80px; display: none; }
-.overflow-x-auto { scrollbar-width: auto; scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05); }
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+  background-clip: padding-box;
+}
+.overflow-x-auto::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.6);
+  background-clip: padding-box;
+}
+.overflow-x-auto::-webkit-scrollbar-button {
+  width: 80px;
+  display: none;
+}
+.overflow-x-auto {
+  scrollbar-width: auto;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+}
