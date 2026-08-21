@@ -441,22 +441,22 @@
     min-width: 0;
   }
 
-  /* ドメイン色。WIXOSS のカード5色は Suisou の第4分類（solve.py が導出する）。
+  /* ドメイン色。WIXOSS のカード5色は wixdex 自身のもの（app.css の :root で定義）。
      エラーの赤とカードの赤が同じ色に巻き込まれていたのを、ここで分離した */
   .cell :global(.c-white) {
-    color: var(--suisou-wixoss-white);
+    color: var(--card-white);
   }
   .cell :global(.c-red) {
-    color: var(--suisou-wixoss-red);
+    color: var(--card-red);
   }
   .cell :global(.c-blue) {
-    color: var(--suisou-wixoss-blue);
+    color: var(--card-blue);
   }
   .cell :global(.c-green) {
-    color: var(--suisou-wixoss-green);
+    color: var(--card-green);
   }
   .cell :global(.c-black) {
-    color: var(--suisou-wixoss-black);
+    color: var(--card-black);
   }
 
   /* 入力の素肌化と焦点の輪は Suisou の連結（button-group × field）が持つようになった */
