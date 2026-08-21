@@ -130,20 +130,20 @@
       {/if}
 
       {#if data.oauthError}
-        <p class="banner mb-4">
+        <p data-suisou-banner="error" role="alert" class="mb-4">
           {data.oauthError}
         </p>
       {/if}
       {#if data.resetDone}
-        <p class="banner-ok mb-4">
+        <p data-suisou-banner="success" role="status" class="mb-4">
           パスワードを再設定しました。新しいパスワードでログインしてください。
         </p>
       {/if}
       {#if form && 'error' in form && form.error}
-        <p class="banner mb-4">{form.error}</p>
+        <p data-suisou-banner="error" role="alert" class="mb-4">{form.error}</p>
       {/if}
       {#if form && form.mode === 'forgot' && 'success' in form && form.success}
-        <p class="banner-ok mb-4">
+        <p data-suisou-banner="success" role="status" class="mb-4">
           入力されたメールアドレスが登録されていれば、再設定用のリンクを送信しました。メールをご確認ください。
         </p>
       {/if}
@@ -198,7 +198,7 @@
               </label>
               <div class="flex gap-2">
                 <div class="flex flex-1 items-center" data-suisou-button-group>
-                  <span class="prefix">@</span>
+                  <span data-suisou-affix>@</span>
                   <input
                     id="username"
                     name="username"
@@ -360,27 +360,9 @@
 </main>
 
 <style>
-  /* 認証画面の現場実装。タブの伸ばし方・バナー・合成入力の接頭辞だけ。
-     Bluesky のボタンはブランド色なので Suisou に寄せない（sky のまま） */
+  /* 認証画面の現場実装で残っているのはタブの伸ばし方だけ。
+     バナーと接頭辞は Suisou（banner / affix）に昇格して出て行った（2026-08-22） */
   .tab {
     flex: 1 1 auto;
-  }
-  .banner,
-  .banner-ok {
-    border: 1px solid var(--suisou-error);
-    border-radius: var(--suisou-radius);
-    padding: var(--suisou-space-2) var(--suisou-space-3);
-    background: var(--suisou-error-surface);
-    color: var(--suisou-text-main);
-    font-size: var(--suisou-size-14);
-    line-height: var(--suisou-lh-14);
-  }
-  .banner-ok {
-    border-color: var(--suisou-success);
-    background: var(--suisou-success-surface);
-  }
-  .prefix {
-    padding-left: var(--suisou-space-2);
-    color: var(--suisou-text-disabled);
   }
 </style>

@@ -19,14 +19,18 @@
   <!-- twitter:card / og:image は app.html の共通デフォルト（summary_large_image）を使う -->
 </svelte:head>
 
-<div class="min-h-dvh bg-zinc-900 text-white">
+<div class="min-h-dvh">
   <PageHeader />
 
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:py-12">
     <!-- プロフィールヘッダ -->
     <header class="mb-8 flex items-center gap-4 border-b border-gray-600/30 pb-8">
+      <!-- 頭文字は Avatar が出す。円形＝人という約束ごと部品に寄せる。
+           文字色も部品の text-sub に譲った（accent の頭文字は装飾で、意味が無かった） -->
       <div
-        class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-zinc-800 text-2xl font-bold text-orange-500 ring-1 ring-zinc-700 sm:h-20 sm:w-20"
+        data-suisou-avatar
+        style="--suisou-avatar: 4rem"
+        class="sm:[--suisou-avatar:5rem] text-2xl font-bold"
       >
         {profile.displayName.charAt(0).toUpperCase()}
       </div>
@@ -62,9 +66,10 @@
           {#each decks as deck (deck.slug)}
             <a
               href="/@{profile.atName}/{deck.slug}"
-              class="block rounded-xl border border-gray-600/30 bg-zinc-600/10 p-4 transition-colors hover:border-gray-500/50 hover:bg-zinc-600/20"
+              data-suisou-surface="panel"
+              class="deck-card block"
             >
-              <div class="truncate font-medium text-white">{deck.name}</div>
+              <div class="truncate font-medium">{deck.name}</div>
               <div class="mt-1 text-sm text-zinc-400">
                 メイン {deck.mainCount}枚 / ルリグ {deck.lrigCount}枚
               </div>
@@ -78,3 +83,17 @@
     </section>
   </div>
 </div>
+
+<style>
+  /* 押せる面の hover。Suisou の面は押せない（押せるのは部品）ので、
+     カード型のリンクは現場が hover を持つ。使う色は行と同じ hover-surface */
+  .deck-card {
+    transition:
+      background-color var(--suisou-motion-fast) var(--suisou-ease),
+      border-color var(--suisou-motion-fast) var(--suisou-ease);
+  }
+  .deck-card:hover {
+    background: var(--suisou-hover-surface);
+    border-color: var(--suisou-line-strong);
+  }
+</style>

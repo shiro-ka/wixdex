@@ -74,7 +74,7 @@
           <form method="POST" action="?/changeUsername" class="space-y-2">
             <div class="flex gap-2">
               <div class="flex flex-1 items-center" data-suisou-button-group>
-                <span class="prefix">/@</span>
+                <span data-suisou-affix>/@</span>
                 <input
                   name="username"
                   type="text"
@@ -194,11 +194,3 @@
     </button>
   </div>
 </main>
-
-<style>
-  /* Bluesky 連携ボタンはブランド色なので Suisou に寄せない（sky のまま） */
-  .prefix {
-    padding-left: var(--suisou-space-2);
-    color: var(--suisou-text-disabled);
-  }
-</style>

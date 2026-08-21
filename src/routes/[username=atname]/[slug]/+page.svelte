@@ -53,7 +53,7 @@
   <!-- twitter:card / og:image は app.html の共通デフォルト（summary_large_image）を使う -->
 </svelte:head>
 
-<div class="min-h-dvh bg-zinc-900 text-white">
+<div class="min-h-dvh">
   <PageHeader>
     {#snippet right()}
       <a href="/" data-suisou-button="outline"> 自分も作る </a>
@@ -64,14 +64,12 @@
     <div class="mb-1">
       <h1 class="text-2xl font-bold truncate sm:text-3xl">{data.deck.name}</h1>
     </div>
-    <a href="/@{data.atName}" class="mb-6 inline-block text-sm text-zinc-400 hover:text-zinc-200">
+    <a href="/@{data.atName}" data-suisou-link class="mb-6 inline-block text-sm text-zinc-400">
       @{data.atName} のデッキ
     </a>
 
     {#if renderedMemo}
-      <div
-        class="prose prose-invert prose-sm max-w-none mb-6 rounded-xl border border-gray-600/30 bg-zinc-600/10 p-4"
-      >
+      <div data-suisou-surface="panel" data-suisou-prose="tight" class="mb-6">
         <!-- renderedMemo は DOMPurify.sanitize 済み -->
         <!-- eslint-disable-next-line svelte/no-at-html-tags -->
         {@html renderedMemo}
@@ -88,8 +86,8 @@
         ></div>
       </div>
     {:else}
-      <section class="mb-4 bg-zinc-600/10 border border-gray-600/30 rounded-xl p-4">
-        <h2 class="text-base mb-2">
+      <section data-suisou-surface="panel" class="mb-4">
+        <h2 data-suisou-text="s16" class="mb-2">
           Lrig Deck <span class="text-gray-400 text-sm">({lrigDeck.length})</span>
         </h2>
         <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1.5">
@@ -105,9 +103,9 @@
         </div>
       </section>
 
-      <section class="bg-zinc-600/10 border border-gray-600/30 rounded-xl p-4">
+      <section data-suisou-surface="panel">
         <div class="flex items-center justify-between mb-2">
-          <h2 class="text-base">
+          <h2 data-suisou-text="s16">
             Main Deck <span class="text-gray-400 text-sm">({mainDeck.length})</span>
           </h2>
           <span class="text-sm text-gray-400">LB {lifeBurstCount}</span>
