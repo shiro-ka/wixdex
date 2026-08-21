@@ -88,14 +88,14 @@
         </h1>
         <p class="mt-3 text-zinc-400">WIXOSS デッキビルダー</p>
       </div>
-      <ul class="space-y-2.5 text-sm text-zinc-400">
-        <li class="flex items-center gap-2">
+      <ul class="space-y-2.5 text-zinc-400">
+        <li data-suisou-layout="row">
           <span class="text-orange-500">▸</span> カードを集めてデッキを構築
         </li>
-        <li class="flex items-center gap-2">
+        <li data-suisou-layout="row">
           <span class="text-orange-500">▸</span> デッキを公開してシェア
         </li>
-        <li class="flex items-center gap-2">
+        <li data-suisou-layout="row">
           <span class="text-orange-500">▸</span> Bluesky 連携でかんたんログイン
         </li>
       </ul>
@@ -107,10 +107,9 @@
 
       <!-- タブ切替（再設定モードでは隠す） -->
       {#if mode !== 'forgot'}
-        <div class="mb-6 flex" data-suisou-button-group>
+        <div class="mb-6" data-suisou-button-group="even">
           <button
             type="button"
-            class="tab"
             data-suisou-button="neutral"
             aria-pressed={mode === 'login'}
             onclick={() => (mode = 'login')}
@@ -119,7 +118,6 @@
           </button>
           <button
             type="button"
-            class="tab"
             data-suisou-button="neutral"
             aria-pressed={mode === 'register'}
             onclick={() => (mode = 'register')}
@@ -150,13 +148,12 @@
 
       {#if mode === 'forgot'}
         <!-- パスワード再設定: メールアドレス入力 -->
-        <p class="mb-4 text-sm text-zinc-400">
+        <p class="mb-4 text-zinc-400">
           登録したメールアドレスを入力してください。パスワード再設定用のリンクをお送りします。
         </p>
         <form method="POST" action="?/forgotPassword" class="space-y-4">
           <div>
-            <label for="forgot-email" class="mb-1 block text-sm text-zinc-300">メールアドレス</label
-            >
+            <label for="forgot-email" class="mb-1 block text-zinc-300">メールアドレス</label>
             <input
               id="forgot-email"
               name="email"
@@ -172,7 +169,7 @@
         <button
           type="button"
           onclick={() => (mode = 'login')}
-          class="mt-4 block w-full text-center text-sm text-zinc-400 transition-colors hover:text-zinc-200"
+          class="mt-4 block w-full text-center text-zinc-400 transition-colors hover:text-zinc-200"
         >
           ← ログインに戻る
         </button>
@@ -181,7 +178,7 @@
         <form method="POST" action="?/{mode}" class="space-y-4">
           {#if mode === 'register'}
             <div>
-              <label for="displayName" class="mb-1 block text-sm text-zinc-300">表示名</label>
+              <label for="displayName" class="mb-1 block text-zinc-300">表示名</label>
               <input
                 id="displayName"
                 name="displayName"
@@ -193,11 +190,11 @@
               />
             </div>
             <div>
-              <label for="username" class="mb-1 block text-sm text-zinc-300">
+              <label for="username" class="mb-1 block text-zinc-300">
                 ユーザー名 <span class="text-zinc-500">(URLになります: /@…)</span>
               </label>
               <div class="flex gap-2">
-                <div class="flex flex-1 items-center" data-suisou-button-group>
+                <div class="flex-1" data-suisou-button-group>
                   <span data-suisou-affix>@</span>
                   <input
                     id="username"
@@ -241,7 +238,7 @@
           {/if}
           {#if mode === 'register'}
             <div>
-              <label for="email" class="mb-1 block text-sm text-zinc-300">メールアドレス</label>
+              <label for="email" class="mb-1 block text-zinc-300">メールアドレス</label>
               <input
                 id="email"
                 name="email"
@@ -254,7 +251,7 @@
             </div>
           {:else}
             <div>
-              <label for="identifier" class="mb-1 block text-sm text-zinc-300"
+              <label for="identifier" class="mb-1 block text-zinc-300"
                 >メールアドレス または ユーザー名</label
               >
               <input
@@ -271,7 +268,7 @@
             </div>
           {/if}
           <div>
-            <label for="password" class="mb-1 block text-sm text-zinc-300">
+            <label for="password" class="mb-1 block text-zinc-300">
               パスワード{mode === 'register' ? '（8〜128文字）' : ''}
             </label>
             <input
@@ -293,7 +290,7 @@
           <button
             type="button"
             onclick={() => (mode = 'forgot')}
-            class="mt-3 block w-full text-center text-sm text-zinc-400 transition-colors hover:text-zinc-200"
+            class="mt-3 block w-full text-center text-zinc-400 transition-colors hover:text-zinc-200"
           >
             パスワードをお忘れですか？
           </button>
@@ -301,7 +298,7 @@
       {/if}
 
       {#if mode !== 'forgot'}
-        <div class="my-6 flex items-center gap-3">
+        <div data-suisou-layout="row" class="my-6">
           <div class="h-px flex-1 bg-zinc-800"></div>
           <span class="text-xs text-zinc-500">または</span>
           <div class="h-px flex-1 bg-zinc-800"></div>
@@ -319,7 +316,7 @@
             {blueskyLoading ? '接続中...' : 'Bluesky で続ける'}
           </button>
           {#if blueskyError}
-            <p class="text-sm text-red-400">{blueskyError}</p>
+            <p class="text-red-400">{blueskyError}</p>
           {/if}
 
           <!-- bsky.social 以外のPDS利用者向け（普段は隠す） -->
@@ -358,11 +355,3 @@
     </div>
   </div>
 </main>
-
-<style>
-  /* 認証画面の現場実装で残っているのはタブの伸ばし方だけ。
-     バナーと接頭辞は Suisou（banner / affix）に昇格して出て行った（2026-08-22） */
-  .tab {
-    flex: 1 1 auto;
-  }
-</style>

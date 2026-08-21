@@ -198,7 +198,7 @@
 
   <!-- 拡張メニュー（lg以上） -->
   <div class="hidden lg:flex flex-1 flex-col mb-2 min-h-0" data-suisou-surface="panel">
-    <div class="flex justify-between items-center mb-4">
+    <div data-suisou-layout="row between" class="mb-4">
       <h3 data-suisou-text="s16 w500">
         {#if panelTab === 'type'}カードタイプ検索
         {:else if panelTab === 'lrigClass'}ルリグタイプ/クラス検索
@@ -230,7 +230,7 @@
       {#if isLoggedIn}
         <button
           type="button"
-          class="cell flex-1 h-full mr-2"
+          class="cell h-full mr-2"
           data-suisou-button="plain neutral"
           aria-pressed={favoriteFilter}
           onclick={onFavoriteFilter}
@@ -243,7 +243,7 @@
       <button
         type="button"
         id="folder-button"
-        class="cell flex-1 h-full mr-2 md:hidden"
+        class="cell h-full mr-2 md:hidden"
         data-suisou-button="plain neutral"
         aria-pressed={candidateFilter}
         onclick={onCandidateFilter}
@@ -251,7 +251,7 @@
         {#if candidateFilter}<IconFolderFilled />{:else}<IconFolder />{/if}
       </button>
 
-      <div class="flex flex-3" data-suisou-button-group>
+      <div class="flex-3" data-suisou-button-group="even">
         <button
           type="button"
           class="cell"
@@ -259,7 +259,7 @@
           aria-pressed={typeActive}
           onclick={() => handleMenuClick('type')}
         >
-          <CardTypeIcon filled={isTypeFilterEnabled} class="" />
+          <CardTypeIcon filled={isTypeFilterEnabled} />
         </button>
         <button
           type="button"
@@ -268,7 +268,7 @@
           aria-pressed={lrigActive}
           onclick={() => handleMenuClick('lrigClass')}
         >
-          <LrigClassIcon filled={isLrigClassFilterEnabled} class="" />
+          <LrigClassIcon filled={isLrigClassFilterEnabled} />
         </button>
         <button
           type="button"
@@ -285,7 +285,7 @@
     <!-- 色/Lv/LB -->
     <div class="flex w-full h-10 lg:h-8 mb-2">
       <!-- 色検索 -->
-      <div class="flex flex-5 mr-2" data-suisou-button-group>
+      <div class="flex-5 mr-2" data-suisou-button-group="even">
         {#each [['白', 'c-white'], ['赤', 'c-red'], ['青', 'c-blue'], ['緑', 'c-green'], ['黒', 'c-black']] as [color, colorClass] (color)}
           <button
             type="button"
@@ -310,7 +310,7 @@
       </div>
 
       <!-- レベル検索 -->
-      <div class="flex flex-3 mr-2" data-suisou-button-group>
+      <div class="flex-3 mr-2" data-suisou-button-group="even">
         {#each [1, 2, 3] as level (level)}
           <button
             type="button"
@@ -350,7 +350,7 @@
         aria-pressed={lifeBurstFilter !== null}
         onclick={onLifeBurstFilter}
       >
-        {#if lifeBurstFilter === false}<IconCircleXFilled />{:else}<LifeBurstIcon class="" />{/if}
+        {#if lifeBurstFilter === false}<IconCircleXFilled />{:else}<LifeBurstIcon />{/if}
       </button>
     </div>
 
@@ -434,11 +434,10 @@
      ここにあるのは升目の伸ばし方と検索欄の中身だけ。 */
 
   /* 升目。連結・単独とも領域いっぱいに広がる（角丸と余白の既定を外す） */
+  /* 升目の余白ゼロ。伸ばし方と min-width は Suisou の連結（even）が持つようになった。
+     高さは連結の既定（align-items: stretch）で埋まる */
   .cell {
-    flex: 1 1 auto;
-    height: 100%;
     padding: 0;
-    min-width: 0;
   }
 
   /* ドメイン色。WIXOSS のカード5色は wixdex 自身のもの（app.css の :root で定義）。

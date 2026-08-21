@@ -64,7 +64,7 @@
     <div class="mb-1">
       <h1 class="text-2xl font-bold truncate sm:text-3xl">{data.deck.name}</h1>
     </div>
-    <a href="/@{data.atName}" data-suisou-link class="mb-6 inline-block text-sm text-zinc-400">
+    <a href="/@{data.atName}" data-suisou-link class="mb-6 inline-block text-zinc-400">
       @{data.atName} のデッキ
     </a>
 
@@ -88,7 +88,7 @@
     {:else}
       <section data-suisou-surface="panel" class="mb-4">
         <h2 data-suisou-text="s16" class="mb-2">
-          Lrig Deck <span class="text-gray-400 text-sm">({lrigDeck.length})</span>
+          Lrig Deck <span data-suisou-text="s14" class="text-gray-400">({lrigDeck.length})</span>
         </h2>
         <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1.5">
           {#each lrigDeck as card, i (`lrig-${card.cardID}-${i}`)}
@@ -104,11 +104,11 @@
       </section>
 
       <section data-suisou-surface="panel">
-        <div class="flex items-center justify-between mb-2">
+        <div data-suisou-layout="row between" class="mb-2">
           <h2 data-suisou-text="s16">
-            Main Deck <span class="text-gray-400 text-sm">({mainDeck.length})</span>
+            Main Deck <span data-suisou-text="s14" class="text-gray-400">({mainDeck.length})</span>
           </h2>
-          <span class="text-sm text-gray-400">LB {lifeBurstCount}</span>
+          <span class="text-gray-400">LB {lifeBurstCount}</span>
         </div>
         <div class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5">
           {#each mainDeck as card, i (`main-${card.cardID}-${i}`)}

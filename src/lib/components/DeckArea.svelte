@@ -189,10 +189,7 @@
   </div>
 
   <!-- 候補カード (Folder) - PC のみ表示 -->
-  <div
-    class="hidden md:flex flex-col flex-1 overflow-hidden"
-    data-suisou-surface="panel tight"
-  >
+  <div class="hidden md:flex flex-col flex-1 overflow-hidden" data-suisou-surface="panel tight">
     <div class="flex w-full mb-2">
       <span data-suisou-text="s16 w500">Folder</span>
     </div>

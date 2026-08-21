@@ -24,7 +24,7 @@
 
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:py-12">
     <!-- プロフィールヘッダ -->
-    <header class="mb-8 flex items-center gap-4 border-b border-gray-600/30 pb-8">
+    <header data-suisou-layout="row" class="mb-8 gap-4 border-b border-gray-600/30 pb-8">
       <!-- 頭文字は Avatar が出す。円形＝人という約束ごと部品に寄せる。
            文字色も部品の text-sub に譲った（accent の頭文字は装飾で、意味が無かった） -->
       <div
@@ -41,21 +41,21 @@
             href={bskyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-1 inline-flex items-center gap-1.5 text-sm"
+            class="mt-1 inline-flex items-center gap-1.5"
             data-suisou-link
           >
             <IconBrandBluesky class="h-4 w-4" />
             @{profile.atName}
           </a>
         {:else}
-          <p class="mt-1 text-sm text-zinc-400">@{profile.atName}</p>
+          <p class="mt-1 text-zinc-400">@{profile.atName}</p>
         {/if}
       </div>
     </header>
 
     <!-- 公開デッキ一覧 -->
     <section>
-      <h2 class="mb-4 text-sm font-semibold uppercase tracking-wider text-zinc-500">
+      <h2 class="mb-4 font-semibold uppercase tracking-wider text-zinc-500">
         公開デッキ <span class="text-zinc-600">({decks.length})</span>
       </h2>
 
@@ -70,7 +70,7 @@
               class="deck-card block"
             >
               <div class="truncate font-medium">{deck.name}</div>
-              <div class="mt-1 text-sm text-zinc-400">
+              <div class="mt-1 text-zinc-400">
                 メイン {deck.mainCount}枚 / ルリグ {deck.lrigCount}枚
               </div>
               <div class="mt-2 text-xs text-zinc-500">

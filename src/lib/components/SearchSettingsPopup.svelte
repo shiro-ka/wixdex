@@ -58,7 +58,7 @@
       : 'opacity-100 scale-100'}"
   >
     <div>
-      <h3 data-suisou-text="s14 w700" class="mb-3">テキスト検索設定</h3>
+      <h3 data-suisou-text="s14 w700" class="mb-2">テキスト検索設定</h3>
       <div class="space-y-2">
         <button
           type="button"
@@ -72,7 +72,7 @@
               ? 'text-orange-400'
               : 'text-gray-400 group-hover:text-gray-300'}"
           />
-          <span class="text-sm">カード名</span>
+          <span>カード名</span>
         </button>
         <button
           type="button"
@@ -86,7 +86,7 @@
               ? 'text-orange-400'
               : 'text-gray-400 group-hover:text-gray-300'}"
           />
-          <span class="text-sm">テキスト</span>
+          <span>テキスト</span>
         </button>
       </div>
     </div>

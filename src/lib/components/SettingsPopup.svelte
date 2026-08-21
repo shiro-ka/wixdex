@@ -62,7 +62,7 @@
       : 'opacity-100 scale-100'}"
   >
     <div>
-      <h3 data-suisou-text="s14 w700" class="mb-3">設定</h3>
+      <h3 data-suisou-text="s14 w700" class="mb-2">設定</h3>
       <div class="space-y-2">
         <button
           type="button"
@@ -76,7 +76,7 @@
               ? 'text-orange-400'
               : 'text-gray-400 group-hover:text-gray-300'}"
           />
-          <span class="text-sm">LBアイコンを表示</span>
+          <span>LBアイコンを表示</span>
         </button>
         <button
           type="button"
@@ -90,7 +90,7 @@
               ? 'text-orange-400'
               : 'text-gray-400 group-hover:text-gray-300'}"
           />
-          <span class="text-sm">候補カードアイコンを表示</span>
+          <span>候補カードアイコンを表示</span>
         </button>
         <button
           type="button"
@@ -104,7 +104,7 @@
               ? 'text-orange-400'
               : 'text-gray-400 group-hover:text-gray-300'}"
           />
-          <span class="text-sm">横向きのカードを縦に表示</span>
+          <span>横向きのカードを縦に表示</span>
         </button>
       </div>
     </div>

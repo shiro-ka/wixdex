@@ -206,7 +206,7 @@
           {#if card.text?.length}
             <div class="mt-3 space-y-2">
               {#each card.text as t, i (i)}
-                <div class="text-sm text-gray-200 leading-relaxed">
+                <div class="text-gray-200 leading-relaxed">
                   {#if t.label}
                     <span
                       class="inline-block px-1.5 mr-1 rounded bg-zinc-600 text-xs text-gray-100 align-middle"
@@ -226,7 +226,7 @@
           <!-- FAQ -->
           {#if card.faq?.length}
             <div class="mt-4">
-              <h3 class="text-sm font-bold text-orange-400 mb-1.5">FAQ</h3>
+              <h3 class="font-bold text-orange-400 mb-1.5">FAQ</h3>
               <div class="space-y-2">
                 {#each card.faq as f, i (i)}
                   <div class="text-xs leading-relaxed">

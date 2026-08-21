@@ -36,7 +36,7 @@
             class="flex-1 text-left p-2"
           >
             <div class="font-medium">{deck.name}</div>
-            <div class="text-sm text-gray-400 mt-1">
+            <div class="text-gray-400 mt-1">
               メイン: {deck.mainCount}枚 / ルリグ: {deck.lrigCount}枚
             </div>
             <div class="text-xs text-gray-500 mt-1">
