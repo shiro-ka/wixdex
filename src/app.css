@@ -50,12 +50,39 @@
   /* ★取りこぼしを塞ぐ（2026-08-21）。BaseModal と2つのポップアップの罫が
      neutral-700 で、zinc/gray しか見ていなかったブリッジを素通りしていた
      ―― 実物で「モーダルに枠線が付くはずでは？」と指摘されて発覚した。 */
+  /* ドメイン色（下の :root を参照）。カードの赤は error ではないので、
+     ブリッジが意味色へ巻き込まないよう、色フィルタは --card-* を直接使う */
   --color-neutral-700: var(--suisou-line-strong);
   --color-red-500: var(--suisou-error);
   --color-red-600: var(--suisou-error-active);
   --color-green-300: var(--suisou-success);
   --color-green-500: var(--suisou-success);
   --color-green-900: var(--suisou-success-surface);
+}
+
+:root {
+  /* ══ ドメイン色 ══════════════════════════════════
+     WIXOSS のカード5色。**対象物側で固定され、作者が動かせない色**。
+
+     ★Suisou は持たない。しろかのブランドではなく WIXOSS のものなので、
+       現場（wixdex）が自分で持つ ―― Suisou の掟でいう「class は現場のもの」と同じ線引き。
+       一度 Suisou 側に実装したが撤回した（経緯は Suisou の .notes/palette-spec.md §1）。
+
+     導出は Suisou と同じ手順で、設計時に一度だけ計算した値を焼いてある:
+       H    Tailwind の近似色（wixdex が目で当てていたもの）を OKLCH に逆算して読んだ
+       L    面に載せて読める明度
+       C    maxC(L, H) × 彩度比 × hadal のトーン倍率(0.95)
+       検証 非文字なので 3.0:1（WCAG 1.4.11）。最悪 overlay の上で 4.59:1
+
+     ★白だけ彩度比 0.36。白は彩度の無さがアイデンティティで、
+       上限まで振るとただの黄色になる（#fce92f になった）。
+
+     ★テーマは hadal 固定。テーマ切替を入れるなら、この5色も解き直しになる。 */
+  --card-white: oklch(92% 0.0662 103); /* #ece7b4 */
+  --card-red: oklch(73% 0.158 22); /* #fb7a7a */
+  --card-blue: oklch(74% 0.1296 255); /* #70adfb */
+  --card-green: oklch(76% 0.19 152); /* #27d271 */
+  --card-black: oklch(74% 0.1623 306); /* #c48dfb */
 }
 
 @keyframes slide-down {
