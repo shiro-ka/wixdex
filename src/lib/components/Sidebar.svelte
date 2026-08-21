@@ -38,27 +38,16 @@
   // マイページのURLキー: メアド勢=username / bsky勢=ハンドル。未設定なら非表示。
   const myAtName = $derived(user ? (user.username ?? user.blueskyHandle) : null);
 
-  let isAnimating = $state(false);
-  let shouldRender = $state(false);
-  let timer: ReturnType<typeof setTimeout>;
+  // 開閉はネイティブ popover に任せる。滑りの出入り・ESC・外側クリック・膜は
+  // ブラウザと Suisou の drawer が持つ。以前ここにあったタイマー式の状態機械は
+  // そのために存在していたので、丸ごと消えた。
+  let el = $state<HTMLDivElement>();
 
   $effect(() => {
-    if (isOpen) {
-      shouldRender = true;
-      clearTimeout(timer);
-      // timer に保持しないと、10ms 以内に閉じられた時にこの遅延発火を cleanup で
-      // 止められず isAnimating が固まる。開き側のタイマーも timer で管理する。
-      timer = setTimeout(() => {
-        isAnimating = true;
-      }, 10);
-    } else {
-      isAnimating = false;
-      // 200 は --suisou-motion と同じ値。トランジションが終わってから DOM を外す
-      timer = setTimeout(() => {
-        shouldRender = false;
-      }, 200);
-    }
-    return () => clearTimeout(timer);
+    if (!el) return;
+    const opened = el.matches(':popover-open');
+    if (isOpen && !opened) el.showPopover();
+    else if (!isOpen && opened) el.hidePopover();
   });
 </script>
 
@@ -84,151 +73,123 @@
   </a>
 {/snippet}
 
-{#if shouldRender}
-  <button class="scrim" class:open={isAnimating} onclick={onClose} aria-label="閉じる"></button>
+<div
+  bind:this={el}
+  popover="auto"
+  data-suisou-surface="overlay drawer"
+  data-suisou-layout="stack"
+  ontoggle={(e) => {
+    // ESC・外側クリックで閉じたときに親の状態を追従させる
+    if (e.newState === 'closed' && isOpen) onClose();
+  }}
+>
+  <div data-suisou-layout="row end">
+    <button data-suisou-button="icon" onclick={onClose} aria-label="閉じる">
+      <IconX />
+    </button>
+  </div>
 
-  <div class="drawer" class:open={isAnimating} data-suisou-layout="stack">
-    <div data-suisou-layout="row end">
-      <button data-suisou-button="icon" onclick={onClose} aria-label="閉じる">
-        <IconX />
+  {#if showDeckTools}
+    <div data-suisou-layout="stack">
+      {@render sectionLabel('Menu')}
+      <button
+        data-suisou-button="block"
+        onclick={isLoggedIn
+          ? () => {
+              onNewDeckClick?.();
+              onClose();
+            }
+          : undefined}
+        disabled={!isLoggedIn}
+      >
+        <IconLibraryPlus />
+        <span>新しいデッキを作成</span>
+      </button>
+      <button
+        data-suisou-button="block"
+        onclick={isLoggedIn
+          ? () => {
+              onDeckListClick?.();
+              onClose();
+            }
+          : undefined}
+        disabled={!isLoggedIn}
+      >
+        <IconLibrary />
+        <span>デッキ一覧</span>
+      </button>
+      <button
+        data-suisou-button="block"
+        onclick={() => {
+          onStatsClick?.();
+          onClose();
+        }}
+      >
+        <IconChartLine />
+        <span>カード使用統計</span>
       </button>
     </div>
+  {/if}
 
-    {#if showDeckTools}
-      <div data-suisou-layout="stack">
-        {@render sectionLabel('Menu')}
-        <button
-          data-suisou-button="block"
-          onclick={isLoggedIn
-            ? () => {
-                onNewDeckClick?.();
-                onClose();
-              }
-            : undefined}
-          disabled={!isLoggedIn}
-        >
-          <IconLibraryPlus />
-          <span>新しいデッキを作成</span>
-        </button>
-        <button
-          data-suisou-button="block"
-          onclick={isLoggedIn
-            ? () => {
-                onDeckListClick?.();
-                onClose();
-              }
-            : undefined}
-          disabled={!isLoggedIn}
-        >
-          <IconLibrary />
-          <span>デッキ一覧</span>
-        </button>
-        <button
-          data-suisou-button="block"
-          onclick={() => {
-            onStatsClick?.();
-            onClose();
-          }}
-        >
-          <IconChartLine />
-          <span>カード使用統計</span>
-        </button>
+  <div data-suisou-layout="stack" class="section account">
+    {@render sectionLabel('Account')}
+    {#if user}
+      <div data-suisou-media class="static-row">
+        <span data-suisou-media-icon><IconUser size={20} /></span>
+        <span class="one-line">{user.displayName}</span>
       </div>
-    {/if}
-
-    <div data-suisou-layout="stack" class="section account">
-      {@render sectionLabel('Account')}
-      {#if user}
-        <div data-suisou-media class="static-row">
-          <span data-suisou-media-icon><IconUser size={20} /></span>
-          <span class="one-line">{user.displayName}</span>
-        </div>
-        {#if myAtName}
-          <a href="/@{myAtName}" onclick={onClose} data-suisou-button="block">マイページ</a>
-        {/if}
-        <a href="/settings" onclick={onClose} data-suisou-button="block">設定</a>
-        <button
-          type="button"
-          data-suisou-button="block"
-          onclick={() => {
-            onClose();
-            logout();
-          }}
-        >
-          ログアウト
-        </button>
-      {:else}
-        <a href="/login" onclick={onClose} data-suisou-button="outline" class="login">
-          ログイン / 登録
-        </a>
+      {#if myAtName}
+        <a href="/@{myAtName}" onclick={onClose} data-suisou-button="block">マイページ</a>
       {/if}
-    </div>
-
-    <div data-suisou-layout="stack" class="section">
-      {@render sectionLabel('Link')}
-
-      {@render linkRow(
-        IconMado,
-        'Mado',
-        'バグ報告・要望など',
-        'https://mado.blue/@ffffffflower.bsky.social/wixdex',
-      )}
-      {@render linkRow(
-        IconBrandBluesky,
-        'Bluesky',
-        'bot稼働中...',
-        'https://bsky.app/profile/wixdex.cards',
-      )}
-      {@render linkRow(
-        IconBrandGithub,
-        'GitHub',
-        'apkリリースもあります',
-        'https://github.com/shiro-ka/wixdex',
-      )}
-    </div>
+      <a href="/settings" onclick={onClose} data-suisou-button="block">設定</a>
+      <button
+        type="button"
+        data-suisou-button="block"
+        onclick={() => {
+          onClose();
+          logout();
+        }}
+      >
+        ログアウト
+      </button>
+    {:else}
+      <a href="/login" onclick={onClose} data-suisou-button="outline" class="login">
+        ログイン / 登録
+      </a>
+    {/if}
   </div>
-{/if}
+
+  <div data-suisou-layout="stack" class="section">
+    {@render sectionLabel('Link')}
+
+    {@render linkRow(
+      IconMado,
+      'Mado',
+      'バグ報告・要望など',
+      'https://mado.blue/@ffffffflower.bsky.social/wixdex',
+    )}
+    {@render linkRow(
+      IconBrandBluesky,
+      'Bluesky',
+      'bot稼働中...',
+      'https://bsky.app/profile/wixdex.cards',
+    )}
+    {@render linkRow(
+      IconBrandGithub,
+      'GitHub',
+      'apkリリースもあります',
+      'https://github.com/shiro-ka/wixdex',
+    )}
+  </div>
+</div>
 
 <style>
-  /* ドロワー固有の仕事だけがここにある: 位置・重なり・出入り・省略記法。
-     色と寸法は値を書かず var(--suisou-*) だけを参照する。 */
-
-  .scrim {
-    position: fixed;
-    inset: 0;
-    z-index: 40;
-    border: 0;
-    padding: 0;
-    background: var(--suisou-scrim);
-    cursor: default;
-    opacity: 0;
-    transition: opacity var(--suisou-motion) var(--suisou-ease);
-  }
-  .scrim.open {
-    opacity: 1;
-  }
-
-  /* 浮くものなので面は overlay、縁は line-strong（Suisou の面の約束） */
-  .drawer {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 50;
-    height: 100%;
-    width: 20rem;
-    background: var(--suisou-overlay);
-    border-left: 1px solid var(--suisou-line-strong);
-    padding: var(--suisou-space-3);
-    transform: translateX(100%);
-    transition: transform var(--suisou-motion) var(--suisou-ease);
-  }
-  .drawer.open {
-    transform: translateX(0);
-  }
+  /* ドロワー固有の仕事は Suisou の drawer（surface）と popover に移った。
+     残っているのは中身の整えだけ。色と寸法は var(--suisou-*) 参照のみ。 */
 
   .label {
     margin: 0;
-    padding-inline: var(--suisou-space-2);
+    padding-inline: var(--suisou-space-3);
     color: var(--suisou-text-disabled);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -243,8 +204,9 @@
   }
 
   /* 押せない行。Row（hover する行）と同じ余白だけ借りる */
+  /* 押せない行。block ボタン（縦8/横16）と左端・行送りを揃える */
   .static-row {
-    padding: var(--suisou-space-1) var(--suisou-space-2);
+    padding: var(--suisou-space-2) var(--suisou-space-3);
     color: var(--suisou-text-sub);
   }
 
