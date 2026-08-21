@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
+  import IconX from '@tabler/icons-svelte/icons/x';
 
   interface Props {
     isOpen: boolean;
@@ -9,24 +10,60 @@
     maxWidth?: 'sm' | 'md' | 'lg';
   }
 
-  import IconX from '@tabler/icons-svelte/icons/x';
-
   let { isOpen, onClose, title, children, maxWidth = 'md' }: Props = $props();
 
-  const maxWidthClasses: Record<string, string> = {
-    sm: 'max-w-sm', md: 'max-w-md', lg: 'max-w-lg',
-  };
+  // ネイティブ <dialog> に任せる。ESC・フォーカスの閉じ込め・重なり順(top layer)・
+  // 膜(::backdrop)は全部ブラウザの仕事。見た目は Suisou の overlay が持つ。
+  let dialog = $state<HTMLDialogElement>();
+
+  $effect(() => {
+    if (dialog && !dialog.open) dialog.showModal();
+  });
 </script>
 
 {#if isOpen}
-  <button class="fixed inset-0 bg-black/50 z-50 cursor-default" onclick={onClose} aria-label="閉じる"></button>
-  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 {maxWidthClasses[maxWidth]} bg-zinc-800 border border-neutral-700 z-50 rounded-xl shadow-xl p-6 max-h-[90vh] overflow-y-auto">
-    <div class="flex items-center justify-between mb-4">
-      <h2 class="text-xl font-bold text-white">{title}</h2>
-      <button onclick={onClose} class="text-gray-400 hover:text-white transition-colors" aria-label="閉じる">
-        <IconX class="w-6 h-6" />
-      </button>
+  <dialog
+    bind:this={dialog}
+    class="modal {maxWidth}"
+    data-suisou-surface="overlay"
+    onclose={onClose}
+    onclick={(e) => {
+      // 膜のクリックで閉じる。膜のクリックは target が dialog 自身になる。
+      // 中身と余白は .inner が受けるので、ここに来るのは膜だけ
+      if (e.target === dialog) onClose();
+    }}
+  >
+    <div class="inner" data-suisou-layout="stack">
+      <div data-suisou-layout="row between">
+        <h2 data-suisou-text="s20 w700">{title}</h2>
+        <button data-suisou-button="icon" type="button" onclick={onClose} aria-label="閉じる">
+          <IconX />
+        </button>
+      </div>
+      {@render children()}
     </div>
-    {@render children()}
-  </div>
+  </dialog>
 {/if}
+
+<style>
+  /* モーダル固有の仕事だけ: 幅の上限・はみ出しの巻物・膜クリックの判定領域。
+     色・罫・角丸・膜・出入りは Suisou の overlay。 */
+  .modal {
+    width: min(92vw, var(--modal-max, 28rem));
+    max-height: 90dvh;
+    overflow-y: auto;
+    padding: 0; /* 余白は .inner が持つ。縁のクリックを膜と誤判定させない */
+  }
+  .sm {
+    --modal-max: 24rem;
+  }
+  .md {
+    --modal-max: 28rem;
+  }
+  .lg {
+    --modal-max: 32rem;
+  }
+  .inner {
+    padding: var(--suisou-space-3);
+  }
+</style>
