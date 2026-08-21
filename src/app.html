@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-suisou-theme="hadal" data-suisou-accent="clown">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="%sveltekit.assets%/wixdex.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#18181b" />
+    <meta name="theme-color" content="#0b0b0e" />
     <meta name="description" content="WIXOSSのデッキ構築ツール" />
     <link rel="apple-touch-icon" href="%sveltekit.assets%/wixdex.png" />
 
@@ -27,12 +27,15 @@
       crossorigin="anonymous"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Suisou（デザイン体系）。/v1/ は v1 系の最新。凍結したくなったら /v/<sha7>/ に切り替える。
+         app.css より先に読む ―― 同じ詳細度なら現場（app.css）が勝つ順序にする -->
+    <link rel="stylesheet" href="https://shiro-ka.github.io/Suisou/v1/suisou.css" />
     %sveltekit.head%
   </head>
-  <body data-sveltekit-preload-data="hover">
+  <body data-suisou-root data-sveltekit-preload-data="hover">
     <div style="display: contents">%sveltekit.body%</div>
   </body>
 </html>
