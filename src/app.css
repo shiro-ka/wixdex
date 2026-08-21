@@ -1,6 +1,54 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+/* ══ Suisou ブリッジ ══════════════════════════════════
+   既存の色クラス（zinc/gray/orange/red/green/yellow、313箇所・25種類）を
+   Suisou のトークンへ一括で畳む。テンプレートを1枚も触らずに階調が乗せ替わる。
+
+   ★これは移行の足場。本変換（クラス → data-suisou-* 部品）を
+     コンポーネント単位で進め、終わったらこのブロックごと消す。
+   ★色の値は書かない。var(--suisou-*) への参照だけ（値を決めるのは Suisou の solve.py）。
+   ★/50 などの不透明度修飾は Tailwind v4 が color-mix に落とすので、var のままで効く。
+
+   対応の方針:
+     zinc-950/900 → bg          zinc-800 → panel      zinc-700/gray-700 → item
+     zinc-600/gray-600 → line-weak      zinc-500 → line-strong
+     gray-500 → text-disabled   400/300 → text-sub    200/100 → text-main
+     orange → accent（clown）   red → error           green → success
+     yellow → warning
+   （sky 4箇所は対応させず残す。本変換のときに文脈で決める） */
+@theme {
+  --color-zinc-950: var(--suisou-bg);
+  --color-zinc-900: var(--suisou-bg);
+  --color-zinc-800: var(--suisou-panel);
+  --color-zinc-700: var(--suisou-item);
+  --color-gray-700: var(--suisou-item);
+  --color-zinc-600: var(--suisou-line-weak);
+  --color-gray-600: var(--suisou-line-weak);
+  --color-zinc-500: var(--suisou-line-strong);
+  --color-gray-500: var(--suisou-text-disabled);
+  --color-zinc-400: var(--suisou-text-sub);
+  --color-gray-400: var(--suisou-text-sub);
+  --color-zinc-300: var(--suisou-text-sub);
+  --color-gray-300: var(--suisou-text-sub);
+  --color-zinc-200: var(--suisou-text-main);
+  --color-gray-200: var(--suisou-text-main);
+  --color-zinc-100: var(--suisou-text-main);
+  --color-gray-100: var(--suisou-text-main);
+  --color-orange-300: var(--suisou-accent);
+  --color-orange-400: var(--suisou-accent);
+  --color-orange-500: var(--suisou-accent);
+  --color-orange-600: var(--suisou-accent-active);
+  --color-orange-700: var(--suisou-accent-active);
+  --color-red-300: var(--suisou-error);
+  --color-red-400: var(--suisou-error);
+  --color-red-700: var(--suisou-error-active);
+  --color-red-900: var(--suisou-error-surface);
+  --color-green-400: var(--suisou-success);
+  --color-yellow-400: var(--suisou-warning);
+  --color-yellow-500: var(--suisou-warning);
+}
+
 @keyframes slide-down {
   from { transform: translateY(-100%); }
   to   { transform: translateY(0); }
@@ -27,25 +75,12 @@
 .animate-fade-out   { animation: fade-out   0.15s cubic-bezier(0.7, 0, 0.84, 0) forwards; }
 
 :root {
-  font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", system-ui, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* 書体・文字色・下地は Suisou（data-suisou-root）が持つ。ここは描画のチューニングだけ */
   color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #18181b;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-@layer base {
-  a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-  }
-  a:hover { color: #535bf2; }
 }
 
 html, body {
@@ -63,7 +98,7 @@ html, body {
    overflow:hidden は、サブページの中央寄せ不能・余白に地色露出・スクロール不能の原因だったので除去。 */
 body {
   min-width: 320px;
-  background-color: #18181b;
+  /* 地色は Suisou（--suisou-bg）が持つ */
   overscroll-behavior: none;
 }
 
@@ -79,7 +114,7 @@ body {
     color: inherit;
     cursor: pointer;
   }
-  button:focus, button:focus-visible { outline: none; }
+  button:focus:not(:focus-visible) { outline: none; }
 }
 
 /* カスタムスクロールバー */
@@ -100,11 +135,3 @@ body {
 .overflow-x-auto::-webkit-scrollbar-thumb:active { background: rgba(255, 255, 255, 0.6);  background-clip: padding-box; }
 .overflow-x-auto::-webkit-scrollbar-button { width: 80px; display: none; }
 .overflow-x-auto { scrollbar-width: auto; scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05); }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover { color: #747bff; }
-}
