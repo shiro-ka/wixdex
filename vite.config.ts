@@ -79,9 +79,20 @@ export default defineConfig({
             handler: 'NetworkOnly',
           },
         ],
-        // SSR/サーバー必須ルートは SPA シェルへフォールバックさせない。
-        // (/@… = 公開プロフィール/共有デッキ, /settings = 認証必須, /login = フォームアクション)
-        navigateFallbackDenylist: [/^\/api\//, /^\/login/, /^\/settings/, /^\/@/],
+        // ★ページ（ナビゲーション）は常にネットから取る。SW でキャッシュしない。
+        //
+        //   もとは navigateFallback（既定の '/'）が効いていて、SW が「/ へのアクセスは
+        //   キャッシュ済みの / を返す」ルートを登録していた。ところが globPatterns は
+        //   js/css/画像しか拾っておらず、HTML はキャッシュに1件も入らない
+        //   （ビルド時に prerendered/**/*.{html,json} が一致しないという警告が出ていた）。
+        //   Workbox はキャッシュに無い URL を渡されると例外を投げるので、
+        //   **新しい SW がインストールに失敗し、古い SW が居座って更新が永久に届かなくなる**。
+        //   実際 dev も本番も、配信中の sw.js は precache 46件すべてが非 HTML だった。
+        //
+        //   ページを常にネットから取れば、この矛盾ごと消える。JS/CSS・カード画像・
+        //   カードDB のキャッシュは残るので体感速度は落ちない。完全オフラインでの
+        //   起動だけができなくなる（しろさま判断、2026-08-21）。
+        navigateFallback: null,
       },
     }),
   ],
