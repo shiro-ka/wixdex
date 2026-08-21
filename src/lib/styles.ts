@@ -1,27 +1,5 @@
 import { cva } from 'class-variance-authority';
 
-// Sidebar のメニュー/アクションボタン
-export const sidebarBtn = cva(
-  'w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors',
-  {
-    variants: {
-      variant: {
-        menu:   'text-white',
-        action: 'bg-zinc-800/50 hover:bg-zinc-800 text-white text-sm',
-        muted:  'bg-zinc-800/50 hover:bg-zinc-800 text-gray-400 hover:text-white text-sm',
-      },
-      disabled: {
-        true:  'opacity-40 cursor-not-allowed',
-        false: '',
-      },
-    },
-    defaultVariants: {
-      variant: 'menu',
-      disabled: false,
-    },
-  }
-);
-
 // SearchArea のフィルタートグルボタン（選択中/非選択の背景）
 export const filterToggle = cva(
   'group flex items-center justify-center cursor-pointer transition-all',
