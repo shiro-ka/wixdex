@@ -10,8 +10,6 @@
   import { cardImageUrl } from '$lib/utils/cardImages';
   import CardImage from '$lib/components/CardImage.svelte';
   import PageHeader from '$lib/components/PageHeader.svelte';
-  import { ctaOutline } from '$lib/styles';
-  import clsx from 'clsx';
 
   let { data }: { data: PageData } = $props();
 
@@ -58,9 +56,7 @@
 <div class="min-h-dvh bg-zinc-900 text-white">
   <PageHeader>
     {#snippet right()}
-      <a href="/" class={clsx(ctaOutline, 'flex h-10 items-center px-4 text-sm font-medium')}>
-        自分も作る
-      </a>
+      <a href="/" data-suisou-button="outline"> 自分も作る </a>
     {/snippet}
   </PageHeader>
 

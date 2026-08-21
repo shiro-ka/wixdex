@@ -116,9 +116,9 @@
 
 <div class="flex flex-col px-2 mb-2 md:mb-1 md:flex-1 lg:flex-2">
   <!-- ルリグデッキ -->
-  <div class="h-fit px-4 py-2 mb-2 bg-zinc-600/10 border border-gray-600/30 rounded-xl">
+  <div class="h-fit mb-2" data-suisou-surface="panel tight">
     <div class="flex w-full">
-      <span class="text-base md:text-lg">Lrig Deck</span>
+      <span data-suisou-text="s16 w500">Lrig Deck</span>
     </div>
     <div
       class="lrigDeck grid w-full h-[calc(32dvw-4rem)] sm:h-[8rem] md:h-[calc(14dvw-2rem)] lg:h-[calc(11dvw-3rem)] xl:h-[6rem] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1"
@@ -149,9 +149,9 @@
   </div>
 
   <!-- メインデッキ -->
-  <div class="h-fit px-4 py-2 mb-2 bg-zinc-600/10 border border-gray-600/30 rounded-xl">
+  <div class="h-fit mb-2" data-suisou-surface="panel tight">
     <div class="flex w-full justify-between items-center">
-      <span class="text-base md:text-lg">Main Deck</span>
+      <span data-suisou-text="s16 w500">Main Deck</span>
       <div class="flex items-center gap-1 md:gap-1.5">
         <LifeBurstIcon class="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
         <span
@@ -190,10 +190,11 @@
 
   <!-- 候補カード (Folder) - PC のみ表示 -->
   <div
-    class="hidden md:flex flex-col flex-1 px-4 py-2 rounded-xl bg-zinc-600/10 border border-gray-600/30 overflow-hidden"
+    class="hidden md:flex flex-col flex-1 overflow-hidden"
+    data-suisou-surface="panel tight"
   >
     <div class="flex w-full mb-2">
-      <span class="text-base md:text-lg">Folder</span>
+      <span data-suisou-text="s16 w500">Folder</span>
     </div>
     <div class="grid grid-cols-5 auto-rows-min gap-2 w-full overflow-y-auto xl:grid-cols-6">
       {#each candidateKeyed as { card, key } (key)}
