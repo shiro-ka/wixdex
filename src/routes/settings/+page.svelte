@@ -6,8 +6,6 @@
   import { untrack } from 'svelte';
   import PageHeader from '$lib/components/PageHeader.svelte';
   import { logout } from '$lib/utils/logout';
-  import { ctaOutline } from '$lib/styles';
-  import clsx from 'clsx';
 
   let { data, form }: { data: PageData; form: unknown } = $props();
 
@@ -106,9 +104,7 @@
             <p class="text-xs text-zinc-500">
               英小文字・数字・ハイフン・アンダースコア。変更すると古いURLは無効になります。
             </p>
-            <button type="submit" class={clsx(ctaOutline, 'px-4 py-2 text-sm font-semibold')}>
-              保存する
-            </button>
+            <button type="submit" data-suisou-button="outline"> 保存する </button>
           </form>
         {:else if data.user.blueskyHandle}
           <p class="text-sm text-zinc-300">
@@ -155,9 +151,7 @@
                 class={inputClass}
               />
             </div>
-            <button type="submit" class={clsx(ctaOutline, 'px-4 py-2 text-sm font-semibold')}>
-              変更する
-            </button>
+            <button type="submit" data-suisou-button="outline"> 変更する </button>
           </form>
         </section>
       {/if}

@@ -3,8 +3,6 @@
   import IconDeviceFloppy from '@tabler/icons-svelte/icons/device-floppy';
   import IconDeviceFloppyFilled from '@tabler/icons-svelte/icons/device-floppy-filled';
   import IconMenu2 from '@tabler/icons-svelte/icons/menu-2';
-  import { navBtn } from '$lib/styles';
-  import clsx from 'clsx';
 
   interface Props {
     deckName: string;
@@ -27,43 +25,48 @@
   }: Props = $props();
 </script>
 
-<nav class="flex-shrink-0">
-  <div class="flex items-center justify-between px-4 py-2">
-    <img src="/wixdex.png" alt="wixdex" class="h-7" />
-    <div class="flex items-center gap-4">
-      <div class="flex items-center border border-gray-600 rounded-lg">
-        <button class={clsx(navBtn(), 'pl-6 pr-2 h-10')} onclick={onDeckClick} aria-label="デッキ">
-          <span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors"
-            >{deckName || '新しいデッキ'}</span
-          >
-        </button>
-        <button class={clsx(navBtn(), 'w-10 h-10')} onclick={onShareClick} aria-label="シェア">
-          <IconShare class="w-4 h-4 text-gray-400 group-hover:text-gray-200 transition-colors" />
-        </button>
-        <button
-          class={clsx(navBtn({ interactive: isLoggedIn }), 'w-12 h-10 pr-2')}
-          onclick={isLoggedIn ? onSaveClick : undefined}
-          disabled={!isLoggedIn}
-          aria-label="保存"
-        >
-          {#if isSaved}
-            <IconDeviceFloppyFilled
-              class="w-4 h-4 text-gray-400 group-hover:text-gray-200 transition-colors"
-            />
-          {:else}
-            <IconDeviceFloppy
-              class="w-5 h-5 text-gray-400 group-hover:text-gray-200 transition-colors"
-            />
-          {/if}
-        </button>
-      </div>
+<!-- デッキ名 + 共有 + 保存は連結ボタン（button-group）。
+     親が罫と角丸を持ち、子は罫なしで並ぶ —— Suisou がこの形を部品で持っている -->
+<nav class="bar">
+  <img src="/wixdex.png" alt="wixdex" class="logo" />
+  <div data-suisou-layout="row">
+    <div data-suisou-button-group>
+      <button data-suisou-button type="button" onclick={onDeckClick} aria-label="デッキ">
+        {deckName || '新しいデッキ'}
+      </button>
+      <button data-suisou-button="icon" type="button" onclick={onShareClick} aria-label="シェア">
+        <IconShare />
+      </button>
       <button
-        class={clsx(navBtn(), 'w-10 h-10 rounded-lg')}
-        onclick={onMenuClick}
-        aria-label="メニュー"
+        data-suisou-button="icon"
+        type="button"
+        onclick={isLoggedIn ? onSaveClick : undefined}
+        disabled={!isLoggedIn}
+        aria-label="保存"
       >
-        <IconMenu2 class="w-6 h-6 text-gray-400 group-hover:text-gray-200 transition-colors" />
+        {#if isSaved}
+          <IconDeviceFloppyFilled />
+        {:else}
+          <IconDeviceFloppy />
+        {/if}
       </button>
     </div>
+    <button data-suisou-button="icon" type="button" onclick={onMenuClick} aria-label="メニュー">
+      <IconMenu2 />
+    </button>
   </div>
 </nav>
+
+<style>
+  /* トップバーは地べた（bg）に直置き。面も罫も持たず、区切りは空きが担う */
+  .bar {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--suisou-space-2) var(--suisou-space-3);
+  }
+  .logo {
+    height: 1.75rem; /* 28px。ロゴの実寸は現場の値 */
+  }
+</style>
