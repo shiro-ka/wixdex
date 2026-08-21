@@ -120,12 +120,9 @@
     <div class="flex w-full">
       <span data-suisou-text="s16 w500">Lrig Deck</span>
     </div>
-    <div
-      class="lrigDeck grid w-full h-[calc(32dvw-4rem)] sm:h-[8rem] md:h-[calc(14dvw-2rem)] lg:h-[calc(11dvw-3rem)] xl:h-[6rem] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1"
-    >
+    <div class="deck-grid lrig">
       {#each lrigKeyed as { card, key, index } (key)}
         <div
-          class="flex items-center"
           role="presentation"
           ontouchstart={(e) => handleTouchStart(e, key)}
           ontouchmove={(e) => handleTouchMove(e, key)}
@@ -160,12 +157,9 @@
         >
       </div>
     </div>
-    <div
-      class="mainDeck grid w-full h-[calc(90dvw-4rem)] md:h-[calc(45dvw-3rem)] lg:h-[calc(36dvw-3rem)] xl:h-[26rem] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1"
-    >
+    <div class="deck-grid main">
       {#each mainKeyed as { card, key, index } (key)}
         <div
-          class="flex items-center"
           role="presentation"
           ontouchstart={(e) => handleTouchStart(e, key)}
           ontouchmove={(e) => handleTouchMove(e, key)}
@@ -238,3 +232,52 @@
     </div>
   </div>
 </div>
+
+<style>
+  /* デッキの升目。横8列 × ルリグ1行 / メイン5行。
+     行の高さはカードの縦横比（12:17）から決まり、列幅に正確に追従する。
+
+     ★以前は器に高さを直接持たせていた:
+         h-[calc(90dvw-4rem)] md:h-[calc(45dvw-3rem)]
+         lg:h-[calc(36dvw-3rem)] xl:h-[26rem]
+       「8列に並べたカードを5行積んだ高さ」を dvw から手で近似した値で、
+       段ごとに書き直していた。しかも DeckArea は md 以上で flex-1 / flex-2
+       になるので**幅がビューポート幅ではない** ―― dvw 基準の近似は原理的に
+       合わせられず、画面幅によってカードの下に隙間が出たり詰まったりしていた。
+       同じファイルの Folder の升目（aspect-[12/17]）が最初からこの形。 */
+  .deck-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: var(--suisou-space-1);
+    width: 100%;
+  }
+  .lrig {
+    grid-template-rows: 1fr;
+  }
+  .main {
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  /* 升目そのものがカードの比を持つ。中の画像は w-full なので縦は勝手に揃う
+     （横向きカードだけ背が低くなり、中央に置かれる） */
+  .deck-grid > * {
+    aspect-ratio: 12 / 17;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ★空でも枠を保つための当て木。デッキが0枚のとき升目が1つも無いと
+     grid の行が潰れ、新規デッキで面が消えてカードを足すたびに跳ねる
+     （高さを直接持っていた頃は起きなかった退行）。
+
+     1行目1列目に重ねた見えない升目で行の高さを作り、あとは 1fr が
+     全行に配る ―― 高さが auto の grid では fr は「一番高い行に揃える」
+     ように働くので、これだけで5行ぶんが確保される。
+     grid-area で1つ目のカードと同じ枡に重ねてあるので、並びはずれない。 */
+  .deck-grid::before {
+    content: '';
+    grid-area: 1 / 1;
+    aspect-ratio: 12 / 17;
+    visibility: hidden;
+  }
+</style>
