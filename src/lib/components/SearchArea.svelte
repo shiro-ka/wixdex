@@ -73,14 +73,38 @@
   }
 
   let {
-    hoveredCard, selectedColors, selectedLevels, selectedCardTypes,
-    selectedLrigClasses, selectedTags, lifeBurstFilter, candidateFilter,
-    favoriteFilter, onColorFilter, onTextSearch, searchName, searchInText,
-    onToggleSearchName, onToggleSearchInText, onLevelFilter,
-    onLifeBurstFilter, onCardTypeFilter, onLrigClassFilter, onTagFilter,
-    onCandidateFilter, onFavoriteFilter, isLoggedIn, onReset, activeDropdown,
-    onDropdownChange, showLifeBurst, onToggleLifeBurst, showCandidateIcon,
-    onToggleCandidateIcon, rotateLandscape, onToggleRotateLandscape,
+    hoveredCard,
+    selectedColors,
+    selectedLevels,
+    selectedCardTypes,
+    selectedLrigClasses,
+    selectedTags,
+    lifeBurstFilter,
+    candidateFilter,
+    favoriteFilter,
+    onColorFilter,
+    onTextSearch,
+    searchName,
+    searchInText,
+    onToggleSearchName,
+    onToggleSearchInText,
+    onLevelFilter,
+    onLifeBurstFilter,
+    onCardTypeFilter,
+    onLrigClassFilter,
+    onTagFilter,
+    onCandidateFilter,
+    onFavoriteFilter,
+    isLoggedIn,
+    onReset,
+    activeDropdown,
+    onDropdownChange,
+    showLifeBurst,
+    onToggleLifeBurst,
+    showCandidateIcon,
+    onToggleCandidateIcon,
+    rotateLandscape,
+    onToggleRotateLandscape,
   }: Props = $props();
 
   let searchText = $state('');
@@ -140,11 +164,11 @@
 
   function clearPanelTab() {
     if (panelTab === 'type') {
-      selectedCardTypes.forEach(t => onCardTypeFilter(t));
+      selectedCardTypes.forEach((t) => onCardTypeFilter(t));
     } else if (panelTab === 'lrigClass') {
-      selectedLrigClasses.forEach(c => onLrigClassFilter(c));
+      selectedLrigClasses.forEach((c) => onLrigClassFilter(c));
     } else {
-      selectedTags.forEach(t => onTagFilter(t));
+      selectedTags.forEach((t) => onTagFilter(t));
     }
   }
 
@@ -175,7 +199,9 @@
   </div>
 
   <!-- 拡張メニュー（lg以上） -->
-  <div class="hidden lg:flex flex-1 flex-col mb-2 bg-gray-600/10 border border-gray-600/50 rounded-xl p-4 min-h-0">
+  <div
+    class="hidden lg:flex flex-1 flex-col mb-2 bg-gray-600/10 border border-gray-600/50 rounded-xl p-4 min-h-0"
+  >
     <div class="flex justify-between items-center mb-4">
       <h3 class="text-base text-white">
         {#if panelTab === 'type'}カードタイプ検索
@@ -205,24 +231,28 @@
     <!-- お気に入り/候補カード/カードタイプ/クラス/タグ -->
     <div class="flex w-full h-10 lg:h-8 mb-2">
       {#if isLoggedIn}
-      <button
-        type="button"
-        class={clsx(filterToggle({ active: favoriteFilter }), 'flex-1 h-full mr-2', filterBorder)}
-        onclick={onFavoriteFilter}
-      >
-        {#if favoriteFilter}
-          <IconStarFilled class={filterIcon({ active: true })} />
-        {:else}
-          <IconStar class={filterIcon({ active: false })} />
-        {/if}
-      </button>
+        <button
+          type="button"
+          class={clsx(filterToggle({ active: favoriteFilter }), 'flex-1 h-full mr-2', filterBorder)}
+          onclick={onFavoriteFilter}
+        >
+          {#if favoriteFilter}
+            <IconStarFilled class={filterIcon({ active: true })} />
+          {:else}
+            <IconStar class={filterIcon({ active: false })} />
+          {/if}
+        </button>
       {/if}
 
       <!-- 候補フィルタ: デスクトップは Folder が常時表示されるのでフィルタ不要 → md以上で非表示 -->
       <button
         type="button"
         id="folder-button"
-        class={clsx(filterToggle({ active: candidateFilter }), 'flex-1 h-full mr-2 md:hidden', filterBorder)}
+        class={clsx(
+          filterToggle({ active: candidateFilter }),
+          'flex-1 h-full mr-2 md:hidden',
+          filterBorder,
+        )}
         onclick={onCandidateFilter}
       >
         {#if candidateFilter}
@@ -245,7 +275,10 @@
           class={clsx(filterToggle({ active: lrigActive }), 'flex-1 w-10 h-full')}
           onclick={() => handleMenuClick('lrigClass')}
         >
-          <LrigClassIcon filled={isLrigClassFilterEnabled} class={filterIcon({ active: lrigActive })} />
+          <LrigClassIcon
+            filled={isLrigClassFilterEnabled}
+            class={filterIcon({ active: lrigActive })}
+          />
         </button>
         <button
           type="button"
@@ -272,15 +305,35 @@
             onclick={() => onColorFilter(color)}
           >
             {#if color === '白'}
-              <WhiteIcon class="w-5 h-5 transition-all {selectedColors.has(color) ? activeClass : inactiveClass}" />
+              <WhiteIcon
+                class="w-5 h-5 transition-all {selectedColors.has(color)
+                  ? activeClass
+                  : inactiveClass}"
+              />
             {:else if color === '赤'}
-              <RedIcon class="w-5 h-5 transition-all {selectedColors.has(color) ? activeClass : inactiveClass}" />
+              <RedIcon
+                class="w-5 h-5 transition-all {selectedColors.has(color)
+                  ? activeClass
+                  : inactiveClass}"
+              />
             {:else if color === '青'}
-              <BlueIcon class="w-5 h-5 transition-all {selectedColors.has(color) ? activeClass : inactiveClass}" />
+              <BlueIcon
+                class="w-5 h-5 transition-all {selectedColors.has(color)
+                  ? activeClass
+                  : inactiveClass}"
+              />
             {:else if color === '緑'}
-              <GreenIcon class="w-5 h-5 transition-all {selectedColors.has(color) ? activeClass : inactiveClass}" />
+              <GreenIcon
+                class="w-5 h-5 transition-all {selectedColors.has(color)
+                  ? activeClass
+                  : inactiveClass}"
+              />
             {:else}
-              <BlackIcon class="w-5 h-5 transition-all {selectedColors.has(color) ? activeClass : inactiveClass}" />
+              <BlackIcon
+                class="w-5 h-5 transition-all {selectedColors.has(color)
+                  ? activeClass
+                  : inactiveClass}"
+              />
             {/if}
           </button>
         {/each}
@@ -320,7 +373,11 @@
       <!-- LB検索 -->
       <button
         type="button"
-        class={clsx(filterToggle({ active: lifeBurstFilter !== null }), 'w-10 h-full', filterBorder)}
+        class={clsx(
+          filterToggle({ active: lifeBurstFilter !== null }),
+          'w-10 h-full',
+          filterBorder,
+        )}
         onclick={onLifeBurstFilter}
       >
         {#if lifeBurstFilter === false}
@@ -341,13 +398,17 @@
         <button
           type="button"
           class="flex items-center justify-center w-full h-full bg-zinc-600/10 {filterBorder} text-gray-400 hover:text-white cursor-pointer transition-all"
-          onclick={() => { isSettingsOpen = !isSettingsOpen; }}
+          onclick={() => {
+            isSettingsOpen = !isSettingsOpen;
+          }}
         >
           <IconAdjustments class="w-5 h-5" />
         </button>
         <SettingsPopup
           isOpen={isSettingsOpen}
-          onClose={() => { isSettingsOpen = false; }}
+          onClose={() => {
+            isSettingsOpen = false;
+          }}
           {showLifeBurst}
           {onToggleLifeBurst}
           {showCandidateIcon}
@@ -358,13 +419,17 @@
       </div>
 
       <!-- 検索入力 -->
-      <div class="flex flex-1 mr-2 items-center bg-zinc-600/10 {filterBorder} has-[input:focus]:ring-2 has-[input:focus]:ring-gray-500">
+      <div
+        class="flex flex-1 mr-2 items-center bg-zinc-600/10 {filterBorder} has-[input:focus]:ring-2 has-[input:focus]:ring-gray-500"
+      >
         <!-- 同上: ポップアップを button の外(relative div の兄弟)に出す -->
         <div class="relative w-12 h-full">
           <button
             type="button"
             class="flex w-full h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer transition-all"
-            onclick={() => { isSearchSettingsOpen = !isSearchSettingsOpen; }}
+            onclick={() => {
+              isSearchSettingsOpen = !isSearchSettingsOpen;
+            }}
           >
             {#if isSearchSettingsOpen}
               <IconZoomCancelFilled class="w-5 h-5 text-gray-300" />
@@ -374,7 +439,9 @@
           </button>
           <SearchSettingsPopup
             isOpen={isSearchSettingsOpen}
-            onClose={() => { isSearchSettingsOpen = false; }}
+            onClose={() => {
+              isSearchSettingsOpen = false;
+            }}
             searchCardName={searchName}
             searchCardText={searchInText}
             onToggleSearchCardName={onToggleSearchName}

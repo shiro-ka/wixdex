@@ -30,21 +30,30 @@
   }
 
   let {
-    cards, loading = false, loadError = null,
-    onAdd, onAddMultiple, onCardHover,
-    onAddToCandidate, onRemoveFromCandidate,
-    candidateFilter, onCardClick,
-    showLifeBurst, showCandidateIcon, candidateCards, rotateLandscape,
+    cards,
+    loading = false,
+    loadError = null,
+    onAdd,
+    onAddMultiple,
+    onCardHover,
+    onAddToCandidate,
+    onRemoveFromCandidate,
+    candidateFilter,
+    onCardClick,
+    showLifeBurst,
+    showCandidateIcon,
+    candidateCards,
+    rotateLandscape,
   }: Props = $props();
 
   // ── virtualization geometry ────────────────────────────────
   // Desktop: a 3-column vertical grid handled by TanStack's `lanes`.
   // Mobile: a single-row horizontal strip.
   const COLS = 3;
-  const GAP = 8;          // gap between grid columns/rows (px)
-  const PAD_X = 8;        // horizontal inset of the grid (px)
-  const STRIP_W = 64;     // mobile card width (w-16)
-  const STRIP_GAP = 8;    // mobile gap between cards
+  const GAP = 8; // gap between grid columns/rows (px)
+  const PAD_X = 8; // horizontal inset of the grid (px)
+  const STRIP_W = 64; // mobile card width (w-16)
+  const STRIP_GAP = 8; // mobile gap between cards
   const STRIP_STRIDE = STRIP_W + STRIP_GAP;
 
   let scrollEl = $state<HTMLDivElement | null>(null);
@@ -62,12 +71,16 @@
   }
 
   // O(1) candidate lookup
-  let candidateKeySet = $derived(new Set(
-    candidateCards.flatMap(c => [c.cardID, c.image].filter((v): v is string => v != null))
-  ));
+  let candidateKeySet = $derived(
+    new Set(
+      candidateCards.flatMap((c) => [c.cardID, c.image].filter((v): v is string => v != null)),
+    ),
+  );
 
   function isCardInCandidates(card: Card): boolean {
-    return (card.cardID != null && candidateKeySet.has(card.cardID)) || candidateKeySet.has(card.image);
+    return (
+      (card.cardID != null && candidateKeySet.has(card.cardID)) || candidateKeySet.has(card.image)
+    );
   }
 
   // ── TanStack virtualizers (one per layout, only the active one mounts) ──
@@ -126,23 +139,30 @@
     }
   });
 
-  function measure(node: HTMLDivElement, virtualizer: SvelteVirtualizer<HTMLDivElement, HTMLDivElement>) {
+  function measure(
+    node: HTMLDivElement,
+    virtualizer: SvelteVirtualizer<HTMLDivElement, HTMLDivElement>,
+  ) {
     virtualizer.measureElement(node);
     return {
-      update(v: SvelteVirtualizer<HTMLDivElement, HTMLDivElement>) { v.measureElement(node); },
+      update(v: SvelteVirtualizer<HTMLDivElement, HTMLDivElement>) {
+        v.measureElement(node);
+      },
     };
   }
 
   onMount(() => {
     const mq = window.matchMedia('(min-width: 768px)');
     isMd = mq.matches;
-    const onMq = (e: MediaQueryListEvent) => { isMd = e.matches; };
+    const onMq = (e: MediaQueryListEvent) => {
+      isMd = e.matches;
+    };
     mq.addEventListener('change', onMq);
 
     // Seed the width synchronously so the first grid layout isn't zero-width
     // while we wait for the ResizeObserver's first async callback.
     if (scrollEl) containerWidth = scrollEl.clientWidth;
-    const ro = new ResizeObserver(entries => {
+    const ro = new ResizeObserver((entries) => {
       containerWidth = entries[0].contentRect.width;
     });
     if (scrollEl) ro.observe(scrollEl);
@@ -210,7 +230,9 @@
           else onAddToCandidate(card);
           if (folderBtn) {
             folderBtn.style.transform = 'scale(1.1)';
-            setTimeout(() => { folderBtn.style.transform = 'scale(1)'; }, 200);
+            setTimeout(() => {
+              folderBtn.style.transform = 'scale(1)';
+            }, 200);
           }
         }
       }, 700);
@@ -225,7 +247,11 @@
     if (deltaY > deltaX && deltaY > 5 && !isOverFolder) {
       e.preventDefault();
       state.isVerticalSwipe = true;
-      if (state.holdTimer) { clearTimeout(state.holdTimer); state.holdTimer = null; state.isOverFolder = false; }
+      if (state.holdTimer) {
+        clearTimeout(state.holdTimer);
+        state.holdTimer = null;
+        state.isOverFolder = false;
+      }
       const img = getImg(node);
       if (img) {
         const translateY = Math.max(-10, Math.min(10, -(state.startY - currentY)));
@@ -239,7 +265,10 @@
     const state = touchStates.get(node);
     if (!state) return;
 
-    if (state.holdTimer) { clearTimeout(state.holdTimer); state.holdTimer = null; }
+    if (state.holdTimer) {
+      clearTimeout(state.holdTimer);
+      state.holdTimer = null;
+    }
 
     const img = getImg(node);
     if (img) {
@@ -247,7 +276,12 @@
       img.style.transform = 'translateY(0)';
     }
 
-    if (state.isHolding) { state.isHolding = false; state.isOverFolder = false; touchStates.delete(node); return; }
+    if (state.isHolding) {
+      state.isHolding = false;
+      state.isOverFolder = false;
+      touchStates.delete(node);
+      return;
+    }
 
     if (state.isVerticalSwipe) {
       const deltaY = state.startY - e.changedTouches[0].clientY;
@@ -261,7 +295,9 @@
 {#snippet cardCell(card: Card, withButtons: boolean)}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
-    class="flex flex-col {withButtons ? 'w-full border border-gray-600/50 rounded-lg' : 'w-16 justify-center'} h-full"
+    class="flex flex-col {withButtons
+      ? 'w-full border border-gray-600/50 rounded-lg'
+      : 'w-16 justify-center'} h-full"
     ontouchstart={(e) => handleTouchStart(e, card)}
     ontouchmove={(e) => handleTouchMove(e, card)}
     ontouchend={(e) => handleTouchEnd(e, card)}
@@ -285,21 +321,26 @@
       <div class="flex justify-center w-full h-10">
         <button
           class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-          onclick={() => onAdd(card)} title="デッキに1枚追加"
+          onclick={() => onAdd(card)}
+          title="デッキに1枚追加"
         >
           <IconPlus class="w-5 h-5" />
         </button>
         {#if isMainDeckCard(card)}
           <button
             class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-            onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加"
+            onclick={() => onAddMultiple(card, 4)}
+            title="デッキに4枚追加"
           >
             <IconBoxMultiple4 class="w-5 h-5" />
           </button>
         {/if}
         <button
           class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-          onclick={() => { if (candidateFilter) onRemoveFromCandidate(card); else onAddToCandidate(card); }}
+          onclick={() => {
+            if (candidateFilter) onRemoveFromCandidate(card);
+            else onAddToCandidate(card);
+          }}
           title={candidateFilter ? '候補カードから削除' : '候補カードに追加'}
         >
           {#if candidateFilter}
@@ -336,10 +377,14 @@
 >
   {#if loading}
     <div class="flex items-center justify-center w-full h-32">
-      <div class="w-10 h-10 border-3 border-orange-400 border-t-transparent rounded-full animate-spin"></div>
+      <div
+        class="w-10 h-10 border-3 border-orange-400 border-t-transparent rounded-full animate-spin"
+      ></div>
     </div>
   {:else if loadError}
-    <div class="flex items-center justify-center w-full h-32 text-red-400 text-sm px-4 text-center">{loadError}</div>
+    <div class="flex items-center justify-center w-full h-32 text-red-400 text-sm px-4 text-center">
+      {loadError}
+    </div>
   {:else if isMd}
     <!-- Desktop: virtualized 3-column grid -->
     <div class="relative w-full" style="height: {$gridV.getTotalSize()}px">
@@ -350,7 +395,9 @@
             data-index={row.index}
             use:measure={$gridV}
             class="absolute top-0 pb-2"
-            style="left: {Math.round(laneLeft(row.lane))}px; width: {colWidth}px; transform: translateY({Math.round(row.start)}px)"
+            style="left: {Math.round(
+              laneLeft(row.lane),
+            )}px; width: {colWidth}px; transform: translateY({Math.round(row.start)}px)"
           >
             {@render cardCell(card, true)}
           </div>

@@ -32,8 +32,19 @@
   }
 
   let {
-    isOpen, onClose, deckName, mainDeck, lrigDeck, deckId, ownerAtName, currentSlug,
-    isPublic, isLoggedIn, rotateLandscape, onSetPublic, onUpdateSlug,
+    isOpen,
+    onClose,
+    deckName,
+    mainDeck,
+    lrigDeck,
+    deckId,
+    ownerAtName,
+    currentSlug,
+    isPublic,
+    isLoggedIn,
+    rotateLandscape,
+    onSetPublic,
+    onUpdateSlug,
   }: Props = $props();
 
   let isExporting = $state(false);
@@ -57,7 +68,7 @@
   });
 
   let publicUrl = $derived(
-    browser && savedSlug && ownerAtName ? `${location.origin}/@${ownerAtName}/${savedSlug}` : ''
+    browser && savedSlug && ownerAtName ? `${location.origin}/@${ownerAtName}/${savedSlug}` : '',
   );
 
   async function saveSlug() {
@@ -94,7 +105,9 @@
     try {
       await navigator.clipboard.writeText(publicUrl);
       copied = true;
-      setTimeout(() => { copied = false; }, 1500);
+      setTimeout(() => {
+        copied = false;
+      }, 1500);
     } catch {
       /* clipboard 拒否時は無視 */
     }
@@ -165,9 +178,15 @@
             aria-label="このデッキを公開する"
             onclick={togglePublish}
             disabled={publishing}
-            class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors disabled:opacity-50 {isPublic ? 'bg-orange-600' : 'bg-zinc-600'}"
+            class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors disabled:opacity-50 {isPublic
+              ? 'bg-orange-600'
+              : 'bg-zinc-600'}"
           >
-            <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform {isPublic ? 'translate-x-6' : 'translate-x-1'}"></span>
+            <span
+              class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform {isPublic
+                ? 'translate-x-6'
+                : 'translate-x-1'}"
+            ></span>
           </button>
         </div>
         {#if isPublic}
@@ -191,7 +210,9 @@
 
             {#if editingSlug}
               <div class="mt-2">
-                <div class="flex h-9 items-center rounded-lg bg-zinc-800 border border-zinc-700 focus-within:border-orange-500">
+                <div
+                  class="flex h-9 items-center rounded-lg bg-zinc-800 border border-zinc-700 focus-within:border-orange-500"
+                >
                   <span class="pl-2 text-gray-500 text-xs whitespace-nowrap">/@{ownerAtName}/</span>
                   <input
                     type="text"
@@ -216,7 +237,9 @@
               </div>
             {:else}
               <div class="flex items-center justify-between mt-1">
-                <p class="text-gray-500 text-xs">リンクを知っている人がこのデッキを閲覧できます。</p>
+                <p class="text-gray-500 text-xs">
+                  リンクを知っている人がこのデッキを閲覧できます。
+                </p>
                 <button
                   type="button"
                   onclick={() => (editingSlug = true)}
@@ -229,7 +252,8 @@
           {:else}
             <p class="text-yellow-500 text-xs mt-3">
               共有URLを発行するには
-              <a href="/settings" class="underline hover:text-yellow-400">設定</a>でユーザー名を決めてください。
+              <a href="/settings" class="underline hover:text-yellow-400">設定</a
+              >でユーザー名を決めてください。
             </p>
           {/if}
         {/if}
@@ -243,14 +267,26 @@
       <!-- オプション: 列数 / テーマ -->
       <div class="flex gap-3 mb-3">
         <div class="flex flex-1 rounded-lg border border-zinc-700 bg-zinc-800 p-1">
-          <button type="button" class={segBtn(imageCols === 8)} onclick={() => (imageCols = 8)}>8列</button>
-          <button type="button" class={segBtn(imageCols === 10)} onclick={() => (imageCols = 10)}>10列</button>
+          <button type="button" class={segBtn(imageCols === 8)} onclick={() => (imageCols = 8)}
+            >8列</button
+          >
+          <button type="button" class={segBtn(imageCols === 10)} onclick={() => (imageCols = 10)}
+            >10列</button
+          >
         </div>
         <div class="flex flex-1 rounded-lg border border-zinc-700 bg-zinc-800 p-1">
-          <button type="button" class={segBtn(imageTheme === 'dark')} onclick={() => (imageTheme = 'dark')}>
+          <button
+            type="button"
+            class={segBtn(imageTheme === 'dark')}
+            onclick={() => (imageTheme = 'dark')}
+          >
             <IconMoon size={16} /> ダーク
           </button>
-          <button type="button" class={segBtn(imageTheme === 'light')} onclick={() => (imageTheme = 'light')}>
+          <button
+            type="button"
+            class={segBtn(imageTheme === 'light')}
+            onclick={() => (imageTheme = 'light')}
+          >
             <IconSun size={16} /> ライト
           </button>
         </div>
@@ -259,7 +295,9 @@
       <div class="flex h-10 gap-3">
         <!-- 画像(JPG)。コピーはブラウザ制約によりPNGで書き込まれる(貼り付け互換のため)。 -->
         <div class="flex flex-1 px-1 bg-zinc-800 rounded-lg border border-zinc-700">
-          <div class="flex flex-1 text-white font-medium text-sm items-center justify-center">ダウンロード</div>
+          <div class="flex flex-1 text-white font-medium text-sm items-center justify-center">
+            ダウンロード
+          </div>
           <button
             class="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             onclick={handleCopyToClipboard}

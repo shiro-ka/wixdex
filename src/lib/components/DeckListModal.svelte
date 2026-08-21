@@ -27,7 +27,10 @@
       {#each decks as deck (deck.id)}
         <div class="flex w-full bg-zinc-700/50 hover:bg-zinc-700 rounded-lg transition-colors">
           <button
-            onclick={() => { onSelectDeck(deck); onClose(); }}
+            onclick={() => {
+              onSelectDeck(deck);
+              onClose();
+            }}
             class="flex-1 text-left p-4"
           >
             <div class="text-white font-medium">{deck.name}</div>

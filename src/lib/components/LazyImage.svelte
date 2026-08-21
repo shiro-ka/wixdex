@@ -40,10 +40,16 @@
   }
 
   let {
-    src, alt,
+    src,
+    alt,
     class: className = '',
-    onmouseenter, onmouseleave, onclick, onwheel,
-    ontouchstart, ontouchmove, ontouchend,
+    onmouseenter,
+    onmouseleave,
+    onclick,
+    onwheel,
+    ontouchstart,
+    ontouchmove,
+    ontouchend,
     onload: onLoadCallback,
     fadeToken,
     fade: fadeEnabled = true,
@@ -65,11 +71,25 @@
   {src}
   {alt}
   decoding="async"
-  class="{className} {fade ? 'transition-opacity duration-300' : ''} {isLoaded ? 'opacity-100' : 'opacity-0'}"
-  onload={(e) => { isLoaded = true; onLoadCallback?.(e.currentTarget as HTMLImageElement); }}
-  {onmouseenter} {onmouseleave} {onclick} {onwheel}
-  {ontouchstart} {ontouchmove} {ontouchend}
+  class="{className} {fade ? 'transition-opacity duration-300' : ''} {isLoaded
+    ? 'opacity-100'
+    : 'opacity-0'}"
+  onload={(e) => {
+    isLoaded = true;
+    onLoadCallback?.(e.currentTarget as HTMLImageElement);
+  }}
+  {onmouseenter}
+  {onmouseleave}
+  {onclick}
+  {onwheel}
+  {ontouchstart}
+  {ontouchmove}
+  {ontouchend}
   role={onclick ? 'button' : undefined}
   tabindex={onclick ? 0 : undefined}
-  onkeydown={onclick ? (e) => { if (e.key === 'Enter' || e.key === ' ') onclick(); } : undefined}
+  onkeydown={onclick
+    ? (e) => {
+        if (e.key === 'Enter' || e.key === ' ') onclick();
+      }
+    : undefined}
 />

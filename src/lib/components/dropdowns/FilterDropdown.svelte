@@ -33,7 +33,7 @@
 {#if shouldRender}
   <!-- モバイル/タブレット専用のドロップダウン。PC(lg以上)は常時表示パネルが担当するので隠す。
        PCでは activeDropdown が常に非nullになるため、lg:hidden が無いとPCでもこの overlay が開いてしまう。 -->
-  <div class="lg:hidden fixed top-0 left-0 w-dvw bg-zinc-800 border-b border-gray-700 shadow-lg z-50 p-4 {isClosing ? 'animate-slide-up' : 'animate-slide-down'}">
+  <div class="lg:hidden fixed top-0 left-0 w-dvw bg-zinc-800 border-b border-gray-700 z-50 p-4 {isClosing ? 'animate-slide-up' : 'animate-slide-down'}">
     <div class="max-w-screen-md mx-auto {isClosing ? 'animate-fade-out' : 'animate-fade-in'}">
       <div class="flex items-center justify-between mb-3">
         <h3 class="text-white text-sm font-semibold">{title}</h3>

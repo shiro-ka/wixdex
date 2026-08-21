@@ -45,7 +45,9 @@
       <!-- svelte-ignore a11y_label_has_associated_control -->
       <label class="block text-sm font-medium text-gray-300 mb-2">デッキ名</label>
       {#if !isLoggedIn}
-        <div class="w-full px-3 py-2 bg-zinc-700/40 border border-gray-700 rounded-lg text-gray-500 cursor-not-allowed select-none">
+        <div
+          class="w-full px-3 py-2 bg-zinc-700/40 border border-gray-700 rounded-lg text-gray-500 cursor-not-allowed select-none"
+        >
           {name || 'デッキ名を入力'}
         </div>
       {:else if isNameEditMode}
@@ -53,7 +55,9 @@
         <input
           type="text"
           bind:value={name}
-          onblur={() => { isNameEditMode = false; }}
+          onblur={() => {
+            isNameEditMode = false;
+          }}
           autofocus
           class="w-full px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
           placeholder="デッキ名を入力"
@@ -61,7 +65,9 @@
       {:else}
         <button
           type="button"
-          onclick={() => { isNameEditMode = true; }}
+          onclick={() => {
+            isNameEditMode = true;
+          }}
           class="w-full px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white text-left cursor-text hover:bg-zinc-700/80 transition-colors"
         >
           {name || 'デッキ名を入力'}
@@ -74,7 +80,9 @@
       <!-- svelte-ignore a11y_label_has_associated_control -->
       <label class="block text-sm font-medium text-gray-300 mb-2">メモ</label>
       {#if !isLoggedIn}
-        <div class="w-full min-h-[200px] px-3 py-2 bg-zinc-700/40 border border-gray-700 rounded-lg text-gray-500 cursor-not-allowed prose prose-invert prose-sm max-w-none select-none">
+        <div
+          class="w-full min-h-[200px] px-3 py-2 bg-zinc-700/40 border border-gray-700 rounded-lg text-gray-500 cursor-not-allowed prose prose-invert prose-sm max-w-none select-none"
+        >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html renderedMemo}
@@ -83,7 +91,9 @@
         <!-- svelte-ignore a11y_autofocus -->
         <textarea
           bind:value={memo}
-          onblur={() => { isEditMode = false; }}
+          onblur={() => {
+            isEditMode = false;
+          }}
           autofocus
           class="w-full min-h-[200px] px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gray-500 font-mono text-sm"
           placeholder="メモを入力（マークダウン対応）"
@@ -91,7 +101,9 @@
       {:else}
         <button
           type="button"
-          onclick={() => { isEditMode = true; }}
+          onclick={() => {
+            isEditMode = true;
+          }}
           class="w-full min-h-[200px] px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white text-left prose prose-invert prose-sm max-w-none cursor-text hover:bg-zinc-700/80 transition-colors"
         >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
@@ -101,7 +113,9 @@
       {/if}
       <p class="text-xs text-gray-500 mt-1">
         {#if !isLoggedIn}
-          <a href="/login" class="text-orange-400 hover:text-orange-300 transition-colors">ログインするとデッキを保存できます</a>
+          <a href="/login" class="text-orange-400 hover:text-orange-300 transition-colors"
+            >ログインするとデッキを保存できます</a
+          >
         {:else}
           {isEditMode ? 'マークダウン記法が使えます' : 'クリックして編集'}
         {/if}

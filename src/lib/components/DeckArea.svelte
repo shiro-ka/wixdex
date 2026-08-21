@@ -24,8 +24,17 @@
   }
 
   let {
-    mainDeck, lrigDeck, onCardHover, onAdd, onAddMultiple, onRemove,
-    candidateCards, onRemoveFromCandidate, onCardClick, lifeBurstCount, showLifeBurst,
+    mainDeck,
+    lrigDeck,
+    onCardHover,
+    onAdd,
+    onAddMultiple,
+    onRemove,
+    candidateCards,
+    onRemoveFromCandidate,
+    onCardClick,
+    lifeBurstCount,
+    showLifeBurst,
     rotateLandscape,
   }: Props = $props();
 
@@ -85,7 +94,13 @@
     }
   }
 
-  function handleTouchEnd(e: TouchEvent, key: string, card: Card, index: number, deckType: 'main' | 'lrig') {
+  function handleTouchEnd(
+    e: TouchEvent,
+    key: string,
+    card: Card,
+    index: number,
+    deckType: 'main' | 'lrig',
+  ) {
     const state = touchStateMap.get(key);
     if (!state) return;
     const deltaY = state.startY - e.changedTouches[0].clientY;
@@ -105,9 +120,13 @@
     <div class="flex w-full">
       <span class="text-base md:text-lg">Lrig Deck</span>
     </div>
-    <div class="lrigDeck grid w-full h-[calc(32dvw-4rem)] sm:h-[8rem] md:h-[calc(14dvw-2rem)] lg:h-[calc(11dvw-3rem)] xl:h-[6rem] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1">
+    <div
+      class="lrigDeck grid w-full h-[calc(32dvw-4rem)] sm:h-[8rem] md:h-[calc(14dvw-2rem)] lg:h-[calc(11dvw-3rem)] xl:h-[6rem] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1"
+    >
       {#each lrigKeyed as { card, key, index } (key)}
-        <div class="flex items-center" role="presentation"
+        <div
+          class="flex items-center"
+          role="presentation"
           ontouchstart={(e) => handleTouchStart(e, key)}
           ontouchmove={(e) => handleTouchMove(e, key)}
           ontouchend={(e) => handleTouchEnd(e, key, card, index, 'lrig')}
@@ -135,12 +154,19 @@
       <span class="text-base md:text-lg">Main Deck</span>
       <div class="flex items-center gap-1 md:gap-1.5">
         <LifeBurstIcon class="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
-        <span class="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px] text-sm md:text-base">{lifeBurstCount}</span>
+        <span
+          class="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px] text-sm md:text-base"
+          >{lifeBurstCount}</span
+        >
       </div>
     </div>
-    <div class="mainDeck grid w-full h-[calc(90dvw-4rem)] md:h-[calc(45dvw-3rem)] lg:h-[calc(36dvw-3rem)] xl:h-[26rem] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1">
+    <div
+      class="mainDeck grid w-full h-[calc(90dvw-4rem)] md:h-[calc(45dvw-3rem)] lg:h-[calc(36dvw-3rem)] xl:h-[26rem] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1"
+    >
       {#each mainKeyed as { card, key, index } (key)}
-        <div class="flex items-center" role="presentation"
+        <div
+          class="flex items-center"
+          role="presentation"
           ontouchstart={(e) => handleTouchStart(e, key)}
           ontouchmove={(e) => handleTouchMove(e, key)}
           ontouchend={(e) => handleTouchEnd(e, key, card, index, 'main')}
@@ -163,7 +189,9 @@
   </div>
 
   <!-- 候補カード (Folder) - PC のみ表示 -->
-  <div class="hidden md:flex flex-col flex-1 px-4 py-2 rounded-xl bg-zinc-600/10 border border-gray-600/30 overflow-hidden">
+  <div
+    class="hidden md:flex flex-col flex-1 px-4 py-2 rounded-xl bg-zinc-600/10 border border-gray-600/30 overflow-hidden"
+  >
     <div class="flex w-full mb-2">
       <span class="text-base md:text-lg">Folder</span>
     </div>
@@ -183,18 +211,27 @@
             />
           </div>
           <div class="flex justify-center w-full h-10">
-            <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-              onclick={() => onAdd(card)} title="デッキに1枚追加">
+            <button
+              class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+              onclick={() => onAdd(card)}
+              title="デッキに1枚追加"
+            >
               <IconPlus class="w-[18px] h-[18px]" />
             </button>
             {#if isMainDeckCard(card)}
-              <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-                onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加">
+              <button
+                class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+                onclick={() => onAddMultiple(card, 4)}
+                title="デッキに4枚追加"
+              >
                 <IconBoxMultiple4 class="w-[18px] h-[18px]" />
               </button>
             {/if}
-            <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-              onclick={() => onRemoveFromCandidate(card)} title="候補カードから削除">
+            <button
+              class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+              onclick={() => onRemoveFromCandidate(card)}
+              title="候補カードから削除"
+            >
               <IconFolderX class="w-[18px] h-[18px]" />
             </button>
           </div>

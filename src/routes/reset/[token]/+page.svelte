@@ -12,7 +12,7 @@
 </svelte:head>
 
 <main class="flex min-h-screen items-center justify-center bg-zinc-900 p-4">
-  <div class="w-full max-w-md rounded-2xl border border-gray-600/30 bg-zinc-600/10 p-7 shadow-xl sm:p-10">
+  <div class="w-full max-w-md rounded-2xl border border-gray-600/30 bg-zinc-600/10 p-7 sm:p-10">
     <h1 class="mb-6 text-center text-xl font-bold text-white">パスワード再設定</h1>
 
     {#if !data.valid || (form && 'expired' in form && form.expired)}
@@ -31,7 +31,9 @@
       {/if}
       <form method="POST" class="space-y-4">
         <div>
-          <label for="password" class="mb-1 block text-sm text-zinc-300">新しいパスワード（8文字以上）</label>
+          <label for="password" class="mb-1 block text-sm text-zinc-300"
+            >新しいパスワード（8文字以上）</label
+          >
           <input
             id="password"
             name="password"

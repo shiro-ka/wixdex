@@ -54,15 +54,15 @@
 
 <!-- メタ情報のラベル片（種族・色・コスト等） -->
 {#snippet chip(label: string)}
-  <span class="px-1.5 py-0.5 rounded bg-zinc-700 text-xs text-gray-200">{label}</span>
+  <span data-suisou-tag>{label}</span>
 {/snippet}
 
 <!-- モバイルのタブボタン -->
 {#snippet tabButton(value: 'card' | 'info', label: string)}
   <button
-    class="px-6 h-9 rounded-lg text-sm transition-colors {tab === value
-      ? 'bg-zinc-700 text-white'
-      : 'bg-zinc-700/30 text-gray-400'}"
+    class="tab"
+    data-suisou-button="plain neutral"
+    aria-pressed={tab === value}
     onclick={() => (tab = value)}
   >
     {label}
@@ -91,24 +91,21 @@
   <div class="fixed inset-0 flex items-center justify-center z-50 p-3">
     <!-- 背景クリックで閉じる -->
     <button
-      class="absolute inset-0 bg-black/70"
+      class="absolute inset-0 scrim"
       onclick={onClose}
       aria-label="閉じる"
-      transition:fade={{ duration: 130 }}
+      transition:fade={{ duration: 120 }}
     ></button>
 
     <!-- モーダル本体（背景フェード＋軽くスケール。ツールなので控えめ＆やや速め） -->
     <div
-      class="relative z-10 flex flex-col xl:flex-row w-full max-w-4xl h-[68vh] bg-zinc-800 rounded-xl overflow-hidden"
-      transition:scale={{ start: 0.97, opacity: 0, duration: 150 }}
+      class="relative z-10 flex flex-col xl:flex-row w-full max-w-4xl h-[68vh] overflow-hidden"
+      data-suisou-surface="overlay bleed"
+      transition:scale={{ start: 0.97, opacity: 0, duration: 200 }}
     >
       <!-- 右上の閉じるボタン -->
-      <button
-        class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center rounded-lg bg-zinc-900/60 text-gray-300 hover:text-white transition-colors"
-        onclick={onClose}
-        aria-label="閉じる"
-      >
-        <IconX class="w-5 h-5" />
+      <button class="close" data-suisou-button="icon" onclick={onClose} aria-label="閉じる">
+        <IconX />
       </button>
 
       <!-- タブ切替（モバイルのみ。PCは左右同時表示なので不要） -->
@@ -142,7 +139,9 @@
             'text-gray-200',
             count === 0,
           )}
-          <div class="flex-1 flex items-center justify-center text-lg font-bold text-white tabular-nums">
+          <div
+            class="flex-1 flex items-center justify-center text-lg font-bold text-white tabular-nums"
+          >
             {count}
           </div>
           {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', 'text-gray-200', !canAdd)}
@@ -243,3 +242,24 @@
     </div>
   </div>
 {/if}
+
+<style>
+  /* 膜は Suisou の scrim。自前の黒 α0.70 は下地の暗さを見ていない値だった */
+  .scrim {
+    background: var(--suisou-scrim);
+  }
+
+  /* 右上に浮く閉じるボタン。面の上に載るので下地を敷いて字を拾わせる */
+  .close {
+    position: absolute;
+    top: var(--suisou-space-2);
+    right: var(--suisou-space-2);
+    z-index: 20;
+    background: var(--suisou-item);
+  }
+
+  /* タブは中身の幅より広く取る。押下は aria-pressed で Suisou が下地を出す */
+  .tab {
+    padding-inline: var(--suisou-space-4);
+  }
+</style>
