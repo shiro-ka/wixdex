@@ -60,7 +60,7 @@
   {#if loading}
     <div class="flex justify-center py-16 text-gray-400">読み込み中...</div>
   {:else if error}
-    <div class="text-center py-16 text-red-400">{error}</div>
+    <div class="text-center py-16 text-red-400" role="alert">{error}</div>
   {:else if ranked.length === 0}
     <div class="text-center py-16 text-gray-400">
       <p class="text-lg">まだ集計データがありません</p>
@@ -69,7 +69,7 @@
   {:else}
     <ol class="space-y-2">
       {#each ranked as row (row.cardId)}
-        <li class="flex items-center gap-3 bg-zinc-700/50 rounded-lg p-3">
+        <li data-suisou-row class="flex items-center gap-3">
           <div class="w-8 text-center font-mono text-orange-400 text-lg">{row.rank}</div>
           {#if row.card}
             <img
