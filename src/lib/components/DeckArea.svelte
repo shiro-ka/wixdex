@@ -116,7 +116,7 @@
 
 <div class="flex flex-col px-2 mb-2 md:mb-1 md:flex-1 lg:flex-2">
   <!-- ルリグデッキ -->
-  <div class="h-fit mb-2" data-suisou-surface="panel tight">
+  <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
     <div class="flex w-full">
       <span data-suisou-text="s16 w500">Lrig Deck</span>
     </div>
@@ -146,7 +146,7 @@
   </div>
 
   <!-- メインデッキ -->
-  <div class="h-fit mb-2" data-suisou-surface="panel tight">
+  <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
     <div class="flex w-full justify-between items-center">
       <span data-suisou-text="s16 w500">Main Deck</span>
       <div class="flex items-center gap-1 md:gap-1.5">
@@ -245,17 +245,33 @@
        になるので**幅がビューポート幅ではない** ―― dvw 基準の近似は原理的に
        合わせられず、画面幅によってカードの下に隙間が出たり詰まったりしていた。
        同じファイルの Folder の升目（aspect-[12/17]）が最初からこの形。 */
+  .deck-panel {
+    container-type: inline-size; /* 下の 100cqw が面の内側の幅を指す */
+  }
   .deck-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     column-gap: var(--suisou-space-1);
     width: 100%;
   }
+
+  /* ★空でも枠を保つ。行数が枚数依存になるので、0枚のとき行が消えて面が無くなり、
+     カードを足すたびに跳ねる（高さを直接持っていた頃は起きなかった退行）。
+
+     列幅 = (内側の幅 − 隙間7つ) ÷ 8、行の高さ = 列幅 × 17/12。
+     N行ぶんは (内側の幅 − 隙間7つ) × 17N/96 になる。
+     **満杯のときの実際の高さと同値**なので、min-height が中身と喧嘩しない。
+
+     ★以前ここに「1枡目に重ねた見えない当て木」を置いていたが誤り。
+       grid の子は明示配置でもその枡を占有するので、自動配置が2枡目から
+       始まり、カードが1つずつずれていた（2026-08-22 に指摘されて発覚）。 */
   .lrig {
     grid-template-rows: 1fr;
+    min-height: calc((100cqw - 7 * var(--suisou-space-1)) * 17 / 96);
   }
   .main {
     grid-template-rows: repeat(5, 1fr);
+    min-height: calc((100cqw - 7 * var(--suisou-space-1)) * 85 / 96);
   }
 
   /* 升目そのものがカードの比を持つ。中の画像は w-full なので縦は勝手に揃う
@@ -264,20 +280,5 @@
     aspect-ratio: 12 / 17;
     display: flex;
     align-items: center;
-  }
-
-  /* ★空でも枠を保つための当て木。デッキが0枚のとき升目が1つも無いと
-     grid の行が潰れ、新規デッキで面が消えてカードを足すたびに跳ねる
-     （高さを直接持っていた頃は起きなかった退行）。
-
-     1行目1列目に重ねた見えない升目で行の高さを作り、あとは 1fr が
-     全行に配る ―― 高さが auto の grid では fr は「一番高い行に揃える」
-     ように働くので、これだけで5行ぶんが確保される。
-     grid-area で1つ目のカードと同じ枡に重ねてあるので、並びはずれない。 */
-  .deck-grid::before {
-    content: '';
-    grid-area: 1 / 1;
-    aspect-ratio: 12 / 17;
-    visibility: hidden;
   }
 </style>
