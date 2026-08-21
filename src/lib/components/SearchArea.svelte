@@ -286,7 +286,7 @@
     <div class="flex w-full h-10 lg:h-8 mb-2">
       <!-- 色検索 -->
       <div class="flex flex-5 mr-2" data-suisou-button-group>
-        {#each [['白', 'text-yellow-100', 'text-yellow-200'], ['赤', 'text-red-400', 'text-red-400'], ['青', 'text-blue-400', 'text-blue-400'], ['緑', 'text-green-400', 'text-green-400'], ['黒', 'text-purple-400', 'text-purple-500']] as [color, activeClass, inactiveClass] (color)}
+        {#each [['白', 'c-white'], ['赤', 'c-red'], ['青', 'c-blue'], ['緑', 'c-green'], ['黒', 'c-black']] as [color, colorClass] (color)}
           <button
             type="button"
             class="cell"
@@ -295,35 +295,15 @@
             onclick={() => onColorFilter(color)}
           >
             {#if color === '白'}
-              <WhiteIcon
-                class="w-5 h-5 transition-all {selectedColors.has(color)
-                  ? activeClass
-                  : inactiveClass}"
-              />
+              <WhiteIcon class={colorClass} />
             {:else if color === '赤'}
-              <RedIcon
-                class="w-5 h-5 transition-all {selectedColors.has(color)
-                  ? activeClass
-                  : inactiveClass}"
-              />
+              <RedIcon class={colorClass} />
             {:else if color === '青'}
-              <BlueIcon
-                class="w-5 h-5 transition-all {selectedColors.has(color)
-                  ? activeClass
-                  : inactiveClass}"
-              />
+              <BlueIcon class={colorClass} />
             {:else if color === '緑'}
-              <GreenIcon
-                class="w-5 h-5 transition-all {selectedColors.has(color)
-                  ? activeClass
-                  : inactiveClass}"
-              />
+              <GreenIcon class={colorClass} />
             {:else}
-              <BlackIcon
-                class="w-5 h-5 transition-all {selectedColors.has(color)
-                  ? activeClass
-                  : inactiveClass}"
-              />
+              <BlackIcon class={colorClass} />
             {/if}
           </button>
         {/each}
@@ -430,7 +410,7 @@
             onToggleSearchCardText={onToggleSearchInText}
           />
         </div>
-        <input type="text" class="input" bind:value={searchText} oninput={handleSearchInput} />
+        <input type="text" data-suisou-field bind:value={searchText} oninput={handleSearchInput} />
         <button type="button" class="cell clear" data-suisou-button onclick={handleClear}>
           <IconCircleX />
         </button>
@@ -461,27 +441,28 @@
     min-width: 0;
   }
 
+  /* ドメイン色。WIXOSS のカード5色は Suisou の第4分類（solve.py が導出する）。
+     エラーの赤とカードの赤が同じ色に巻き込まれていたのを、ここで分離した */
+  .cell :global(.c-white) {
+    color: var(--suisou-wixoss-white);
+  }
+  .cell :global(.c-red) {
+    color: var(--suisou-wixoss-red);
+  }
+  .cell :global(.c-blue) {
+    color: var(--suisou-wixoss-blue);
+  }
+  .cell :global(.c-green) {
+    color: var(--suisou-wixoss-green);
+  }
+  .cell :global(.c-black) {
+    color: var(--suisou-wixoss-black);
+  }
+
+  /* 入力の素肌化と焦点の輪は Suisou の連結（button-group × field）が持つようになった */
   .search {
     display: flex;
     align-items: center;
-  }
-  /* 入力はグループの中で素肌になる。枠と焦点の輪はグループが持つ */
-  .search:has(input:focus) {
-    outline: var(--suisou-focus);
-    outline-offset: 1px;
-  }
-  .input {
-    flex: 1 1 auto;
-    min-width: 0;
-    height: 100%;
-    border: 0;
-    background: transparent;
-    color: var(--suisou-text-main);
-    font: inherit;
-    font-size: var(--suisou-size-14);
-  }
-  .input:focus {
-    outline: none;
   }
   .clear {
     flex: none;
