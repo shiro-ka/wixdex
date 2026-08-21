@@ -4,9 +4,9 @@
   import IconLibrary from '@tabler/icons-svelte/icons/library';
   import IconChartLine from '@tabler/icons-svelte/icons/chart-line';
   import IconUser from '@tabler/icons-svelte/icons/user';
-  import IconWindow from '@tabler/icons-svelte/icons/window';
   import IconBrandBluesky from '@tabler/icons-svelte/icons/brand-bluesky';
   import IconBrandGithub from '@tabler/icons-svelte/icons/brand-github';
+  import IconMado from '$lib/components/icons/IconMado.svelte';
   import { logout } from '$lib/utils/logout';
 
   interface Props {
@@ -68,7 +68,13 @@
 {/snippet}
 
 <!-- 外部リンク1行（アイコン + タイトル + 説明）。Row が下地の反応、Media が並び -->
-{#snippet linkRow(Icon: typeof IconWindow, title: string, desc: string, href: string)}
+{#snippet linkRow(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Icon: any,
+  title: string,
+  desc: string,
+  href: string,
+)}
   <a {href} target="_blank" rel="noopener noreferrer" data-suisou-row data-suisou-media>
     <span data-suisou-media-icon><Icon /></span>
     <div data-suisou-media-content>
@@ -161,15 +167,12 @@
     <div data-suisou-layout="stack" class="section">
       {@render sectionLabel('Link')}
 
-      <!-- Mado: 準備中なので非リンク（hover しない = Row を付けない） -->
-      <div data-suisou-media class="static-row">
-        <span data-suisou-media-icon><IconWindow /></span>
-        <div data-suisou-media-content>
-          <p data-suisou-text="s14 w500">Mado <span data-suisou-tag>準備中</span></p>
-          <p data-suisou-text="s12" class="desc">バグ報告・要望など</p>
-        </div>
-      </div>
-
+      {@render linkRow(
+        IconMado,
+        'Mado',
+        'バグ報告・要望など',
+        'https://mado.blue/@ffffffflower.bsky.social/wixdex',
+      )}
       {@render linkRow(
         IconBrandBluesky,
         'Bluesky',
