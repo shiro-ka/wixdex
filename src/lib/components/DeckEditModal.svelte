@@ -98,7 +98,7 @@
           }}
           autofocus
           data-suisou-field="block"
-          class="min-h-[200px] font-mono text-sm"
+          class="min-h-[200px] font-mono"
           placeholder="メモを入力（マークダウン対応）"
         ></textarea>
       {:else}

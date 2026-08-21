@@ -379,7 +379,7 @@
       ></div>
     </div>
   {:else if loadError}
-    <div class="flex items-center justify-center w-full h-32 text-red-400 text-sm px-4 text-center">
+    <div class="flex items-center justify-center w-full h-32 text-red-400 px-4 text-center">
       {loadError}
     </div>
   {:else if isMd}
@@ -420,7 +420,9 @@
 </div>
 
 <style>
-  /* 升目に広がるボタン。セルの高さ(h-10)は仮想リストの計測に効くので動かさない */
+  /* 升目に広がるボタン。セルの高さ(h-10)は仮想リストの計測に効くので動かさない。
+     ★ここは連結（button-group）ではない ―― 3つのボタンを枠なしで並べているだけなので
+     even は効かない。同じ .cell という名前でも SearchArea のそれとは別の需要。 */
   .cell {
     flex: 1 1 auto;
     height: 100%;

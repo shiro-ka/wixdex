@@ -23,7 +23,7 @@
       {/if}
       <form method="POST" class="space-y-4">
         <div>
-          <label for="password" class="mb-1 block text-sm text-zinc-300"
+          <label for="password" class="mb-1 block text-zinc-300"
             >新しいパスワード（8文字以上）</label
           >
           <input

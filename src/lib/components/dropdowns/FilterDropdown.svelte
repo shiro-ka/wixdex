@@ -44,7 +44,7 @@
       : 'animate-slide-down'}"
   >
     <div class="max-w-screen-md mx-auto {isClosing ? 'animate-fade-out' : 'animate-fade-in'}">
-      <div class="flex items-center justify-between mb-3">
+      <div data-suisou-layout="row between" class="mb-2">
         <h3 data-suisou-text="s14 w700">{title}</h3>
         <button
           type="button"
@@ -58,7 +58,7 @@
       <div>{@render children()}</div>
       <button type="button" onclick={onClose} data-suisou-button="wide" class="mt-4">
         <IconChevronUp />
-        <span class="text-sm">閉じる</span>
+        <span>閉じる</span>
       </button>
     </div>
   </div>

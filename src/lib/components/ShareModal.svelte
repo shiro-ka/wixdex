@@ -167,7 +167,7 @@
              Suisou はネイティブ部品を奪わない ―― accent-color が根で1回
              書いてあるので、色は勝手にテーマへ追従する。塗りのトグルは
              wixdex に残った最後の「塗る操作部品」だった。 -->
-        <label class="flex items-center justify-between text-gray-300 text-sm">
+        <label data-suisou-layout="row between" class="text-gray-300">
           このデッキを公開する
           <input
             type="checkbox"
@@ -179,7 +179,7 @@
         </label>
         {#if isPublic}
           {#if publicUrl}
-            <div class="flex mt-3" data-suisou-button-group>
+            <div class="mt-3" data-suisou-button-group="even">
               <input
                 type="text"
                 readonly
@@ -195,7 +195,7 @@
 
             {#if editingSlug}
               <div class="mt-2">
-                <div class="flex items-center" data-suisou-button-group>
+                <div data-suisou-button-group="even">
                   <span data-suisou-affix class="text-xs">/@{ownerAtName}/</span>
                   <input
                     type="text"
@@ -221,7 +221,7 @@
                 {/if}
               </div>
             {:else}
-              <div class="flex items-center justify-between mt-1">
+              <div data-suisou-layout="row between" class="mt-1">
                 <p class="text-gray-500 text-xs">
                   リンクを知っている人がこのデッキを閲覧できます。
                 </p>
@@ -247,31 +247,28 @@
 
     <!-- 画像エクスポート -->
     <div class="pt-4 border-t border-zinc-700">
-      <h4 data-suisou-text="s14 w700" class="mb-3">画像エクスポート</h4>
+      <h4 data-suisou-text="s14 w700" class="mb-2">画像エクスポート</h4>
 
       <!-- オプション: 列数 / テーマ -->
-      <div class="flex gap-3 mb-3">
-        <div class="flex flex-1" data-suisou-button-group>
+      <div data-suisou-layout="row" class="mb-4">
+        <div data-suisou-button-group="even">
           <button
             type="button"
             data-suisou-button
-            class="flex-1 text-sm"
             aria-pressed={imageCols === 8}
             onclick={() => (imageCols = 8)}>8列</button
           >
           <button
             type="button"
             data-suisou-button
-            class="flex-1 text-sm"
             aria-pressed={imageCols === 10}
             onclick={() => (imageCols = 10)}>10列</button
           >
         </div>
-        <div class="flex flex-1" data-suisou-button-group>
+        <div data-suisou-button-group="even">
           <button
             type="button"
             data-suisou-button
-            class="flex-1 text-sm"
             aria-pressed={imageTheme === 'dark'}
             onclick={() => (imageTheme = 'dark')}
           >
@@ -280,7 +277,6 @@
           <button
             type="button"
             data-suisou-button
-            class="flex-1 text-sm"
             aria-pressed={imageTheme === 'light'}
             onclick={() => (imageTheme = 'light')}
           >
@@ -290,8 +286,8 @@
       </div>
 
       <!-- 画像(JPG)。コピーはブラウザ制約によりPNGで書き込まれる(貼り付け互換のため)。 -->
-      <div class="flex" data-suisou-button-group>
-        <div class="flex flex-1 items-center justify-center text-sm font-medium">ダウンロード</div>
+      <div data-suisou-button-group="even">
+        <div class="flex flex-1 items-center justify-center font-medium">ダウンロード</div>
         <button
           type="button"
           data-suisou-button="icon"

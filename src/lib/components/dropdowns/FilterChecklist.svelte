@@ -26,7 +26,7 @@
             ? 'text-orange-400'
             : 'text-gray-400 group-hover:text-gray-300'}"
         />
-        <span class="text-sm">{label}</span>
+        <span>{label}</span>
       </button>
     {/each}
   </div>
