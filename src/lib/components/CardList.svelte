@@ -372,7 +372,10 @@
   {#if loading}
     <div class="flex items-center justify-center w-full h-32">
       <div
-        class="w-10 h-10 border-3 border-orange-400 border-t-transparent rounded-full animate-spin"
+        data-suisou-spinner
+        style="--suisou-spinner: 2.5rem"
+        role="status"
+        aria-label="読み込み中"
       ></div>
     </div>
   {:else if loadError}
