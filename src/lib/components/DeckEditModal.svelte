@@ -43,11 +43,9 @@
     <!-- デッキ名 -->
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
-      <label class="block text-sm font-medium text-gray-300 mb-2">デッキ名</label>
+      <label data-suisou-text="s14 w500" class="block text-gray-300 mb-2">デッキ名</label>
       {#if !isLoggedIn}
-        <div
-          class="w-full px-3 py-2 bg-zinc-700/40 border border-gray-700 rounded-lg text-gray-500 cursor-not-allowed select-none"
-        >
+        <div data-suisou-field aria-disabled="true" class="select-none">
           {name || 'デッキ名を入力'}
         </div>
       {:else if isNameEditMode}
@@ -59,7 +57,7 @@
             isNameEditMode = false;
           }}
           autofocus
-          class="w-full px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
+          data-suisou-field="block"
           placeholder="デッキ名を入力"
         />
       {:else}
@@ -68,7 +66,8 @@
           onclick={() => {
             isNameEditMode = true;
           }}
-          class="w-full px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white text-left cursor-text hover:bg-zinc-700/80 transition-colors"
+          data-suisou-field="block"
+          class="text-left cursor-text"
         >
           {name || 'デッキ名を入力'}
         </button>
@@ -78,10 +77,13 @@
     <!-- メモ -->
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
-      <label class="block text-sm font-medium text-gray-300 mb-2">メモ</label>
+      <label data-suisou-text="s14 w500" class="block text-gray-300 mb-2">メモ</label>
       {#if !isLoggedIn}
         <div
-          class="w-full min-h-[200px] px-3 py-2 bg-zinc-700/40 border border-gray-700 rounded-lg text-gray-500 cursor-not-allowed prose prose-invert prose-sm max-w-none select-none"
+          data-suisou-field
+          data-suisou-prose="tight"
+          aria-disabled="true"
+          class="min-h-[200px] select-none"
         >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
@@ -95,7 +97,8 @@
             isEditMode = false;
           }}
           autofocus
-          class="w-full min-h-[200px] px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-gray-500 font-mono text-sm"
+          data-suisou-field="block"
+          class="min-h-[200px] font-mono text-sm"
           placeholder="メモを入力（マークダウン対応）"
         ></textarea>
       {:else}
@@ -104,7 +107,9 @@
           onclick={() => {
             isEditMode = true;
           }}
-          class="w-full min-h-[200px] px-3 py-2 bg-zinc-700 border border-gray-600 rounded-lg text-white text-left prose prose-invert prose-sm max-w-none cursor-text hover:bg-zinc-700/80 transition-colors"
+          data-suisou-field="block"
+          data-suisou-prose="tight"
+          class="min-h-[200px] text-left cursor-text"
         >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
@@ -113,9 +118,7 @@
       {/if}
       <p class="text-xs text-gray-500 mt-1">
         {#if !isLoggedIn}
-          <a href="/login" class="text-orange-400 hover:text-orange-300 transition-colors"
-            >ログインするとデッキを保存できます</a
-          >
+          <a href="/login" data-suisou-link>ログインするとデッキを保存できます</a>
         {:else}
           {isEditMode ? 'マークダウン記法が使えます' : 'クリックして編集'}
         {/if}
@@ -127,7 +130,7 @@
       type="button"
       onclick={handleSaveClick}
       disabled={!isLoggedIn}
-      class="w-full rounded-lg bg-orange-600 py-2 font-semibold text-white hover:bg-orange-500 active:bg-orange-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-orange-600"
+      data-suisou-button="outline wide"
     >
       保存
     </button>

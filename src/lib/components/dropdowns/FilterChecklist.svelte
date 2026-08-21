@@ -14,10 +14,17 @@
   <div class="grid gap-2" style="grid-template-columns: repeat({columns}, minmax(0, 1fr))">
     {#each items as { value, label } (value)}
       {@const checked = selected.has(value)}
-      <button type="button" class="group flex items-center space-x-2 text-white cursor-pointer" onclick={() => onToggle(value)}>
+      <button
+        type="button"
+        class="group flex items-center space-x-2 cursor-pointer"
+        aria-pressed={checked}
+        onclick={() => onToggle(value)}
+      >
         <CheckboxIcon
           {checked}
-          class="w-5 h-5 flex-shrink-0 transition-colors {checked ? 'text-orange-400' : 'text-gray-400 group-hover:text-gray-300'}"
+          class="w-5 h-5 flex-shrink-0 transition-colors {checked
+            ? 'text-orange-400'
+            : 'text-gray-400 group-hover:text-gray-300'}"
         />
         <span class="text-sm">{label}</span>
       </button>

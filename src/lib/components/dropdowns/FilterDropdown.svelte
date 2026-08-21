@@ -24,7 +24,10 @@
       isClosing = false;
     } else if (shouldRender) {
       isClosing = true;
-      timer = setTimeout(() => { shouldRender = false; isClosing = false; }, 200);
+      timer = setTimeout(() => {
+        shouldRender = false;
+        isClosing = false;
+      }, 200);
     }
     return () => clearTimeout(timer);
   });
@@ -33,22 +36,39 @@
 {#if shouldRender}
   <!-- モバイル/タブレット専用のドロップダウン。PC(lg以上)は常時表示パネルが担当するので隠す。
        PCでは activeDropdown が常に非nullになるため、lg:hidden が無いとPCでもこの overlay が開いてしまう。 -->
-  <div class="lg:hidden fixed top-0 left-0 w-dvw bg-zinc-800 border-b border-gray-700 z-50 p-4 {isClosing ? 'animate-slide-up' : 'animate-slide-down'}">
+  <!-- 上から降りるシート。Suisou に無い形なので位置と出入りは現場が持ち、
+       面の色と罫はトークンで受ける。3回目の現場が出たら Suisou 昇格を検討 -->
+  <div
+    class="sheet lg:hidden fixed top-0 left-0 w-dvw z-50 p-4 {isClosing
+      ? 'animate-slide-up'
+      : 'animate-slide-down'}"
+  >
     <div class="max-w-screen-md mx-auto {isClosing ? 'animate-fade-out' : 'animate-fade-in'}">
       <div class="flex items-center justify-between mb-3">
-        <h3 class="text-white text-sm font-semibold">{title}</h3>
-        <button onclick={onClearAll}
-          class="!text-gray-400 hover:!text-gray-300 !bg-transparent hover:bg-gray-700/50 rounded-lg p-1 transition-all"
-          aria-label="チェック全解除">
-          <IconCircleCheck class="w-5 h-5" />
+        <h3 data-suisou-text="s14 w700">{title}</h3>
+        <button
+          type="button"
+          onclick={onClearAll}
+          data-suisou-button="icon"
+          aria-label="チェック全解除"
+        >
+          <IconCircleCheck />
         </button>
       </div>
       <div>{@render children()}</div>
-      <button onclick={onClose}
-        class="w-full mt-4 text-gray-400 hover:text-white bg-gray-700/50 hover:bg-gray-700 rounded-lg p-2 transition-all flex items-center justify-center gap-2">
-        <IconChevronUp class="w-5 h-5" />
+      <button type="button" onclick={onClose} data-suisou-button="wide" class="mt-4">
+        <IconChevronUp />
         <span class="text-sm">閉じる</span>
       </button>
     </div>
   </div>
 {/if}
+
+<style>
+  /* 面は overlay（頁の手前に浮く層）。縁まで届くシートなので角丸は持たず、
+     下辺の罫1本だけで区切る ―― surface="drawer" が左辺でやるのと同じ理屈 */
+  .sheet {
+    background: var(--suisou-overlay);
+    border-bottom: 1px solid var(--suisou-line-strong);
+  }
+</style>
