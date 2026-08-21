@@ -37,7 +37,8 @@
             href={bskyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-1 inline-flex items-center gap-1.5 text-sm text-sky-400 hover:text-sky-300"
+            class="mt-1 inline-flex items-center gap-1.5 text-sm"
+            data-suisou-link
           >
             <IconBrandBluesky class="h-4 w-4" />
             @{profile.atName}
