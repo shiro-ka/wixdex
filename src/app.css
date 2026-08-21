@@ -58,6 +58,14 @@
   --color-green-300: var(--suisou-success);
   --color-green-500: var(--suisou-success);
   --color-green-900: var(--suisou-success-surface);
+
+  /* ★白（2026-08-21）。text-white が45箇所あり、ブリッジに --color-white が
+     無いので全部が純白のまま＝テーマに追従していなかった。neutral-700 と同じ穴。
+     text-main は hadal で #ebebef。純白との差はわずかだが、テーマを替えたときに
+     文字だけ置き去りにならない。bg-white（ShareModal のつまみ）も一緒に乗る。 */
+  --color-white: var(--suisou-text-main);
+  /* error-surface(bg-red-900) の上の本文。Suisou がこの組を 4.5:1 で保証している */
+  --color-red-200: var(--suisou-text-main);
 }
 
 :root {
@@ -83,6 +91,15 @@
   --card-blue: oklch(74% 0.1296 255); /* #70adfb */
   --card-green: oklch(76% 0.19 152); /* #27d271 */
   --card-black: oklch(74% 0.1623 306); /* #c48dfb */
+
+  /* ★カード画像の上に出す「候補フォルダに入っている」印（CardImage）。
+     ブリッジに載せられない ―― bg-orange-500 がライフバーストの印として
+     accent に繋がっているので、blue も accent に繋ぐと2つの印が同じ色になり
+     区別が消える。かといって Suisou に塗り色は無い（塗らず線で示す設計なので、
+     accent も意味色も L74 前後のインクしか無く、絵の上に敷く下地には向かない）。
+     よってこれは現場のもの ―― --card-* と同じ扱いで wixdex が持つ。
+     値は元の Tailwind blue-500 相当のまま（見た目は変えていない）。 */
+  --badge-candidate: oklch(62.3% 0.1899 259.8); /* #3b82f6 */
 }
 
 @keyframes slide-down {

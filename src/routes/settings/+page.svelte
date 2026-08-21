@@ -54,7 +54,7 @@
               href="https://bsky.app/profile/{data.user.blueskyHandle}"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-sky-400 hover:text-sky-300">@{data.user.blueskyHandle}</a
+              data-suisou-link>@{data.user.blueskyHandle}</a
             >
           </p>
         {/if}
@@ -180,7 +180,7 @@
               type="button"
               onclick={linkBluesky}
               disabled={blueskyLoading}
-              class="rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-500 disabled:opacity-50"
+              data-suisou-button="outline"
             >
               {blueskyLoading ? '接続中...' : 'Bluesky を連携する'}
             </button>

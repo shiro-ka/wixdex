@@ -313,7 +313,7 @@
             type="button"
             onclick={() => loginWithBluesky()}
             disabled={blueskyLoading}
-            class="flex w-full items-center justify-center gap-2 rounded-lg bg-sky-600 py-2.5 font-semibold text-white transition-colors hover:bg-sky-500 active:bg-sky-700 disabled:opacity-50"
+            data-suisou-button="outline wide"
           >
             <IconBrandBluesky class="h-5 w-5" />
             {blueskyLoading ? '接続中...' : 'Bluesky で続ける'}

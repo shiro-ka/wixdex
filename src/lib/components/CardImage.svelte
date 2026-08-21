@@ -85,7 +85,10 @@
     </div>
   {/if}
   {#if showCandidateIcon && isInCandidates && isImageLoaded}
-    <div class="absolute top-1 right-1 bg-blue-500 rounded-full p-0.5">
+    <div
+      class="absolute top-1 right-1 rounded-full p-0.5"
+      style="background: var(--badge-candidate)"
+    >
       <IconFolderFilled class="w-3 h-3 text-white" />
     </div>
   {/if}
