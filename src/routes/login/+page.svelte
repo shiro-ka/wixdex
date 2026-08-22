@@ -290,7 +290,8 @@
           <button
             type="button"
             onclick={() => (mode = 'forgot')}
-            class="mt-3 block w-full text-center text-zinc-400 transition-colors hover:text-zinc-200"
+            data-suisou-button="wide"
+            class="mt-3"
           >
             パスワードをお忘れですか？
           </button>
@@ -323,7 +324,8 @@
           <button
             type="button"
             onclick={() => (showHandleInput = !showHandleInput)}
-            class="block w-full text-center text-xs text-zinc-500 transition-colors hover:text-zinc-300"
+            data-suisou-button="wide"
+            class="text-xs"
           >
             別のサーバー(PDS)のアカウント
           </button>
