@@ -152,7 +152,8 @@
       <div class="flex items-center gap-1 md:gap-1.5">
         <LifeBurstIcon class="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
         <span
-          class="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px] text-sm md:text-base"
+          data-suisou-text="s14 md:s16"
+          class="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px]"
           >{lifeBurstCount}</span
         >
       </div>
