@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@plugin '@tailwindcss/typography';
 
 /* ══ Suisou ブリッジ ══════════════════════════════════
    既存の色クラス（zinc/gray/orange/red/green/yellow、313箇所・25種類）を
