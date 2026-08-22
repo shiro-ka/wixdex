@@ -26,6 +26,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # ★ブリッジの取りこぼし検査。@theme に無い色クラスは黙って素通りして
+      #   Tailwind の生の色が出る（neutral-700 と white で2回やられている）。
+      - name: Check Suisou bridge
+        run: npm run lint:bridge
+
       - name: Build
         run: npm run build
         env:

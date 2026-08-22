@@ -1,54 +1,178 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
+/* ══ Suisou ブリッジ ══════════════════════════════════
+   既存の色クラス（zinc/gray/orange/red/green/yellow、313箇所・25種類）を
+   Suisou のトークンへ一括で畳む。テンプレートを1枚も触らずに階調が乗せ替わる。
+
+   ★これは移行の足場。本変換（クラス → data-suisou-* 部品）を
+     コンポーネント単位で進め、終わったらこのブロックごと消す。
+   ★色の値は書かない。var(--suisou-*) への参照だけ（値を決めるのは Suisou の solve.py）。
+   ★/50 などの不透明度修飾は Tailwind v4 が color-mix に落とすので、var のままで効く。
+
+   対応の方針:
+     zinc-950/900 → bg          zinc-800 → panel      zinc-700/gray-700 → item
+     zinc-600/gray-600 → line-weak      zinc-500 → line-strong
+     gray-500 → text-disabled   400/300 → text-sub    200/100 → text-main
+     orange → accent（clown）   red → error           green → success
+     yellow → warning
+   （sky 4箇所は対応させず残す。本変換のときに文脈で決める） */
+@theme {
+  --color-zinc-950: var(--suisou-bg);
+  --color-zinc-900: var(--suisou-bg);
+  --color-zinc-800: var(--suisou-panel);
+  --color-zinc-700: var(--suisou-item);
+  --color-gray-700: var(--suisou-item);
+  --color-zinc-600: var(--suisou-line-weak);
+  --color-gray-600: var(--suisou-line-weak);
+  --color-zinc-500: var(--suisou-line-strong);
+  --color-gray-500: var(--suisou-text-disabled);
+  --color-zinc-400: var(--suisou-text-sub);
+  --color-gray-400: var(--suisou-text-sub);
+  --color-zinc-300: var(--suisou-text-sub);
+  --color-gray-300: var(--suisou-text-sub);
+  --color-zinc-200: var(--suisou-text-main);
+  --color-gray-200: var(--suisou-text-main);
+  --color-zinc-100: var(--suisou-text-main);
+  --color-gray-100: var(--suisou-text-main);
+  --color-orange-300: var(--suisou-accent);
+  --color-orange-400: var(--suisou-accent);
+  --color-orange-500: var(--suisou-accent);
+  --color-orange-600: var(--suisou-accent-active);
+  --color-orange-700: var(--suisou-accent-active);
+  --color-red-300: var(--suisou-error);
+  --color-red-400: var(--suisou-error);
+  --color-red-700: var(--suisou-error-active);
+  --color-red-900: var(--suisou-error-surface);
+  --color-green-400: var(--suisou-success);
+  --color-yellow-400: var(--suisou-warning);
+  --color-yellow-500: var(--suisou-warning);
+  /* ★取りこぼしを塞ぐ（2026-08-21）。BaseModal と2つのポップアップの罫が
+     neutral-700 で、zinc/gray しか見ていなかったブリッジを素通りしていた
+     ―― 実物で「モーダルに枠線が付くはずでは？」と指摘されて発覚した。 */
+  /* ドメイン色（下の :root を参照）。カードの赤は error ではないので、
+     ブリッジが意味色へ巻き込まないよう、色フィルタは --card-* を直接使う */
+  --color-neutral-700: var(--suisou-line-strong);
+  --color-red-500: var(--suisou-error);
+  --color-red-600: var(--suisou-error-active);
+  --color-green-300: var(--suisou-success);
+  --color-green-500: var(--suisou-success);
+  --color-green-900: var(--suisou-success-surface);
+
+  /* ★白（2026-08-21）。text-white が45箇所あり、ブリッジに --color-white が
+     無いので全部が純白のまま＝テーマに追従していなかった。neutral-700 と同じ穴。
+     text-main は hadal で #ebebef。純白との差はわずかだが、テーマを替えたときに
+     文字だけ置き去りにならない。bg-white（ShareModal のつまみ）も一緒に乗る。 */
+  --color-white: var(--suisou-text-main);
+  /* error-surface(bg-red-900) の上の本文。Suisou がこの組を 4.5:1 で保証している */
+  --color-red-200: var(--suisou-text-main);
+}
+
+:root {
+  /* ══ ドメイン色 ══════════════════════════════════
+     WIXOSS のカード5色。**対象物側で固定され、作者が動かせない色**。
+
+     ★Suisou は持たない。しろかのブランドではなく WIXOSS のものなので、
+       現場（wixdex）が自分で持つ ―― Suisou の掟でいう「class は現場のもの」と同じ線引き。
+       一度 Suisou 側に実装したが撤回した（経緯は Suisou の .notes/palette-spec.md §1）。
+
+     導出は Suisou と同じ手順で、設計時に一度だけ計算した値を焼いてある:
+       H    Tailwind の近似色（wixdex が目で当てていたもの）を OKLCH に逆算して読んだ
+       L    面に載せて読める明度
+       C    maxC(L, H) × 彩度比 × hadal のトーン倍率(0.95)
+       検証 非文字なので 3.0:1（WCAG 1.4.11）。最悪 overlay の上で 4.59:1
+
+     ★白だけ彩度比 0.36。白は彩度の無さがアイデンティティで、
+       上限まで振るとただの黄色になる（#fce92f になった）。
+
+     ★テーマは hadal 固定。テーマ切替を入れるなら、この5色も解き直しになる。 */
+  --card-white: oklch(92% 0.0662 103); /* #ece7b4 */
+  --card-red: oklch(73% 0.158 22); /* #fb7a7a */
+  --card-blue: oklch(74% 0.1296 255); /* #70adfb */
+  --card-green: oklch(76% 0.19 152); /* #27d271 */
+  --card-black: oklch(74% 0.1623 306); /* #c48dfb */
+
+  /* ★カード画像の上に出す「候補フォルダに入っている」印（CardImage）。
+     ブリッジに載せられない ―― bg-orange-500 がライフバーストの印として
+     accent に繋がっているので、blue も accent に繋ぐと2つの印が同じ色になり
+     区別が消える。かといって Suisou に塗り色は無い（塗らず線で示す設計なので、
+     accent も意味色も L74 前後のインクしか無く、絵の上に敷く下地には向かない）。
+     よってこれは現場のもの ―― --card-* と同じ扱いで wixdex が持つ。
+     値は元の Tailwind blue-500 相当のまま（見た目は変えていない）。 */
+  --badge-candidate: oklch(62.3% 0.1899 259.8); /* #3b82f6 */
+  /* ライフバーストの印も同じ理屈で固定（2026-08-22）。以前は bg-orange-500 ＝
+     ブリッジ経由で accent に追従していたが、LB はゲームの概念であって
+     「いま選んでいるテーマの強調色」ではない。しかもテーマを trench × blue に
+     変えた瞬間、accent 追従の LB と青固定の候補印が同じ色になって区別が消える。
+     値は元の Tailwind orange-500 相当のまま（見た目は変えていない）。 */
+  --badge-lifeburst: oklch(70.5% 0.1867 47.6); /* #f97316 */
+}
+
 @keyframes slide-down {
-  from { transform: translateY(-100%); }
-  to   { transform: translateY(0); }
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 @keyframes slide-up {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-100%); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fade-out {
-  from { opacity: 1; transform: translateY(0); }
-  to   { opacity: 0; transform: translateY(-8px); }
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
 }
 
-.animate-slide-down { animation: slide-down 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-.animate-slide-up   { animation: slide-up   0.2s  cubic-bezier(0.7, 0, 0.84, 0) forwards; }
-.animate-fade-in    { animation: fade-in    0.3s  cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards; opacity: 0; }
-.animate-fade-out   { animation: fade-out   0.15s cubic-bezier(0.7, 0, 0.84, 0) forwards; }
+.animate-slide-down {
+  animation: slide-down 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.animate-slide-up {
+  animation: slide-up 0.2s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+.animate-fade-in {
+  animation: fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+  opacity: 0;
+}
+.animate-fade-out {
+  animation: fade-out 0.15s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
 
 :root {
-  font-family: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", system-ui, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* 書体・文字色・下地は Suisou（data-suisou-root）が持つ。ここは描画のチューニングだけ */
   color-scheme: dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #18181b;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-@layer base {
-  a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-  }
-  a:hover { color: #535bf2; }
-}
-
-html, body {
+html,
+body {
   width: 100%;
   margin: 0;
   /* 上から引っ張ったときのプルリフレッシュ(誤爆)を抑止。
@@ -63,7 +187,7 @@ html, body {
    overflow:hidden は、サブページの中央寄せ不能・余白に地色露出・スクロール不能の原因だったので除去。 */
 body {
   min-width: 320px;
-  background-color: #18181b;
+  /* 地色は Suisou（--suisou-bg）が持つ */
   overscroll-behavior: none;
 }
 
@@ -79,11 +203,15 @@ body {
     color: inherit;
     cursor: pointer;
   }
-  button:focus, button:focus-visible { outline: none; }
+  button:focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 /* カスタムスクロールバー */
-.overflow-x-auto::-webkit-scrollbar { height: 16px; }
+.overflow-x-auto::-webkit-scrollbar {
+  height: 16px;
+}
 .overflow-x-auto::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
@@ -96,15 +224,19 @@ body {
   background-clip: padding-box;
   transition: background 0.3s ease;
 }
-.overflow-x-auto::-webkit-scrollbar-thumb:hover  { background: rgba(255, 255, 255, 0.5);  background-clip: padding-box; }
-.overflow-x-auto::-webkit-scrollbar-thumb:active { background: rgba(255, 255, 255, 0.6);  background-clip: padding-box; }
-.overflow-x-auto::-webkit-scrollbar-button { width: 80px; display: none; }
-.overflow-x-auto { scrollbar-width: auto; scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05); }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover { color: #747bff; }
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+  background-clip: padding-box;
+}
+.overflow-x-auto::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.6);
+  background-clip: padding-box;
+}
+.overflow-x-auto::-webkit-scrollbar-button {
+  width: 80px;
+  display: none;
+}
+.overflow-x-auto {
+  scrollbar-width: auto;
+  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
 }

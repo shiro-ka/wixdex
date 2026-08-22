@@ -25,13 +25,18 @@
       <p class="text-gray-400 text-center py-8">保存されたデッキがありません</p>
     {:else}
       {#each decks as deck (deck.id)}
-        <div class="flex w-full bg-zinc-700/50 hover:bg-zinc-700 rounded-lg transition-colors">
+        <!-- 行の下地と hover は Row が持つ。中身は選ぶボタンと削除ボタンの2つ -->
+        <div data-suisou-row class="flex w-full items-stretch">
           <button
-            onclick={() => { onSelectDeck(deck); onClose(); }}
-            class="flex-1 text-left p-4"
+            type="button"
+            onclick={() => {
+              onSelectDeck(deck);
+              onClose();
+            }}
+            class="flex-1 text-left p-2"
           >
-            <div class="text-white font-medium">{deck.name}</div>
-            <div class="text-sm text-gray-400 mt-1">
+            <div class="font-medium">{deck.name}</div>
+            <div class="text-gray-400 mt-1">
               メイン: {deck.mainCount}枚 / ルリグ: {deck.lrigCount}枚
             </div>
             <div class="text-xs text-gray-500 mt-1">
@@ -39,11 +44,13 @@
             </div>
           </button>
           <button
+            type="button"
             onclick={(e) => handleDelete(e, deck)}
-            class="flex items-center justify-center w-12 text-gray-400 hover:text-red-400 transition-colors"
+            data-suisou-button="danger icon"
+            class="self-center"
             title="デッキを削除"
           >
-            <IconTrash class="w-5 h-5" />
+            <IconTrash />
           </button>
         </div>
       {/each}

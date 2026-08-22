@@ -7,9 +7,7 @@
   import IconBrandBluesky from '@tabler/icons-svelte/icons/brand-bluesky';
   import IconBrandGithub from '@tabler/icons-svelte/icons/brand-github';
   import IconMado from '$lib/components/icons/IconMado.svelte';
-  import { sidebarBtn } from '$lib/styles';
   import { logout } from '$lib/utils/logout';
-  import clsx from 'clsx';
 
   interface Props {
     isOpen: boolean;
@@ -40,35 +38,25 @@
   // マイページのURLキー: メアド勢=username / bsky勢=ハンドル。未設定なら非表示。
   const myAtName = $derived(user ? (user.username ?? user.blueskyHandle) : null);
 
-  let isAnimating = $state(false);
-  let shouldRender = $state(false);
-  let timer: ReturnType<typeof setTimeout>;
+  // 開閉はネイティブ popover に任せる。滑りの出入り・ESC・外側クリック・膜は
+  // ブラウザと Suisou の drawer が持つ。以前ここにあったタイマー式の状態機械は
+  // そのために存在していたので、丸ごと消えた。
+  let el = $state<HTMLDivElement>();
 
   $effect(() => {
-    if (isOpen) {
-      shouldRender = true;
-      clearTimeout(timer);
-      // timer に保持しないと、10ms 以内に閉じられた時にこの遅延発火を cleanup で
-      // 止められず isAnimating が固まる。開き側のタイマーも timer で管理する。
-      timer = setTimeout(() => {
-        isAnimating = true;
-      }, 10);
-    } else {
-      isAnimating = false;
-      timer = setTimeout(() => {
-        shouldRender = false;
-      }, 300);
-    }
-    return () => clearTimeout(timer);
+    if (!el) return;
+    const opened = el.matches(':popover-open');
+    if (isOpen && !opened) el.showPopover();
+    else if (!isOpen && opened) el.hidePopover();
   });
 </script>
 
 <!-- セクション見出し（Deck / Account / Link で共通） -->
 {#snippet sectionLabel(text: string)}
-  <p class="px-2 mb-1.5 text-xs font-semibold uppercase tracking-wider text-gray-500">{text}</p>
+  <p data-suisou-text="s12 w700" class="label">{text}</p>
 {/snippet}
 
-<!-- 外部リンク1行（アイコン + タイトル + 説明） -->
+<!-- 外部リンク1行（アイコン + タイトル + 説明）。Row が下地の反応、Media が並び -->
 {#snippet linkRow(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Icon: any,
@@ -76,141 +64,164 @@
   desc: string,
   href: string,
 )}
-  <a
-    {href}
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex items-center gap-3 px-2 py-2 rounded-lg text-gray-300 hover:bg-zinc-800 hover:text-white transition-colors"
-  >
-    <Icon class="w-6 h-6 shrink-0" />
-    <div class="min-w-0">
-      <p class="text-sm font-medium leading-tight">{title}</p>
-      <p class="text-xs text-gray-500 leading-tight">{desc}</p>
+  <a {href} target="_blank" rel="noopener noreferrer" data-suisou-row data-suisou-media>
+    <span data-suisou-media-icon><Icon /></span>
+    <div data-suisou-media-content>
+      <p data-suisou-text="s14 w500">{title}</p>
+      <p data-suisou-text="s12" class="desc">{desc}</p>
     </div>
   </a>
 {/snippet}
 
-{#if shouldRender}
-  <button
-    class="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 cursor-default {isAnimating
-      ? 'opacity-100'
-      : 'opacity-0'}"
-    onclick={onClose}
-    aria-label="閉じる"
-  ></button>
+<div
+  bind:this={el}
+  popover="auto"
+  data-suisou-surface="overlay drawer"
+  data-suisou-layout="stack"
+  ontoggle={(e) => {
+    // ESC・外側クリックで閉じたときに親の状態を追従させる
+    if (e.newState === 'closed' && isOpen) onClose();
+  }}
+>
+  <div data-suisou-layout="row end">
+    <button data-suisou-button="icon" onclick={onClose} aria-label="閉じる">
+      <IconX />
+    </button>
+  </div>
 
-  <div
-    class="fixed top-0 right-0 h-full w-80 bg-zinc-900 border-l border-neutral-700 z-50 shadow-xl p-4 transition-transform duration-300 ease-out flex flex-col {isAnimating
-      ? 'translate-x-0'
-      : 'translate-x-full'}"
-  >
-    <div class="flex flex-row-reverse mb-4">
+  {#if showDeckTools}
+    <div data-suisou-layout="stack">
+      {@render sectionLabel('Menu')}
       <button
-        onclick={onClose}
-        class="text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg p-1 transition-all"
-        aria-label="閉じる"
+        data-suisou-button="block"
+        onclick={isLoggedIn
+          ? () => {
+              onNewDeckClick?.();
+              onClose();
+            }
+          : undefined}
+        disabled={!isLoggedIn}
       >
-        <IconX class="w-6 h-6" />
+        <IconLibraryPlus />
+        <span>新しいデッキを作成</span>
+      </button>
+      <button
+        data-suisou-button="block"
+        onclick={isLoggedIn
+          ? () => {
+              onDeckListClick?.();
+              onClose();
+            }
+          : undefined}
+        disabled={!isLoggedIn}
+      >
+        <IconLibrary />
+        <span>デッキ一覧</span>
+      </button>
+      <button
+        data-suisou-button="block"
+        onclick={() => {
+          onStatsClick?.();
+          onClose();
+        }}
+      >
+        <IconChartLine />
+        <span>カード使用統計</span>
       </button>
     </div>
+  {/if}
 
-    {#if showDeckTools}
-      <div class="space-y-1">
-        {@render sectionLabel('Menu')}
-        <button
-          onclick={isLoggedIn
-            ? () => {
-                onNewDeckClick?.();
-                onClose();
-              }
-            : undefined}
-          disabled={!isLoggedIn}
-          class={sidebarBtn({ disabled: !isLoggedIn })}
-        >
-          <IconLibraryPlus class="w-5 h-5" />
-          <span>新しいデッキを作成</span>
-        </button>
-        <button
-          onclick={isLoggedIn
-            ? () => {
-                onDeckListClick?.();
-                onClose();
-              }
-            : undefined}
-          disabled={!isLoggedIn}
-          class={sidebarBtn({ disabled: !isLoggedIn })}
-        >
-          <IconLibrary class="w-5 h-5" />
-          <span>デッキ一覧</span>
-        </button>
-        <button
-          onclick={() => {
-            onStatsClick?.();
-            onClose();
-          }}
-          class="w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-gray-100 transition-colors"
-        >
-          <IconChartLine class="w-5 h-5" />
-          <span>カード使用統計</span>
-        </button>
+  <div data-suisou-layout="stack" class="section account">
+    {@render sectionLabel('Account')}
+    {#if user}
+      <div data-suisou-media class="static-row">
+        <span data-suisou-media-icon><IconUser size={20} /></span>
+        <span class="one-line">{user.displayName}</span>
       </div>
-    {/if}
-
-    <div class="mt-auto space-y-1">
-      {@render sectionLabel('Account')}
-      {#if user}
-        <div class="flex items-center gap-3 px-4 py-3 text-sm text-gray-400">
-          <IconUser size={20} class="shrink-0" />
-          <span class="truncate">{user.displayName}</span>
-        </div>
-        {#if myAtName}
-          <a href="/@{myAtName}" onclick={onClose} class={sidebarBtn({ variant: 'action' })}>
-            マイページ
-          </a>
-        {/if}
-        <a href="/settings" onclick={onClose} class={sidebarBtn({ variant: 'action' })}> 設定 </a>
-        <button
-          type="button"
-          onclick={() => {
-            onClose();
-            logout();
-          }}
-          class={clsx(sidebarBtn({ variant: 'muted' }), 'mt-2')}
-        >
-          ログアウト
-        </button>
-      {:else}
-        <a
-          href="/login"
-          onclick={onClose}
-          class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-orange-500 hover:bg-orange-600 rounded-lg transition-colors text-white font-medium text-sm"
-        >
-          ログイン / 登録
-        </a>
+      {#if myAtName}
+        <a href="/@{myAtName}" onclick={onClose} data-suisou-button="block">マイページ</a>
       {/if}
-    </div>
-
-    <div class="mt-6 space-y-1">
-      {@render sectionLabel('Link')}
-
-      {@render linkRow(
-        IconMado,
-        'Mado',
-        'バグ報告・要望など',
-        'https://mado.blue/@ffffffflower.bsky.social/wixdex',
-      )}
-      {@render linkRow(
-        IconBrandBluesky,
-        'Bluesky',
-        'bot稼働中...',
-        'https://bsky.app/profile/wixdex.cards',
-      )}
-      {@render linkRow(
-        IconBrandGithub,
-        'GitHub',
-        'apkリリースもあります',
-        'https://github.com/shiro-ka/wixdex',
-      )}
-    </div>
+      <a href="/settings" onclick={onClose} data-suisou-button="block">設定</a>
+      <button
+        type="button"
+        data-suisou-button="block"
+        onclick={() => {
+          onClose();
+          logout();
+        }}
+      >
+        ログアウト
+      </button>
+    {:else}
+      <a href="/login" onclick={onClose} data-suisou-button="outline" class="login">
+        ログイン / 登録
+      </a>
+    {/if}
   </div>
-{/if}
+
+  <div data-suisou-layout="stack" class="section">
+    {@render sectionLabel('Link')}
+
+    {@render linkRow(
+      IconMado,
+      'Mado',
+      'バグ報告・要望など',
+      'https://mado.blue/@ffffffflower.bsky.social/wixdex',
+    )}
+    {@render linkRow(
+      IconBrandBluesky,
+      'Bluesky',
+      'bot稼働中...',
+      'https://bsky.app/profile/wixdex.cards',
+    )}
+    {@render linkRow(
+      IconBrandGithub,
+      'GitHub',
+      'apkリリースもあります',
+      'https://github.com/shiro-ka/wixdex',
+    )}
+  </div>
+</div>
+
+<style>
+  /* ドロワー固有の仕事は Suisou の drawer（surface）と popover に移った。
+     残っているのは中身の整えだけ。色と寸法は var(--suisou-*) 参照のみ。 */
+
+  .label {
+    margin: 0;
+    padding-inline: var(--suisou-space-3);
+    color: var(--suisou-text-disabled);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* セクションの間は項目の間より広く。Account は下に押し付ける */
+  .section {
+    margin-top: var(--suisou-space-3);
+  }
+  .account {
+    margin-top: auto;
+  }
+
+  /* 押せない行。Row（hover する行）と同じ余白だけ借りる */
+  /* 押せない行。block ボタン（縦8/横16）と左端・行送りを揃える */
+  .static-row {
+    padding: var(--suisou-space-2) var(--suisou-space-3);
+    color: var(--suisou-text-sub);
+  }
+
+  .desc {
+    color: var(--suisou-text-disabled);
+  }
+
+  .one-line {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .login {
+    width: 100%;
+  }
+</style>

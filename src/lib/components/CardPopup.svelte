@@ -54,36 +54,45 @@
 
 <!-- メタ情報のラベル片（種族・色・コスト等） -->
 {#snippet chip(label: string)}
-  <span class="px-1.5 py-0.5 rounded bg-zinc-700 text-xs text-gray-200">{label}</span>
+  <span data-suisou-tag>{label}</span>
 {/snippet}
 
 <!-- モバイルのタブボタン -->
 {#snippet tabButton(value: 'card' | 'info', label: string)}
   <button
-    class="px-6 h-9 rounded-lg text-sm transition-colors {tab === value
-      ? 'bg-zinc-700 text-white'
-      : 'bg-zinc-700/30 text-gray-400'}"
+    class="tab"
+    data-suisou-button="plain neutral"
+    aria-pressed={tab === value}
     onclick={() => (tab = value)}
   >
     {label}
   </button>
 {/snippet}
 
-<!-- 操作バーのアイコンボタン（追加/削除/候補/お気に入りで共通） -->
+<!-- 操作バーのアイコンボタン（追加/削除/候補/お気に入りで共通）。
+     ★色クラスを文字列で渡すのをやめた（2026-08-22）。「入っている状態」は
+     aria-pressed で示し、下地は Suisou が出す ―― styles.ts の cva を畳んだとき
+     ここだけ同じ作りが残っていた。お気に入りの黄色だけは意味色（warning）。 -->
 {#snippet actionButton(
   Icon: typeof IconX,
   onclick: () => void,
   title: string,
-  colorClass: string,
   disabled: boolean,
+  /* トグルのときだけ渡す。undefined なら属性ごと出ない ―― +1 / −1 は
+     押しっぱなしにならないので、aria-pressed を付けると読み上げに
+     「トグルボタン」と誤って伝わる */
+  pressed: boolean | undefined = undefined,
 )}
   <button
-    class="flex-1 h-10 flex items-center justify-center rounded-lg bg-zinc-700/50 hover:bg-zinc-600/60 transition-colors disabled:opacity-30 {colorClass}"
+    type="button"
+    data-suisou-button="neutral"
+    class="act"
+    aria-pressed={pressed}
     {onclick}
     {title}
     {disabled}
   >
-    <Icon class="w-5 h-5" />
+    <Icon />
   </button>
 {/snippet}
 
@@ -91,24 +100,21 @@
   <div class="fixed inset-0 flex items-center justify-center z-50 p-3">
     <!-- 背景クリックで閉じる -->
     <button
-      class="absolute inset-0 bg-black/70"
+      class="absolute inset-0 scrim"
       onclick={onClose}
       aria-label="閉じる"
-      transition:fade={{ duration: 130 }}
+      transition:fade={{ duration: 120 }}
     ></button>
 
     <!-- モーダル本体（背景フェード＋軽くスケール。ツールなので控えめ＆やや速め） -->
     <div
-      class="relative z-10 flex flex-col xl:flex-row w-full max-w-4xl h-[68vh] bg-zinc-800 rounded-xl overflow-hidden"
-      transition:scale={{ start: 0.97, opacity: 0, duration: 150 }}
+      class="relative z-10 flex flex-col xl:flex-row w-full max-w-4xl h-[68vh] overflow-hidden"
+      data-suisou-surface="overlay bleed"
+      transition:scale={{ start: 0.97, opacity: 0, duration: 200 }}
     >
       <!-- 右上の閉じるボタン -->
-      <button
-        class="absolute top-2 right-2 z-20 w-8 h-8 flex items-center justify-center rounded-lg bg-zinc-900/60 text-gray-300 hover:text-white transition-colors"
-        onclick={onClose}
-        aria-label="閉じる"
-      >
-        <IconX class="w-5 h-5" />
+      <button class="close" data-suisou-button="icon" onclick={onClose} aria-label="閉じる">
+        <IconX />
       </button>
 
       <!-- タブ切替（モバイルのみ。PCは左右同時表示なので不要） -->
@@ -135,24 +141,19 @@
 
         <!-- 操作バー: -1 / 枚数 / +1 / (+4) / 候補 / (お気に入り) -->
         <div class="flex items-center gap-1.5 mt-3 shrink-0">
-          {@render actionButton(
-            IconMinus,
-            () => onRemove(card),
-            '1枚減らす',
-            'text-gray-200',
-            count === 0,
-          )}
-          <div class="flex-1 flex items-center justify-center text-lg font-bold text-white tabular-nums">
+          {@render actionButton(IconMinus, () => onRemove(card), '1枚減らす', count === 0)}
+          <div
+            class="flex-1 flex items-center justify-center text-lg font-bold text-white tabular-nums"
+          >
             {count}
           </div>
-          {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', 'text-gray-200', !canAdd)}
+          {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', !canAdd)}
           <!-- +4 はメインデッキ札(シグニ/スペル/サーバント)のみ。ルリグ/アシスト/ピース/アーツでは出さない -->
           {#if isMainDeckCard(card)}
             {@render actionButton(
               IconBoxMultiple4,
               () => onAddMultiple(card, 4),
               '4枚追加',
-              'text-gray-200',
               !canAdd,
             )}
           {/if}
@@ -160,16 +161,16 @@
             isInCandidate ? IconFolderX : IconFolderPlus,
             () => (isInCandidate ? onRemoveFromCandidate(card) : onAddToCandidate(card)),
             isInCandidate ? '候補から削除' : '候補に追加',
-            isInCandidate ? 'text-gray-100' : 'text-gray-400',
             false,
+            isInCandidate,
           )}
           {#if isLoggedIn}
             {@render actionButton(
               isFavorite ? IconStarFilled : IconStar,
               onToggleFavorite,
               isFavorite ? 'お気に入りから削除' : 'お気に入りに追加',
-              isFavorite ? 'text-yellow-400' : 'text-gray-200',
               false,
+              isFavorite,
             )}
           {/if}
         </div>
@@ -179,10 +180,10 @@
       <div
         class="{tab === 'card'
           ? 'hidden xl:flex'
-          : 'flex'} flex-col absolute inset-x-0 bottom-0 top-12 z-10 bg-zinc-800 xl:relative xl:inset-auto xl:z-auto xl:flex-none xl:w-1/2 xl:border-l border-zinc-700/60"
+          : 'flex'} info flex-col absolute inset-x-0 bottom-0 top-12 z-10 xl:relative xl:inset-auto xl:z-auto xl:flex-none xl:w-1/2"
       >
         <div class="flex-1 min-h-0 overflow-y-auto xl:absolute xl:inset-0 px-4 pb-4 pt-3 xl:pt-4">
-          <h2 class="text-lg font-bold text-white pr-8">{card.name}</h2>
+          <h2 data-suisou-text="s20 w700" class="pr-8">{card.name}</h2>
           {#if card.subName?.length}
             <p class="text-xs text-gray-400 mt-0.5">{card.subName.join(' / ')}</p>
           {/if}
@@ -207,12 +208,9 @@
           {#if card.text?.length}
             <div class="mt-3 space-y-2">
               {#each card.text as t, i (i)}
-                <div class="text-sm text-gray-200 leading-relaxed">
+                <div class="text-gray-200 leading-relaxed">
                   {#if t.label}
-                    <span
-                      class="inline-block px-1.5 mr-1 rounded bg-zinc-600 text-xs text-gray-100 align-middle"
-                      >{t.label}</span
-                    >
+                    <span data-suisou-tag class="mr-1 align-middle">{t.label}</span>
                   {/if}<span class="whitespace-pre-line">{t.body}</span>
                 </div>
               {/each}
@@ -227,7 +225,7 @@
           <!-- FAQ -->
           {#if card.faq?.length}
             <div class="mt-4">
-              <h3 class="text-sm font-bold text-orange-400 mb-1.5">FAQ</h3>
+              <h3 data-suisou-text="s14 w700" class="text-orange-400 mb-2">FAQ</h3>
               <div class="space-y-2">
                 {#each card.faq as f, i (i)}
                   <div class="text-xs leading-relaxed">
@@ -243,3 +241,45 @@
     </div>
   </div>
 {/if}
+
+<style>
+  /* 膜は Suisou の scrim。自前の黒 α0.70 は下地の暗さを見ていない値だった */
+  .scrim {
+    background: var(--suisou-scrim);
+  }
+
+  /* 右上に浮く閉じるボタン。面の上に載るので下地を敷いて字を拾わせる */
+  .close {
+    position: absolute;
+    top: var(--suisou-space-2);
+    right: var(--suisou-space-2);
+    z-index: 20;
+    background: var(--suisou-item);
+  }
+
+  /* タブは中身の幅より広く取る。押下は aria-pressed で Suisou が下地を出す */
+  .tab {
+    padding-inline: var(--suisou-space-4);
+  }
+
+  /* 操作バーの升目。等分に伸びる。連結（button-group）ではないので
+     ―― 器の罫を持たず独立したボタンが並ぶ形 ―― even は効かない */
+  .act {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 2.5rem;
+  }
+
+  /* 情報パネル。モバイルではカード画像の上に重なるので、面を敷いて下を隠す。
+     PC では右カラムになり、左との境目を罫1本で示す（面は同じ overlay のまま）。
+     ★罫は line-weak ―― 内側の仕切りは装飾の線で、面の縁（line-strong）ではない。
+     surface="overlay" の中なので、値は overlay 用のものが継承で降りてくる。 */
+  .info {
+    background: var(--suisou-overlay);
+  }
+  @media (min-width: 1280px) {
+    .info {
+      border-left: 1px solid var(--suisou-line-weak);
+    }
+  }
+</style>
