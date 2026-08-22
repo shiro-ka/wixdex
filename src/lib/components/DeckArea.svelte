@@ -147,7 +147,7 @@
 
   <!-- メインデッキ -->
   <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
-    <div class="flex w-full justify-between items-center">
+    <div data-suisou-layout="row between">
       <span data-suisou-text="s16 w500">Main Deck</span>
       <div class="flex items-center gap-1 md:gap-1.5">
         <LifeBurstIcon class="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
@@ -203,28 +203,32 @@
             />
           </div>
           <div class="flex justify-center w-full h-10">
+            <!-- CardList のセル下ボタンと同じ形（hover の下地と文字色は Suisou が出す） -->
             <button
-              class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+              class="cell"
+              data-suisou-button
               onclick={() => onAdd(card)}
               title="デッキに1枚追加"
             >
-              <IconPlus class="w-[18px] h-[18px]" />
+              <IconPlus />
             </button>
             {#if isMainDeckCard(card)}
               <button
-                class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+                class="cell"
+                data-suisou-button
                 onclick={() => onAddMultiple(card, 4)}
                 title="デッキに4枚追加"
               >
-                <IconBoxMultiple4 class="w-[18px] h-[18px]" />
+                <IconBoxMultiple4 />
               </button>
             {/if}
             <button
-              class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+              class="cell"
+              data-suisou-button
               onclick={() => onRemoveFromCandidate(card)}
               title="候補カードから削除"
             >
-              <IconFolderX class="w-[18px] h-[18px]" />
+              <IconFolderX />
             </button>
           </div>
         </div>
@@ -234,6 +238,14 @@
 </div>
 
 <style>
+  /* 升目に広がるボタン（Folder のカード下）。CardList の .cell と同じ */
+  .cell {
+    flex: 1 1 auto;
+    height: 100%;
+    padding: 0;
+    min-width: 0;
+  }
+
   /* デッキの升目。横8列 × ルリグ1行 / メイン5行。
      行の高さはカードの縦横比（12:17）から決まり、列幅に正確に追従する。
 
