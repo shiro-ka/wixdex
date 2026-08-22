@@ -226,11 +226,11 @@
   <!-- 検索欄 -->
   <div class="flex flex-col">
     <!-- お気に入り/候補カード/カードタイプ/クラス/タグ -->
-    <div class="flex w-full h-10 lg:h-8 mb-2">
+    <div data-suisou-layout="row" class="w-full h-10 lg:h-8 mb-2">
       {#if isLoggedIn}
         <button
           type="button"
-          class="cell h-full mr-2"
+          class="cell h-full"
           data-suisou-button="plain neutral"
           aria-pressed={favoriteFilter}
           onclick={onFavoriteFilter}
@@ -243,7 +243,7 @@
       <button
         type="button"
         id="folder-button"
-        class="cell h-full mr-2 md:hidden"
+        class="cell h-full md:hidden"
         data-suisou-button="plain neutral"
         aria-pressed={candidateFilter}
         onclick={onCandidateFilter}
@@ -283,9 +283,9 @@
     </div>
 
     <!-- 色/Lv/LB -->
-    <div class="flex w-full h-10 lg:h-8 mb-2">
+    <div data-suisou-layout="row" class="w-full h-10 lg:h-8 mb-2">
       <!-- 色検索 -->
-      <div class="flex-5 mr-2" data-suisou-button-group="even">
+      <div class="flex-5" data-suisou-button-group="even">
         {#each [['白', 'c-white'], ['赤', 'c-red'], ['青', 'c-blue'], ['緑', 'c-green'], ['黒', 'c-black']] as [color, colorClass] (color)}
           <button
             type="button"
@@ -310,7 +310,7 @@
       </div>
 
       <!-- レベル検索 -->
-      <div class="flex-3 mr-2" data-suisou-button-group="even">
+      <div class="flex-3" data-suisou-button-group="even">
         {#each [1, 2, 3] as level (level)}
           <button
             type="button"
@@ -355,12 +355,12 @@
     </div>
 
     <!-- テキスト/クリア/その他ボタン -->
-    <div class="flex w-full h-10 lg:h-8">
+    <div data-suisou-layout="row" class="w-full h-10 lg:h-8">
       <!-- 設定ボタン -->
       <!-- ポップアップをボタンの内側に置くと、オプションのクリックが外側ボタンへ
            バブリングして即閉じる & button の入れ子で不正HTML。relative な div で
            トグルボタンとポップアップを兄弟にして解消する。 -->
-      <div class="relative w-10 h-full mr-2">
+      <div class="relative w-10 h-full">
         <button
           type="button"
           class="cell w-full h-full"
@@ -386,7 +386,7 @@
       </div>
 
       <!-- 検索入力 -->
-      <div class="search flex-1 mr-2" data-suisou-button-group>
+      <div class="search flex-1" data-suisou-button-group>
         <!-- 同上: ポップアップを button の外(relative div の兄弟)に出す -->
         <div class="relative w-12 h-full">
           <button
