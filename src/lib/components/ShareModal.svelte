@@ -32,8 +32,19 @@
   }
 
   let {
-    isOpen, onClose, deckName, mainDeck, lrigDeck, deckId, ownerAtName, currentSlug,
-    isPublic, isLoggedIn, rotateLandscape, onSetPublic, onUpdateSlug,
+    isOpen,
+    onClose,
+    deckName,
+    mainDeck,
+    lrigDeck,
+    deckId,
+    ownerAtName,
+    currentSlug,
+    isPublic,
+    isLoggedIn,
+    rotateLandscape,
+    onSetPublic,
+    onUpdateSlug,
   }: Props = $props();
 
   let isExporting = $state(false);
@@ -57,7 +68,7 @@
   });
 
   let publicUrl = $derived(
-    browser && savedSlug && ownerAtName ? `${location.origin}/@${ownerAtName}/${savedSlug}` : ''
+    browser && savedSlug && ownerAtName ? `${location.origin}/@${ownerAtName}/${savedSlug}` : '',
   );
 
   async function saveSlug() {
@@ -94,7 +105,9 @@
     try {
       await navigator.clipboard.writeText(publicUrl);
       copied = true;
-      setTimeout(() => { copied = false; }, 1500);
+      setTimeout(() => {
+        copied = false;
+      }, 1500);
     } catch {
       /* clipboard 拒否時は無視 */
     }
@@ -109,12 +122,6 @@
     columns: imageCols,
     theme: imageTheme,
   });
-
-  // セグメントトグルの見た目（active/inactive）。
-  const segBtn = (active: boolean) =>
-    `flex flex-1 items-center justify-center gap-1 rounded-md py-1.5 text-sm font-medium transition-colors ${
-      active ? 'bg-zinc-700 text-white' : 'text-zinc-400 hover:text-zinc-200'
-    }`;
 
   async function handleExportImage(format: 'png' | 'jpg') {
     if (isExporting || mainDeck.length === 0) return;
@@ -150,40 +157,37 @@
   <div class="space-y-4">
     <!-- デッキ公開 -->
     <div>
-      <h4 class="text-white text-sm font-semibold mb-2">デッキを公開</h4>
+      <h4 data-suisou-text="s14 w700" class="mb-2">デッキを公開</h4>
       {#if !isLoggedIn}
         <p class="text-gray-400 text-xs">ログインするとデッキを公開・共有できます。</p>
       {:else if !deckId}
         <p class="text-gray-400 text-xs">デッキを保存すると公開・共有できます。</p>
       {:else}
-        <div class="flex items-center justify-between">
-          <span class="text-gray-300 text-sm">このデッキを公開する</span>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={isPublic}
-            aria-label="このデッキを公開する"
-            onclick={togglePublish}
+        <!-- 手製スイッチをやめてネイティブ checkbox に（2026-08-21）。
+             Suisou はネイティブ部品を奪わない ―― accent-color が根で1回
+             書いてあるので、色は勝手にテーマへ追従する。塗りのトグルは
+             wixdex に残った最後の「塗る操作部品」だった。 -->
+        <label data-suisou-layout="row between" class="text-gray-300">
+          このデッキを公開する
+          <input
+            type="checkbox"
+            class="h-4 w-4"
+            checked={isPublic}
+            onchange={togglePublish}
             disabled={publishing}
-            class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors disabled:opacity-50 {isPublic ? 'bg-orange-600' : 'bg-zinc-600'}"
-          >
-            <span class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform {isPublic ? 'translate-x-6' : 'translate-x-1'}"></span>
-          </button>
-        </div>
+          />
+        </label>
         {#if isPublic}
           {#if publicUrl}
-            <div class="flex h-9 gap-2 mt-3">
+            <div class="mt-3" data-suisou-button-group="even">
               <input
                 type="text"
                 readonly
                 value={publicUrl}
-                class="flex-1 px-2 bg-zinc-800 border border-zinc-700 rounded-lg text-gray-300 text-xs select-all focus:outline-none"
+                data-suisou-field
+                class="text-xs select-all"
               />
-              <button
-                type="button"
-                onclick={copyLink}
-                class="flex items-center gap-1 px-3 bg-zinc-700 hover:bg-zinc-600 rounded-lg text-white text-xs transition-colors"
-              >
+              <button type="button" onclick={copyLink} data-suisou-button class="text-xs shrink-0">
                 <IconClipboard size={16} />
                 {copied ? 'コピー済' : 'コピー'}
               </button>
@@ -191,21 +195,23 @@
 
             {#if editingSlug}
               <div class="mt-2">
-                <div class="flex h-9 items-center rounded-lg bg-zinc-800 border border-zinc-700 focus-within:border-orange-500">
-                  <span class="pl-2 text-gray-500 text-xs whitespace-nowrap">/@{ownerAtName}/</span>
+                <div data-suisou-button-group="even">
+                  <span data-suisou-affix class="text-xs">/@{ownerAtName}/</span>
                   <input
                     type="text"
                     bind:value={editSlug}
                     autocapitalize="none"
                     autocomplete="off"
                     spellcheck="false"
-                    class="w-full bg-transparent px-1 text-white text-xs focus:outline-none"
+                    data-suisou-field
+                    class="text-xs"
                   />
                   <button
                     type="button"
                     onclick={saveSlug}
                     disabled={slugSaving}
-                    class="px-3 h-full text-orange-400 hover:text-orange-300 text-xs disabled:opacity-50"
+                    data-suisou-button="outline"
+                    class="text-xs shrink-0"
                   >
                     {slugSaving ? '...' : '保存'}
                   </button>
@@ -215,12 +221,15 @@
                 {/if}
               </div>
             {:else}
-              <div class="flex items-center justify-between mt-1">
-                <p class="text-gray-500 text-xs">リンクを知っている人がこのデッキを閲覧できます。</p>
+              <div data-suisou-layout="row between" class="mt-1">
+                <p class="text-gray-500 text-xs">
+                  リンクを知っている人がこのデッキを閲覧できます。
+                </p>
                 <button
                   type="button"
                   onclick={() => (editingSlug = true)}
-                  class="text-gray-400 hover:text-gray-200 text-xs underline shrink-0"
+                  data-suisou-button
+                  class="text-xs shrink-0"
                 >
                   URLを編集
                 </button>
@@ -229,7 +238,7 @@
           {:else}
             <p class="text-yellow-500 text-xs mt-3">
               共有URLを発行するには
-              <a href="/settings" class="underline hover:text-yellow-400">設定</a>でユーザー名を決めてください。
+              <a href="/settings" data-suisou-link>設定</a>でユーザー名を決めてください。
             </p>
           {/if}
         {/if}
@@ -238,45 +247,65 @@
 
     <!-- 画像エクスポート -->
     <div class="pt-4 border-t border-zinc-700">
-      <h4 class="text-white text-sm font-semibold mb-3">画像エクスポート</h4>
+      <h4 data-suisou-text="s14 w700" class="mb-2">画像エクスポート</h4>
 
       <!-- オプション: 列数 / テーマ -->
-      <div class="flex gap-3 mb-3">
-        <div class="flex flex-1 rounded-lg border border-zinc-700 bg-zinc-800 p-1">
-          <button type="button" class={segBtn(imageCols === 8)} onclick={() => (imageCols = 8)}>8列</button>
-          <button type="button" class={segBtn(imageCols === 10)} onclick={() => (imageCols = 10)}>10列</button>
+      <div data-suisou-layout="row" class="mb-4">
+        <div data-suisou-button-group="even">
+          <button
+            type="button"
+            data-suisou-button
+            aria-pressed={imageCols === 8}
+            onclick={() => (imageCols = 8)}>8列</button
+          >
+          <button
+            type="button"
+            data-suisou-button
+            aria-pressed={imageCols === 10}
+            onclick={() => (imageCols = 10)}>10列</button
+          >
         </div>
-        <div class="flex flex-1 rounded-lg border border-zinc-700 bg-zinc-800 p-1">
-          <button type="button" class={segBtn(imageTheme === 'dark')} onclick={() => (imageTheme = 'dark')}>
+        <div data-suisou-button-group="even">
+          <button
+            type="button"
+            data-suisou-button
+            aria-pressed={imageTheme === 'dark'}
+            onclick={() => (imageTheme = 'dark')}
+          >
             <IconMoon size={16} /> ダーク
           </button>
-          <button type="button" class={segBtn(imageTheme === 'light')} onclick={() => (imageTheme = 'light')}>
+          <button
+            type="button"
+            data-suisou-button
+            aria-pressed={imageTheme === 'light'}
+            onclick={() => (imageTheme = 'light')}
+          >
             <IconSun size={16} /> ライト
           </button>
         </div>
       </div>
 
-      <div class="flex h-10 gap-3">
-        <!-- 画像(JPG)。コピーはブラウザ制約によりPNGで書き込まれる(貼り付け互換のため)。 -->
-        <div class="flex flex-1 px-1 bg-zinc-800 rounded-lg border border-zinc-700">
-          <div class="flex flex-1 text-white font-medium text-sm items-center justify-center">ダウンロード</div>
-          <button
-            class="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            onclick={handleCopyToClipboard}
-            disabled={isExporting || mainDeck.length === 0}
-            title="クリップボードにコピー"
-          >
-            <IconClipboard size={20} class="mx-auto text-white" />
-          </button>
-          <button
-            class="w-8 !p-0 !bg-transparent hover:bg-zinc-600 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            onclick={() => handleExportImage('jpg')}
-            disabled={isExporting || mainDeck.length === 0}
-            title="JPGでダウンロード"
-          >
-            <IconDownload size={20} class="mx-auto text-white" />
-          </button>
-        </div>
+      <!-- 画像(JPG)。コピーはブラウザ制約によりPNGで書き込まれる(貼り付け互換のため)。 -->
+      <div data-suisou-button-group="even">
+        <div class="flex flex-1 items-center justify-center font-medium">ダウンロード</div>
+        <button
+          type="button"
+          data-suisou-button="icon"
+          onclick={handleCopyToClipboard}
+          disabled={isExporting || mainDeck.length === 0}
+          title="クリップボードにコピー"
+        >
+          <IconClipboard />
+        </button>
+        <button
+          type="button"
+          data-suisou-button="icon"
+          onclick={() => handleExportImage('jpg')}
+          disabled={isExporting || mainDeck.length === 0}
+          title="JPGでダウンロード"
+        >
+          <IconDownload />
+        </button>
       </div>
 
       {#if mainDeck.length === 0}

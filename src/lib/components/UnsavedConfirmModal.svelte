@@ -15,27 +15,15 @@
   <div class="space-y-4">
     <p class="text-gray-300">保存していない変更があります。どうしますか？</p>
     <div class="flex flex-col gap-2">
-      <button
-        type="button"
-        onclick={onSave}
-        class="w-full rounded-lg bg-orange-600 py-2 font-semibold text-white hover:bg-orange-500 active:bg-orange-700 transition-colors"
+      <!-- 強さの3段: 目的の一本は outline、対等な代替は plain（罫だけ）、
+           逃げ道は基本形（幽霊）。全部 wide で縦に積む -->
+      <button type="button" onclick={onSave} data-suisou-button="outline wide"
+        >保存して閉じる</button
       >
-        保存して閉じる
-      </button>
-      <button
-        type="button"
-        onclick={onDiscard}
-        class="w-full rounded-lg bg-zinc-700 py-2 font-semibold text-white hover:bg-zinc-600 active:bg-zinc-800 transition-colors"
+      <button type="button" onclick={onDiscard} data-suisou-button="plain wide"
+        >破棄して閉じる</button
       >
-        破棄して閉じる
-      </button>
-      <button
-        type="button"
-        onclick={onCancel}
-        class="w-full rounded-lg py-2 font-medium text-gray-400 hover:text-gray-200 transition-colors"
-      >
-        キャンセル
-      </button>
+      <button type="button" onclick={onCancel} data-suisou-button="wide">キャンセル</button>
     </div>
   </div>
 </BaseModal>

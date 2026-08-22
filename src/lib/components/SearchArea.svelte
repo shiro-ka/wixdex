@@ -34,8 +34,6 @@
   import TypeFilterContent from './dropdowns/TypeFilterContent.svelte';
   import LrigClassFilterContent from './dropdowns/LrigClassFilterContent.svelte';
   import TagFilterContent from './dropdowns/TagFilterContent.svelte';
-  import { filterToggle, filterIcon, filterBorder, filterGroup } from '$lib/styles';
-  import clsx from 'clsx';
 
   interface Props {
     hoveredCard: Card | null;
@@ -73,14 +71,38 @@
   }
 
   let {
-    hoveredCard, selectedColors, selectedLevels, selectedCardTypes,
-    selectedLrigClasses, selectedTags, lifeBurstFilter, candidateFilter,
-    favoriteFilter, onColorFilter, onTextSearch, searchName, searchInText,
-    onToggleSearchName, onToggleSearchInText, onLevelFilter,
-    onLifeBurstFilter, onCardTypeFilter, onLrigClassFilter, onTagFilter,
-    onCandidateFilter, onFavoriteFilter, isLoggedIn, onReset, activeDropdown,
-    onDropdownChange, showLifeBurst, onToggleLifeBurst, showCandidateIcon,
-    onToggleCandidateIcon, rotateLandscape, onToggleRotateLandscape,
+    hoveredCard,
+    selectedColors,
+    selectedLevels,
+    selectedCardTypes,
+    selectedLrigClasses,
+    selectedTags,
+    lifeBurstFilter,
+    candidateFilter,
+    favoriteFilter,
+    onColorFilter,
+    onTextSearch,
+    searchName,
+    searchInText,
+    onToggleSearchName,
+    onToggleSearchInText,
+    onLevelFilter,
+    onLifeBurstFilter,
+    onCardTypeFilter,
+    onLrigClassFilter,
+    onTagFilter,
+    onCandidateFilter,
+    onFavoriteFilter,
+    isLoggedIn,
+    onReset,
+    activeDropdown,
+    onDropdownChange,
+    showLifeBurst,
+    onToggleLifeBurst,
+    showCandidateIcon,
+    onToggleCandidateIcon,
+    rotateLandscape,
+    onToggleRotateLandscape,
   }: Props = $props();
 
   let searchText = $state('');
@@ -140,11 +162,11 @@
 
   function clearPanelTab() {
     if (panelTab === 'type') {
-      selectedCardTypes.forEach(t => onCardTypeFilter(t));
+      selectedCardTypes.forEach((t) => onCardTypeFilter(t));
     } else if (panelTab === 'lrigClass') {
-      selectedLrigClasses.forEach(c => onLrigClassFilter(c));
+      selectedLrigClasses.forEach((c) => onLrigClassFilter(c));
     } else {
-      selectedTags.forEach(t => onTagFilter(t));
+      selectedTags.forEach((t) => onTagFilter(t));
     }
   }
 
@@ -162,7 +184,7 @@
 
 <div class="flex flex-col px-2 pb-4 md:pb-1 lg:w-96">
   <!-- ホバープレビュー -->
-  <div class="hidden lg:block w-full aspect-[3/4] p-4 mb-2 bg-gray-600/10 rounded-xl">
+  <div class="hidden lg:block w-full aspect-[3/4] mb-2" data-suisou-surface="panel">
     {#if hoveredCard}
       <div class="w-full h-full flex items-center justify-center">
         <img
@@ -175,20 +197,21 @@
   </div>
 
   <!-- 拡張メニュー（lg以上） -->
-  <div class="hidden lg:flex flex-1 flex-col mb-2 bg-gray-600/10 border border-gray-600/50 rounded-xl p-4 min-h-0">
-    <div class="flex justify-between items-center mb-4">
-      <h3 class="text-base text-white">
+  <div class="hidden lg:flex flex-1 flex-col mb-2 min-h-0" data-suisou-surface="panel">
+    <div data-suisou-layout="row between" class="mb-4">
+      <h3 data-suisou-text="s16 w500">
         {#if panelTab === 'type'}カードタイプ検索
         {:else if panelTab === 'lrigClass'}ルリグタイプ/クラス検索
         {:else}タグ検索
         {/if}
       </h3>
       <button
+        data-suisou-button="icon"
+        type="button"
         onclick={clearPanelTab}
-        class="text-gray-400 hover:text-gray-300 hover:bg-gray-700/50 rounded-lg p-1 transition-all"
         aria-label="チェック全解除"
       >
-        <IconCircleCheck class="w-5 h-5" />
+        <IconCircleCheck />
       </button>
     </div>
     {#if panelTab === 'type'}
@@ -205,58 +228,56 @@
     <!-- お気に入り/候補カード/カードタイプ/クラス/タグ -->
     <div class="flex w-full h-10 lg:h-8 mb-2">
       {#if isLoggedIn}
-      <button
-        type="button"
-        class={clsx(filterToggle({ active: favoriteFilter }), 'flex-1 h-full mr-2', filterBorder)}
-        onclick={onFavoriteFilter}
-      >
-        {#if favoriteFilter}
-          <IconStarFilled class={filterIcon({ active: true })} />
-        {:else}
-          <IconStar class={filterIcon({ active: false })} />
-        {/if}
-      </button>
+        <button
+          type="button"
+          class="cell h-full mr-2"
+          data-suisou-button="plain neutral"
+          aria-pressed={favoriteFilter}
+          onclick={onFavoriteFilter}
+        >
+          {#if favoriteFilter}<IconStarFilled />{:else}<IconStar />{/if}
+        </button>
       {/if}
 
       <!-- 候補フィルタ: デスクトップは Folder が常時表示されるのでフィルタ不要 → md以上で非表示 -->
       <button
         type="button"
         id="folder-button"
-        class={clsx(filterToggle({ active: candidateFilter }), 'flex-1 h-full mr-2 md:hidden', filterBorder)}
+        class="cell h-full mr-2 md:hidden"
+        data-suisou-button="plain neutral"
+        aria-pressed={candidateFilter}
         onclick={onCandidateFilter}
       >
-        {#if candidateFilter}
-          <IconFolderFilled class={filterIcon({ active: true })} />
-        {:else}
-          <IconFolder class={filterIcon({ active: false })} />
-        {/if}
+        {#if candidateFilter}<IconFolderFilled />{:else}<IconFolder />{/if}
       </button>
 
-      <div class="flex flex-3 {filterGroup}">
+      <div class="flex-3" data-suisou-button-group="even">
         <button
           type="button"
-          class={clsx(filterToggle({ active: typeActive }), 'flex-1 w-10 h-full')}
+          class="cell"
+          data-suisou-button="neutral"
+          aria-pressed={typeActive}
           onclick={() => handleMenuClick('type')}
         >
-          <CardTypeIcon filled={isTypeFilterEnabled} class={filterIcon({ active: typeActive })} />
+          <CardTypeIcon filled={isTypeFilterEnabled} />
         </button>
         <button
           type="button"
-          class={clsx(filterToggle({ active: lrigActive }), 'flex-1 w-10 h-full')}
+          class="cell"
+          data-suisou-button="neutral"
+          aria-pressed={lrigActive}
           onclick={() => handleMenuClick('lrigClass')}
         >
-          <LrigClassIcon filled={isLrigClassFilterEnabled} class={filterIcon({ active: lrigActive })} />
+          <LrigClassIcon filled={isLrigClassFilterEnabled} />
         </button>
         <button
           type="button"
-          class={clsx(filterToggle({ active: tagActive }), 'flex-1 w-10 h-full')}
+          class="cell"
+          data-suisou-button="neutral"
+          aria-pressed={tagActive}
           onclick={() => handleMenuClick('tag')}
         >
-          {#if isTagFilterEnabled}
-            <IconTagFilled class={filterIcon({ active: tagActive })} />
-          {:else}
-            <IconTag class={filterIcon({ active: tagActive })} />
-          {/if}
+          {#if isTagFilterEnabled}<IconTagFilled />{:else}<IconTag />{/if}
         </button>
       </div>
     </div>
@@ -264,53 +285,57 @@
     <!-- 色/Lv/LB -->
     <div class="flex w-full h-10 lg:h-8 mb-2">
       <!-- 色検索 -->
-      <div class="flex flex-5 mr-2 {filterGroup}">
-        {#each [['白', 'text-yellow-100', 'text-yellow-200'], ['赤', 'text-red-400', 'text-red-400'], ['青', 'text-blue-400', 'text-blue-400'], ['緑', 'text-green-400', 'text-green-400'], ['黒', 'text-purple-400', 'text-purple-500']] as [color, activeClass, inactiveClass] (color)}
+      <div class="flex-5 mr-2" data-suisou-button-group="even">
+        {#each [['白', 'c-white'], ['赤', 'c-red'], ['青', 'c-blue'], ['緑', 'c-green'], ['黒', 'c-black']] as [color, colorClass] (color)}
           <button
             type="button"
-            class={clsx(filterToggle({ active: selectedColors.has(color) }), 'flex-1')}
+            class="cell"
+            data-suisou-button="neutral"
+            aria-pressed={selectedColors.has(color)}
             onclick={() => onColorFilter(color)}
           >
             {#if color === '白'}
-              <WhiteIcon class="w-5 h-5 transition-all {selectedColors.has(color) ? activeClass : inactiveClass}" />
+              <WhiteIcon class={colorClass} />
             {:else if color === '赤'}
-              <RedIcon class="w-5 h-5 transition-all {selectedColors.has(color) ? activeClass : inactiveClass}" />
+              <RedIcon class={colorClass} />
             {:else if color === '青'}
-              <BlueIcon class="w-5 h-5 transition-all {selectedColors.has(color) ? activeClass : inactiveClass}" />
+              <BlueIcon class={colorClass} />
             {:else if color === '緑'}
-              <GreenIcon class="w-5 h-5 transition-all {selectedColors.has(color) ? activeClass : inactiveClass}" />
+              <GreenIcon class={colorClass} />
             {:else}
-              <BlackIcon class="w-5 h-5 transition-all {selectedColors.has(color) ? activeClass : inactiveClass}" />
+              <BlackIcon class={colorClass} />
             {/if}
           </button>
         {/each}
       </div>
 
       <!-- レベル検索 -->
-      <div class="flex flex-3 mr-2 {filterGroup}">
+      <div class="flex-3 mr-2" data-suisou-button-group="even">
         {#each [1, 2, 3] as level (level)}
           <button
             type="button"
-            class={clsx(filterToggle({ active: selectedLevels.has(level) }), 'flex-1')}
+            class="cell"
+            data-suisou-button="neutral"
+            aria-pressed={selectedLevels.has(level)}
             onclick={() => onLevelFilter(level)}
           >
             {#if level === 1}
               {#if selectedLevels.has(1)}
-                <IconHexagonNumber1Filled class={filterIcon({ active: true })} />
+                <IconHexagonNumber1Filled />
               {:else}
-                <IconHexagonNumber1 class={filterIcon({ active: false })} />
+                <IconHexagonNumber1 />
               {/if}
             {:else if level === 2}
               {#if selectedLevels.has(2)}
-                <IconHexagonNumber2Filled class={filterIcon({ active: true })} />
+                <IconHexagonNumber2Filled />
               {:else}
-                <IconHexagonNumber2 class={filterIcon({ active: false })} />
+                <IconHexagonNumber2 />
               {/if}
             {:else}
               {#if selectedLevels.has(3)}
-                <IconHexagonNumber3Filled class={filterIcon({ active: true })} />
+                <IconHexagonNumber3Filled />
               {:else}
-                <IconHexagonNumber3 class={filterIcon({ active: false })} />
+                <IconHexagonNumber3 />
               {/if}
             {/if}
           </button>
@@ -320,14 +345,12 @@
       <!-- LB検索 -->
       <button
         type="button"
-        class={clsx(filterToggle({ active: lifeBurstFilter !== null }), 'w-10 h-full', filterBorder)}
+        class="cell w-10 h-full"
+        data-suisou-button="plain neutral"
+        aria-pressed={lifeBurstFilter !== null}
         onclick={onLifeBurstFilter}
       >
-        {#if lifeBurstFilter === false}
-          <IconCircleXFilled class={filterIcon({ active: true })} />
-        {:else}
-          <LifeBurstIcon class={filterIcon({ active: lifeBurstFilter === true })} />
-        {/if}
+        {#if lifeBurstFilter === false}<IconCircleXFilled />{:else}<LifeBurstIcon />{/if}
       </button>
     </div>
 
@@ -340,14 +363,19 @@
       <div class="relative w-10 h-full mr-2">
         <button
           type="button"
-          class="flex items-center justify-center w-full h-full bg-zinc-600/10 {filterBorder} text-gray-400 hover:text-white cursor-pointer transition-all"
-          onclick={() => { isSettingsOpen = !isSettingsOpen; }}
+          class="cell w-full h-full"
+          data-suisou-button="plain"
+          onclick={() => {
+            isSettingsOpen = !isSettingsOpen;
+          }}
         >
-          <IconAdjustments class="w-5 h-5" />
+          <IconAdjustments />
         </button>
         <SettingsPopup
           isOpen={isSettingsOpen}
-          onClose={() => { isSettingsOpen = false; }}
+          onClose={() => {
+            isSettingsOpen = false;
+          }}
           {showLifeBurst}
           {onToggleLifeBurst}
           {showCandidateIcon}
@@ -358,52 +386,85 @@
       </div>
 
       <!-- 検索入力 -->
-      <div class="flex flex-1 mr-2 items-center bg-zinc-600/10 {filterBorder} has-[input:focus]:ring-2 has-[input:focus]:ring-gray-500">
+      <div class="search flex-1 mr-2" data-suisou-button-group>
         <!-- 同上: ポップアップを button の外(relative div の兄弟)に出す -->
         <div class="relative w-12 h-full">
           <button
             type="button"
-            class="flex w-full h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer transition-all"
-            onclick={() => { isSearchSettingsOpen = !isSearchSettingsOpen; }}
+            class="cell w-full h-full"
+            data-suisou-button
+            onclick={() => {
+              isSearchSettingsOpen = !isSearchSettingsOpen;
+            }}
           >
-            {#if isSearchSettingsOpen}
-              <IconZoomCancelFilled class="w-5 h-5 text-gray-300" />
-            {:else}
-              <IconSearch class="w-5 h-5" />
-            {/if}
+            {#if isSearchSettingsOpen}<IconZoomCancelFilled />{:else}<IconSearch />{/if}
           </button>
           <SearchSettingsPopup
             isOpen={isSearchSettingsOpen}
-            onClose={() => { isSearchSettingsOpen = false; }}
+            onClose={() => {
+              isSearchSettingsOpen = false;
+            }}
             searchCardName={searchName}
             searchCardText={searchInText}
             onToggleSearchCardName={onToggleSearchName}
             onToggleSearchCardText={onToggleSearchInText}
           />
         </div>
-        <input
-          type="text"
-          class="w-full h-full pb-[2px] ml-2 text-sm text-white placeholder-gray-400 focus:outline-none bg-transparent"
-          bind:value={searchText}
-          oninput={handleSearchInput}
-        />
-        <button
-          type="button"
-          class="flex w-12 h-full items-center justify-center text-gray-400 hover:text-white cursor-pointer rounded-full transition-all"
-          onclick={handleClear}
-        >
-          <IconCircleX class="w-5 h-5" />
+        <input type="text" data-suisou-field bind:value={searchText} oninput={handleSearchInput} />
+        <button type="button" class="cell clear" data-suisou-button onclick={handleClear}>
+          <IconCircleX />
         </button>
       </div>
 
       <!-- リセットボタン -->
       <button
         type="button"
-        class="flex w-10 aspect-square bg-zinc-600/10 {filterBorder} items-center justify-center text-gray-400 hover:text-white cursor-pointer"
+        class="cell w-10 h-full"
+        data-suisou-button="plain"
         onclick={handleReset}
       >
-        <IconLoader class="w-5 h-5" />
+        <IconLoader />
       </button>
     </div>
   </div>
 </div>
+
+<style>
+  /* フィルタ盤の現場実装。器とトグルは Suisou（button-group / plain / aria-pressed）で、
+     ここにあるのは升目の伸ばし方と検索欄の中身だけ。 */
+
+  /* 升目。連結・単独とも領域いっぱいに広がる（角丸と余白の既定を外す） */
+  /* 升目の余白ゼロ。伸ばし方と min-width は Suisou の連結（even）が持つようになった。
+     高さは連結の既定（align-items: stretch）で埋まる */
+  .cell {
+    padding: 0;
+  }
+
+  /* ドメイン色。WIXOSS のカード5色は wixdex 自身のもの（app.css の :root で定義）。
+     エラーの赤とカードの赤が同じ色に巻き込まれていたのを、ここで分離した */
+  .cell :global(.c-white) {
+    color: var(--card-white);
+  }
+  .cell :global(.c-red) {
+    color: var(--card-red);
+  }
+  .cell :global(.c-blue) {
+    color: var(--card-blue);
+  }
+  .cell :global(.c-green) {
+    color: var(--card-green);
+  }
+  .cell :global(.c-black) {
+    color: var(--card-black);
+  }
+
+  /* 入力の素肌化と焦点の輪は Suisou の連結（button-group × field）が持つようになった */
+  .search {
+    display: flex;
+    align-items: center;
+  }
+  .clear {
+    flex: none;
+    width: 3rem;
+  }
+</style>

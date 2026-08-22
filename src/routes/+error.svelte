@@ -17,14 +17,9 @@
 >
   <img src="/404.png" alt="エラー {page.status}" class="h-auto w-[70vw] max-w-[600px]" />
 
-  <p class="text-3xl font-bold text-green-500">{page.status}</p>
+  <p data-suisou-text="s32 w700" class="text-green-500">{page.status}</p>
 
   <p class="text-zinc-400">{message}</p>
 
-  <a
-    href="/"
-    class="mt-2 rounded-lg bg-orange-600 px-5 py-2 text-sm font-medium transition-colors hover:bg-orange-500"
-  >
-    ホームへ戻る
-  </a>
+  <a href="/" data-suisou-button="outline" class="mt-2">ホームへ戻る</a>
 </main>

@@ -27,14 +27,21 @@
   }
 
   let {
-    card, src, alt,
+    card,
+    src,
+    alt,
     class: className = '',
     showLifeBurst = false,
     showCandidateIcon = false,
     isInCandidates = false,
     rotateLandscape = false,
-    onmouseenter, onmouseleave, onclick, onwheel,
-    ontouchstart, ontouchmove, ontouchend,
+    onmouseenter,
+    onmouseleave,
+    onclick,
+    onwheel,
+    ontouchstart,
+    ontouchmove,
+    ontouchend,
     fadeToken,
     fade = true,
   }: Props = $props();
@@ -47,23 +54,44 @@
   const rotated = $derived(rotateLandscape && isLandscape);
 </script>
 
-<div class="relative {rotated ? 'block w-full aspect-[12/17] overflow-hidden [container-type:size]' : 'inline-block'}">
+<div
+  class="relative {rotated
+    ? 'block w-full aspect-[12/17] overflow-hidden [container-type:size]'
+    : 'inline-block'}"
+>
   <LazyImage
-    {src} {alt} {fadeToken} {fade}
+    {src}
+    {alt}
+    {fadeToken}
+    {fade}
     class={rotated
       ? 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 w-[100cqh] h-[100cqw] max-w-none object-contain cursor-pointer'
       : className}
-    {onmouseenter} {onmouseleave} {onclick} {onwheel}
-    {ontouchstart} {ontouchmove} {ontouchend}
-    onload={(img) => { isImageLoaded = true; isLandscape = img.naturalWidth > img.naturalHeight; }}
+    {onmouseenter}
+    {onmouseleave}
+    {onclick}
+    {onwheel}
+    {ontouchstart}
+    {ontouchmove}
+    {ontouchend}
+    onload={(img) => {
+      isImageLoaded = true;
+      isLandscape = img.naturalWidth > img.naturalHeight;
+    }}
   />
   {#if showLifeBurst && hasLifeBurst && isImageLoaded}
-    <div class="absolute bottom-1 right-1 bg-orange-500 rounded-full p-0.5 shadow-lg">
+    <div
+      class="absolute bottom-1 right-1 rounded-full p-0.5"
+      style="background: var(--badge-lifeburst)"
+    >
       <LifeBurstIcon class="w-3 h-3 text-white" />
     </div>
   {/if}
   {#if showCandidateIcon && isInCandidates && isImageLoaded}
-    <div class="absolute top-1 right-1 bg-blue-500 rounded-full p-0.5 shadow-lg">
+    <div
+      class="absolute top-1 right-1 rounded-full p-0.5"
+      style="background: var(--badge-candidate)"
+    >
       <IconFolderFilled class="w-3 h-3 text-white" />
     </div>
   {/if}

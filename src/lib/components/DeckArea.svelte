@@ -24,8 +24,17 @@
   }
 
   let {
-    mainDeck, lrigDeck, onCardHover, onAdd, onAddMultiple, onRemove,
-    candidateCards, onRemoveFromCandidate, onCardClick, lifeBurstCount, showLifeBurst,
+    mainDeck,
+    lrigDeck,
+    onCardHover,
+    onAdd,
+    onAddMultiple,
+    onRemove,
+    candidateCards,
+    onRemoveFromCandidate,
+    onCardClick,
+    lifeBurstCount,
+    showLifeBurst,
     rotateLandscape,
   }: Props = $props();
 
@@ -85,7 +94,13 @@
     }
   }
 
-  function handleTouchEnd(e: TouchEvent, key: string, card: Card, index: number, deckType: 'main' | 'lrig') {
+  function handleTouchEnd(
+    e: TouchEvent,
+    key: string,
+    card: Card,
+    index: number,
+    deckType: 'main' | 'lrig',
+  ) {
     const state = touchStateMap.get(key);
     if (!state) return;
     const deltaY = state.startY - e.changedTouches[0].clientY;
@@ -101,13 +116,14 @@
 
 <div class="flex flex-col px-2 mb-2 md:mb-1 md:flex-1 lg:flex-2">
   <!-- ルリグデッキ -->
-  <div class="h-fit px-4 py-2 mb-2 bg-zinc-600/10 border border-gray-600/30 rounded-xl">
+  <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
     <div class="flex w-full">
-      <span class="text-base md:text-lg">Lrig Deck</span>
+      <span data-suisou-text="s16 w500">Lrig Deck</span>
     </div>
-    <div class="lrigDeck grid w-full h-[calc(32dvw-4rem)] sm:h-[8rem] md:h-[calc(14dvw-2rem)] lg:h-[calc(11dvw-3rem)] xl:h-[6rem] grid-cols-[repeat(8,_1fr)] grid-rows-[1fr] gap-x-1">
+    <div class="deck-grid lrig">
       {#each lrigKeyed as { card, key, index } (key)}
-        <div class="flex items-center" role="presentation"
+        <div
+          role="presentation"
           ontouchstart={(e) => handleTouchStart(e, key)}
           ontouchmove={(e) => handleTouchMove(e, key)}
           ontouchend={(e) => handleTouchEnd(e, key, card, index, 'lrig')}
@@ -130,17 +146,21 @@
   </div>
 
   <!-- メインデッキ -->
-  <div class="h-fit px-4 py-2 mb-2 bg-zinc-600/10 border border-gray-600/30 rounded-xl">
+  <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
     <div class="flex w-full justify-between items-center">
-      <span class="text-base md:text-lg">Main Deck</span>
+      <span data-suisou-text="s16 w500">Main Deck</span>
       <div class="flex items-center gap-1 md:gap-1.5">
         <LifeBurstIcon class="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
-        <span class="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px] text-sm md:text-base">{lifeBurstCount}</span>
+        <span
+          class="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px] text-sm md:text-base"
+          >{lifeBurstCount}</span
+        >
       </div>
     </div>
-    <div class="mainDeck grid w-full h-[calc(90dvw-4rem)] md:h-[calc(45dvw-3rem)] lg:h-[calc(36dvw-3rem)] xl:h-[26rem] grid-cols-[repeat(8,_1fr)] grid-rows-[repeat(5,_1fr)] gap-x-1">
+    <div class="deck-grid main">
       {#each mainKeyed as { card, key, index } (key)}
-        <div class="flex items-center" role="presentation"
+        <div
+          role="presentation"
           ontouchstart={(e) => handleTouchStart(e, key)}
           ontouchmove={(e) => handleTouchMove(e, key)}
           ontouchend={(e) => handleTouchEnd(e, key, card, index, 'main')}
@@ -163,9 +183,9 @@
   </div>
 
   <!-- 候補カード (Folder) - PC のみ表示 -->
-  <div class="hidden md:flex flex-col flex-1 px-4 py-2 rounded-xl bg-zinc-600/10 border border-gray-600/30 overflow-hidden">
+  <div class="hidden md:flex flex-col flex-1 overflow-hidden" data-suisou-surface="panel tight">
     <div class="flex w-full mb-2">
-      <span class="text-base md:text-lg">Folder</span>
+      <span data-suisou-text="s16 w500">Folder</span>
     </div>
     <div class="grid grid-cols-5 auto-rows-min gap-2 w-full overflow-y-auto xl:grid-cols-6">
       {#each candidateKeyed as { card, key } (key)}
@@ -183,18 +203,27 @@
             />
           </div>
           <div class="flex justify-center w-full h-10">
-            <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-              onclick={() => onAdd(card)} title="デッキに1枚追加">
+            <button
+              class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+              onclick={() => onAdd(card)}
+              title="デッキに1枚追加"
+            >
               <IconPlus class="w-[18px] h-[18px]" />
             </button>
             {#if isMainDeckCard(card)}
-              <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-                onclick={() => onAddMultiple(card, 4)} title="デッキに4枚追加">
+              <button
+                class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+                onclick={() => onAddMultiple(card, 4)}
+                title="デッキに4枚追加"
+              >
                 <IconBoxMultiple4 class="w-[18px] h-[18px]" />
               </button>
             {/if}
-            <button class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
-              onclick={() => onRemoveFromCandidate(card)} title="候補カードから削除">
+            <button
+              class="flex flex-1 text-gray-400 hover:text-gray-100 transition-all items-center justify-center"
+              onclick={() => onRemoveFromCandidate(card)}
+              title="候補カードから削除"
+            >
               <IconFolderX class="w-[18px] h-[18px]" />
             </button>
           </div>
@@ -203,3 +232,53 @@
     </div>
   </div>
 </div>
+
+<style>
+  /* デッキの升目。横8列 × ルリグ1行 / メイン5行。
+     行の高さはカードの縦横比（12:17）から決まり、列幅に正確に追従する。
+
+     ★以前は器に高さを直接持たせていた:
+         h-[calc(90dvw-4rem)] md:h-[calc(45dvw-3rem)]
+         lg:h-[calc(36dvw-3rem)] xl:h-[26rem]
+       「8列に並べたカードを5行積んだ高さ」を dvw から手で近似した値で、
+       段ごとに書き直していた。しかも DeckArea は md 以上で flex-1 / flex-2
+       になるので**幅がビューポート幅ではない** ―― dvw 基準の近似は原理的に
+       合わせられず、画面幅によってカードの下に隙間が出たり詰まったりしていた。
+       同じファイルの Folder の升目（aspect-[12/17]）が最初からこの形。 */
+  .deck-panel {
+    container-type: inline-size; /* 下の 100cqw が面の内側の幅を指す */
+  }
+  .deck-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: var(--suisou-space-1);
+    width: 100%;
+  }
+
+  /* ★空でも枠を保つ。行数が枚数依存になるので、0枚のとき行が消えて面が無くなり、
+     カードを足すたびに跳ねる（高さを直接持っていた頃は起きなかった退行）。
+
+     列幅 = (内側の幅 − 隙間7つ) ÷ 8、行の高さ = 列幅 × 17/12。
+     N行ぶんは (内側の幅 − 隙間7つ) × 17N/96 になる。
+     **満杯のときの実際の高さと同値**なので、min-height が中身と喧嘩しない。
+
+     ★以前ここに「1枡目に重ねた見えない当て木」を置いていたが誤り。
+       grid の子は明示配置でもその枡を占有するので、自動配置が2枡目から
+       始まり、カードが1つずつずれていた（2026-08-22 に指摘されて発覚）。 */
+  .lrig {
+    grid-template-rows: 1fr;
+    min-height: calc((100cqw - 7 * var(--suisou-space-1)) * 17 / 96);
+  }
+  .main {
+    grid-template-rows: repeat(5, 1fr);
+    min-height: calc((100cqw - 7 * var(--suisou-space-1)) * 85 / 96);
+  }
+
+  /* 升目そのものがカードの比を持つ。中の画像は w-full なので縦は勝手に揃う
+     （横向きカードだけ背が低くなり、中央に置かれる） */
+  .deck-grid > * {
+    aspect-ratio: 12 / 17;
+    display: flex;
+    align-items: center;
+  }
+</style>

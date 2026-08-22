@@ -11,6 +11,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",
+    "lint:bridge": "node scripts/check-bridge.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
