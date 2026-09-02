@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main # → production (wixdex.cards)
-      - dev  # → preview    (dev.wixdex.cards)
+      - dev  # → preview    (dev.wixdex.pages.dev)
 
 jobs:
   build-and-deploy:
