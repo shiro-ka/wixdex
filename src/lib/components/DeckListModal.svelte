@@ -33,13 +33,13 @@
               onSelectDeck(deck);
               onClose();
             }}
-            class="flex-1 text-left p-2"
+            class="flex-1 text-left p-2" data-suisou-layout="stack gap-1"
           >
             <div data-suisou-text="w500">{deck.name}</div>
-            <div class="mt-1" data-suisou-text="sub">
+            <div data-suisou-text="sub">
               メイン: {deck.mainCount}枚 / ルリグ: {deck.lrigCount}枚
             </div>
-            <div class="mt-1" data-suisou-text="sub s12">
+            <div data-suisou-text="sub s12">
               {new Date(deck.updatedAt * 1000).toLocaleString('ja-JP')}
             </div>
           </button>

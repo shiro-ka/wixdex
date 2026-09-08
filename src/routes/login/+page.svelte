@@ -86,7 +86,7 @@
         <h1 class="tracking-tight" data-suisou-text="s28 w700">
           wix<span data-suisou-text="accent">dex</span>
         </h1>
-        <p class="mt-3" data-suisou-text="sub">WIXOSS デッキビルダー</p>
+        <p data-suisou-text="sub">WIXOSS デッキビルダー</p>
       </div>
       <ul data-suisou-text="sub" data-suisou-layout="stack gap-2">
         <li data-suisou-layout="row">
@@ -102,12 +102,12 @@
     </div>
 
     <!-- 右: 認証フォーム -->
-    <div class="p-7 sm:p-10">
-      <h1 class="mb-5 text-center lg:hidden" data-suisou-text="s20 w700">wixdex</h1>
+    <div data-suisou-layout="stack gap-3" class="form-col">
+      <h1 class="text-center lg:hidden" data-suisou-text="s20 w700">wixdex</h1>
 
       <!-- タブ切替（再設定モードでは隠す） -->
       {#if mode !== 'forgot'}
-        <div class="mb-6" data-suisou-button-group="even">
+        <div data-suisou-button-group="even">
           <button
             type="button"
             data-suisou-button="neutral"
@@ -128,27 +128,27 @@
       {/if}
 
       {#if data.oauthError}
-        <p data-suisou-banner="error" role="alert" class="mb-4">
+        <p data-suisou-banner="error" role="alert">
           {data.oauthError}
         </p>
       {/if}
       {#if data.resetDone}
-        <p data-suisou-banner="success" role="status" class="mb-4">
+        <p data-suisou-banner="success" role="status">
           パスワードを再設定しました。新しいパスワードでログインしてください。
         </p>
       {/if}
       {#if form && 'error' in form && form.error}
-        <p data-suisou-banner="error" role="alert" class="mb-4">{form.error}</p>
+        <p data-suisou-banner="error" role="alert">{form.error}</p>
       {/if}
       {#if form && form.mode === 'forgot' && 'success' in form && form.success}
-        <p data-suisou-banner="success" role="status" class="mb-4">
+        <p data-suisou-banner="success" role="status">
           入力されたメールアドレスが登録されていれば、再設定用のリンクを送信しました。メールをご確認ください。
         </p>
       {/if}
 
       {#if mode === 'forgot'}
         <!-- パスワード再設定: メールアドレス入力 -->
-        <p class="mb-4" data-suisou-text="sub">
+        <p data-suisou-text="sub">
           登録したメールアドレスを入力してください。パスワード再設定用のリンクをお送りします。
         </p>
         <form method="POST" action="?/forgotPassword" data-suisou-layout="stack gap-3">
@@ -169,7 +169,7 @@
         <button
           type="button"
           onclick={() => (mode = 'login')}
-          class="mt-4 block w-full text-center transition-colors back" data-suisou-text="sub">
+          class="block w-full text-center transition-colors back" data-suisou-text="sub">
           ← ログインに戻る
         </button>
       {:else}
@@ -223,13 +223,13 @@
                 </button>
               </div>
               {#if usernameStatus === 'checking'}
-                <p class="mt-1" data-suisou-text="sub s12">確認中…</p>
+                <p data-suisou-text="sub s12">確認中…</p>
               {:else if usernameStatus === 'ok'}
-                <p class="mt-1" data-suisou-text="success s12">{usernameMsg}</p>
+                <p data-suisou-text="success s12">{usernameMsg}</p>
               {:else if usernameStatus === 'taken'}
-                <p class="mt-1" data-suisou-text="error s12">{usernameMsg}</p>
+                <p data-suisou-text="error s12">{usernameMsg}</p>
               {:else}
-                <p class="mt-1" data-suisou-text="sub s12">
+                <p data-suisou-text="sub s12">
                   英小文字・数字・ハイフン・アンダースコア（後から変更できます）
                 </p>
               {/if}
@@ -289,7 +289,7 @@
             type="button"
             onclick={() => (mode = 'forgot')}
             data-suisou-button="wide"
-            class="mt-3"
+            
           >
             パスワードをお忘れですか？
           </button>
@@ -297,7 +297,7 @@
       {/if}
 
       {#if mode !== 'forgot'}
-        <div data-suisou-layout="row" class="my-6">
+        <div data-suisou-layout="row" class="or">
           <div class="h-px flex-1 hr"></div>
           <span data-suisou-text="sub s12">または</span>
           <div class="h-px flex-1 hr"></div>
@@ -363,5 +363,18 @@
   }
   .back:hover {
     color: var(--suisou-text-main);
+  }
+
+  .form-col {
+    padding: var(--suisou-space-4);
+  }
+  @media (width >= 640px) {
+    .form-col {
+      padding: var(--suisou-space-4) calc(var(--suisou-space-4) * 1.7);
+    }
+  }
+  /* 「または」の行。上下に少し間を置く */
+  .or {
+    margin-block: var(--suisou-space-2);
   }
 </style>

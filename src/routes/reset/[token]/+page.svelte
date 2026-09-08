@@ -9,17 +9,17 @@
 </svelte:head>
 
 <main class="min-h-screen justify-center p-4" data-suisou-layout="row">
-  <div class="w-full max-w-md" data-suisou-surface="panel">
-    <h1 class="mb-6 text-center" data-suisou-text="s20 w700">パスワード再設定</h1>
+  <div class="w-full max-w-md" data-suisou-surface="panel" data-suisou-layout="stack gap-3">
+    <h1 class="text-center" data-suisou-text="s20 w700">パスワード再設定</h1>
 
     {#if !data.valid || (form && 'expired' in form && form.expired)}
-      <p data-suisou-banner="error" role="alert" class="mb-6">
+      <p data-suisou-banner="error" role="alert">
         このリンクは無効か、有効期限（30分）が切れています。
       </p>
       <a href="/login" data-suisou-button="outline wide"> ログイン画面へ戻る </a>
     {:else}
       {#if form?.error}
-        <p data-suisou-banner="error" role="alert" class="mb-4">{form.error}</p>
+        <p data-suisou-banner="error" role="alert">{form.error}</p>
       {/if}
       <form method="POST" data-suisou-layout="stack gap-3">
         <div data-suisou-layout="stack gap-1">

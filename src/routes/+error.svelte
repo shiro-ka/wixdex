@@ -19,5 +19,5 @@
 
   <p data-suisou-text="sub">{message}</p>
 
-  <a href="/" data-suisou-button="outline" class="mt-2">ホームへ戻る</a>
+  <a href="/" data-suisou-button="outline">ホームへ戻る</a>
 </main>

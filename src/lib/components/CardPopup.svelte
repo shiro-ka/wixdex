@@ -136,7 +136,7 @@
         </div>
 
         <!-- 操作バー: -1 / 枚数 / +1 / (+4) / 候補 / (お気に入り) -->
-        <div class="mt-3" data-suisou-layout="row gap-2 hold">
+        <div data-suisou-layout="row gap-2 hold">
           {@render actionButton(IconMinus, () => onRemove(card), '1枚減らす', count === 0)}
           <div class="justify-center tabular-nums" data-suisou-text="s20 w700" data-suisou-layout="row grow">
             {count}
@@ -179,7 +179,7 @@
         <div class="flex-1 min-h-0 overflow-y-auto xl:absolute xl:inset-0 px-4 pb-4 pt-3 xl:pt-4">
           <h2 data-suisou-text="s20 w700" class="pr-8">{card.name}</h2>
           {#if card.subName?.length}
-            <p class="mt-0.5" data-suisou-text="sub s12">{card.subName.join(' / ')}</p>
+            <p data-suisou-text="sub s12">{card.subName.join(' / ')}</p>
           {/if}
 
           <!-- メタ情報 -->

@@ -35,21 +35,21 @@
 <main class="min-h-dvh">
   <PageHeader />
 
-  <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:py-12">
-    <h1 class="mb-6 sm:text-3xl" data-suisou-text="s24 w700">設定</h1>
+  <div data-suisou-layout="stack container gap-4" class="page">
+    <h1 data-suisou-text="s24 md:s28 w700">設定</h1>
 
-    <div class="grid items-start gap-4 lg:grid-cols-2">
+    <div class="cols">
       <!-- アカウント概要 -->
-      <div data-suisou-surface="panel">
+      <div data-suisou-surface="panel" data-suisou-layout="stack gap-1">
         <p data-suisou-text="sub">表示名</p>
         <p>{data.user.displayName}</p>
         {#if data.user.email}
-          <p class="mt-2" data-suisou-text="sub">
+          <p data-suisou-text="sub">
             メール: <span data-suisou-text="sub">{data.user.email}</span>
           </p>
         {/if}
         {#if data.user.blueskyHandle}
-          <p class="mt-1" data-suisou-text="sub">
+          <p data-suisou-text="sub">
             Bluesky: <a
               href="https://bsky.app/profile/{data.user.blueskyHandle}"
               target="_blank"
@@ -61,14 +61,14 @@
       </div>
 
       <!-- ユーザー名 / ページURL -->
-      <section data-suisou-surface="panel">
-        <h2 class="mb-2" data-suisou-text="s16 w700">ページURL</h2>
+      <section data-suisou-surface="panel" data-suisou-layout="stack gap-2">
+        <h2 data-suisou-text="s16 w700">ページURL</h2>
         {#if canEditUsername}
           {#if f?.action === 'changeUsername'}
             {#if f?.error}
-              <p class="mb-2" data-suisou-text="error">{f.error}</p>
+              <p data-suisou-text="error">{f.error}</p>
             {:else if f?.success}
-              <p class="mb-2" data-suisou-text="success">ユーザー名を変更しました。</p>
+              <p data-suisou-text="success">ユーザー名を変更しました。</p>
             {/if}
           {/if}
           <form method="POST" action="?/changeUsername" data-suisou-layout="stack gap-2">
@@ -106,18 +106,18 @@
             あなたのページURLは Bluesky ハンドルです:
             <span>/@{data.user.blueskyHandle}</span>
           </p>
-          <p class="mt-1" data-suisou-text="sub s12">ハンドルの変更は Bluesky 側で行えます。</p>
+          <p data-suisou-text="sub s12">ハンドルの変更は Bluesky 側で行えます。</p>
         {/if}
       </section>
 
       {#if data.user.email}
-        <section data-suisou-surface="panel">
-          <h2 class="mb-2" data-suisou-text="s16 w700">パスワード変更</h2>
+        <section data-suisou-surface="panel" data-suisou-layout="stack gap-2">
+          <h2 data-suisou-text="s16 w700">パスワード変更</h2>
           {#if f?.action === 'changePassword'}
             {#if f?.error}
-              <p class="mb-2" data-suisou-text="error">{f.error}</p>
+              <p data-suisou-text="error">{f.error}</p>
             {:else if f?.success}
-              <p class="mb-2" data-suisou-text="success">パスワードを変更しました。</p>
+              <p data-suisou-text="success">パスワードを変更しました。</p>
             {/if}
           {/if}
           <form method="POST" action="?/changePassword" data-suisou-layout="stack gap-2">
@@ -148,17 +148,17 @@
         </section>
       {/if}
 
-      <section data-suisou-surface="panel">
-        <h2 class="mb-2" data-suisou-text="s16 w700">Bluesky 連携</h2>
+      <section data-suisou-surface="panel" data-suisou-layout="stack gap-2">
+        <h2 data-suisou-text="s16 w700">Bluesky 連携</h2>
         {#if f?.action === 'unlinkBluesky'}
           {#if f?.error}
-            <p class="mb-2" data-suisou-text="error">{f.error}</p>
+            <p data-suisou-text="error">{f.error}</p>
           {:else if f?.success}
-            <p class="mb-2" data-suisou-text="success">Bluesky 連携を解除しました。</p>
+            <p data-suisou-text="success">Bluesky 連携を解除しました。</p>
           {/if}
         {/if}
         {#if data.user.blueskyHandle}
-          <p class="mb-2" data-suisou-text="sub">@{data.user.blueskyHandle} と連携中</p>
+          <p data-suisou-text="sub">@{data.user.blueskyHandle} と連携中</p>
           <form method="POST" action="?/unlinkBluesky">
             <button type="submit" data-suisou-button="danger">連携解除</button>
           </form>
@@ -186,8 +186,27 @@
       </section>
     </div>
 
-    <button type="button" class="mt-6" data-suisou-button="plain" onclick={logout}>
+    <button type="button" data-suisou-button="plain" onclick={logout}>
       ログアウト
     </button>
   </div>
 </main>
+
+<style>
+  .page {
+    --suisou-measure: 56rem;
+    padding: var(--suisou-space-4) var(--suisou-space-3);
+  }
+  /* ★2列の格子。Suisou の even は「子の数だけ列を作る」ので、
+     **列数を固定する語が無い**（ここは4枚を2列に置きたい）。→ 申し送り */
+  .cols {
+    display: grid;
+    align-items: start;
+    gap: var(--suisou-space-3);
+  }
+  @media (width >= 1024px) {
+    .cols {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
