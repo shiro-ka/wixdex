@@ -2,7 +2,7 @@
   let { message }: { message: string } = $props();
 </script>
 
-<div class="fixed inset-0 justify-center cover" data-suisou-layout="row">
+<div class="fixed inset-0 cover" data-suisou-layout="row middle">
   <div data-suisou-banner="error" role="alert" class="max-w-md">
     <h2 data-suisou-text="s20 w700" class="mb-2">エラー</h2>
     <p>{message}</p>

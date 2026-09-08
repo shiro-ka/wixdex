@@ -1,5 +1,5 @@
-<div class="fixed inset-0 justify-center cover" data-suisou-layout="row">
-  <div class="text-center">
+<div class="fixed inset-0 cover" data-suisou-layout="row middle">
+  <div data-suisou-text="center">
     <!-- Suisou の Spinner（2026-08-22 に部品化）。手書きの輪は
          「動きを減らす」設定を見ておらず、回りっぱなしだった -->
     <div

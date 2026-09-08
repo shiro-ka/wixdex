@@ -186,7 +186,7 @@
   <!-- ホバープレビュー -->
   <div class="hidden lg:block w-full aspect-[3/4] mb-2" data-suisou-surface="panel">
     {#if hoveredCard}
-      <div class="w-full h-full justify-center" data-suisou-layout="row">
+      <div class="w-full h-full" data-suisou-layout="row middle">
         <img
           src={cardImageUrl(hoveredCard.image)}
           class="max-w-full max-h-full object-contain"

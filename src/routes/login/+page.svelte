@@ -73,7 +73,7 @@
   <title>{mode === 'login' ? 'ログイン' : '新規登録'} — wixdex</title>
 </svelte:head>
 
-<main class="justify-center p-4" data-suisou-layout="row screen">
+<main class="p-4" data-suisou-layout="row screen middle">
   <div
     class="grid w-full max-w-4xl min-h-[45rem] overflow-hidden lg:grid-cols-2"
     data-suisou-surface="panel bleed"
@@ -103,7 +103,7 @@
 
     <!-- 右: 認証フォーム -->
     <div data-suisou-layout="stack gap-3" class="form-col">
-      <h1 class="text-center lg:hidden" data-suisou-text="s20 w700">wixdex</h1>
+      <h1 class="lg:hidden" data-suisou-text="s20 w700 center">wixdex</h1>
 
       <!-- タブ切替（再設定モードでは隠す） -->
       {#if mode !== 'forgot'}
@@ -169,7 +169,7 @@
         <button
           type="button"
           onclick={() => (mode = 'login')}
-          class="block w-full text-center transition-colors back" data-suisou-text="sub">
+          class="block w-full transition-colors back" data-suisou-text="sub center">
           ← ログインに戻る
         </button>
       {:else}

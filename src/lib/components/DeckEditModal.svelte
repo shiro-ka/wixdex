@@ -67,7 +67,7 @@
             isNameEditMode = true;
           }}
           data-suisou-field="block"
-          class="text-left cursor-text"
+          data-suisou-text="start" class="cursor-text"
         >
           {name || 'デッキ名を入力'}
         </button>
@@ -109,7 +109,7 @@
           }}
           data-suisou-field="block"
           data-suisou-prose="tight"
-          class="min-h-[200px] text-left cursor-text"
+          data-suisou-text="start" class="min-h-[200px] cursor-text"
         >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->

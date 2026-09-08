@@ -295,9 +295,8 @@
 {#snippet cardCell(card: Card, withButtons: boolean)}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
-    class="flex flex-col {withButtons
-      ? 'w-full border rule rounded-lg'
-      : 'w-16 justify-center'} h-full"
+    class="{withButtons ? 'w-full border rule rounded-lg' : 'w-16'} h-full"
+    data-suisou-layout={withButtons ? 'stack gap-0' : 'stack middle gap-0'}
     ontouchstart={(e) => handleTouchStart(e, card)}
     ontouchmove={(e) => handleTouchMove(e, card)}
     ontouchend={(e) => handleTouchEnd(e, card)}
@@ -318,7 +317,7 @@
           onclick={() => onCardClick(card)}
         />
       </div>
-      <div class="flex justify-center w-full h-10">
+      <div class="w-full h-10" data-suisou-layout="row middle stretch gap-0">
         <button class="cell" data-suisou-button onclick={() => onAdd(card)} title="デッキに1枚追加">
           <IconPlus />
         </button>
@@ -370,7 +369,7 @@
   style="touch-action: {isMd ? 'pan-y' : 'pan-x'}"
 >
   {#if loading}
-    <div class="justify-center w-full h-32" data-suisou-layout="row">
+    <div class="w-full h-32" data-suisou-layout="row middle">
       <div
         data-suisou-spinner
         style="--suisou-spinner: 2.5rem"
@@ -379,7 +378,7 @@
       ></div>
     </div>
   {:else if loadError}
-    <div class="justify-center w-full h-32 px-4 text-center" data-suisou-text="error" data-suisou-layout="row">
+    <div class="w-full h-32 px-4" data-suisou-text="error center" data-suisou-layout="row middle">
       {loadError}
     </div>
   {:else if isMd}
