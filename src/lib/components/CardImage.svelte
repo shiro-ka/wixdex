@@ -84,7 +84,7 @@
       class="absolute bottom-1 right-1 rounded-full p-0.5 badge"
       style="background: var(--badge-lifeburst)"
     >
-      <LifeBurstIcon class="w-3 h-3" />
+      <LifeBurstIcon data-suisou-icon="tiny" />
     </div>
   {/if}
   {#if showCandidateIcon && isInCandidates && isImageLoaded}
@@ -92,7 +92,7 @@
       class="absolute top-1 right-1 rounded-full p-0.5 badge"
       style="background: var(--badge-candidate)"
     >
-      <IconFolderFilled class="w-3 h-3" />
+      <IconFolderFilled data-suisou-icon="tiny" />
     </div>
   {/if}
 </div>

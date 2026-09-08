@@ -8,7 +8,7 @@
   <title>パスワード再設定 — wixdex</title>
 </svelte:head>
 
-<main class="min-h-screen justify-center p-4" data-suisou-layout="row">
+<main class="justify-center p-4" data-suisou-layout="row screen">
   <div class="w-full max-w-md" data-suisou-surface="panel" data-suisou-layout="stack gap-3">
     <h1 class="text-center" data-suisou-text="s20 w700">パスワード再設定</h1>
 

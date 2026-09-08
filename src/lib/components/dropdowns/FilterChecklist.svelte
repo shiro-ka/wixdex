@@ -17,7 +17,7 @@
       <button type="button" class="toggle cursor-pointer" aria-pressed={checked} onclick={() => onToggle(value)} data-suisou-layout="row gap-2">
         <CheckboxIcon
           {checked}
-          class="w-5 h-5 flex-shrink-0"
+          data-suisou-icon
         />
         <span>{label}</span>
       </button>

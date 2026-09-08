@@ -67,21 +67,21 @@
         <button type="button" class="toggle cursor-pointer w-full" aria-pressed={showLifeBurst} onclick={onToggleLifeBurst} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={showLifeBurst}
-            class="w-5 h-5 flex-shrink-0"
+            data-suisou-icon
           />
           <span>LBアイコンを表示</span>
         </button>
         <button type="button" class="toggle cursor-pointer w-full" aria-pressed={showCandidateIcon} onclick={onToggleCandidateIcon} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={showCandidateIcon}
-            class="w-5 h-5 flex-shrink-0"
+            data-suisou-icon
           />
           <span>候補カードアイコンを表示</span>
         </button>
         <button type="button" class="toggle cursor-pointer w-full" aria-pressed={rotateLandscape} onclick={onToggleRotateLandscape} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={rotateLandscape}
-            class="w-5 h-5 flex-shrink-0"
+            data-suisou-icon
           />
           <span>横向きのカードを縦に表示</span>
         </button>

@@ -73,7 +73,7 @@
   <title>{mode === 'login' ? 'ログイン' : '新規登録'} — wixdex</title>
 </svelte:head>
 
-<main class="min-h-screen justify-center p-4" data-suisou-layout="row">
+<main class="justify-center p-4" data-suisou-layout="row screen">
   <div
     class="grid w-full max-w-4xl min-h-[45rem] overflow-hidden lg:grid-cols-2"
     data-suisou-surface="panel bleed"
@@ -311,7 +311,7 @@
             disabled={blueskyLoading}
             data-suisou-button="outline wide"
           >
-            <IconBrandBluesky class="h-5 w-5" />
+            <IconBrandBluesky data-suisou-icon />
             {blueskyLoading ? '接続中...' : 'Bluesky で続ける'}
           </button>
           {#if blueskyError}
