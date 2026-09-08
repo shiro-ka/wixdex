@@ -73,7 +73,7 @@
   <title>{mode === 'login' ? 'ログイン' : '新規登録'} — wixdex</title>
 </svelte:head>
 
-<main class="flex min-h-screen items-center justify-center p-4">
+<main class="min-h-screen justify-center p-4" data-suisou-layout="row">
   <div
     class="grid w-full max-w-4xl min-h-[45rem] overflow-hidden lg:grid-cols-2"
     data-suisou-surface="panel bleed"
@@ -83,7 +83,7 @@
       class="hidden flex-col justify-between border-r p-10 lg:flex aside"
     >
       <div>
-        <h1 class="text-3xl font-bold tracking-tight">
+        <h1 class="tracking-tight" data-suisou-text="s28 w700">
           wix<span data-suisou-text="accent">dex</span>
         </h1>
         <p class="mt-3" data-suisou-text="sub">WIXOSS デッキビルダー</p>
@@ -103,7 +103,7 @@
 
     <!-- 右: 認証フォーム -->
     <div class="p-7 sm:p-10">
-      <h1 class="mb-5 text-center text-xl font-bold lg:hidden">wixdex</h1>
+      <h1 class="mb-5 text-center lg:hidden" data-suisou-text="s20 w700">wixdex</h1>
 
       <!-- タブ切替（再設定モードでは隠す） -->
       {#if mode !== 'forgot'}
@@ -223,13 +223,13 @@
                 </button>
               </div>
               {#if usernameStatus === 'checking'}
-                <p class="mt-1 text-xs" data-suisou-text="sub">確認中…</p>
+                <p class="mt-1" data-suisou-text="sub s12">確認中…</p>
               {:else if usernameStatus === 'ok'}
-                <p class="mt-1 text-xs" data-suisou-text="success">{usernameMsg}</p>
+                <p class="mt-1" data-suisou-text="success s12">{usernameMsg}</p>
               {:else if usernameStatus === 'taken'}
-                <p class="mt-1 text-xs" data-suisou-text="error">{usernameMsg}</p>
+                <p class="mt-1" data-suisou-text="error s12">{usernameMsg}</p>
               {:else}
-                <p class="mt-1 text-xs" data-suisou-text="sub">
+                <p class="mt-1" data-suisou-text="sub s12">
                   英小文字・数字・ハイフン・アンダースコア（後から変更できます）
                 </p>
               {/if}
@@ -299,7 +299,7 @@
       {#if mode !== 'forgot'}
         <div data-suisou-layout="row" class="my-6">
           <div class="h-px flex-1 hr"></div>
-          <span class="text-xs" data-suisou-text="sub">または</span>
+          <span data-suisou-text="sub s12">または</span>
           <div class="h-px flex-1 hr"></div>
         </div>
 
@@ -319,12 +319,7 @@
           {/if}
 
           <!-- bsky.social 以外のPDS利用者向け（普段は隠す） -->
-          <button
-            type="button"
-            onclick={() => (showHandleInput = !showHandleInput)}
-            data-suisou-button="wide"
-            class="text-xs"
-          >
+          <button type="button" onclick={() => (showHandleInput = !showHandleInput)} data-suisou-button="wide" data-suisou-text="s12">
             別のサーバー(PDS)のアカウント
           </button>
           {#if showHandleInput}

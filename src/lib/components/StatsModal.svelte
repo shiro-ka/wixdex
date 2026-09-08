@@ -63,14 +63,14 @@
     <div class="text-center py-16" role="alert" data-suisou-text="error">{error}</div>
   {:else if ranked.length === 0}
     <div class="text-center py-16" data-suisou-text="sub">
-      <p class="text-lg">まだ集計データがありません</p>
+      <p data-suisou-text="s20">まだ集計データがありません</p>
       <p class="mt-2">デッキを保存すると、ここに使用ランキングが表示されます。</p>
     </div>
   {:else}
     <ol class="space-y-2">
       {#each ranked as row (row.cardId)}
         <li data-suisou-row data-suisou-layout="row" class="gap-4">
-          <div class="w-8 text-center font-mono text-lg" data-suisou-text="accent">{row.rank}</div>
+          <div class="w-8 text-center font-mono" data-suisou-text="accent s20">{row.rank}</div>
           {#if row.card}
             <img
               src={cardImageUrl(row.card.image)}
@@ -79,8 +79,8 @@
               loading="lazy"
             />
             <div class="flex-1 min-w-0">
-              <div class="font-medium truncate">{row.card.name}</div>
-              <div class="text-xs truncate" data-suisou-text="sub">{row.cardId}</div>
+              <div class="truncate" data-suisou-text="w500">{row.card.name}</div>
+              <div class="truncate" data-suisou-text="sub s12">{row.cardId}</div>
             </div>
           {:else}
             <div class="w-12 h-16 rounded flex-shrink-0 ph"></div>
@@ -89,8 +89,8 @@
             </div>
           {/if}
           <div class="text-right whitespace-nowrap">
-            <div class="font-medium" data-suisou-text="accent">{row.deckCount} デッキ</div>
-            <div class="text-xs" data-suisou-text="sub">合計 {row.totalCount} 枚</div>
+            <div data-suisou-text="accent w500">{row.deckCount} デッキ</div>
+            <div data-suisou-text="sub s12">合計 {row.totalCount} 枚</div>
           </div>
         </li>
       {/each}

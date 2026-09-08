@@ -35,11 +35,11 @@
             }}
             class="flex-1 text-left p-2"
           >
-            <div class="font-medium">{deck.name}</div>
+            <div data-suisou-text="w500">{deck.name}</div>
             <div class="mt-1" data-suisou-text="sub">
               メイン: {deck.mainCount}枚 / ルリグ: {deck.lrigCount}枚
             </div>
-            <div class="text-xs mt-1" data-suisou-text="sub">
+            <div class="mt-1" data-suisou-text="sub s12">
               {new Date(deck.updatedAt * 1000).toLocaleString('ja-JP')}
             </div>
           </button>

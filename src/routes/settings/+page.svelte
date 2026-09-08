@@ -36,7 +36,7 @@
   <PageHeader />
 
   <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:py-12">
-    <h1 class="mb-6 text-2xl font-bold sm:text-3xl">設定</h1>
+    <h1 class="mb-6 sm:text-3xl" data-suisou-text="s24 w700">設定</h1>
 
     <div class="grid items-start gap-4 lg:grid-cols-2">
       <!-- アカウント概要 -->
@@ -96,7 +96,7 @@
                 <IconDice />
               </button>
             </div>
-            <p class="text-xs" data-suisou-text="sub">
+            <p data-suisou-text="sub s12">
               英小文字・数字・ハイフン・アンダースコア。変更すると古いURLは無効になります。
             </p>
             <button type="submit" data-suisou-button="outline"> 保存する </button>
@@ -106,7 +106,7 @@
             あなたのページURLは Bluesky ハンドルです:
             <span>/@{data.user.blueskyHandle}</span>
           </p>
-          <p class="mt-1 text-xs" data-suisou-text="sub">ハンドルの変更は Bluesky 側で行えます。</p>
+          <p class="mt-1" data-suisou-text="sub s12">ハンドルの変更は Bluesky 側で行えます。</p>
         {/if}
       </section>
 

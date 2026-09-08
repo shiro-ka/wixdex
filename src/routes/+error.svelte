@@ -12,8 +12,7 @@
   <title>{page.status} — wixdex</title>
 </svelte:head>
 
-<main
-  class="flex min-h-dvh flex-col items-center justify-center gap-5 px-4 text-center">
+<main class="min-h-dvh justify-center px-4 text-center" data-suisou-layout="stack gap-3">
   <img src="/404.png" alt="エラー {page.status}" class="h-auto w-[70vw] max-w-[600px]" />
 
   <p data-suisou-text="s32 w700 success">{page.status}</p>

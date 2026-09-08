@@ -116,7 +116,7 @@
           {@html renderedMemo}
         </button>
       {/if}
-      <p class="text-xs mt-1" data-suisou-text="sub">
+      <p class="mt-1" data-suisou-text="sub s12">
         {#if !isLoggedIn}
           <a href="/login" data-suisou-link>ログインするとデッキを保存できます</a>
         {:else}

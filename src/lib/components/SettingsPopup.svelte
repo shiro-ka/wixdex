@@ -64,36 +64,21 @@
     <div>
       <h3 data-suisou-text="s14 w700" class="mb-2">設定</h3>
       <div class="space-y-2">
-        <button
-          type="button"
-          class="toggle flex items-center space-x-2 cursor-pointer w-full"
-          aria-pressed={showLifeBurst}
-          onclick={onToggleLifeBurst}
-        >
+        <button type="button" class="toggle space-x-2 cursor-pointer w-full" aria-pressed={showLifeBurst} onclick={onToggleLifeBurst} data-suisou-layout="row">
           <CheckboxIcon
             checked={showLifeBurst}
             class="w-5 h-5 flex-shrink-0"
           />
           <span>LBアイコンを表示</span>
         </button>
-        <button
-          type="button"
-          class="toggle flex items-center space-x-2 cursor-pointer w-full"
-          aria-pressed={showCandidateIcon}
-          onclick={onToggleCandidateIcon}
-        >
+        <button type="button" class="toggle space-x-2 cursor-pointer w-full" aria-pressed={showCandidateIcon} onclick={onToggleCandidateIcon} data-suisou-layout="row">
           <CheckboxIcon
             checked={showCandidateIcon}
             class="w-5 h-5 flex-shrink-0"
           />
           <span>候補カードアイコンを表示</span>
         </button>
-        <button
-          type="button"
-          class="toggle flex items-center space-x-2 cursor-pointer w-full"
-          aria-pressed={rotateLandscape}
-          onclick={onToggleRotateLandscape}
-        >
+        <button type="button" class="toggle space-x-2 cursor-pointer w-full" aria-pressed={rotateLandscape} onclick={onToggleRotateLandscape} data-suisou-layout="row">
           <CheckboxIcon
             checked={rotateLandscape}
             class="w-5 h-5 flex-shrink-0"

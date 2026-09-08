@@ -97,7 +97,7 @@
 {/snippet}
 
 {#if card}
-  <div class="fixed inset-0 flex items-center justify-center z-50 p-3">
+  <div class="fixed inset-0 justify-center z-50 p-3" data-suisou-layout="row">
     <!-- 背景クリックで閉じる -->
     <button
       class="absolute inset-0 scrim"
@@ -107,11 +107,7 @@
     ></button>
 
     <!-- モーダル本体（背景フェード＋軽くスケール。ツールなので控えめ＆やや速め） -->
-    <div
-      class="relative z-10 flex flex-col xl:flex-row w-full max-w-4xl h-[68vh] overflow-hidden"
-      data-suisou-surface="overlay bleed"
-      transition:scale={{ start: 0.97, opacity: 0, duration: 200 }}
-    >
+    <div class="relative z-10 xl:flex-row w-full max-w-4xl h-[68vh] overflow-hidden" data-suisou-surface="overlay bleed" transition:scale={{ start: 0.97, opacity: 0, duration: 200 }} data-suisou-layout="stack">
       <!-- 右上の閉じるボタン -->
       <button class="close" data-suisou-button="icon" onclick={onClose} aria-label="閉じる">
         <IconX />
@@ -124,9 +120,9 @@
       </div>
 
       <!-- 左: カード画像 + 操作バー。モバイルでも常に描画し、全体の高さ基準になる -->
-      <div class="flex flex-col flex-1 min-h-0 p-3 xl:flex-none xl:w-1/2">
+      <div class="min-h-0 p-3 xl:flex-none xl:w-1/2" data-suisou-layout="stack grow">
         <!-- 画像欄: 余ったスペースを埋め、画像はその枠内に収める(object-contain) -->
-        <div class="flex items-center justify-center min-h-0 flex-1">
+        <div class="justify-center min-h-0" data-suisou-layout="row grow">
           <!-- crossorigin は付けない（表示専用。canvas出力は別途 loadImage が自前でCORS取得）。
                crossorigin を付けると CORS リクエストになり R2 が Vary: Origin を返す→Chrome が
                immutable を無視して毎回 304 再検証し、モーダル画像が遅くなる（Firefoxは免疫）。
@@ -140,10 +136,9 @@
         </div>
 
         <!-- 操作バー: -1 / 枚数 / +1 / (+4) / 候補 / (お気に入り) -->
-        <div class="flex items-center gap-1.5 mt-3 shrink-0">
+        <div class="mt-3" data-suisou-layout="row gap-2 hold">
           {@render actionButton(IconMinus, () => onRemove(card), '1枚減らす', count === 0)}
-          <div
-            class="flex-1 flex items-center justify-center text-lg font-bold tabular-nums">
+          <div class="justify-center tabular-nums" data-suisou-text="s20 w700" data-suisou-layout="row grow">
             {count}
           </div>
           {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', !canAdd)}
@@ -184,7 +179,7 @@
         <div class="flex-1 min-h-0 overflow-y-auto xl:absolute xl:inset-0 px-4 pb-4 pt-3 xl:pt-4">
           <h2 data-suisou-text="s20 w700" class="pr-8">{card.name}</h2>
           {#if card.subName?.length}
-            <p class="text-xs mt-0.5" data-suisou-text="sub">{card.subName.join(' / ')}</p>
+            <p class="mt-0.5" data-suisou-text="sub s12">{card.subName.join(' / ')}</p>
           {/if}
 
           <!-- メタ情報 -->
@@ -218,7 +213,7 @@
 
           <!-- フレーバーテキスト -->
           {#if card.flavorText}
-            <p class="mt-3 text-xs italic whitespace-pre-line" data-suisou-text="sub">{card.flavorText}</p>
+            <p class="mt-3 italic whitespace-pre-line" data-suisou-text="sub s12">{card.flavorText}</p>
           {/if}
 
           <!-- FAQ -->
@@ -227,7 +222,7 @@
               <h3 data-suisou-text="s14 w700 accent" class="mb-2">FAQ</h3>
               <div class="space-y-2">
                 {#each card.faq as f, i (i)}
-                  <div class="text-xs leading-relaxed">
+                  <div class="leading-relaxed" data-suisou-text="s12">
                     {#if f.q}<p>Q. {f.q}</p>{/if}
                     <p data-suisou-text="sub">A. {f.a}</p>
                   </div>
