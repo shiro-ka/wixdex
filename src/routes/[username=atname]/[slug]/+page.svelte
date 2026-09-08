@@ -60,16 +60,16 @@
     {/snippet}
   </PageHeader>
 
-  <div class="max-w-screen-xl mx-auto px-4 py-6 sm:px-6 lg:py-10">
-    <div class="mb-1">
+  <div data-suisou-layout="stack container gap-3" class="page">
+    <div>
       <h1 class="truncate sm:text-3xl" data-suisou-text="s24 w700">{data.deck.name}</h1>
     </div>
-    <a href="/@{data.atName}" data-suisou-link class="mb-6 inline-block" data-suisou-text="sub">
+    <a href="/@{data.atName}" data-suisou-link class="inline-block" data-suisou-text="sub">
       @{data.atName} のデッキ
     </a>
 
     {#if renderedMemo}
-      <div data-suisou-surface="panel" data-suisou-prose="tight" class="mb-6">
+      <div data-suisou-surface="panel" data-suisou-prose="tight">
         <!-- renderedMemo は DOMPurify.sanitize 済み -->
         <!-- eslint-disable-next-line svelte/no-at-html-tags -->
         {@html renderedMemo}
@@ -86,8 +86,8 @@
         ></div>
       </div>
     {:else}
-      <section data-suisou-surface="panel" class="mb-4">
-        <h2 data-suisou-text="s16" class="mb-2">
+      <section data-suisou-surface="panel" data-suisou-layout="stack gap-2">
+        <h2 data-suisou-text="s16">
           Lrig Deck <span data-suisou-text="s14 sub">({lrigDeck.length})</span>
         </h2>
         <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1.5">
@@ -104,7 +104,7 @@
       </section>
 
       <section data-suisou-surface="panel">
-        <div data-suisou-layout="row between" class="mb-2">
+        <div data-suisou-layout="row between">
           <h2 data-suisou-text="s16">
             Main Deck <span data-suisou-text="s14 sub">({mainDeck.length})</span>
           </h2>
@@ -125,3 +125,10 @@
     {/if}
   </div>
 </div>
+
+<style>
+  .page {
+    --suisou-measure: 80rem;
+    padding: var(--suisou-space-4) var(--suisou-space-3);
+  }
+</style>

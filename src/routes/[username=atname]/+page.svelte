@@ -22,9 +22,9 @@
 <div class="min-h-dvh">
   <PageHeader />
 
-  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:py-12">
+  <div data-suisou-layout="stack container gap-4" class="page">
     <!-- プロフィールヘッダ -->
-    <header data-suisou-layout="row" class="mb-8 gap-4 border-b rule pb-8">
+    <header data-suisou-layout="row gap-3" class="head border-b rule">
       <!-- 頭文字は Avatar が出す。円形＝人という約束ごと部品に寄せる。
            文字色も部品の text-sub に譲った（accent の頭文字は装飾で、意味が無かった） -->
       <div data-suisou-avatar style="--suisou-avatar: 4rem" class="sm:[--suisou-avatar:5rem]" data-suisou-text="s24 w700">
@@ -37,21 +37,21 @@
             href={bskyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-1 inline-flex items-center gap-1.5"
+            data-suisou-layout="row gap-1" class="inline-row"
             data-suisou-link
           >
             <IconBrandBluesky class="h-4 w-4" />
             @{profile.atName}
           </a>
         {:else}
-          <p class="mt-1" data-suisou-text="sub">@{profile.atName}</p>
+          <p data-suisou-text="sub">@{profile.atName}</p>
         {/if}
       </div>
     </header>
 
     <!-- 公開デッキ一覧 -->
-    <section>
-      <h2 class="mb-4 uppercase tracking-wider" data-suisou-text="sub w700">
+    <section data-suisou-layout="stack gap-3">
+      <h2 class="uppercase tracking-wider" data-suisou-text="sub w700">
         公開デッキ <span data-suisou-text="sub">({decks.length})</span>
       </h2>
 
@@ -66,10 +66,10 @@
               class="deck-card block"
             >
               <div class="truncate" data-suisou-text="w500">{deck.name}</div>
-              <div class="mt-1" data-suisou-text="sub">
+              <div data-suisou-text="sub">
                 メイン {deck.mainCount}枚 / ルリグ {deck.lrigCount}枚
               </div>
-              <div class="mt-2" data-suisou-text="sub s12">
+              <div data-suisou-text="sub s12">
                 更新: {new Date(deck.updatedAt * 1000).toLocaleDateString('ja-JP')}
               </div>
             </a>
@@ -95,5 +95,17 @@
 
   .rule {
     border-color: var(--suisou-line-weak);
+  }
+
+  .head {
+    padding-block-end: var(--suisou-space-4);
+  }
+  .inline-row {
+    display: inline-flex;
+  }
+
+  .page {
+    --suisou-measure: 80rem;
+    padding: var(--suisou-space-4) var(--suisou-space-3);
   }
 </style>

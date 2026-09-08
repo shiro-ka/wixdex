@@ -58,7 +58,7 @@
       : 'opacity-100 scale-100'}"
   >
     <div>
-      <h3 data-suisou-text="s14 w700" class="mb-2">テキスト検索設定</h3>
+      <h3 data-suisou-text="s14 w700">テキスト検索設定</h3>
       <div data-suisou-layout="stack gap-2">
         <button type="button" class="toggle cursor-pointer w-full" aria-pressed={searchCardName} onclick={onToggleSearchCardName} data-suisou-layout="row gap-2">
           <CheckboxIcon
