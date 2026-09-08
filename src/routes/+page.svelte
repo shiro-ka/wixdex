@@ -302,7 +302,7 @@
   <meta property="og:url" content={page.url.origin + page.url.pathname} />
 </svelte:head>
 
-<div class="flex flex-col w-dvw h-dvh m-0 p-0 bg-zinc-900 overflow-hidden">
+<div class="flex flex-col w-dvw h-dvh m-0 p-0 overflow-hidden">
   <Navbar
     deckName={deck.name}
     isSaved={deck.isSaved}

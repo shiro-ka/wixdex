@@ -32,7 +32,7 @@
   <title>設定 — wixdex</title>
 </svelte:head>
 
-<main class="min-h-dvh bg-zinc-900 text-white">
+<main class="min-h-dvh">
   <PageHeader />
 
   <div class="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:py-12">
@@ -41,15 +41,15 @@
     <div class="grid items-start gap-4 lg:grid-cols-2">
       <!-- アカウント概要 -->
       <div data-suisou-surface="panel">
-        <p class="text-zinc-400">表示名</p>
-        <p class="text-white">{data.user.displayName}</p>
+        <p data-suisou-text="sub">表示名</p>
+        <p>{data.user.displayName}</p>
         {#if data.user.email}
-          <p class="mt-2 text-zinc-400">
-            メール: <span class="text-zinc-300">{data.user.email}</span>
+          <p class="mt-2" data-suisou-text="sub">
+            メール: <span data-suisou-text="sub">{data.user.email}</span>
           </p>
         {/if}
         {#if data.user.blueskyHandle}
-          <p class="mt-1 text-zinc-400">
+          <p class="mt-1" data-suisou-text="sub">
             Bluesky: <a
               href="https://bsky.app/profile/{data.user.blueskyHandle}"
               target="_blank"
@@ -66,9 +66,9 @@
         {#if canEditUsername}
           {#if f?.action === 'changeUsername'}
             {#if f?.error}
-              <p class="mb-2 text-red-400">{f.error}</p>
+              <p class="mb-2" data-suisou-text="error">{f.error}</p>
             {:else if f?.success}
-              <p class="mb-2 text-green-400">ユーザー名を変更しました。</p>
+              <p class="mb-2" data-suisou-text="success">ユーザー名を変更しました。</p>
             {/if}
           {/if}
           <form method="POST" action="?/changeUsername" class="space-y-2">
@@ -96,17 +96,17 @@
                 <IconDice />
               </button>
             </div>
-            <p class="text-xs text-zinc-500">
+            <p class="text-xs" data-suisou-text="sub">
               英小文字・数字・ハイフン・アンダースコア。変更すると古いURLは無効になります。
             </p>
             <button type="submit" data-suisou-button="outline"> 保存する </button>
           </form>
         {:else if data.user.blueskyHandle}
-          <p class="text-zinc-300">
+          <p data-suisou-text="sub">
             あなたのページURLは Bluesky ハンドルです:
-            <span class="text-white">/@{data.user.blueskyHandle}</span>
+            <span>/@{data.user.blueskyHandle}</span>
           </p>
-          <p class="mt-1 text-xs text-zinc-500">ハンドルの変更は Bluesky 側で行えます。</p>
+          <p class="mt-1 text-xs" data-suisou-text="sub">ハンドルの変更は Bluesky 側で行えます。</p>
         {/if}
       </section>
 
@@ -115,14 +115,14 @@
           <h2 class="mb-2" data-suisou-text="s16 w700">パスワード変更</h2>
           {#if f?.action === 'changePassword'}
             {#if f?.error}
-              <p class="mb-2 text-red-400">{f.error}</p>
+              <p class="mb-2" data-suisou-text="error">{f.error}</p>
             {:else if f?.success}
-              <p class="mb-2 text-green-400">パスワードを変更しました。</p>
+              <p class="mb-2" data-suisou-text="success">パスワードを変更しました。</p>
             {/if}
           {/if}
           <form method="POST" action="?/changePassword" class="space-y-3">
             <div>
-              <label for="currentPassword" class="mb-1 block text-zinc-300">現在のパスワード</label>
+              <label for="currentPassword" class="mb-1 block" data-suisou-text="sub">現在のパスワード</label>
               <input
                 id="currentPassword"
                 name="currentPassword"
@@ -132,8 +132,7 @@
               />
             </div>
             <div>
-              <label for="newPassword" class="mb-1 block text-zinc-300"
-                >新しいパスワード（8〜128文字）</label
+              <label for="newPassword" class="mb-1 block" data-suisou-text="sub">新しいパスワード（8〜128文字）</label
               >
               <input
                 id="newPassword"
@@ -153,13 +152,13 @@
         <h2 class="mb-2" data-suisou-text="s16 w700">Bluesky 連携</h2>
         {#if f?.action === 'unlinkBluesky'}
           {#if f?.error}
-            <p class="mb-2 text-red-400">{f.error}</p>
+            <p class="mb-2" data-suisou-text="error">{f.error}</p>
           {:else if f?.success}
-            <p class="mb-2 text-green-400">Bluesky 連携を解除しました。</p>
+            <p class="mb-2" data-suisou-text="success">Bluesky 連携を解除しました。</p>
           {/if}
         {/if}
         {#if data.user.blueskyHandle}
-          <p class="mb-2 text-zinc-300">@{data.user.blueskyHandle} と連携中</p>
+          <p class="mb-2" data-suisou-text="sub">@{data.user.blueskyHandle} と連携中</p>
           <form method="POST" action="?/unlinkBluesky">
             <button type="submit" data-suisou-button="danger">連携解除</button>
           </form>
@@ -172,7 +171,7 @@
               data-suisou-field="block"
             />
             {#if blueskyLinkError}
-              <p class="text-red-400">{blueskyLinkError}</p>
+              <p data-suisou-text="error">{blueskyLinkError}</p>
             {/if}
             <button
               type="button"

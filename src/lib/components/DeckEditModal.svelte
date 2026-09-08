@@ -43,7 +43,7 @@
     <!-- デッキ名 -->
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
-      <label data-suisou-text="s14 w500" class="block text-gray-300 mb-2">デッキ名</label>
+      <label data-suisou-text="s14 w500 sub" class="block mb-2">デッキ名</label>
       {#if !isLoggedIn}
         <div data-suisou-field aria-disabled="true" class="select-none">
           {name || 'デッキ名を入力'}
@@ -77,7 +77,7 @@
     <!-- メモ -->
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
-      <label data-suisou-text="s14 w500" class="block text-gray-300 mb-2">メモ</label>
+      <label data-suisou-text="s14 w500 sub" class="block mb-2">メモ</label>
       {#if !isLoggedIn}
         <div
           data-suisou-field
@@ -116,7 +116,7 @@
           {@html renderedMemo}
         </button>
       {/if}
-      <p class="text-xs text-gray-500 mt-1">
+      <p class="text-xs mt-1" data-suisou-text="sub">
         {#if !isLoggedIn}
           <a href="/login" data-suisou-link>ログインするとデッキを保存できます</a>
         {:else}

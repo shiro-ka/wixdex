@@ -16,18 +16,32 @@
       {@const checked = selected.has(value)}
       <button
         type="button"
-        class="group flex items-center space-x-2 cursor-pointer"
+        class="toggle flex items-center space-x-2 cursor-pointer"
         aria-pressed={checked}
         onclick={() => onToggle(value)}
       >
         <CheckboxIcon
           {checked}
-          class="w-5 h-5 flex-shrink-0 transition-colors {checked
-            ? 'text-orange-400'
-            : 'text-gray-400 group-hover:text-gray-300'}"
+          class="w-5 h-5 flex-shrink-0"
         />
         <span>{label}</span>
       </button>
     {/each}
   </div>
 </div>
+
+<style>
+  /* ★色は aria-pressed から引く。旧実装は同じ状態を三項式でもう一度書いていて、
+     「押されているか」がボタンの属性と色の式の2箇所にあった（二重管理）。
+     Suisou の「状態は標準の属性を借りる」に寄せて、式を消して CSS 側で受ける。 */
+  .toggle :global(svg) {
+    color: var(--suisou-text-sub);
+    transition: color var(--suisou-motion-fast) var(--suisou-ease);
+  }
+  .toggle:hover :global(svg) {
+    color: var(--suisou-text-main);
+  }
+  .toggle[aria-pressed="true"] :global(svg) {
+    color: var(--suisou-accent);
+  }
+</style>

@@ -143,8 +143,7 @@
         <div class="flex items-center gap-1.5 mt-3 shrink-0">
           {@render actionButton(IconMinus, () => onRemove(card), '1枚減らす', count === 0)}
           <div
-            class="flex-1 flex items-center justify-center text-lg font-bold text-white tabular-nums"
-          >
+            class="flex-1 flex items-center justify-center text-lg font-bold tabular-nums">
             {count}
           </div>
           {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', !canAdd)}
@@ -185,7 +184,7 @@
         <div class="flex-1 min-h-0 overflow-y-auto xl:absolute xl:inset-0 px-4 pb-4 pt-3 xl:pt-4">
           <h2 data-suisou-text="s20 w700" class="pr-8">{card.name}</h2>
           {#if card.subName?.length}
-            <p class="text-xs text-gray-400 mt-0.5">{card.subName.join(' / ')}</p>
+            <p class="text-xs mt-0.5" data-suisou-text="sub">{card.subName.join(' / ')}</p>
           {/if}
 
           <!-- メタ情報 -->
@@ -208,7 +207,7 @@
           {#if card.text?.length}
             <div class="mt-3 space-y-2">
               {#each card.text as t, i (i)}
-                <div class="text-gray-200 leading-relaxed">
+                <div class="leading-relaxed">
                   {#if t.label}
                     <span data-suisou-tag class="mr-1 align-middle">{t.label}</span>
                   {/if}<span class="whitespace-pre-line">{t.body}</span>
@@ -219,18 +218,18 @@
 
           <!-- フレーバーテキスト -->
           {#if card.flavorText}
-            <p class="mt-3 text-xs text-gray-400 italic whitespace-pre-line">{card.flavorText}</p>
+            <p class="mt-3 text-xs italic whitespace-pre-line" data-suisou-text="sub">{card.flavorText}</p>
           {/if}
 
           <!-- FAQ -->
           {#if card.faq?.length}
             <div class="mt-4">
-              <h3 data-suisou-text="s14 w700" class="text-orange-400 mb-2">FAQ</h3>
+              <h3 data-suisou-text="s14 w700 accent" class="mb-2">FAQ</h3>
               <div class="space-y-2">
                 {#each card.faq as f, i (i)}
                   <div class="text-xs leading-relaxed">
-                    {#if f.q}<p class="text-gray-200">Q. {f.q}</p>{/if}
-                    <p class="text-gray-400">A. {f.a}</p>
+                    {#if f.q}<p>Q. {f.q}</p>{/if}
+                    <p data-suisou-text="sub">A. {f.a}</p>
                   </div>
                 {/each}
               </div>

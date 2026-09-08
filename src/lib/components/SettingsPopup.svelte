@@ -66,43 +66,37 @@
       <div class="space-y-2">
         <button
           type="button"
-          class="group flex items-center space-x-2 cursor-pointer w-full"
+          class="toggle flex items-center space-x-2 cursor-pointer w-full"
           aria-pressed={showLifeBurst}
           onclick={onToggleLifeBurst}
         >
           <CheckboxIcon
             checked={showLifeBurst}
-            class="w-5 h-5 flex-shrink-0 transition-colors {showLifeBurst
-              ? 'text-orange-400'
-              : 'text-gray-400 group-hover:text-gray-300'}"
+            class="w-5 h-5 flex-shrink-0"
           />
           <span>LBアイコンを表示</span>
         </button>
         <button
           type="button"
-          class="group flex items-center space-x-2 cursor-pointer w-full"
+          class="toggle flex items-center space-x-2 cursor-pointer w-full"
           aria-pressed={showCandidateIcon}
           onclick={onToggleCandidateIcon}
         >
           <CheckboxIcon
             checked={showCandidateIcon}
-            class="w-5 h-5 flex-shrink-0 transition-colors {showCandidateIcon
-              ? 'text-orange-400'
-              : 'text-gray-400 group-hover:text-gray-300'}"
+            class="w-5 h-5 flex-shrink-0"
           />
           <span>候補カードアイコンを表示</span>
         </button>
         <button
           type="button"
-          class="group flex items-center space-x-2 cursor-pointer w-full"
+          class="toggle flex items-center space-x-2 cursor-pointer w-full"
           aria-pressed={rotateLandscape}
           onclick={onToggleRotateLandscape}
         >
           <CheckboxIcon
             checked={rotateLandscape}
-            class="w-5 h-5 flex-shrink-0 transition-colors {rotateLandscape
-              ? 'text-orange-400'
-              : 'text-gray-400 group-hover:text-gray-300'}"
+            class="w-5 h-5 flex-shrink-0"
           />
           <span>横向きのカードを縦に表示</span>
         </button>
@@ -117,5 +111,19 @@
   .popup {
     position: absolute;
     margin: 0 0 var(--suisou-space-2) 0;
+  }
+
+  /* ★色は aria-pressed から引く。旧実装は同じ状態を三項式でもう一度書いていて、
+     「押されているか」がボタンの属性と色の式の2箇所にあった（二重管理）。
+     Suisou の「状態は標準の属性を借りる」に寄せて、式を消して CSS 側で受ける。 */
+  .toggle :global(svg) {
+    color: var(--suisou-text-sub);
+    transition: color var(--suisou-motion-fast) var(--suisou-ease);
+  }
+  .toggle:hover :global(svg) {
+    color: var(--suisou-text-main);
+  }
+  .toggle[aria-pressed="true"] :global(svg) {
+    color: var(--suisou-accent);
   }
 </style>

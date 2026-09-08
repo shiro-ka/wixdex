@@ -159,15 +159,15 @@
     <div>
       <h4 data-suisou-text="s14 w700" class="mb-2">デッキを公開</h4>
       {#if !isLoggedIn}
-        <p class="text-gray-400 text-xs">ログインするとデッキを公開・共有できます。</p>
+        <p class="text-xs" data-suisou-text="sub">ログインするとデッキを公開・共有できます。</p>
       {:else if !deckId}
-        <p class="text-gray-400 text-xs">デッキを保存すると公開・共有できます。</p>
+        <p class="text-xs" data-suisou-text="sub">デッキを保存すると公開・共有できます。</p>
       {:else}
         <!-- 手製スイッチをやめてネイティブ checkbox に（2026-08-21）。
              Suisou はネイティブ部品を奪わない ―― accent-color が根で1回
              書いてあるので、色は勝手にテーマへ追従する。塗りのトグルは
              wixdex に残った最後の「塗る操作部品」だった。 -->
-        <label data-suisou-layout="row between" class="text-gray-300">
+        <label data-suisou-layout="row between" data-suisou-text="sub">
           このデッキを公開する
           <input
             type="checkbox"
@@ -217,12 +217,12 @@
                   </button>
                 </div>
                 {#if slugError}
-                  <p class="text-red-400 text-xs mt-1">{slugError}</p>
+                  <p class="text-xs mt-1" data-suisou-text="error">{slugError}</p>
                 {/if}
               </div>
             {:else}
               <div data-suisou-layout="row between" class="mt-1">
-                <p class="text-gray-500 text-xs">
+                <p class="text-xs" data-suisou-text="sub">
                   リンクを知っている人がこのデッキを閲覧できます。
                 </p>
                 <button
@@ -236,7 +236,7 @@
               </div>
             {/if}
           {:else}
-            <p class="text-yellow-500 text-xs mt-3">
+            <p class="text-xs mt-3" data-suisou-text="warning">
               共有URLを発行するには
               <a href="/settings" data-suisou-link>設定</a>でユーザー名を決めてください。
             </p>
@@ -246,7 +246,7 @@
     </div>
 
     <!-- 画像エクスポート -->
-    <div class="pt-4 border-t border-zinc-700">
+    <div class="pt-4 border-t rule">
       <h4 data-suisou-text="s14 w700" class="mb-2">画像エクスポート</h4>
 
       <!-- オプション: 列数 / テーマ -->
@@ -309,15 +309,22 @@
       </div>
 
       {#if mainDeck.length === 0}
-        <p class="text-yellow-500 text-xs mt-3">※デッキにカードを追加してください</p>
+        <p class="text-xs mt-3" data-suisou-text="warning">※デッキにカードを追加してください</p>
       {/if}
       {#if isExporting}
-        <p class="text-gray-400 text-xs mt-3">生成中...</p>
+        <p class="text-xs mt-3" data-suisou-text="sub">生成中...</p>
       {/if}
     </div>
 
-    <div class="pt-4 border-t border-zinc-700">
-      <p class="text-gray-500 text-xs">リスト式、テキストエクスポートは今後実装予定です。</p>
+    <div class="pt-4 border-t rule">
+      <p class="text-xs" data-suisou-text="sub">リスト式、テキストエクスポートは今後実装予定です。</p>
     </div>
   </div>
 </BaseModal>
+
+<style>
+  /* 上の区切り。旧実装は item の色を線に使っていた */
+  .rule {
+    border-color: var(--suisou-line-weak);
+  }
+</style>

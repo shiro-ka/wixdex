@@ -24,7 +24,7 @@
 
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:py-12">
     <!-- プロフィールヘッダ -->
-    <header data-suisou-layout="row" class="mb-8 gap-4 border-b border-gray-600/30 pb-8">
+    <header data-suisou-layout="row" class="mb-8 gap-4 border-b rule pb-8">
       <!-- 頭文字は Avatar が出す。円形＝人という約束ごと部品に寄せる。
            文字色も部品の text-sub に譲った（accent の頭文字は装飾で、意味が無かった） -->
       <div
@@ -48,19 +48,19 @@
             @{profile.atName}
           </a>
         {:else}
-          <p class="mt-1 text-zinc-400">@{profile.atName}</p>
+          <p class="mt-1" data-suisou-text="sub">@{profile.atName}</p>
         {/if}
       </div>
     </header>
 
     <!-- 公開デッキ一覧 -->
     <section>
-      <h2 class="mb-4 font-semibold uppercase tracking-wider text-zinc-500">
-        公開デッキ <span class="text-zinc-600">({decks.length})</span>
+      <h2 class="mb-4 font-semibold uppercase tracking-wider" data-suisou-text="sub">
+        公開デッキ <span data-suisou-text="sub">({decks.length})</span>
       </h2>
 
       {#if decks.length === 0}
-        <p class="py-20 text-center text-zinc-500">公開中のデッキはまだありません。</p>
+        <p class="py-20 text-center" data-suisou-text="sub">公開中のデッキはまだありません。</p>
       {:else}
         <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {#each decks as deck (deck.slug)}
@@ -70,10 +70,10 @@
               class="deck-card block"
             >
               <div class="truncate font-medium">{deck.name}</div>
-              <div class="mt-1 text-zinc-400">
+              <div class="mt-1" data-suisou-text="sub">
                 メイン {deck.mainCount}枚 / ルリグ {deck.lrigCount}枚
               </div>
-              <div class="mt-2 text-xs text-zinc-500">
+              <div class="mt-2 text-xs" data-suisou-text="sub">
                 更新: {new Date(deck.updatedAt * 1000).toLocaleDateString('ja-JP')}
               </div>
             </a>
@@ -95,5 +95,9 @@
   .deck-card:hover {
     background: var(--suisou-hover-surface);
     border-color: var(--suisou-line-strong);
+  }
+
+  .rule {
+    border-color: var(--suisou-line-weak);
   }
 </style>

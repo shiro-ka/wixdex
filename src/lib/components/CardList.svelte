@@ -296,7 +296,7 @@
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
     class="flex flex-col {withButtons
-      ? 'w-full border border-gray-600/50 rounded-lg'
+      ? 'w-full border rule rounded-lg'
       : 'w-16 justify-center'} h-full"
     ontouchstart={(e) => handleTouchStart(e, card)}
     ontouchmove={(e) => handleTouchMove(e, card)}
@@ -365,7 +365,7 @@
 <div
   bind:this={scrollEl}
   class="flex-1 min-h-0 max-w-full py-3 mb-1 {isMd
-    ? 'rounded-xl border border-gray-600/50 overflow-y-auto overflow-x-hidden'
+    ? 'rounded-xl border rule overflow-y-auto overflow-x-hidden'
     : 'overflow-x-auto overflow-y-hidden'}"
   style="touch-action: {isMd ? 'pan-y' : 'pan-x'}"
 >
@@ -379,7 +379,7 @@
       ></div>
     </div>
   {:else if loadError}
-    <div class="flex items-center justify-center w-full h-32 text-red-400 px-4 text-center">
+    <div class="flex items-center justify-center w-full h-32 px-4 text-center" data-suisou-text="error">
       {loadError}
     </div>
   {:else if isMd}
@@ -428,5 +428,9 @@
     height: 100%;
     padding: 0;
     min-width: 0;
+  }
+
+  .rule {
+    border-color: var(--suisou-line-weak);
   }
 </style>

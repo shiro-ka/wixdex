@@ -1,8 +1,13 @@
 <script lang="ts">
-  let { class: className = 'w-5 h-5' }: { class?: string } = $props();
+  let { class: className = 'w-5 h-5',
+    ...restProps
+  }: { class?: string;
+    [key: string]: unknown;
+  } = $props();
 </script>
 
 <svg
+  {...restProps}
   viewBox="0 0 24 24"
   fill="none"
   stroke="currentColor"

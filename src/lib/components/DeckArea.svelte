@@ -150,7 +150,7 @@
     <div data-suisou-layout="row between">
       <span data-suisou-text="s16 w500">Main Deck</span>
       <div class="flex items-center gap-1 md:gap-1.5">
-        <LifeBurstIcon class="w-4 h-4 md:w-5 md:h-5 text-gray-400" />
+        <LifeBurstIcon class="w-4 h-4 md:w-5 md:h-5" data-suisou-text="sub"/>
         <span
           data-suisou-text="s14 md:s16"
           class="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px]"
@@ -190,7 +190,7 @@
     </div>
     <div class="grid grid-cols-5 auto-rows-min gap-2 w-full overflow-y-auto xl:grid-cols-6">
       {#each candidateKeyed as { card, key } (key)}
-        <div class="flex flex-col w-full border border-gray-600/50 rounded-lg">
+        <div class="flex flex-col w-full border rule rounded-lg">
           <div class="flex items-center w-full aspect-[12/17]">
             <CardImage
               {card}
@@ -293,5 +293,9 @@
     aspect-ratio: 12 / 17;
     display: flex;
     align-items: center;
+  }
+
+  .rule {
+    border-color: var(--suisou-line-weak);
   }
 </style>
