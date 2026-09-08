@@ -200,7 +200,7 @@
 
           <!-- カードテキスト -->
           {#if card.text?.length}
-            <div class="mt-3 space-y-2">
+            <div class="mt-3" data-suisou-layout="stack gap-2">
               {#each card.text as t, i (i)}
                 <div class="leading-relaxed">
                   {#if t.label}
@@ -220,7 +220,7 @@
           {#if card.faq?.length}
             <div class="mt-4">
               <h3 data-suisou-text="s14 w700 accent" class="mb-2">FAQ</h3>
-              <div class="space-y-2">
+              <div data-suisou-layout="stack gap-2">
                 {#each card.faq as f, i (i)}
                   <div class="leading-relaxed" data-suisou-text="s12">
                     {#if f.q}<p>Q. {f.q}</p>{/if}
