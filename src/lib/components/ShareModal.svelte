@@ -262,7 +262,7 @@
 
       <!-- 画像(JPG)。コピーはブラウザ制約によりPNGで書き込まれる(貼り付け互換のため)。 -->
       <div data-suisou-button-group="even">
-        <div class="justify-center" data-suisou-text="w500" data-suisou-layout="row grow">ダウンロード</div>
+        <div data-suisou-text="w500" data-suisou-layout="row grow middle">ダウンロード</div>
         <button
           type="button"
           data-suisou-button="icon"

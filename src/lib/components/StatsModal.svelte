@@ -58,11 +58,11 @@
 
 <BaseModal {isOpen} {onClose} title="カード使用統計" maxWidth="lg">
   {#if loading}
-    <div class="flex justify-center py-16" data-suisou-text="sub">読み込み中...</div>
+    <div class="py-16" data-suisou-text="sub center">読み込み中...</div>
   {:else if error}
-    <div class="text-center py-16" role="alert" data-suisou-text="error">{error}</div>
+    <div class="py-16" role="alert" data-suisou-text="error center">{error}</div>
   {:else if ranked.length === 0}
-    <div class="text-center py-16" data-suisou-text="sub">
+    <div class="py-16" data-suisou-text="sub center">
       <p data-suisou-text="s20">まだ集計データがありません</p>
       <p class="mt-2">デッキを保存すると、ここに使用ランキングが表示されます。</p>
     </div>
@@ -70,7 +70,7 @@
     <ol data-suisou-layout="stack gap-2">
       {#each ranked as row (row.cardId)}
         <li data-suisou-row data-suisou-layout="row" class="gap-4">
-          <div class="w-8 text-center font-mono" data-suisou-text="accent s20">{row.rank}</div>
+          <div class="w-8 font-mono" data-suisou-text="accent s20 center">{row.rank}</div>
           {#if row.card}
             <img
               src={cardImageUrl(row.card.image)}

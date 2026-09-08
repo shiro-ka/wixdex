@@ -97,7 +97,7 @@
 {/snippet}
 
 {#if card}
-  <div class="fixed inset-0 justify-center z-50 p-3" data-suisou-layout="row">
+  <div class="fixed inset-0 z-50 p-3" data-suisou-layout="row middle">
     <!-- 背景クリックで閉じる -->
     <button
       class="absolute inset-0 scrim"
@@ -122,7 +122,7 @@
       <!-- 左: カード画像 + 操作バー。モバイルでも常に描画し、全体の高さ基準になる -->
       <div class="p-3 xl:flex-none xl:w-1/2" data-suisou-layout="stack grow">
         <!-- 画像欄: 余ったスペースを埋め、画像はその枠内に収める(object-contain) -->
-        <div class="justify-center" data-suisou-layout="row grow">
+        <div data-suisou-layout="row grow middle">
           <!-- crossorigin は付けない（表示専用。canvas出力は別途 loadImage が自前でCORS取得）。
                crossorigin を付けると CORS リクエストになり R2 が Vary: Origin を返す→Chrome が
                immutable を無視して毎回 304 再検証し、モーダル画像が遅くなる（Firefoxは免疫）。
@@ -138,7 +138,7 @@
         <!-- 操作バー: -1 / 枚数 / +1 / (+4) / 候補 / (お気に入り) -->
         <div data-suisou-layout="row gap-2 hold">
           {@render actionButton(IconMinus, () => onRemove(card), '1枚減らす', count === 0)}
-          <div class="justify-center tabular-nums" data-suisou-text="s20 w700" data-suisou-layout="row grow">
+          <div class="tabular-nums" data-suisou-text="s20 w700" data-suisou-layout="row grow middle">
             {count}
           </div>
           {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', !canAdd)}

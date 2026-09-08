@@ -22,12 +22,12 @@
 <BaseModal {isOpen} {onClose} title="デッキ一覧">
   <div data-suisou-layout="stack gap-2">
     {#if decks.length === 0}
-      <p class="text-center py-8" data-suisou-text="sub">保存されたデッキがありません</p>
+      <p class="py-8" data-suisou-text="sub center">保存されたデッキがありません</p>
     {:else}
       {#each decks as deck (deck.id)}
         <!-- 行の下地と hover は Row が持つ。中身は選ぶボタンと削除ボタンの2つ -->
         <div data-suisou-row class="flex w-full items-stretch">
-          <button type="button" onclick={() => { onSelectDeck(deck); onClose(); }} class="text-left p-2" data-suisou-layout="stack gap-1 grow">
+          <button type="button" onclick={() => { onSelectDeck(deck); onClose(); }} data-suisou-text="start" class="p-2" data-suisou-layout="stack gap-1 grow">
             <div data-suisou-text="w500">{deck.name}</div>
             <div data-suisou-text="sub">
               メイン: {deck.mainCount}枚 / ルリグ: {deck.lrigCount}枚

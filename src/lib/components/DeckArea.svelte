@@ -151,7 +151,7 @@
       <span data-suisou-text="s16 w500">Main Deck</span>
       <div class="md:gap-1.5" data-suisou-layout="row gap-1">
         <LifeBurstIcon class="w-4 h-4 md:w-5 md:h-5" data-suisou-text="sub"/>
-        <span data-suisou-text="s14 md:s16" class="justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px]" data-suisou-layout="row">{lifeBurstCount}</span
+        <span data-suisou-text="s14 md:s16" class="w-4 h-4 md:w-5 md:h-5 pb-[2px]" data-suisou-layout="row middle">{lifeBurstCount}</span
         >
       </div>
     </div>
@@ -200,7 +200,7 @@
               onclick={() => onCardClick(card)}
             />
           </div>
-          <div class="flex justify-center w-full h-10">
+          <div class="w-full h-10" data-suisou-layout="row middle stretch gap-0">
             <!-- CardList のセル下ボタンと同じ形（hover の下地と文字色は Suisou が出す） -->
             <button
               class="cell"

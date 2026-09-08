@@ -77,7 +77,7 @@
     {/if}
 
     {#if loading}
-      <div class="flex justify-center py-16">
+      <div class="py-16" data-suisou-layout="row middle">
         <div
           data-suisou-spinner
           style="--suisou-spinner: 2.5rem"

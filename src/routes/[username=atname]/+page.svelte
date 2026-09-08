@@ -56,7 +56,7 @@
       </h2>
 
       {#if decks.length === 0}
-        <p class="py-20 text-center" data-suisou-text="sub">公開中のデッキはまだありません。</p>
+        <p class="py-20" data-suisou-text="sub center">公開中のデッキはまだありません。</p>
       {:else}
         <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {#each decks as deck (deck.slug)}
