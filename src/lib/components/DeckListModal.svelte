@@ -22,7 +22,7 @@
 <BaseModal {isOpen} {onClose} title="デッキ一覧">
   <div class="space-y-2">
     {#if decks.length === 0}
-      <p class="text-gray-400 text-center py-8">保存されたデッキがありません</p>
+      <p class="text-center py-8" data-suisou-text="sub">保存されたデッキがありません</p>
     {:else}
       {#each decks as deck (deck.id)}
         <!-- 行の下地と hover は Row が持つ。中身は選ぶボタンと削除ボタンの2つ -->
@@ -36,10 +36,10 @@
             class="flex-1 text-left p-2"
           >
             <div class="font-medium">{deck.name}</div>
-            <div class="text-gray-400 mt-1">
+            <div class="mt-1" data-suisou-text="sub">
               メイン: {deck.mainCount}枚 / ルリグ: {deck.lrigCount}枚
             </div>
-            <div class="text-xs text-gray-500 mt-1">
+            <div class="text-xs mt-1" data-suisou-text="sub">
               {new Date(deck.updatedAt * 1000).toLocaleString('ja-JP')}
             </div>
           </button>

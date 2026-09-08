@@ -1,71 +1,14 @@
 @import 'tailwindcss';
 
-/* ══ Suisou ブリッジ ══════════════════════════════════
-   既存の色クラス（zinc/gray/orange/red/green/yellow、313箇所・25種類）を
-   Suisou のトークンへ一括で畳む。テンプレートを1枚も触らずに階調が乗せ替わる。
+/* ★Suisou ブリッジは 2026-09-08 に撤去した。
+   もともと「移行の足場。本変換（クラス → data-suisou-* 部品）が終わったら
+   このブロックごと消す」と書いてあったもので、その条件を満たした。
 
-   ★これは移行の足場。本変換（クラス → data-suisou-* 部品）を
-     コンポーネント単位で進め、終わったらこのブロックごと消す。
-   ★色の値は書かない。var(--suisou-*) への参照だけ（値を決めるのは Suisou の solve.py）。
-   ★/50 などの不透明度修飾は Tailwind v4 が color-mix に落とすので、var のままで効く。
+   生の色クラス（zinc/gray/orange/red/green/yellow）は **132 箇所すべて**
+   data-suisou-text / data-suisou-* と scoped style に移った。
+   ★scripts/check-bridge.mjs は対応表が空になったことで、そのまま
+     「生の色クラスを1つでも書いたら落ちる」番人に変わる（コードは変えていない）。 */
 
-   対応の方針:
-     zinc-950/900 → bg          zinc-800 → panel      zinc-700/gray-700 → item
-     zinc-600/gray-600 → line-weak      zinc-500 → line-strong
-     gray-500 → text-disabled   400/300 → text-sub    200/100 → text-main
-     orange → accent（clown）   red → error           green → success
-     yellow → warning
-   （sky 4箇所は対応させず残す。本変換のときに文脈で決める） */
-@theme {
-  --color-zinc-950: var(--suisou-bg);
-  --color-zinc-900: var(--suisou-bg);
-  --color-zinc-800: var(--suisou-panel);
-  --color-zinc-700: var(--suisou-item);
-  --color-gray-700: var(--suisou-item);
-  --color-zinc-600: var(--suisou-line-weak);
-  --color-gray-600: var(--suisou-line-weak);
-  --color-zinc-500: var(--suisou-line-strong);
-  --color-gray-500: var(--suisou-text-disabled);
-  --color-zinc-400: var(--suisou-text-sub);
-  --color-gray-400: var(--suisou-text-sub);
-  --color-zinc-300: var(--suisou-text-sub);
-  --color-gray-300: var(--suisou-text-sub);
-  --color-zinc-200: var(--suisou-text-main);
-  --color-gray-200: var(--suisou-text-main);
-  --color-zinc-100: var(--suisou-text-main);
-  --color-gray-100: var(--suisou-text-main);
-  --color-orange-300: var(--suisou-accent);
-  --color-orange-400: var(--suisou-accent);
-  --color-orange-500: var(--suisou-accent);
-  --color-orange-600: var(--suisou-accent-active);
-  --color-orange-700: var(--suisou-accent-active);
-  --color-red-300: var(--suisou-error);
-  --color-red-400: var(--suisou-error);
-  --color-red-700: var(--suisou-error-active);
-  --color-red-900: var(--suisou-error-surface);
-  --color-green-400: var(--suisou-success);
-  --color-yellow-400: var(--suisou-warning);
-  --color-yellow-500: var(--suisou-warning);
-  /* ★取りこぼしを塞ぐ（2026-08-21）。BaseModal と2つのポップアップの罫が
-     neutral-700 で、zinc/gray しか見ていなかったブリッジを素通りしていた
-     ―― 実物で「モーダルに枠線が付くはずでは？」と指摘されて発覚した。 */
-  /* ドメイン色（下の :root を参照）。カードの赤は error ではないので、
-     ブリッジが意味色へ巻き込まないよう、色フィルタは --card-* を直接使う */
-  --color-neutral-700: var(--suisou-line-strong);
-  --color-red-500: var(--suisou-error);
-  --color-red-600: var(--suisou-error-active);
-  --color-green-300: var(--suisou-success);
-  --color-green-500: var(--suisou-success);
-  --color-green-900: var(--suisou-success-surface);
-
-  /* ★白（2026-08-21）。text-white が45箇所あり、ブリッジに --color-white が
-     無いので全部が純白のまま＝テーマに追従していなかった。neutral-700 と同じ穴。
-     text-main は hadal で #ebebef。純白との差はわずかだが、テーマを替えたときに
-     文字だけ置き去りにならない。bg-white（ShareModal のつまみ）も一緒に乗る。 */
-  --color-white: var(--suisou-text-main);
-  /* error-surface(bg-red-900) の上の本文。Suisou がこの組を 4.5:1 で保証している */
-  --color-red-200: var(--suisou-text-main);
-}
 
 :root {
   /* ══ ドメイン色 ══════════════════════════════════

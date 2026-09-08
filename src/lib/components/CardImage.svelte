@@ -81,18 +81,28 @@
   />
   {#if showLifeBurst && hasLifeBurst && isImageLoaded}
     <div
-      class="absolute bottom-1 right-1 rounded-full p-0.5"
+      class="absolute bottom-1 right-1 rounded-full p-0.5 badge"
       style="background: var(--badge-lifeburst)"
     >
-      <LifeBurstIcon class="w-3 h-3 text-white" />
+      <LifeBurstIcon class="w-3 h-3" />
     </div>
   {/if}
   {#if showCandidateIcon && isInCandidates && isImageLoaded}
     <div
-      class="absolute top-1 right-1 rounded-full p-0.5"
+      class="absolute top-1 right-1 rounded-full p-0.5 badge"
       style="background: var(--badge-candidate)"
     >
-      <IconFolderFilled class="w-3 h-3 text-white" />
+      <IconFolderFilled class="w-3 h-3" />
     </div>
   {/if}
 </div>
+
+<style>
+  /* ★カード絵の上のバッジ。下地は --badge-* というドメインの色なので、
+     ここの白は**テーマの文字色ではない**（text-main に寄せると意味が変わる）。
+     Suisou の語彙を使わず、明示的な白のまま持つ。
+     色は包む側が持ち、中のアイコンは currentColor で継ぐ。 */
+  .badge {
+    color: #fff;
+  }
+</style>

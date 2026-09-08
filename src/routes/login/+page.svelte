@@ -73,37 +73,37 @@
   <title>{mode === 'login' ? 'ログイン' : '新規登録'} — wixdex</title>
 </svelte:head>
 
-<main class="flex min-h-screen items-center justify-center bg-zinc-900 p-4">
+<main class="flex min-h-screen items-center justify-center p-4">
   <div
     class="grid w-full max-w-4xl min-h-[45rem] overflow-hidden lg:grid-cols-2"
     data-suisou-surface="panel bleed"
   >
     <!-- 左: ブランディング（PCのみ。zincダーク、オレンジは差し色のみ） -->
     <div
-      class="hidden flex-col justify-between border-r border-gray-600/30 bg-zinc-600/10 p-10 lg:flex"
+      class="hidden flex-col justify-between border-r p-10 lg:flex aside"
     >
       <div>
-        <h1 class="text-3xl font-bold tracking-tight text-white">
-          wix<span class="text-orange-500">dex</span>
+        <h1 class="text-3xl font-bold tracking-tight">
+          wix<span data-suisou-text="accent">dex</span>
         </h1>
-        <p class="mt-3 text-zinc-400">WIXOSS デッキビルダー</p>
+        <p class="mt-3" data-suisou-text="sub">WIXOSS デッキビルダー</p>
       </div>
-      <ul class="space-y-2.5 text-zinc-400">
+      <ul class="space-y-2.5" data-suisou-text="sub">
         <li data-suisou-layout="row">
-          <span class="text-orange-500">▸</span> カードを集めてデッキを構築
+          <span data-suisou-text="accent">▸</span> カードを集めてデッキを構築
         </li>
         <li data-suisou-layout="row">
-          <span class="text-orange-500">▸</span> デッキを公開してシェア
+          <span data-suisou-text="accent">▸</span> デッキを公開してシェア
         </li>
         <li data-suisou-layout="row">
-          <span class="text-orange-500">▸</span> Bluesky 連携でかんたんログイン
+          <span data-suisou-text="accent">▸</span> Bluesky 連携でかんたんログイン
         </li>
       </ul>
     </div>
 
     <!-- 右: 認証フォーム -->
     <div class="p-7 sm:p-10">
-      <h1 class="mb-5 text-center text-xl font-bold text-white lg:hidden">wixdex</h1>
+      <h1 class="mb-5 text-center text-xl font-bold lg:hidden">wixdex</h1>
 
       <!-- タブ切替（再設定モードでは隠す） -->
       {#if mode !== 'forgot'}
@@ -148,12 +148,12 @@
 
       {#if mode === 'forgot'}
         <!-- パスワード再設定: メールアドレス入力 -->
-        <p class="mb-4 text-zinc-400">
+        <p class="mb-4" data-suisou-text="sub">
           登録したメールアドレスを入力してください。パスワード再設定用のリンクをお送りします。
         </p>
         <form method="POST" action="?/forgotPassword" class="space-y-4">
           <div>
-            <label for="forgot-email" class="mb-1 block text-zinc-300">メールアドレス</label>
+            <label for="forgot-email" class="mb-1 block" data-suisou-text="sub">メールアドレス</label>
             <input
               id="forgot-email"
               name="email"
@@ -169,8 +169,7 @@
         <button
           type="button"
           onclick={() => (mode = 'login')}
-          class="mt-4 block w-full text-center text-zinc-400 transition-colors hover:text-zinc-200"
-        >
+          class="mt-4 block w-full text-center transition-colors back" data-suisou-text="sub">
           ← ログインに戻る
         </button>
       {:else}
@@ -178,7 +177,7 @@
         <form method="POST" action="?/{mode}" class="space-y-4">
           {#if mode === 'register'}
             <div>
-              <label for="displayName" class="mb-1 block text-zinc-300">表示名</label>
+              <label for="displayName" class="mb-1 block" data-suisou-text="sub">表示名</label>
               <input
                 id="displayName"
                 name="displayName"
@@ -190,8 +189,8 @@
               />
             </div>
             <div>
-              <label for="username" class="mb-1 block text-zinc-300">
-                ユーザー名 <span class="text-zinc-500">(URLになります: /@…)</span>
+              <label for="username" class="mb-1 block" data-suisou-text="sub">
+                ユーザー名 <span data-suisou-text="sub">(URLになります: /@…)</span>
               </label>
               <div class="flex gap-2">
                 <div class="flex-1" data-suisou-button-group>
@@ -224,13 +223,13 @@
                 </button>
               </div>
               {#if usernameStatus === 'checking'}
-                <p class="mt-1 text-xs text-zinc-400">確認中…</p>
+                <p class="mt-1 text-xs" data-suisou-text="sub">確認中…</p>
               {:else if usernameStatus === 'ok'}
-                <p class="mt-1 text-xs text-green-400">{usernameMsg}</p>
+                <p class="mt-1 text-xs" data-suisou-text="success">{usernameMsg}</p>
               {:else if usernameStatus === 'taken'}
-                <p class="mt-1 text-xs text-red-400">{usernameMsg}</p>
+                <p class="mt-1 text-xs" data-suisou-text="error">{usernameMsg}</p>
               {:else}
-                <p class="mt-1 text-xs text-zinc-500">
+                <p class="mt-1 text-xs" data-suisou-text="sub">
                   英小文字・数字・ハイフン・アンダースコア（後から変更できます）
                 </p>
               {/if}
@@ -238,7 +237,7 @@
           {/if}
           {#if mode === 'register'}
             <div>
-              <label for="email" class="mb-1 block text-zinc-300">メールアドレス</label>
+              <label for="email" class="mb-1 block" data-suisou-text="sub">メールアドレス</label>
               <input
                 id="email"
                 name="email"
@@ -251,8 +250,7 @@
             </div>
           {:else}
             <div>
-              <label for="identifier" class="mb-1 block text-zinc-300"
-                >メールアドレス または ユーザー名</label
+              <label for="identifier" class="mb-1 block" data-suisou-text="sub">メールアドレス または ユーザー名</label
               >
               <input
                 id="identifier"
@@ -268,7 +266,7 @@
             </div>
           {/if}
           <div>
-            <label for="password" class="mb-1 block text-zinc-300">
+            <label for="password" class="mb-1 block" data-suisou-text="sub">
               パスワード{mode === 'register' ? '（8〜128文字）' : ''}
             </label>
             <input
@@ -300,9 +298,9 @@
 
       {#if mode !== 'forgot'}
         <div data-suisou-layout="row" class="my-6">
-          <div class="h-px flex-1 bg-zinc-800"></div>
-          <span class="text-xs text-zinc-500">または</span>
-          <div class="h-px flex-1 bg-zinc-800"></div>
+          <div class="h-px flex-1 hr"></div>
+          <span class="text-xs" data-suisou-text="sub">または</span>
+          <div class="h-px flex-1 hr"></div>
         </div>
 
         <!-- Bluesky（ログイン・登録共通。bsky.social へ直行＝ハンドル入力不要） -->
@@ -317,7 +315,7 @@
             {blueskyLoading ? '接続中...' : 'Bluesky で続ける'}
           </button>
           {#if blueskyError}
-            <p class="text-red-400">{blueskyError}</p>
+            <p data-suisou-text="error">{blueskyError}</p>
           {/if}
 
           <!-- bsky.social 以外のPDS利用者向け（普段は隠す） -->
@@ -357,3 +355,18 @@
     </div>
   </div>
 </main>
+
+<style>
+  /* 「または」の左右に伸びる線。旧実装は panel の色を線に使っていた */
+  .hr {
+    background: var(--suisou-line-weak);
+  }
+  /* 左の紹介カラム。薄く敷いて罫で区切る */
+  .aside {
+    background: var(--suisou-hover-surface);
+    border-color: var(--suisou-line-weak);
+  }
+  .back:hover {
+    color: var(--suisou-text-main);
+  }
+</style>
