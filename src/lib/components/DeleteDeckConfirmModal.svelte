@@ -14,7 +14,7 @@
 </script>
 
 <BaseModal {isOpen} onClose={onCancel} title="デッキを削除" maxWidth="sm">
-  <div class="space-y-4">
+  <div data-suisou-layout="stack gap-3">
     <p data-suisou-text="sub">「{deckName}」を削除しますか？</p>
     {#if hasUnsavedChanges}
       <!-- 注意の文言なので warning（accent の橙ではなく意味色）。 -->

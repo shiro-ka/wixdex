@@ -71,7 +71,7 @@
               <p class="mb-2" data-suisou-text="success">ユーザー名を変更しました。</p>
             {/if}
           {/if}
-          <form method="POST" action="?/changeUsername" class="space-y-2">
+          <form method="POST" action="?/changeUsername" data-suisou-layout="stack gap-2">
             <div class="flex gap-2">
               <div class="flex-1" data-suisou-button-group>
                 <span data-suisou-affix>/@</span>
@@ -120,9 +120,9 @@
               <p class="mb-2" data-suisou-text="success">パスワードを変更しました。</p>
             {/if}
           {/if}
-          <form method="POST" action="?/changePassword" class="space-y-3">
-            <div>
-              <label for="currentPassword" class="mb-1 block" data-suisou-text="sub">現在のパスワード</label>
+          <form method="POST" action="?/changePassword" data-suisou-layout="stack gap-2">
+            <div data-suisou-layout="stack gap-1">
+              <label for="currentPassword" data-suisou-text="sub">現在のパスワード</label>
               <input
                 id="currentPassword"
                 name="currentPassword"
@@ -131,8 +131,8 @@
                 data-suisou-field="block"
               />
             </div>
-            <div>
-              <label for="newPassword" class="mb-1 block" data-suisou-text="sub">新しいパスワード（8〜128文字）</label
+            <div data-suisou-layout="stack gap-1">
+              <label for="newPassword" data-suisou-text="sub">新しいパスワード（8〜128文字）</label
               >
               <input
                 id="newPassword"
@@ -163,7 +163,7 @@
             <button type="submit" data-suisou-button="danger">連携解除</button>
           </form>
         {:else}
-          <div class="space-y-3">
+          <div data-suisou-layout="stack gap-2">
             <input
               type="text"
               bind:value={blueskyHandle}

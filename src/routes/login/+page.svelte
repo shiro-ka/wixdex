@@ -88,7 +88,7 @@
         </h1>
         <p class="mt-3" data-suisou-text="sub">WIXOSS デッキビルダー</p>
       </div>
-      <ul class="space-y-2.5" data-suisou-text="sub">
+      <ul data-suisou-text="sub" data-suisou-layout="stack gap-2">
         <li data-suisou-layout="row">
           <span data-suisou-text="accent">▸</span> カードを集めてデッキを構築
         </li>
@@ -151,9 +151,9 @@
         <p class="mb-4" data-suisou-text="sub">
           登録したメールアドレスを入力してください。パスワード再設定用のリンクをお送りします。
         </p>
-        <form method="POST" action="?/forgotPassword" class="space-y-4">
-          <div>
-            <label for="forgot-email" class="mb-1 block" data-suisou-text="sub">メールアドレス</label>
+        <form method="POST" action="?/forgotPassword" data-suisou-layout="stack gap-3">
+          <div data-suisou-layout="stack gap-1">
+            <label for="forgot-email" data-suisou-text="sub">メールアドレス</label>
             <input
               id="forgot-email"
               name="email"
@@ -174,10 +174,10 @@
         </button>
       {:else}
         <!-- メール認証フォーム。action でログイン/登録を切替 -->
-        <form method="POST" action="?/{mode}" class="space-y-4">
+        <form method="POST" action="?/{mode}" data-suisou-layout="stack gap-3">
           {#if mode === 'register'}
-            <div>
-              <label for="displayName" class="mb-1 block" data-suisou-text="sub">表示名</label>
+            <div data-suisou-layout="stack gap-1">
+              <label for="displayName" data-suisou-text="sub">表示名</label>
               <input
                 id="displayName"
                 name="displayName"
@@ -188,8 +188,8 @@
                 placeholder="あなたの名前"
               />
             </div>
-            <div>
-              <label for="username" class="mb-1 block" data-suisou-text="sub">
+            <div data-suisou-layout="stack gap-1">
+              <label for="username" data-suisou-text="sub">
                 ユーザー名 <span data-suisou-text="sub">(URLになります: /@…)</span>
               </label>
               <div class="flex gap-2">
@@ -236,8 +236,8 @@
             </div>
           {/if}
           {#if mode === 'register'}
-            <div>
-              <label for="email" class="mb-1 block" data-suisou-text="sub">メールアドレス</label>
+            <div data-suisou-layout="stack gap-1">
+              <label for="email" data-suisou-text="sub">メールアドレス</label>
               <input
                 id="email"
                 name="email"
@@ -249,8 +249,8 @@
               />
             </div>
           {:else}
-            <div>
-              <label for="identifier" class="mb-1 block" data-suisou-text="sub">メールアドレス または ユーザー名</label
+            <div data-suisou-layout="stack gap-1">
+              <label for="identifier" data-suisou-text="sub">メールアドレス または ユーザー名</label
               >
               <input
                 id="identifier"
@@ -265,8 +265,8 @@
               />
             </div>
           {/if}
-          <div>
-            <label for="password" class="mb-1 block" data-suisou-text="sub">
+          <div data-suisou-layout="stack gap-1">
+            <label for="password" data-suisou-text="sub">
               パスワード{mode === 'register' ? '（8〜128文字）' : ''}
             </label>
             <input
@@ -304,7 +304,7 @@
         </div>
 
         <!-- Bluesky（ログイン・登録共通。bsky.social へ直行＝ハンドル入力不要） -->
-        <div class="space-y-3">
+        <div data-suisou-layout="stack gap-2">
           <button
             type="button"
             onclick={() => loginWithBluesky()}
@@ -323,7 +323,7 @@
             別のサーバー(PDS)のアカウント
           </button>
           {#if showHandleInput}
-            <div class="space-y-2">
+            <div data-suisou-layout="stack gap-2">
               <input
                 id="bluesky-handle"
                 type="text"

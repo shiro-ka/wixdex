@@ -20,7 +20,7 @@
 </script>
 
 <BaseModal {isOpen} {onClose} title="デッキ一覧">
-  <div class="space-y-2">
+  <div data-suisou-layout="stack gap-2">
     {#if decks.length === 0}
       <p class="text-center py-8" data-suisou-text="sub">保存されたデッキがありません</p>
     {:else}

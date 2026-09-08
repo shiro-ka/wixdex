@@ -39,7 +39,7 @@
 </script>
 
 <BaseModal {isOpen} {onClose} title="デッキ編集" maxWidth="lg">
-  <div class="space-y-4">
+  <div data-suisou-layout="stack gap-3">
     <!-- デッキ名 -->
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->

@@ -67,7 +67,7 @@
       <p class="mt-2">デッキを保存すると、ここに使用ランキングが表示されます。</p>
     </div>
   {:else}
-    <ol class="space-y-2">
+    <ol data-suisou-layout="stack gap-2">
       {#each ranked as row (row.cardId)}
         <li data-suisou-row data-suisou-layout="row" class="gap-4">
           <div class="w-8 text-center font-mono" data-suisou-text="accent s20">{row.rank}</div>

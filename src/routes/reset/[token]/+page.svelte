@@ -21,9 +21,9 @@
       {#if form?.error}
         <p data-suisou-banner="error" role="alert" class="mb-4">{form.error}</p>
       {/if}
-      <form method="POST" class="space-y-4">
-        <div>
-          <label for="password" class="mb-1 block" data-suisou-text="sub">新しいパスワード（8文字以上）</label
+      <form method="POST" data-suisou-layout="stack gap-3">
+        <div data-suisou-layout="stack gap-1">
+          <label for="password" data-suisou-text="sub">新しいパスワード（8文字以上）</label
           >
           <input
             id="password"

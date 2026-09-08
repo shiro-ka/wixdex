@@ -154,7 +154,7 @@
 </script>
 
 <BaseModal {isOpen} {onClose} title="シェア">
-  <div class="space-y-4">
+  <div data-suisou-layout="stack gap-3">
     <!-- デッキ公開 -->
     <div>
       <h4 data-suisou-text="s14 w700" class="mb-2">デッキを公開</h4>
