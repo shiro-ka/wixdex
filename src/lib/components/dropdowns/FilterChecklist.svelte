@@ -14,12 +14,7 @@
   <div class="grid gap-2" style="grid-template-columns: repeat({columns}, minmax(0, 1fr))">
     {#each items as { value, label } (value)}
       {@const checked = selected.has(value)}
-      <button
-        type="button"
-        class="toggle flex items-center space-x-2 cursor-pointer"
-        aria-pressed={checked}
-        onclick={() => onToggle(value)}
-      >
+      <button type="button" class="toggle space-x-2 cursor-pointer" aria-pressed={checked} onclick={() => onToggle(value)} data-suisou-layout="row">
         <CheckboxIcon
           {checked}
           class="w-5 h-5 flex-shrink-0"

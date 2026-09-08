@@ -302,7 +302,7 @@
   <meta property="og:url" content={page.url.origin + page.url.pathname} />
 </svelte:head>
 
-<div class="flex flex-col w-dvw h-dvh m-0 p-0 overflow-hidden">
+<div class="w-dvw h-dvh m-0 p-0 overflow-hidden" data-suisou-layout="stack">
   <Navbar
     deckName={deck.name}
     isSaved={deck.isSaved}
@@ -319,9 +319,7 @@
     }}
   />
 
-  <div
-    class="flex flex-col flex-1 w-full max-w-screen-sm mx-auto overflow-hidden md:flex-row md:max-w-none md:mb-4 lg:max-w-screen-xl 2xl:max-w-[84vw]"
-  >
+  <div class="w-full max-w-screen-sm mx-auto overflow-hidden md:flex-row md:max-w-none md:mb-4 lg:max-w-screen-xl 2xl:max-w-[84vw]" data-suisou-layout="stack grow">
     <DeckArea
       mainDeck={deck.mainDeck}
       lrigDeck={deck.lrigDeck}
@@ -341,7 +339,7 @@
       {rotateLandscape}
     />
 
-    <div class="flex flex-3 flex-col min-h-0 md:flex-1 lg:flex-3 lg:flex-row">
+    <div class="flex-3 min-h-0 md:flex-1 lg:flex-3 lg:flex-row" data-suisou-layout="stack">
       <CardList
         cards={filteredCards}
         {loading}

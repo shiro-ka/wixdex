@@ -159,9 +159,9 @@
     <div>
       <h4 data-suisou-text="s14 w700" class="mb-2">デッキを公開</h4>
       {#if !isLoggedIn}
-        <p class="text-xs" data-suisou-text="sub">ログインするとデッキを公開・共有できます。</p>
+        <p data-suisou-text="sub s12">ログインするとデッキを公開・共有できます。</p>
       {:else if !deckId}
-        <p class="text-xs" data-suisou-text="sub">デッキを保存すると公開・共有できます。</p>
+        <p data-suisou-text="sub s12">デッキを保存すると公開・共有できます。</p>
       {:else}
         <!-- 手製スイッチをやめてネイティブ checkbox に（2026-08-21）。
              Suisou はネイティブ部品を奪わない ―― accent-color が根で1回
@@ -180,14 +180,8 @@
         {#if isPublic}
           {#if publicUrl}
             <div class="mt-3" data-suisou-button-group="even">
-              <input
-                type="text"
-                readonly
-                value={publicUrl}
-                data-suisou-field
-                class="text-xs select-all"
-              />
-              <button type="button" onclick={copyLink} data-suisou-button class="text-xs shrink-0">
+              <input type="text" readonly value={publicUrl} data-suisou-field class="select-all" data-suisou-text="s12"/>
+              <button type="button" onclick={copyLink} data-suisou-button class="shrink-0" data-suisou-text="s12">
                 <IconClipboard size={16} />
                 {copied ? 'コピー済' : 'コピー'}
               </button>
@@ -196,47 +190,28 @@
             {#if editingSlug}
               <div class="mt-2">
                 <div data-suisou-button-group="even">
-                  <span data-suisou-affix class="text-xs">/@{ownerAtName}/</span>
-                  <input
-                    type="text"
-                    bind:value={editSlug}
-                    autocapitalize="none"
-                    autocomplete="off"
-                    spellcheck="false"
-                    data-suisou-field
-                    class="text-xs"
-                  />
-                  <button
-                    type="button"
-                    onclick={saveSlug}
-                    disabled={slugSaving}
-                    data-suisou-button="outline"
-                    class="text-xs shrink-0"
-                  >
+                  <span data-suisou-affix data-suisou-text="s12">/@{ownerAtName}/</span>
+                  <input type="text" bind:value={editSlug} autocapitalize="none" autocomplete="off" spellcheck="false" data-suisou-field data-suisou-text="s12"/>
+                  <button type="button" onclick={saveSlug} disabled={slugSaving} data-suisou-button="outline" class="shrink-0" data-suisou-text="s12">
                     {slugSaving ? '...' : '保存'}
                   </button>
                 </div>
                 {#if slugError}
-                  <p class="text-xs mt-1" data-suisou-text="error">{slugError}</p>
+                  <p class="mt-1" data-suisou-text="error s12">{slugError}</p>
                 {/if}
               </div>
             {:else}
               <div data-suisou-layout="row between" class="mt-1">
-                <p class="text-xs" data-suisou-text="sub">
+                <p data-suisou-text="sub s12">
                   リンクを知っている人がこのデッキを閲覧できます。
                 </p>
-                <button
-                  type="button"
-                  onclick={() => (editingSlug = true)}
-                  data-suisou-button
-                  class="text-xs shrink-0"
-                >
+                <button type="button" onclick={() => (editingSlug = true)} data-suisou-button class="shrink-0" data-suisou-text="s12">
                   URLを編集
                 </button>
               </div>
             {/if}
           {:else}
-            <p class="text-xs mt-3" data-suisou-text="warning">
+            <p class="mt-3" data-suisou-text="warning s12">
               共有URLを発行するには
               <a href="/settings" data-suisou-link>設定</a>でユーザー名を決めてください。
             </p>
@@ -287,7 +262,7 @@
 
       <!-- 画像(JPG)。コピーはブラウザ制約によりPNGで書き込まれる(貼り付け互換のため)。 -->
       <div data-suisou-button-group="even">
-        <div class="flex flex-1 items-center justify-center font-medium">ダウンロード</div>
+        <div class="justify-center" data-suisou-text="w500" data-suisou-layout="row grow">ダウンロード</div>
         <button
           type="button"
           data-suisou-button="icon"
@@ -309,15 +284,15 @@
       </div>
 
       {#if mainDeck.length === 0}
-        <p class="text-xs mt-3" data-suisou-text="warning">※デッキにカードを追加してください</p>
+        <p class="mt-3" data-suisou-text="warning s12">※デッキにカードを追加してください</p>
       {/if}
       {#if isExporting}
-        <p class="text-xs mt-3" data-suisou-text="sub">生成中...</p>
+        <p class="mt-3" data-suisou-text="sub s12">生成中...</p>
       {/if}
     </div>
 
     <div class="pt-4 border-t rule">
-      <p class="text-xs" data-suisou-text="sub">リスト式、テキストエクスポートは今後実装予定です。</p>
+      <p data-suisou-text="sub s12">リスト式、テキストエクスポートは今後実装予定です。</p>
     </div>
   </div>
 </BaseModal>

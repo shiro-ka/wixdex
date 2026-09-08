@@ -8,9 +8,9 @@
   <title>パスワード再設定 — wixdex</title>
 </svelte:head>
 
-<main class="flex min-h-screen items-center justify-center p-4">
+<main class="min-h-screen justify-center p-4" data-suisou-layout="row">
   <div class="w-full max-w-md" data-suisou-surface="panel">
-    <h1 class="mb-6 text-center text-xl font-bold">パスワード再設定</h1>
+    <h1 class="mb-6 text-center" data-suisou-text="s20 w700">パスワード再設定</h1>
 
     {#if !data.valid || (form && 'expired' in form && form.expired)}
       <p data-suisou-banner="error" role="alert" class="mb-6">

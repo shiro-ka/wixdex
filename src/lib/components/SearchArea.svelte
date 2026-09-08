@@ -182,11 +182,11 @@
   let tagActive = $derived(activeDropdown === 'tag');
 </script>
 
-<div class="flex flex-col px-2 pb-4 md:pb-1 lg:w-96">
+<div class="px-2 pb-4 md:pb-1 lg:w-96" data-suisou-layout="stack">
   <!-- ホバープレビュー -->
   <div class="hidden lg:block w-full aspect-[3/4] mb-2" data-suisou-surface="panel">
     {#if hoveredCard}
-      <div class="w-full h-full flex items-center justify-center">
+      <div class="w-full h-full justify-center" data-suisou-layout="row">
         <img
           src={cardImageUrl(hoveredCard.image)}
           class="max-w-full max-h-full object-contain"
@@ -224,7 +224,7 @@
   </div>
 
   <!-- 検索欄 -->
-  <div class="flex flex-col">
+  <div data-suisou-layout="stack">
     <!-- お気に入り/候補カード/カードタイプ/クラス/タグ -->
     <div data-suisou-layout="row" class="w-full h-10 lg:h-8 mb-2">
       {#if isLoggedIn}

@@ -114,7 +114,7 @@
   }
 </script>
 
-<div class="flex flex-col px-2 mb-2 md:mb-1 md:flex-1 lg:flex-2">
+<div class="px-2 mb-2 md:mb-1 md:flex-1 lg:flex-2" data-suisou-layout="stack">
   <!-- ルリグデッキ -->
   <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
     <div class="flex w-full">
@@ -149,12 +149,9 @@
   <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
     <div data-suisou-layout="row between">
       <span data-suisou-text="s16 w500">Main Deck</span>
-      <div class="flex items-center gap-1 md:gap-1.5">
+      <div class="md:gap-1.5" data-suisou-layout="row gap-1">
         <LifeBurstIcon class="w-4 h-4 md:w-5 md:h-5" data-suisou-text="sub"/>
-        <span
-          data-suisou-text="s14 md:s16"
-          class="flex items-center justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px]"
-          >{lifeBurstCount}</span
+        <span data-suisou-text="s14 md:s16" class="justify-center w-4 h-4 md:w-5 md:h-5 pb-[2px]" data-suisou-layout="row">{lifeBurstCount}</span
         >
       </div>
     </div>
@@ -190,8 +187,8 @@
     </div>
     <div class="grid grid-cols-5 auto-rows-min gap-2 w-full overflow-y-auto xl:grid-cols-6">
       {#each candidateKeyed as { card, key } (key)}
-        <div class="flex flex-col w-full border rule rounded-lg">
-          <div class="flex items-center w-full aspect-[12/17]">
+        <div class="w-full border rule rounded-lg" data-suisou-layout="stack">
+          <div class="w-full aspect-[12/17]" data-suisou-layout="row">
             <CardImage
               {card}
               src={cardImageUrl(card.image)}

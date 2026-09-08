@@ -1,4 +1,4 @@
-<div class="fixed inset-0 flex items-center justify-center cover">
+<div class="fixed inset-0 justify-center cover" data-suisou-layout="row">
   <div class="text-center">
     <!-- Suisou の Spinner（2026-08-22 に部品化）。手書きの輪は
          「動きを減らす」設定を見ておらず、回りっぱなしだった -->
@@ -9,7 +9,7 @@
       role="status"
       aria-label="カードデータを読み込んでいます"
     ></div>
-    <p class="text-lg">カードデータを読み込んでいます...</p>
+    <p data-suisou-text="s20">カードデータを読み込んでいます...</p>
   </div>
 </div>
 

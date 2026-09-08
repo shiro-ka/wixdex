@@ -62,7 +62,7 @@
 
   <div class="max-w-screen-xl mx-auto px-4 py-6 sm:px-6 lg:py-10">
     <div class="mb-1">
-      <h1 class="text-2xl font-bold truncate sm:text-3xl">{data.deck.name}</h1>
+      <h1 class="truncate sm:text-3xl" data-suisou-text="s24 w700">{data.deck.name}</h1>
     </div>
     <a href="/@{data.atName}" data-suisou-link class="mb-6 inline-block" data-suisou-text="sub">
       @{data.atName} のデッキ

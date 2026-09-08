@@ -303,7 +303,7 @@
     ontouchend={(e) => handleTouchEnd(e, card)}
   >
     {#if withButtons}
-      <div class="flex items-center w-full aspect-[12/17]">
+      <div class="w-full aspect-[12/17]" data-suisou-layout="row">
         <CardImage
           {card}
           src={cardImageUrl(card.image)}
@@ -370,7 +370,7 @@
   style="touch-action: {isMd ? 'pan-y' : 'pan-x'}"
 >
   {#if loading}
-    <div class="flex items-center justify-center w-full h-32">
+    <div class="justify-center w-full h-32" data-suisou-layout="row">
       <div
         data-suisou-spinner
         style="--suisou-spinner: 2.5rem"
@@ -379,7 +379,7 @@
       ></div>
     </div>
   {:else if loadError}
-    <div class="flex items-center justify-center w-full h-32 px-4 text-center" data-suisou-text="error">
+    <div class="justify-center w-full h-32 px-4 text-center" data-suisou-text="error" data-suisou-layout="row">
       {loadError}
     </div>
   {:else if isMd}

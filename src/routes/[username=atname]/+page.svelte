@@ -27,15 +27,11 @@
     <header data-suisou-layout="row" class="mb-8 gap-4 border-b rule pb-8">
       <!-- 頭文字は Avatar が出す。円形＝人という約束ごと部品に寄せる。
            文字色も部品の text-sub に譲った（accent の頭文字は装飾で、意味が無かった） -->
-      <div
-        data-suisou-avatar
-        style="--suisou-avatar: 4rem"
-        class="sm:[--suisou-avatar:5rem] text-2xl font-bold"
-      >
+      <div data-suisou-avatar style="--suisou-avatar: 4rem" class="sm:[--suisou-avatar:5rem]" data-suisou-text="s24 w700">
         {profile.displayName.charAt(0).toUpperCase()}
       </div>
       <div class="min-w-0">
-        <h1 class="truncate text-2xl font-bold sm:text-3xl">{profile.displayName}</h1>
+        <h1 class="truncate sm:text-3xl" data-suisou-text="s24 w700">{profile.displayName}</h1>
         {#if bskyUrl}
           <a
             href={bskyUrl}
@@ -55,7 +51,7 @@
 
     <!-- 公開デッキ一覧 -->
     <section>
-      <h2 class="mb-4 font-semibold uppercase tracking-wider" data-suisou-text="sub">
+      <h2 class="mb-4 uppercase tracking-wider" data-suisou-text="sub w700">
         公開デッキ <span data-suisou-text="sub">({decks.length})</span>
       </h2>
 
@@ -69,11 +65,11 @@
               data-suisou-surface="panel"
               class="deck-card block"
             >
-              <div class="truncate font-medium">{deck.name}</div>
+              <div class="truncate" data-suisou-text="w500">{deck.name}</div>
               <div class="mt-1" data-suisou-text="sub">
                 メイン {deck.mainCount}枚 / ルリグ {deck.lrigCount}枚
               </div>
-              <div class="mt-2 text-xs" data-suisou-text="sub">
+              <div class="mt-2" data-suisou-text="sub s12">
                 更新: {new Date(deck.updatedAt * 1000).toLocaleDateString('ja-JP')}
               </div>
             </a>
