@@ -339,7 +339,7 @@
       {rotateLandscape}
     />
 
-    <div class="flex-3 min-h-0 md:flex-1 lg:flex-3 lg:flex-row" data-suisou-layout="stack">
+    <div class="flex-3 md:flex-1 lg:flex-3 lg:flex-row" data-suisou-layout="stack grow">
       <CardList
         cards={filteredCards}
         {loading}

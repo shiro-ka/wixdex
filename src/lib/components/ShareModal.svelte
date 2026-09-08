@@ -171,7 +171,7 @@
           このデッキを公開する
           <input
             type="checkbox"
-            class="h-4 w-4"
+            data-suisou-icon="small"
             checked={isPublic}
             onchange={togglePublish}
             disabled={publishing}

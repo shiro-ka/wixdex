@@ -40,7 +40,7 @@
             data-suisou-layout="row gap-1" class="inline-row"
             data-suisou-link
           >
-            <IconBrandBluesky class="h-4 w-4" />
+            <IconBrandBluesky data-suisou-icon="small" />
             @{profile.atName}
           </a>
         {:else}

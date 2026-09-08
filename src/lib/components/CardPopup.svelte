@@ -120,9 +120,9 @@
       </div>
 
       <!-- 左: カード画像 + 操作バー。モバイルでも常に描画し、全体の高さ基準になる -->
-      <div class="min-h-0 p-3 xl:flex-none xl:w-1/2" data-suisou-layout="stack grow">
+      <div class="p-3 xl:flex-none xl:w-1/2" data-suisou-layout="stack grow">
         <!-- 画像欄: 余ったスペースを埋め、画像はその枠内に収める(object-contain) -->
-        <div class="justify-center min-h-0" data-suisou-layout="row grow">
+        <div class="justify-center" data-suisou-layout="row grow">
           <!-- crossorigin は付けない（表示専用。canvas出力は別途 loadImage が自前でCORS取得）。
                crossorigin を付けると CORS リクエストになり R2 が Vary: Origin を返す→Chrome が
                immutable を無視して毎回 304 再検証し、モーダル画像が遅くなる（Firefoxは免疫）。
