@@ -69,7 +69,7 @@
   {:else}
     <ol data-suisou-layout="stack gap-2">
       {#each ranked as row (row.cardId)}
-        <li data-suisou-row data-suisou-layout="row" class="gap-4">
+        <li data-suisou-row data-suisou-layout="row gap-3">
           <div class="w-8 font-mono" data-suisou-text="accent s20 center">{row.rank}</div>
           {#if row.card}
             <img

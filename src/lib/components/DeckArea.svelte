@@ -114,7 +114,7 @@
   }
 </script>
 
-<div class="px-2 mb-2 md:mb-1 md:flex-1 lg:flex-2" data-suisou-layout="stack">
+<div class="deck-side px-2 mb-2 md:mb-1" data-suisou-layout="stack grow">
   <!-- ルリグデッキ -->
   <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
     <div class="flex w-full">
@@ -149,7 +149,7 @@
   <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
     <div data-suisou-layout="row between">
       <span data-suisou-text="s16 w500">Main Deck</span>
-      <div class="md:gap-1.5" data-suisou-layout="row gap-1">
+      <div class="burst" data-suisou-layout="row gap-1">
         <LifeBurstIcon class="w-4 h-4 md:w-5 md:h-5" data-suisou-text="sub"/>
         <span data-suisou-text="s14 md:s16" class="w-4 h-4 md:w-5 md:h-5 pb-[2px]" data-suisou-layout="row middle">{lifeBurstCount}</span
         >
@@ -181,7 +181,7 @@
   </div>
 
   <!-- 候補カード (Folder) - PC のみ表示 -->
-  <div class="hidden md:flex flex-col flex-1 overflow-hidden" data-suisou-surface="panel tight">
+  <div class="folder hidden md:flex flex-col overflow-hidden" data-suisou-surface="panel tight">
     <div class="flex w-full mb-2">
       <span data-suisou-text="s16 w500">Folder</span>
     </div>
@@ -236,6 +236,57 @@
 </div>
 
 <style>
+  /* ★親に data-suisou-layout が付いていると
+     :where([data-suisou-layout]) > * { flex: none } が効いて、
+     子の Tailwind flex-1 は**詳細度に関係なく**潰れる（レイヤ無し ＞ レイヤ付き）。
+     ここは属性ではなく現場の CSS で伸ばす。
+
+     ★この要素に data-suisou-layout を足して直すのは駄目。
+       [data-suisou-layout] { display: flex } もレイヤ無しなので、
+       **`hidden`（display: none）まで殺してしまう**。 */
+  .folder {
+    flex: 1 1 0;
+    min-height: 0;
+  }
+
+  /* ★伸び方の「比」と、段に無い隙間は現場が持つ（Suisou に語が無い）。
+
+     元は Tailwind の md:flex-1 / lg:flex-2 / md:gap-1.5 だったが、
+     **黙って死んでいた**（2026-09-09 実測）。Tailwind v4 のユーティリティは
+     @layer utilities にあり、レイヤ無しの Suisou に必ず負ける。
+     ★親に data-suisou-layout を足した瞬間に
+       :where([data-suisou-layout]) > * { flex: none } が効いて、
+       子の flex-N が全部 flex:none になる ―― これが最大の落とし穴。
+
+     grow（flex: 1 1 auto）を土台にして、比はショートハンドで上書きする。
+
+     ★基準（flex-basis）が違う。Tailwind の flex-N は `flex: N 1 0%` で
+       **基準0から比で配る**が、Suisou の grow は `flex: 1 1 auto` で
+       **中身の大きさを基準にしてから余りを配る**。grow の上に flex-grow だけ
+       重ねると比が合わない（実測 40:60 が 32:68 になった）。
+       ショートハンドで基準ごと書く ―― grow が併せて置く min-width/min-height: 0 は
+       別の宣言なので残る。 */
+  .deck-side {
+    flex: 0 1 auto;
+  }
+  @media (min-width: 768px) {
+    .deck-side {
+      flex: 1 1 0;
+    }
+  }
+  @media (min-width: 1024px) {
+    .deck-side {
+      flex: 2 1 0;
+    }
+  }
+
+  /* 6px。Suisou の段は 4 / 8 / 16 / 24 なので、この値は現場のもの。 */
+  @media (min-width: 768px) {
+    .burst {
+      gap: 6px;
+    }
+  }
+
   /* 升目に広がるボタン（Folder のカード下）。CardList の .cell と同じ */
   .cell {
     flex: 1 1 auto;

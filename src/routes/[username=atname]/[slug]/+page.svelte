@@ -62,7 +62,7 @@
 
   <div data-suisou-layout="stack container gap-3" class="page">
     <div>
-      <h1 class="truncate sm:text-3xl" data-suisou-text="s24 w700">{data.deck.name}</h1>
+      <h1 class="truncate" data-suisou-text="s24 md:s28 w700">{data.deck.name}</h1>
     </div>
     <a href="/@{data.atName}" data-suisou-link class="inline-block" data-suisou-text="sub">
       @{data.atName} のデッキ

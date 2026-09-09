@@ -107,7 +107,7 @@
     ></button>
 
     <!-- モーダル本体（背景フェード＋軽くスケール。ツールなので控えめ＆やや速め） -->
-    <div class="relative z-10 xl:flex-row w-full max-w-4xl h-[68vh] overflow-hidden" data-suisou-surface="overlay bleed" transition:scale={{ start: 0.97, opacity: 0, duration: 200 }} data-suisou-layout="stack">
+    <div class="body relative z-10 w-full max-w-4xl h-[68vh] overflow-hidden" data-suisou-surface="overlay bleed" transition:scale={{ start: 0.97, opacity: 0, duration: 200 }} data-suisou-layout="stack">
       <!-- 右上の閉じるボタン -->
       <button class="close" data-suisou-button="icon" onclick={onClose} aria-label="閉じる">
         <IconX />
@@ -237,6 +237,22 @@
 {/if}
 
 <style>
+  /* ★1280px で横並びに変わる。Suisou の段は md(768) / lg(1024) の2つだけなので、
+     xl は現場のもの（「2段で表せない振り方は現場のもの」＝2026-08-22 の決定どおり）。
+
+     ★元は Tailwind の xl:flex-row だったが、**黙って死んでいた**（2026-09-09 実測）。
+       Tailwind v4 は @layer utilities の中にあり、レイヤ無しの Suisou に必ず負ける。
+       data-suisou-layout="stack" の flex-direction: column が常に勝っていた。
+
+     ★md / lg なら `stack md:row` と書けば済む（row が方向を持つようになった）。
+       ここが現場に残るのは**段が xl だから**であって、語が足りないからではない。 */
+  @media (min-width: 1280px) {
+    .body {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
   /* 膜は Suisou の scrim。自前の黒 α0.70 は下地の暗さを見ていない値だった */
   .scrim {
     background: var(--suisou-scrim);

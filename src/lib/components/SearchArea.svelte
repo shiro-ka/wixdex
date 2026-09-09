@@ -197,7 +197,7 @@
   </div>
 
   <!-- 拡張メニュー（lg以上） -->
-  <div class="hidden lg:flex flex-1 flex-col mb-2 min-h-0" data-suisou-surface="panel">
+  <div class="ext-menu hidden lg:flex flex-col mb-2 min-h-0" data-suisou-surface="panel">
     <div data-suisou-layout="row between" class="mb-4">
       <h3 data-suisou-text="s16 w500">
         {#if panelTab === 'type'}カードタイプ検索
@@ -251,7 +251,7 @@
         {#if candidateFilter}<IconFolderFilled />{:else}<IconFolder />{/if}
       </button>
 
-      <div class="flex-3" data-suisou-button-group="even">
+      <div class="seg" style="--seg: 3" data-suisou-button-group="even">
         <button
           type="button"
           class="cell"
@@ -285,7 +285,7 @@
     <!-- 色/Lv/LB -->
     <div data-suisou-layout="row" class="w-full h-10 lg:h-8 mb-2">
       <!-- 色検索 -->
-      <div class="flex-5" data-suisou-button-group="even">
+      <div class="seg" style="--seg: 5" data-suisou-button-group="even">
         {#each [['白', 'c-white'], ['赤', 'c-red'], ['青', 'c-blue'], ['緑', 'c-green'], ['黒', 'c-black']] as [color, colorClass] (color)}
           <button
             type="button"
@@ -310,7 +310,7 @@
       </div>
 
       <!-- レベル検索 -->
-      <div class="flex-3" data-suisou-button-group="even">
+      <div class="seg" style="--seg: 3" data-suisou-button-group="even">
         {#each [1, 2, 3] as level (level)}
           <button
             type="button"
@@ -386,7 +386,7 @@
       </div>
 
       <!-- 検索入力 -->
-      <div class="search flex-1" data-suisou-button-group>
+      <div class="search seg" style="--seg: 1" data-suisou-button-group>
         <!-- 同上: ポップアップを button の外(relative div の兄弟)に出す -->
         <div class="relative w-12 h-full">
           <button
@@ -430,6 +430,39 @@
 </div>
 
 <style>
+  /* ★親に data-suisou-layout が付いていると
+     :where([data-suisou-layout]) > * { flex: none } が効いて、
+     子の Tailwind flex-1 は**詳細度に関係なく**潰れる（レイヤ無し ＞ レイヤ付き）。
+     ここは属性ではなく現場の CSS で伸ばす。
+
+     ★この要素に data-suisou-layout を足して直すのは駄目。
+       [data-suisou-layout] { display: flex } もレイヤ無しなので、
+       **`hidden`（display: none）まで殺してしまう**。 */
+  .ext-menu {
+    flex: 1 1 0;
+  }
+
+  /* ★段の中でボタンの幅を揃える。--seg はその群に入っているボタンの数。
+
+     3個の群と5個の群を横に並べたとき、群ごとに幅が等分されると
+     ボタンの大きさが揃わない。群の取り分をボタン数に比例させると、
+     **段のどこにあるボタンも同じ幅**になる。
+
+     ★元は Tailwind の flex-3 / flex-5 / flex-1 だったが、**黙って死んでいた**
+       （2026-09-09 実測。Suisou 導入時から。あたしの移行より前）。
+       Tailwind v4 のユーティリティは @layer utilities にあり、CSS のカスケードでは
+       **レイヤ無しがレイヤ付きに必ず勝つ**。親に data-suisou-layout が付くと
+       :where([data-suisou-layout]) > * { flex: none } が効いて、子の flex-N は
+       詳細度に関係なく潰れる。
+
+     ★Suisou 側の宿題: button-group を横に並べて全体で均等にする語が無い
+       （`even` は1つの群の中でしか効かない）。実測 4 箇所。 */
+  .seg {
+    flex-grow: var(--seg);
+    flex-shrink: 1;
+    flex-basis: 0;
+  }
+
   /* フィルタ盤の現場実装。器とトグルは Suisou（button-group / plain / aria-pressed）で、
      ここにあるのは升目の伸ばし方と検索欄の中身だけ。 */
 
