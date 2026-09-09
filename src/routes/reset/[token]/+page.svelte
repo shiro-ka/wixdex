@@ -8,8 +8,8 @@
   <title>パスワード再設定 — wixdex</title>
 </svelte:head>
 
-<main class="p-4" data-suisou-layout="row screen middle">
-  <div class="w-full max-w-md" data-suisou-surface="panel" data-suisou-layout="stack gap-3">
+<main class="page" data-suisou-layout="row screen middle">
+  <div class="box" data-suisou-surface="panel" data-suisou-layout="stack gap-3">
     <h1 data-suisou-text="s20 w700 center">パスワード再設定</h1>
 
     {#if !data.valid || (form && 'expired' in form && form.expired)}
@@ -41,3 +41,13 @@
     {/if}
   </div>
 </main>
+
+<style>
+  .page {
+    padding: var(--suisou-space-3); /* Tailwind p-4 = 16px */
+  }
+  .box {
+    width: 100%;
+    max-width: 28rem;
+  }
+</style>

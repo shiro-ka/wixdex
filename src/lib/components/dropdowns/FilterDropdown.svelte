@@ -40,12 +40,12 @@
        面の色と罫はトークンで受ける。3回目の現場が出たら Suisou 昇格を検討 -->
   <div
     data-suisou-show="under-lg"
-    class="sheet fixed top-0 left-0 w-dvw z-50 p-4 {isClosing
+    class="sheet {isClosing
       ? 'animate-slide-up'
       : 'animate-slide-down'}"
   >
-    <div class="max-w-screen-md mx-auto {isClosing ? 'animate-fade-out' : 'animate-fade-in'}">
-      <div data-suisou-layout="row between" class="mb-2">
+    <div class="inner {isClosing ? 'animate-fade-out' : 'animate-fade-in'}">
+      <div data-suisou-layout="row between" class="head">
         <h3 data-suisou-text="s14 w700">{title}</h3>
         <button
           type="button"
@@ -57,7 +57,7 @@
         </button>
       </div>
       <div>{@render children()}</div>
-      <button type="button" onclick={onClose} data-suisou-button="wide" class="mt-4">
+      <button type="button" onclick={onClose} data-suisou-button="wide" class="done">
         <IconChevronUp />
         <span>閉じる</span>
       </button>
@@ -66,6 +66,27 @@
 {/if}
 
 <style>
+  /* ★Tailwind を外すために現場へ移した位置決め（2026-09-09）。 */
+
+  .sheet {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    z-index: 50;
+    padding: var(--suisou-space-3); /* Tailwind p-4 = 16px */
+  }
+  .inner {
+    max-width: 48rem;
+    margin-inline: auto;
+  }
+  .head {
+    margin-block-end: var(--suisou-space-2);
+  }
+  .done {
+    margin-block-start: var(--suisou-space-3); /* Tailwind mt-4 = 16px */
+  }
+
   /* 面は overlay（頁の手前に浮く層）。縁まで届くシートなので角丸は持たず、
      下辺の罫1本だけで区切る ―― surface="drawer" が左辺でやるのと同じ理屈 */
   .sheet {

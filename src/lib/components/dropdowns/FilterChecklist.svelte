@@ -10,11 +10,11 @@
   let { items, selected, onToggle, columns = 2 }: Props = $props();
 </script>
 
-<div class="max-h-[48dvh] overflow-y-auto">
-  <div class="grid gap-2" style="grid-template-columns: repeat({columns}, minmax(0, 1fr))">
+<div class="scroll">
+  <div data-suisou-layout="cols gap-2" style="--suisou-cols: {columns}">
     {#each items as { value, label } (value)}
       {@const checked = selected.has(value)}
-      <button type="button" class="toggle cursor-pointer" aria-pressed={checked} onclick={() => onToggle(value)} data-suisou-layout="row gap-2">
+      <button type="button" class="toggle" aria-pressed={checked} onclick={() => onToggle(value)} data-suisou-layout="row gap-2">
         <CheckboxIcon
           {checked}
           data-suisou-icon
@@ -26,6 +26,14 @@
 </div>
 
 <style>
+  .scroll {
+    max-height: 48dvh;
+    overflow-y: auto;
+  }
+  .toggle {
+    cursor: pointer;
+  }
+
   /* ★色は aria-pressed から引く。旧実装は同じ状態を三項式でもう一度書いていて、
      「押されているか」がボタンの属性と色の式の2箇所にあった（二重管理）。
      Suisou の「状態は標準の属性を借りる」に寄せて、式を消して CSS 側で受ける。 */

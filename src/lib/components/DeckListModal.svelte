@@ -22,12 +22,12 @@
 <BaseModal {isOpen} {onClose} title="デッキ一覧">
   <div data-suisou-layout="stack gap-2">
     {#if decks.length === 0}
-      <p class="py-8" data-suisou-text="sub center">保存されたデッキがありません</p>
+      <p class="state" data-suisou-text="sub center">保存されたデッキがありません</p>
     {:else}
       {#each decks as deck (deck.id)}
         <!-- 行の下地と hover は Row が持つ。中身は選ぶボタンと削除ボタンの2つ -->
-        <div data-suisou-row class="flex w-full items-stretch">
-          <button type="button" onclick={() => { onSelectDeck(deck); onClose(); }} data-suisou-text="start" class="p-2" data-suisou-layout="stack gap-1 grow">
+        <div data-suisou-row data-suisou-layout="row stretch gap-0">
+          <button type="button" onclick={() => { onSelectDeck(deck); onClose(); }} data-suisou-text="start" class="pick" data-suisou-layout="stack gap-1 grow">
             <div data-suisou-text="w500">{deck.name}</div>
             <div data-suisou-text="sub">
               メイン: {deck.mainCount}枚 / ルリグ: {deck.lrigCount}枚
@@ -40,7 +40,7 @@
             type="button"
             onclick={(e) => handleDelete(e, deck)}
             data-suisou-button="danger icon"
-            class="self-center"
+            class="mid"
             title="デッキを削除"
           >
             <IconTrash />
@@ -50,3 +50,15 @@
     {/if}
   </div>
 </BaseModal>
+
+<style>
+  .state {
+    padding-block: var(--suisou-space-4); /* Tailwind py-8 = 32px … 段に無いので近い 24px */
+  }
+  .pick {
+    padding: var(--suisou-space-2);
+  }
+  .mid {
+    align-self: center;
+  }
+</style>

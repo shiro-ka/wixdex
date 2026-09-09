@@ -1,11 +1,11 @@
-<div class="fixed inset-0 cover" data-suisou-layout="row middle">
+<div class="cover" data-suisou-layout="row middle">
   <div data-suisou-text="center">
     <!-- Suisou の Spinner（2026-08-22 に部品化）。手書きの輪は
          「動きを減らす」設定を見ておらず、回りっぱなしだった -->
     <div
       data-suisou-spinner
       style="--suisou-spinner: 4rem"
-      class="mx-auto mb-4"
+      class="mark"
       role="status"
       aria-label="カードデータを読み込んでいます"
     ></div>
@@ -14,6 +14,11 @@
 </div>
 
 <style>
+  .mark {
+    margin-inline: auto;
+    margin-block-end: var(--suisou-space-3); /* Tailwind mb-4 = 16px */
+  }
+
   /* 中身を覆い隠す膜なので、地は自分で持つ（body に任せられない） */
   .cover {
     background: var(--suisou-bg);
