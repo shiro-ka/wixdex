@@ -24,14 +24,14 @@
 
   <div data-suisou-layout="stack container gap-4" class="page">
     <!-- プロフィールヘッダ -->
-    <header data-suisou-layout="row gap-3" class="head border-b rule">
+    <header data-suisou-layout="row gap-3" data-suisou-rule="bottom" class="head">
       <!-- 頭文字は Avatar が出す。円形＝人という約束ごと部品に寄せる。
            文字色も部品の text-sub に譲った（accent の頭文字は装飾で、意味が無かった） -->
       <div data-suisou-avatar style="--suisou-avatar: 4rem" class="sm:[--suisou-avatar:5rem]" data-suisou-text="s24 w700">
         {profile.displayName.charAt(0).toUpperCase()}
       </div>
       <div class="min-w-0">
-        <h1 class="truncate" data-suisou-text="s24 md:s28 w700">{profile.displayName}</h1>
+        <h1 data-suisou-text="s24 md:s28 w700 one-line">{profile.displayName}</h1>
         {#if bskyUrl}
           <a
             href={bskyUrl}
@@ -58,14 +58,14 @@
       {#if decks.length === 0}
         <p class="py-20" data-suisou-text="sub center">公開中のデッキはまだありません。</p>
       {:else}
-        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div class="decks" data-suisou-layout="cols gap-3">
           {#each decks as deck (deck.slug)}
             <a
               href="/@{profile.atName}/{deck.slug}"
               data-suisou-surface="panel"
               class="deck-card block"
             >
-              <div class="truncate" data-suisou-text="w500">{deck.name}</div>
+              <div data-suisou-text="w500 one-line">{deck.name}</div>
               <div data-suisou-text="sub">
                 メイン {deck.mainCount}枚 / ルリグ {deck.lrigCount}枚
               </div>
@@ -81,6 +81,29 @@
 </div>
 
 <style>
+  /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
+     Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
+     「2段で表せない振り方は現場のもの」という決定どおり。
+     ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
+  .decks {
+    --suisou-cols: 1;
+  }
+  @media (min-width: 640px) {
+    .decks {
+      --suisou-cols: 2;
+    }
+  }
+  @media (min-width: 1024px) {
+    .decks {
+      --suisou-cols: 3;
+    }
+  }
+  @media (min-width: 1280px) {
+    .decks {
+      --suisou-cols: 4;
+    }
+  }
+
   /* 押せる面の hover。Suisou の面は押せない（押せるのは部品）ので、
      カード型のリンクは現場が hover を持つ。使う色は行と同じ hover-surface */
   .deck-card {
@@ -93,9 +116,6 @@
     border-color: var(--suisou-line-strong);
   }
 
-  .rule {
-    border-color: var(--suisou-line-weak);
-  }
 
   .head {
     padding-block-end: var(--suisou-space-4);

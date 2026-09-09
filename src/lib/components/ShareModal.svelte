@@ -221,7 +221,7 @@
     </div>
 
     <!-- 画像エクスポート -->
-    <div class="pt-4 border-t rule">
+    <div data-suisou-rule="top" class="pt-4">
       <h4 data-suisou-text="s14 w700" class="mb-2">画像エクスポート</h4>
 
       <!-- オプション: 列数 / テーマ -->
@@ -291,7 +291,7 @@
       {/if}
     </div>
 
-    <div class="pt-4 border-t rule">
+    <div data-suisou-rule="top" class="pt-4">
       <p data-suisou-text="sub s12">リスト式、テキストエクスポートは今後実装予定です。</p>
     </div>
   </div>
@@ -299,7 +299,4 @@
 
 <style>
   /* 上の区切り。旧実装は item の色を線に使っていた */
-  .rule {
-    border-color: var(--suisou-line-weak);
-  }
 </style>

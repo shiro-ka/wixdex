@@ -79,13 +79,13 @@
               loading="lazy"
             />
             <div class="flex-1 min-w-0">
-              <div class="truncate" data-suisou-text="w500">{row.card.name}</div>
-              <div class="truncate" data-suisou-text="sub s12">{row.cardId}</div>
+              <div data-suisou-text="w500 one-line">{row.card.name}</div>
+              <div data-suisou-text="sub s12 one-line">{row.cardId}</div>
             </div>
           {:else}
             <div class="w-12 h-16 rounded flex-shrink-0 ph"></div>
             <div class="flex-1 min-w-0">
-              <div class="truncate" data-suisou-text="sub">{row.cardId}</div>
+              <div data-suisou-text="sub one-line">{row.cardId}</div>
             </div>
           {/if}
           <div class="text-right whitespace-nowrap">
