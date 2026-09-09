@@ -66,7 +66,6 @@
 {/if}
 
 <style>
-  /* ★Tailwind を外すために現場へ移した位置決め（2026-09-09）。 */
 
   .sheet {
     position: fixed;
@@ -74,7 +73,7 @@
     left: 0;
     width: 100dvw;
     z-index: 50;
-    padding: var(--suisou-space-3); /* Tailwind p-4 = 16px */
+    padding: var(--suisou-space-3);
   }
   .inner {
     max-width: 48rem;
@@ -84,7 +83,7 @@
     margin-block-end: var(--suisou-space-2);
   }
   .done {
-    margin-block-start: var(--suisou-space-3); /* Tailwind mt-4 = 16px */
+    margin-block-start: var(--suisou-space-3);
   }
 
   /* 面は overlay（頁の手前に浮く層）。縁まで届くシートなので角丸は持たず、

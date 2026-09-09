@@ -34,9 +34,8 @@
     cursor: pointer;
   }
 
-  /* ★色は aria-pressed から引く。旧実装は同じ状態を三項式でもう一度書いていて、
-     「押されているか」がボタンの属性と色の式の2箇所にあった（二重管理）。
-     Suisou の「状態は標準の属性を借りる」に寄せて、式を消して CSS 側で受ける。 */
+  /* ★色は aria-pressed から引く。三項式でもう一度状態を書かないこと ――
+     「押されているか」が属性と式の2箇所に散る。 */
   .toggle :global(svg) {
     color: var(--suisou-text-sub);
     transition: color var(--suisou-motion-fast) var(--suisou-ease);

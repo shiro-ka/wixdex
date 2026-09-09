@@ -244,8 +244,6 @@
     height: 2.5rem;
   }
 
-  /* ★Tailwind を外すために現場へ移した実寸・位置決め（2026-09-09）。 */
-
   .deck-side {
     padding-inline: var(--suisou-space-2);
     margin-block-end: var(--suisou-space-2);
@@ -265,10 +263,7 @@
 
   /* 升目の中の画像。器が比を持つので、画像は幅だけ合わせて中に収める */
   /* ★子コンポーネントに渡した class には Svelte の scoped ハッシュが付かない。
-     Tailwind はグローバルなので `class="w-full object-contain"` を
-     そのまま子に渡せていたが、scoped CSS に移すと**当たらなくなる**
-     （2026-09-09 に実際に踏んだ。アイコンが素の大きさで出た）。
-     祖先だけを scoped にして、子側は :global で受ける。 */
+     子側のセレクタは祖先を scoped にして :global で受ける。 */
   .deck-side :global(.card-img) {
     width: 100%;
     object-fit: contain;
@@ -319,36 +314,17 @@
     }
   }
 
-  /* ★親に data-suisou-layout が付いていると
-     :where([data-suisou-layout]) > * { flex: none } が効いて、
-     子の Tailwind flex-1 は**詳細度に関係なく**潰れる（レイヤ無し ＞ レイヤ付き）。
-     ここは属性ではなく現場の CSS で伸ばす。
-
-     ★この要素に data-suisou-layout を足して直すのは駄目。
-       [data-suisou-layout] { display: flex } もレイヤ無しなので、
-       **`hidden`（display: none）まで殺してしまう**。 */
+  /* ★親が data-suisou-layout を持つと :where([data-suisou-layout]) > * { flex: none }
+     が効くので、子は既定で伸びない。伸ばすのは現場の CSS の仕事。 */
   .folder {
     flex: 1 1 0;
     min-height: 0;
   }
 
-  /* ★伸び方の「比」と、段に無い隙間は現場が持つ（Suisou に語が無い）。
-
-     元は Tailwind の md:flex-1 / lg:flex-2 / md:gap-1.5 だったが、
-     **黙って死んでいた**（2026-09-09 実測）。Tailwind v4 のユーティリティは
-     @layer utilities にあり、レイヤ無しの Suisou に必ず負ける。
-     ★親に data-suisou-layout を足した瞬間に
-       :where([data-suisou-layout]) > * { flex: none } が効いて、
-       子の flex-N が全部 flex:none になる ―― これが最大の落とし穴。
-
-     grow（flex: 1 1 auto）を土台にして、比はショートハンドで上書きする。
-
-     ★基準（flex-basis）が違う。Tailwind の flex-N は `flex: N 1 0%` で
-       **基準0から比で配る**が、Suisou の grow は `flex: 1 1 auto` で
-       **中身の大きさを基準にしてから余りを配る**。grow の上に flex-grow だけ
-       重ねると比が合わない（実測 40:60 が 32:68 になった）。
-       ショートハンドで基準ごと書く ―― grow が併せて置く min-width/min-height: 0 は
-       別の宣言なので残る。 */
+  /* ★伸び方の比を上書きするときは flex のショートハンドで基準ごと書く。
+     Suisou の grow は flex: 1 1 auto ―― **中身の大きさを基準にしてから余りを配る**ので、
+     flex-grow だけ重ねると比が合わない（実測 40:60 が 32:68 になった）。
+     grow が併せて置く min-width/min-height: 0 は別の宣言なので残る。 */
   @media (min-width: 1024px) {
     .deck-side {
       --suisou-share: 2;
@@ -373,14 +349,9 @@
   /* デッキの升目。横8列 × ルリグ1行 / メイン5行。
      行の高さはカードの縦横比（12:17）から決まり、列幅に正確に追従する。
 
-     ★以前は器に高さを直接持たせていた:
-         h-[calc(90dvw-4rem)] md:h-[calc(45dvw-3rem)]
-         lg:h-[calc(36dvw-3rem)] xl:h-[26rem]
-       「8列に並べたカードを5行積んだ高さ」を dvw から手で近似した値で、
-       段ごとに書き直していた。しかも DeckArea は md 以上で flex-1 / flex-2
-       になるので**幅がビューポート幅ではない** ―― dvw 基準の近似は原理的に
-       合わせられず、画面幅によってカードの下に隙間が出たり詰まったりしていた。
-       同じファイルの Folder の升目（aspect-[12/17]）が最初からこの形。 */
+     ★器に高さを dvw で直接持たせるのは駄目。DeckArea は md 以上で幅の比を
+       取るので**幅がビューポート幅ではなく**、dvw 基準の近似は原理的に合わない
+       （画面幅によってカードの下に隙間が出たり詰まったりする）。 */
   .deck-panel {
     container-type: inline-size; /* 下の 100cqw が面の内側の幅を指す */
   }
@@ -398,9 +369,9 @@
      N行ぶんは (内側の幅 − 隙間7つ) × 17N/96 になる。
      **満杯のときの実際の高さと同値**なので、min-height が中身と喧嘩しない。
 
-     ★以前ここに「1枡目に重ねた見えない当て木」を置いていたが誤り。
+     ★高さを稼ぐために「1枡目に重ねた見えない当て木」を置くのは駄目。
        grid の子は明示配置でもその枡を占有するので、自動配置が2枡目から
-       始まり、カードが1つずつずれていた（2026-08-22 に指摘されて発覚）。 */
+       始まり、カードが1つずつずれる。 */
   .lrig {
     grid-template-rows: 1fr;
     min-height: calc((100cqw - 7 * var(--suisou-space-1)) * 17 / 96);

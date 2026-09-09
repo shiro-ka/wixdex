@@ -1,13 +1,17 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { page } from '$app/state';
-  import type { Card, DeckSummary } from '$lib/types';
-  import { getSettings, saveSettings, getDraft, saveDraft } from '$lib/utils/storage';
+  import type { Card } from '$lib/types';
+  import { getDraft, saveDraft } from '$lib/utils/storage';
   import { loadAllCards, buildCardMap, buildOrderMap } from '$lib/utils/cardData';
   import { canAddCard } from '$lib/utils/deckValidation';
+  import { preventPullToRefresh } from '$lib/utils/preventPullToRefresh';
   import { CloudDeckSync } from '$lib/stores/cloudDeckSync.svelte';
   import { DeckBuilderStore } from '$lib/stores/deckBuilder.svelte';
+  import { DeckSessionStore } from '$lib/stores/deckSession.svelte';
+  import { FavoritesStore } from '$lib/stores/favorites.svelte';
   import { FilterStore } from '$lib/stores/filterStore.svelte';
+  import { SettingsStore } from '$lib/stores/settings.svelte';
   import Navbar from '$lib/components/Navbar.svelte';
   import Sidebar from '$lib/components/Sidebar.svelte';
   import DeckArea from '$lib/components/DeckArea.svelte';
@@ -36,31 +40,23 @@
   const cloudSync = new CloudDeckSync();
   const deck = new DeckBuilderStore();
   const filter = new FilterStore();
-
-  // ── settings & favorites ───────────────────────────────────
-  let showLifeBurst = $state(false);
-  let showCandidateIcon = $state(false);
-  let rotateLandscape = $state(false);
-  let favoriteIds = $state<Set<string>>(new Set(page.data.favoriteIds ?? []));
-
-  // ── draft persistence ──────────────────────────────────────
-  let draftRestored = $state(false);
+  const settings = new SettingsStore();
+  const favorites = new FavoritesStore(page.data.favoriteIds ?? []);
+  const session = new DeckSessionStore(deck, cloudSync, isLoggedIn, () => cardMap);
 
   // ── UI state ───────────────────────────────────────────────
+  // デッキの保存まわりの開閉は session が持つ。ここに残るのは
+  // 「どのカードを見ているか」だけの、保存と関係のない状態。
   let hoveredCard = $state<Card | null>(null);
   let popupCard = $state<Card | null>(null);
   let isSidebarOpen = $state(false);
-  let isDeckListOpen = $state(false);
-  let isDeckEditOpen = $state(false);
   let isShareOpen = $state(false);
   let isStatsOpen = $state(false);
-  let isUnsavedConfirmOpen = $state(false);
-  let pendingAction = $state<(() => void) | null>(null);
-  let deckPendingDelete = $state<DeckSummary | null>(null);
   let activeDropdown = $state<'type' | 'lrigClass' | 'tag' | null>(null);
+  let draftRestored = $state(false);
 
   // ── filtered cards ─────────────────────────────────────────
-  let filteredCards = $derived(filter.apply(allCardData, deck.candidateCards, favoriteIds));
+  let filteredCards = $derived(filter.apply(allCardData, deck.candidateCards, favorites.ids));
 
   // ── card popup: 採用枚数・候補状態 ─────────────────────────
   function copiesInDeck(card: Card): number {
@@ -79,31 +75,13 @@
 
   // ── mount: load data & restore from storage ───────────────
   onMount(() => {
-    // pull-to-refresh prevention (image swipe gestures conflict with scroll-to-refresh)
-    let startY = 0;
-    let touchedElement: EventTarget | null = null;
-    const onTouchStart = (e: TouchEvent) => {
-      startY = e.touches[0].clientY;
-      touchedElement = e.target;
-    };
-    const onTouchMove = (e: TouchEvent) => {
-      const deltaY = e.touches[0].clientY - startY;
-      const isImg =
-        (touchedElement as HTMLElement)?.closest?.('img') ||
-        (touchedElement as HTMLElement)?.tagName === 'IMG';
-      if (deltaY > 0 && window.scrollY === 0 && isImg) e.preventDefault();
-    };
-    document.addEventListener('touchstart', onTouchStart, { passive: true });
-    document.addEventListener('touchmove', onTouchMove, { passive: false });
+    const stopPullToRefresh = preventPullToRefresh();
 
     const draft = getDraft();
     if (draft) deck.restoreFromDraft(draft);
     draftRestored = true;
+    settings.restore();
 
-    const settings = getSettings();
-    showLifeBurst = settings.showLifeBurst;
-    showCandidateIcon = settings.showCandidateIcon;
-    rotateLandscape = settings.rotateLandscape;
     loadAllCards()
       .then((cards) => {
         allCardData = cards;
@@ -115,10 +93,7 @@
         loading = false;
       });
 
-    return () => {
-      document.removeEventListener('touchstart', onTouchStart);
-      document.removeEventListener('touchmove', onTouchMove);
-    };
+    return stopPullToRefresh;
   });
 
   $effect(() => {
@@ -129,164 +104,6 @@
     if (!draftRestored) return;
     saveDraft(deck.toDraft());
   });
-
-  // ── settings ───────────────────────────────────────────────
-  function toggleShowLifeBurst() {
-    showLifeBurst = !showLifeBurst;
-    saveSettings({ showLifeBurst, showCandidateIcon, rotateLandscape });
-  }
-
-  function toggleShowCandidateIcon() {
-    showCandidateIcon = !showCandidateIcon;
-    saveSettings({ showLifeBurst, showCandidateIcon, rotateLandscape });
-  }
-
-  function toggleRotateLandscape() {
-    rotateLandscape = !rotateLandscape;
-    saveSettings({ showLifeBurst, showCandidateIcon, rotateLandscape });
-  }
-
-  // ── favorites ──────────────────────────────────────────────
-  async function toggleFavorite(card: Card) {
-    if (!isLoggedIn || !card.cardID) return;
-    const cardID = card.cardID;
-    const exists = favoriteIds.has(cardID);
-    favoriteIds = exists
-      ? new Set([...favoriteIds].filter((id) => id !== cardID))
-      : new Set([...favoriteIds, cardID]);
-    await fetch('/api/favorites', {
-      method: exists ? 'DELETE' : 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ cardId: cardID }),
-    });
-  }
-
-  function isFavorite(card: Card) {
-    return !!card.cardID && favoriteIds.has(card.cardID);
-  }
-
-  // ── deck persistence orchestration ─────────────────────────
-  // 新規・既存どちらも保存する統合関数
-  async function saveDeck(name: string, memo: string) {
-    if (!isLoggedIn) return;
-    deck.setMeta(name, memo);
-    try {
-      const id = await cloudSync.save({
-        id: deck.id ?? undefined,
-        name: deck.name,
-        memo: deck.memo,
-        isPublic: deck.isPublic,
-        mainDeck: deck.mainDeck,
-        lrigDeck: deck.lrigDeck,
-        candidateCards: deck.candidateCards,
-      });
-      deck.id = id;
-      if (!deck.slug) deck.slug = id; // 新規保存時の既定 slug は id
-      deck.markSaved();
-    } catch {
-      // cloudSync.error is set; user sees it in UI if we add an error display
-    }
-  }
-
-  // ヘッダーの保存ボタン: 新規はモーダルを開き、既存は即保存
-  function handleSaveClick() {
-    if (!isLoggedIn) return;
-    if (!deck.id) {
-      isDeckEditOpen = true;
-    } else {
-      saveDeck(deck.name, deck.memo);
-    }
-  }
-
-  async function handleDeckListOpen() {
-    if (!isLoggedIn) return;
-    await cloudSync.loadList();
-    isDeckListOpen = true;
-  }
-
-  // デッキ公開URL(slug)の変更。成功したらストアにも反映。
-  async function updateDeckSlug(
-    slug: string,
-  ): Promise<{ ok: boolean; error?: string; slug?: string }> {
-    if (!deck.id) return { ok: false, error: 'デッキを保存してください。' };
-    const res = await cloudSync.updateSlug(deck.id, slug);
-    if (res.ok) deck.slug = res.slug;
-    return res;
-  }
-
-  // 公開/非公開トグル: 即座に保存して反映する（保存済みデッキのみ）
-  async function setDeckPublic(next: boolean) {
-    if (!isLoggedIn || !deck.id) return;
-    deck.isPublic = next;
-    await saveDeck(deck.name, deck.memo);
-  }
-
-  function requestDeleteDeck(d: DeckSummary) {
-    deckPendingDelete = d;
-  }
-
-  async function confirmDeleteDeck() {
-    const d = deckPendingDelete;
-    deckPendingDelete = null;
-    if (!d) return;
-    if (d.id === deck.id) {
-      handleNewDeck();
-    }
-    await cloudSync.delete(d.id);
-  }
-
-  function cancelDeleteDeck() {
-    deckPendingDelete = null;
-  }
-
-  async function handleLoadDeck(d: DeckSummary) {
-    const loaded = await cloudSync.loadFull(d.id, cardMap);
-    if (!loaded) return;
-    deck.load(loaded);
-  }
-
-  function handleNewDeck() {
-    deck.reset();
-  }
-
-  // ── 未保存変更のガード ──────────────────────────────────────
-  // 未保存の変更があるときはワンクッション挟む
-  function guardUnsaved(action: () => void) {
-    if (deck.isSaved) {
-      action();
-    } else {
-      pendingAction = action;
-      isUnsavedConfirmOpen = true;
-    }
-  }
-
-  function requestNewDeck() {
-    guardUnsaved(handleNewDeck);
-  }
-
-  function requestLoadDeck(d: DeckSummary) {
-    guardUnsaved(() => {
-      handleLoadDeck(d);
-    });
-  }
-
-  function runPendingAction() {
-    const action = pendingAction;
-    pendingAction = null;
-    isUnsavedConfirmOpen = false;
-    action?.();
-  }
-
-  async function handleConfirmSave() {
-    await saveDeck(deck.name, deck.memo);
-    // 保存成功時のみ続行（失敗時はモーダルを残してリトライ/破棄を選べる）
-    if (deck.isSaved) runPendingAction();
-  }
-
-  function handleConfirmCancel() {
-    pendingAction = null;
-    isUnsavedConfirmOpen = false;
-  }
 </script>
 
 <svelte:head>
@@ -310,9 +127,9 @@
     onMenuClick={() => {
       isSidebarOpen = true;
     }}
-    onSaveClick={handleSaveClick}
+    onSaveClick={session.saveOrAsk}
     onDeckClick={() => {
-      isDeckEditOpen = true;
+      session.isDeckEditOpen = true;
     }}
     onShareClick={() => {
       isShareOpen = true;
@@ -335,8 +152,8 @@
         popupCard = card;
       }}
       lifeBurstCount={deck.lifeBurstCount}
-      {showLifeBurst}
-      {rotateLandscape}
+      showLifeBurst={settings.showLifeBurst}
+      rotateLandscape={settings.rotateLandscape}
     />
 
     <div class="card-side" data-suisou-layout="stack lg:row lg:stretch share gap-0">
@@ -356,47 +173,21 @@
         onCardClick={(card) => {
           popupCard = card;
         }}
-        {showLifeBurst}
-        {showCandidateIcon}
-        {rotateLandscape}
+        showLifeBurst={settings.showLifeBurst}
+        showCandidateIcon={settings.showCandidateIcon}
+        rotateLandscape={settings.rotateLandscape}
         candidateCards={deck.candidateCards}
       />
 
       <SearchArea
         {hoveredCard}
-        selectedColors={filter.selectedColors}
-        selectedLevels={filter.selectedLevels}
-        selectedCardTypes={filter.selectedCardTypes}
-        selectedLrigClasses={filter.selectedLrigClasses}
-        selectedTags={filter.selectedTags}
-        lifeBurstFilter={filter.lifeBurstFilter}
-        candidateFilter={filter.candidateFilter}
-        favoriteFilter={filter.favoriteFilter}
-        onColorFilter={filter.toggleColor}
-        onTextSearch={filter.setSearchText}
-        searchName={filter.searchName}
-        searchInText={filter.searchInText}
-        onToggleSearchName={filter.toggleSearchName}
-        onToggleSearchInText={filter.toggleSearchInText}
-        onLevelFilter={filter.toggleLevel}
-        onLifeBurstFilter={filter.toggleLifeBurst}
-        onCardTypeFilter={filter.toggleCardType}
-        onLrigClassFilter={filter.toggleLrigClass}
-        onTagFilter={filter.toggleTag}
-        onCandidateFilter={filter.toggleCandidate}
-        onFavoriteFilter={filter.toggleFavorite}
+        {filter}
+        {settings}
         {isLoggedIn}
-        onReset={filter.reset}
         {activeDropdown}
         onDropdownChange={(d) => {
           activeDropdown = d;
         }}
-        {showLifeBurst}
-        onToggleLifeBurst={toggleShowLifeBurst}
-        {showCandidateIcon}
-        onToggleCandidateIcon={toggleShowCandidateIcon}
-        {rotateLandscape}
-        onToggleRotateLandscape={toggleRotateLandscape}
       />
     </div>
   </div>
@@ -443,8 +234,8 @@
     onClose={() => {
       isSidebarOpen = false;
     }}
-    onDeckListClick={handleDeckListOpen}
-    onNewDeckClick={requestNewDeck}
+    onDeckListClick={session.openList}
+    onNewDeckClick={session.requestNew}
     onStatsClick={() => {
       isStatsOpen = true;
     }}
@@ -452,39 +243,39 @@
   />
 
   <DeckListModal
-    isOpen={isDeckListOpen}
+    isOpen={session.isDeckListOpen}
     onClose={() => {
-      isDeckListOpen = false;
+      session.isDeckListOpen = false;
     }}
     decks={cloudSync.decks}
-    onSelectDeck={requestLoadDeck}
-    onRequestDeleteDeck={requestDeleteDeck}
+    onSelectDeck={session.requestLoad}
+    onRequestDeleteDeck={session.requestDelete}
   />
 
   <DeckEditModal
-    isOpen={isDeckEditOpen}
+    isOpen={session.isDeckEditOpen}
     onClose={() => {
-      isDeckEditOpen = false;
+      session.isDeckEditOpen = false;
     }}
     currentName={deck.name}
     currentMemo={deck.memo}
-    onSave={saveDeck}
+    onSave={session.save}
     {isLoggedIn}
   />
 
   <UnsavedConfirmModal
-    isOpen={isUnsavedConfirmOpen}
-    onCancel={handleConfirmCancel}
-    onSave={handleConfirmSave}
-    onDiscard={runPendingAction}
+    isOpen={session.isUnsavedConfirmOpen}
+    onCancel={session.cancelConfirm}
+    onSave={session.confirmSave}
+    onDiscard={session.discard}
   />
 
   <DeleteDeckConfirmModal
-    isOpen={!!deckPendingDelete}
-    deckName={deckPendingDelete?.name ?? ''}
-    hasUnsavedChanges={deckPendingDelete?.id === deck.id && !deck.isSaved}
-    onConfirm={confirmDeleteDeck}
-    onCancel={cancelDeleteDeck}
+    isOpen={!!session.deckPendingDelete}
+    deckName={session.deckPendingDelete?.name ?? ''}
+    hasUnsavedChanges={session.deckPendingDelete?.id === deck.id && !deck.isSaved}
+    onConfirm={session.confirmDelete}
+    onCancel={session.cancelDelete}
   />
 
   <ShareModal
@@ -500,9 +291,9 @@
     ownerAtName={page.data.user ? (page.data.user.username ?? page.data.user.blueskyHandle) : null}
     isPublic={deck.isPublic}
     {isLoggedIn}
-    {rotateLandscape}
-    onSetPublic={setDeckPublic}
-    onUpdateSlug={updateDeckSlug}
+    rotateLandscape={settings.rotateLandscape}
+    onSetPublic={session.setPublic}
+    onUpdateSlug={session.updateSlug}
   />
 
   <StatsModal
@@ -518,9 +309,9 @@
     onClose={() => {
       popupCard = null;
     }}
-    isFavorite={popupCard ? isFavorite(popupCard) : false}
+    isFavorite={popupCard ? favorites.has(popupCard) : false}
     onToggleFavorite={() => {
-      if (popupCard) toggleFavorite(popupCard);
+      if (popupCard) favorites.toggle(popupCard);
     }}
     {isLoggedIn}
     count={popupCount}
@@ -535,7 +326,6 @@
 </div>
 
 <style>
-  /* ★Tailwind を外すために現場へ移した実寸（2026-09-09）。 */
 
   /* 画面そのもの。ここから外へはみ出させない */
   .shell {
@@ -570,27 +360,8 @@
     }
   }
 
-  /* ★伸び方の「比」は現場が持つ。Suisou に比率の語が無いため。
-
-     Suisou の grow は flex: 1 1 auto の一段だけで、3 対 5 のような配り方は
-     表せない。ここは flex-grow だけを上書きする ―― grow が併せて置く
-     min-width/min-height: 0（＝はみ出しを止める）を残したいので、
-     ショートハンドでは書かない。
-
-     ★元は Tailwind の flex-3 / md:flex-1 / lg:flex-3 だったが、
-       **黙って死んでいた**（2026-09-09 実測）。Tailwind v4 のユーティリティは
-       @layer utilities の中にあり、CSS のカスケードでは
-       **レイヤ無しの規則がレイヤ付きに必ず勝つ**。Suisou はレイヤを使わないので、
-       詳細度でも読み込み順でもなく「レイヤ」で Suisou が常勝していた。
-       同じ理由で :where([data-suisou-layout]) > * { flex: none } も
-       Tailwind の flex-N を全部潰していた。
-
-     ★基準（flex-basis）が違う。Tailwind の flex-N は `flex: N 1 0%` で
-       **基準0から比で配る**が、Suisou の grow は `flex: 1 1 auto` で
-       **中身の大きさを基準にしてから余りを配る**。grow の上に flex-grow だけ
-       重ねると比が合わない（実測 40:60 が 32:68 になった）。
-       ショートハンドで基準ごと書く ―― grow が併せて置く min-width/min-height: 0 は
-       別の宣言なので残る。 */
+  /* 伸び方の「比」は --suisou-share で渡す（layout="share"）。
+     段は md / lg の2つなので、それで足りる振り方はここに書ける。 */
   .card-side {
     --suisou-share: 3;
   }

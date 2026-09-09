@@ -138,7 +138,6 @@
 </BaseModal>
 
 <style>
-  /* ★Tailwind を外すために現場へ移した実寸とふるまい（2026-09-09）。 */
 
   .tall {
     min-height: 200px;

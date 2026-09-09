@@ -24,7 +24,7 @@
 
 <style>
   .page {
-    padding-inline: var(--suisou-space-3); /* Tailwind px-4 = 16px */
+    padding-inline: var(--suisou-space-3);
   }
   .art {
     height: auto;

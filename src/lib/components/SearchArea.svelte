@@ -1,6 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { Card } from '$lib/types';
+  import type { FilterStore } from '$lib/stores/filterStore.svelte';
+  import type { SettingsStore } from '$lib/stores/settings.svelte';
   import WhiteIcon from './icons/WhiteIcon.svelte';
   import RedIcon from './icons/RedIcon.svelte';
   import BlueIcon from './icons/BlueIcon.svelte';
@@ -35,74 +37,28 @@
   import LrigClassFilterContent from './dropdowns/LrigClassFilterContent.svelte';
   import TagFilterContent from './dropdowns/TagFilterContent.svelte';
 
+  /**
+   * ★絞り込みと表示設定は**ストアをそのまま渡す**。
+   *   以前は FilterStore の中身を22個、SettingsStore の中身を6個の prop に
+   *   ばらして渡していて、語を1つ増やすたびに「ストア → ページ → ここ」の
+   *   3箇所を書き足す必要があった。持ち主は1つなので、1つのまま渡す。
+   */
   interface Props {
     hoveredCard: Card | null;
-    selectedColors: Set<string>;
-    selectedLevels: Set<number>;
-    selectedCardTypes: Set<string>;
-    selectedLrigClasses: Set<string>;
-    selectedTags: Set<string>;
-    lifeBurstFilter: boolean | null;
-    candidateFilter: boolean;
-    favoriteFilter: boolean;
-    onColorFilter: (color: string) => void;
-    onTextSearch: (text: string) => void;
-    searchName: boolean;
-    searchInText: boolean;
-    onToggleSearchName: () => void;
-    onToggleSearchInText: () => void;
-    onLevelFilter: (level: number) => void;
-    onLifeBurstFilter: () => void;
-    onCardTypeFilter: (type: string) => void;
-    onLrigClassFilter: (lrigClass: string) => void;
-    onTagFilter: (tag: string) => void;
-    onCandidateFilter: () => void;
-    onFavoriteFilter: () => void;
+    filter: FilterStore;
+    settings: SettingsStore;
     isLoggedIn: boolean;
-    onReset: () => void;
     activeDropdown: 'type' | 'lrigClass' | 'tag' | null;
     onDropdownChange: (dropdown: 'type' | 'lrigClass' | 'tag' | null) => void;
-    showLifeBurst: boolean;
-    onToggleLifeBurst: () => void;
-    showCandidateIcon: boolean;
-    onToggleCandidateIcon: () => void;
-    rotateLandscape: boolean;
-    onToggleRotateLandscape: () => void;
   }
 
   let {
     hoveredCard,
-    selectedColors,
-    selectedLevels,
-    selectedCardTypes,
-    selectedLrigClasses,
-    selectedTags,
-    lifeBurstFilter,
-    candidateFilter,
-    favoriteFilter,
-    onColorFilter,
-    onTextSearch,
-    searchName,
-    searchInText,
-    onToggleSearchName,
-    onToggleSearchInText,
-    onLevelFilter,
-    onLifeBurstFilter,
-    onCardTypeFilter,
-    onLrigClassFilter,
-    onTagFilter,
-    onCandidateFilter,
-    onFavoriteFilter,
+    filter,
+    settings,
     isLoggedIn,
-    onReset,
     activeDropdown,
     onDropdownChange,
-    showLifeBurst,
-    onToggleLifeBurst,
-    showCandidateIcon,
-    onToggleCandidateIcon,
-    rotateLandscape,
-    onToggleRotateLandscape,
   }: Props = $props();
 
   let searchText = $state('');
@@ -133,18 +89,18 @@
   let searchDebounce: ReturnType<typeof setTimeout>;
   function handleSearchInput() {
     clearTimeout(searchDebounce);
-    searchDebounce = setTimeout(() => onTextSearch(searchText), 150);
+    searchDebounce = setTimeout(() => filter.setSearchText(searchText), 150);
   }
 
   function handleClear() {
     clearTimeout(searchDebounce);
     searchText = '';
-    onTextSearch('');
+    filter.setSearchText('');
   }
 
   function handleReset() {
     handleClear();
-    onReset();
+    filter.reset();
   }
 
   function handleMenuClick(name: 'type' | 'lrigClass' | 'tag') {
@@ -162,17 +118,17 @@
 
   function clearPanelTab() {
     if (panelTab === 'type') {
-      selectedCardTypes.forEach((t) => onCardTypeFilter(t));
+      filter.selectedCardTypes.forEach((t) => filter.toggleCardType(t));
     } else if (panelTab === 'lrigClass') {
-      selectedLrigClasses.forEach((c) => onLrigClassFilter(c));
+      filter.selectedLrigClasses.forEach((c) => filter.toggleLrigClass(c));
     } else {
-      selectedTags.forEach((t) => onTagFilter(t));
+      filter.selectedTags.forEach((t) => filter.toggleTag(t));
     }
   }
 
-  let isTypeFilterEnabled = $derived(selectedCardTypes.size > 0);
-  let isLrigClassFilterEnabled = $derived(selectedLrigClasses.size > 0);
-  let isTagFilterEnabled = $derived(selectedTags.size > 0);
+  let isTypeFilterEnabled = $derived(filter.selectedCardTypes.size > 0);
+  let isLrigClassFilterEnabled = $derived(filter.selectedLrigClasses.size > 0);
+  let isTagFilterEnabled = $derived(filter.selectedTags.size > 0);
 
   // ハイライトは画面幅に依らず単一ロジック:「アクティブなタブのボタン背景を明るくする」。
   // PCでは activeDropdown が常に非null（閉じる操作がない）なので、必ずどれか1つが明るい。
@@ -215,11 +171,11 @@
       </button>
     </div>
     {#if panelTab === 'type'}
-      <TypeFilterContent selectedTypes={selectedCardTypes} onToggle={onCardTypeFilter} />
+      <TypeFilterContent selectedTypes={filter.selectedCardTypes} onToggle={filter.toggleCardType} />
     {:else if panelTab === 'lrigClass'}
-      <LrigClassFilterContent {selectedLrigClasses} onToggle={onLrigClassFilter} />
+      <LrigClassFilterContent selectedLrigClasses={filter.selectedLrigClasses} onToggle={filter.toggleLrigClass} />
     {:else}
-      <TagFilterContent {selectedTags} onToggle={onTagFilter} />
+      <TagFilterContent selectedTags={filter.selectedTags} onToggle={filter.toggleTag} />
     {/if}
   </div>
 
@@ -232,10 +188,10 @@
           type="button"
           class="cell"
           data-suisou-button="plain neutral"
-          aria-pressed={favoriteFilter}
-          onclick={onFavoriteFilter}
+          aria-pressed={filter.favoriteFilter}
+          onclick={filter.toggleFavorite}
         >
-          {#if favoriteFilter}<IconStarFilled />{:else}<IconStar />{/if}
+          {#if filter.favoriteFilter}<IconStarFilled />{:else}<IconStar />{/if}
         </button>
       {/if}
 
@@ -245,10 +201,10 @@
         id="folder-button"
         data-suisou-show="under-md" class="cell"
         data-suisou-button="plain neutral"
-        aria-pressed={candidateFilter}
-        onclick={onCandidateFilter}
+        aria-pressed={filter.candidateFilter}
+        onclick={filter.toggleCandidate}
       >
-        {#if candidateFilter}<IconFolderFilled />{:else}<IconFolder />{/if}
+        {#if filter.candidateFilter}<IconFolderFilled />{:else}<IconFolder />{/if}
       </button>
 
       <div data-suisou-layout="share" style="--suisou-share: 3" data-suisou-button-group="even">
@@ -291,8 +247,8 @@
             type="button"
             class="cell"
             data-suisou-button="neutral"
-            aria-pressed={selectedColors.has(color)}
-            onclick={() => onColorFilter(color)}
+            aria-pressed={filter.selectedColors.has(color)}
+            onclick={() => filter.toggleColor(color)}
           >
             {#if color === '白'}
               <WhiteIcon class={colorClass} />
@@ -316,23 +272,23 @@
             type="button"
             class="cell"
             data-suisou-button="neutral"
-            aria-pressed={selectedLevels.has(level)}
-            onclick={() => onLevelFilter(level)}
+            aria-pressed={filter.selectedLevels.has(level)}
+            onclick={() => filter.toggleLevel(level)}
           >
             {#if level === 1}
-              {#if selectedLevels.has(1)}
+              {#if filter.selectedLevels.has(1)}
                 <IconHexagonNumber1Filled />
               {:else}
                 <IconHexagonNumber1 />
               {/if}
             {:else if level === 2}
-              {#if selectedLevels.has(2)}
+              {#if filter.selectedLevels.has(2)}
                 <IconHexagonNumber2Filled />
               {:else}
                 <IconHexagonNumber2 />
               {/if}
             {:else}
-              {#if selectedLevels.has(3)}
+              {#if filter.selectedLevels.has(3)}
                 <IconHexagonNumber3Filled />
               {:else}
                 <IconHexagonNumber3 />
@@ -347,10 +303,10 @@
         type="button"
         class="cell sq"
         data-suisou-button="plain neutral"
-        aria-pressed={lifeBurstFilter !== null}
-        onclick={onLifeBurstFilter}
+        aria-pressed={filter.lifeBurstFilter !== null}
+        onclick={filter.toggleLifeBurst}
       >
-        {#if lifeBurstFilter === false}<IconCircleXFilled />{:else}<LifeBurstIcon />{/if}
+        {#if filter.lifeBurstFilter === false}<IconCircleXFilled />{:else}<LifeBurstIcon />{/if}
       </button>
     </div>
 
@@ -376,12 +332,7 @@
           onClose={() => {
             isSettingsOpen = false;
           }}
-          {showLifeBurst}
-          {onToggleLifeBurst}
-          {showCandidateIcon}
-          {onToggleCandidateIcon}
-          {rotateLandscape}
-          {onToggleRotateLandscape}
+          {settings}
         />
       </div>
 
@@ -404,10 +355,10 @@
             onClose={() => {
               isSearchSettingsOpen = false;
             }}
-            searchCardName={searchName}
-            searchCardText={searchInText}
-            onToggleSearchCardName={onToggleSearchName}
-            onToggleSearchCardText={onToggleSearchInText}
+            searchCardName={filter.searchName}
+            searchCardText={filter.searchInText}
+            onToggleSearchCardName={filter.toggleSearchName}
+            onToggleSearchCardText={filter.toggleSearchInText}
           />
         </div>
         <input type="text" data-suisou-field bind:value={searchText} oninput={handleSearchInput} />
@@ -430,11 +381,10 @@
 </div>
 
 <style>
-  /* ★Tailwind を外すために現場へ移した実寸・位置決め（2026-09-09）。 */
 
   .pane {
     padding-inline: var(--suisou-space-2);
-    padding-block-end: var(--suisou-space-3); /* Tailwind pb-4 = 16px */
+    padding-block-end: var(--suisou-space-3);
   }
   @media (min-width: 768px) {
     .pane {
@@ -462,7 +412,7 @@
   }
 
   .menu-head {
-    margin-block-end: var(--suisou-space-3); /* Tailwind mb-4 = 16px */
+    margin-block-end: var(--suisou-space-3);
   }
 
   /* 絞り込みの段。指で押せる高さ。広い画面は詰める */
@@ -489,23 +439,15 @@
     width: 100%;
   }
 
-  /* ★親に data-suisou-layout が付いていると
-     :where([data-suisou-layout]) > * { flex: none } が効いて、
-     子の Tailwind flex-1 は**詳細度に関係なく**潰れる（レイヤ無し ＞ レイヤ付き）。
-     ここは属性ではなく現場の CSS で伸ばす。
-
-     ★この要素に data-suisou-layout を足して直すのは駄目。
-       [data-suisou-layout] { display: flex } もレイヤ無しなので、
-       **`hidden`（display: none）まで殺してしまう**。 */
+  /* ★親が data-suisou-layout を持つと :where([data-suisou-layout]) > * { flex: none }
+     が効くので、子は既定で伸びない。伸ばすのは現場の CSS の仕事。 */
   .ext-menu {
     flex: 1 1 0;
     min-height: 0;
   }
 
-  /* ★段の中でボタンの幅を揃えるのは data-suisou-layout="share" が引き受けた
-     （2026-09-09 に Suisou へ昇格）。--suisou-share はその群に入っている
-     ボタンの数で、どの群のボタンも同じ幅になる。
-     ★以前はここに .seg として同じものを書いていた。 */
+  /* 段の中でボタンの幅を揃えるのは data-suisou-layout="share"。
+     --suisou-share はその群のボタンの数で、どの群も同じ幅になる。 */
 
   /* フィルタ盤の現場実装。器とトグルは Suisou（button-group / plain / aria-pressed）で、
      ここにあるのは升目の伸ばし方と検索欄の中身だけ。 */

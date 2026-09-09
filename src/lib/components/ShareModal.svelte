@@ -163,10 +163,8 @@
       {:else if !deckId}
         <p data-suisou-text="sub s12">デッキを保存すると公開・共有できます。</p>
       {:else}
-        <!-- 手製スイッチをやめてネイティブ checkbox に（2026-08-21）。
-             Suisou はネイティブ部品を奪わない ―― accent-color が根で1回
-             書いてあるので、色は勝手にテーマへ追従する。塗りのトグルは
-             wixdex に残った最後の「塗る操作部品」だった。 -->
+        <!-- ネイティブの checkbox。Suisou はネイティブ部品を奪わない ――
+             accent-color が根で1回書いてあるので、色はテーマに追従する。 -->
         <label data-suisou-layout="row between" data-suisou-text="sub">
           このデッキを公開する
           <input
@@ -298,8 +296,7 @@
 </BaseModal>
 
 <style>
-  /* ★Tailwind を外すために現場へ移した間合い（2026-09-09）。
-     ★12px（Tailwind の mt-3）は Suisou の段（4/8/16/24）に無いので px で書く。 */
+  /* 12px は Suisou の段（4/8/16/24）に無いので px で書く。 */
 
   .sec {
     margin-block-start: 12px;
@@ -314,10 +311,10 @@
     margin-block-end: var(--suisou-space-2);
   }
   .sec-block {
-    padding-block-start: var(--suisou-space-3); /* Tailwind pt-4 = 16px */
+    padding-block-start: var(--suisou-space-3);
   }
   .row-gap {
-    margin-block-end: var(--suisou-space-3); /* Tailwind mb-4 = 16px */
+    margin-block-end: var(--suisou-space-3);
   }
   .fix {
     flex: none;
@@ -326,5 +323,5 @@
     user-select: all;
   }
 
-  /* 上の区切り。旧実装は item の色を線に使っていた */
+  /* 上の区切り */
 </style>

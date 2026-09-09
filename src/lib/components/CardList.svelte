@@ -10,6 +10,7 @@
   import type { Card } from '$lib/types';
   import { cardImageUrl } from '$lib/utils/cardImages';
   import { isMainDeckCard } from '$lib/utils/cardTypeUtils';
+  import { createCardGestures } from '$lib/utils/cardTouchGestures';
 
   interface Props {
     cards: Card[];
@@ -173,123 +174,15 @@
     };
   });
 
-  // ── touch gestures (swipe to add / hold over folder to stash) ──
-  interface TouchState {
-    startY: number;
-    startX: number;
-    startTime: number;
-    isVerticalSwipe: boolean;
-    isHolding: boolean;
-    isOverFolder: boolean;
-    holdTimer: ReturnType<typeof setTimeout> | null;
-  }
-
-  const touchStates = new Map<HTMLElement, TouchState>();
-
-  function getImg(node: HTMLElement): HTMLImageElement | null {
-    return node.querySelector('img');
-  }
-
-  function handleTouchStart(e: TouchEvent, _card: Card) {
-    const node = e.currentTarget as HTMLElement;
-    const touch = e.touches[0];
-    touchStates.set(node, {
-      startY: touch.clientY,
-      startX: touch.clientX,
-      startTime: Date.now(),
-      isVerticalSwipe: false,
-      isHolding: false,
-      isOverFolder: false,
-      holdTimer: null,
-    });
-    const img = getImg(node);
-    if (img) img.style.transition = 'none';
-  }
-
-  function handleTouchMove(e: TouchEvent, card: Card) {
-    const node = e.currentTarget as HTMLElement;
-    const state = touchStates.get(node);
-    if (!state || state.isHolding) return;
-
-    const currentY = e.touches[0].clientY;
-    const currentX = e.touches[0].clientX;
-    const deltaY = Math.abs(state.startY - currentY);
-    const deltaX = Math.abs(state.startX - currentX);
-
-    const touchedEl = document.elementFromPoint(currentX, currentY);
-    const folderBtn = document.getElementById('folder-button');
-    const isOverFolder = !!folderBtn && (touchedEl === folderBtn || folderBtn.contains(touchedEl));
-
-    if (isOverFolder && !state.holdTimer) {
-      state.isOverFolder = true;
-      state.holdTimer = setTimeout(() => {
-        if (state.isOverFolder) {
-          state.isHolding = true;
-          state.isVerticalSwipe = false;
-          if (candidateFilter) onRemoveFromCandidate(card);
-          else onAddToCandidate(card);
-          if (folderBtn) {
-            folderBtn.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-              folderBtn.style.transform = 'scale(1)';
-            }, 200);
-          }
-        }
-      }, 700);
-    }
-
-    if (!isOverFolder && state.holdTimer) {
-      clearTimeout(state.holdTimer);
-      state.holdTimer = null;
-      state.isOverFolder = false;
-    }
-
-    if (deltaY > deltaX && deltaY > 5 && !isOverFolder) {
-      e.preventDefault();
-      state.isVerticalSwipe = true;
-      if (state.holdTimer) {
-        clearTimeout(state.holdTimer);
-        state.holdTimer = null;
-        state.isOverFolder = false;
-      }
-      const img = getImg(node);
-      if (img) {
-        const translateY = Math.max(-10, Math.min(10, -(state.startY - currentY)));
-        img.style.transform = `translateY(${translateY}px)`;
-      }
-    }
-  }
-
-  function handleTouchEnd(e: TouchEvent, card: Card) {
-    const node = e.currentTarget as HTMLElement;
-    const state = touchStates.get(node);
-    if (!state) return;
-
-    if (state.holdTimer) {
-      clearTimeout(state.holdTimer);
-      state.holdTimer = null;
-    }
-
-    const img = getImg(node);
-    if (img) {
-      img.style.transition = 'transform 0.2s ease-out';
-      img.style.transform = 'translateY(0)';
-    }
-
-    if (state.isHolding) {
-      state.isHolding = false;
-      state.isOverFolder = false;
-      touchStates.delete(node);
-      return;
-    }
-
-    if (state.isVerticalSwipe) {
-      const deltaY = state.startY - e.changedTouches[0].clientY;
-      if (deltaY > 30) onAdd(card);
-      else if (deltaY < -30) onAddMultiple(card, 4);
-    }
-    touchStates.delete(node);
-  }
+  // ── touch gestures ────────────────────────────────────────
+  // 指の読み取りは cardTouchGestures が持つ。ここでは払い・押さえに
+  // 「デッキへ入れる / 候補へ入れる」という意味を与えるだけ。
+  const gestures = createCardGestures<Card>({
+    onSwipeUp: (card) => onAdd(card),
+    onSwipeDown: (card) => onAddMultiple(card, 4), // 下へ払うと同名の上限まで一気に
+    onHold: (card) => (candidateFilter ? onRemoveFromCandidate(card) : onAddToCandidate(card)),
+    folderId: 'folder-button',
+  });
 </script>
 
 {#snippet cardCell(card: Card, withButtons: boolean)}
@@ -299,9 +192,9 @@
     class:framed={withButtons}
     class:strip={!withButtons}
     data-suisou-layout={withButtons ? 'stack gap-0' : 'stack middle gap-0'}
-    ontouchstart={(e) => handleTouchStart(e, card)}
-    ontouchmove={(e) => handleTouchMove(e, card)}
-    ontouchend={(e) => handleTouchEnd(e, card)}
+    ontouchstart={(e) => gestures.start(e, card)}
+    ontouchmove={(e) => gestures.move(e, card)}
+    ontouchend={(e) => gestures.end(e, card)}
   >
     {#if withButtons}
       <div class="card-slot" data-suisou-layout="row">
@@ -421,7 +314,6 @@
 </div>
 
 <style>
-  /* ★Tailwind を外すために現場へ移した実寸・位置決め（2026-09-09）。 */
 
   .cell-box {
     height: 100%;
@@ -440,10 +332,7 @@
     aspect-ratio: 12 / 17;
   }
   /* ★子コンポーネントに渡した class には Svelte の scoped ハッシュが付かない。
-     Tailwind はグローバルなので `class="w-full object-contain"` を
-     そのまま子に渡せていたが、scoped CSS に移すと**当たらなくなる**
-     （2026-09-09 に実際に踏んだ。アイコンが素の大きさで出た）。
-     祖先だけを scoped にして、子側は :global で受ける。 */
+     子側のセレクタは祖先を scoped にして :global で受ける。 */
   .scroller :global(.card-img) {
     object-fit: contain;
   }
@@ -457,14 +346,14 @@
     height: 8rem;
   }
   .state.pad {
-    padding-inline: var(--suisou-space-3); /* Tailwind px-4 = 16px */
+    padding-inline: var(--suisou-space-3);
   }
 
   /* 巻物。広い画面は縦に積んで囲い、狭い画面は横に流す帯になる */
   .scroller {
     min-height: 0;
     max-width: 100%;
-    padding-block: 12px; /* Tailwind py-3 */
+    padding-block: 12px;
     margin-block-end: var(--suisou-space-1);
   }
   .scroller.grid-mode {
@@ -493,14 +382,8 @@
     height: 100%;
   }
 
-  /* ★親に data-suisou-layout が付いていると
-     :where([data-suisou-layout]) > * { flex: none } が効いて、
-     子の Tailwind flex-1 は**詳細度に関係なく**潰れる（レイヤ無し ＞ レイヤ付き）。
-     ここは属性ではなく現場の CSS で伸ばす。
-
-     ★この要素に data-suisou-layout を足して直すのは駄目。
-       [data-suisou-layout] { display: flex } もレイヤ無しなので、
-       **`hidden`（display: none）まで殺してしまう**。 */
+  /* ★親が data-suisou-layout を持つと :where([data-suisou-layout]) > * { flex: none }
+     が効くので、子は既定で伸びない。伸ばすのは現場の CSS の仕事。 */
   .scroller {
     flex: 1 1 0;
   }
