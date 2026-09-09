@@ -31,7 +31,16 @@
       rel="stylesheet"
     />
     <!-- Suisou（デザイン体系）。/v1/ は v1 系の最新。凍結したくなったら /v/<sha7>/ に切り替える。
-         app.css より先に読む ―― 同じ詳細度なら現場（app.css）が勝つ順序にする -->
+
+         ★読み込み順は勝敗に関係しない（2026-09-09 実測。以前ここには
+           「app.css より先に読むので同じ詳細度なら現場が勝つ」と書いてあったが**間違い**）。
+
+           Tailwind v4 のユーティリティは @layer utilities の中にあり、
+           Suisou はレイヤを使わない。CSS のカスケードは**詳細度より先にレイヤを見る**ので、
+           レイヤ無しの Suisou が Tailwind に必ず勝つ。順序でも詳細度でも覆らない。
+
+         ★Suisou を上書きしたいときは、レイヤの外＝コンポーネントの scoped style で書く。
+           Svelte が付ける .svelte-xxx でレイヤ無し同士の詳細度勝負になり、現場が勝つ。 -->
     <link rel="stylesheet" href="https://suisou.pages.dev/v1/suisou.css" />
     %sveltekit.head%
   </head>
