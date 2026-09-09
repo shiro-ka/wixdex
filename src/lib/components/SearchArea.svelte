@@ -184,7 +184,7 @@
 
 <div class="px-2 pb-4 md:pb-1 lg:w-96" data-suisou-layout="stack">
   <!-- ホバープレビュー -->
-  <div class="hidden lg:block w-full aspect-[3/4] mb-2" data-suisou-surface="panel">
+  <div class="hidden lg:block aspect-[3/4] mb-2" data-suisou-surface="panel">
     {#if hoveredCard}
       <div class="w-full h-full" data-suisou-layout="row middle">
         <img
@@ -226,11 +226,11 @@
   <!-- 検索欄 -->
   <div data-suisou-layout="stack">
     <!-- お気に入り/候補カード/カードタイプ/クラス/タグ -->
-    <div data-suisou-layout="row" class="w-full h-10 lg:h-8 mb-2">
+    <div data-suisou-layout="row stretch" class="h-10 lg:h-8 mb-2">
       {#if isLoggedIn}
         <button
           type="button"
-          class="cell h-full"
+          class="cell"
           data-suisou-button="plain neutral"
           aria-pressed={favoriteFilter}
           onclick={onFavoriteFilter}
@@ -243,7 +243,7 @@
       <button
         type="button"
         id="folder-button"
-        class="cell h-full md:hidden"
+        class="cell md:hidden"
         data-suisou-button="plain neutral"
         aria-pressed={candidateFilter}
         onclick={onCandidateFilter}
@@ -283,7 +283,7 @@
     </div>
 
     <!-- 色/Lv/LB -->
-    <div data-suisou-layout="row" class="w-full h-10 lg:h-8 mb-2">
+    <div data-suisou-layout="row stretch" class="h-10 lg:h-8 mb-2">
       <!-- 色検索 -->
       <div class="seg" style="--seg: 5" data-suisou-button-group="even">
         {#each [['白', 'c-white'], ['赤', 'c-red'], ['青', 'c-blue'], ['緑', 'c-green'], ['黒', 'c-black']] as [color, colorClass] (color)}
@@ -345,7 +345,7 @@
       <!-- LB検索 -->
       <button
         type="button"
-        class="cell w-10 h-full"
+        class="cell w-10"
         data-suisou-button="plain neutral"
         aria-pressed={lifeBurstFilter !== null}
         onclick={onLifeBurstFilter}
@@ -355,15 +355,15 @@
     </div>
 
     <!-- テキスト/クリア/その他ボタン -->
-    <div data-suisou-layout="row" class="w-full h-10 lg:h-8">
+    <div data-suisou-layout="row stretch" class="h-10 lg:h-8">
       <!-- 設定ボタン -->
       <!-- ポップアップをボタンの内側に置くと、オプションのクリックが外側ボタンへ
            バブリングして即閉じる & button の入れ子で不正HTML。relative な div で
            トグルボタンとポップアップを兄弟にして解消する。 -->
-      <div class="relative w-10 h-full">
+      <div class="relative w-10">
         <button
           type="button"
-          class="cell w-full h-full"
+          class="cell w-full"
           data-suisou-button="plain"
           onclick={() => {
             isSettingsOpen = !isSettingsOpen;
@@ -388,10 +388,10 @@
       <!-- 検索入力 -->
       <div class="search seg" style="--seg: 1" data-suisou-button-group>
         <!-- 同上: ポップアップを button の外(relative div の兄弟)に出す -->
-        <div class="relative w-12 h-full">
+        <div class="relative w-12">
           <button
             type="button"
-            class="cell w-full h-full"
+            class="cell w-full"
             data-suisou-button
             onclick={() => {
               isSearchSettingsOpen = !isSearchSettingsOpen;
@@ -419,7 +419,7 @@
       <!-- リセットボタン -->
       <button
         type="button"
-        class="cell w-10 h-full"
+        class="cell w-10"
         data-suisou-button="plain"
         onclick={handleReset}
       >
