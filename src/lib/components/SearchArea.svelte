@@ -182,9 +182,9 @@
   let tagActive = $derived(activeDropdown === 'tag');
 </script>
 
-<div class="px-2 pb-4 md:pb-1 lg:w-96" data-suisou-layout="stack">
+<div class="px-2 pb-4 md:pb-1 lg:w-96" data-suisou-layout="stack gap-3">
   <!-- ホバープレビュー -->
-  <div class="hidden lg:block aspect-[3/4] mb-2" data-suisou-surface="panel">
+  <div class="hidden lg:block aspect-[3/4]" data-suisou-surface="panel">
     {#if hoveredCard}
       <div class="w-full h-full" data-suisou-layout="row middle">
         <img
@@ -197,7 +197,7 @@
   </div>
 
   <!-- 拡張メニュー（lg以上） -->
-  <div class="ext-menu hidden lg:flex flex-col mb-2 min-h-0" data-suisou-surface="panel">
+  <div class="ext-menu hidden lg:flex flex-col min-h-0" data-suisou-surface="panel">
     <div data-suisou-layout="row between" class="mb-4">
       <h3 data-suisou-text="s16 w500">
         {#if panelTab === 'type'}カードタイプ検索
@@ -224,9 +224,9 @@
   </div>
 
   <!-- 検索欄 -->
-  <div data-suisou-layout="stack">
+  <div data-suisou-layout="stack gap-3">
     <!-- お気に入り/候補カード/カードタイプ/クラス/タグ -->
-    <div data-suisou-layout="row stretch" class="h-10 lg:h-8 mb-2">
+    <div data-suisou-layout="row stretch" class="h-10 lg:h-8">
       {#if isLoggedIn}
         <button
           type="button"
@@ -283,7 +283,7 @@
     </div>
 
     <!-- 色/Lv/LB -->
-    <div data-suisou-layout="row stretch" class="h-10 lg:h-8 mb-2">
+    <div data-suisou-layout="row stretch" class="h-10 lg:h-8">
       <!-- 色検索 -->
       <div class="seg" style="--seg: 5" data-suisou-button-group="even">
         {#each [['白', 'c-white'], ['赤', 'c-red'], ['青', 'c-blue'], ['緑', 'c-green'], ['黒', 'c-black']] as [color, colorClass] (color)}

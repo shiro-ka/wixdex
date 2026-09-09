@@ -114,9 +114,9 @@
   }
 </script>
 
-<div class="deck-side px-2 mb-2 md:mb-1" data-suisou-layout="stack grow">
+<div class="deck-side px-2 mb-2 md:mb-1" data-suisou-layout="stack grow gap-3">
   <!-- ルリグデッキ -->
-  <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
+  <div class="deck-panel h-fit" data-suisou-surface="panel tight">
     <div class="flex">
       <span data-suisou-text="s16 w500">Lrig Deck</span>
     </div>
@@ -146,7 +146,7 @@
   </div>
 
   <!-- メインデッキ -->
-  <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
+  <div class="deck-panel h-fit" data-suisou-surface="panel tight">
     <div data-suisou-layout="row between">
       <span data-suisou-text="s16 w500">Main Deck</span>
       <div class="burst" data-suisou-layout="row gap-1">
