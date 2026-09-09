@@ -114,7 +114,7 @@
   }
 </script>
 
-<div class="deck-side px-2 mb-2 md:mb-1" data-suisou-layout="stack grow gap-3">
+<div class="deck-side px-2 mb-2 md:mb-1" data-suisou-layout="stack md:share gap-3">
   <!-- ルリグデッキ -->
   <div class="deck-panel h-fit" data-suisou-surface="panel tight">
     <div class="flex">
@@ -181,11 +181,11 @@
   </div>
 
   <!-- 候補カード (Folder) - PC のみ表示 -->
-  <div class="folder hidden md:flex flex-col overflow-hidden" data-suisou-surface="panel tight">
+  <div data-suisou-show="md" data-suisou-layout="stack" class="folder overflow-hidden" data-suisou-surface="panel tight">
     <div class="flex mb-2">
       <span data-suisou-text="s16 w500">Folder</span>
     </div>
-    <div class="grid grid-cols-5 auto-rows-min gap-2 overflow-y-auto xl:grid-cols-6">
+    <div class="folder-grid overflow-y-auto" data-suisou-layout="cols gap-2">
       {#each candidateKeyed as { card, key } (key)}
         <div class="border rule rounded-lg" data-suisou-layout="stack">
           <div class="aspect-[12/17]" data-suisou-layout="row">
@@ -236,6 +236,20 @@
 </div>
 
 <style>
+  /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
+     Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
+     「2段で表せない振り方は現場のもの」という決定どおり。
+     ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
+  .folder-grid {
+    --suisou-cols: 5;
+    grid-auto-rows: min-content;
+  }
+  @media (min-width: 1280px) {
+    .folder-grid {
+      --suisou-cols: 6;
+    }
+  }
+
   /* ★親に data-suisou-layout が付いていると
      :where([data-suisou-layout]) > * { flex: none } が効いて、
      子の Tailwind flex-1 は**詳細度に関係なく**潰れる（レイヤ無し ＞ レイヤ付き）。
@@ -266,17 +280,9 @@
        重ねると比が合わない（実測 40:60 が 32:68 になった）。
        ショートハンドで基準ごと書く ―― grow が併せて置く min-width/min-height: 0 は
        別の宣言なので残る。 */
-  .deck-side {
-    flex: 0 1 auto;
-  }
-  @media (min-width: 768px) {
-    .deck-side {
-      flex: 1 1 0;
-    }
-  }
   @media (min-width: 1024px) {
     .deck-side {
-      flex: 2 1 0;
+      --suisou-share: 2;
     }
   }
 

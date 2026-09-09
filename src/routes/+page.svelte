@@ -339,7 +339,7 @@
       {rotateLandscape}
     />
 
-    <div class="card-side" data-suisou-layout="stack lg:row lg:stretch grow gap-0">
+    <div class="card-side" data-suisou-layout="stack lg:row lg:stretch share gap-0">
       <CardList
         cards={filteredCards}
         {loading}
@@ -557,16 +557,16 @@
        ショートハンドで基準ごと書く ―― grow が併せて置く min-width/min-height: 0 は
        別の宣言なので残る。 */
   .card-side {
-    flex: 3 1 0;
+    --suisou-share: 3;
   }
   @media (min-width: 768px) {
     .card-side {
-      flex: 1 1 0;
+      --suisou-share: 1;
     }
   }
   @media (min-width: 1024px) {
     .card-side {
-      flex: 3 1 0;
+      --suisou-share: 3;
     }
   }
 </style>

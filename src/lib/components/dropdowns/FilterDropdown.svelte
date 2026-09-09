@@ -39,7 +39,8 @@
   <!-- 上から降りるシート。Suisou に無い形なので位置と出入りは現場が持ち、
        面の色と罫はトークンで受ける。3回目の現場が出たら Suisou 昇格を検討 -->
   <div
-    class="sheet lg:hidden fixed top-0 left-0 w-dvw z-50 p-4 {isClosing
+    data-suisou-show="under-lg"
+    class="sheet fixed top-0 left-0 w-dvw z-50 p-4 {isClosing
       ? 'animate-slide-up'
       : 'animate-slide-down'}"
   >

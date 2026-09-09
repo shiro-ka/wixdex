@@ -138,7 +138,7 @@
         <!-- 操作バー: -1 / 枚数 / +1 / (+4) / 候補 / (お気に入り) -->
         <div data-suisou-layout="row gap-2 hold">
           {@render actionButton(IconMinus, () => onRemove(card), '1枚減らす', count === 0)}
-          <div class="tabular-nums" data-suisou-text="s20 w700" data-suisou-layout="row grow middle">
+          <div data-suisou-text="s20 w700 tabular" data-suisou-layout="row grow middle">
             {count}
           </div>
           {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', !canAdd)}

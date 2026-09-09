@@ -62,7 +62,7 @@
 
   <div data-suisou-layout="stack container gap-3" class="page">
     <div>
-      <h1 class="truncate" data-suisou-text="s24 md:s28 w700">{data.deck.name}</h1>
+      <h1 data-suisou-text="s24 md:s28 w700 one-line">{data.deck.name}</h1>
     </div>
     <a href="/@{data.atName}" data-suisou-link class="inline-block" data-suisou-text="sub">
       @{data.atName} のデッキ
@@ -90,7 +90,7 @@
         <h2 data-suisou-text="s16">
           Lrig Deck <span data-suisou-text="s14 sub">({lrigDeck.length})</span>
         </h2>
-        <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1.5">
+        <div class="lrig-grid" data-suisou-layout="cols">
           {#each lrigDeck as card, i (`lrig-${card.cardID}-${i}`)}
             <CardImage
               {card}
@@ -110,7 +110,7 @@
           </h2>
           <span data-suisou-text="sub">LB {lifeBurstCount}</span>
         </div>
-        <div class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5">
+        <div class="main-grid" data-suisou-layout="cols">
           {#each mainDeck as card, i (`main-${card.cardID}-${i}`)}
             <CardImage
               {card}
@@ -127,6 +127,46 @@
 </div>
 
 <style>
+  /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
+     Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
+     「2段で表せない振り方は現場のもの」という決定どおり。
+     ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
+  /* すきまは 6px。Suisou の段は 4 / 8 / 16 / 24 なので現場のもの。 */
+  .lrig-grid,
+  .main-grid {
+    gap: 6px;
+  }
+  .lrig-grid {
+    --suisou-cols: 4;
+  }
+  .main-grid {
+    --suisou-cols: 5;
+  }
+  @media (min-width: 640px) {
+    .lrig-grid {
+      --suisou-cols: 6;
+    }
+    .main-grid {
+      --suisou-cols: 8;
+    }
+  }
+  @media (min-width: 768px) {
+    .lrig-grid {
+      --suisou-cols: 8;
+    }
+    .main-grid {
+      --suisou-cols: 10;
+    }
+  }
+  @media (min-width: 1024px) {
+    .lrig-grid {
+      --suisou-cols: 10;
+    }
+    .main-grid {
+      --suisou-cols: 12;
+    }
+  }
+
   .page {
     --suisou-measure: 80rem;
     padding: var(--suisou-space-4) var(--suisou-space-3);

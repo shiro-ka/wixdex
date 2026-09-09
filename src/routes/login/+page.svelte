@@ -75,12 +75,13 @@
 
 <main class="p-4" data-suisou-layout="row screen middle">
   <div
-    class="grid w-full max-w-4xl min-h-[45rem] overflow-hidden lg:grid-cols-2"
+    class="split w-full max-w-4xl min-h-[45rem] overflow-hidden"
+    data-suisou-layout="cols"
     data-suisou-surface="panel bleed"
   >
     <!-- 左: ブランディング（PCのみ。zincダーク、オレンジは差し色のみ） -->
     <div
-      class="hidden flex-col justify-between border-r p-10 lg:flex aside"
+      data-suisou-rule="end" data-suisou-show="lg" data-suisou-layout="stack between" class="p-10 aside"
     >
       <div>
         <h1 class="tracking-tight" data-suisou-text="s28 w700">
@@ -103,7 +104,7 @@
 
     <!-- 右: 認証フォーム -->
     <div data-suisou-layout="stack gap-3" class="form-col">
-      <h1 class="lg:hidden" data-suisou-text="s20 w700 center">wixdex</h1>
+      <h1 data-suisou-show="under-lg" data-suisou-text="s20 w700 center">wixdex</h1>
 
       <!-- タブ切替（再設定モードでは隠す） -->
       {#if mode !== 'forgot'}
@@ -352,6 +353,19 @@
 </main>
 
 <style>
+  /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
+     Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
+     「2段で表せない振り方は現場のもの」という決定どおり。
+     ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
+  .split {
+    --suisou-cols: 1;
+  }
+  @media (min-width: 1024px) {
+    .split {
+      --suisou-cols: 2;
+    }
+  }
+
   /* 「または」の左右に伸びる線。旧実装は panel の色を線に使っていた */
   .hr {
     background: var(--suisou-line-weak);
