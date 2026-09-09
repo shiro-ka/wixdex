@@ -136,7 +136,7 @@
     {#if user}
       <div data-suisou-media class="static-row">
         <span data-suisou-media-icon><IconUser size={20} /></span>
-        <span class="one-line">{user.displayName}</span>
+        <span data-suisou-text="one-line">{user.displayName}</span>
       </div>
       {#if myAtName}
         <a href="/@{myAtName}" onclick={onClose} data-suisou-button="block">マイページ</a>
@@ -214,12 +214,6 @@
     color: var(--suisou-text-disabled);
   }
 
-  .one-line {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
 
   .login {
     width: 100%;

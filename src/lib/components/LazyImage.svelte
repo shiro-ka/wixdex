@@ -71,9 +71,9 @@
   {src}
   {alt}
   decoding="async"
-  class="{className} {fade ? 'transition-opacity duration-300' : ''} {isLoaded
-    ? 'opacity-100'
-    : 'opacity-0'}"
+  class="{className} lazy"
+  class:fade
+  class:shown={isLoaded}
   onload={(e) => {
     isLoaded = true;
     onLoadCallback?.(e.currentTarget as HTMLImageElement);
@@ -93,3 +93,16 @@
       }
     : undefined}
 />
+
+<style>
+  /* 読み込みが終わるまで隠す。透ける度合いは class={式} で切り替える。 */
+  .lazy {
+    opacity: 0;
+  }
+  .lazy.shown {
+    opacity: 1;
+  }
+  .lazy.fade {
+    transition: opacity 300ms var(--suisou-ease);
+  }
+</style>

@@ -1,15 +1,17 @@
 #!/usr/bin/env node
-/* ブリッジの取りこぼしを検査する。
+/* 生の色クラスが混ざっていないか検査する。
  *
- * app.css の @theme は Tailwind の色名を Suisou のトークンに畳んでいるが、
- * **対応表に無い色は黙って素通りする** ―― Tailwind の生の色がそのまま出て、
- * しかも見た目は「それっぽい」ので気づけない。実際に2回やられている:
+ * ★2026-09-08 に役目が変わった。もとは「app.css の @theme 対応表に無い色が
+ *   黙って素通りする」のを捕まえる番人だったが、**対応表ごと撤去した**ので、
+ *   いまは「Tailwind の生の色クラスを1つでも書いたら落ちる」になっている。
+ *   ★コードは変えていない ―― bridged が空になれば全部が違反になる作りだった。
  *
+ * 素通りが実害になった実例（対応表があった頃）:
  *   2026-08-21  neutral-700   モーダルの罫が Suisou を通らず、枠線が出ていないように見えた
  *   2026-08-21  white (45箇所) 文字が純白のままテーマに追従していなかった
  *
- * 対応表に足すのを忘れても CI が落ちるようにする。
- * 素通りさせたい色（ドメイン色など）は ALLOW に理由付きで書く。
+ * 色はすべて Suisou 側（data-suisou-text / data-suisou-* / var(--suisou-*)）から取る。
+ * ドメインの色（カードの色など）は :root の --card-* を直接使い、ALLOW に理由を書く。
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
@@ -59,9 +61,9 @@ for (const [tok, files] of [...found].sort()) {
   for (const f of files) console.error(`      ${f}`);
 }
 console.error(`
-直し方は3つのどれか:
-  1. src/app.css の @theme に --color-${[...found.keys()][0]}: var(--suisou-…) を足す
-  2. テンプレート側を data-suisou-* の部品に変える
-  3. 現場が持つべき色なら :root に --… として置き、このファイルの ALLOW に理由を書く
+直し方:
+  1. 文字なら data-suisou-text="sub|accent|success|warning|error"
+  2. 面・罫なら data-suisou-surface / scoped style で var(--suisou-*) を参照する
+  3. ドメインの色なら :root に --… として置き、このファイルの ALLOW に理由を書く
 `);
 process.exit(1);

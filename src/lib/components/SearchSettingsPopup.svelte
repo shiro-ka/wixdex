@@ -45,46 +45,30 @@
 
 {#if shouldRender}
   <button
-    class="fixed inset-0 z-30 transition-opacity duration-200 cursor-default {isClosing
-      ? 'opacity-0'
-      : 'opacity-100'}"
+    class="veil"
+    class:fade={isClosing}
     onclick={handleClose}
     aria-label="閉じる"
   ></button>
   <div
     data-suisou-surface="overlay"
-    class="popup absolute bottom-full left-0 mb-2 w-64 z-40 transition-all duration-200 {isClosing
-      ? 'opacity-0 scale-95'
-      : 'opacity-100 scale-100'}"
+    class="popup anim"
+    class:fade={isClosing}
   >
     <div>
-      <h3 data-suisou-text="s14 w700" class="mb-2">テキスト検索設定</h3>
-      <div class="space-y-2">
-        <button
-          type="button"
-          class="group flex items-center space-x-2 cursor-pointer w-full"
-          aria-pressed={searchCardName}
-          onclick={onToggleSearchCardName}
-        >
+      <h3 data-suisou-text="s14 w700">テキスト検索設定</h3>
+      <div data-suisou-layout="stack gap-2">
+        <button type="button" class="toggle" aria-pressed={searchCardName} onclick={onToggleSearchCardName} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={searchCardName}
-            class="w-5 h-5 flex-shrink-0 transition-colors {searchCardName
-              ? 'text-orange-400'
-              : 'text-gray-400 group-hover:text-gray-300'}"
+            data-suisou-icon
           />
           <span>カード名</span>
         </button>
-        <button
-          type="button"
-          class="group flex items-center space-x-2 cursor-pointer w-full"
-          aria-pressed={searchCardText}
-          onclick={onToggleSearchCardText}
-        >
+        <button type="button" class="toggle" aria-pressed={searchCardText} onclick={onToggleSearchCardText} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={searchCardText}
-            class="w-5 h-5 flex-shrink-0 transition-colors {searchCardText
-              ? 'text-orange-400'
-              : 'text-gray-400 group-hover:text-gray-300'}"
+            data-suisou-icon
           />
           <span>テキスト</span>
         </button>
@@ -94,10 +78,55 @@
 {/if}
 
 <style>
+  /* 面・罫・角丸は surface="overlay" が持つ。ここは「どこに出るか」だけ。 */
+
+  /* 膜。押すと閉じる透明な板。色は持たない（下の画面をそのまま見せる） */
+  .veil {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    cursor: default;
+    transition: opacity var(--suisou-motion) var(--suisou-ease);
+  }
+  .fade {
+    opacity: 0;
+  }
+
+  /* 出入り。scale は 0.95 ―― 動きは Suisou のトークンから取る */
+  .anim {
+    transition:
+      opacity var(--suisou-motion) var(--suisou-ease),
+      transform var(--suisou-motion) var(--suisou-ease);
+  }
+  .anim.fade {
+    transform: scale(0.95);
+  }
+
+  .toggle {
+    width: 100%;
+    cursor: pointer;
+  }
   /* 位置と幅は現場のもの。面・罫・角丸は surface="overlay" が持つ。
      dialog ではないので position を上書きして錨（ボタンの上）に留める */
   .popup {
     position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 16rem;
+    z-index: 40;
     margin: 0 0 var(--suisou-space-2) 0;
+  }
+
+  /* ★色は aria-pressed から引く。三項式でもう一度状態を書かないこと ――
+     「押されているか」が属性と式の2箇所に散る。 */
+  .toggle :global(svg) {
+    color: var(--suisou-text-sub);
+    transition: color var(--suisou-motion-fast) var(--suisou-ease);
+  }
+  .toggle:hover :global(svg) {
+    color: var(--suisou-text-main);
+  }
+  .toggle[aria-pressed="true"] :global(svg) {
+    color: var(--suisou-accent);
   }
 </style>

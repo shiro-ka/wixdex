@@ -1,9 +1,14 @@
 <script lang="ts">
-  let { filled = false, class: className = 'w-5 h-5' }: { filled?: boolean; class?: string } =
-    $props();
+  /* 寸法は呼ぶ側の data-suisou-icon が持つ。class の既定値を置かないこと。 */
+  let { filled = false, class: className = '',
+    ...restProps
+  }: { filled?: boolean; class?: string;
+    [key: string]: unknown;
+  } = $props();
 </script>
 
 <svg
+  {...restProps}
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 24 24"
   width="24"

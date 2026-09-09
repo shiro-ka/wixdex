@@ -53,23 +53,23 @@
   <!-- twitter:card / og:image は app.html の共通デフォルト（summary_large_image）を使う -->
 </svelte:head>
 
-<div class="min-h-dvh">
+<div class="screen">
   <PageHeader>
     {#snippet right()}
       <a href="/" data-suisou-button="outline"> 自分も作る </a>
     {/snippet}
   </PageHeader>
 
-  <div class="max-w-screen-xl mx-auto px-4 py-6 sm:px-6 lg:py-10">
-    <div class="mb-1">
-      <h1 class="text-2xl font-bold truncate sm:text-3xl">{data.deck.name}</h1>
+  <div data-suisou-layout="stack container gap-3" class="page">
+    <div>
+      <h1 data-suisou-text="s24 md:s28 w700 one-line">{data.deck.name}</h1>
     </div>
-    <a href="/@{data.atName}" data-suisou-link class="mb-6 inline-block text-zinc-400">
+    <a href="/@{data.atName}" data-suisou-link class="back" data-suisou-text="sub">
       @{data.atName} のデッキ
     </a>
 
     {#if renderedMemo}
-      <div data-suisou-surface="panel" data-suisou-prose="tight" class="mb-6">
+      <div data-suisou-surface="panel" data-suisou-prose="tight">
         <!-- renderedMemo は DOMPurify.sanitize 済み -->
         <!-- eslint-disable-next-line svelte/no-at-html-tags -->
         {@html renderedMemo}
@@ -77,7 +77,7 @@
     {/if}
 
     {#if loading}
-      <div class="flex justify-center py-16">
+      <div class="state" data-suisou-layout="row middle">
         <div
           data-suisou-spinner
           style="--suisou-spinner: 2.5rem"
@@ -86,17 +86,17 @@
         ></div>
       </div>
     {:else}
-      <section data-suisou-surface="panel" class="mb-4">
-        <h2 data-suisou-text="s16" class="mb-2">
-          Lrig Deck <span data-suisou-text="s14" class="text-gray-400">({lrigDeck.length})</span>
+      <section data-suisou-surface="panel" data-suisou-layout="stack gap-2">
+        <h2 data-suisou-text="s16">
+          Lrig Deck <span data-suisou-text="s14 sub">({lrigDeck.length})</span>
         </h2>
-        <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1.5">
+        <div class="lrig-grid" data-suisou-layout="cols">
           {#each lrigDeck as card, i (`lrig-${card.cardID}-${i}`)}
             <CardImage
               {card}
               src={cardImageUrl(card.image)}
               alt={card.name}
-              class="w-full object-contain"
+              class="card-img"
               showLifeBurst
             />
           {/each}
@@ -104,19 +104,19 @@
       </section>
 
       <section data-suisou-surface="panel">
-        <div data-suisou-layout="row between" class="mb-2">
+        <div data-suisou-layout="row between">
           <h2 data-suisou-text="s16">
-            Main Deck <span data-suisou-text="s14" class="text-gray-400">({mainDeck.length})</span>
+            Main Deck <span data-suisou-text="s14 sub">({mainDeck.length})</span>
           </h2>
-          <span class="text-gray-400">LB {lifeBurstCount}</span>
+          <span data-suisou-text="sub">LB {lifeBurstCount}</span>
         </div>
-        <div class="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-1.5">
+        <div class="main-grid" data-suisou-layout="cols">
           {#each mainDeck as card, i (`main-${card.cardID}-${i}`)}
             <CardImage
               {card}
               src={cardImageUrl(card.image)}
               alt={card.name}
-              class="w-full object-contain"
+              class="card-img"
               showLifeBurst
             />
           {/each}
@@ -125,3 +125,66 @@
     {/if}
   </div>
 </div>
+
+<style>
+
+  .screen {
+    min-height: 100dvh;
+  }
+  .back {
+    display: inline-block;
+  }
+  .state {
+    padding-block: 4rem;
+  }
+  /* ★子コンポーネント（CardImage）に渡す class は scoped にならないので :global で受ける */
+  .page :global(.card-img) {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
+     Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
+     「2段で表せない振り方は現場のもの」という決定どおり。
+     ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
+  /* すきまは 6px。Suisou の段は 4 / 8 / 16 / 24 なので現場のもの。 */
+  .lrig-grid,
+  .main-grid {
+    gap: 6px;
+  }
+  .lrig-grid {
+    --suisou-cols: 4;
+  }
+  .main-grid {
+    --suisou-cols: 5;
+  }
+  @media (min-width: 640px) {
+    .lrig-grid {
+      --suisou-cols: 6;
+    }
+    .main-grid {
+      --suisou-cols: 8;
+    }
+  }
+  @media (min-width: 768px) {
+    .lrig-grid {
+      --suisou-cols: 8;
+    }
+    .main-grid {
+      --suisou-cols: 10;
+    }
+  }
+  @media (min-width: 1024px) {
+    .lrig-grid {
+      --suisou-cols: 10;
+    }
+    .main-grid {
+      --suisou-cols: 12;
+    }
+  }
+
+  .page {
+    --suisou-measure: 80rem;
+    padding: var(--suisou-space-4) var(--suisou-space-3);
+  }
+</style>

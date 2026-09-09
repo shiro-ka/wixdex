@@ -1,8 +1,14 @@
 <script lang="ts">
-  let { class: className = 'w-4 h-4' }: { class?: string } = $props();
+  /* 寸法は呼ぶ側の data-suisou-icon が持つ。class の既定値を置かないこと。 */
+  let { class: className = '',
+    ...restProps
+  }: { class?: string;
+    [key: string]: unknown;
+  } = $props();
 </script>
 
 <svg
+  {...restProps}
   viewBox="0 0 24 24"
   fill="none"
   stroke="currentColor"
