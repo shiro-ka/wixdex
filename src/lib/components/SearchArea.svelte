@@ -182,14 +182,14 @@
   let tagActive = $derived(activeDropdown === 'tag');
 </script>
 
-<div class="px-2 pb-4 md:pb-1 lg:w-96" data-suisou-layout="stack gap-3">
+<div class="pane" data-suisou-layout="stack gap-3">
   <!-- ホバープレビュー -->
-  <div data-suisou-show="lg" class="aspect-[3/4]" data-suisou-surface="panel">
+  <div data-suisou-show="lg" class="preview" data-suisou-surface="panel">
     {#if hoveredCard}
-      <div class="w-full h-full" data-suisou-layout="row middle">
+      <div class="fill" data-suisou-layout="row middle">
         <img
           src={cardImageUrl(hoveredCard.image)}
-          class="max-w-full max-h-full object-contain"
+          class="preview-img"
           alt={hoveredCard.name}
         />
       </div>
@@ -198,7 +198,7 @@
 
   <!-- 拡張メニュー（lg以上） -->
   <div data-suisou-show="lg" data-suisou-layout="stack" class="ext-menu" data-suisou-surface="panel">
-    <div data-suisou-layout="row between" class="mb-4">
+    <div data-suisou-layout="row between" class="menu-head">
       <h3 data-suisou-text="s16 w500">
         {#if panelTab === 'type'}カードタイプ検索
         {:else if panelTab === 'lrigClass'}ルリグタイプ/クラス検索
@@ -226,7 +226,7 @@
   <!-- 検索欄 -->
   <div data-suisou-layout="stack gap-3">
     <!-- お気に入り/候補カード/カードタイプ/クラス/タグ -->
-    <div data-suisou-layout="row stretch" class="h-10 lg:h-8">
+    <div data-suisou-layout="row stretch" class="bar">
       {#if isLoggedIn}
         <button
           type="button"
@@ -283,7 +283,7 @@
     </div>
 
     <!-- 色/Lv/LB -->
-    <div data-suisou-layout="row stretch" class="h-10 lg:h-8">
+    <div data-suisou-layout="row stretch" class="bar">
       <!-- 色検索 -->
       <div data-suisou-layout="share" style="--suisou-share: 5" data-suisou-button-group="even">
         {#each [['白', 'c-white'], ['赤', 'c-red'], ['青', 'c-blue'], ['緑', 'c-green'], ['黒', 'c-black']] as [color, colorClass] (color)}
@@ -345,7 +345,7 @@
       <!-- LB検索 -->
       <button
         type="button"
-        class="cell w-10"
+        class="cell sq"
         data-suisou-button="plain neutral"
         aria-pressed={lifeBurstFilter !== null}
         onclick={onLifeBurstFilter}
@@ -355,15 +355,15 @@
     </div>
 
     <!-- テキスト/クリア/その他ボタン -->
-    <div data-suisou-layout="row stretch" class="h-10 lg:h-8">
+    <div data-suisou-layout="row stretch" class="bar">
       <!-- 設定ボタン -->
       <!-- ポップアップをボタンの内側に置くと、オプションのクリックが外側ボタンへ
            バブリングして即閉じる & button の入れ子で不正HTML。relative な div で
            トグルボタンとポップアップを兄弟にして解消する。 -->
-      <div class="relative w-10">
+      <div class="anchor sq">
         <button
           type="button"
-          class="cell w-full"
+          class="cell fill-w"
           data-suisou-button="plain"
           onclick={() => {
             isSettingsOpen = !isSettingsOpen;
@@ -388,10 +388,10 @@
       <!-- 検索入力 -->
       <div class="search" data-suisou-layout="share" data-suisou-button-group>
         <!-- 同上: ポップアップを button の外(relative div の兄弟)に出す -->
-        <div class="relative w-12">
+        <div class="anchor sq-lg">
           <button
             type="button"
-            class="cell w-full"
+            class="cell fill-w"
             data-suisou-button
             onclick={() => {
               isSearchSettingsOpen = !isSearchSettingsOpen;
@@ -419,7 +419,7 @@
       <!-- リセットボタン -->
       <button
         type="button"
-        class="cell w-10"
+        class="cell sq"
         data-suisou-button="plain"
         onclick={handleReset}
       >
@@ -430,6 +430,65 @@
 </div>
 
 <style>
+  /* ★Tailwind を外すために現場へ移した実寸・位置決め（2026-09-09）。 */
+
+  .pane {
+    padding-inline: var(--suisou-space-2);
+    padding-block-end: var(--suisou-space-3); /* Tailwind pb-4 = 16px */
+  }
+  @media (min-width: 768px) {
+    .pane {
+      padding-block-end: var(--suisou-space-1);
+    }
+  }
+  @media (min-width: 1024px) {
+    .pane {
+      width: 24rem;
+    }
+  }
+
+  /* 見ているカードの拡大。カードの比ではなく 3:4 の窓（縦を切らずに収める） */
+  .preview {
+    aspect-ratio: 3 / 4;
+  }
+  .fill {
+    width: 100%;
+    height: 100%;
+  }
+  .preview-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .menu-head {
+    margin-block-end: var(--suisou-space-3); /* Tailwind mb-4 = 16px */
+  }
+
+  /* 絞り込みの段。指で押せる高さ。広い画面は詰める */
+  .bar {
+    height: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .bar {
+      height: 2rem;
+    }
+  }
+
+  /* 正方形の枠（アイコン1つぶん）。ポップアップの位置決めの起点にもなる */
+  .sq {
+    width: 2.5rem;
+  }
+  .sq-lg {
+    width: 3rem;
+  }
+  .anchor {
+    position: relative;
+  }
+  .fill-w {
+    width: 100%;
+  }
+
   /* ★親に data-suisou-layout が付いていると
      :where([data-suisou-layout]) > * { flex: none } が効いて、
      子の Tailwind flex-1 は**詳細度に関係なく**潰れる（レイヤ無し ＞ レイヤ付き）。
