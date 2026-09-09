@@ -97,30 +97,30 @@
 {/snippet}
 
 {#if card}
-  <div class="fixed inset-0 z-50 p-3" data-suisou-layout="row middle">
+  <div class="root" data-suisou-layout="row middle">
     <!-- 背景クリックで閉じる -->
     <button
-      class="absolute inset-0 scrim"
+      class="scrim"
       onclick={onClose}
       aria-label="閉じる"
       transition:fade={{ duration: 120 }}
     ></button>
 
     <!-- モーダル本体（背景フェード＋軽くスケール。ツールなので控えめ＆やや速め） -->
-    <div class="body relative z-10 w-full max-w-4xl h-[68vh] overflow-hidden" data-suisou-surface="overlay bleed" transition:scale={{ start: 0.97, opacity: 0, duration: 200 }} data-suisou-layout="stack">
+    <div class="body" data-suisou-surface="overlay bleed" transition:scale={{ start: 0.97, opacity: 0, duration: 200 }} data-suisou-layout="stack">
       <!-- 右上の閉じるボタン -->
       <button class="close" data-suisou-button="icon" onclick={onClose} aria-label="閉じる">
         <IconX />
       </button>
 
       <!-- タブ切替（モバイルのみ。PCは左右同時表示なので不要） -->
-      <div class="xl:hidden flex shrink-0 justify-center gap-1.5 p-3 pb-0">
+      <div class="tabbar" data-suisou-layout="row middle">
         {@render tabButton('card', 'カード')}
         {@render tabButton('info', '情報')}
       </div>
 
       <!-- 左: カード画像 + 操作バー。モバイルでも常に描画し、全体の高さ基準になる -->
-      <div class="p-3 xl:flex-none xl:w-1/2" data-suisou-layout="stack grow">
+      <div class="card-pane" data-suisou-layout="stack grow">
         <!-- 画像欄: 余ったスペースを埋め、画像はその枠内に収める(object-contain) -->
         <div data-suisou-layout="row grow middle">
           <!-- crossorigin は付けない（表示専用。canvas出力は別途 loadImage が自前でCORS取得）。
@@ -131,7 +131,7 @@
             src={cardImageUrl(card.image)}
             alt={card.name}
             decoding="async"
-            class="max-w-full max-h-full object-contain rounded-lg"
+            class="card-img"
           />
         </div>
 
@@ -172,18 +172,18 @@
 
       <!-- 右: 情報パネル。モバイルはカード側に重なるオーバーレイ(タブバー h-12 の下)、PCは右カラム -->
       <div
-        class="{tab === 'card'
-          ? 'hidden xl:flex'
-          : 'flex'} info flex-col absolute inset-x-0 bottom-0 top-12 z-10 xl:relative xl:inset-auto xl:z-auto xl:flex-none xl:w-1/2"
+        class="info"
+        class:card-tab={tab === 'card'}
+        data-suisou-layout="stack"
       >
-        <div class="flex-1 min-h-0 overflow-y-auto xl:absolute xl:inset-0 px-4 pb-4 pt-3 xl:pt-4">
-          <h2 data-suisou-text="s20 w700" class="pr-8">{card.name}</h2>
+        <div class="info-scroll">
+          <h2 data-suisou-text="s20 w700" class="title">{card.name}</h2>
           {#if card.subName?.length}
             <p data-suisou-text="sub s12">{card.subName.join(' / ')}</p>
           {/if}
 
           <!-- メタ情報 -->
-          <div class="flex flex-wrap gap-1.5 mt-2">
+          <div class="chips" data-suisou-layout="row wrap">
             {#each card.cardType ?? [] as t (t)}{@render chip(t)}{/each}
             {#if card.level !== null}{@render chip(`Lv${card.level}`)}{/if}
             {#each card.color ?? [] as c (c)}{@render chip(c)}{/each}
@@ -200,12 +200,12 @@
 
           <!-- カードテキスト -->
           {#if card.text?.length}
-            <div class="mt-3" data-suisou-layout="stack gap-2">
+            <div class="sec" data-suisou-layout="stack gap-2">
               {#each card.text as t, i (i)}
-                <div class="leading-relaxed">
+                <div class="doc">
                   {#if t.label}
-                    <span data-suisou-tag class="mr-1 align-middle">{t.label}</span>
-                  {/if}<span class="whitespace-pre-line">{t.body}</span>
+                    <span data-suisou-tag class="chip">{t.label}</span>
+                  {/if}<span class="pre">{t.body}</span>
                 </div>
               {/each}
             </div>
@@ -213,16 +213,16 @@
 
           <!-- フレーバーテキスト -->
           {#if card.flavorText}
-            <p class="mt-3 italic whitespace-pre-line" data-suisou-text="sub s12">{card.flavorText}</p>
+            <p class="flavor" data-suisou-text="sub s12">{card.flavorText}</p>
           {/if}
 
           <!-- FAQ -->
           {#if card.faq?.length}
-            <div class="mt-4">
-              <h3 data-suisou-text="s14 w700 accent" class="mb-2">FAQ</h3>
+            <div class="sec-lg">
+              <h3 data-suisou-text="s14 w700 accent" class="sec-head">FAQ</h3>
               <div data-suisou-layout="stack gap-2">
                 {#each card.faq as f, i (i)}
-                  <div class="leading-relaxed" data-suisou-text="s12">
+                  <div class="doc" data-suisou-text="s12">
                     {#if f.q}<p>Q. {f.q}</p>{/if}
                     <p data-suisou-text="sub">A. {f.a}</p>
                   </div>
@@ -237,6 +237,103 @@
 {/if}
 
 <style>
+  /* ★ここから下は Tailwind を外すために現場へ移した実寸・位置決め（2026-09-09）。
+     Suisou は位置を決めず、実寸も持たない ―― どちらも掟どおり現場のもの。
+     段が xl(1280) のものは Suisou の md/lg 2段で表せないので、ここに残る。 */
+
+  .root {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    padding: 12px; /* Tailwind p-3。Suisou の段（4/8/16/24）に無い値 */
+  }
+
+  .body {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 56rem;
+    height: 68vh;
+    overflow: hidden;
+  }
+
+  /* タブの帯。すきま 6px は Suisou の段（4/8/16/24）に無いので現場の値 */
+  .tabbar {
+    flex: none;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 12px 0; /* Tailwind p-3 pb-0 */
+  }
+  /* PC は左右同時表示なのでタブは要らない。段が xl なので現場で持つ */
+  @media (min-width: 1280px) {
+    .tabbar {
+      display: none;
+    }
+  }
+
+  .card-pane {
+    padding: 12px; /* Tailwind p-3 */
+  }
+  @media (min-width: 1280px) {
+    .card-pane {
+      flex: none;
+      width: 50%;
+    }
+  }
+  .card-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: var(--suisou-radius);
+  }
+
+  .title {
+    padding-inline-end: 2rem; /* Tailwind pr-8。閉じるボタンを避ける幅 */
+  }
+  .chips {
+    gap: 6px;
+    margin-block-start: var(--suisou-space-2);
+  }
+  .chip {
+    margin-inline-end: var(--suisou-space-1);
+    vertical-align: middle;
+  }
+  .pre {
+    white-space: pre-line;
+  }
+  .doc {
+    line-height: 1.625;
+  }
+  .sec {
+    margin-block-start: 12px; /* Tailwind mt-3 */
+  }
+  .sec-lg {
+    margin-block-start: var(--suisou-space-3); /* Tailwind mt-4 = 16px */
+  }
+  .sec-head {
+    margin-block-end: var(--suisou-space-2);
+  }
+  .flavor {
+    margin-block-start: 12px; /* Tailwind mt-3 */
+    font-style: italic;
+    white-space: pre-line;
+  }
+
+  /* 情報パネルの巻物。モバイルは重なりの中で伸びる、PC は絶対配置で面を埋める */
+  .info-scroll {
+    flex: 1 1 0;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 12px var(--suisou-space-3) var(--suisou-space-3); /* pt-3 px-4 pb-4 */
+  }
+  @media (min-width: 1280px) {
+    .info-scroll {
+      position: absolute;
+      inset: 0;
+      padding-block-start: var(--suisou-space-3); /* xl:pt-4 = 16px */
+    }
+  }
+
   /* ★1280px で横並びに変わる。Suisou の段は md(768) / lg(1024) の2つだけなので、
      xl は現場のもの（「2段で表せない振り方は現場のもの」＝2026-08-22 の決定どおり）。
 
@@ -286,10 +383,29 @@
      surface="overlay" の中なので、値は overlay 用のものが継承で降りてくる。 */
   .info {
     background: var(--suisou-overlay);
+    /* モバイル: タブバー（h-12 = 3rem）の下に、カード画像へ重ねる */
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    top: 3rem;
+    z-index: 10;
+  }
+  /* カードのタブを見ているとき、狭い画面では情報パネルを出さない。
+     ★data-suisou-show は md/lg の2段しか無く、ここは xl なので現場で持つ。 */
+  .info.card-tab {
+    display: none;
   }
   @media (min-width: 1280px) {
     .info {
-      border-left: 1px solid var(--suisou-line-weak);
+      position: relative;
+      inset: auto;
+      z-index: auto;
+      flex: none;
+      width: 50%;
+      border-inline-start: 1px solid var(--suisou-line-weak);
+    }
+    .info.card-tab {
+      display: flex;
     }
   }
 </style>

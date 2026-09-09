@@ -295,18 +295,20 @@
 {#snippet cardCell(card: Card, withButtons: boolean)}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
-    class="{withButtons ? 'border rule rounded-lg' : 'w-16'} h-full"
+    class="cell-box"
+    class:framed={withButtons}
+    class:strip={!withButtons}
     data-suisou-layout={withButtons ? 'stack gap-0' : 'stack middle gap-0'}
     ontouchstart={(e) => handleTouchStart(e, card)}
     ontouchmove={(e) => handleTouchMove(e, card)}
     ontouchend={(e) => handleTouchEnd(e, card)}
   >
     {#if withButtons}
-      <div class="aspect-[12/17]" data-suisou-layout="row">
+      <div class="card-slot" data-suisou-layout="row">
         <CardImage
           {card}
           src={cardImageUrl(card.image)}
-          class="object-contain"
+          class="card-img"
           alt={card.name}
           {showLifeBurst}
           {showCandidateIcon}
@@ -317,7 +319,7 @@
           onclick={() => onCardClick(card)}
         />
       </div>
-      <div class="h-10" data-suisou-layout="row middle stretch gap-0">
+      <div class="cell-bar" data-suisou-layout="row middle stretch gap-0">
         <button class="cell" data-suisou-button onclick={() => onAdd(card)} title="デッキに1枚追加">
           <IconPlus />
         </button>
@@ -347,7 +349,7 @@
       <CardImage
         {card}
         src={cardImageUrl(card.image)}
-        class="object-contain"
+        class="card-img"
         alt={card.name}
         {showLifeBurst}
         {showCandidateIcon}
@@ -363,13 +365,13 @@
 
 <div
   bind:this={scrollEl}
-  class="scroller min-h-0 max-w-full py-3 mb-1 {isMd
-    ? 'rounded-xl border rule overflow-y-auto overflow-x-hidden'
-    : 'overflow-x-auto overflow-y-hidden'}"
+  class="scroller"
+  class:grid-mode={isMd}
+  class:strip-mode={!isMd}
   style="touch-action: {isMd ? 'pan-y' : 'pan-x'}"
 >
   {#if loading}
-    <div class="w-full h-32" data-suisou-layout="row middle">
+    <div class="state" data-suisou-layout="row middle">
       <div
         data-suisou-spinner
         style="--suisou-spinner: 2.5rem"
@@ -378,19 +380,19 @@
       ></div>
     </div>
   {:else if loadError}
-    <div class="w-full h-32 px-4" data-suisou-text="error center" data-suisou-layout="row middle">
+    <div class="state pad" data-suisou-text="error center" data-suisou-layout="row middle">
       {loadError}
     </div>
   {:else if isMd}
     <!-- Desktop: virtualized 3-column grid -->
-    <div class="relative" style="height: {$gridV.getTotalSize()}px">
+    <div class="virt" style="height: {$gridV.getTotalSize()}px">
       {#each $gridV.getVirtualItems() as row (cards[row.index]?.cardID ?? cards[row.index]?.image ?? row.index)}
         {@const card = cards[row.index]}
         {#if card}
           <div
             data-index={row.index}
             use:measure={$gridV}
-            class="absolute top-0 pb-2"
+            class="virt-item gap-b"
             style="left: {Math.round(
               laneLeft(row.lane),
             )}px; width: {colWidth}px; transform: translateY({Math.round(row.start)}px)"
@@ -402,12 +404,12 @@
     </div>
   {:else}
     <!-- Mobile: virtualized horizontal strip -->
-    <div class="relative" style="width: {$stripV.getTotalSize()}px">
+    <div class="virt" style="width: {$stripV.getTotalSize()}px">
       {#each $stripV.getVirtualItems() as item (cards[item.index]?.cardID ?? cards[item.index]?.image ?? item.index)}
         {@const card = cards[item.index]}
         {#if card}
           <div
-            class="absolute top-0 h-full"
+            class="virt-item tall"
             style="left: 0; width: {STRIP_W}px; transform: translateX({Math.round(item.start)}px)"
           >
             {@render cardCell(card, false)}
@@ -419,6 +421,78 @@
 </div>
 
 <style>
+  /* ★Tailwind を外すために現場へ移した実寸・位置決め（2026-09-09）。 */
+
+  .cell-box {
+    height: 100%;
+  }
+  /* 一覧（升目）の枠。罫だけで囲う ―― 面を上げると一覧がうるさくなる */
+  .framed {
+    border: 1px solid var(--suisou-line-weak);
+    border-radius: var(--suisou-radius);
+  }
+  /* 帯（横スクロール）のときは枠を持たず、幅だけ決める */
+  .strip {
+    width: 4rem;
+  }
+
+  .card-slot {
+    aspect-ratio: 12 / 17;
+  }
+  /* ★子コンポーネントに渡した class には Svelte の scoped ハッシュが付かない。
+     Tailwind はグローバルなので `class="w-full object-contain"` を
+     そのまま子に渡せていたが、scoped CSS に移すと**当たらなくなる**
+     （2026-09-09 に実際に踏んだ。アイコンが素の大きさで出た）。
+     祖先だけを scoped にして、子側は :global で受ける。 */
+  .scroller :global(.card-img) {
+    object-fit: contain;
+  }
+  .cell-bar {
+    height: 2.5rem;
+  }
+
+  /* 読み込み中・失敗の表示欄 */
+  .state {
+    width: 100%;
+    height: 8rem;
+  }
+  .state.pad {
+    padding-inline: var(--suisou-space-3); /* Tailwind px-4 = 16px */
+  }
+
+  /* 巻物。広い画面は縦に積んで囲い、狭い画面は横に流す帯になる */
+  .scroller {
+    min-height: 0;
+    max-width: 100%;
+    padding-block: 12px; /* Tailwind py-3 */
+    margin-block-end: var(--suisou-space-1);
+  }
+  .scroller.grid-mode {
+    border: 1px solid var(--suisou-line-weak);
+    border-radius: 0.75rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .scroller.strip-mode {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* 仮想スクロールの土台と行。位置は JS が style で入れる */
+  .virt {
+    position: relative;
+  }
+  .virt-item {
+    position: absolute;
+    top: 0;
+  }
+  .virt-item.gap-b {
+    padding-block-end: var(--suisou-space-2);
+  }
+  .virt-item.tall {
+    height: 100%;
+  }
+
   /* ★親に data-suisou-layout が付いていると
      :where([data-suisou-layout]) > * { flex: none } が効いて、
      子の Tailwind flex-1 は**詳細度に関係なく**潰れる（レイヤ無し ＞ レイヤ付き）。
@@ -441,7 +515,4 @@
     min-width: 0;
   }
 
-  .rule {
-    border-color: var(--suisou-line-weak);
-  }
 </style>

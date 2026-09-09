@@ -114,10 +114,10 @@
   }
 </script>
 
-<div class="deck-side px-2 mb-2 md:mb-1" data-suisou-layout="stack md:share gap-3">
+<div class="deck-side" data-suisou-layout="stack md:share gap-3">
   <!-- ルリグデッキ -->
-  <div class="deck-panel h-fit" data-suisou-surface="panel tight">
-    <div class="flex">
+  <div class="deck-panel" data-suisou-surface="panel tight">
+    <div data-suisou-layout="row">
       <span data-suisou-text="s16 w500">Lrig Deck</span>
     </div>
     <div class="deck-grid lrig">
@@ -131,7 +131,7 @@
           <CardImage
             {card}
             src={cardImageUrl(card.image)}
-            class="w-full object-contain cursor-pointer"
+            class="card-img"
             alt={card.name}
             {showLifeBurst}
             {rotateLandscape}
@@ -146,12 +146,12 @@
   </div>
 
   <!-- メインデッキ -->
-  <div class="deck-panel h-fit" data-suisou-surface="panel tight">
+  <div class="deck-panel" data-suisou-surface="panel tight">
     <div data-suisou-layout="row between">
       <span data-suisou-text="s16 w500">Main Deck</span>
       <div class="burst" data-suisou-layout="row gap-1">
-        <LifeBurstIcon class="w-4 h-4 md:w-5 md:h-5" data-suisou-text="sub"/>
-        <span data-suisou-text="s14 md:s16" class="w-4 h-4 md:w-5 md:h-5 pb-[2px]" data-suisou-layout="row middle">{lifeBurstCount}</span
+        <LifeBurstIcon class="burst-icon" data-suisou-text="sub"/>
+        <span data-suisou-text="s14 md:s16" class="burst-num" data-suisou-layout="row middle">{lifeBurstCount}</span
         >
       </div>
     </div>
@@ -166,7 +166,7 @@
           <CardImage
             {card}
             src={cardImageUrl(card.image)}
-            class="w-full object-contain cursor-pointer"
+            class="card-img"
             alt={card.name}
             {showLifeBurst}
             {rotateLandscape}
@@ -181,18 +181,18 @@
   </div>
 
   <!-- 候補カード (Folder) - PC のみ表示 -->
-  <div data-suisou-show="md" data-suisou-layout="stack" class="folder overflow-hidden" data-suisou-surface="panel tight">
-    <div class="flex mb-2">
+  <div data-suisou-show="md" data-suisou-layout="stack" class="folder" data-suisou-surface="panel tight">
+    <div class="panel-head" data-suisou-layout="row">
       <span data-suisou-text="s16 w500">Folder</span>
     </div>
-    <div class="folder-grid overflow-y-auto" data-suisou-layout="cols gap-2">
+    <div class="folder-grid" data-suisou-layout="cols gap-2">
       {#each candidateKeyed as { card, key } (key)}
-        <div class="border rule rounded-lg" data-suisou-layout="stack">
-          <div class="aspect-[12/17]" data-suisou-layout="row">
+        <div class="deck-cell" data-suisou-layout="stack">
+          <div class="card-slot" data-suisou-layout="row">
             <CardImage
               {card}
               src={cardImageUrl(card.image)}
-              class="object-contain cursor-pointer"
+              class="card-img"
               alt={card.name}
               {showLifeBurst}
               {rotateLandscape}
@@ -200,7 +200,7 @@
               onclick={() => onCardClick(card)}
             />
           </div>
-          <div class="h-10" data-suisou-layout="row middle stretch gap-0">
+          <div class="cell-bar" data-suisou-layout="row middle stretch gap-0">
             <!-- CardList のセル下ボタンと同じ形（hover の下地と文字色は Suisou が出す） -->
             <button
               class="cell"
@@ -236,6 +236,75 @@
 </div>
 
 <style>
+  /* カードの比（12:17）と、升目の下の操作バーの高さ。実寸は現場のもの */
+  .card-slot {
+    aspect-ratio: 12 / 17;
+  }
+  .cell-bar {
+    height: 2.5rem;
+  }
+
+  /* ★Tailwind を外すために現場へ移した実寸・位置決め（2026-09-09）。 */
+
+  .deck-side {
+    padding-inline: var(--suisou-space-2);
+    margin-block-end: var(--suisou-space-2);
+  }
+  @media (min-width: 768px) {
+    .deck-side {
+      margin-block-end: var(--suisou-space-1);
+    }
+  }
+
+  .deck-panel {
+    height: fit-content;
+  }
+  .panel-head {
+    margin-block-end: var(--suisou-space-2);
+  }
+
+  /* 升目の中の画像。器が比を持つので、画像は幅だけ合わせて中に収める */
+  /* ★子コンポーネントに渡した class には Svelte の scoped ハッシュが付かない。
+     Tailwind はグローバルなので `class="w-full object-contain"` を
+     そのまま子に渡せていたが、scoped CSS に移すと**当たらなくなる**
+     （2026-09-09 に実際に踏んだ。アイコンが素の大きさで出た）。
+     祖先だけを scoped にして、子側は :global で受ける。 */
+  .deck-side :global(.card-img) {
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  /* ライフバーストの数。アイコンと数字を同じ実寸で並べる */
+  .burst :global(.burst-icon),
+  .burst-num {
+    width: 1rem;
+    height: 1rem;
+  }
+  .burst-num {
+    padding-block-end: 2px;
+  }
+  @media (min-width: 768px) {
+    .burst :global(.burst-icon),
+    .burst-num {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  .folder {
+    overflow: hidden;
+  }
+  .folder-grid {
+    overflow-y: auto;
+  }
+
+  /* Folder の升目。罫で囲うだけ ―― 面を上げると一覧がうるさくなる */
+  .deck-cell {
+    border: 1px solid var(--suisou-line-weak);
+    border-radius: var(--suisou-radius);
+  }
+
   /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
      Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
      「2段で表せない振り方は現場のもの」という決定どおり。
@@ -349,7 +418,4 @@
     align-items: center;
   }
 
-  .rule {
-    border-color: var(--suisou-line-weak);
-  }
 </style>
