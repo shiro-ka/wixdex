@@ -363,7 +363,7 @@
 
 <div
   bind:this={scrollEl}
-  class="flex-1 min-h-0 max-w-full py-3 mb-1 {isMd
+  class="scroller min-h-0 max-w-full py-3 mb-1 {isMd
     ? 'rounded-xl border rule overflow-y-auto overflow-x-hidden'
     : 'overflow-x-auto overflow-y-hidden'}"
   style="touch-action: {isMd ? 'pan-y' : 'pan-x'}"
@@ -419,6 +419,18 @@
 </div>
 
 <style>
+  /* ★親に data-suisou-layout が付いていると
+     :where([data-suisou-layout]) > * { flex: none } が効いて、
+     子の Tailwind flex-1 は**詳細度に関係なく**潰れる（レイヤ無し ＞ レイヤ付き）。
+     ここは属性ではなく現場の CSS で伸ばす。
+
+     ★この要素に data-suisou-layout を足して直すのは駄目。
+       [data-suisou-layout] { display: flex } もレイヤ無しなので、
+       **`hidden`（display: none）まで殺してしまう**。 */
+  .scroller {
+    flex: 1 1 0;
+  }
+
   /* 升目に広がるボタン。セルの高さ(h-10)は仮想リストの計測に効くので動かさない。
      ★ここは連結（button-group）ではない ―― 3つのボタンを枠なしで並べているだけなので
      even は効かない。同じ .cell という名前でも SearchArea のそれとは別の需要。 */

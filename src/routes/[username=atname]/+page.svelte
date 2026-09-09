@@ -31,7 +31,7 @@
         {profile.displayName.charAt(0).toUpperCase()}
       </div>
       <div class="min-w-0">
-        <h1 class="truncate sm:text-3xl" data-suisou-text="s24 w700">{profile.displayName}</h1>
+        <h1 class="truncate" data-suisou-text="s24 md:s28 w700">{profile.displayName}</h1>
         {#if bskyUrl}
           <a
             href={bskyUrl}

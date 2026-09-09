@@ -319,7 +319,7 @@
     }}
   />
 
-  <div class="w-full max-w-screen-sm mx-auto overflow-hidden md:flex-row md:max-w-none md:mb-4 lg:max-w-screen-xl 2xl:max-w-[84vw]" data-suisou-layout="stack grow">
+  <div class="split w-full max-w-screen-sm mx-auto overflow-hidden md:max-w-none md:mb-4 lg:max-w-screen-xl 2xl:max-w-[84vw]" data-suisou-layout="stack md:row md:stretch grow gap-0">
     <DeckArea
       mainDeck={deck.mainDeck}
       lrigDeck={deck.lrigDeck}
@@ -339,7 +339,7 @@
       {rotateLandscape}
     />
 
-    <div class="flex-3 md:flex-1 lg:flex-3 lg:flex-row" data-suisou-layout="stack grow">
+    <div class="card-side" data-suisou-layout="stack lg:row lg:stretch grow gap-0">
       <CardList
         cards={filteredCards}
         {loading}
@@ -533,3 +533,40 @@
     onRemoveFromCandidate={deck.removeFromCandidate}
   />
 </div>
+
+<style>
+  /* ★伸び方の「比」は現場が持つ。Suisou に比率の語が無いため。
+
+     Suisou の grow は flex: 1 1 auto の一段だけで、3 対 5 のような配り方は
+     表せない。ここは flex-grow だけを上書きする ―― grow が併せて置く
+     min-width/min-height: 0（＝はみ出しを止める）を残したいので、
+     ショートハンドでは書かない。
+
+     ★元は Tailwind の flex-3 / md:flex-1 / lg:flex-3 だったが、
+       **黙って死んでいた**（2026-09-09 実測）。Tailwind v4 のユーティリティは
+       @layer utilities の中にあり、CSS のカスケードでは
+       **レイヤ無しの規則がレイヤ付きに必ず勝つ**。Suisou はレイヤを使わないので、
+       詳細度でも読み込み順でもなく「レイヤ」で Suisou が常勝していた。
+       同じ理由で :where([data-suisou-layout]) > * { flex: none } も
+       Tailwind の flex-N を全部潰していた。
+
+     ★基準（flex-basis）が違う。Tailwind の flex-N は `flex: N 1 0%` で
+       **基準0から比で配る**が、Suisou の grow は `flex: 1 1 auto` で
+       **中身の大きさを基準にしてから余りを配る**。grow の上に flex-grow だけ
+       重ねると比が合わない（実測 40:60 が 32:68 になった）。
+       ショートハンドで基準ごと書く ―― grow が併せて置く min-width/min-height: 0 は
+       別の宣言なので残る。 */
+  .card-side {
+    flex: 3 1 0;
+  }
+  @media (min-width: 768px) {
+    .card-side {
+      flex: 1 1 0;
+    }
+  }
+  @media (min-width: 1024px) {
+    .card-side {
+      flex: 3 1 0;
+    }
+  }
+</style>
