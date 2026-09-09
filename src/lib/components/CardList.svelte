@@ -295,14 +295,14 @@
 {#snippet cardCell(card: Card, withButtons: boolean)}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
-    class="{withButtons ? 'w-full border rule rounded-lg' : 'w-16'} h-full"
+    class="{withButtons ? 'border rule rounded-lg' : 'w-16'} h-full"
     data-suisou-layout={withButtons ? 'stack gap-0' : 'stack middle gap-0'}
     ontouchstart={(e) => handleTouchStart(e, card)}
     ontouchmove={(e) => handleTouchMove(e, card)}
     ontouchend={(e) => handleTouchEnd(e, card)}
   >
     {#if withButtons}
-      <div class="w-full aspect-[12/17]" data-suisou-layout="row">
+      <div class="aspect-[12/17]" data-suisou-layout="row">
         <CardImage
           {card}
           src={cardImageUrl(card.image)}
@@ -317,7 +317,7 @@
           onclick={() => onCardClick(card)}
         />
       </div>
-      <div class="w-full h-10" data-suisou-layout="row middle stretch gap-0">
+      <div class="h-10" data-suisou-layout="row middle stretch gap-0">
         <button class="cell" data-suisou-button onclick={() => onAdd(card)} title="デッキに1枚追加">
           <IconPlus />
         </button>
@@ -383,7 +383,7 @@
     </div>
   {:else if isMd}
     <!-- Desktop: virtualized 3-column grid -->
-    <div class="relative w-full" style="height: {$gridV.getTotalSize()}px">
+    <div class="relative" style="height: {$gridV.getTotalSize()}px">
       {#each $gridV.getVirtualItems() as row (cards[row.index]?.cardID ?? cards[row.index]?.image ?? row.index)}
         {@const card = cards[row.index]}
         {#if card}
@@ -402,7 +402,7 @@
     </div>
   {:else}
     <!-- Mobile: virtualized horizontal strip -->
-    <div class="relative h-full" style="width: {$stripV.getTotalSize()}px">
+    <div class="relative" style="width: {$stripV.getTotalSize()}px">
       {#each $stripV.getVirtualItems() as item (cards[item.index]?.cardID ?? cards[item.index]?.image ?? item.index)}
         {@const card = cards[item.index]}
         {#if card}

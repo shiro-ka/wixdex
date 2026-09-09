@@ -117,7 +117,7 @@
 <div class="deck-side px-2 mb-2 md:mb-1" data-suisou-layout="stack grow">
   <!-- ルリグデッキ -->
   <div class="deck-panel h-fit mb-2" data-suisou-surface="panel tight">
-    <div class="flex w-full">
+    <div class="flex">
       <span data-suisou-text="s16 w500">Lrig Deck</span>
     </div>
     <div class="deck-grid lrig">
@@ -182,13 +182,13 @@
 
   <!-- 候補カード (Folder) - PC のみ表示 -->
   <div class="folder hidden md:flex flex-col overflow-hidden" data-suisou-surface="panel tight">
-    <div class="flex w-full mb-2">
+    <div class="flex mb-2">
       <span data-suisou-text="s16 w500">Folder</span>
     </div>
-    <div class="grid grid-cols-5 auto-rows-min gap-2 w-full overflow-y-auto xl:grid-cols-6">
+    <div class="grid grid-cols-5 auto-rows-min gap-2 overflow-y-auto xl:grid-cols-6">
       {#each candidateKeyed as { card, key } (key)}
-        <div class="w-full border rule rounded-lg" data-suisou-layout="stack">
-          <div class="w-full aspect-[12/17]" data-suisou-layout="row">
+        <div class="border rule rounded-lg" data-suisou-layout="stack">
+          <div class="aspect-[12/17]" data-suisou-layout="row">
             <CardImage
               {card}
               src={cardImageUrl(card.image)}
@@ -200,7 +200,7 @@
               onclick={() => onCardClick(card)}
             />
           </div>
-          <div class="w-full h-10" data-suisou-layout="row middle stretch gap-0">
+          <div class="h-10" data-suisou-layout="row middle stretch gap-0">
             <!-- CardList のセル下ボタンと同じ形（hover の下地と文字色は Suisou が出す） -->
             <button
               class="cell"
