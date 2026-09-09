@@ -49,12 +49,8 @@
   /* モーダル固有の仕事だけ: 幅の上限・はみ出しの巻物・膜クリックの判定領域。
      色・罫・角丸・膜・出入りは Suisou の overlay。 */
   .modal {
-    /* ★画面の中央に置く。ブラウザ既定の dialog は inset: 0 + margin: auto で
-       中央に来るが、**Tailwind v4 の preflight が *{margin:0} で潰していた**
-       （2026-09-09 実測。モーダルが左上に張り付いていた）。
-
-       ★これは Tailwind を外すと勝手に直る類の不具合＝**外した瞬間に見た目が変わる**。
-         暗黙に頼るのをやめて、ここで明示する。 */
+    /* ★中央寄せは明示する。dialog の既定（inset: 0 + margin: auto）に頼らない ――
+       リセット CSS の * { margin: 0 } 1本で黙って左上に張り付く。 */
     margin: auto;
     width: min(92vw, var(--modal-max, 28rem));
     max-height: 90dvh;

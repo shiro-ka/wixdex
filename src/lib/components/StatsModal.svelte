@@ -99,11 +99,10 @@
 </BaseModal>
 
 <style>
-  /* ★Tailwind を外すために現場へ移した実寸（2026-09-09）。 */
 
   /* 中身が無いときの表示欄。上下に大きく空けて中央に置く */
   .state {
-    padding-block: 4rem; /* Tailwind py-16 */
+    padding-block: 4rem;
   }
   .hint {
     margin-block-start: var(--suisou-space-2);

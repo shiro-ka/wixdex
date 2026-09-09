@@ -1,6 +1,6 @@
 import type { Card } from '$lib/types';
 
-export const CARD_TYPES = {
+const CARD_TYPES = {
   LRIG: ['ルリグ', 'アシスト', 'ピース', 'アーツ'],
   MAIN: ['シグニ', 'スペル', 'サーバント'],
 } as const;

@@ -36,8 +36,6 @@ const distinct = (cardType: string[], n: number): Card[] =>
 const signi = makeCard(['シグニ']);
 const lrig = makeCard(['ルリグ']);
 const assist = makeCard(['アシスト']);
-const piece = makeCard(['ピース']);
-const arts = makeCard(['アーツ']);
 
 describe('canAddCard ルーティング', () => {
   it('ルリグ系はルリグデッキ判定へ', () => {

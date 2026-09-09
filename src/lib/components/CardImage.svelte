@@ -109,8 +109,6 @@
     cursor: pointer;
   }
 
-  /* ★Tailwind を外すために現場へ移した位置決め（2026-09-09）。 */
-
   .frame {
     position: relative;
     display: inline-block;

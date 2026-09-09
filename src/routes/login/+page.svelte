@@ -353,10 +353,9 @@
 </main>
 
 <style>
-  /* ★Tailwind を外すために現場へ移した実寸（2026-09-09）。 */
 
   .page {
-    padding: var(--suisou-space-3); /* Tailwind p-4 = 16px */
+    padding: var(--suisou-space-3);
   }
   .split {
     width: 100%;
@@ -365,7 +364,7 @@
     overflow: hidden;
   }
   .aside {
-    padding: 2.5rem; /* Tailwind p-10。Suisou の段に無い値 */
+    padding: 2.5rem; /* Suisou の段に無い値 */
   }
   .brand-name {
     letter-spacing: -0.025em;
@@ -389,9 +388,9 @@
     }
   }
 
-  /* 「または」の左右に伸びる線。旧実装は panel の色を線に使っていた */
+  /* 「または」の左右に伸びる線 */
   .hr {
-    height: 1px; /* Tailwind h-px。罫1本ぶん */
+    height: 1px;
     background: var(--suisou-line-weak);
   }
   /* 左の紹介カラム。薄く敷いて罫で区切る */

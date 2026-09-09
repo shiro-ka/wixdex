@@ -44,7 +44,7 @@
 
 <style>
   .page {
-    padding: var(--suisou-space-3); /* Tailwind p-4 = 16px */
+    padding: var(--suisou-space-3);
   }
   .box {
     width: 100%;

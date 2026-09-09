@@ -81,7 +81,6 @@
 </div>
 
 <style>
-  /* ★Tailwind を外すために現場へ移した実寸（2026-09-09）。 */
 
   .screen {
     min-height: 100dvh;
@@ -100,7 +99,7 @@
     letter-spacing: 0.05em;
   }
   .state {
-    padding-block: 5rem; /* Tailwind py-20 */
+    padding-block: 5rem;
   }
   .deck-card {
     display: block;

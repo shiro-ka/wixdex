@@ -127,7 +127,6 @@
 </div>
 
 <style>
-  /* ★Tailwind を外すために現場へ移した実寸（2026-09-09）。 */
 
   .screen {
     min-height: 100dvh;
@@ -136,7 +135,7 @@
     display: inline-block;
   }
   .state {
-    padding-block: 4rem; /* Tailwind py-16 */
+    padding-block: 4rem;
   }
   /* ★子コンポーネント（CardImage）に渡す class は scoped にならないので :global で受ける */
   .page :global(.card-img) {

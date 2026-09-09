@@ -70,9 +70,8 @@
 {/snippet}
 
 <!-- 操作バーのアイコンボタン（追加/削除/候補/お気に入りで共通）。
-     ★色クラスを文字列で渡すのをやめた（2026-08-22）。「入っている状態」は
-     aria-pressed で示し、下地は Suisou が出す ―― styles.ts の cva を畳んだとき
-     ここだけ同じ作りが残っていた。お気に入りの黄色だけは意味色（warning）。 -->
+     「入っている状態」は aria-pressed で示し、下地は Suisou が出す。
+     色を文字列で渡さないこと。お気に入りの黄色だけは意味色（warning）。 -->
 {#snippet actionButton(
   Icon: typeof IconX,
   onclick: () => void,
@@ -126,7 +125,7 @@
           <!-- crossorigin は付けない（表示専用。canvas出力は別途 loadImage が自前でCORS取得）。
                crossorigin を付けると CORS リクエストになり R2 が Vary: Origin を返す→Chrome が
                immutable を無視して毎回 304 再検証し、モーダル画像が遅くなる（Firefoxは免疫）。
-               no-cors にすれば Vary が付かずキャッシュがそのまま効く。リスト(LazyImage)も同様に外した。-->
+               no-cors にすれば Vary が付かずキャッシュがそのまま効く（LazyImage も同じ）。-->
           <img
             src={cardImageUrl(card.image)}
             alt={card.name}
@@ -237,15 +236,14 @@
 {/if}
 
 <style>
-  /* ★ここから下は Tailwind を外すために現場へ移した実寸・位置決め（2026-09-09）。
-     Suisou は位置を決めず、実寸も持たない ―― どちらも掟どおり現場のもの。
+  /* Suisou は位置を決めず、実寸も持たない ―― どちらも現場のもの。
      段が xl(1280) のものは Suisou の md/lg 2段で表せないので、ここに残る。 */
 
   .root {
     position: fixed;
     inset: 0;
     z-index: 50;
-    padding: 12px; /* Tailwind p-3。Suisou の段（4/8/16/24）に無い値 */
+    padding: 12px; /* Suisou の段に無い値 */
   }
 
   .body {
@@ -262,7 +260,7 @@
     flex: none;
     justify-content: center;
     gap: 6px;
-    padding: 12px 12px 0; /* Tailwind p-3 pb-0 */
+    padding: 12px 12px 0;
   }
   /* PC は左右同時表示なのでタブは要らない。段が xl なので現場で持つ */
   @media (min-width: 1280px) {
@@ -272,7 +270,7 @@
   }
 
   .card-pane {
-    padding: 12px; /* Tailwind p-3 */
+    padding: 12px;
   }
   @media (min-width: 1280px) {
     .card-pane {
@@ -288,7 +286,7 @@
   }
 
   .title {
-    padding-inline-end: 2rem; /* Tailwind pr-8。閉じるボタンを避ける幅 */
+    padding-inline-end: 2rem;
   }
   .chips {
     gap: 6px;
@@ -305,16 +303,16 @@
     line-height: 1.625;
   }
   .sec {
-    margin-block-start: 12px; /* Tailwind mt-3 */
+    margin-block-start: 12px;
   }
   .sec-lg {
-    margin-block-start: var(--suisou-space-3); /* Tailwind mt-4 = 16px */
+    margin-block-start: var(--suisou-space-3);
   }
   .sec-head {
     margin-block-end: var(--suisou-space-2);
   }
   .flavor {
-    margin-block-start: 12px; /* Tailwind mt-3 */
+    margin-block-start: 12px;
     font-style: italic;
     white-space: pre-line;
   }
@@ -335,14 +333,7 @@
   }
 
   /* ★1280px で横並びに変わる。Suisou の段は md(768) / lg(1024) の2つだけなので、
-     xl は現場のもの（「2段で表せない振り方は現場のもの」＝2026-08-22 の決定どおり）。
-
-     ★元は Tailwind の xl:flex-row だったが、**黙って死んでいた**（2026-09-09 実測）。
-       Tailwind v4 は @layer utilities の中にあり、レイヤ無しの Suisou に必ず負ける。
-       data-suisou-layout="stack" の flex-direction: column が常に勝っていた。
-
-     ★md / lg なら `stack md:row` と書けば済む（row が方向を持つようになった）。
-       ここが現場に残るのは**段が xl だから**であって、語が足りないからではない。 */
+     xl は現場のもの。md / lg で足りるなら `stack md:row` と書けば済む。 */
   @media (min-width: 1280px) {
     .body {
       flex-direction: row;

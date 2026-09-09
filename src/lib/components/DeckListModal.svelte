@@ -53,7 +53,7 @@
 
 <style>
   .state {
-    padding-block: var(--suisou-space-4); /* Tailwind py-8 = 32px … 段に無いので近い 24px */
+    padding-block: var(--suisou-space-4);
   }
   .pick {
     padding: var(--suisou-space-2);
