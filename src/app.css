@@ -1,25 +1,10 @@
-/* ★2026-09-09 に Tailwind を撤去した。
+/* wixdex がここに持つのは **Suisou が持たないと決めたもの**だけ ――
+   WIXOSS のカード5色（対象物の色）と、ページそのものの地。
+   見た目の語彙は Suisou（https://suisou.pages.dev/v1/suisou.css）から来る。
 
-   色 132 箇所（2026-09-08）に続いて、幾何 780 箇所を data-suisou-* と
-   component の scoped style に移し切った。ここに残るのは
-   **Suisou が持たないと決めたもの**だけ ―― WIXOSS のカード5色（対象物の色）と、
-   ページそのものの地。
-
-   ★リセットは Suisou の ui/reset.css が持つ（Tailwind の preflight を外しても
-     見出しや段落の余白が壊れないのはそのため）。
-   ★Tailwind の preflight に暗黙に頼っていた場所は事前に洗い出して潰した。
-     実例: *{margin:0} が <dialog> の margin:auto を潰していて、
-     モーダルが画面の左上に張り付いていた（BaseModal で明示した）。 */
-
-/* ★Suisou ブリッジは 2026-09-08 に撤去した。
-   もともと「移行の足場。本変換（クラス → data-suisou-* 部品）が終わったら
-   このブロックごと消す」と書いてあったもので、その条件を満たした。
-
-   生の色クラス（zinc/gray/orange/red/green/yellow）は **132 箇所すべて**
-   data-suisou-text / data-suisou-* と scoped style に移った。
-   ★scripts/check-bridge.mjs は対応表が空になったことで、そのまま
-     「生の色クラスを1つでも書いたら落ちる」番人に変わる（コードは変えていない）。 */
-
+   ★リセットは Suisou の ui/reset.css が持つ。ここに書き足さないこと。
+   ★生の色クラス（zinc/gray/orange/red/green/yellow など）は1つでも書くと
+     scripts/check-bridge.mjs が落とす。色は Suisou から取る。 */
 
 :root {
   /* ══ ドメイン色 ══════════════════════════════════
@@ -27,10 +12,10 @@
 
      ★Suisou は持たない。しろかのブランドではなく WIXOSS のものなので、
        現場（wixdex）が自分で持つ ―― Suisou の掟でいう「class は現場のもの」と同じ線引き。
-       一度 Suisou 側に実装したが撤回した（経緯は Suisou の .notes/palette-spec.md §1）。
+       一度 Suisou 側に実装したが撤回した（経緯は ccmemory の dev/suisou/palette-spec.md）。
 
      導出は Suisou と同じ手順で、設計時に一度だけ計算した値を焼いてある:
-       H    Tailwind の近似色（wixdex が目で当てていたもの）を OKLCH に逆算して読んだ
+       H    もとの近似色（wixdex が目で当てていたもの）を OKLCH に逆算して読んだ
        L    面に載せて読める明度
        C    maxC(L, H) × 彩度比 × hadal のトーン倍率(0.95)
        検証 非文字なので 3.0:1（WCAG 1.4.11）。最悪 overlay の上で 4.59:1
@@ -50,14 +35,12 @@
      accent に繋がっているので、blue も accent に繋ぐと2つの印が同じ色になり
      区別が消える。かといって Suisou に塗り色は無い（塗らず線で示す設計なので、
      accent も意味色も L74 前後のインクしか無く、絵の上に敷く下地には向かない）。
-     よってこれは現場のもの ―― --card-* と同じ扱いで wixdex が持つ。
-     値は元の Tailwind blue-500 相当のまま（見た目は変えていない）。 */
+     よってこれは現場のもの ―― --card-* と同じ扱いで wixdex が持つ。 */
   --badge-candidate: oklch(62.3% 0.1899 259.8); /* #3b82f6 */
-  /* ライフバーストの印も同じ理屈で固定（2026-08-22）。以前は bg-orange-500 ＝
-     ブリッジ経由で accent に追従していたが、LB はゲームの概念であって
-     「いま選んでいるテーマの強調色」ではない。しかもテーマを trench × blue に
-     変えた瞬間、accent 追従の LB と青固定の候補印が同じ色になって区別が消える。
-     値は元の Tailwind orange-500 相当のまま（見た目は変えていない）。 */
+  /* ライフバーストの印も同じ理屈で固定。★accent に追従させてはいけない ――
+     LB はゲームの概念であって「いま選んでいるテーマの強調色」ではないし、
+     テーマを trench × blue に変えた瞬間、accent 追従の LB と青固定の候補印が
+     同じ色になって区別が消える。 */
   --badge-lifeburst: oklch(70.5% 0.1867 47.6); /* #f97316 */
 }
 
