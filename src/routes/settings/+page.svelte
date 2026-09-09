@@ -32,7 +32,7 @@
   <title>設定 — wixdex</title>
 </svelte:head>
 
-<main class="min-h-dvh">
+<main class="screen">
   <PageHeader />
 
   <div data-suisou-layout="stack container gap-4" class="page">
@@ -72,8 +72,8 @@
             {/if}
           {/if}
           <form method="POST" action="?/changeUsername" data-suisou-layout="stack gap-2">
-            <div class="flex gap-2">
-              <div class="flex-1" data-suisou-button-group>
+            <div data-suisou-layout="row">
+              <div data-suisou-layout="share" data-suisou-button-group>
                 <span data-suisou-affix>/@</span>
                 <input
                   name="username"
@@ -193,6 +193,10 @@
 </main>
 
 <style>
+  .screen {
+    min-height: 100dvh;
+  }
+
   .page {
     --suisou-measure: 56rem;
     padding: var(--suisou-space-4) var(--suisou-space-3);

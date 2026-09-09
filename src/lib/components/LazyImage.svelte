@@ -71,9 +71,9 @@
   {src}
   {alt}
   decoding="async"
-  class="{className} {fade ? 'transition-opacity duration-300' : ''} {isLoaded
-    ? 'opacity-100'
-    : 'opacity-0'}"
+  class="{className} lazy"
+  class:fade
+  class:shown={isLoaded}
   onload={(e) => {
     isLoaded = true;
     onLoadCallback?.(e.currentTarget as HTMLImageElement);
@@ -93,3 +93,21 @@
       }
     : undefined}
 />
+
+<style>
+  /* ★読み込みが終わるまで隠す。元は Tailwind の opacity-0 / opacity-100 と
+     transition-opacity duration-300 だった（2026-09-09 に現場へ移した）。
+
+     ★これが**棚卸しから漏れていた**。class="…" の文字列しか数えておらず、
+       class={式} の中の Tailwind を見落としていた。外した瞬間に
+       読み込み前の画像（と alt 文字）が見えるようになって気づいた。 */
+  .lazy {
+    opacity: 0;
+  }
+  .lazy.shown {
+    opacity: 1;
+  }
+  .lazy.fade {
+    transition: opacity 300ms var(--suisou-ease);
+  }
+</style>

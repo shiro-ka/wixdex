@@ -45,7 +45,7 @@
       <!-- svelte-ignore a11y_label_has_associated_control -->
       <label data-suisou-text="s14 w500 sub">デッキ名</label>
       {#if !isLoggedIn}
-        <div data-suisou-field aria-disabled="true" class="select-none">
+        <div data-suisou-field aria-disabled="true" class="no-pick">
           {name || 'デッキ名を入力'}
         </div>
       {:else if isNameEditMode}
@@ -67,7 +67,7 @@
             isNameEditMode = true;
           }}
           data-suisou-field="block"
-          data-suisou-text="start" class="cursor-text"
+          data-suisou-text="start" class="text-cursor"
         >
           {name || 'デッキ名を入力'}
         </button>
@@ -83,7 +83,7 @@
           data-suisou-field
           data-suisou-prose="tight"
           aria-disabled="true"
-          class="min-h-[200px] select-none"
+          class="tall no-pick"
         >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
@@ -98,7 +98,7 @@
           }}
           autofocus
           data-suisou-field="block"
-          class="min-h-[200px] font-mono"
+          class="tall mono"
           placeholder="メモを入力（マークダウン対応）"
         ></textarea>
       {:else}
@@ -109,7 +109,7 @@
           }}
           data-suisou-field="block"
           data-suisou-prose="tight"
-          data-suisou-text="start" class="min-h-[200px] cursor-text"
+          data-suisou-text="start" class="tall text-cursor"
         >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
@@ -138,6 +138,21 @@
 </BaseModal>
 
 <style>
+  /* ★Tailwind を外すために現場へ移した実寸とふるまい（2026-09-09）。 */
+
+  .tall {
+    min-height: 200px;
+  }
+  .mono {
+    font-family: var(--suisou-mono);
+  }
+  .no-pick {
+    user-select: none;
+  }
+  .text-cursor {
+    cursor: text;
+  }
+
   .note {
     margin-block-start: var(--suisou-space-1);
   }

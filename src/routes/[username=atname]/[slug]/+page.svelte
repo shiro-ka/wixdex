@@ -53,7 +53,7 @@
   <!-- twitter:card / og:image は app.html の共通デフォルト（summary_large_image）を使う -->
 </svelte:head>
 
-<div class="min-h-dvh">
+<div class="screen">
   <PageHeader>
     {#snippet right()}
       <a href="/" data-suisou-button="outline"> 自分も作る </a>
@@ -64,7 +64,7 @@
     <div>
       <h1 data-suisou-text="s24 md:s28 w700 one-line">{data.deck.name}</h1>
     </div>
-    <a href="/@{data.atName}" data-suisou-link class="inline-block" data-suisou-text="sub">
+    <a href="/@{data.atName}" data-suisou-link class="back" data-suisou-text="sub">
       @{data.atName} のデッキ
     </a>
 
@@ -77,7 +77,7 @@
     {/if}
 
     {#if loading}
-      <div class="py-16" data-suisou-layout="row middle">
+      <div class="state" data-suisou-layout="row middle">
         <div
           data-suisou-spinner
           style="--suisou-spinner: 2.5rem"
@@ -96,7 +96,7 @@
               {card}
               src={cardImageUrl(card.image)}
               alt={card.name}
-              class="w-full object-contain"
+              class="card-img"
               showLifeBurst
             />
           {/each}
@@ -116,7 +116,7 @@
               {card}
               src={cardImageUrl(card.image)}
               alt={card.name}
-              class="w-full object-contain"
+              class="card-img"
               showLifeBurst
             />
           {/each}
@@ -127,6 +127,23 @@
 </div>
 
 <style>
+  /* ★Tailwind を外すために現場へ移した実寸（2026-09-09）。 */
+
+  .screen {
+    min-height: 100dvh;
+  }
+  .back {
+    display: inline-block;
+  }
+  .state {
+    padding-block: 4rem; /* Tailwind py-16 */
+  }
+  /* ★子コンポーネント（CardImage）に渡す class は scoped にならないので :global で受ける */
+  .page :global(.card-img) {
+    width: 100%;
+    object-fit: contain;
+  }
+
   /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
      Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
      「2段で表せない振り方は現場のもの」という決定どおり。

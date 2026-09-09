@@ -73,18 +73,18 @@
   <title>{mode === 'login' ? 'ログイン' : '新規登録'} — wixdex</title>
 </svelte:head>
 
-<main class="p-4" data-suisou-layout="row screen middle">
+<main class="page" data-suisou-layout="row screen middle">
   <div
-    class="split w-full max-w-4xl min-h-[45rem] overflow-hidden"
-    data-suisou-layout="cols"
+    class="split"
+    data-suisou-layout="cols gap-0"
     data-suisou-surface="panel bleed"
   >
     <!-- 左: ブランディング（PCのみ。zincダーク、オレンジは差し色のみ） -->
     <div
-      data-suisou-rule="end" data-suisou-show="lg" data-suisou-layout="stack between" class="p-10 aside"
+      data-suisou-rule="end" data-suisou-show="lg" data-suisou-layout="stack between" class="aside"
     >
       <div>
-        <h1 class="tracking-tight" data-suisou-text="s28 w700">
+        <h1 class="brand-name" data-suisou-text="s28 w700">
           wix<span data-suisou-text="accent">dex</span>
         </h1>
         <p data-suisou-text="sub">WIXOSS デッキビルダー</p>
@@ -170,7 +170,7 @@
         <button
           type="button"
           onclick={() => (mode = 'login')}
-          class="block w-full transition-colors back" data-suisou-text="sub center">
+          class="back" data-suisou-text="sub center">
           ← ログインに戻る
         </button>
       {:else}
@@ -193,8 +193,8 @@
               <label for="username" data-suisou-text="sub">
                 ユーザー名 <span data-suisou-text="sub">(URLになります: /@…)</span>
               </label>
-              <div class="flex gap-2">
-                <div class="flex-1" data-suisou-button-group>
+              <div data-suisou-layout="row">
+                <div data-suisou-layout="share" data-suisou-button-group>
                   <span data-suisou-affix>@</span>
                   <input
                     id="username"
@@ -299,9 +299,9 @@
 
       {#if mode !== 'forgot'}
         <div data-suisou-layout="row" class="or">
-          <div class="h-px flex-1 hr"></div>
+          <div class="hr" data-suisou-layout="share"></div>
           <span data-suisou-text="sub s12">または</span>
-          <div class="h-px flex-1 hr"></div>
+          <div class="hr" data-suisou-layout="share"></div>
         </div>
 
         <!-- Bluesky（ログイン・登録共通。bsky.social へ直行＝ハンドル入力不要） -->
@@ -353,6 +353,29 @@
 </main>
 
 <style>
+  /* ★Tailwind を外すために現場へ移した実寸（2026-09-09）。 */
+
+  .page {
+    padding: var(--suisou-space-3); /* Tailwind p-4 = 16px */
+  }
+  .split {
+    width: 100%;
+    max-width: 56rem;
+    min-height: 45rem;
+    overflow: hidden;
+  }
+  .aside {
+    padding: 2.5rem; /* Tailwind p-10。Suisou の段に無い値 */
+  }
+  .brand-name {
+    letter-spacing: -0.025em;
+  }
+  .back {
+    display: block;
+    width: 100%;
+    transition: color var(--suisou-motion-fast) var(--suisou-ease);
+  }
+
   /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
      Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
      「2段で表せない振り方は現場のもの」という決定どおり。
@@ -368,6 +391,7 @@
 
   /* 「または」の左右に伸びる線。旧実装は panel の色を線に使っていた */
   .hr {
+    height: 1px; /* Tailwind h-px。罫1本ぶん */
     background: var(--suisou-line-weak);
   }
   /* 左の紹介カラム。薄く敷いて罫で区切る */

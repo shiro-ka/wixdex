@@ -1,4 +1,15 @@
-@import 'tailwindcss';
+/* ★2026-09-09 に Tailwind を撤去した。
+
+   色 132 箇所（2026-09-08）に続いて、幾何 780 箇所を data-suisou-* と
+   component の scoped style に移し切った。ここに残るのは
+   **Suisou が持たないと決めたもの**だけ ―― WIXOSS のカード5色（対象物の色）と、
+   ページそのものの地。
+
+   ★リセットは Suisou の ui/reset.css が持つ（Tailwind の preflight を外しても
+     見出しや段落の余白が壊れないのはそのため）。
+   ★Tailwind の preflight に暗黙に頼っていた場所は事前に洗い出して潰した。
+     実例: *{margin:0} が <dialog> の margin:auto を潰していて、
+     モーダルが画面の左上に張り付いていた（BaseModal で明示した）。 */
 
 /* ★Suisou ブリッジは 2026-09-08 に撤去した。
    もともと「移行の足場。本変換（クラス → data-suisou-* 部品）が終わったら

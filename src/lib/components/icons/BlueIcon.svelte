@@ -1,5 +1,9 @@
 <script lang="ts">
-  let { class: className = 'w-5 h-5',
+  /* ★class の既定値に Tailwind の 'w-5 h-5' が入っていた（2026-09-09 に外した）。
+     寸法は data-suisou-icon が持つ ―― 呼ぶ側が属性を書いているのに、
+     既定値のほうが後から効いて上書きしていた。
+     ★これは class="…" の棚卸しに引っかからない場所。**既定値も数えろ。** */
+  let { class: className = '',
     ...restProps
   }: { class?: string;
     [key: string]: unknown;

@@ -302,7 +302,7 @@
   <meta property="og:url" content={page.url.origin + page.url.pathname} />
 </svelte:head>
 
-<div class="w-dvw h-dvh m-0 p-0 overflow-hidden" data-suisou-layout="stack">
+<div class="shell" data-suisou-layout="stack">
   <Navbar
     deckName={deck.name}
     isSaved={deck.isSaved}
@@ -319,7 +319,7 @@
     }}
   />
 
-  <div class="split w-full max-w-screen-sm mx-auto overflow-hidden md:max-w-none md:mb-4 lg:max-w-screen-xl 2xl:max-w-[84vw]" data-suisou-layout="stack md:row md:stretch grow gap-0">
+  <div class="split" data-suisou-layout="stack md:row md:stretch grow gap-0">
     <DeckArea
       mainDeck={deck.mainDeck}
       lrigDeck={deck.lrigDeck}
@@ -535,6 +535,41 @@
 </div>
 
 <style>
+  /* ★Tailwind を外すために現場へ移した実寸（2026-09-09）。 */
+
+  /* 画面そのもの。ここから外へはみ出させない */
+  .shell {
+    width: 100dvw;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* 本文の幅。段ごとに上限が変わる ―― Suisou の container は1段だけなので現場で持つ */
+  .split {
+    width: 100%;
+    max-width: 40rem;
+    margin-inline: auto;
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .split {
+      max-width: none;
+      margin-block-end: var(--suisou-space-3);
+    }
+  }
+  @media (min-width: 1024px) {
+    .split {
+      max-width: 80rem;
+    }
+  }
+  @media (min-width: 1536px) {
+    .split {
+      max-width: 84vw;
+    }
+  }
+
   /* ★伸び方の「比」は現場が持つ。Suisou に比率の語が無いため。
 
      Suisou の grow は flex: 1 1 auto の一段だけで、3 対 5 のような配り方は
