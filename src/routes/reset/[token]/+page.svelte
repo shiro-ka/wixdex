@@ -8,23 +8,22 @@
   <title>パスワード再設定 — wixdex</title>
 </svelte:head>
 
-<main class="flex min-h-screen items-center justify-center bg-zinc-900 p-4">
-  <div class="w-full max-w-md" data-suisou-surface="panel">
-    <h1 class="mb-6 text-center text-xl font-bold text-white">パスワード再設定</h1>
+<main class="page" data-suisou-layout="row screen middle">
+  <div class="box" data-suisou-surface="panel" data-suisou-layout="stack gap-3">
+    <h1 data-suisou-text="s20 w700 center">パスワード再設定</h1>
 
     {#if !data.valid || (form && 'expired' in form && form.expired)}
-      <p data-suisou-banner="error" role="alert" class="mb-6">
+      <p data-suisou-banner="error" role="alert">
         このリンクは無効か、有効期限（30分）が切れています。
       </p>
       <a href="/login" data-suisou-button="outline wide"> ログイン画面へ戻る </a>
     {:else}
       {#if form?.error}
-        <p data-suisou-banner="error" role="alert" class="mb-4">{form.error}</p>
+        <p data-suisou-banner="error" role="alert">{form.error}</p>
       {/if}
-      <form method="POST" class="space-y-4">
-        <div>
-          <label for="password" class="mb-1 block text-zinc-300"
-            >新しいパスワード（8文字以上）</label
+      <form method="POST" data-suisou-layout="stack gap-3">
+        <div data-suisou-layout="stack gap-1">
+          <label for="password" data-suisou-text="sub">新しいパスワード（8文字以上）</label
           >
           <input
             id="password"
@@ -42,3 +41,13 @@
     {/if}
   </div>
 </main>
+
+<style>
+  .page {
+    padding: var(--suisou-space-3);
+  }
+  .box {
+    width: 100%;
+    max-width: 28rem;
+  }
+</style>

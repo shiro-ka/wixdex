@@ -55,18 +55,15 @@
 </script>
 
 <div
-  class="relative {rotated
-    ? 'block w-full aspect-[12/17] overflow-hidden [container-type:size]'
-    : 'inline-block'}"
+  class="frame"
+  class:rotated
 >
   <LazyImage
     {src}
     {alt}
     {fadeToken}
     {fade}
-    class={rotated
-      ? 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 w-[100cqh] h-[100cqw] max-w-none object-contain cursor-pointer'
-      : className}
+    class={rotated ? 'card-rot' : className}
     {onmouseenter}
     {onmouseleave}
     {onclick}
@@ -81,18 +78,70 @@
   />
   {#if showLifeBurst && hasLifeBurst && isImageLoaded}
     <div
-      class="absolute bottom-1 right-1 rounded-full p-0.5"
+      class="badge at-bottom"
       style="background: var(--badge-lifeburst)"
     >
-      <LifeBurstIcon class="w-3 h-3 text-white" />
+      <LifeBurstIcon data-suisou-icon="tiny" />
     </div>
   {/if}
   {#if showCandidateIcon && isInCandidates && isImageLoaded}
     <div
-      class="absolute top-1 right-1 rounded-full p-0.5"
+      class="badge at-top"
       style="background: var(--badge-candidate)"
     >
-      <IconFolderFilled class="w-3 h-3 text-white" />
+      <IconFolderFilled data-suisou-icon="tiny" />
     </div>
   {/if}
 </div>
+
+<style>
+  /* 横向きに寝かせたカード。器の内寸（cqw/cqh）を入れ替えて 90 度回す。
+     ★LazyImage に渡す class なので scoped ハッシュが付かない ―― :global で受ける。 */
+  .frame.rotated :global(.card-rot) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    width: 100cqh;
+    height: 100cqw;
+    max-width: none;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  .frame {
+    position: relative;
+    display: inline-block;
+  }
+  /* 横向きに寝かせる表示。器がカードの比を持ち、中身を切り抜く。
+     container-type: size は中の実寸を cqw/cqh で拾うため */
+  .frame.rotated {
+    display: block;
+    width: 100%;
+    aspect-ratio: 12 / 17;
+    overflow: hidden;
+    container-type: size;
+  }
+
+  /* 角のしるし。丸い下地に載せる */
+  .badge {
+    position: absolute;
+    right: 0.25rem;
+    border-radius: var(--suisou-radius-pill);
+    padding: 2px;
+  }
+  .badge.at-bottom {
+    bottom: 0.25rem;
+  }
+  .badge.at-top {
+    top: 0.25rem;
+  }
+
+  /* ★カード絵の上のバッジ。下地は --badge-* というドメインの色なので、
+     ここの白は**テーマの文字色ではない**（text-main に寄せると意味が変わる）。
+     Suisou の語彙を使わず、明示的な白のまま持つ。
+     色は包む側が持ち、中のアイコンは currentColor で継ぐ。 */
+  .badge {
+    color: #fff;
+  }
+</style>

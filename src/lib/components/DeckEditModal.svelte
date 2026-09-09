@@ -39,13 +39,13 @@
 </script>
 
 <BaseModal {isOpen} {onClose} title="デッキ編集" maxWidth="lg">
-  <div class="space-y-4">
+  <div data-suisou-layout="stack gap-3">
     <!-- デッキ名 -->
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
-      <label data-suisou-text="s14 w500" class="block text-gray-300 mb-2">デッキ名</label>
+      <label data-suisou-text="s14 w500 sub">デッキ名</label>
       {#if !isLoggedIn}
-        <div data-suisou-field aria-disabled="true" class="select-none">
+        <div data-suisou-field aria-disabled="true" class="no-pick">
           {name || 'デッキ名を入力'}
         </div>
       {:else if isNameEditMode}
@@ -67,7 +67,7 @@
             isNameEditMode = true;
           }}
           data-suisou-field="block"
-          class="text-left cursor-text"
+          data-suisou-text="start" class="text-cursor"
         >
           {name || 'デッキ名を入力'}
         </button>
@@ -77,13 +77,13 @@
     <!-- メモ -->
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
-      <label data-suisou-text="s14 w500" class="block text-gray-300 mb-2">メモ</label>
+      <label data-suisou-text="s14 w500 sub">メモ</label>
       {#if !isLoggedIn}
         <div
           data-suisou-field
           data-suisou-prose="tight"
           aria-disabled="true"
-          class="min-h-[200px] select-none"
+          class="tall no-pick"
         >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
@@ -98,7 +98,7 @@
           }}
           autofocus
           data-suisou-field="block"
-          class="min-h-[200px] font-mono"
+          class="tall mono"
           placeholder="メモを入力（マークダウン対応）"
         ></textarea>
       {:else}
@@ -109,14 +109,14 @@
           }}
           data-suisou-field="block"
           data-suisou-prose="tight"
-          class="min-h-[200px] text-left cursor-text"
+          data-suisou-text="start" class="tall text-cursor"
         >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html renderedMemo}
         </button>
       {/if}
-      <p class="text-xs text-gray-500 mt-1">
+      <p data-suisou-text="sub s12" class="note">
         {#if !isLoggedIn}
           <a href="/login" data-suisou-link>ログインするとデッキを保存できます</a>
         {:else}
@@ -136,3 +136,23 @@
     </button>
   </div>
 </BaseModal>
+
+<style>
+
+  .tall {
+    min-height: 200px;
+  }
+  .mono {
+    font-family: var(--suisou-mono);
+  }
+  .no-pick {
+    user-select: none;
+  }
+  .text-cursor {
+    cursor: text;
+  }
+
+  .note {
+    margin-block-start: var(--suisou-space-1);
+  }
+</style>

@@ -12,9 +12,9 @@
 </script>
 
 <BaseModal {isOpen} onClose={onCancel} title="未保存の変更があります" maxWidth="sm">
-  <div class="space-y-4">
-    <p class="text-gray-300">保存していない変更があります。どうしますか？</p>
-    <div class="flex flex-col gap-2">
+  <div data-suisou-layout="stack gap-3">
+    <p data-suisou-text="sub">保存していない変更があります。どうしますか？</p>
+    <div data-suisou-layout="stack gap-2">
       <!-- 強さの3段: 目的の一本は outline、対等な代替は plain（罫だけ）、
            逃げ道は基本形（幽霊）。全部 wide で縦に積む -->
       <button type="button" onclick={onSave} data-suisou-button="outline wide"

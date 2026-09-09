@@ -10,6 +10,7 @@
   import type { Card } from '$lib/types';
   import { cardImageUrl } from '$lib/utils/cardImages';
   import { isMainDeckCard } from '$lib/utils/cardTypeUtils';
+  import { createCardGestures } from '$lib/utils/cardTouchGestures';
 
   interface Props {
     cards: Card[];
@@ -173,141 +174,34 @@
     };
   });
 
-  // ── touch gestures (swipe to add / hold over folder to stash) ──
-  interface TouchState {
-    startY: number;
-    startX: number;
-    startTime: number;
-    isVerticalSwipe: boolean;
-    isHolding: boolean;
-    isOverFolder: boolean;
-    holdTimer: ReturnType<typeof setTimeout> | null;
-  }
-
-  const touchStates = new Map<HTMLElement, TouchState>();
-
-  function getImg(node: HTMLElement): HTMLImageElement | null {
-    return node.querySelector('img');
-  }
-
-  function handleTouchStart(e: TouchEvent, _card: Card) {
-    const node = e.currentTarget as HTMLElement;
-    const touch = e.touches[0];
-    touchStates.set(node, {
-      startY: touch.clientY,
-      startX: touch.clientX,
-      startTime: Date.now(),
-      isVerticalSwipe: false,
-      isHolding: false,
-      isOverFolder: false,
-      holdTimer: null,
-    });
-    const img = getImg(node);
-    if (img) img.style.transition = 'none';
-  }
-
-  function handleTouchMove(e: TouchEvent, card: Card) {
-    const node = e.currentTarget as HTMLElement;
-    const state = touchStates.get(node);
-    if (!state || state.isHolding) return;
-
-    const currentY = e.touches[0].clientY;
-    const currentX = e.touches[0].clientX;
-    const deltaY = Math.abs(state.startY - currentY);
-    const deltaX = Math.abs(state.startX - currentX);
-
-    const touchedEl = document.elementFromPoint(currentX, currentY);
-    const folderBtn = document.getElementById('folder-button');
-    const isOverFolder = !!folderBtn && (touchedEl === folderBtn || folderBtn.contains(touchedEl));
-
-    if (isOverFolder && !state.holdTimer) {
-      state.isOverFolder = true;
-      state.holdTimer = setTimeout(() => {
-        if (state.isOverFolder) {
-          state.isHolding = true;
-          state.isVerticalSwipe = false;
-          if (candidateFilter) onRemoveFromCandidate(card);
-          else onAddToCandidate(card);
-          if (folderBtn) {
-            folderBtn.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-              folderBtn.style.transform = 'scale(1)';
-            }, 200);
-          }
-        }
-      }, 700);
-    }
-
-    if (!isOverFolder && state.holdTimer) {
-      clearTimeout(state.holdTimer);
-      state.holdTimer = null;
-      state.isOverFolder = false;
-    }
-
-    if (deltaY > deltaX && deltaY > 5 && !isOverFolder) {
-      e.preventDefault();
-      state.isVerticalSwipe = true;
-      if (state.holdTimer) {
-        clearTimeout(state.holdTimer);
-        state.holdTimer = null;
-        state.isOverFolder = false;
-      }
-      const img = getImg(node);
-      if (img) {
-        const translateY = Math.max(-10, Math.min(10, -(state.startY - currentY)));
-        img.style.transform = `translateY(${translateY}px)`;
-      }
-    }
-  }
-
-  function handleTouchEnd(e: TouchEvent, card: Card) {
-    const node = e.currentTarget as HTMLElement;
-    const state = touchStates.get(node);
-    if (!state) return;
-
-    if (state.holdTimer) {
-      clearTimeout(state.holdTimer);
-      state.holdTimer = null;
-    }
-
-    const img = getImg(node);
-    if (img) {
-      img.style.transition = 'transform 0.2s ease-out';
-      img.style.transform = 'translateY(0)';
-    }
-
-    if (state.isHolding) {
-      state.isHolding = false;
-      state.isOverFolder = false;
-      touchStates.delete(node);
-      return;
-    }
-
-    if (state.isVerticalSwipe) {
-      const deltaY = state.startY - e.changedTouches[0].clientY;
-      if (deltaY > 30) onAdd(card);
-      else if (deltaY < -30) onAddMultiple(card, 4);
-    }
-    touchStates.delete(node);
-  }
+  // ── touch gestures ────────────────────────────────────────
+  // 指の読み取りは cardTouchGestures が持つ。ここでは払い・押さえに
+  // 「デッキへ入れる / 候補へ入れる」という意味を与えるだけ。
+  const gestures = createCardGestures<Card>({
+    onSwipeUp: (card) => onAdd(card),
+    onSwipeDown: (card) => onAddMultiple(card, 4), // 下へ払うと同名の上限まで一気に
+    onHold: (card) => (candidateFilter ? onRemoveFromCandidate(card) : onAddToCandidate(card)),
+    folderId: 'folder-button',
+  });
 </script>
 
 {#snippet cardCell(card: Card, withButtons: boolean)}
   <!-- svelte-ignore a11y_no_static_element_interactions -->
   <div
-    class="flex flex-col {withButtons
-      ? 'w-full border border-gray-600/50 rounded-lg'
-      : 'w-16 justify-center'} h-full"
-    ontouchstart={(e) => handleTouchStart(e, card)}
-    ontouchmove={(e) => handleTouchMove(e, card)}
-    ontouchend={(e) => handleTouchEnd(e, card)}
+    class="cell-box"
+    class:framed={withButtons}
+    class:strip={!withButtons}
+    data-suisou-layout={withButtons ? 'stack gap-0' : 'stack middle gap-0'}
+    ontouchstart={(e) => gestures.start(e, card)}
+    ontouchmove={(e) => gestures.move(e, card)}
+    ontouchend={(e) => gestures.end(e, card)}
   >
     {#if withButtons}
-      <div class="flex items-center w-full aspect-[12/17]">
+      <div class="card-slot" data-suisou-layout="row">
         <CardImage
           {card}
           src={cardImageUrl(card.image)}
-          class="object-contain"
+          class="card-img"
           alt={card.name}
           {showLifeBurst}
           {showCandidateIcon}
@@ -318,7 +212,7 @@
           onclick={() => onCardClick(card)}
         />
       </div>
-      <div class="flex justify-center w-full h-10">
+      <div class="cell-bar" data-suisou-layout="row middle stretch gap-0">
         <button class="cell" data-suisou-button onclick={() => onAdd(card)} title="デッキに1枚追加">
           <IconPlus />
         </button>
@@ -348,7 +242,7 @@
       <CardImage
         {card}
         src={cardImageUrl(card.image)}
-        class="object-contain"
+        class="card-img"
         alt={card.name}
         {showLifeBurst}
         {showCandidateIcon}
@@ -364,13 +258,13 @@
 
 <div
   bind:this={scrollEl}
-  class="flex-1 min-h-0 max-w-full py-3 mb-1 {isMd
-    ? 'rounded-xl border border-gray-600/50 overflow-y-auto overflow-x-hidden'
-    : 'overflow-x-auto overflow-y-hidden'}"
+  class="scroller"
+  class:grid-mode={isMd}
+  class:strip-mode={!isMd}
   style="touch-action: {isMd ? 'pan-y' : 'pan-x'}"
 >
   {#if loading}
-    <div class="flex items-center justify-center w-full h-32">
+    <div class="state" data-suisou-layout="row middle">
       <div
         data-suisou-spinner
         style="--suisou-spinner: 2.5rem"
@@ -379,19 +273,19 @@
       ></div>
     </div>
   {:else if loadError}
-    <div class="flex items-center justify-center w-full h-32 text-red-400 px-4 text-center">
+    <div class="state pad" data-suisou-text="error center" data-suisou-layout="row middle">
       {loadError}
     </div>
   {:else if isMd}
     <!-- Desktop: virtualized 3-column grid -->
-    <div class="relative w-full" style="height: {$gridV.getTotalSize()}px">
+    <div class="virt" style="height: {$gridV.getTotalSize()}px">
       {#each $gridV.getVirtualItems() as row (cards[row.index]?.cardID ?? cards[row.index]?.image ?? row.index)}
         {@const card = cards[row.index]}
         {#if card}
           <div
             data-index={row.index}
             use:measure={$gridV}
-            class="absolute top-0 pb-2"
+            class="virt-item gap-b"
             style="left: {Math.round(
               laneLeft(row.lane),
             )}px; width: {colWidth}px; transform: translateY({Math.round(row.start)}px)"
@@ -403,12 +297,12 @@
     </div>
   {:else}
     <!-- Mobile: virtualized horizontal strip -->
-    <div class="relative h-full" style="width: {$stripV.getTotalSize()}px">
+    <div class="virt" style="width: {$stripV.getTotalSize()}px">
       {#each $stripV.getVirtualItems() as item (cards[item.index]?.cardID ?? cards[item.index]?.image ?? item.index)}
         {@const card = cards[item.index]}
         {#if card}
           <div
-            class="absolute top-0 h-full"
+            class="virt-item tall"
             style="left: 0; width: {STRIP_W}px; transform: translateX({Math.round(item.start)}px)"
           >
             {@render cardCell(card, false)}
@@ -420,6 +314,80 @@
 </div>
 
 <style>
+
+  .cell-box {
+    height: 100%;
+  }
+  /* 一覧（升目）の枠。罫だけで囲う ―― 面を上げると一覧がうるさくなる */
+  .framed {
+    border: 1px solid var(--suisou-line-weak);
+    border-radius: var(--suisou-radius);
+  }
+  /* 帯（横スクロール）のときは枠を持たず、幅だけ決める */
+  .strip {
+    width: 4rem;
+  }
+
+  .card-slot {
+    aspect-ratio: 12 / 17;
+  }
+  /* ★子コンポーネントに渡した class には Svelte の scoped ハッシュが付かない。
+     子側のセレクタは祖先を scoped にして :global で受ける。 */
+  .scroller :global(.card-img) {
+    object-fit: contain;
+  }
+  .cell-bar {
+    height: 2.5rem;
+  }
+
+  /* 読み込み中・失敗の表示欄 */
+  .state {
+    width: 100%;
+    height: 8rem;
+  }
+  .state.pad {
+    padding-inline: var(--suisou-space-3);
+  }
+
+  /* 巻物。広い画面は縦に積んで囲い、狭い画面は横に流す帯になる */
+  .scroller {
+    min-height: 0;
+    max-width: 100%;
+    padding-block: 12px;
+    margin-block-end: var(--suisou-space-1);
+  }
+  .scroller.grid-mode {
+    border: 1px solid var(--suisou-line-weak);
+    border-radius: 0.75rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .scroller.strip-mode {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  /* 仮想スクロールの土台と行。位置は JS が style で入れる */
+  .virt {
+    position: relative;
+  }
+  .virt-item {
+    position: absolute;
+    top: 0;
+  }
+  .virt-item.gap-b {
+    padding-block-end: var(--suisou-space-2);
+  }
+  .virt-item.tall {
+    height: 100%;
+  }
+
+  /* ★親が data-suisou-layout を持つと :where([data-suisou-layout]) > * { flex: none }
+     が効くので、子は既定で伸びない。伸ばすのは現場の CSS の仕事。 */
+  .scroller {
+    flex: 1 1 0;
+  }
+
   /* 升目に広がるボタン。セルの高さ(h-10)は仮想リストの計測に効くので動かさない。
      ★ここは連結（button-group）ではない ―― 3つのボタンを枠なしで並べているだけなので
      even は効かない。同じ .cell という名前でも SearchArea のそれとは別の需要。 */
@@ -429,4 +397,5 @@
     padding: 0;
     min-width: 0;
   }
+
 </style>

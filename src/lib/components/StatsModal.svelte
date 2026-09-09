@@ -58,42 +58,82 @@
 
 <BaseModal {isOpen} {onClose} title="カード使用統計" maxWidth="lg">
   {#if loading}
-    <div class="flex justify-center py-16 text-gray-400">読み込み中...</div>
+    <div class="state" data-suisou-text="sub center">読み込み中...</div>
   {:else if error}
-    <div class="text-center py-16 text-red-400" role="alert">{error}</div>
+    <div class="state" role="alert" data-suisou-text="error center">{error}</div>
   {:else if ranked.length === 0}
-    <div class="text-center py-16 text-gray-400">
-      <p class="text-lg">まだ集計データがありません</p>
-      <p class="mt-2">デッキを保存すると、ここに使用ランキングが表示されます。</p>
+    <div class="state" data-suisou-text="sub center">
+      <p data-suisou-text="s20">まだ集計データがありません</p>
+      <p class="hint">デッキを保存すると、ここに使用ランキングが表示されます。</p>
     </div>
   {:else}
-    <ol class="space-y-2">
+    <ol data-suisou-layout="stack gap-2">
       {#each ranked as row (row.cardId)}
-        <li data-suisou-row data-suisou-layout="row" class="gap-4">
-          <div class="w-8 text-center font-mono text-orange-400 text-lg">{row.rank}</div>
+        <li data-suisou-row data-suisou-layout="row gap-3">
+          <div class="rank" data-suisou-text="accent s20 center">{row.rank}</div>
           {#if row.card}
             <img
               src={cardImageUrl(row.card.image)}
               alt={row.card.name}
-              class="w-12 h-16 object-cover rounded"
+              class="thumb"
               loading="lazy"
             />
-            <div class="flex-1 min-w-0">
-              <div class="font-medium truncate">{row.card.name}</div>
-              <div class="text-xs text-gray-500 truncate">{row.cardId}</div>
+            <div class="name" data-suisou-layout="stack gap-0">
+              <div data-suisou-text="w500 one-line">{row.card.name}</div>
+              <div data-suisou-text="sub s12 one-line">{row.cardId}</div>
             </div>
           {:else}
-            <div class="w-12 h-16 bg-zinc-700 rounded flex-shrink-0"></div>
-            <div class="flex-1 min-w-0">
-              <div class="text-gray-400 truncate">{row.cardId}</div>
+            <div class="thumb ph"></div>
+            <div class="name" data-suisou-layout="stack gap-0">
+              <div data-suisou-text="sub one-line">{row.cardId}</div>
             </div>
           {/if}
-          <div class="text-right whitespace-nowrap">
-            <div class="text-orange-300 font-medium">{row.deckCount} デッキ</div>
-            <div class="text-gray-400 text-xs">合計 {row.totalCount} 枚</div>
+          <div class="count">
+            <div data-suisou-text="accent w500">{row.deckCount} デッキ</div>
+            <div data-suisou-text="sub s12">合計 {row.totalCount} 枚</div>
           </div>
         </li>
       {/each}
     </ol>
   {/if}
 </BaseModal>
+
+<style>
+
+  /* 中身が無いときの表示欄。上下に大きく空けて中央に置く */
+  .state {
+    padding-block: 4rem;
+  }
+  .hint {
+    margin-block-start: var(--suisou-space-2);
+  }
+
+  /* 順位。桁が増えても揃うよう幅を固定する（等幅は text="tabular" が持つ） */
+  .rank {
+    width: 2rem;
+    font-family: var(--suisou-mono);
+  }
+
+  /* カードの縮小画像。比を保って切り抜く */
+  .thumb {
+    flex: none;
+    width: 3rem;
+    height: 4rem;
+    object-fit: cover;
+    border-radius: var(--suisou-radius-small);
+  }
+
+  .name {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .count {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* カード画像が来るまでの場所取り */
+  .ph {
+    background: var(--suisou-item);
+  }
+</style>

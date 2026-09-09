@@ -14,13 +14,13 @@
 </script>
 
 <BaseModal {isOpen} onClose={onCancel} title="デッキを削除" maxWidth="sm">
-  <div class="space-y-4">
-    <p class="text-gray-300">「{deckName}」を削除しますか？</p>
+  <div data-suisou-layout="stack gap-3">
+    <p data-suisou-text="sub">「{deckName}」を削除しますか？</p>
     {#if hasUnsavedChanges}
       <!-- 注意の文言なので warning（accent の橙ではなく意味色）。 -->
-      <p class="text-yellow-500">このデッキには未保存の変更があります。削除すると失われます。</p>
+      <p data-suisou-text="warning">このデッキには未保存の変更があります。削除すると失われます。</p>
     {/if}
-    <div class="flex flex-col gap-2">
+    <div data-suisou-layout="stack gap-2">
       <button type="button" onclick={onConfirm} data-suisou-button="danger wide">削除する</button>
       <button type="button" onclick={onCancel} data-suisou-button="wide">キャンセル</button>
     </div>

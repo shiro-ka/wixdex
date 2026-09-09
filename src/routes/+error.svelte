@@ -12,14 +12,23 @@
   <title>{page.status} — wixdex</title>
 </svelte:head>
 
-<main
-  class="flex min-h-dvh flex-col items-center justify-center gap-5 bg-zinc-900 px-4 text-center text-white"
->
-  <img src="/404.png" alt="エラー {page.status}" class="h-auto w-[70vw] max-w-[600px]" />
+<main data-suisou-text="center" class="page" data-suisou-layout="stack gap-3 screen middle">
+  <img src="/404.png" alt="エラー {page.status}" class="art" />
 
-  <p data-suisou-text="s32 w700" class="text-green-500">{page.status}</p>
+  <p data-suisou-text="s32 w700 success">{page.status}</p>
 
-  <p class="text-zinc-400">{message}</p>
+  <p data-suisou-text="sub">{message}</p>
 
-  <a href="/" data-suisou-button="outline" class="mt-2">ホームへ戻る</a>
+  <a href="/" data-suisou-button="outline">ホームへ戻る</a>
 </main>
+
+<style>
+  .page {
+    padding-inline: var(--suisou-space-3);
+  }
+  .art {
+    height: auto;
+    width: 70vw;
+    max-width: 600px;
+  }
+</style>
