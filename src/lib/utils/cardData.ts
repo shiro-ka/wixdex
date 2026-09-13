@@ -1,5 +1,8 @@
 import type { Card } from '$lib/types';
 
+// カード一覧の並び。発売日の新しい順で、ブースターと構築済みデッキを混ぜる。
+// 同じ日に出たものはブースターが先、デッキは番号の大きい順。
+// WXDi-D09 は入るカードが0枚（全部が再録など）なので読み込まない。
 const CARD_SETS = [
   'header',
   'WX26-P1',
@@ -8,10 +11,16 @@ const CARD_SETS = [
   'WX25-P2',
   'WX25-P1',
   'WX25-CP1',
+  'WX25-CD1',
   'WX24-P4',
   'WX24-P3',
   'WX24-P2',
   'WX24-P1',
+  'WX24-D5',
+  'WX24-D4',
+  'WX24-D3',
+  'WX24-D2',
+  'WX24-D1',
   'WXDi-P16',
   'WXDi-P15',
   'WXDi-CP02',
@@ -25,12 +34,20 @@ const CARD_SETS = [
   'WXDi-P08',
   'WXDi-P07',
   'WXDi-P06',
+  'WXDi-D08',
   'WXDi-P05',
   'WXDi-P04',
+  'WXDi-D07',
   'WXDi-P03',
   'WXDi-P02',
   'WXDi-P01',
+  'WXDi-D06',
+  'WXDi-D05',
+  'WXDi-D04',
+  'WXDi-D03',
   'WXDi-P00',
+  'WXDi-D02',
+  'WXDi-D01',
 ];
 
 export function cardKey(card: Pick<Card, 'cardID' | 'image'>): string | null {
