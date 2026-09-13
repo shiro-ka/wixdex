@@ -334,6 +334,7 @@
   /* ★子コンポーネントに渡した class には Svelte の scoped ハッシュが付かない。
      子側のセレクタは祖先を scoped にして :global で受ける。 */
   .scroller :global(.card-img) {
+    width: 100%;
     object-fit: contain;
   }
   .cell-bar {
