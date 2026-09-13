@@ -3,6 +3,7 @@
   import type { Card } from '$lib/types';
   import { cardImageUrl } from '$lib/utils/cardImages';
   import { isMainDeckCard } from '$lib/utils/cardTypeUtils';
+  import CardTagList from './CardTagList.svelte';
   import IconStar from '@tabler/icons-svelte/icons/star';
   import IconStarFilled from '@tabler/icons-svelte/icons/star-filled';
   import IconPlus from '@tabler/icons-svelte/icons/plus';
@@ -213,6 +214,14 @@
           <!-- フレーバーテキスト -->
           {#if card.flavorText}
             <p class="flavor" data-suisou-text="sub s12">{card.flavorText}</p>
+          {/if}
+
+          <!-- タグ（チーム / キーワード / クラス） -->
+          {#if card.tags?.length}
+            <div class="sec-lg">
+              <h3 data-suisou-text="s14 w700 accent" class="sec-head">タグ</h3>
+              <CardTagList tags={card.tags} />
+            </div>
           {/if}
 
           <!-- FAQ -->
