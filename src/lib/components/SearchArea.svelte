@@ -445,6 +445,14 @@
     flex: 1 1 0;
     min-height: 0;
   }
+  /* ★盤の中の選択肢は、盤に残った高さいっぱいを使って中だけスクロールさせる。
+     FilterChecklist の max-height: 48dvh は上から降りるシート向けの値で、盤の中では盤を突き抜けて
+     下の検索欄に重なる（2026-09-13 にタグを46個に増やしたときに踏んだ）。盤の側で1か所だけ上書きする */
+  .ext-menu > :global(.scroll) {
+    flex: 1 1 0;
+    min-height: 0;
+    max-height: none;
+  }
 
   /* 段の中でボタンの幅を揃えるのは data-suisou-layout="share"。
      --suisou-share はその群のボタンの数で、どの群も同じ幅になる。 */
