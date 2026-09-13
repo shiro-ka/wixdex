@@ -372,6 +372,12 @@
   .virt {
     position: relative;
   }
+  /* ★帯（スマホ）の土台は帯の高さいっぱい。JS が入れるのは幅だけなので、何もしないと高さ 0 になる。
+     すると行・セルも高さ 0 になり、stack middle が画像を 0 の線の上下にはみ出させて、
+     帯の overflow で切れていた（2026-09-13 発覚。升目は JS が高さを入れるので対象外） */
+  .strip-mode .virt {
+    height: 100%;
+  }
   .virt-item {
     position: absolute;
     top: 0;
