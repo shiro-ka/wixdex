@@ -1,0 +1,627 @@
+[
+  {
+    "title": "ルリグタイプ",
+    "items": [
+      {
+        "value": "ピルルク",
+        "label": "ピルルク",
+        "count": 13
+      },
+      {
+        "value": "ウリス",
+        "label": "ウリス",
+        "count": 12
+      },
+      {
+        "value": "イオナ",
+        "label": "イオナ",
+        "count": 11
+      },
+      {
+        "value": "ユヅキ",
+        "label": "ユヅキ",
+        "count": 11
+      },
+      {
+        "value": "アン",
+        "label": "アン",
+        "count": 10
+      },
+      {
+        "value": "エルドラ",
+        "label": "エルドラ",
+        "count": 10
+      },
+      {
+        "value": "タマ",
+        "label": "タマ",
+        "count": 10
+      },
+      {
+        "value": "リメンバ",
+        "label": "リメンバ",
+        "count": 10
+      },
+      {
+        "value": "みこみこ",
+        "label": "みこみこ",
+        "count": 9
+      },
+      {
+        "value": "アト",
+        "label": "アト",
+        "count": 9
+      },
+      {
+        "value": "アルフォウ",
+        "label": "アルフォウ",
+        "count": 9
+      },
+      {
+        "value": "ナナシ",
+        "label": "ナナシ",
+        "count": 9
+      },
+      {
+        "value": "ヒラナ",
+        "label": "ヒラナ",
+        "count": 9
+      },
+      {
+        "value": "メル",
+        "label": "メル",
+        "count": 9
+      },
+      {
+        "value": "リル",
+        "label": "リル",
+        "count": 9
+      },
+      {
+        "value": "LION",
+        "label": "LION",
+        "count": 8
+      },
+      {
+        "value": "あや",
+        "label": "あや",
+        "count": 8
+      },
+      {
+        "value": "アイヤイ",
+        "label": "アイヤイ",
+        "count": 8
+      },
+      {
+        "value": "ウムル",
+        "label": "ウムル",
+        "count": 8
+      },
+      {
+        "value": "カーニバル",
+        "label": "カーニバル",
+        "count": 8
+      },
+      {
+        "value": "グズ子",
+        "label": "グズ子",
+        "count": 8
+      },
+      {
+        "value": "サシェ",
+        "label": "サシェ",
+        "count": 8
+      },
+      {
+        "value": "タウィル",
+        "label": "タウィル",
+        "count": 8
+      },
+      {
+        "value": "タマゴ",
+        "label": "タマゴ",
+        "count": 8
+      },
+      {
+        "value": "ドーナ",
+        "label": "ドーナ",
+        "count": 8
+      },
+      {
+        "value": "ハナレ",
+        "label": "ハナレ",
+        "count": 8
+      },
+      {
+        "value": "ミュウ",
+        "label": "ミュウ",
+        "count": 8
+      },
+      {
+        "value": "ミルルン",
+        "label": "ミルルン",
+        "count": 8
+      },
+      {
+        "value": "レイラ",
+        "label": "レイラ",
+        "count": 8
+      },
+      {
+        "value": "緑子",
+        "label": "緑子",
+        "count": 8
+      },
+      {
+        "value": "美兎",
+        "label": "美兎",
+        "count": 8
+      },
+      {
+        "value": "花代",
+        "label": "花代",
+        "count": 8
+      },
+      {
+        "value": "まほまほ",
+        "label": "まほまほ",
+        "count": 7
+      },
+      {
+        "value": "ゆかゆか",
+        "label": "ゆかゆか",
+        "count": 7
+      },
+      {
+        "value": "アキノ",
+        "label": "アキノ",
+        "count": 7
+      },
+      {
+        "value": "ママ",
+        "label": "ママ",
+        "count": 7
+      },
+      {
+        "value": "ムジカ",
+        "label": "ムジカ",
+        "count": 7
+      },
+      {
+        "value": "C＆C",
+        "label": "C＆C",
+        "count": 6
+      },
+      {
+        "value": "LOVIT",
+        "label": "LOVIT",
+        "count": 6
+      },
+      {
+        "value": "WOLF",
+        "label": "WOLF",
+        "count": 6
+      },
+      {
+        "value": "とこ",
+        "label": "とこ",
+        "count": 6
+      },
+      {
+        "value": "アザエラ",
+        "label": "アザエラ",
+        "count": 6
+      },
+      {
+        "value": "アンジュ",
+        "label": "アンジュ",
+        "count": 6
+      },
+      {
+        "value": "エクス",
+        "label": "エクス",
+        "count": 6
+      },
+      {
+        "value": "ガブリエラ",
+        "label": "ガブリエラ",
+        "count": 6
+      },
+      {
+        "value": "サンガ",
+        "label": "サンガ",
+        "count": 6
+      },
+      {
+        "value": "ノヴァ",
+        "label": "ノヴァ",
+        "count": 6
+      },
+      {
+        "value": "バン",
+        "label": "バン",
+        "count": 6
+      },
+      {
+        "value": "マドカ",
+        "label": "マドカ",
+        "count": 6
+      },
+      {
+        "value": "ミカエラ",
+        "label": "ミカエラ",
+        "count": 6
+      },
+      {
+        "value": "リゼ",
+        "label": "リゼ",
+        "count": 6
+      },
+      {
+        "value": "レイ",
+        "label": "レイ",
+        "count": 6
+      },
+      {
+        "value": "対策委員会",
+        "label": "対策委員会",
+        "count": 6
+      },
+      {
+        "value": "補習授業部",
+        "label": "補習授業部",
+        "count": 6
+      },
+      {
+        "value": "風紀委員会",
+        "label": "風紀委員会",
+        "count": 6
+      },
+      {
+        "value": "デウス",
+        "label": "デウス",
+        "count": 5
+      },
+      {
+        "value": "マキナ",
+        "label": "マキナ",
+        "count": 5
+      },
+      {
+        "value": "あきら",
+        "label": "あきら",
+        "count": 2
+      },
+      {
+        "value": "ちより",
+        "label": "ちより",
+        "count": 2
+      },
+      {
+        "value": "ひとえ",
+        "label": "ひとえ",
+        "count": 2
+      },
+      {
+        "value": "るう子",
+        "label": "るう子",
+        "count": 2
+      },
+      {
+        "value": "?",
+        "label": "?",
+        "count": 1
+      },
+      {
+        "value": "アズサ",
+        "label": "アズサ",
+        "count": 1
+      },
+      {
+        "value": "サオリ",
+        "label": "サオリ",
+        "count": 1
+      },
+      {
+        "value": "シュン",
+        "label": "シュン",
+        "count": 1
+      },
+      {
+        "value": "シロコ",
+        "label": "シロコ",
+        "count": 1
+      },
+      {
+        "value": "ジール",
+        "label": "ジール",
+        "count": 1
+      },
+      {
+        "value": "ソウイ",
+        "label": "ソウイ",
+        "count": 1
+      },
+      {
+        "value": "タマ／イオナ",
+        "label": "タマ／イオナ",
+        "count": 1
+      },
+      {
+        "value": "ネル",
+        "label": "ネル",
+        "count": 1
+      },
+      {
+        "value": "ネージュ",
+        "label": "ネージュ",
+        "count": 1
+      },
+      {
+        "value": "ヒナ",
+        "label": "ヒナ",
+        "count": 1
+      },
+      {
+        "value": "ミヤコ",
+        "label": "ミヤコ",
+        "count": 1
+      },
+      {
+        "value": "ミーティア",
+        "label": "ミーティア",
+        "count": 1
+      },
+      {
+        "value": "ヤミノ",
+        "label": "ヤミノ",
+        "count": 1
+      },
+      {
+        "value": "ユカリ",
+        "label": "ユカリ",
+        "count": 1
+      },
+      {
+        "value": "ララ・ルー",
+        "label": "ララ・ルー",
+        "count": 1
+      },
+      {
+        "value": "リップル",
+        "label": "リップル",
+        "count": 1
+      },
+      {
+        "value": "ヴィオラ",
+        "label": "ヴィオラ",
+        "count": 1
+      },
+      {
+        "value": "夢限",
+        "label": "夢限",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "title": "奏像",
+    "items": [
+      {
+        "value": "奏像：悪魔",
+        "label": "悪魔",
+        "count": 110
+      },
+      {
+        "value": "奏像：天使",
+        "label": "天使",
+        "count": 101
+      },
+      {
+        "value": "奏像：武勇",
+        "label": "武勇",
+        "count": 86
+      },
+      {
+        "value": "奏像：プリオケ",
+        "label": "プリオケ",
+        "count": 55
+      },
+      {
+        "value": "奏像：美巧",
+        "label": "美巧",
+        "count": 33
+      },
+      {
+        "value": "奏像：英知",
+        "label": "英知",
+        "count": 17
+      },
+      {
+        "value": "奏像：プリパラ",
+        "label": "プリパラ",
+        "count": 15
+      }
+    ]
+  },
+  {
+    "title": "奏武",
+    "items": [
+      {
+        "value": "奏武：ブルアカ",
+        "label": "ブルアカ",
+        "count": 108
+      },
+      {
+        "value": "奏武：アーム",
+        "label": "アーム",
+        "count": 51
+      },
+      {
+        "value": "奏武：毒牙",
+        "label": "毒牙",
+        "count": 37
+      },
+      {
+        "value": "奏武：トリック",
+        "label": "トリック",
+        "count": 36
+      },
+      {
+        "value": "奏武：遊具",
+        "label": "遊具",
+        "count": 36
+      },
+      {
+        "value": "奏武：ウェポン",
+        "label": "ウェポン",
+        "count": 28
+      },
+      {
+        "value": "奏武：ウエポン",
+        "label": "ウエポン",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "title": "奏械",
+    "items": [
+      {
+        "value": "奏械：電機",
+        "label": "電機",
+        "count": 69
+      },
+      {
+        "value": "奏械：迷宮",
+        "label": "迷宮",
+        "count": 59
+      },
+      {
+        "value": "奏械：バーチャル",
+        "label": "バーチャル",
+        "count": 40
+      },
+      {
+        "value": "奏械：古代兵器",
+        "label": "古代兵器",
+        "count": 34
+      },
+      {
+        "value": "奏械：調理",
+        "label": "調理",
+        "count": 25
+      },
+      {
+        "value": "奏械：乗機",
+        "label": "乗機",
+        "count": 23
+      },
+      {
+        "value": "奏械：電音部",
+        "label": "電音部",
+        "count": 15
+      },
+      {
+        "value": "奏械：バーチャル/世怜音女学院",
+        "label": "バーチャル/世怜音女学院",
+        "count": 5
+      }
+    ]
+  },
+  {
+    "title": "奏羅",
+    "items": [
+      {
+        "value": "奏羅：宇宙",
+        "label": "宇宙",
+        "count": 91
+      },
+      {
+        "value": "奏羅：宝石",
+        "label": "宝石",
+        "count": 44
+      },
+      {
+        "value": "奏羅：原子",
+        "label": "原子",
+        "count": 42
+      },
+      {
+        "value": "奏羅：微菌",
+        "label": "微菌",
+        "count": 37
+      },
+      {
+        "value": "奏羅：植物",
+        "label": "植物",
+        "count": 26
+      }
+    ]
+  },
+  {
+    "title": "奏生",
+    "items": [
+      {
+        "value": "奏生：水獣",
+        "label": "水獣",
+        "count": 50
+      },
+      {
+        "value": "奏生：地獣",
+        "label": "地獣",
+        "count": 49
+      },
+      {
+        "value": "奏生：龍獣",
+        "label": "龍獣",
+        "count": 35
+      },
+      {
+        "value": "奏生：怪異",
+        "label": "怪異",
+        "count": 34
+      },
+      {
+        "value": "奏生：凶蟲",
+        "label": "凶蟲",
+        "count": 25
+      },
+      {
+        "value": "奏生：植物",
+        "label": "植物",
+        "count": 1
+      },
+      {
+        "value": "奏生：空獣",
+        "label": "空獣",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "title": "その他",
+    "items": [
+      {
+        "value": "解放派",
+        "label": "解放派",
+        "count": 15
+      },
+      {
+        "value": "闘争派",
+        "label": "闘争派",
+        "count": 15
+      },
+      {
+        "value": "防衛派",
+        "label": "防衛派",
+        "count": 15
+      },
+      {
+        "value": "奏元",
+        "label": "奏元",
+        "count": 3
+      }
+    ]
+  }
+]
