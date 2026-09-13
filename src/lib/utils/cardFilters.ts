@@ -54,7 +54,8 @@ export function filterCards(cards: Card[], filters: FilterState): Card[] {
     let textMatch = query === '' || (!searchName && !searchInText);
     if (!textMatch && searchName) {
       textMatch = card.name.toLowerCase().includes(query) ||
-        card.subName.some(name => name.toLowerCase().includes(query));
+        card.subName.some(name => name.toLowerCase().includes(query)) ||
+        (card.alias ?? []).some(a => a.toLowerCase().includes(query));
     }
     if (!textMatch && searchInText) {
       textMatch = card.text.some(t => t.body.toLowerCase().includes(query));
