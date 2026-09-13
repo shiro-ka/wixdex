@@ -7,15 +7,27 @@
   }
   let { selectedTags, onToggle }: Props = $props();
 
-  const tags = [
-    '解放派', '闘争派', '防衛派', '開放派',
-    '夢限少女', 'ゲート', 'アンシエント・サプライズ',
-    'チームピース', 'CardJockey', 'NoLimit', 'デウス・エクス・マキナ',
-    'うちゅうのはじまり', 'きゅるきゅるーん',
-    'DIAGRAM', 'ディソナ', 'ライズ', 'アタックフェイズ',
-    'サーバント', '原子', '地獣', '悪魔',
-  ];
-  const items = tags.map((t) => ({ value: t, label: t }));
+  /** tags.json：{ 種類: [{ name, count }] }（種類は チーム / キーワード / クラス。枚数の多い順） */
+  type TagIndex = Record<string, { name: string; count: number }[]>;
+
+  // ★選択肢は手で書かず、カードデータと一緒に生成される tags.json から作る。
+  //   手書きの一覧は公式の表記とずれて、選んでも1枚も出ないタグができていた
+  //   （NoLimit / CardJockey / きゅるきゅるーん と、データ側の No Limit / Card Jockey / きゅるきゅるーん☆）。
+  let index = $state<TagIndex>({});
+  $effect(() => {
+    fetch('/assets/cards_json/tags.json')
+      .then((r) => (r.ok ? r.json() : {}))
+      .then((j: TagIndex) => {
+        index = j;
+      })
+      .catch(() => {});
+  });
+
+  const groups = $derived(
+    Object.entries(index)
+      .filter(([, tags]) => tags.length > 0)
+      .map(([title, tags]) => ({ title, items: tags.map((t) => ({ value: t.name, label: t.name })) })),
+  );
 </script>
 
-<FilterChecklist {items} selected={selectedTags} {onToggle} columns={2} />
+<FilterChecklist {groups} selected={selectedTags} {onToggle} columns={2} />
