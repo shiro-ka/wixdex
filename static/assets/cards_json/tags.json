@@ -1,46 +1,46 @@
 {
   "チーム": [
     {
+      "name": "No Limit",
+      "count": 29
+    },
+    {
+      "name": "さんばか",
+      "count": 29
+    },
+    {
+      "name": "アンシエント・サプライズ",
+      "count": 29
+    },
+    {
+      "name": "Card Jockey",
+      "count": 27
+    },
+    {
+      "name": "うちゅうのはじまり",
+      "count": 27
+    },
+    {
+      "name": "DIAGRAM",
+      "count": 26
+    },
+    {
       "name": "きゅるきゅるーん☆",
       "count": 25
     },
     {
-      "name": "No Limit",
-      "count": 24
-    },
-    {
-      "name": "アンシエント・サプライズ",
-      "count": 24
-    },
-    {
-      "name": "Card Jockey",
-      "count": 22
-    },
-    {
-      "name": "うちゅうのはじまり",
-      "count": 22
-    },
-    {
-      "name": "DIAGRAM",
-      "count": 21
-    },
-    {
-      "name": "さんばか",
-      "count": 20
+      "name": "デウス・エクス・マキナ",
+      "count": 23
     },
     {
       "name": "夢限少女",
       "count": 20
-    },
-    {
-      "name": "デウス・エクス・マキナ",
-      "count": 17
     }
   ],
   "キーワード": [
     {
       "name": "アタックフェイズ",
-      "count": 286
+      "count": 310
     },
     {
       "name": "ディソナ",
@@ -56,13 +56,13 @@
     },
     {
       "name": "ライズ",
-      "count": 15
+      "count": 16
     }
   ],
   "クラス": [
     {
       "name": "ブルアカ",
-      "count": 146
+      "count": 147
     },
     {
       "name": "プリオケ",
@@ -74,11 +74,11 @@
     },
     {
       "name": "バーチャル",
-      "count": 42
+      "count": 54
     },
     {
       "name": "悪魔",
-      "count": 40
+      "count": 41
     },
     {
       "name": "武勇",
@@ -121,16 +121,16 @@
       "count": 16
     },
     {
+      "name": "アーム",
+      "count": 15
+    },
+    {
       "name": "原子",
       "count": 15
     },
     {
       "name": "迷宮",
       "count": 15
-    },
-    {
-      "name": "アーム",
-      "count": 14
     },
     {
       "name": "地獣",
