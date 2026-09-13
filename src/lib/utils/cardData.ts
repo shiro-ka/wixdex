@@ -2,6 +2,7 @@ import type { Card } from '$lib/types';
 
 const CARD_SETS = [
   'header',
+  'WX26-P1',
   'WX26-CP1',
   'WX25-P3',
   'WX25-P2',
