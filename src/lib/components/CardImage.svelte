@@ -109,15 +109,18 @@
     cursor: pointer;
   }
 
+  /* ★枠は呼ぶ側の器の幅いっぱいになる。大きさを決めるのは呼ぶ側（.card-img に width: 100%）。
+     inline-block だと、Suisou の row（子は flex: none）に入れたとき枠が画像の原寸（868px）まで膨らみ、
+     一覧とフォルダでカードが原寸で出た（2026-09-13 に本番で発覚。Tailwind の preflight が
+     img に max-width: 100% を当てていた間は隠れていた） */
   .frame {
     position: relative;
-    display: inline-block;
+    display: block;
+    width: 100%;
   }
   /* 横向きに寝かせる表示。器がカードの比を持ち、中身を切り抜く。
      container-type: size は中の実寸を cqw/cqh で拾うため */
   .frame.rotated {
-    display: block;
-    width: 100%;
     aspect-ratio: 12 / 17;
     overflow: hidden;
     container-type: size;
