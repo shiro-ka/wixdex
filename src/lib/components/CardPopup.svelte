@@ -341,8 +341,12 @@
     }
   }
 
-  /* 膜は Suisou の scrim。自前の黒 α0.70 は下地の暗さを見ていない値だった */
+  /* 膜は Suisou の scrim。自前の黒 α0.70 は下地の暗さを見ていない値だった。
+     ★画面いっぱいに敷くのはここの仕事。Tailwind の `absolute inset-0` を外したとき位置が落ち、
+     膜が 0×0 になって「暗くならない・外を押しても閉じない」になっていた（2026-09-13 発覚） */
   .scrim {
+    position: absolute;
+    inset: 0;
     background: var(--suisou-scrim);
   }
 
