@@ -99,6 +99,18 @@ describe('filterCards: テキスト検索', () => {
     expect(res).toEqual([yuki]);
   });
 
+  it('手で足した検索語(alias)もカード名検索の対象', () => {
+    // 公式の読みが漢字と違うカードを、漢字の素直な読みや略称でも引けるようにするための列
+    const zen = makeCard({ name: '全力疾走', subName: ['じゃいあんとなっくる'], alias: ['ぜんりょくしっそう', 'じゃいな'] });
+    const res = filterCards([zen, tama], makeFilters({ searchText: 'じゃいな', searchName: true }));
+    expect(res).toEqual([zen]);
+  });
+
+  it('alias が無いカードでも落ちない', () => {
+    const res = filterCards([tama, yuki], makeFilters({ searchText: 'じゃいな', searchName: true }));
+    expect(res).toEqual([]);
+  });
+
   it('テキスト本文検索 (searchInText)', () => {
     const res = filterCards([tama, yuki], makeFilters({ searchText: 'タマを参照', searchName: false, searchInText: true }));
     expect(res).toEqual([yuki]);
