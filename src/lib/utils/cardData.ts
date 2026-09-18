@@ -5,6 +5,7 @@ import type { Card } from '$lib/types';
 // WXDi-D09 は入るカードが0枚（全部が再録など）なので読み込まない。
 const CARD_SETS = [
   'header',
+  'WX26-P2',
   'WX26-P1',
   'WX26-CP1',
   'WX25-P3',
