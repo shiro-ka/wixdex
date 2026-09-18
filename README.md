@@ -1,13 +1,19 @@
-### wixdex
+## wixdex
 
 ディーヴァレギュレーションのみ対応
 
-[wixdex.cards](https://wixdex.cards/)
+🧡 [wixdex.cards](https://wixdex.cards/)
+
+<br>
+
+Androidアプリ(apk)はReleasesから
+
+🤍 [github.com/shiro-ka/wixdex/releases/tag/P00-001](https://github.com/shiro-ka/wixdex/releases/tag/P00-001)
 
 <br>
 
 ----
 
-なにかあれば制作者のbskyまで
+なにかあれば制作者のMadoまで
 
-[@ffffffflower.bsky.social](https://bsky.app/profile/ffffffflower.bsky.social)
+[mado.blue/@ffffffflower.bsky.social/wixdex](https://mado.blue/@ffffffflower.bsky.social/wixdex)
