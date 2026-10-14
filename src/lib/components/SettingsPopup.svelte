@@ -5,7 +5,6 @@
   interface Props {
     isOpen: boolean;
     onClose: () => void;
-    /** ★設定はストアごと渡す。項目を1つ増やしても prop は増えない */
     settings: SettingsStore;
   }
 
@@ -74,9 +73,6 @@
 {/if}
 
 <style>
-  /* 面・罫・角丸は surface="overlay" が持つ。ここは「どこに出るか」だけ。 */
-
-  /* 膜。押すと閉じる透明な板。色は持たない（下の画面をそのまま見せる） */
   .veil {
     position: fixed;
     inset: 0;
@@ -88,7 +84,6 @@
     opacity: 0;
   }
 
-  /* 出入り。scale は 0.95 ―― 動きは Suisou のトークンから取る */
   .anim {
     transition:
       opacity var(--suisou-duration) var(--suisou-ease),
@@ -103,8 +98,6 @@
     cursor: pointer;
     justify-content: flex-start;
   }
-  /* 位置と幅は現場のもの。面・罫・角丸は surface="overlay" が持つ。
-     dialog ではないので position を上書きして錨（ボタンの上）に留める */
   .popup {
     position: absolute;
     bottom: 100%;
@@ -114,8 +107,6 @@
     margin: 0 0 var(--suisou-space-2) 0;
   }
 
-  /* ★色は aria-pressed から引く。三項式でもう一度状態を書かないこと ――
-     「押されているか」が属性と式の2箇所に散る。 */
   .toggle :global(svg) {
     color: var(--suisou-color-text-sub);
     transition: color var(--suisou-duration-fast) var(--suisou-ease);

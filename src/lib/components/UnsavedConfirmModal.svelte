@@ -15,8 +15,6 @@
   <div data-suisou-layout="stack gap-3">
     <p data-suisou="sub">保存していない変更があります。どうしますか？</p>
     <div data-suisou-layout="stack gap-2">
-      <!-- 強さの3段: 目的の一本は outline、対等な代替は plain（罫だけ）、
-           逃げ道は基本形（幽霊）。全部 wide で縦に積む -->
       <button type="button" onclick={onSave} data-suisou-button="outline" data-suisou="accent w-full"
         >保存して閉じる</button
       >

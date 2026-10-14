@@ -25,7 +25,6 @@
       <p class="state" data-suisou-text="center" data-suisou="sub">保存されたデッキがありません</p>
     {:else}
       {#each decks as deck (deck.id)}
-        <!-- 行の下地と hover は Row が持つ。中身は選ぶボタンと削除ボタンの2つ -->
         <div data-suisou-item data-suisou-layout="row stretch gap-0">
           <button type="button" onclick={() => { onSelectDeck(deck); onClose(); }} data-suisou-button="block" data-suisou-layout="stack gap-1 grow" data-suisou-text="start" class="pick">
             <div data-suisou-text="fw-500">{deck.name}</div>

@@ -20,9 +20,7 @@
     mainDeck: Card[];
     lrigDeck: Card[];
     deckId: string | null;
-    /** 公開URLのユーザー名部分(username or bskyハンドル)。未設定なら URL を発行できない。 */
     ownerAtName: string | null;
-    /** デッキ公開URLの slug（現在値）。 */
     currentSlug: string | null;
     isPublic: boolean;
     isLoggedIn: boolean;
@@ -51,14 +49,12 @@
   let publishing = $state(false);
   let copied = $state(false);
 
-  // 編集中(editSlug)と確定済み(savedSlug)を分け、URLは確定値から作る。
   let savedSlug = $state('');
   let editSlug = $state('');
   let slugSaving = $state(false);
   let slugError = $state('');
   let editingSlug = $state(false);
 
-  // デッキが切り替わったら slug 状態を同期。
   $effect(() => {
     const s = currentSlug ?? deckId ?? '';
     savedSlug = s;
@@ -80,7 +76,6 @@
     slugError = '';
     const res = await onUpdateSlug(editSlug);
     if (res.ok) {
-      // サーバーで小文字正規化された値を採用（typed の大小と食い違わないように）。
       savedSlug = res.slug ?? editSlug;
       editSlug = savedSlug;
       editingSlug = false;
@@ -109,11 +104,10 @@
         copied = false;
       }, 1500);
     } catch {
-      /* clipboard 拒否時は無視 */
+      copied = false;
     }
   }
 
-  // 画像出力オプション（列数・テーマ）。出力時にまとめて渡す。
   let imageCols = $state<8 | 10>(8);
   let imageTheme = $state<DeckImageTheme>('dark');
 
@@ -155,7 +149,6 @@
 
 <BaseModal {isOpen} {onClose} title="シェア">
   <div data-suisou-layout="stack gap-3">
-    <!-- デッキ公開 -->
     <div>
       <h4 data-suisou-text="fs-14 fw-700" class="sec-head">デッキを公開</h4>
       {#if !isLoggedIn}
@@ -163,8 +156,6 @@
       {:else if !deckId}
         <p data-suisou-text="fs-12" data-suisou="sub">デッキを保存すると公開・共有できます。</p>
       {:else}
-        <!-- ネイティブの checkbox。Suisou はネイティブ部品を奪わない ――
-             accent-color が根で1回書いてあるので、色はテーマに追従する。 -->
         <label data-suisou-layout="row between" data-suisou="sub">
           このデッキを公開する
           <input
@@ -217,11 +208,9 @@
       {/if}
     </div>
 
-    <!-- 画像エクスポート -->
     <div data-suisou="bd-top" class="sec-block">
       <h4 data-suisou-text="fs-14 fw-700" class="sec-head">画像エクスポート</h4>
 
-      <!-- オプション: 列数 / テーマ -->
       <div data-suisou-layout="row" class="row-gap">
         <div data-suisou-tray data-suisou-layout="row gap-0">
           <button
@@ -261,7 +250,6 @@
         </div>
       </div>
 
-      <!-- 画像(JPG)。コピーはブラウザ制約によりPNGで書き込まれる(貼り付け互換のため)。 -->
       <div data-suisou-tray data-suisou-layout="row gap-0">
         <div data-suisou-layout="row grow middle" data-suisou-text="fw-500">ダウンロード</div>
         <button
@@ -299,8 +287,6 @@
 </BaseModal>
 
 <style>
-  /* 12px は Suisou の段（4/8/16/24）に無いので px で書く。 */
-
   .sec {
     margin-block-start: 12px;
   }
@@ -325,6 +311,4 @@
   .pick-all {
     user-select: all;
   }
-
-  /* 上の区切り */
 </style>

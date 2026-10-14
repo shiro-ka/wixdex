@@ -47,9 +47,6 @@
 
   const touchStateMap = new Map<string, TouchState>();
 
-  // {#each} のキーに配列 index を混ぜると、追加/削除でのソートで位置がずれた全セルが
-  // 再マウントされ画像が再デコードされる。カード種別ごとの出現回数で安定キーを振り、
-  // 同一カードのコピーは位置が変わってもキー不変=DOM移動で済むようにする。
   function withKeys(cards: Card[], prefix: string): { card: Card; key: string; index: number }[] {
     const seen = new Map<string, number>();
     return cards.map((card, index) => {
@@ -115,7 +112,6 @@
 </script>
 
 <div class="deck-side" data-suisou-layout="stack s:grow gap-3">
-  <!-- ルリグデッキ -->
   <div class="deck-panel" data-suisou-tray>
     <div data-suisou-layout="row">
       <span data-suisou-text="fs-16 fw-500">Lrig Deck</span>
@@ -145,7 +141,6 @@
     </div>
   </div>
 
-  <!-- メインデッキ -->
   <div class="deck-panel" data-suisou-tray>
     <div data-suisou-layout="row between">
       <span data-suisou-text="fs-16 fw-500">Main Deck</span>
@@ -180,7 +175,6 @@
     </div>
   </div>
 
-  <!-- 候補カード (Folder) - PC のみ表示 -->
   <div data-suisou-tray data-suisou-layout="stack" data-suisou="s>hidden" class="folder">
     <div class="panel-head" data-suisou-layout="row">
       <span data-suisou-text="fs-16 fw-500">Folder</span>
@@ -201,7 +195,6 @@
             />
           </div>
           <div class="cell-bar" data-suisou-layout="row middle stretch gap-0">
-            <!-- CardList のセル下ボタンと同じ形（hover の下地と文字色は Suisou が出す） -->
             <button
               class="cell"
               data-suisou-button
@@ -236,7 +229,6 @@
 </div>
 
 <style>
-  /* カードの比（12:17）と、升目の下の操作バーの高さ。実寸は現場のもの */
   .card-slot {
     aspect-ratio: 12 / 17;
   }
@@ -261,16 +253,12 @@
     margin-block-end: var(--suisou-space-2);
   }
 
-  /* 升目の中の画像。器が比を持つので、画像は幅だけ合わせて中に収める */
-  /* ★子コンポーネントに渡した class には Svelte の scoped ハッシュが付かない。
-     子側のセレクタは祖先を scoped にして :global で受ける。 */
   .deck-side :global(.card-img) {
     width: 100%;
     object-fit: contain;
     cursor: pointer;
   }
 
-  /* ライフバーストの数。アイコンと数字を同じ実寸で並べる */
   .burst :global(.burst-icon),
   .burst-num {
     width: 1rem;
@@ -294,16 +282,11 @@
     overflow-y: auto;
   }
 
-  /* Folder の升目。罫で囲うだけ ―― 面を上げると一覧がうるさくなる */
   .deck-cell {
     border: 1px solid var(--suisou-color-line-weak);
     border-radius: var(--suisou-radius);
   }
 
-  /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
-     Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
-     「2段で表せない振り方は現場のもの」という決定どおり。
-     ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
   .folder-grid {
     --suisou-grid-cols: repeat(5, minmax(0, 1fr));
     grid-auto-rows: min-content;
@@ -314,26 +297,18 @@
     }
   }
 
-  /* ★親が data-suisou-layout を持つと :where([data-suisou-layout]) > * { flex: none }
-     が効くので、子は既定で伸びない。伸ばすのは現場の CSS の仕事。 */
   .folder {
     flex: 1 1 0;
     min-height: 0;
   }
 
-  /* ★伸び方の比を上書きするときは flex のショートハンドで基準ごと書く。
-     Suisou の grow は flex: 1 1 auto ―― **中身の大きさを基準にしてから余りを配る**ので、
-     flex-grow だけ重ねると比が合わない（実測 40:60 が 32:68 になった）。
-     grow が併せて置く min-width/min-height: 0 は別の宣言なので残る。 */
 
-  /* 6px。Suisou の段は 4 / 8 / 16 / 24 なので、この値は現場のもの。 */
   @media (min-width: 768px) {
     .burst {
       gap: 6px;
     }
   }
 
-  /* 升目に広がるボタン（Folder のカード下）。CardList の .cell と同じ */
   .cell {
     flex: 1 1 auto;
     height: 100%;
@@ -341,14 +316,8 @@
     min-width: 0;
   }
 
-  /* デッキの升目。横8列 × ルリグ1行 / メイン5行。
-     行の高さはカードの縦横比（12:17）から決まり、列幅に正確に追従する。
-
-     ★器に高さを dvw で直接持たせるのは駄目。DeckArea は md 以上で幅の比を
-       取るので**幅がビューポート幅ではなく**、dvw 基準の近似は原理的に合わない
-       （画面幅によってカードの下に隙間が出たり詰まったりする）。 */
   .deck-panel {
-    container-type: inline-size; /* 下の 100cqw が面の内側の幅を指す */
+    container-type: inline-size;
   }
   .deck-grid {
     display: grid;
@@ -357,16 +326,6 @@
     width: 100%;
   }
 
-  /* ★空でも枠を保つ。行数が枚数依存になるので、0枚のとき行が消えて面が無くなり、
-     カードを足すたびに跳ねる（高さを直接持っていた頃は起きなかった退行）。
-
-     列幅 = (内側の幅 − 隙間7つ) ÷ 8、行の高さ = 列幅 × 17/12。
-     N行ぶんは (内側の幅 − 隙間7つ) × 17N/96 になる。
-     **満杯のときの実際の高さと同値**なので、min-height が中身と喧嘩しない。
-
-     ★高さを稼ぐために「1枡目に重ねた見えない当て木」を置くのは駄目。
-       grid の子は明示配置でもその枡を占有するので、自動配置が2枡目から
-       始まり、カードが1つずつずれる。 */
   .lrig {
     grid-template-rows: 1fr;
     min-height: calc((100cqw - 7 * var(--suisou-space-1)) * 17 / 96);
@@ -376,12 +335,9 @@
     min-height: calc((100cqw - 7 * var(--suisou-space-1)) * 85 / 96);
   }
 
-  /* 升目そのものがカードの比を持つ。中の画像は w-full なので縦は勝手に揃う
-     （横向きカードだけ背が低くなり、中央に置かれる） */
   .deck-grid > * {
     aspect-ratio: 12 / 17;
     display: flex;
     align-items: center;
   }
-
 </style>

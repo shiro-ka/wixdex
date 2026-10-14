@@ -12,8 +12,6 @@
 
   let { isOpen, onClose, title, children, maxWidth = 'md' }: Props = $props();
 
-  // ネイティブ <dialog> に任せる。ESC・フォーカスの閉じ込め・重なり順(top layer)・
-  // 膜(::backdrop)は全部ブラウザの仕事。見た目は Suisou の overlay が持つ。
   let dialog = $state<HTMLDialogElement>();
 
   $effect(() => {
@@ -46,16 +44,12 @@
 {/if}
 
 <style>
-  /* モーダル固有の仕事だけ: 幅の上限・はみ出しの巻物・膜クリックの判定領域。
-     色・罫・角丸・膜・出入りは Suisou の overlay。 */
   .modal {
-    /* ★中央寄せは明示する。dialog の既定（inset: 0 + margin: auto）に頼らない ――
-       リセット CSS の * { margin: 0 } 1本で黙って左上に張り付く。 */
     margin: auto;
     width: min(92vw, var(--modal-max, 28rem));
     max-height: 90dvh;
     overflow-y: auto;
-    padding: 0; /* 余白は .inner が持つ。縁のクリックを膜と誤判定させない */
+    padding: 0;
   }
   .sm {
     --modal-max: 24rem;

@@ -20,7 +20,6 @@
     onToggleFavorite: () => void;
     isLoggedIn: boolean;
     count: number;
-    /** これ以上デッキに追加できるか（カードタイプ別の上限を考慮した判定）。false で + / +4 をグレーアウト。 */
     canAdd: boolean;
     isInCandidate: boolean;
     onAdd: (card: Card) => void;
@@ -46,19 +45,16 @@
     onRemoveFromCandidate,
   }: Props = $props();
 
-  // モバイルは画像/情報のタブ切替。カードが変わるたびに画像タブへ戻す。
   let tab = $state<'card' | 'info'>('card');
   $effect(() => {
     if (card) tab = 'card';
   });
 </script>
 
-<!-- メタ情報のラベル片（種族・色・コスト等） -->
 {#snippet chip(label: string)}
   <span data-suisou-item="tag">{label}</span>
 {/snippet}
 
-<!-- モバイルのタブボタン -->
 {#snippet tabButton(value: 'card' | 'info', label: string)}
   <button
     class="tab"
@@ -70,9 +66,6 @@
   </button>
 {/snippet}
 
-<!-- 操作バーのアイコンボタン（追加/削除/候補/お気に入りで共通）。
-     「入っている状態」は aria-pressed で示し、下地は Suisou が出す。
-     色を文字列で渡さないこと。お気に入りの黄色だけは意味色（warning）。 -->
 {#snippet actionButton(
   Icon: typeof IconX,
   onclick: () => void,
@@ -98,7 +91,6 @@
 
 {#if card}
   <div class="root" data-suisou-layout="row middle">
-    <!-- 背景クリックで閉じる -->
     <button
       class="scrim"
       onclick={onClose}
@@ -106,27 +98,18 @@
       transition:fade={{ duration: 120 }}
     ></button>
 
-    <!-- モーダル本体（背景フェード＋軽くスケール。ツールなので控えめ＆やや速め） -->
     <div class="body" data-suisou-tray data-suisou-layout="stack" transition:scale={{ start: 0.97, opacity: 0, duration: 200 }}>
-      <!-- 右上の閉じるボタン -->
       <button class="close" data-suisou-button="icon" onclick={onClose} aria-label="閉じる">
         <IconX />
       </button>
 
-      <!-- タブ切替（モバイルのみ。PCは左右同時表示なので不要） -->
       <div class="tabbar" data-suisou-layout="row middle">
         {@render tabButton('card', 'カード')}
         {@render tabButton('info', '情報')}
       </div>
 
-      <!-- 左: カード画像 + 操作バー。モバイルでも常に描画し、全体の高さ基準になる -->
       <div class="card-pane" data-suisou-layout="stack grow">
-        <!-- 画像欄: 余ったスペースを埋め、画像はその枠内に収める(object-contain) -->
         <div data-suisou-layout="row grow middle">
-          <!-- crossorigin は付けない（表示専用。canvas出力は別途 loadImage が自前でCORS取得）。
-               crossorigin を付けると CORS リクエストになり R2 が Vary: Origin を返す→Chrome が
-               immutable を無視して毎回 304 再検証し、モーダル画像が遅くなる（Firefoxは免疫）。
-               no-cors にすれば Vary が付かずキャッシュがそのまま効く（LazyImage も同じ）。-->
           <img
             src={cardImageUrl(card.image)}
             alt={card.name}
@@ -135,14 +118,12 @@
           />
         </div>
 
-        <!-- 操作バー: -1 / 枚数 / +1 / (+4) / 候補 / (お気に入り) -->
         <div data-suisou-layout="row gap-2">
           {@render actionButton(IconMinus, () => onRemove(card), '1枚減らす', count === 0)}
           <div data-suisou-layout="row grow middle" data-suisou-text="fs-20 fw-700">
             {count}
           </div>
           {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', !canAdd)}
-          <!-- +4 はメインデッキ札(シグニ/スペル/サーバント)のみ。ルリグ/アシスト/ピース/アーツでは出さない -->
           {#if isMainDeckCard(card)}
             {@render actionButton(
               IconBoxMultiple4,
@@ -170,7 +151,6 @@
         </div>
       </div>
 
-      <!-- 右: 情報パネル。モバイルはカード側に重なるオーバーレイ(タブバー h-12 の下)、PCは右カラム -->
       <div
         class="info"
         class:card-tab={tab === 'card'}
@@ -182,7 +162,6 @@
             <p data-suisou-text="fs-12" data-suisou="sub">{card.subName.join(' / ')}</p>
           {/if}
 
-          <!-- メタ情報 -->
           <div class="chips" data-suisou-layout="row wrap">
             {#each card.cardType ?? [] as t (t)}{@render chip(t)}{/each}
             {#if card.level !== null}{@render chip(`Lv${card.level}`)}{/if}
@@ -198,7 +177,6 @@
             {/if}
           </div>
 
-          <!-- カードテキスト -->
           {#if card.text?.length}
             <div class="sec" data-suisou-layout="stack gap-2">
               {#each card.text as t, i (i)}
@@ -211,12 +189,10 @@
             </div>
           {/if}
 
-          <!-- フレーバーテキスト -->
           {#if card.flavorText}
             <p class="flavor" data-suisou-text="fs-12" data-suisou="sub">{card.flavorText}</p>
           {/if}
 
-          <!-- タグ（チーム / キーワード / クラス） -->
           {#if card.tags?.length}
             <div class="sec-lg">
               <h3 data-suisou-text="fs-14 fw-700" data-suisou="accent" class="sec-head">タグ</h3>
@@ -224,7 +200,6 @@
             </div>
           {/if}
 
-          <!-- FAQ -->
           {#if card.faq?.length}
             <div class="sec-lg">
               <h3 data-suisou-text="fs-14 fw-700" data-suisou="accent" class="sec-head">FAQ</h3>
@@ -245,14 +220,11 @@
 {/if}
 
 <style>
-  /* Suisou は位置を決めず、実寸も持たない ―― どちらも現場のもの。
-     段が xl(1280) のものは Suisou の md/lg 2段で表せないので、ここに残る。 */
-
   .root {
     position: fixed;
     inset: 0;
     z-index: 50;
-    padding: 12px; /* Suisou の段に無い値 */
+    padding: 12px;
   }
 
   .body {
@@ -264,14 +236,12 @@
     overflow: hidden;
   }
 
-  /* タブの帯。すきま 6px は Suisou の段（4/8/16/24）に無いので現場の値 */
   .tabbar {
     flex: none;
     justify-content: center;
     gap: 6px;
     padding: 12px 12px 0;
   }
-  /* PC は左右同時表示なのでタブは要らない。段が xl なので現場で持つ */
   @media (min-width: 1280px) {
     .tabbar {
       display: none;
@@ -326,23 +296,20 @@
     white-space: pre-line;
   }
 
-  /* 情報パネルの巻物。モバイルは重なりの中で伸びる、PC は絶対配置で面を埋める */
   .info-scroll {
     flex: 1 1 0;
     min-height: 0;
     overflow-y: auto;
-    padding: 12px var(--suisou-space-3) var(--suisou-space-3); /* pt-3 px-4 pb-4 */
+    padding: 12px var(--suisou-space-3) var(--suisou-space-3);
   }
   @media (min-width: 1280px) {
     .info-scroll {
       position: absolute;
       inset: 0;
-      padding-block-start: var(--suisou-space-3); /* xl:pt-4 = 16px */
+      padding-block-start: var(--suisou-space-3);
     }
   }
 
-  /* ★1280px で横並びに変わる。Suisou の段は md(768) / lg(1024) の2つだけなので、
-     xl は現場のもの。md / lg で足りるなら `stack md:row` と書けば済む。 */
   @media (min-width: 1280px) {
     .body {
       flex-direction: row;
@@ -350,16 +317,12 @@
     }
   }
 
-  /* 膜は Suisou の scrim。自前の黒 α0.70 は下地の暗さを見ていない値だった。
-     ★画面いっぱいに敷くのはここの仕事。Tailwind の `absolute inset-0` を外したとき位置が落ち、
-     膜が 0×0 になって「暗くならない・外を押しても閉じない」になっていた（2026-09-13 発覚） */
   .scrim {
     position: absolute;
     inset: 0;
     background: var(--suisou-color-backdrop);
   }
 
-  /* 右上に浮く閉じるボタン。面の上に載るので下地を敷いて字を拾わせる */
   .close {
     position: absolute;
     top: var(--suisou-space-2);
@@ -368,34 +331,24 @@
     background: var(--suisou-color-item);
   }
 
-  /* タブは中身の幅より広く取る。押下は aria-pressed で Suisou が下地を出す */
   .tab {
     padding-inline: var(--suisou-space-4);
   }
 
-  /* 操作バーの升目。等分に伸びる。連結（button-group）ではないので
-     ―― 器の罫を持たず独立したボタンが並ぶ形 ―― even は効かない */
   .act {
     flex: 1 1 0;
     min-width: 0;
     height: 2.5rem;
   }
 
-  /* 情報パネル。モバイルではカード画像の上に重なるので、面を敷いて下を隠す。
-     PC では右カラムになり、左との境目を罫1本で示す（面は同じ overlay のまま）。
-     ★罫は line-weak ―― 内側の仕切りは装飾の線で、面の縁（line-strong）ではない。
-     surface="overlay" の中なので、値は overlay 用のものが継承で降りてくる。 */
   .info {
     background: var(--suisou-color-panel);
-    /* モバイル: タブバー（h-12 = 3rem）の下に、カード画像へ重ねる */
     position: absolute;
     inset-inline: 0;
     inset-block-end: 0;
     top: 3rem;
     z-index: 10;
   }
-  /* カードのタブを見ているとき、狭い画面では情報パネルを出さない。
-     ★data-suisou-show は md/lg の2段しか無く、ここは xl なので現場で持つ。 */
   .info.card-tab {
     display: none;
   }

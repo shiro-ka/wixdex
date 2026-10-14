@@ -4,9 +4,7 @@
   type Item = { value: string; label: string };
 
   interface Props {
-    /** 見出しなしで並べる選択肢。groups を渡したときは使わない */
     items?: Item[];
-    /** 見出しごとに分けて並べる選択肢（例：タグの チーム / キーワード / クラス） */
     groups?: { title: string; items: Item[] }[];
     selected: Set<string>;
     onToggle: (value: string) => void;
@@ -14,7 +12,6 @@
   }
   let { items = [], groups, selected, onToggle, columns = 2 }: Props = $props();
 
-  // ★見出しの有無で描き分けない。見出しなしは「タイトル空の1グループ」として同じ道を通す
   const blocks = $derived(groups ?? [{ title: '', items }]);
 </script>
 
@@ -54,8 +51,6 @@
     justify-content: flex-start;
   }
 
-  /* ★色は aria-pressed から引く。三項式でもう一度状態を書かないこと ――
-     「押されているか」が属性と式の2箇所に散る。 */
   .toggle :global(svg) {
     color: var(--suisou-color-text-sub);
     transition: color var(--suisou-duration-fast) var(--suisou-ease);
