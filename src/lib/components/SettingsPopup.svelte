@@ -49,21 +49,24 @@
     <div>
       <h3 data-suisou-text="fs-14 fw-700" class="sec-head">設定</h3>
       <div data-suisou-layout="stack gap-2">
-        <button type="button" class="toggle" aria-pressed={settings.showLifeBurst} onclick={() => settings.toggle('showLifeBurst')} data-suisou-layout="row gap-2">
+        <button type="button" class="toggle" data-suisou-text="fs-12" aria-pressed={settings.showLifeBurst} onclick={() => settings.toggle('showLifeBurst')} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={settings.showLifeBurst}
+            data-suisou-text="fs-16"
           />
           <span>LBアイコンを表示</span>
         </button>
-        <button type="button" class="toggle" aria-pressed={settings.showCandidateIcon} onclick={() => settings.toggle('showCandidateIcon')} data-suisou-layout="row gap-2">
+        <button type="button" class="toggle" data-suisou-text="fs-12" aria-pressed={settings.showCandidateIcon} onclick={() => settings.toggle('showCandidateIcon')} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={settings.showCandidateIcon}
+            data-suisou-text="fs-16"
           />
           <span>候補カードアイコンを表示</span>
         </button>
-        <button type="button" class="toggle" aria-pressed={settings.rotateLandscape} onclick={() => settings.toggle('rotateLandscape')} data-suisou-layout="row gap-2">
+        <button type="button" class="toggle" data-suisou-text="fs-12" aria-pressed={settings.rotateLandscape} onclick={() => settings.toggle('rotateLandscape')} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={settings.rotateLandscape}
+            data-suisou-text="fs-16"
           />
           <span>横向きのカードを縦に表示</span>
         </button>
@@ -97,6 +100,8 @@
     width: 100%;
     cursor: pointer;
     justify-content: flex-start;
+    padding: 0;
+    border: 0;
   }
   .popup {
     position: absolute;
