@@ -28,7 +28,7 @@
             {checked}
             data-suisou-text="fs-16"
           />
-          <span>{label}</span>
+          <span data-suisou-layout="grow" data-suisou-text="start">{label}</span>
         </button>
       {/each}
     </div>
