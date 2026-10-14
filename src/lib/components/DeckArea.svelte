@@ -1,12 +1,9 @@
 <script lang="ts">
   import LifeBurstIcon from './icons/LifeBurstIcon.svelte';
-  import IconPlus from '@tabler/icons-svelte/icons/plus';
-  import IconFolderX from '@tabler/icons-svelte/icons/folder-x';
-  import IconBoxMultiple4 from '@tabler/icons-svelte/icons/box-multiple-4';
   import CardImage from './CardImage.svelte';
+  import CardTile from './CardTile.svelte';
   import type { Card } from '$lib/types';
   import { cardImageUrl } from '$lib/utils/cardImages';
-  import { isMainDeckCard } from '$lib/utils/cardTypeUtils';
 
   interface Props {
     mainDeck: Card[];
@@ -181,61 +178,23 @@
     </div>
     <div class="folder-grid" data-suisou-layout="grid gap-2">
       {#each candidateKeyed as { card, key } (key)}
-        <div class="deck-cell" data-suisou-layout="stack">
-          <div class="card-slot" data-suisou-layout="row">
-            <CardImage
-              {card}
-              src={cardImageUrl(card.image)}
-              class="card-img"
-              alt={card.name}
-              {showLifeBurst}
-              {rotateLandscape}
-              onmouseenter={() => onCardHover(card)}
-              onclick={() => onCardClick(card)}
-            />
-          </div>
-          <div class="cell-bar" data-suisou-layout="row middle stretch gap-0">
-            <button
-              class="cell"
-              data-suisou-button
-              onclick={() => onAdd(card)}
-              title="デッキに1枚追加"
-            >
-              <IconPlus />
-            </button>
-            {#if isMainDeckCard(card)}
-              <button
-                class="cell"
-                data-suisou-button
-                onclick={() => onAddMultiple(card, 4)}
-                title="デッキに4枚追加"
-              >
-                <IconBoxMultiple4 />
-              </button>
-            {/if}
-            <button
-              class="cell"
-              data-suisou-button
-              onclick={() => onRemoveFromCandidate(card)}
-              title="候補カードから削除"
-            >
-              <IconFolderX />
-            </button>
-          </div>
-        </div>
+        <CardTile
+          {card}
+          {showLifeBurst}
+          {rotateLandscape}
+          folderAction="remove"
+          onHover={onCardHover}
+          onClick={onCardClick}
+          {onAdd}
+          {onAddMultiple}
+          onFolder={onRemoveFromCandidate}
+        />
       {/each}
     </div>
   </div>
 </div>
 
 <style>
-  .card-slot {
-    aspect-ratio: 12 / 17;
-  }
-  .cell-bar {
-    height: 1.75rem;
-    --suisou-size-icon: var(--suisou-size-icon-small);
-  }
 
   .deck-side {
     padding-inline: var(--suisou-space-2);
@@ -283,11 +242,6 @@
     overflow-y: auto;
   }
 
-  .deck-cell {
-    border: 1px solid var(--suisou-color-line-weak);
-    border-radius: var(--suisou-radius);
-  }
-
   .folder-grid {
     --suisou-grid-cols: repeat(5, minmax(0, 1fr));
     grid-auto-rows: min-content;
@@ -310,12 +264,6 @@
     }
   }
 
-  .cell {
-    flex: 1 1 auto;
-    height: 100%;
-    padding: 0;
-    min-width: 0;
-  }
 
   .deck-panel {
     container-type: inline-size;
