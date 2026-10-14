@@ -138,7 +138,7 @@
   let tagActive = $derived(activeDropdown === 'tag');
 </script>
 
-<div class="pane" data-suisou-layout="stack gap-3">
+<div class="pane" data-suisou-layout="stack gap-3 m:grow">
   <!-- ホバープレビュー -->
   <div data-suisou-tray data-suisou="m>hidden" class="preview">
     {#if hoveredCard}
@@ -394,11 +394,6 @@
   @media (min-width: 768px) {
     .pane {
       padding-block-end: var(--suisou-space-1);
-    }
-  }
-  @media (min-width: 1024px) {
-    .pane {
-      width: 24rem;
     }
   }
 
