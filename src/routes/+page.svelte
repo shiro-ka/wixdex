@@ -314,6 +314,7 @@
 
 <style>
   .shell {
+    --suisou-size-icon: 1.125rem;
     width: 100dvw;
     height: 100dvh;
     margin: 0;
