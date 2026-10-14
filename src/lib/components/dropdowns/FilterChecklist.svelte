@@ -51,6 +51,7 @@
   }
   .toggle {
     cursor: pointer;
+    justify-content: flex-start;
   }
 
   /* ★色は aria-pressed から引く。三項式でもう一度状態を書かないこと ――

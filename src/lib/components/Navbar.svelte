@@ -30,7 +30,7 @@
 <nav class="bar">
   <img src="/wixdex.png" alt="wixdex" class="logo" />
   <div data-suisou-layout="row">
-    <div data-suisou-tray data-suisou-layout="row gap-0">
+    <div data-suisou-tray data-suisou-layout="row gap-0" data-suisou="bg-none py-0">
       <button data-suisou-button type="button" onclick={onDeckClick} aria-label="デッキ">
         {deckName || '新しいデッキ'}
       </button>
