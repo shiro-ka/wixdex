@@ -111,7 +111,7 @@
   }
 </script>
 
-<div class="deck-side" data-suisou-layout="stack s:grow gap-3">
+<div class="deck-side" data-suisou-layout="stack s:grow gap-2">
   <div class="deck-panel" data-suisou-tray>
     <div data-suisou-layout="row">
       <span data-suisou-text="fs-16 fw-500">Lrig Deck</span>
