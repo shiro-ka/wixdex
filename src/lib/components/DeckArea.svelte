@@ -142,8 +142,8 @@
     <div data-suisou-layout="row between">
       <span data-suisou-text="fs-16 fw-500">Main Deck</span>
       <div class="burst" data-suisou-layout="row gap-1">
-        <LifeBurstIcon class="burst-icon" data-suisou="sub"/>
-        <span data-suisou-layout="row middle" data-suisou-text="fs-14 s:fs-16" class="burst-num">{lifeBurstCount}</span
+        <LifeBurstIcon class="burst-icon" data-suisou="sub" data-suisou-text="fs-14"/>
+        <span data-suisou-layout="row middle" data-suisou-text="fs-14" class="burst-num">{lifeBurstCount}</span
         >
       </div>
     </div>
@@ -219,20 +219,9 @@
     cursor: pointer;
   }
 
-  .burst :global(.burst-icon) {
-    width: var(--suisou-size-icon-small);
-    height: var(--suisou-size-icon-small);
-  }
   .burst-num {
-    width: 1rem;
     height: 1rem;
     padding-block-end: 2px;
-  }
-  @media (min-width: 768px) {
-    .burst-num {
-      width: 1.25rem;
-      height: 1.25rem;
-    }
   }
 
   .folder {
