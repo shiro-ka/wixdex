@@ -3,13 +3,9 @@
   import { get } from 'svelte/store';
   import { createVirtualizer, type SvelteVirtualizer } from '@tanstack/svelte-virtual';
   import CardImage from './CardImage.svelte';
-  import IconPlus from '@tabler/icons-svelte/icons/plus';
-  import IconFolderPlus from '@tabler/icons-svelte/icons/folder-plus';
-  import IconFolderX from '@tabler/icons-svelte/icons/folder-x';
-  import IconBoxMultiple4 from '@tabler/icons-svelte/icons/box-multiple-4';
+  import CardTile from './CardTile.svelte';
   import type { Card } from '$lib/types';
   import { cardImageUrl } from '$lib/utils/cardImages';
-  import { isMainDeckCard } from '$lib/utils/cardTypeUtils';
   import { createCardGestures } from '$lib/utils/cardTouchGestures';
 
   interface Props {
@@ -166,59 +162,36 @@
 </script>
 
 {#snippet cardCell(card: Card, withButtons: boolean)}
-  <!-- svelte-ignore a11y_no_static_element_interactions -->
-  <div
-    class="cell-box"
-    class:framed={withButtons}
-    class:strip={!withButtons}
-    data-suisou-layout={withButtons ? 'stack gap-0' : 'stack middle gap-0'}
-    ontouchstart={(e) => gestures.start(e, card)}
-    ontouchmove={(e) => gestures.move(e, card)}
-    ontouchend={(e) => gestures.end(e, card)}
-  >
-    {#if withButtons}
-      <div class="card-slot" data-suisou-layout="row">
-        <CardImage
-          {card}
-          src={cardImageUrl(card.image)}
-          class="card-img"
-          alt={card.name}
-          {showLifeBurst}
-          {showCandidateIcon}
-          {rotateLandscape}
-          isInCandidates={isCardInCandidates(card)}
-          fadeToken={cards}
-          onmouseenter={() => onCardHover(card)}
-          onclick={() => onCardClick(card)}
-        />
-      </div>
-      <div class="cell-bar" data-suisou-layout="row middle stretch gap-0">
-        <button class="cell" data-suisou-button onclick={() => onAdd(card)} title="デッキに1枚追加">
-          <IconPlus />
-        </button>
-        {#if isMainDeckCard(card)}
-          <button
-            class="cell"
-            data-suisou-button
-            onclick={() => onAddMultiple(card, 4)}
-            title="デッキに4枚追加"
-          >
-            <IconBoxMultiple4 />
-          </button>
-        {/if}
-        <button
-          class="cell"
-          data-suisou-button
-          onclick={() => {
-            if (candidateFilter) onRemoveFromCandidate(card);
-            else onAddToCandidate(card);
-          }}
-          title={candidateFilter ? '候補カードから削除' : '候補カードに追加'}
-        >
-          {#if candidateFilter}<IconFolderX />{:else}<IconFolderPlus />{/if}
-        </button>
-      </div>
-    {:else}
+  {#if withButtons}
+    <CardTile
+      {card}
+      {showLifeBurst}
+      {showCandidateIcon}
+      {rotateLandscape}
+      isInCandidates={isCardInCandidates(card)}
+      fadeToken={cards}
+      folderAction={candidateFilter ? 'remove' : 'add'}
+      onHover={onCardHover}
+      onClick={onCardClick}
+      {onAdd}
+      {onAddMultiple}
+      onFolder={(c) => {
+        if (candidateFilter) onRemoveFromCandidate(c);
+        else onAddToCandidate(c);
+      }}
+      ontouchstart={(e) => gestures.start(e, card)}
+      ontouchmove={(e) => gestures.move(e, card)}
+      ontouchend={(e) => gestures.end(e, card)}
+    />
+  {:else}
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <div
+      class="cell-box strip"
+      data-suisou-layout="stack middle gap-0"
+      ontouchstart={(e) => gestures.start(e, card)}
+      ontouchmove={(e) => gestures.move(e, card)}
+      ontouchend={(e) => gestures.end(e, card)}
+    >
       <CardImage
         {card}
         src={cardImageUrl(card.image)}
@@ -232,8 +205,8 @@
         onmouseenter={() => onCardHover(card)}
         onclick={() => onCardClick(card)}
       />
-    {/if}
-  </div>
+    </div>
+  {/if}
 {/snippet}
 
 <div
@@ -293,24 +266,13 @@
   .cell-box {
     height: 100%;
   }
-  .framed {
-    border: 1px solid var(--suisou-color-line-weak);
-    border-radius: var(--suisou-radius);
-  }
   .strip {
     width: 4rem;
   }
 
-  .card-slot {
-    aspect-ratio: 12 / 17;
-  }
   .scroller :global(.card-img) {
     width: 100%;
     object-fit: contain;
-  }
-  .cell-bar {
-    height: 1.75rem;
-    --suisou-size-icon: var(--suisou-size-icon-small);
   }
 
   .state {
@@ -359,10 +321,4 @@
     flex: 1 1 0;
   }
 
-  .cell {
-    flex: 1 1 auto;
-    height: 100%;
-    padding: 0;
-    min-width: 0;
-  }
 </style>
