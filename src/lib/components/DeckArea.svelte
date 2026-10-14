@@ -233,7 +233,8 @@
     aspect-ratio: 12 / 17;
   }
   .cell-bar {
-    height: 2.5rem;
+    height: 1.75rem;
+    --suisou-size-icon: var(--suisou-size-icon-small);
   }
 
   .deck-side {
