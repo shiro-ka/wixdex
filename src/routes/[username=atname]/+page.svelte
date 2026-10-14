@@ -22,7 +22,7 @@
 <div class="screen">
   <PageHeader />
 
-  <div data-suisou-layout="stack gap-4" data-suisou="container" class="page">
+  <div data-suisou-layout="stack gap-4" data-suisou="container-l" class="page">
     <!-- プロフィールヘッダ -->
     <header data-suisou-layout="row gap-3" data-suisou="bd-bottom" class="head">
       <!-- 頭文字は Avatar が出す。円形＝人という約束ごと部品に寄せる。
@@ -40,7 +40,7 @@
             data-suisou-layout="row gap-1"
             data-suisou-text="link" class="inline-row"
           >
-            <IconBrandBluesky data-suisou-icon="small" />
+            <IconBrandBluesky data-suisou-text="fs-16" />
             @{profile.atName}
           </a>
         {:else}
@@ -110,21 +110,21 @@
      「2段で表せない振り方は現場のもの」という決定どおり。
      ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
   .decks {
-    --suisou-cols: 1;
+    --suisou-grid-cols: repeat(1, minmax(0, 1fr));
   }
   @media (min-width: 640px) {
     .decks {
-      --suisou-cols: 2;
+      --suisou-grid-cols: repeat(2, minmax(0, 1fr));
     }
   }
   @media (min-width: 1024px) {
     .decks {
-      --suisou-cols: 3;
+      --suisou-grid-cols: repeat(3, minmax(0, 1fr));
     }
   }
   @media (min-width: 1280px) {
     .decks {
-      --suisou-cols: 4;
+      --suisou-grid-cols: repeat(4, minmax(0, 1fr));
     }
   }
 
@@ -149,7 +149,6 @@
   }
 
   .page {
-    --suisou-measure: 80rem;
     padding: var(--suisou-space-4) var(--suisou-space-3);
   }
 </style>

@@ -81,7 +81,7 @@
       class="badge at-bottom"
       style="background: var(--badge-lifeburst)"
     >
-      <LifeBurstIcon data-suisou-icon="tiny" />
+      <LifeBurstIcon data-suisou-text="fs-12" />
     </div>
   {/if}
   {#if showCandidateIcon && isInCandidates && isImageLoaded}
@@ -89,7 +89,7 @@
       class="badge at-top"
       style="background: var(--badge-candidate)"
     >
-      <IconFolderFilled data-suisou-icon="tiny" />
+      <IconFolderFilled data-suisou-text="fs-12" />
     </div>
   {/if}
 </div>

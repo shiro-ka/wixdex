@@ -109,10 +109,11 @@
 
       <!-- タブ切替（再設定モードでは隠す） -->
       {#if mode !== 'forgot'}
-        <div data-suisou-button-group="even">
+        <div data-suisou-tray data-suisou-layout="row gap-0">
           <button
             type="button"
             data-suisou-button
+            data-suisou-layout="grow"
             aria-pressed={mode === 'login'}
             onclick={() => (mode = 'login')}
           >
@@ -121,6 +122,7 @@
           <button
             type="button"
             data-suisou-button
+            data-suisou-layout="grow"
             aria-pressed={mode === 'register'}
             onclick={() => (mode = 'register')}
           >
@@ -195,8 +197,8 @@
                 ユーザー名 <span data-suisou="sub">(URLになります: /@…)</span>
               </label>
               <div data-suisou-layout="row">
-                <div data-suisou-layout="grow" data-suisou-button-group>
-                  <span data-suisou-affix>@</span>
+                <div data-suisou-layout="grow" data-suisou-item="field">
+                  <span>@</span>
                   <input
                     id="username"
                     name="username"
@@ -314,7 +316,7 @@
             data-suisou-button="outline"
             data-suisou="accent w-full"
           >
-            <IconBrandBluesky data-suisou-icon />
+            <IconBrandBluesky />
             {blueskyLoading ? '接続中...' : 'Bluesky で続ける'}
           </button>
           {#if blueskyError}
@@ -383,11 +385,11 @@
      「2段で表せない振り方は現場のもの」という決定どおり。
      ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
   .split {
-    --suisou-cols: 1;
+    --suisou-grid-cols: repeat(1, minmax(0, 1fr));
   }
   @media (min-width: 1024px) {
     .split {
-      --suisou-cols: 2;
+      --suisou-grid-cols: repeat(2, minmax(0, 1fr));
     }
   }
 

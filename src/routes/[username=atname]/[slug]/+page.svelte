@@ -60,7 +60,7 @@
     {/snippet}
   </PageHeader>
 
-  <div data-suisou-layout="stack gap-3" data-suisou="container" class="page">
+  <div data-suisou-layout="stack gap-3" data-suisou="container-l" class="page">
     <div>
       <h1 data-suisou-text="fs-24 s:fs-28 fw-700 one-line">{data.deck.name}</h1>
     </div>
@@ -78,12 +78,10 @@
 
     {#if loading}
       <div class="state" data-suisou-layout="row middle">
-        <div
-          data-suisou-spinner
+        <progress
           style="--suisou-size-spinner: 2.5rem"
-          role="status"
           aria-label="読み込み中"
-        ></div>
+        ></progress>
       </div>
     {:else}
       <section data-suisou-tray data-suisou-layout="stack gap-2">
@@ -153,38 +151,37 @@
     gap: 6px;
   }
   .lrig-grid {
-    --suisou-cols: 4;
+    --suisou-grid-cols: repeat(4, minmax(0, 1fr));
   }
   .main-grid {
-    --suisou-cols: 5;
+    --suisou-grid-cols: repeat(5, minmax(0, 1fr));
   }
   @media (min-width: 640px) {
     .lrig-grid {
-      --suisou-cols: 6;
+      --suisou-grid-cols: repeat(6, minmax(0, 1fr));
     }
     .main-grid {
-      --suisou-cols: 8;
+      --suisou-grid-cols: repeat(8, minmax(0, 1fr));
     }
   }
   @media (min-width: 768px) {
     .lrig-grid {
-      --suisou-cols: 8;
+      --suisou-grid-cols: repeat(8, minmax(0, 1fr));
     }
     .main-grid {
-      --suisou-cols: 10;
+      --suisou-grid-cols: repeat(10, minmax(0, 1fr));
     }
   }
   @media (min-width: 1024px) {
     .lrig-grid {
-      --suisou-cols: 10;
+      --suisou-grid-cols: repeat(10, minmax(0, 1fr));
     }
     .main-grid {
-      --suisou-cols: 12;
+      --suisou-grid-cols: repeat(12, minmax(0, 1fr));
     }
   }
 
   .page {
-    --suisou-measure: 80rem;
     padding: var(--suisou-space-4) var(--suisou-space-3);
   }
 </style>

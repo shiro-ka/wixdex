@@ -305,12 +305,12 @@
      「2段で表せない振り方は現場のもの」という決定どおり。
      ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
   .folder-grid {
-    --suisou-cols: 5;
+    --suisou-grid-cols: repeat(5, minmax(0, 1fr));
     grid-auto-rows: min-content;
   }
   @media (min-width: 1280px) {
     .folder-grid {
-      --suisou-cols: 6;
+      --suisou-grid-cols: repeat(6, minmax(0, 1fr));
     }
   }
 

@@ -265,12 +265,10 @@
 >
   {#if loading}
     <div class="state" data-suisou-layout="row middle">
-      <div
-        data-suisou-spinner
+      <progress
         style="--suisou-size-spinner: 2.5rem"
-        role="status"
         aria-label="読み込み中"
-      ></div>
+      ></progress>
     </div>
   {:else if loadError}
     <div class="state pad" data-suisou-layout="row middle" data-suisou-text="center" data-suisou="error">
