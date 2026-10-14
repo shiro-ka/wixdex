@@ -210,8 +210,7 @@
     color: var(--suisou-color-text-disabled);
   }
 
-
   .login {
-    width: 100%;
+    margin-inline: var(--suisou-space-3);
   }
 </style>
