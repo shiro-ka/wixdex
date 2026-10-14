@@ -61,7 +61,7 @@
   let colWidth = $derived(
     containerWidth > 0 ? (containerWidth - PAD_X * 2 - GAP * (COLS - 1)) / COLS : 0,
   );
-  let estRowHeight = $derived(colWidth > 0 ? colWidth * (17 / 12) + 50 : 180);
+  let estRowHeight = $derived(colWidth > 0 ? colWidth * (17 / 12) + 38 : 180);
   function laneLeft(lane: number): number {
     return PAD_X + lane * (colWidth + GAP);
   }
@@ -309,7 +309,8 @@
     object-fit: contain;
   }
   .cell-bar {
-    height: 2.5rem;
+    height: 1.75rem;
+    --suisou-size-icon: var(--suisou-size-icon-small);
   }
 
   .state {
