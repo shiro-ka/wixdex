@@ -245,7 +245,8 @@
           </button>
         {/each}
       </div>
-
+    </div>
+    <div data-suisou-layout="row stretch" class="bar">
       <div data-suisou-layout="grow row gap-0" style="--suisou-grow: 3" data-suisou-tray>
         {#each [1, 2, 3] as level (level)}
           <button
