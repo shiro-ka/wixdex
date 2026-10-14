@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja" data-suisou-theme="hadal" data-suisou-accent="clown">
+<html lang="ja" data-suisou-theme="hadal clown">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="%sveltekit.assets%/wixdex.png" />
@@ -36,10 +36,10 @@
            レイヤの中に置いた規則はどれだけ詳細度を上げても Suisou に勝てない。
          ★上書きしたいときはレイヤの外＝コンポーネントの scoped style で書く。
            Svelte が付ける .svelte-xxx でレイヤ無し同士の詳細度勝負になり、現場が勝つ。 -->
-    <link rel="stylesheet" href="https://suisou.pages.dev/v2/suisou.css" />
+    <link rel="stylesheet" href="https://suisou.pages.dev/v3/suisou.css" />
     %sveltekit.head%
   </head>
-  <body data-suisou-root data-sveltekit-preload-data="hover">
+  <body data-suisou-body data-sveltekit-preload-data="hover">
     <div style="display: contents">%sveltekit.body%</div>
   </body>
 </html>

@@ -157,15 +157,15 @@
   <div data-suisou-layout="stack gap-3">
     <!-- デッキ公開 -->
     <div>
-      <h4 data-suisou-text="s14 w700" class="sec-head">デッキを公開</h4>
+      <h4 data-suisou-text="fs-14 fw-700" class="sec-head">デッキを公開</h4>
       {#if !isLoggedIn}
-        <p data-suisou-text="sub s12">ログインするとデッキを公開・共有できます。</p>
+        <p data-suisou-text="fs-12" data-suisou="sub">ログインするとデッキを公開・共有できます。</p>
       {:else if !deckId}
-        <p data-suisou-text="sub s12">デッキを保存すると公開・共有できます。</p>
+        <p data-suisou-text="fs-12" data-suisou="sub">デッキを保存すると公開・共有できます。</p>
       {:else}
         <!-- ネイティブの checkbox。Suisou はネイティブ部品を奪わない ――
              accent-color が根で1回書いてあるので、色はテーマに追従する。 -->
-        <label data-suisou-layout="row between" data-suisou-text="sub">
+        <label data-suisou-layout="row between" data-suisou="sub">
           このデッキを公開する
           <input
             type="checkbox"
@@ -178,8 +178,8 @@
         {#if isPublic}
           {#if publicUrl}
             <div class="sec" data-suisou-button-group="even">
-              <input type="text" readonly value={publicUrl} data-suisou-field class="pick-all" data-suisou-text="s12"/>
-              <button type="button" onclick={copyLink} data-suisou-button class="fix" data-suisou-text="s12">
+              <input type="text" readonly value={publicUrl} data-suisou-text="fs-12" class="pick-all"/>
+              <button type="button" onclick={copyLink} data-suisou-button data-suisou-text="fs-12" class="fix">
                 <IconClipboard size={16} />
                 {copied ? 'コピー済' : 'コピー'}
               </button>
@@ -188,30 +188,30 @@
             {#if editingSlug}
               <div class="sec-sm">
                 <div data-suisou-button-group="even">
-                  <span data-suisou-affix data-suisou-text="s12">/@{ownerAtName}/</span>
-                  <input type="text" bind:value={editSlug} autocapitalize="none" autocomplete="off" spellcheck="false" data-suisou-field data-suisou-text="s12"/>
-                  <button type="button" onclick={saveSlug} disabled={slugSaving} data-suisou-button="outline" class="fix" data-suisou-text="s12">
+                  <span data-suisou-affix data-suisou-text="fs-12">/@{ownerAtName}/</span>
+                  <input type="text" bind:value={editSlug} autocapitalize="none" autocomplete="off" spellcheck="false" data-suisou-text="fs-12"/>
+                  <button type="button" onclick={saveSlug} disabled={slugSaving} data-suisou-button="outline" data-suisou-text="fs-12" data-suisou="accent" class="fix">
                     {slugSaving ? '...' : '保存'}
                   </button>
                 </div>
                 {#if slugError}
-                  <p class="sec-xs" data-suisou-text="error s12">{slugError}</p>
+                  <p class="sec-xs" data-suisou-text="fs-12" data-suisou="error">{slugError}</p>
                 {/if}
               </div>
             {:else}
               <div data-suisou-layout="row between" class="sec-xs">
-                <p data-suisou-text="sub s12">
+                <p data-suisou-text="fs-12" data-suisou="sub">
                   リンクを知っている人がこのデッキを閲覧できます。
                 </p>
-                <button type="button" onclick={() => (editingSlug = true)} data-suisou-button class="fix" data-suisou-text="s12">
+                <button type="button" onclick={() => (editingSlug = true)} data-suisou-button data-suisou-text="fs-12" class="fix">
                   URLを編集
                 </button>
               </div>
             {/if}
           {:else}
-            <p class="sec" data-suisou-text="warning s12">
+            <p class="sec" data-suisou-text="fs-12" data-suisou="warning">
               共有URLを発行するには
-              <a href="/settings" data-suisou-link>設定</a>でユーザー名を決めてください。
+              <a href="/settings" data-suisou-text="link">設定</a>でユーザー名を決めてください。
             </p>
           {/if}
         {/if}
@@ -219,8 +219,8 @@
     </div>
 
     <!-- 画像エクスポート -->
-    <div data-suisou-rule="top" class="sec-block">
-      <h4 data-suisou-text="s14 w700" class="sec-head">画像エクスポート</h4>
+    <div data-suisou="bd-top" class="sec-block">
+      <h4 data-suisou-text="fs-14 fw-700" class="sec-head">画像エクスポート</h4>
 
       <!-- オプション: 列数 / テーマ -->
       <div data-suisou-layout="row" class="row-gap">
@@ -260,7 +260,7 @@
 
       <!-- 画像(JPG)。コピーはブラウザ制約によりPNGで書き込まれる(貼り付け互換のため)。 -->
       <div data-suisou-button-group="even">
-        <div data-suisou-text="w500" data-suisou-layout="row grow middle">ダウンロード</div>
+        <div data-suisou-layout="row grow middle" data-suisou-text="fw-500">ダウンロード</div>
         <button
           type="button"
           data-suisou-button="icon"
@@ -282,15 +282,15 @@
       </div>
 
       {#if mainDeck.length === 0}
-        <p class="sec" data-suisou-text="warning s12">※デッキにカードを追加してください</p>
+        <p class="sec" data-suisou-text="fs-12" data-suisou="warning">※デッキにカードを追加してください</p>
       {/if}
       {#if isExporting}
-        <p class="sec" data-suisou-text="sub s12">生成中...</p>
+        <p class="sec" data-suisou-text="fs-12" data-suisou="sub">生成中...</p>
       {/if}
     </div>
 
-    <div data-suisou-rule="top" class="sec-block">
-      <p data-suisou-text="sub s12">リスト式、テキストエクスポートは今後実装予定です。</p>
+    <div data-suisou="bd-top" class="sec-block">
+      <p data-suisou-text="fs-12" data-suisou="sub">リスト式、テキストエクスポートは今後実装予定です。</p>
     </div>
   </div>
 </BaseModal>

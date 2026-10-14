@@ -136,7 +136,7 @@
     }}
   />
 
-  <div class="split" data-suisou-layout="stack md:row md:stretch grow gap-0">
+  <div class="split" data-suisou-layout="stack s:row s:stretch grow gap-0">
     <DeckArea
       mainDeck={deck.mainDeck}
       lrigDeck={deck.lrigDeck}
@@ -156,7 +156,7 @@
       rotateLandscape={settings.rotateLandscape}
     />
 
-    <div class="card-side" data-suisou-layout="stack lg:row lg:stretch share gap-0">
+    <div class="card-side" data-suisou-layout="stack m:row m:stretch grow gap-0">
       <CardList
         cards={filteredCards}
         {loading}
@@ -363,16 +363,16 @@
   /* 伸び方の「比」は --suisou-share で渡す（layout="share"）。
      段は md / lg の2つなので、それで足りる振り方はここに書ける。 */
   .card-side {
-    --suisou-share: 3;
+    --suisou-grow: 3;
   }
   @media (min-width: 768px) {
     .card-side {
-      --suisou-share: 1;
+      --suisou-grow: 1;
     }
   }
   @media (min-width: 1024px) {
     .card-side {
-      --suisou-share: 3;
+      --suisou-grow: 3;
     }
   }
 </style>

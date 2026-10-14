@@ -25,7 +25,7 @@
   <dialog
     bind:this={dialog}
     class="modal {maxWidth}"
-    data-suisou-surface="overlay"
+    data-suisou-tray
     onclose={onClose}
     onclick={(e) => {
       // 膜のクリックで閉じる。膜のクリックは target が dialog 自身になる。
@@ -35,7 +35,7 @@
   >
     <div class="inner" data-suisou-layout="stack">
       <div data-suisou-layout="row between">
-        <h2 data-suisou-text="s20 w700">{title}</h2>
+        <h2 data-suisou-text="fs-20 fw-700">{title}</h2>
         <button data-suisou-button="icon" type="button" onclick={onClose} aria-label="閉じる">
           <IconX />
         </button>

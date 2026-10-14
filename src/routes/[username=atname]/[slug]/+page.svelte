@@ -56,20 +56,20 @@
 <div class="screen">
   <PageHeader>
     {#snippet right()}
-      <a href="/" data-suisou-button="outline"> 自分も作る </a>
+      <a href="/" data-suisou-button="outline" data-suisou="accent"> 自分も作る </a>
     {/snippet}
   </PageHeader>
 
-  <div data-suisou-layout="stack container gap-3" class="page">
+  <div data-suisou-layout="stack gap-3" data-suisou="container" class="page">
     <div>
-      <h1 data-suisou-text="s24 md:s28 w700 one-line">{data.deck.name}</h1>
+      <h1 data-suisou-text="fs-24 s:fs-28 fw-700 one-line">{data.deck.name}</h1>
     </div>
-    <a href="/@{data.atName}" data-suisou-link class="back" data-suisou-text="sub">
+    <a href="/@{data.atName}" data-suisou-text="link" data-suisou="sub" class="back">
       @{data.atName} のデッキ
     </a>
 
     {#if renderedMemo}
-      <div data-suisou-surface="panel" data-suisou-prose="tight">
+      <div data-suisou-tray data-suisou-text="typeset">
         <!-- renderedMemo は DOMPurify.sanitize 済み -->
         <!-- eslint-disable-next-line svelte/no-at-html-tags -->
         {@html renderedMemo}
@@ -80,17 +80,17 @@
       <div class="state" data-suisou-layout="row middle">
         <div
           data-suisou-spinner
-          style="--suisou-spinner: 2.5rem"
+          style="--suisou-size-spinner: 2.5rem"
           role="status"
           aria-label="読み込み中"
         ></div>
       </div>
     {:else}
-      <section data-suisou-surface="panel" data-suisou-layout="stack gap-2">
-        <h2 data-suisou-text="s16">
-          Lrig Deck <span data-suisou-text="s14 sub">({lrigDeck.length})</span>
+      <section data-suisou-tray data-suisou-layout="stack gap-2">
+        <h2 data-suisou-text="fs-16">
+          Lrig Deck <span data-suisou-text="fs-14" data-suisou="sub">({lrigDeck.length})</span>
         </h2>
-        <div class="lrig-grid" data-suisou-layout="cols">
+        <div class="lrig-grid" data-suisou-layout="grid">
           {#each lrigDeck as card, i (`lrig-${card.cardID}-${i}`)}
             <CardImage
               {card}
@@ -103,14 +103,14 @@
         </div>
       </section>
 
-      <section data-suisou-surface="panel">
+      <section data-suisou-tray>
         <div data-suisou-layout="row between">
-          <h2 data-suisou-text="s16">
-            Main Deck <span data-suisou-text="s14 sub">({mainDeck.length})</span>
+          <h2 data-suisou-text="fs-16">
+            Main Deck <span data-suisou-text="fs-14" data-suisou="sub">({mainDeck.length})</span>
           </h2>
-          <span data-suisou-text="sub">LB {lifeBurstCount}</span>
+          <span data-suisou="sub">LB {lifeBurstCount}</span>
         </div>
-        <div class="main-grid" data-suisou-layout="cols">
+        <div class="main-grid" data-suisou-layout="grid">
           {#each mainDeck as card, i (`main-${card.cardID}-${i}`)}
             <CardImage
               {card}

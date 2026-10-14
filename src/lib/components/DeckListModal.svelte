@@ -22,24 +22,25 @@
 <BaseModal {isOpen} {onClose} title="デッキ一覧">
   <div data-suisou-layout="stack gap-2">
     {#if decks.length === 0}
-      <p class="state" data-suisou-text="sub center">保存されたデッキがありません</p>
+      <p class="state" data-suisou-text="center" data-suisou="sub">保存されたデッキがありません</p>
     {:else}
       {#each decks as deck (deck.id)}
         <!-- 行の下地と hover は Row が持つ。中身は選ぶボタンと削除ボタンの2つ -->
         <div data-suisou-row data-suisou-layout="row stretch gap-0">
-          <button type="button" onclick={() => { onSelectDeck(deck); onClose(); }} data-suisou-text="start" class="pick" data-suisou-layout="stack gap-1 grow">
-            <div data-suisou-text="w500">{deck.name}</div>
-            <div data-suisou-text="sub">
+          <button type="button" onclick={() => { onSelectDeck(deck); onClose(); }} data-suisou-layout="stack gap-1 grow" data-suisou-text="start" class="pick">
+            <div data-suisou-text="fw-500">{deck.name}</div>
+            <div data-suisou="sub">
               メイン: {deck.mainCount}枚 / ルリグ: {deck.lrigCount}枚
             </div>
-            <div data-suisou-text="sub s12">
+            <div data-suisou-text="fs-12" data-suisou="sub">
               {new Date(deck.updatedAt * 1000).toLocaleString('ja-JP')}
             </div>
           </button>
           <button
             type="button"
             onclick={(e) => handleDelete(e, deck)}
-            data-suisou-button="danger icon"
+            data-suisou-button="outline icon"
+            data-suisou="error"
             class="mid"
             title="デッキを削除"
           >

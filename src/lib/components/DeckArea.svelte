@@ -114,11 +114,11 @@
   }
 </script>
 
-<div class="deck-side" data-suisou-layout="stack md:share gap-3">
+<div class="deck-side" data-suisou-layout="stack s:grow gap-3">
   <!-- ルリグデッキ -->
-  <div class="deck-panel" data-suisou-surface="panel tight">
+  <div class="deck-panel" data-suisou-tray>
     <div data-suisou-layout="row">
-      <span data-suisou-text="s16 w500">Lrig Deck</span>
+      <span data-suisou-text="fs-16 fw-500">Lrig Deck</span>
     </div>
     <div class="deck-grid lrig">
       {#each lrigKeyed as { card, key, index } (key)}
@@ -146,12 +146,12 @@
   </div>
 
   <!-- メインデッキ -->
-  <div class="deck-panel" data-suisou-surface="panel tight">
+  <div class="deck-panel" data-suisou-tray>
     <div data-suisou-layout="row between">
-      <span data-suisou-text="s16 w500">Main Deck</span>
+      <span data-suisou-text="fs-16 fw-500">Main Deck</span>
       <div class="burst" data-suisou-layout="row gap-1">
-        <LifeBurstIcon class="burst-icon" data-suisou-text="sub"/>
-        <span data-suisou-text="s14 md:s16" class="burst-num" data-suisou-layout="row middle">{lifeBurstCount}</span
+        <LifeBurstIcon class="burst-icon" data-suisou="sub"/>
+        <span data-suisou-layout="row middle" data-suisou-text="fs-14 s:fs-16" class="burst-num">{lifeBurstCount}</span
         >
       </div>
     </div>
@@ -181,11 +181,11 @@
   </div>
 
   <!-- 候補カード (Folder) - PC のみ表示 -->
-  <div data-suisou-show="md" data-suisou-layout="stack" class="folder" data-suisou-surface="panel tight">
+  <div data-suisou-tray data-suisou-layout="stack" data-suisou="s>hidden" class="folder">
     <div class="panel-head" data-suisou-layout="row">
-      <span data-suisou-text="s16 w500">Folder</span>
+      <span data-suisou-text="fs-16 fw-500">Folder</span>
     </div>
-    <div class="folder-grid" data-suisou-layout="cols gap-2">
+    <div class="folder-grid" data-suisou-layout="grid gap-2">
       {#each candidateKeyed as { card, key } (key)}
         <div class="deck-cell" data-suisou-layout="stack">
           <div class="card-slot" data-suisou-layout="row">
@@ -296,7 +296,7 @@
 
   /* Folder の升目。罫で囲うだけ ―― 面を上げると一覧がうるさくなる */
   .deck-cell {
-    border: 1px solid var(--suisou-line-weak);
+    border: 1px solid var(--suisou-color-line-weak);
     border-radius: var(--suisou-radius);
   }
 
@@ -327,7 +327,7 @@
      grow が併せて置く min-width/min-height: 0 は別の宣言なので残る。 */
   @media (min-width: 1024px) {
     .deck-side {
-      --suisou-share: 2;
+      --suisou-grow: 2;
     }
   }
 

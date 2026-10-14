@@ -140,7 +140,7 @@
 
 <div class="pane" data-suisou-layout="stack gap-3">
   <!-- ホバープレビュー -->
-  <div data-suisou-show="lg" class="preview" data-suisou-surface="panel">
+  <div data-suisou-tray data-suisou="m>hidden" class="preview">
     {#if hoveredCard}
       <div class="fill" data-suisou-layout="row middle">
         <img
@@ -153,9 +153,9 @@
   </div>
 
   <!-- 拡張メニュー（lg以上） -->
-  <div data-suisou-show="lg" data-suisou-layout="stack" class="ext-menu" data-suisou-surface="panel">
+  <div data-suisou-tray data-suisou-layout="stack" data-suisou="m>hidden" class="ext-menu">
     <div data-suisou-layout="row between" class="menu-head">
-      <h3 data-suisou-text="s16 w500">
+      <h3 data-suisou-text="fs-16 fw-500">
         {#if panelTab === 'type'}カードタイプ検索
         {:else if panelTab === 'lrigClass'}ルリグタイプ/クラス検索
         {:else}タグ検索
@@ -187,7 +187,7 @@
         <button
           type="button"
           class="cell"
-          data-suisou-button="plain neutral"
+          data-suisou-button="outline"
           aria-pressed={filter.favoriteFilter}
           onclick={filter.toggleFavorite}
         >
@@ -199,19 +199,19 @@
       <button
         type="button"
         id="folder-button"
-        data-suisou-show="under-md" class="cell"
-        data-suisou-button="plain neutral"
+        data-suisou-button="outline"
+        data-suisou="s:hidden" class="cell"
         aria-pressed={filter.candidateFilter}
         onclick={filter.toggleCandidate}
       >
         {#if filter.candidateFilter}<IconFolderFilled />{:else}<IconFolder />{/if}
       </button>
 
-      <div data-suisou-layout="share" style="--suisou-share: 3" data-suisou-button-group="even">
+      <div data-suisou-layout="grow" style="--suisou-grow: 3" data-suisou-button-group="even">
         <button
           type="button"
           class="cell"
-          data-suisou-button="neutral"
+          data-suisou-button
           aria-pressed={typeActive}
           onclick={() => handleMenuClick('type')}
         >
@@ -220,7 +220,7 @@
         <button
           type="button"
           class="cell"
-          data-suisou-button="neutral"
+          data-suisou-button
           aria-pressed={lrigActive}
           onclick={() => handleMenuClick('lrigClass')}
         >
@@ -229,7 +229,7 @@
         <button
           type="button"
           class="cell"
-          data-suisou-button="neutral"
+          data-suisou-button
           aria-pressed={tagActive}
           onclick={() => handleMenuClick('tag')}
         >
@@ -241,12 +241,12 @@
     <!-- 色/Lv/LB -->
     <div data-suisou-layout="row stretch" class="bar">
       <!-- 色検索 -->
-      <div data-suisou-layout="share" style="--suisou-share: 5" data-suisou-button-group="even">
+      <div data-suisou-layout="grow" style="--suisou-grow: 5" data-suisou-button-group="even">
         {#each [['白', 'c-white'], ['赤', 'c-red'], ['青', 'c-blue'], ['緑', 'c-green'], ['黒', 'c-black']] as [color, colorClass] (color)}
           <button
             type="button"
             class="cell"
-            data-suisou-button="neutral"
+            data-suisou-button
             aria-pressed={filter.selectedColors.has(color)}
             onclick={() => filter.toggleColor(color)}
           >
@@ -266,12 +266,12 @@
       </div>
 
       <!-- レベル検索 -->
-      <div data-suisou-layout="share" style="--suisou-share: 3" data-suisou-button-group="even">
+      <div data-suisou-layout="grow" style="--suisou-grow: 3" data-suisou-button-group="even">
         {#each [1, 2, 3] as level (level)}
           <button
             type="button"
             class="cell"
-            data-suisou-button="neutral"
+            data-suisou-button
             aria-pressed={filter.selectedLevels.has(level)}
             onclick={() => filter.toggleLevel(level)}
           >
@@ -302,7 +302,7 @@
       <button
         type="button"
         class="cell sq"
-        data-suisou-button="plain neutral"
+        data-suisou-button="outline"
         aria-pressed={filter.lifeBurstFilter !== null}
         onclick={filter.toggleLifeBurst}
       >
@@ -320,7 +320,7 @@
         <button
           type="button"
           class="cell fill-w"
-          data-suisou-button="plain"
+          data-suisou-button="outline"
           onclick={() => {
             isSettingsOpen = !isSettingsOpen;
           }}
@@ -337,7 +337,7 @@
       </div>
 
       <!-- 検索入力 -->
-      <div class="search" data-suisou-layout="share" data-suisou-button-group>
+      <div class="search" data-suisou-layout="grow" data-suisou-button-group>
         <!-- 同上: ポップアップを button の外(relative div の兄弟)に出す -->
         <div class="anchor sq-lg">
           <button
@@ -361,7 +361,7 @@
             onToggleSearchCardText={filter.toggleSearchInText}
           />
         </div>
-        <input type="text" data-suisou-field bind:value={searchText} oninput={handleSearchInput} />
+        <input type="text" bind:value={searchText} oninput={handleSearchInput} />
         <button type="button" class="cell clear" data-suisou-button onclick={handleClear}>
           <IconCircleX />
         </button>
@@ -371,7 +371,7 @@
       <button
         type="button"
         class="cell sq"
-        data-suisou-button="plain"
+        data-suisou-button="outline"
         onclick={handleReset}
       >
         <IconLoader />

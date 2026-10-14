@@ -55,14 +55,14 @@
 
 <!-- メタ情報のラベル片（種族・色・コスト等） -->
 {#snippet chip(label: string)}
-  <span data-suisou-tag>{label}</span>
+  <span data-suisou-item="tag">{label}</span>
 {/snippet}
 
 <!-- モバイルのタブボタン -->
 {#snippet tabButton(value: 'card' | 'info', label: string)}
   <button
     class="tab"
-    data-suisou-button="plain neutral"
+    data-suisou-button="outline"
     aria-pressed={tab === value}
     onclick={() => (tab = value)}
   >
@@ -85,7 +85,7 @@
 )}
   <button
     type="button"
-    data-suisou-button="neutral"
+    data-suisou-button
     class="act"
     aria-pressed={pressed}
     {onclick}
@@ -107,7 +107,7 @@
     ></button>
 
     <!-- モーダル本体（背景フェード＋軽くスケール。ツールなので控えめ＆やや速め） -->
-    <div class="body" data-suisou-surface="overlay bleed" transition:scale={{ start: 0.97, opacity: 0, duration: 200 }} data-suisou-layout="stack">
+    <div class="body" data-suisou-tray data-suisou-layout="stack" transition:scale={{ start: 0.97, opacity: 0, duration: 200 }}>
       <!-- 右上の閉じるボタン -->
       <button class="close" data-suisou-button="icon" onclick={onClose} aria-label="閉じる">
         <IconX />
@@ -136,9 +136,9 @@
         </div>
 
         <!-- 操作バー: -1 / 枚数 / +1 / (+4) / 候補 / (お気に入り) -->
-        <div data-suisou-layout="row gap-2 hold">
+        <div data-suisou-layout="row gap-2">
           {@render actionButton(IconMinus, () => onRemove(card), '1枚減らす', count === 0)}
-          <div data-suisou-text="s20 w700 tabular" data-suisou-layout="row grow middle">
+          <div data-suisou-layout="row grow middle" data-suisou-text="fs-20 fw-700">
             {count}
           </div>
           {@render actionButton(IconPlus, () => onAdd(card), '1枚追加', !canAdd)}
@@ -177,9 +177,9 @@
         data-suisou-layout="stack"
       >
         <div class="info-scroll">
-          <h2 data-suisou-text="s20 w700" class="title">{card.name}</h2>
+          <h2 data-suisou-text="fs-20 fw-700" class="title">{card.name}</h2>
           {#if card.subName?.length}
-            <p data-suisou-text="sub s12">{card.subName.join(' / ')}</p>
+            <p data-suisou-text="fs-12" data-suisou="sub">{card.subName.join(' / ')}</p>
           {/if}
 
           <!-- メタ情報 -->
@@ -204,7 +204,7 @@
               {#each card.text as t, i (i)}
                 <div class="doc">
                   {#if t.label}
-                    <span data-suisou-tag class="chip">{t.label}</span>
+                    <span data-suisou-item="tag" class="chip">{t.label}</span>
                   {/if}<span class="pre">{t.body}</span>
                 </div>
               {/each}
@@ -213,13 +213,13 @@
 
           <!-- フレーバーテキスト -->
           {#if card.flavorText}
-            <p class="flavor" data-suisou-text="sub s12">{card.flavorText}</p>
+            <p class="flavor" data-suisou-text="fs-12" data-suisou="sub">{card.flavorText}</p>
           {/if}
 
           <!-- タグ（チーム / キーワード / クラス） -->
           {#if card.tags?.length}
             <div class="sec-lg">
-              <h3 data-suisou-text="s14 w700 accent" class="sec-head">タグ</h3>
+              <h3 data-suisou-text="fs-14 fw-700" data-suisou="accent" class="sec-head">タグ</h3>
               <CardTagList tags={card.tags} />
             </div>
           {/if}
@@ -227,12 +227,12 @@
           <!-- FAQ -->
           {#if card.faq?.length}
             <div class="sec-lg">
-              <h3 data-suisou-text="s14 w700 accent" class="sec-head">FAQ</h3>
+              <h3 data-suisou-text="fs-14 fw-700" data-suisou="accent" class="sec-head">FAQ</h3>
               <div data-suisou-layout="stack gap-2">
                 {#each card.faq as f, i (i)}
-                  <div class="doc" data-suisou-text="s12">
+                  <div class="doc" data-suisou-text="fs-12">
                     {#if f.q}<p>Q. {f.q}</p>{/if}
-                    <p data-suisou-text="sub">A. {f.a}</p>
+                    <p data-suisou="sub">A. {f.a}</p>
                   </div>
                 {/each}
               </div>
@@ -356,7 +356,7 @@
   .scrim {
     position: absolute;
     inset: 0;
-    background: var(--suisou-scrim);
+    background: var(--suisou-color-backdrop);
   }
 
   /* 右上に浮く閉じるボタン。面の上に載るので下地を敷いて字を拾わせる */
@@ -365,7 +365,7 @@
     top: var(--suisou-space-2);
     right: var(--suisou-space-2);
     z-index: 20;
-    background: var(--suisou-item);
+    background: var(--suisou-color-item);
   }
 
   /* タブは中身の幅より広く取る。押下は aria-pressed で Suisou が下地を出す */
@@ -386,7 +386,7 @@
      ★罫は line-weak ―― 内側の仕切りは装飾の線で、面の縁（line-strong）ではない。
      surface="overlay" の中なので、値は overlay 用のものが継承で降りてくる。 */
   .info {
-    background: var(--suisou-overlay);
+    background: var(--suisou-color-panel);
     /* モバイル: タブバー（h-12 = 3rem）の下に、カード画像へ重ねる */
     position: absolute;
     inset-inline: 0;
@@ -406,7 +406,7 @@
       z-index: auto;
       flex: none;
       width: 50%;
-      border-inline-start: 1px solid var(--suisou-line-weak);
+      border-inline-start: 1px solid var(--suisou-color-line-weak);
     }
     .info.card-tab {
       display: flex;

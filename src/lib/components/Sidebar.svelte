@@ -53,7 +53,7 @@
 
 <!-- セクション見出し（Deck / Account / Link で共通） -->
 {#snippet sectionLabel(text: string)}
-  <p data-suisou-text="s12 w700" class="label">{text}</p>
+  <p data-suisou-text="fs-12 fw-700" class="label">{text}</p>
 {/snippet}
 
 <!-- 外部リンク1行（アイコン + タイトル + 説明）。Row が下地の反応、Media が並び -->
@@ -64,11 +64,11 @@
   desc: string,
   href: string,
 )}
-  <a {href} target="_blank" rel="noopener noreferrer" data-suisou-row data-suisou-media>
-    <span data-suisou-media-icon><Icon /></span>
-    <div data-suisou-media-content>
-      <p data-suisou-text="s14 w500">{title}</p>
-      <p data-suisou-text="s12" class="desc">{desc}</p>
+  <a {href} target="_blank" rel="noopener noreferrer" data-suisou-row data-suisou-item="media">
+    <span data-suisou-item="media-figure"><Icon /></span>
+    <div data-suisou-item="media-content">
+      <p data-suisou-text="fs-14 fw-500">{title}</p>
+      <p data-suisou-text="fs-12" class="desc">{desc}</p>
     </div>
   </a>
 {/snippet}
@@ -76,7 +76,7 @@
 <div
   bind:this={el}
   popover="auto"
-  data-suisou-surface="overlay drawer"
+  data-suisou-tray="drawer right"
   data-suisou-layout="stack"
   ontoggle={(e) => {
     // ESC・外側クリックで閉じたときに親の状態を追従させる
@@ -134,8 +134,8 @@
   <div data-suisou-layout="stack" class="section account">
     {@render sectionLabel('Account')}
     {#if user}
-      <div data-suisou-media class="static-row">
-        <span data-suisou-media-icon><IconUser size={20} /></span>
+      <div data-suisou-item="media" class="static-row">
+        <span data-suisou-item="media-figure"><IconUser size={20} /></span>
         <span data-suisou-text="one-line">{user.displayName}</span>
       </div>
       {#if myAtName}
@@ -153,7 +153,7 @@
         ログアウト
       </button>
     {:else}
-      <a href="/login" onclick={onClose} data-suisou-button="outline" class="login">
+      <a href="/login" onclick={onClose} data-suisou-button="outline" data-suisou="accent" class="login">
         ログイン / 登録
       </a>
     {/if}
@@ -190,7 +190,7 @@
   .label {
     margin: 0;
     padding-inline: var(--suisou-space-3);
-    color: var(--suisou-text-disabled);
+    color: var(--suisou-color-text-disabled);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
@@ -207,11 +207,11 @@
   /* 押せない行。block ボタン（縦8/横16）と左端・行送りを揃える */
   .static-row {
     padding: var(--suisou-space-2) var(--suisou-space-3);
-    color: var(--suisou-text-sub);
+    color: var(--suisou-color-text-sub);
   }
 
   .desc {
-    color: var(--suisou-text-disabled);
+    color: var(--suisou-color-text-disabled);
   }
 
 

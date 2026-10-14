@@ -17,13 +17,13 @@
 <header class="bar">
   <a href="/" class="brand" data-suisou-layout="row">
     <img src="/wixdex.png" alt="wixdex" class="logo" />
-    <span data-suisou-text="s16 w700">wixdex</span>
+    <span data-suisou-text="fs-16 fw-700">wixdex</span>
   </a>
   <div data-suisou-layout="row">
     {#if right}
       {@render right()}
     {:else}
-      <a href="/" data-suisou-button="outline">デッキを作る</a>
+      <a href="/" data-suisou-button="outline" data-suisou="accent">デッキを作る</a>
     {/if}
     <button
       data-suisou-button="icon"
@@ -55,7 +55,7 @@
     height: 1.75rem; /* 28px。ロゴの実寸は現場の値 */
   }
   .brand {
-    transition: opacity var(--suisou-motion-fast) var(--suisou-ease);
+    transition: opacity var(--suisou-duration-fast) var(--suisou-ease);
   }
   .brand:hover {
     opacity: 0.8;
