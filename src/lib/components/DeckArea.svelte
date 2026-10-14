@@ -325,11 +325,6 @@
      Suisou の grow は flex: 1 1 auto ―― **中身の大きさを基準にしてから余りを配る**ので、
      flex-grow だけ重ねると比が合わない（実測 40:60 が 32:68 になった）。
      grow が併せて置く min-width/min-height: 0 は別の宣言なので残る。 */
-  @media (min-width: 1024px) {
-    .deck-side {
-      --suisou-grow: 2;
-    }
-  }
 
   /* 6px。Suisou の段は 4 / 8 / 16 / 24 なので、この値は現場のもの。 */
   @media (min-width: 768px) {

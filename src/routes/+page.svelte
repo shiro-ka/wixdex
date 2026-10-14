@@ -348,17 +348,9 @@
 
   /* 伸び方の「比」は --suisou-share で渡す（layout="share"）。
      段は md / lg の2つなので、それで足りる振り方はここに書ける。 */
-  .card-side {
-    --suisou-grow: 3;
-  }
-  @media (min-width: 768px) {
-    .card-side {
-      --suisou-grow: 1;
-    }
-  }
   @media (min-width: 1024px) {
     .card-side {
-      --suisou-grow: 3;
+      --suisou-grow: 1.5;
     }
   }
 </style>
