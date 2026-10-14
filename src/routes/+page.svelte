@@ -136,7 +136,7 @@
     }}
   />
 
-  <div class="split" data-suisou-layout="stack s:row s:stretch grow gap-0">
+  <div class="split" data-suisou-layout="stack s:row s:stretch grow gap-0" data-suisou="container-l">
     <DeckArea
       mainDeck={deck.mainDeck}
       lrigDeck={deck.lrigDeck}
@@ -338,25 +338,11 @@
 
   /* 本文の幅。段ごとに上限が変わる ―― Suisou の container は1段だけなので現場で持つ */
   .split {
-    width: 100%;
-    max-width: 40rem;
-    margin-inline: auto;
     overflow: hidden;
   }
   @media (min-width: 768px) {
     .split {
-      max-width: none;
       margin-block-end: var(--suisou-space-3);
-    }
-  }
-  @media (min-width: 1024px) {
-    .split {
-      max-width: 80rem;
-    }
-  }
-  @media (min-width: 1536px) {
-    .split {
-      max-width: 84vw;
     }
   }
 
