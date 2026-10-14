@@ -8,6 +8,7 @@
   import IconBrandGithub from '@tabler/icons-svelte/icons/brand-github';
   import IconMado from '$lib/components/icons/IconMado.svelte';
   import { logout } from '$lib/utils/logout';
+  import { onMount } from 'svelte';
 
   interface Props {
     isOpen: boolean;
@@ -32,6 +33,11 @@
     showDeckTools = true,
     user = null,
   }: Props = $props();
+
+  let themeLabel = $state('');
+  onMount(() => {
+    themeLabel = (document.documentElement.dataset.suisouTheme ?? '').split(' ').join(' x ');
+  });
 
   const isLoggedIn = $derived(!!user);
   const myAtName = $derived(user ? (user.username ?? user.blueskyHandle) : null);
@@ -72,7 +78,6 @@
   data-suisou-tray="drawer right"
   data-suisou-layout="stack"
   ontoggle={(e) => {
-    // ESC・外側クリックで閉じたときに親の状態を追従させる
     if (e.newState === 'closed' && isOpen) onClose();
   }}
 >
@@ -174,6 +179,10 @@
       'https://github.com/shiro-ka/wixdex',
     )}
   </div>
+  <footer data-suisou-layout="stack center gap-0" data-suisou-text="fs-12 center" data-suisou="sub" class="section">
+    <a href="https://suisou.pages.dev" target="_blank" rel="noopener noreferrer" data-suisou-text="link">suisou</a>
+    <span>{themeLabel}</span>
+  </footer>
 </div>
 
 <style>
