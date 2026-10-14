@@ -136,7 +136,7 @@
     }}
   />
 
-  <div class="split" data-suisou-layout="stack s:row s:stretch grow gap-0" data-suisou="container-l">
+  <div class="split" data-suisou-layout="stack s:row s:stretch grow gap-0" data-suisou="container-m">
     <DeckArea
       mainDeck={deck.mainDeck}
       lrigDeck={deck.lrigDeck}
