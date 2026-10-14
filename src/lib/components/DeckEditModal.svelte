@@ -43,7 +43,7 @@
     <!-- デッキ名 -->
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
-      <label data-suisou-text="s14 w500 sub">デッキ名</label>
+      <label data-suisou-text="fs-14 fw-500" data-suisou="sub">デッキ名</label>
       {#if !isLoggedIn}
         <div data-suisou-field aria-disabled="true" class="no-pick">
           {name || 'デッキ名を入力'}
@@ -57,7 +57,7 @@
             isNameEditMode = false;
           }}
           autofocus
-          data-suisou-field="block"
+          data-suisou="w-full"
           placeholder="デッキ名を入力"
         />
       {:else}
@@ -77,11 +77,11 @@
     <!-- メモ -->
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
-      <label data-suisou-text="s14 w500 sub">メモ</label>
+      <label data-suisou-text="fs-14 fw-500" data-suisou="sub">メモ</label>
       {#if !isLoggedIn}
         <div
           data-suisou-field
-          data-suisou-prose="tight"
+          data-suisou-text="typeset"
           aria-disabled="true"
           class="tall no-pick"
         >
@@ -97,7 +97,7 @@
             isEditMode = false;
           }}
           autofocus
-          data-suisou-field="block"
+          data-suisou="w-full"
           class="tall mono"
           placeholder="メモを入力（マークダウン対応）"
         ></textarea>
@@ -108,17 +108,16 @@
             isEditMode = true;
           }}
           data-suisou-field="block"
-          data-suisou-prose="tight"
-          data-suisou-text="start" class="tall text-cursor"
+          data-suisou-text="typeset start" class="tall text-cursor"
         >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html renderedMemo}
         </button>
       {/if}
-      <p data-suisou-text="sub s12" class="note">
+      <p data-suisou-text="fs-12" data-suisou="sub" class="note">
         {#if !isLoggedIn}
-          <a href="/login" data-suisou-link>ログインするとデッキを保存できます</a>
+          <a href="/login" data-suisou-text="link">ログインするとデッキを保存できます</a>
         {:else}
           {isEditMode ? 'マークダウン記法が使えます' : 'クリックして編集'}
         {/if}
@@ -130,7 +129,8 @@
       type="button"
       onclick={handleSaveClick}
       disabled={!isLoggedIn}
-      data-suisou-button="outline wide"
+      data-suisou-button="outline"
+      data-suisou="accent w-full"
     >
       保存
     </button>
@@ -143,7 +143,7 @@
     min-height: 200px;
   }
   .mono {
-    font-family: var(--suisou-mono);
+    font-family: var(--suisou-font-mono);
   }
   .no-pick {
     user-select: none;

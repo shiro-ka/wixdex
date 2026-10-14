@@ -21,9 +21,9 @@
 <div class="scroll">
   {#each blocks as block (block.title)}
     {#if block.title}
-      <p data-suisou-text="s14 w700" class="group">{block.title}</p>
+      <p data-suisou-text="fs-14 fw-700" class="group">{block.title}</p>
     {/if}
-    <div data-suisou-layout="cols gap-2" style="--suisou-cols: {columns}">
+    <div data-suisou-layout="grid gap-2" style="--suisou-cols: {columns}">
       {#each block.items as { value, label } (value)}
         {@const checked = selected.has(value)}
         <button type="button" class="toggle" aria-pressed={checked} onclick={() => onToggle(value)} data-suisou-layout="row gap-2">
@@ -44,7 +44,7 @@
     overflow-y: auto;
   }
   .group {
-    color: var(--suisou-text-sub);
+    color: var(--suisou-color-text-sub);
     margin-block: var(--suisou-space-3) var(--suisou-space-1);
   }
   .group:first-child {
@@ -57,13 +57,13 @@
   /* ★色は aria-pressed から引く。三項式でもう一度状態を書かないこと ――
      「押されているか」が属性と式の2箇所に散る。 */
   .toggle :global(svg) {
-    color: var(--suisou-text-sub);
-    transition: color var(--suisou-motion-fast) var(--suisou-ease);
+    color: var(--suisou-color-text-sub);
+    transition: color var(--suisou-duration-fast) var(--suisou-ease);
   }
   .toggle:hover :global(svg) {
-    color: var(--suisou-text-main);
+    color: var(--suisou-color-text);
   }
   .toggle[aria-pressed="true"] :global(svg) {
-    color: var(--suisou-accent);
+    color: var(--suisou-color-accent);
   }
 </style>

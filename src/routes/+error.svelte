@@ -12,14 +12,14 @@
   <title>{page.status} — wixdex</title>
 </svelte:head>
 
-<main data-suisou-text="center" class="page" data-suisou-layout="stack gap-3 screen middle">
+<main data-suisou-layout="stack gap-3 middle" data-suisou-text="center" data-suisou="min-screen" class="page">
   <img src="/404.png" alt="エラー {page.status}" class="art" />
 
-  <p data-suisou-text="s32 w700 success">{page.status}</p>
+  <p data-suisou-text="fs-32 fw-700" data-suisou="success">{page.status}</p>
 
-  <p data-suisou-text="sub">{message}</p>
+  <p data-suisou="sub">{message}</p>
 
-  <a href="/" data-suisou-button="outline">ホームへ戻る</a>
+  <a href="/" data-suisou-button="outline" data-suisou="accent">ホームへ戻る</a>
 </main>
 
 <style>

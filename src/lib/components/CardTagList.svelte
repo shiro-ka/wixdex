@@ -19,8 +19,8 @@
 <ul class="list" data-suisou-layout="row wrap">
   {#each tags as t (t)}
     {@const kind = kinds.get(t)}
-    <li class="tag" data-suisou-tag>
-      {#if kind}<span class="kind" data-suisou-text="sub">{kind}</span>{/if}<span>{t}</span>
+    <li class="tag" data-suisou-item="tag">
+      {#if kind}<span class="kind" data-suisou="sub">{kind}</span>{/if}<span>{t}</span>
     </li>
   {/each}
 </ul>

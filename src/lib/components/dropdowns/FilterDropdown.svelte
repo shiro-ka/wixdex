@@ -39,14 +39,14 @@
   <!-- 上から降りるシート。Suisou に無い形なので位置と出入りは現場が持ち、
        面の色と罫はトークンで受ける。3回目の現場が出たら Suisou 昇格を検討 -->
   <div
-    data-suisou-show="under-lg"
+    data-suisou="m:hidden"
     class="sheet {isClosing
       ? 'animate-slide-up'
       : 'animate-slide-down'}"
   >
     <div class="inner {isClosing ? 'animate-fade-out' : 'animate-fade-in'}">
       <div data-suisou-layout="row between" class="head">
-        <h3 data-suisou-text="s14 w700">{title}</h3>
+        <h3 data-suisou-text="fs-14 fw-700">{title}</h3>
         <button
           type="button"
           onclick={onClearAll}
@@ -57,7 +57,7 @@
         </button>
       </div>
       <div>{@render children()}</div>
-      <button type="button" onclick={onClose} data-suisou-button="wide" class="done">
+      <button type="button" onclick={onClose} data-suisou-button data-suisou="w-full" class="done">
         <IconChevronUp />
         <span>閉じる</span>
       </button>
@@ -89,7 +89,7 @@
   /* 面は overlay（頁の手前に浮く層）。縁まで届くシートなので角丸は持たず、
      下辺の罫1本だけで区切る ―― surface="drawer" が左辺でやるのと同じ理屈 */
   .sheet {
-    background: var(--suisou-overlay);
-    border-bottom: 1px solid var(--suisou-line-strong);
+    background: var(--suisou-color-panel);
+    border-bottom: 1px solid var(--suisou-color-line-strong);
   }
 </style>

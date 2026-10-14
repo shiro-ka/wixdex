@@ -58,19 +58,19 @@
 
 <BaseModal {isOpen} {onClose} title="カード使用統計" maxWidth="lg">
   {#if loading}
-    <div class="state" data-suisou-text="sub center">読み込み中...</div>
+    <div class="state" data-suisou-text="center" data-suisou="sub">読み込み中...</div>
   {:else if error}
-    <div class="state" role="alert" data-suisou-text="error center">{error}</div>
+    <div class="state" role="alert" data-suisou-text="center" data-suisou="error">{error}</div>
   {:else if ranked.length === 0}
-    <div class="state" data-suisou-text="sub center">
-      <p data-suisou-text="s20">まだ集計データがありません</p>
+    <div class="state" data-suisou-text="center" data-suisou="sub">
+      <p data-suisou-text="fs-20">まだ集計データがありません</p>
       <p class="hint">デッキを保存すると、ここに使用ランキングが表示されます。</p>
     </div>
   {:else}
     <ol data-suisou-layout="stack gap-2">
       {#each ranked as row (row.cardId)}
         <li data-suisou-row data-suisou-layout="row gap-3">
-          <div class="rank" data-suisou-text="accent s20 center">{row.rank}</div>
+          <div class="rank" data-suisou-text="fs-20 center" data-suisou="accent">{row.rank}</div>
           {#if row.card}
             <img
               src={cardImageUrl(row.card.image)}
@@ -79,18 +79,18 @@
               loading="lazy"
             />
             <div class="name" data-suisou-layout="stack gap-0">
-              <div data-suisou-text="w500 one-line">{row.card.name}</div>
-              <div data-suisou-text="sub s12 one-line">{row.cardId}</div>
+              <div data-suisou-text="fw-500 one-line">{row.card.name}</div>
+              <div data-suisou-text="fs-12 one-line" data-suisou="sub">{row.cardId}</div>
             </div>
           {:else}
             <div class="thumb ph"></div>
             <div class="name" data-suisou-layout="stack gap-0">
-              <div data-suisou-text="sub one-line">{row.cardId}</div>
+              <div data-suisou-text="one-line" data-suisou="sub">{row.cardId}</div>
             </div>
           {/if}
           <div class="count">
-            <div data-suisou-text="accent w500">{row.deckCount} デッキ</div>
-            <div data-suisou-text="sub s12">合計 {row.totalCount} 枚</div>
+            <div data-suisou-text="fw-500" data-suisou="accent">{row.deckCount} デッキ</div>
+            <div data-suisou-text="fs-12" data-suisou="sub">合計 {row.totalCount} 枚</div>
           </div>
         </li>
       {/each}
@@ -111,7 +111,7 @@
   /* 順位。桁が増えても揃うよう幅を固定する（等幅は text="tabular" が持つ） */
   .rank {
     width: 2rem;
-    font-family: var(--suisou-mono);
+    font-family: var(--suisou-font-mono);
   }
 
   /* カードの縮小画像。比を保って切り抜く */
@@ -134,6 +134,6 @@
 
   /* カード画像が来るまでの場所取り */
   .ph {
-    background: var(--suisou-item);
+    background: var(--suisou-color-item);
   }
 </style>

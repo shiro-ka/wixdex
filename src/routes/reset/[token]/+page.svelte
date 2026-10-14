@@ -8,22 +8,22 @@
   <title>パスワード再設定 — wixdex</title>
 </svelte:head>
 
-<main class="page" data-suisou-layout="row screen middle">
-  <div class="box" data-suisou-surface="panel" data-suisou-layout="stack gap-3">
-    <h1 data-suisou-text="s20 w700 center">パスワード再設定</h1>
+<main class="page" data-suisou-layout="row middle" data-suisou="min-screen">
+  <div class="box" data-suisou-tray data-suisou-layout="stack gap-3">
+    <h1 data-suisou-text="fs-20 fw-700 center">パスワード再設定</h1>
 
     {#if !data.valid || (form && 'expired' in form && form.expired)}
-      <p data-suisou-banner="error" role="alert">
+      <p data-suisou-item="notice" data-suisou="error" role="alert">
         このリンクは無効か、有効期限（30分）が切れています。
       </p>
-      <a href="/login" data-suisou-button="outline wide"> ログイン画面へ戻る </a>
+      <a href="/login" data-suisou-button="outline" data-suisou="accent w-full"> ログイン画面へ戻る </a>
     {:else}
       {#if form?.error}
-        <p data-suisou-banner="error" role="alert">{form.error}</p>
+        <p data-suisou-item="notice" data-suisou="error" role="alert">{form.error}</p>
       {/if}
       <form method="POST" data-suisou-layout="stack gap-3">
         <div data-suisou-layout="stack gap-1">
-          <label for="password" data-suisou-text="sub">新しいパスワード（8文字以上）</label
+          <label for="password" data-suisou="sub">新しいパスワード（8文字以上）</label
           >
           <input
             id="password"
@@ -33,10 +33,10 @@
             minlength="8"
             maxlength="128"
             autocomplete="new-password"
-            data-suisou-field="block"
+            data-suisou="w-full"
           />
         </div>
-        <button type="submit" data-suisou-button="outline wide"> パスワードを設定する </button>
+        <button type="submit" data-suisou-button="outline" data-suisou="accent w-full"> パスワードを設定する </button>
       </form>
     {/if}
   </div>

@@ -267,13 +267,13 @@
     <div class="state" data-suisou-layout="row middle">
       <div
         data-suisou-spinner
-        style="--suisou-spinner: 2.5rem"
+        style="--suisou-size-spinner: 2.5rem"
         role="status"
         aria-label="読み込み中"
       ></div>
     </div>
   {:else if loadError}
-    <div class="state pad" data-suisou-text="error center" data-suisou-layout="row middle">
+    <div class="state pad" data-suisou-layout="row middle" data-suisou-text="center" data-suisou="error">
       {loadError}
     </div>
   {:else if isMd}
@@ -320,7 +320,7 @@
   }
   /* 一覧（升目）の枠。罫だけで囲う ―― 面を上げると一覧がうるさくなる */
   .framed {
-    border: 1px solid var(--suisou-line-weak);
+    border: 1px solid var(--suisou-color-line-weak);
     border-radius: var(--suisou-radius);
   }
   /* 帯（横スクロール）のときは枠を持たず、幅だけ決める */
@@ -358,7 +358,7 @@
     margin-block-end: var(--suisou-space-1);
   }
   .scroller.grid-mode {
-    border: 1px solid var(--suisou-line-weak);
+    border: 1px solid var(--suisou-color-line-weak);
     border-radius: 0.75rem;
     overflow-y: auto;
     overflow-x: hidden;

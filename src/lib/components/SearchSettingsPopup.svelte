@@ -51,12 +51,12 @@
     aria-label="閉じる"
   ></button>
   <div
-    data-suisou-surface="overlay"
+    data-suisou-tray
     class="popup anim"
     class:fade={isClosing}
   >
     <div>
-      <h3 data-suisou-text="s14 w700">テキスト検索設定</h3>
+      <h3 data-suisou-text="fs-14 fw-700">テキスト検索設定</h3>
       <div data-suisou-layout="stack gap-2">
         <button type="button" class="toggle" aria-pressed={searchCardName} onclick={onToggleSearchCardName} data-suisou-layout="row gap-2">
           <CheckboxIcon
@@ -86,7 +86,7 @@
     inset: 0;
     z-index: 30;
     cursor: default;
-    transition: opacity var(--suisou-motion) var(--suisou-ease);
+    transition: opacity var(--suisou-duration) var(--suisou-ease);
   }
   .fade {
     opacity: 0;
@@ -95,8 +95,8 @@
   /* 出入り。scale は 0.95 ―― 動きは Suisou のトークンから取る */
   .anim {
     transition:
-      opacity var(--suisou-motion) var(--suisou-ease),
-      transform var(--suisou-motion) var(--suisou-ease);
+      opacity var(--suisou-duration) var(--suisou-ease),
+      transform var(--suisou-duration) var(--suisou-ease);
   }
   .anim.fade {
     transform: scale(0.95);
@@ -120,13 +120,13 @@
   /* ★色は aria-pressed から引く。三項式でもう一度状態を書かないこと ――
      「押されているか」が属性と式の2箇所に散る。 */
   .toggle :global(svg) {
-    color: var(--suisou-text-sub);
-    transition: color var(--suisou-motion-fast) var(--suisou-ease);
+    color: var(--suisou-color-text-sub);
+    transition: color var(--suisou-duration-fast) var(--suisou-ease);
   }
   .toggle:hover :global(svg) {
-    color: var(--suisou-text-main);
+    color: var(--suisou-color-text);
   }
   .toggle[aria-pressed="true"] :global(svg) {
-    color: var(--suisou-accent);
+    color: var(--suisou-color-accent);
   }
 </style>

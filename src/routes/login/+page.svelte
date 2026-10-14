@@ -73,45 +73,46 @@
   <title>{mode === 'login' ? 'ログイン' : '新規登録'} — wixdex</title>
 </svelte:head>
 
-<main class="page" data-suisou-layout="row screen middle">
+<main class="page" data-suisou-layout="row middle" data-suisou="min-screen">
   <div
     class="split"
-    data-suisou-layout="cols gap-0"
-    data-suisou-surface="panel bleed"
+    data-suisou-tray
+    data-suisou-layout="grid gap-0"
   >
     <!-- 左: ブランディング（PCのみ。zincダーク、オレンジは差し色のみ） -->
     <div
-      data-suisou-rule="end" data-suisou-show="lg" data-suisou-layout="stack between" class="aside"
+      data-suisou-layout="stack between"
+      data-suisou="bd-end m>hidden" class="aside"
     >
       <div>
-        <h1 class="brand-name" data-suisou-text="s28 w700">
-          wix<span data-suisou-text="accent">dex</span>
+        <h1 class="brand-name" data-suisou-text="fs-28 fw-700">
+          wix<span data-suisou="accent">dex</span>
         </h1>
-        <p data-suisou-text="sub">WIXOSS デッキビルダー</p>
+        <p data-suisou="sub">WIXOSS デッキビルダー</p>
       </div>
-      <ul data-suisou-text="sub" data-suisou-layout="stack gap-2">
+      <ul data-suisou-layout="stack gap-2" data-suisou="sub">
         <li data-suisou-layout="row">
-          <span data-suisou-text="accent">▸</span> カードを集めてデッキを構築
+          <span data-suisou="accent">▸</span> カードを集めてデッキを構築
         </li>
         <li data-suisou-layout="row">
-          <span data-suisou-text="accent">▸</span> デッキを公開してシェア
+          <span data-suisou="accent">▸</span> デッキを公開してシェア
         </li>
         <li data-suisou-layout="row">
-          <span data-suisou-text="accent">▸</span> Bluesky 連携でかんたんログイン
+          <span data-suisou="accent">▸</span> Bluesky 連携でかんたんログイン
         </li>
       </ul>
     </div>
 
     <!-- 右: 認証フォーム -->
     <div data-suisou-layout="stack gap-3" class="form-col">
-      <h1 data-suisou-show="under-lg" data-suisou-text="s20 w700 center">wixdex</h1>
+      <h1 data-suisou-text="fs-20 fw-700 center" data-suisou="m:hidden">wixdex</h1>
 
       <!-- タブ切替（再設定モードでは隠す） -->
       {#if mode !== 'forgot'}
         <div data-suisou-button-group="even">
           <button
             type="button"
-            data-suisou-button="neutral"
+            data-suisou-button
             aria-pressed={mode === 'login'}
             onclick={() => (mode = 'login')}
           >
@@ -119,7 +120,7 @@
           </button>
           <button
             type="button"
-            data-suisou-button="neutral"
+            data-suisou-button
             aria-pressed={mode === 'register'}
             onclick={() => (mode = 'register')}
           >
@@ -129,48 +130,48 @@
       {/if}
 
       {#if data.oauthError}
-        <p data-suisou-banner="error" role="alert">
+        <p data-suisou-item="notice" data-suisou="error" role="alert">
           {data.oauthError}
         </p>
       {/if}
       {#if data.resetDone}
-        <p data-suisou-banner="success" role="status">
+        <p data-suisou-item="notice" data-suisou="success" role="status">
           パスワードを再設定しました。新しいパスワードでログインしてください。
         </p>
       {/if}
       {#if form && 'error' in form && form.error}
-        <p data-suisou-banner="error" role="alert">{form.error}</p>
+        <p data-suisou-item="notice" data-suisou="error" role="alert">{form.error}</p>
       {/if}
       {#if form && form.mode === 'forgot' && 'success' in form && form.success}
-        <p data-suisou-banner="success" role="status">
+        <p data-suisou-item="notice" data-suisou="success" role="status">
           入力されたメールアドレスが登録されていれば、再設定用のリンクを送信しました。メールをご確認ください。
         </p>
       {/if}
 
       {#if mode === 'forgot'}
         <!-- パスワード再設定: メールアドレス入力 -->
-        <p data-suisou-text="sub">
+        <p data-suisou="sub">
           登録したメールアドレスを入力してください。パスワード再設定用のリンクをお送りします。
         </p>
         <form method="POST" action="?/forgotPassword" data-suisou-layout="stack gap-3">
           <div data-suisou-layout="stack gap-1">
-            <label for="forgot-email" data-suisou-text="sub">メールアドレス</label>
+            <label for="forgot-email" data-suisou="sub">メールアドレス</label>
             <input
               id="forgot-email"
               name="email"
               type="email"
               required
               autocomplete="email"
-              data-suisou-field="block"
+              data-suisou="w-full"
               placeholder="you@example.com"
             />
           </div>
-          <button type="submit" data-suisou-button="outline wide">再設定リンクを送る</button>
+          <button type="submit" data-suisou-button="outline" data-suisou="accent w-full">再設定リンクを送る</button>
         </form>
         <button
           type="button"
           onclick={() => (mode = 'login')}
-          class="back" data-suisou-text="sub center">
+          class="back" data-suisou-text="center" data-suisou="sub">
           ← ログインに戻る
         </button>
       {:else}
@@ -178,23 +179,23 @@
         <form method="POST" action="?/{mode}" data-suisou-layout="stack gap-3">
           {#if mode === 'register'}
             <div data-suisou-layout="stack gap-1">
-              <label for="displayName" data-suisou-text="sub">表示名</label>
+              <label for="displayName" data-suisou="sub">表示名</label>
               <input
                 id="displayName"
                 name="displayName"
                 type="text"
                 required
                 maxlength="64"
-                data-suisou-field="block"
+                data-suisou="w-full"
                 placeholder="あなたの名前"
               />
             </div>
             <div data-suisou-layout="stack gap-1">
-              <label for="username" data-suisou-text="sub">
-                ユーザー名 <span data-suisou-text="sub">(URLになります: /@…)</span>
+              <label for="username" data-suisou="sub">
+                ユーザー名 <span data-suisou="sub">(URLになります: /@…)</span>
               </label>
               <div data-suisou-layout="row">
-                <div data-suisou-layout="share" data-suisou-button-group>
+                <div data-suisou-layout="grow" data-suisou-button-group>
                   <span data-suisou-affix>@</span>
                   <input
                     id="username"
@@ -207,7 +208,6 @@
                     autocapitalize="none"
                     autocomplete="off"
                     spellcheck="false"
-                    data-suisou-field
                     placeholder="your_name"
                   />
                 </div>
@@ -218,19 +218,19 @@
                     checkUsername();
                   }}
                   title="おまかせ生成"
-                  data-suisou-button="plain icon"
+                  data-suisou-button="outline icon"
                 >
                   <IconDice />
                 </button>
               </div>
               {#if usernameStatus === 'checking'}
-                <p data-suisou-text="sub s12">確認中…</p>
+                <p data-suisou-text="fs-12" data-suisou="sub">確認中…</p>
               {:else if usernameStatus === 'ok'}
-                <p data-suisou-text="success s12">{usernameMsg}</p>
+                <p data-suisou-text="fs-12" data-suisou="success">{usernameMsg}</p>
               {:else if usernameStatus === 'taken'}
-                <p data-suisou-text="error s12">{usernameMsg}</p>
+                <p data-suisou-text="fs-12" data-suisou="error">{usernameMsg}</p>
               {:else}
-                <p data-suisou-text="sub s12">
+                <p data-suisou-text="fs-12" data-suisou="sub">
                   英小文字・数字・ハイフン・アンダースコア（後から変更できます）
                 </p>
               {/if}
@@ -238,20 +238,20 @@
           {/if}
           {#if mode === 'register'}
             <div data-suisou-layout="stack gap-1">
-              <label for="email" data-suisou-text="sub">メールアドレス</label>
+              <label for="email" data-suisou="sub">メールアドレス</label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 required
                 autocomplete="email"
-                data-suisou-field="block"
+                data-suisou="w-full"
                 placeholder="you@example.com"
               />
             </div>
           {:else}
             <div data-suisou-layout="stack gap-1">
-              <label for="identifier" data-suisou-text="sub">メールアドレス または ユーザー名</label
+              <label for="identifier" data-suisou="sub">メールアドレス または ユーザー名</label
               >
               <input
                 id="identifier"
@@ -261,13 +261,13 @@
                 autocapitalize="none"
                 autocomplete="username"
                 spellcheck="false"
-                data-suisou-field="block"
+                data-suisou="w-full"
                 placeholder="you@example.com / your_name"
               />
             </div>
           {/if}
           <div data-suisou-layout="stack gap-1">
-            <label for="password" data-suisou-text="sub">
+            <label for="password" data-suisou="sub">
               パスワード{mode === 'register' ? '（8〜128文字）' : ''}
             </label>
             <input
@@ -277,10 +277,10 @@
               required
               minlength={mode === 'register' ? 8 : undefined}
               autocomplete={mode === 'register' ? 'new-password' : 'current-password'}
-              data-suisou-field="block"
+              data-suisou="w-full"
             />
           </div>
-          <button type="submit" data-suisou-button="outline wide">
+          <button type="submit" data-suisou-button="outline" data-suisou="accent w-full">
             {mode === 'login' ? 'ログイン' : 'アカウント作成'}
           </button>
         </form>
@@ -289,7 +289,8 @@
           <button
             type="button"
             onclick={() => (mode = 'forgot')}
-            data-suisou-button="wide"
+            data-suisou-button
+            data-suisou="w-full"
             
           >
             パスワードをお忘れですか？
@@ -299,9 +300,9 @@
 
       {#if mode !== 'forgot'}
         <div data-suisou-layout="row" class="or">
-          <div class="hr" data-suisou-layout="share"></div>
-          <span data-suisou-text="sub s12">または</span>
-          <div class="hr" data-suisou-layout="share"></div>
+          <div class="hr" data-suisou-layout="grow"></div>
+          <span data-suisou-text="fs-12" data-suisou="sub">または</span>
+          <div class="hr" data-suisou-layout="grow"></div>
         </div>
 
         <!-- Bluesky（ログイン・登録共通。bsky.social へ直行＝ハンドル入力不要） -->
@@ -310,17 +311,18 @@
             type="button"
             onclick={() => loginWithBluesky()}
             disabled={blueskyLoading}
-            data-suisou-button="outline wide"
+            data-suisou-button="outline"
+            data-suisou="accent w-full"
           >
             <IconBrandBluesky data-suisou-icon />
             {blueskyLoading ? '接続中...' : 'Bluesky で続ける'}
           </button>
           {#if blueskyError}
-            <p data-suisou-text="error">{blueskyError}</p>
+            <p data-suisou="error">{blueskyError}</p>
           {/if}
 
           <!-- bsky.social 以外のPDS利用者向け（普段は隠す） -->
-          <button type="button" onclick={() => (showHandleInput = !showHandleInput)} data-suisou-button="wide" data-suisou-text="s12">
+          <button type="button" onclick={() => (showHandleInput = !showHandleInput)} data-suisou-button data-suisou-text="fs-12" data-suisou="w-full">
             別のサーバー(PDS)のアカウント
           </button>
           {#if showHandleInput}
@@ -333,12 +335,13 @@
                 autocapitalize="none"
                 autocomplete="off"
                 spellcheck="false"
-                data-suisou-field="block"
+                data-suisou="w-full"
                 onkeydown={(e) => e.key === 'Enter' && loginWithBluesky(blueskyHandle)}
               />
               <button
                 type="button"
-                data-suisou-button="plain wide"
+                data-suisou-button="outline"
+                data-suisou="w-full"
                 onclick={() => loginWithBluesky(blueskyHandle)}
                 disabled={blueskyLoading}
               >
@@ -372,7 +375,7 @@
   .back {
     display: block;
     width: 100%;
-    transition: color var(--suisou-motion-fast) var(--suisou-ease);
+    transition: color var(--suisou-duration-fast) var(--suisou-ease);
   }
 
   /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
@@ -391,15 +394,15 @@
   /* 「または」の左右に伸びる線 */
   .hr {
     height: 1px;
-    background: var(--suisou-line-weak);
+    background: var(--suisou-color-line-weak);
   }
   /* 左の紹介カラム。薄く敷いて罫で区切る */
   .aside {
-    background: var(--suisou-hover-surface);
-    border-color: var(--suisou-line-weak);
+    background: var(--suisou-color-hover);
+    border-color: var(--suisou-color-line-weak);
   }
   .back:hover {
-    color: var(--suisou-text-main);
+    color: var(--suisou-color-text);
   }
 
   .form-col {
