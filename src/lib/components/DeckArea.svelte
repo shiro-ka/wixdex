@@ -259,16 +259,16 @@
     cursor: pointer;
   }
 
-  .burst :global(.burst-icon),
+  .burst :global(.burst-icon) {
+    width: var(--suisou-size-icon-small);
+    height: var(--suisou-size-icon-small);
+  }
   .burst-num {
     width: 1rem;
     height: 1rem;
-  }
-  .burst-num {
     padding-block-end: 2px;
   }
   @media (min-width: 768px) {
-    .burst :global(.burst-icon),
     .burst-num {
       width: 1.25rem;
       height: 1.25rem;
