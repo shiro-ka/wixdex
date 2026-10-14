@@ -23,9 +23,10 @@
     <div data-suisou-layout="grid gap-2" style="--suisou-grid-cols: repeat({columns}, minmax(0, 1fr))">
       {#each block.items as { value, label } (value)}
         {@const checked = selected.has(value)}
-        <button type="button" class="toggle" aria-pressed={checked} onclick={() => onToggle(value)} data-suisou-layout="row gap-2">
+        <button type="button" class="toggle" data-suisou-text="fs-12" aria-pressed={checked} onclick={() => onToggle(value)} data-suisou-layout="row gap-2">
           <CheckboxIcon
             {checked}
+            data-suisou-text="fs-16"
           />
           <span>{label}</span>
         </button>
@@ -49,6 +50,8 @@
   .toggle {
     cursor: pointer;
     justify-content: flex-start;
+    padding: 0;
+    border: 0;
   }
 
   .toggle :global(svg) {

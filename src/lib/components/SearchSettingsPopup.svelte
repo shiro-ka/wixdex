@@ -58,15 +58,17 @@
     <div>
       <h3 data-suisou-text="fs-14 fw-700">テキスト検索設定</h3>
       <div data-suisou-layout="stack gap-2">
-        <button type="button" class="toggle" aria-pressed={searchCardName} onclick={onToggleSearchCardName} data-suisou-layout="row gap-2">
+        <button type="button" class="toggle" data-suisou-text="fs-12" aria-pressed={searchCardName} onclick={onToggleSearchCardName} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={searchCardName}
+            data-suisou-text="fs-16"
           />
           <span>カード名</span>
         </button>
-        <button type="button" class="toggle" aria-pressed={searchCardText} onclick={onToggleSearchCardText} data-suisou-layout="row gap-2">
+        <button type="button" class="toggle" data-suisou-text="fs-12" aria-pressed={searchCardText} onclick={onToggleSearchCardText} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={searchCardText}
+            data-suisou-text="fs-16"
           />
           <span>テキスト</span>
         </button>
@@ -100,6 +102,8 @@
     width: 100%;
     cursor: pointer;
     justify-content: flex-start;
+    padding: 0;
+    border: 0;
   }
   .popup {
     position: absolute;
