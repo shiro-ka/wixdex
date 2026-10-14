@@ -101,6 +101,7 @@
   .toggle {
     width: 100%;
     cursor: pointer;
+    justify-content: flex-start;
   }
   /* 位置と幅は現場のもの。面・罫・角丸は surface="overlay" が持つ。
      dialog ではないので position を上書きして錨（ボタンの上）に留める */
