@@ -45,9 +45,7 @@
       <!-- svelte-ignore a11y_label_has_associated_control -->
       <label data-suisou-text="fs-14 fw-500" data-suisou="sub">デッキ名</label>
       {#if !isLoggedIn}
-        <div data-suisou-field aria-disabled="true" class="no-pick">
-          {name || 'デッキ名を入力'}
-        </div>
+        <input type="text" disabled value={name} placeholder="デッキ名を入力" data-suisou="w-full" />
       {:else if isNameEditMode}
         <!-- svelte-ignore a11y_autofocus -->
         <input
@@ -66,8 +64,7 @@
           onclick={() => {
             isNameEditMode = true;
           }}
-          data-suisou-field="block"
-          data-suisou-text="start" class="text-cursor"
+          data-suisou-text="start" class="field text-cursor"
         >
           {name || 'デッキ名を入力'}
         </button>
@@ -80,10 +77,9 @@
       <label data-suisou-text="fs-14 fw-500" data-suisou="sub">メモ</label>
       {#if !isLoggedIn}
         <div
-          data-suisou-field
           data-suisou-text="typeset"
           aria-disabled="true"
-          class="tall no-pick"
+          class="field tall no-pick"
         >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
@@ -107,8 +103,7 @@
           onclick={() => {
             isEditMode = true;
           }}
-          data-suisou-field="block"
-          data-suisou-text="typeset start" class="tall text-cursor"
+          data-suisou-text="typeset start" class="field tall text-cursor"
         >
           <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
@@ -139,6 +134,20 @@
 
 <style>
 
+  .field {
+    display: block;
+    width: 100%;
+    padding: calc((var(--suisou-size-button) - 1lh) / 2 - 1px) var(--suisou-space-2);
+    border: 1px solid var(--suisou-color-line-strong);
+    border-radius: var(--suisou-radius);
+    background: var(--suisou-color-field);
+    color: var(--suisou-color-text);
+  }
+  .field[aria-disabled='true'] {
+    border-color: var(--suisou-color-line-weak);
+    background: transparent;
+    color: var(--suisou-color-text-disabled);
+  }
   .tall {
     min-height: 200px;
   }

@@ -53,21 +53,18 @@
         <button type="button" class="toggle" aria-pressed={settings.showLifeBurst} onclick={() => settings.toggle('showLifeBurst')} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={settings.showLifeBurst}
-            data-suisou-icon
           />
           <span>LBアイコンを表示</span>
         </button>
         <button type="button" class="toggle" aria-pressed={settings.showCandidateIcon} onclick={() => settings.toggle('showCandidateIcon')} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={settings.showCandidateIcon}
-            data-suisou-icon
           />
           <span>候補カードアイコンを表示</span>
         </button>
         <button type="button" class="toggle" aria-pressed={settings.rotateLandscape} onclick={() => settings.toggle('rotateLandscape')} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={settings.rotateLandscape}
-            data-suisou-icon
           />
           <span>横向きのカードを縦に表示</span>
         </button>

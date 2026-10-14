@@ -35,7 +35,7 @@
 <main class="screen">
   <PageHeader />
 
-  <div data-suisou-layout="stack gap-4" data-suisou="container" class="page">
+  <div data-suisou-layout="stack gap-4" data-suisou="container-m" class="page">
     <h1 data-suisou-text="fs-24 s:fs-28 fw-700">設定</h1>
 
     <div class="cols">
@@ -73,8 +73,8 @@
           {/if}
           <form method="POST" action="?/changeUsername" data-suisou-layout="stack gap-2">
             <div data-suisou-layout="row">
-              <div data-suisou-layout="grow" data-suisou-button-group>
-                <span data-suisou-affix>/@</span>
+              <div data-suisou-layout="grow" data-suisou-item="field">
+                <span>/@</span>
                 <input
                   name="username"
                   type="text"
@@ -198,7 +198,6 @@
   }
 
   .page {
-    --suisou-measure: 56rem;
     padding: var(--suisou-space-4) var(--suisou-space-3);
   }
   /* ★2列の格子。Suisou の even は「子の数だけ列を作る」ので、

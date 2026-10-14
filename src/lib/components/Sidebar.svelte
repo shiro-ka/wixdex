@@ -64,7 +64,7 @@
   desc: string,
   href: string,
 )}
-  <a {href} target="_blank" rel="noopener noreferrer" data-suisou-row data-suisou-item="media">
+  <a {href} target="_blank" rel="noopener noreferrer" data-suisou-button="block" data-suisou-item="media">
     <span data-suisou-item="media-figure"><Icon /></span>
     <div data-suisou-item="media-content">
       <p data-suisou-text="fs-14 fw-500">{title}</p>

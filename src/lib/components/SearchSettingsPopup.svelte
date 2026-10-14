@@ -61,14 +61,12 @@
         <button type="button" class="toggle" aria-pressed={searchCardName} onclick={onToggleSearchCardName} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={searchCardName}
-            data-suisou-icon
           />
           <span>カード名</span>
         </button>
         <button type="button" class="toggle" aria-pressed={searchCardText} onclick={onToggleSearchCardText} data-suisou-layout="row gap-2">
           <CheckboxIcon
             checked={searchCardText}
-            data-suisou-icon
           />
           <span>テキスト</span>
         </button>

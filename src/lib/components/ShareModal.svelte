@@ -169,7 +169,6 @@
           このデッキを公開する
           <input
             type="checkbox"
-            data-suisou-icon="small"
             checked={isPublic}
             onchange={togglePublish}
             disabled={publishing}
@@ -177,7 +176,7 @@
         </label>
         {#if isPublic}
           {#if publicUrl}
-            <div class="sec" data-suisou-button-group="even">
+            <div class="sec" data-suisou-item="field">
               <input type="text" readonly value={publicUrl} data-suisou-text="fs-12" class="pick-all"/>
               <button type="button" onclick={copyLink} data-suisou-button data-suisou-text="fs-12" class="fix">
                 <IconClipboard size={16} />
@@ -187,8 +186,8 @@
 
             {#if editingSlug}
               <div class="sec-sm">
-                <div data-suisou-button-group="even">
-                  <span data-suisou-affix data-suisou-text="fs-12">/@{ownerAtName}/</span>
+                <div data-suisou-item="field">
+                  <span data-suisou-text="fs-12">/@{ownerAtName}/</span>
                   <input type="text" bind:value={editSlug} autocapitalize="none" autocomplete="off" spellcheck="false" data-suisou-text="fs-12"/>
                   <button type="button" onclick={saveSlug} disabled={slugSaving} data-suisou-button="outline" data-suisou-text="fs-12" data-suisou="accent" class="fix">
                     {slugSaving ? '...' : '保存'}
@@ -224,24 +223,27 @@
 
       <!-- オプション: 列数 / テーマ -->
       <div data-suisou-layout="row" class="row-gap">
-        <div data-suisou-button-group="even">
+        <div data-suisou-tray data-suisou-layout="row gap-0">
           <button
             type="button"
             data-suisou-button
+            data-suisou-layout="grow"
             aria-pressed={imageCols === 8}
             onclick={() => (imageCols = 8)}>8列</button
           >
           <button
             type="button"
             data-suisou-button
+            data-suisou-layout="grow"
             aria-pressed={imageCols === 10}
             onclick={() => (imageCols = 10)}>10列</button
           >
         </div>
-        <div data-suisou-button-group="even">
+        <div data-suisou-tray data-suisou-layout="row gap-0">
           <button
             type="button"
             data-suisou-button
+            data-suisou-layout="grow"
             aria-pressed={imageTheme === 'dark'}
             onclick={() => (imageTheme = 'dark')}
           >
@@ -250,6 +252,7 @@
           <button
             type="button"
             data-suisou-button
+            data-suisou-layout="grow"
             aria-pressed={imageTheme === 'light'}
             onclick={() => (imageTheme = 'light')}
           >
@@ -259,7 +262,7 @@
       </div>
 
       <!-- 画像(JPG)。コピーはブラウザ制約によりPNGで書き込まれる(貼り付け互換のため)。 -->
-      <div data-suisou-button-group="even">
+      <div data-suisou-tray data-suisou-layout="row gap-0">
         <div data-suisou-layout="row grow middle" data-suisou-text="fw-500">ダウンロード</div>
         <button
           type="button"

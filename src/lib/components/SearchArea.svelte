@@ -207,11 +207,12 @@
         {#if filter.candidateFilter}<IconFolderFilled />{:else}<IconFolder />{/if}
       </button>
 
-      <div data-suisou-layout="grow" style="--suisou-grow: 3" data-suisou-button-group="even">
+      <div data-suisou-layout="grow row gap-0" style="--suisou-grow: 3" data-suisou-tray>
         <button
           type="button"
           class="cell"
           data-suisou-button
+          data-suisou-layout="grow"
           aria-pressed={typeActive}
           onclick={() => handleMenuClick('type')}
         >
@@ -221,6 +222,7 @@
           type="button"
           class="cell"
           data-suisou-button
+          data-suisou-layout="grow"
           aria-pressed={lrigActive}
           onclick={() => handleMenuClick('lrigClass')}
         >
@@ -230,6 +232,7 @@
           type="button"
           class="cell"
           data-suisou-button
+          data-suisou-layout="grow"
           aria-pressed={tagActive}
           onclick={() => handleMenuClick('tag')}
         >
@@ -241,12 +244,13 @@
     <!-- 色/Lv/LB -->
     <div data-suisou-layout="row stretch" class="bar">
       <!-- 色検索 -->
-      <div data-suisou-layout="grow" style="--suisou-grow: 5" data-suisou-button-group="even">
+      <div data-suisou-layout="grow row gap-0" style="--suisou-grow: 5" data-suisou-tray>
         {#each [['白', 'c-white'], ['赤', 'c-red'], ['青', 'c-blue'], ['緑', 'c-green'], ['黒', 'c-black']] as [color, colorClass] (color)}
           <button
             type="button"
             class="cell"
             data-suisou-button
+            data-suisou-layout="grow"
             aria-pressed={filter.selectedColors.has(color)}
             onclick={() => filter.toggleColor(color)}
           >
@@ -266,12 +270,13 @@
       </div>
 
       <!-- レベル検索 -->
-      <div data-suisou-layout="grow" style="--suisou-grow: 3" data-suisou-button-group="even">
+      <div data-suisou-layout="grow row gap-0" style="--suisou-grow: 3" data-suisou-tray>
         {#each [1, 2, 3] as level (level)}
           <button
             type="button"
             class="cell"
             data-suisou-button
+            data-suisou-layout="grow"
             aria-pressed={filter.selectedLevels.has(level)}
             onclick={() => filter.toggleLevel(level)}
           >
@@ -337,7 +342,7 @@
       </div>
 
       <!-- 検索入力 -->
-      <div class="search" data-suisou-layout="grow" data-suisou-button-group>
+      <div class="search" data-suisou-layout="grow" data-suisou-item="field">
         <!-- 同上: ポップアップを button の外(relative div の兄弟)に出す -->
         <div class="anchor sq-lg">
           <button
