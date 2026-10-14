@@ -7,6 +7,8 @@
 </script>
 
 <svg
+  width="24"
+  height="24"
   {...restProps}
   viewBox="0 0 24 24"
   fill="none"
