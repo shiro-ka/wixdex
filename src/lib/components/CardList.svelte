@@ -47,14 +47,11 @@
     rotateLandscape,
   }: Props = $props();
 
-  // ── virtualization geometry ────────────────────────────────
-  // Desktop: a 3-column vertical grid handled by TanStack's `lanes`.
-  // Mobile: a single-row horizontal strip.
   const COLS = 3;
-  const GAP = 8; // gap between grid columns/rows (px)
-  const PAD_X = 8; // horizontal inset of the grid (px)
-  const STRIP_W = 64; // mobile card width (w-16)
-  const STRIP_GAP = 8; // mobile gap between cards
+  const GAP = 8;
+  const PAD_X = 8;
+  const STRIP_W = 64;
+  const STRIP_GAP = 8;
   const STRIP_STRIDE = STRIP_W + STRIP_GAP;
 
   let scrollEl = $state<HTMLDivElement | null>(null);
@@ -64,14 +61,11 @@
   let colWidth = $derived(
     containerWidth > 0 ? (containerWidth - PAD_X * 2 - GAP * (COLS - 1)) / COLS : 0,
   );
-  // Estimate only — measureElement reports the real height once a row renders.
-  // +50 はカード下のボタン行(h-10=40px)＋間隔ぶんの見込み。
   let estRowHeight = $derived(colWidth > 0 ? colWidth * (17 / 12) + 50 : 180);
   function laneLeft(lane: number): number {
     return PAD_X + lane * (colWidth + GAP);
   }
 
-  // O(1) candidate lookup
   let candidateKeySet = $derived(
     new Set(
       candidateCards.flatMap((c) => [c.cardID, c.image].filter((v): v is string => v != null)),
@@ -84,9 +78,6 @@
     );
   }
 
-  // ── TanStack virtualizers (one per layout, only the active one mounts) ──
-  // `count` starts at 0; the $effect below keeps it (and the other options) in
-  // sync with the reactive `cards` once the component is live.
   const gridV = createVirtualizer<HTMLDivElement, HTMLDivElement>({
     count: 0,
     getScrollElement: () => scrollEl,
@@ -103,9 +94,6 @@
     horizontal: true,
   });
 
-  // Keep the active virtualizer's options in sync. `get()` reads the instance
-  // without adding a lasting subscription (the template already subscribes via
-  // `$gridV` / `$stripV`), so this never re-mounts or loops.
   $effect(() => {
     const count = cards.length;
     if (isMd) {
@@ -128,9 +116,6 @@
     }
   });
 
-  // A new filter result starts from the top. Keyed on length so unrelated
-  // updates (e.g. stashing a card while the filter is unchanged) don't jump
-  // the scroll position.
   let prevCount = -1;
   $effect(() => {
     const count = cards.length;
@@ -160,8 +145,6 @@
     };
     mq.addEventListener('change', onMq);
 
-    // Seed the width synchronously so the first grid layout isn't zero-width
-    // while we wait for the ResizeObserver's first async callback.
     if (scrollEl) containerWidth = scrollEl.clientWidth;
     const ro = new ResizeObserver((entries) => {
       containerWidth = entries[0].contentRect.width;
@@ -174,12 +157,9 @@
     };
   });
 
-  // ── touch gestures ────────────────────────────────────────
-  // 指の読み取りは cardTouchGestures が持つ。ここでは払い・押さえに
-  // 「デッキへ入れる / 候補へ入れる」という意味を与えるだけ。
   const gestures = createCardGestures<Card>({
     onSwipeUp: (card) => onAdd(card),
-    onSwipeDown: (card) => onAddMultiple(card, 4), // 下へ払うと同名の上限まで一気に
+    onSwipeDown: (card) => onAddMultiple(card, 4),
     onHold: (card) => (candidateFilter ? onRemoveFromCandidate(card) : onAddToCandidate(card)),
     folderId: 'folder-button',
   });
@@ -275,7 +255,6 @@
       {loadError}
     </div>
   {:else if isMd}
-    <!-- Desktop: virtualized 3-column grid -->
     <div class="virt" style="height: {$gridV.getTotalSize()}px">
       {#each $gridV.getVirtualItems() as row (cards[row.index]?.cardID ?? cards[row.index]?.image ?? row.index)}
         {@const card = cards[row.index]}
@@ -294,7 +273,6 @@
       {/each}
     </div>
   {:else}
-    <!-- Mobile: virtualized horizontal strip -->
     <div class="virt" style="width: {$stripV.getTotalSize()}px">
       {#each $stripV.getVirtualItems() as item (cards[item.index]?.cardID ?? cards[item.index]?.image ?? item.index)}
         {@const card = cards[item.index]}
@@ -312,16 +290,13 @@
 </div>
 
 <style>
-
   .cell-box {
     height: 100%;
   }
-  /* 一覧（升目）の枠。罫だけで囲う ―― 面を上げると一覧がうるさくなる */
   .framed {
     border: 1px solid var(--suisou-color-line-weak);
     border-radius: var(--suisou-radius);
   }
-  /* 帯（横スクロール）のときは枠を持たず、幅だけ決める */
   .strip {
     width: 4rem;
   }
@@ -329,8 +304,6 @@
   .card-slot {
     aspect-ratio: 12 / 17;
   }
-  /* ★子コンポーネントに渡した class には Svelte の scoped ハッシュが付かない。
-     子側のセレクタは祖先を scoped にして :global で受ける。 */
   .scroller :global(.card-img) {
     width: 100%;
     object-fit: contain;
@@ -339,7 +312,6 @@
     height: 2.5rem;
   }
 
-  /* 読み込み中・失敗の表示欄 */
   .state {
     width: 100%;
     height: 8rem;
@@ -348,7 +320,6 @@
     padding-inline: var(--suisou-space-3);
   }
 
-  /* 巻物。広い画面は縦に積んで囲い、狭い画面は横に流す帯になる */
   .scroller {
     min-height: 0;
     max-width: 100%;
@@ -366,13 +337,9 @@
     overflow-y: hidden;
   }
 
-  /* 仮想スクロールの土台と行。位置は JS が style で入れる */
   .virt {
     position: relative;
   }
-  /* ★帯（スマホ）の土台は帯の高さいっぱい。JS が入れるのは幅だけなので、何もしないと高さ 0 になる。
-     すると行・セルも高さ 0 になり、stack middle が画像を 0 の線の上下にはみ出させて、
-     帯の overflow で切れていた（2026-09-13 発覚。升目は JS が高さを入れるので対象外） */
   .strip-mode .virt {
     height: 100%;
   }
@@ -387,20 +354,14 @@
     height: 100%;
   }
 
-  /* ★親が data-suisou-layout を持つと :where([data-suisou-layout]) > * { flex: none }
-     が効くので、子は既定で伸びない。伸ばすのは現場の CSS の仕事。 */
   .scroller {
     flex: 1 1 0;
   }
 
-  /* 升目に広がるボタン。セルの高さ(h-10)は仮想リストの計測に効くので動かさない。
-     ★ここは連結（button-group）ではない ―― 3つのボタンを枠なしで並べているだけなので
-     even は効かない。同じ .cell という名前でも SearchArea のそれとは別の需要。 */
   .cell {
     flex: 1 1 auto;
     height: 100%;
     padding: 0;
     min-width: 0;
   }
-
 </style>

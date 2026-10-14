@@ -29,13 +29,11 @@
   import LrigClassFilterContent from '$lib/components/dropdowns/LrigClassFilterContent.svelte';
   import TagFilterContent from '$lib/components/dropdowns/TagFilterContent.svelte';
 
-  // ── card data ──────────────────────────────────────────────
   let allCardData = $state<Card[]>([]);
   let loading = $state(true);
   let loadError = $state<string | null>(null);
   let cardMap = $derived(buildCardMap(allCardData));
 
-  // ── stores ─────────────────────────────────────────────────
   const isLoggedIn = !!page.data.user;
   const cloudSync = new CloudDeckSync();
   const deck = new DeckBuilderStore();
@@ -44,9 +42,6 @@
   const favorites = new FavoritesStore(page.data.favoriteIds ?? []);
   const session = new DeckSessionStore(deck, cloudSync, isLoggedIn, () => cardMap);
 
-  // ── UI state ───────────────────────────────────────────────
-  // デッキの保存まわりの開閉は session が持つ。ここに残るのは
-  // 「どのカードを見ているか」だけの、保存と関係のない状態。
   let hoveredCard = $state<Card | null>(null);
   let popupCard = $state<Card | null>(null);
   let isSidebarOpen = $state(false);
@@ -55,17 +50,14 @@
   let activeDropdown = $state<'type' | 'lrigClass' | 'tag' | null>(null);
   let draftRestored = $state(false);
 
-  // ── filtered cards ─────────────────────────────────────────
   let filteredCards = $derived(filter.apply(allCardData, deck.candidateCards, favorites.ids));
 
-  // ── card popup: 採用枚数・候補状態 ─────────────────────────
   function copiesInDeck(card: Card): number {
     const key = card.cardID ?? card.image;
     const match = (c: Card) => (c.cardID ?? c.image) === key;
     return deck.mainDeck.filter(match).length + deck.lrigDeck.filter(match).length;
   }
   let popupCount = $derived(popupCard ? copiesInDeck(popupCard) : 0);
-  // カードタイプ別の上限(同名/デッキサイズ/センター・アシスト・ピース・アーツ枠)を考慮した「あと1枚足せるか」
   let popupCanAdd = $derived(
     popupCard ? canAddCard(popupCard, deck.mainDeck, deck.lrigDeck).valid : false,
   );
@@ -73,7 +65,6 @@
     popupCard ? deck.candidateCards.some((c) => c.image === popupCard!.image) : false,
   );
 
-  // ── mount: load data & restore from storage ───────────────
   onMount(() => {
     const stopPullToRefresh = preventPullToRefresh();
 
@@ -113,9 +104,6 @@
     property="og:description"
     content="WIXOSS（ディーヴァ）のデッキを構築・公開・シェアできるツール。"
   />
-  <!-- og:url は環境のオリジンに追従（ユーザー/デッキページと同じ動的パターンに統一）。
-       staging では staging のURLになり、貼ったカードから実際のテスト対象ページへ戻れる。
-       og:image は app.html の共通デフォルト（常に本番 og.png）を使うので、見た目は本番と同一。 -->
   <meta property="og:url" content={page.url.origin + page.url.pathname} />
 </svelte:head>
 
@@ -192,7 +180,6 @@
     </div>
   </div>
 
-  <!-- ドロップダウンメニュー -->
   <FilterDropdown
     isOpen={activeDropdown === 'type'}
     onClose={() => {
@@ -326,8 +313,6 @@
 </div>
 
 <style>
-
-  /* 画面そのもの。ここから外へはみ出させない */
   .shell {
     width: 100dvw;
     height: 100dvh;
@@ -336,7 +321,6 @@
     overflow: hidden;
   }
 
-  /* 本文の幅。段ごとに上限が変わる ―― Suisou の container は1段だけなので現場で持つ */
   .split {
     overflow: hidden;
   }
@@ -346,8 +330,6 @@
     }
   }
 
-  /* 伸び方の「比」は --suisou-share で渡す（layout="share"）。
-     段は md / lg の2つなので、それで足りる振り方はここに書ける。 */
   @media (min-width: 1024px) {
     .card-side {
       --suisou-grow: 1.5;

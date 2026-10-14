@@ -1,5 +1,4 @@
 <script lang="ts">
-  /* 寸法は呼ぶ側の data-suisou-icon が持つ。class の既定値を置かないこと。 */
   import IconSquare from '@tabler/icons-svelte/icons/square';
   import IconSquareCheckFilled from '@tabler/icons-svelte/icons/square-check-filled';
 

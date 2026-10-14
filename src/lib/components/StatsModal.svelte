@@ -23,8 +23,6 @@
 
   $effect(() => {
     if (!isOpen) return;
-    // 開閉を繰り返した時に前回の in-flight fetch が後から解決して
-    // 表示を上書きしないよう、cleanup でキャンセルフラグを立てる。
     let cancelled = false;
     loading = true;
     error = null;
@@ -99,8 +97,6 @@
 </BaseModal>
 
 <style>
-
-  /* 中身が無いときの表示欄。上下に大きく空けて中央に置く */
   .state {
     padding-block: 4rem;
   }
@@ -108,13 +104,11 @@
     margin-block-start: var(--suisou-space-2);
   }
 
-  /* 順位。桁が増えても揃うよう幅を固定する（等幅は text="tabular" が持つ） */
   .rank {
     width: 2rem;
     font-family: var(--suisou-font-mono);
   }
 
-  /* カードの縮小画像。比を保って切り抜く */
   .thumb {
     flex: none;
     width: 3rem;
@@ -132,7 +126,6 @@
     white-space: nowrap;
   }
 
-  /* カード画像が来るまでの場所取り */
   .ph {
     background: var(--suisou-color-item);
   }

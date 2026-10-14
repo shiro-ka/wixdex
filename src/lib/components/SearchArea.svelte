@@ -37,12 +37,6 @@
   import LrigClassFilterContent from './dropdowns/LrigClassFilterContent.svelte';
   import TagFilterContent from './dropdowns/TagFilterContent.svelte';
 
-  /**
-   * ★絞り込みと表示設定は**ストアをそのまま渡す**。
-   *   以前は FilterStore の中身を22個、SettingsStore の中身を6個の prop に
-   *   ばらして渡していて、語を1つ増やすたびに「ストア → ページ → ここ」の
-   *   3箇所を書き足す必要があった。持ち主は1つなので、1つのまま渡す。
-   */
   interface Props {
     hoveredCard: Card | null;
     filter: FilterStore;
@@ -66,8 +60,6 @@
   let isSearchSettingsOpen = $state(false);
   let isLargeScreen = $state(false);
 
-  // PCは拡張パネルが常時表示なので「開いていない」状態が存在しない。
-  // → PCに入った時点で activeDropdown が空なら 'type' を選択済みにしておく。
   function seedForLargeScreen() {
     if (isLargeScreen && activeDropdown === null) onDropdownChange('type');
   }
@@ -84,8 +76,6 @@
     return () => mq.removeEventListener('change', handler);
   });
 
-  // テキスト検索は全カードに対する絞り込みを走らせるので、キー入力ごとの実行は
-  // 低スペック端末で重い。150ms デバウンスしてから store へ反映する。
   let searchDebounce: ReturnType<typeof setTimeout>;
   function handleSearchInput() {
     clearTimeout(searchDebounce);
@@ -105,15 +95,12 @@
 
   function handleMenuClick(name: 'type' | 'lrigClass' | 'tag') {
     if (isLargeScreen) {
-      // PCは常時パネル表示。閉じる概念がないので常に選択（同じタブ再クリックでも維持）。
       onDropdownChange(name);
     } else {
-      // スマホ/タブレットはドロップダウン。同じタブなら閉じ、違えば開く。
       onDropdownChange(activeDropdown === name ? null : name);
     }
   }
 
-  // PCパネルに表示するタブ。activeDropdown が唯一の真実で、null時のみ既定の 'type'。
   let panelTab = $derived(activeDropdown ?? 'type');
 
   function clearPanelTab() {
@@ -130,16 +117,12 @@
   let isLrigClassFilterEnabled = $derived(filter.selectedLrigClasses.size > 0);
   let isTagFilterEnabled = $derived(filter.selectedTags.size > 0);
 
-  // ハイライトは画面幅に依らず単一ロジック:「アクティブなタブのボタン背景を明るくする」。
-  // PCでは activeDropdown が常に非null（閉じる操作がない）なので、必ずどれか1つが明るい。
-  // スマホはドロップダウンを開いたものだけが明るく、全て閉じていれば3つとも通常背景になる。
   let typeActive = $derived(activeDropdown === 'type');
   let lrigActive = $derived(activeDropdown === 'lrigClass');
   let tagActive = $derived(activeDropdown === 'tag');
 </script>
 
 <div class="pane" data-suisou-layout="stack gap-3 m:grow">
-  <!-- ホバープレビュー -->
   <div data-suisou-tray data-suisou="m>hidden" class="preview">
     {#if hoveredCard}
       <div class="fill" data-suisou-layout="row middle">
@@ -152,7 +135,6 @@
     {/if}
   </div>
 
-  <!-- 拡張メニュー（lg以上） -->
   <div data-suisou-tray data-suisou-layout="stack" data-suisou="m>hidden" class="ext-menu">
     <div data-suisou-layout="row between" class="menu-head">
       <h3 data-suisou-text="fs-16 fw-500">
@@ -179,9 +161,7 @@
     {/if}
   </div>
 
-  <!-- 検索欄 -->
   <div data-suisou-layout="stack gap-3">
-    <!-- お気に入り/候補カード/カードタイプ/クラス/タグ -->
     <div data-suisou-layout="row stretch" class="bar">
       {#if isLoggedIn}
         <button
@@ -195,7 +175,6 @@
         </button>
       {/if}
 
-      <!-- 候補フィルタ: デスクトップは Folder が常時表示されるのでフィルタ不要 → md以上で非表示 -->
       <button
         type="button"
         id="folder-button"
@@ -241,9 +220,7 @@
       </div>
     </div>
 
-    <!-- 色/Lv/LB -->
     <div data-suisou-layout="row stretch" class="bar">
-      <!-- 色検索 -->
       <div data-suisou-layout="grow row gap-0" style="--suisou-grow: 5" data-suisou-tray>
         {#each [['白', 'c-white'], ['赤', 'c-red'], ['青', 'c-blue'], ['緑', 'c-green'], ['黒', 'c-black']] as [color, colorClass] (color)}
           <button
@@ -269,7 +246,6 @@
         {/each}
       </div>
 
-      <!-- レベル検索 -->
       <div data-suisou-layout="grow row gap-0" style="--suisou-grow: 3" data-suisou-tray>
         {#each [1, 2, 3] as level (level)}
           <button
@@ -303,7 +279,6 @@
         {/each}
       </div>
 
-      <!-- LB検索 -->
       <button
         type="button"
         class="cell sq"
@@ -315,12 +290,7 @@
       </button>
     </div>
 
-    <!-- テキスト/クリア/その他ボタン -->
     <div data-suisou-layout="row stretch" class="bar">
-      <!-- 設定ボタン -->
-      <!-- ポップアップをボタンの内側に置くと、オプションのクリックが外側ボタンへ
-           バブリングして即閉じる & button の入れ子で不正HTML。relative な div で
-           トグルボタンとポップアップを兄弟にして解消する。 -->
       <div class="anchor sq">
         <button
           type="button"
@@ -341,9 +311,7 @@
         />
       </div>
 
-      <!-- 検索入力 -->
       <div class="search" data-suisou-layout="grow" data-suisou-item="field">
-        <!-- 同上: ポップアップを button の外(relative div の兄弟)に出す -->
         <div class="anchor sq-lg">
           <button
             type="button"
@@ -372,7 +340,6 @@
         </button>
       </div>
 
-      <!-- リセットボタン -->
       <button
         type="button"
         class="cell sq"
@@ -386,7 +353,6 @@
 </div>
 
 <style>
-
   .pane {
     padding-inline: var(--suisou-space-2);
     padding-block-end: var(--suisou-space-3);
@@ -397,7 +363,6 @@
     }
   }
 
-  /* 見ているカードの拡大。カードの比ではなく 3:4 の窓（縦を切らずに収める） */
   .preview {
     aspect-ratio: 3 / 4;
   }
@@ -415,7 +380,6 @@
     margin-block-end: var(--suisou-space-3);
   }
 
-  /* 絞り込みの段。指で押せる高さ。広い画面は詰める */
   .bar {
     height: 2.5rem;
   }
@@ -425,7 +389,6 @@
     }
   }
 
-  /* 正方形の枠（アイコン1つぶん）。ポップアップの位置決めの起点にもなる */
   .sq {
     width: 2.5rem;
   }
@@ -439,36 +402,22 @@
     width: 100%;
   }
 
-  /* ★親が data-suisou-layout を持つと :where([data-suisou-layout]) > * { flex: none }
-     が効くので、子は既定で伸びない。伸ばすのは現場の CSS の仕事。 */
   .ext-menu {
     flex: 1 1 0;
     min-height: 0;
   }
-  /* ★盤の中の選択肢は、盤に残った高さいっぱいを使って中だけスクロールさせる。
-     FilterChecklist の max-height: 48dvh は上から降りるシート向けの値で、盤の中では盤を突き抜けて
-     下の検索欄に重なる（2026-09-13 にタグを46個に増やしたときに踏んだ）。盤の側で1か所だけ上書きする */
   .ext-menu > :global(.scroll) {
     flex: 1 1 0;
     min-height: 0;
     max-height: none;
   }
 
-  /* 段の中でボタンの幅を揃えるのは data-suisou-layout="share"。
-     --suisou-share はその群のボタンの数で、どの群も同じ幅になる。 */
 
-  /* フィルタ盤の現場実装。器とトグルは Suisou（button-group / plain / aria-pressed）で、
-     ここにあるのは升目の伸ばし方と検索欄の中身だけ。 */
 
-  /* 升目。連結・単独とも領域いっぱいに広がる（角丸と余白の既定を外す） */
-  /* 升目の余白ゼロ。伸ばし方と min-width は Suisou の連結（even）が持つようになった。
-     高さは連結の既定（align-items: stretch）で埋まる */
   .cell {
     padding: 0;
   }
 
-  /* ドメイン色。WIXOSS のカード5色は wixdex 自身のもの（app.css の :root で定義）。
-     エラーの赤とカードの赤が同じ色に巻き込まれていたのを、ここで分離した */
   .cell :global(.c-white) {
     color: var(--card-white);
   }
@@ -485,7 +434,6 @@
     color: var(--card-black);
   }
 
-  /* 入力の素肌化と焦点の輪は Suisou の連結（button-group × field）が持つようになった */
   .search {
     display: flex;
     align-items: center;

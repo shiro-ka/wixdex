@@ -19,7 +19,6 @@
   let isEditMode = $state(false);
   let isNameEditMode = $state(false);
 
-  // モーダルを開くたびに現在のデッキ名・メモへリセット（未保存の編集は破棄）
   $effect(() => {
     if (isOpen) {
       name = currentName;
@@ -33,14 +32,11 @@
     onClose();
   }
 
-  // marked→DOMPurify で無害化。DOMPurify はブラウザ DOM が必要なため browser ガード。
-  // モーダルは CSR でのみ表示されるので SSR では空文字で十分。
   let renderedMemo = $derived(browser ? renderMemoHtml(memo) : '');
 </script>
 
 <BaseModal {isOpen} {onClose} title="デッキ編集" maxWidth="lg">
   <div data-suisou-layout="stack gap-3">
-    <!-- デッキ名 -->
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
       <label data-suisou-text="fs-14 fw-500" data-suisou="sub">デッキ名</label>
@@ -71,7 +67,6 @@
       {/if}
     </div>
 
-    <!-- メモ -->
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
       <label data-suisou-text="fs-14 fw-500" data-suisou="sub">メモ</label>
@@ -81,7 +76,6 @@
           aria-disabled="true"
           class="field tall no-pick"
         >
-          <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html renderedMemo}
         </div>
@@ -105,7 +99,6 @@
           }}
           data-suisou-text="typeset start" class="field tall text-cursor"
         >
-          <!-- renderedMemo は DOMPurify.sanitize 済み（script/イベントハンドラ除去） -->
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           {@html renderedMemo}
         </button>
@@ -119,7 +112,6 @@
       </p>
     </div>
 
-    <!-- 保存ボタン -->
     <button
       type="button"
       onclick={handleSaveClick}
@@ -133,7 +125,6 @@
 </BaseModal>
 
 <style>
-
   .field {
     display: block;
     width: 100%;

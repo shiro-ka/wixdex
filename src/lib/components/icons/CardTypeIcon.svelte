@@ -1,5 +1,4 @@
 <script lang="ts">
-  /* 寸法は呼ぶ側の data-suisou-icon が持つ。class の既定値を置かないこと。 */
   let { filled = false, class: className = '',
     ...restProps
   }: { filled?: boolean; class?: string;

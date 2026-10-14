@@ -25,8 +25,6 @@
   }: Props = $props();
 </script>
 
-<!-- デッキ名 + 共有 + 保存は連結ボタン（button-group）。
-     親が罫と角丸を持ち、子は罫なしで並ぶ —— Suisou がこの形を部品で持っている -->
 <nav class="bar">
   <img src="/wixdex.png" alt="wixdex" class="logo" />
   <div data-suisou-layout="row">
@@ -58,7 +56,6 @@
 </nav>
 
 <style>
-  /* トップバーは地べた（bg）に直置き。面も罫も持たず、区切りは空きが担う */
   .bar {
     flex: none;
     display: flex;
@@ -67,6 +64,6 @@
     padding: var(--suisou-space-2) var(--suisou-space-3);
   }
   .logo {
-    height: 1.75rem; /* 28px。ロゴの実寸は現場の値 */
+    height: 1.75rem;
   }
 </style>

@@ -34,10 +34,6 @@
 </script>
 
 {#if shouldRender}
-  <!-- モバイル/タブレット専用のドロップダウン。PC(lg以上)は常時表示パネルが担当するので隠す。
-       PCでは activeDropdown が常に非nullになるため、lg:hidden が無いとPCでもこの overlay が開いてしまう。 -->
-  <!-- 上から降りるシート。Suisou に無い形なので位置と出入りは現場が持ち、
-       面の色と罫はトークンで受ける。3回目の現場が出たら Suisou 昇格を検討 -->
   <div
     data-suisou="m:hidden"
     class="sheet {isClosing
@@ -66,7 +62,6 @@
 {/if}
 
 <style>
-
   .sheet {
     position: fixed;
     top: 0;
@@ -86,8 +81,6 @@
     margin-block-start: var(--suisou-space-3);
   }
 
-  /* 面は overlay（頁の手前に浮く層）。縁まで届くシートなので角丸は持たず、
-     下辺の罫1本だけで区切る ―― surface="drawer" が左辺でやるのと同じ理屈 */
   .sheet {
     background: var(--suisou-color-panel);
     border-bottom: 1px solid var(--suisou-color-line-strong);

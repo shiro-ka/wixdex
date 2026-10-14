@@ -15,7 +15,6 @@
     onDeckListClick?: () => void;
     onNewDeckClick?: () => void;
     onStatsClick?: () => void;
-    // ツール(トップ)以外のページではデッキ操作系メニューを出さない
     showDeckTools?: boolean;
     user?: {
       displayName: string;
@@ -35,12 +34,8 @@
   }: Props = $props();
 
   const isLoggedIn = $derived(!!user);
-  // マイページのURLキー: メアド勢=username / bsky勢=ハンドル。未設定なら非表示。
   const myAtName = $derived(user ? (user.username ?? user.blueskyHandle) : null);
 
-  // 開閉はネイティブ popover に任せる。滑りの出入り・ESC・外側クリック・膜は
-  // ブラウザと Suisou の drawer が持つ。以前ここにあったタイマー式の状態機械は
-  // そのために存在していたので、丸ごと消えた。
   let el = $state<HTMLDivElement>();
 
   $effect(() => {
@@ -51,12 +46,10 @@
   });
 </script>
 
-<!-- セクション見出し（Deck / Account / Link で共通） -->
 {#snippet sectionLabel(text: string)}
   <p data-suisou-text="fs-12 fw-700" class="label">{text}</p>
 {/snippet}
 
-<!-- 外部リンク1行（アイコン + タイトル + 説明）。Row が下地の反応、Media が並び -->
 {#snippet linkRow(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Icon: any,
@@ -184,9 +177,6 @@
 </div>
 
 <style>
-  /* ドロワー固有の仕事は Suisou の drawer（surface）と popover に移った。
-     残っているのは中身の整えだけ。色と寸法は var(--suisou-*) 参照のみ。 */
-
   .label {
     margin: 0;
     padding-inline: var(--suisou-space-3);
@@ -195,7 +185,6 @@
     letter-spacing: 0.05em;
   }
 
-  /* セクションの間は項目の間より広く。Account は下に押し付ける */
   .section {
     margin-top: var(--suisou-space-3);
   }
@@ -203,8 +192,6 @@
     margin-top: auto;
   }
 
-  /* 押せない行。Row（hover する行）と同じ余白だけ借りる */
-  /* 押せない行。block ボタン（縦8/横16）と左端・行送りを揃える */
   .static-row {
     padding: var(--suisou-space-2) var(--suisou-space-3);
     color: var(--suisou-color-text-sub);
