@@ -124,15 +124,15 @@
 
 <div class="pane" data-suisou-layout="stack gap-2 m:grow">
   <div data-suisou-tray data-suisou="m>hidden" class="preview">
-    {#if hoveredCard}
-      <div class="fill" data-suisou-layout="row middle">
+    <div class="fill" data-suisou-layout="row middle">
+      {#if hoveredCard}
         <img
           src={cardImageUrl(hoveredCard.image)}
           class="preview-img"
           alt={hoveredCard.name}
         />
-      </div>
-    {/if}
+      {/if}
+    </div>
   </div>
 
   <div data-suisou-tray data-suisou-layout="stack" data-suisou="m>hidden" class="ext-menu">
@@ -364,12 +364,11 @@
     }
   }
 
-  .preview {
-    aspect-ratio: 3 / 4;
-  }
   .fill {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 63 / 88;
+    min-height: 0;
+    overflow: hidden;
   }
   .preview-img {
     max-width: 100%;
