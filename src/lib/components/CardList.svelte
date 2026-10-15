@@ -214,6 +214,8 @@
   class="scroller"
   class:grid-mode={isMd}
   class:strip-mode={!isMd}
+  data-suisou-layout="grow"
+  data-suisou="scroll-x m:scroll-y"
   style="touch-action: {isMd ? 'pan-y' : 'pan-x'}"
 >
   {#if loading}
@@ -292,12 +294,6 @@
   .scroller.grid-mode {
     border: 1px solid var(--suisou-color-line-weak);
     border-radius: 0.75rem;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-  .scroller.strip-mode {
-    overflow-x: auto;
-    overflow-y: hidden;
   }
 
   .virt {
@@ -316,9 +312,4 @@
   .virt-item.tall {
     height: 100%;
   }
-
-  .scroller {
-    flex: 1 1 0;
-  }
-
 </style>
