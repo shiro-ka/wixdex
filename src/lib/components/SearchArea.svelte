@@ -122,7 +122,7 @@
   let tagActive = $derived(activeDropdown === 'tag');
 </script>
 
-<div class="pane" data-suisou-layout="stack gap-2 m:grow">
+<div class="pane" data-suisou-layout="stack m:grow">
   <div data-suisou-tray data-suisou="m>hidden" class="preview">
     <div class="fill" data-suisou-layout="row middle">
       {#if hoveredCard}
@@ -161,7 +161,7 @@
     {/if}
   </div>
 
-  <div data-suisou-layout="stack gap-2">
+  <div data-suisou-layout="stack">
     <div data-suisou-layout="row stretch" class="bar">
       {#if isLoggedIn}
         <button
