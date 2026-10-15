@@ -57,7 +57,6 @@
 
 <style>
   .bar {
-    flex: none;
     display: flex;
     align-items: center;
     justify-content: space-between;

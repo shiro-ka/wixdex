@@ -247,13 +247,6 @@
   }
 
 
-  @media (min-width: 768px) {
-    .burst {
-      gap: 6px;
-    }
-  }
-
-
   .deck-panel {
     container-type: inline-size;
   }

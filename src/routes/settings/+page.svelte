@@ -32,7 +32,7 @@
   <title>設定 — wixdex</title>
 </svelte:head>
 
-<main class="screen">
+<main data-suisou="min-screen">
   <PageHeader />
 
   <div data-suisou-layout="stack gap-4" data-suisou="container-m" class="page">
@@ -193,9 +193,6 @@
 </main>
 
 <style>
-  .screen {
-    min-height: 100dvh;
-  }
 
   .page {
     padding: var(--suisou-space-4) var(--suisou-space-3);
