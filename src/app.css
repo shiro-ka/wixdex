@@ -81,35 +81,3 @@ body {
   min-width: 320px;
   overscroll-behavior: none;
 }
-
-.overflow-x-auto::-webkit-scrollbar {
-  height: 16px;
-}
-.overflow-x-auto::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  margin: 0 8px;
-}
-.overflow-x-auto::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 10px;
-  border: 3px solid transparent;
-  background-clip: padding-box;
-  transition: background 0.3s ease;
-}
-.overflow-x-auto::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
-  background-clip: padding-box;
-}
-.overflow-x-auto::-webkit-scrollbar-thumb:active {
-  background: rgba(255, 255, 255, 0.6);
-  background-clip: padding-box;
-}
-.overflow-x-auto::-webkit-scrollbar-button {
-  width: 80px;
-  display: none;
-}
-.overflow-x-auto {
-  scrollbar-width: auto;
-  scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
-}
