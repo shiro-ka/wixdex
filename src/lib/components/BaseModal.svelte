@@ -12,6 +12,7 @@
 
   let { isOpen, onClose, title, children, maxWidth = 'md' }: Props = $props();
 
+  const id = $props.id();
   let dialog = $state<HTMLDialogElement>();
 
   $effect(() => {
@@ -22,19 +23,16 @@
 {#if isOpen}
   <dialog
     bind:this={dialog}
+    {id}
     class="modal {maxWidth}"
     data-suisou-tray
+    closedby="any"
     onclose={onClose}
-    onclick={(e) => {
-      // 膜のクリックで閉じる。膜のクリックは target が dialog 自身になる。
-      // 中身と余白は .inner が受けるので、ここに来るのは膜だけ
-      if (e.target === dialog) onClose();
-    }}
   >
     <div class="inner" data-suisou-layout="stack">
       <div data-suisou-layout="row between">
         <h2 data-suisou-text="fs-20 fw-700">{title}</h2>
-        <button data-suisou-button="icon" type="button" onclick={onClose} aria-label="閉じる">
+        <button data-suisou-button="icon" type="button" command="close" commandfor={id} aria-label="閉じる">
           <IconX />
         </button>
       </div>
