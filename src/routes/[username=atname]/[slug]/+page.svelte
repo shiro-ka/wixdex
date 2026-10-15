@@ -50,10 +50,9 @@
   <meta property="og:title" content="{data.deck.name} — wixdex" />
   <meta property="og:description" content="WIXOSS デッキ — wixdex で公開中" />
   <meta property="og:url" content={page.url.origin + page.url.pathname} />
-  <!-- twitter:card / og:image は app.html の共通デフォルト（summary_large_image）を使う -->
 </svelte:head>
 
-<div class="screen">
+<div data-suisou="min-screen">
   <PageHeader>
     {#snippet right()}
       <a href="/" data-suisou-button="outline" data-suisou="accent"> 自分も作る </a>
@@ -70,7 +69,6 @@
 
     {#if renderedMemo}
       <div data-suisou-tray data-suisou-text="typeset">
-        <!-- renderedMemo は DOMPurify.sanitize 済み -->
         <!-- eslint-disable-next-line svelte/no-at-html-tags -->
         {@html renderedMemo}
       </div>
@@ -88,7 +86,7 @@
         <h2 data-suisou-text="fs-16">
           Lrig Deck <span data-suisou-text="fs-14" data-suisou="sub">({lrigDeck.length})</span>
         </h2>
-        <div class="lrig-grid" data-suisou-layout="grid">
+        <div class="lrig-grid" data-suisou-layout="grid gap-1">
           {#each lrigDeck as card, i (`lrig-${card.cardID}-${i}`)}
             <CardImage
               {card}
@@ -108,7 +106,7 @@
           </h2>
           <span data-suisou="sub">LB {lifeBurstCount}</span>
         </div>
-        <div class="main-grid" data-suisou-layout="grid">
+        <div class="main-grid" data-suisou-layout="grid gap-1">
           {#each mainDeck as card, i (`main-${card.cardID}-${i}`)}
             <CardImage
               {card}
@@ -126,30 +124,17 @@
 
 <style>
 
-  .screen {
-    min-height: 100dvh;
-  }
   .back {
     display: inline-block;
   }
   .state {
     padding-block: 4rem;
   }
-  /* ★子コンポーネント（CardImage）に渡す class は scoped にならないので :global で受ける */
   .page :global(.card-img) {
     width: 100%;
     object-fit: contain;
   }
 
-  /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
-     Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
-     「2段で表せない振り方は現場のもの」という決定どおり。
-     ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
-  /* すきまは 6px。Suisou の段は 4 / 8 / 16 / 24 なので現場のもの。 */
-  .lrig-grid,
-  .main-grid {
-    gap: 6px;
-  }
   .lrig-grid {
     --suisou-grid-cols: repeat(4, minmax(0, 1fr));
   }

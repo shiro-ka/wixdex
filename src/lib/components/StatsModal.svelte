@@ -110,7 +110,6 @@
   }
 
   .thumb {
-    flex: none;
     width: 3rem;
     height: 4rem;
     object-fit: cover;

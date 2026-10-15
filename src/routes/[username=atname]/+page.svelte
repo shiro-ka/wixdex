@@ -19,7 +19,7 @@
   <!-- twitter:card / og:image は app.html の共通デフォルト（summary_large_image）を使う -->
 </svelte:head>
 
-<div class="screen">
+<div data-suisou="min-screen">
   <PageHeader />
 
   <div data-suisou-layout="stack gap-4" data-suisou="container-l" class="page">
@@ -82,9 +82,6 @@
 
 <style>
 
-  .screen {
-    min-height: 100dvh;
-  }
   /* 640px から顔をひとまわり大きく。段が sm なので現場のもの */
   @media (min-width: 640px) {
     .face {

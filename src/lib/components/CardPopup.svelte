@@ -71,9 +71,6 @@
   onclick: () => void,
   title: string,
   disabled: boolean,
-  /* トグルのときだけ渡す。undefined なら属性ごと出ない ―― +1 / −1 は
-     押しっぱなしにならないので、aria-pressed を付けると読み上げに
-     「トグルボタン」と誤って伝わる */
   pressed: boolean | undefined = undefined,
 )}
   <button
@@ -103,7 +100,7 @@
         <IconX />
       </button>
 
-      <div class="tabbar" data-suisou-layout="row middle">
+      <div class="tabbar" data-suisou-layout="row middle gap-1">
         {@render tabButton('card', 'カード')}
         {@render tabButton('info', '情報')}
       </div>
@@ -162,7 +159,7 @@
             <p data-suisou-text="fs-12" data-suisou="sub">{card.subName.join(' / ')}</p>
           {/if}
 
-          <div class="chips" data-suisou-layout="row wrap">
+          <div class="chips" data-suisou-layout="row wrap gap-1">
             {#each card.cardType ?? [] as t (t)}{@render chip(t)}{/each}
             {#if card.level !== null}{@render chip(`Lv${card.level}`)}{/if}
             {#each card.color ?? [] as c (c)}{@render chip(c)}{/each}
@@ -237,9 +234,7 @@
   }
 
   .tabbar {
-    flex: none;
     justify-content: center;
-    gap: 6px;
     padding: 12px 12px 0;
   }
   @media (min-width: 1280px) {
@@ -268,7 +263,6 @@
     padding-inline-end: 2rem;
   }
   .chips {
-    gap: 6px;
     margin-block-start: var(--suisou-space-2);
   }
   .chip {

@@ -14,7 +14,7 @@
   });
 </script>
 
-<ul class="list" data-suisou-layout="row wrap">
+<ul class="list" data-suisou-layout="row wrap gap-1">
   {#each tags as t (t)}
     {@const kind = kinds.get(t)}
     <li class="tag" data-suisou-item="tag">
@@ -25,7 +25,6 @@
 
 <style>
   .list {
-    gap: 6px;
     list-style: none;
     margin: 0;
     padding: 0;
