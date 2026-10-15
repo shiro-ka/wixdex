@@ -90,7 +90,7 @@
         </h1>
         <p data-suisou="sub">WIXOSS デッキビルダー</p>
       </div>
-      <ul data-suisou-layout="stack gap-2" data-suisou="sub">
+      <ul data-suisou-layout="stack" data-suisou="sub">
         <li data-suisou-layout="row">
           <span data-suisou="accent">▸</span> カードを集めてデッキを構築
         </li>
@@ -308,7 +308,7 @@
         </div>
 
         <!-- Bluesky（ログイン・登録共通。bsky.social へ直行＝ハンドル入力不要） -->
-        <div data-suisou-layout="stack gap-2">
+        <div data-suisou-layout="stack">
           <button
             type="button"
             onclick={() => loginWithBluesky()}
@@ -328,7 +328,7 @@
             別のサーバー(PDS)のアカウント
           </button>
           {#if showHandleInput}
-            <div data-suisou-layout="stack gap-2">
+            <div data-suisou-layout="stack">
               <input
                 id="bluesky-handle"
                 type="text"

@@ -18,7 +18,7 @@
     {#if hasUnsavedChanges}
       <p data-suisou="warning">このデッキには未保存の変更があります。削除すると失われます。</p>
     {/if}
-    <div data-suisou-layout="stack gap-2">
+    <div data-suisou-layout="stack">
       <button type="button" onclick={onConfirm} data-suisou-button="outline" data-suisou="error w-full">削除する</button>
       <button type="button" onclick={onCancel} data-suisou-button data-suisou="w-full">キャンセル</button>
     </div>

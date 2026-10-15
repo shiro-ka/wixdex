@@ -57,15 +57,15 @@
   >
     <div>
       <h3 data-suisou-text="fs-14 fw-700">テキスト検索設定</h3>
-      <div data-suisou-layout="stack gap-2">
-        <button type="button" class="toggle" data-suisou-text="fs-12" aria-pressed={searchCardName} onclick={onToggleSearchCardName} data-suisou-layout="row gap-2">
+      <div data-suisou-layout="stack">
+        <button type="button" class="toggle" data-suisou-text="fs-12" aria-pressed={searchCardName} onclick={onToggleSearchCardName} data-suisou-layout="row">
           <CheckboxIcon
             checked={searchCardName}
             data-suisou-text="fs-16"
           />
           <span>カード名</span>
         </button>
-        <button type="button" class="toggle" data-suisou-text="fs-12" aria-pressed={searchCardText} onclick={onToggleSearchCardText} data-suisou-layout="row gap-2">
+        <button type="button" class="toggle" data-suisou-text="fs-12" aria-pressed={searchCardText} onclick={onToggleSearchCardText} data-suisou-layout="row">
           <CheckboxIcon
             checked={searchCardText}
             data-suisou-text="fs-16"

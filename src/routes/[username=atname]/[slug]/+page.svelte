@@ -82,7 +82,7 @@
         ></progress>
       </div>
     {:else}
-      <section data-suisou-tray data-suisou-layout="stack gap-2">
+      <section data-suisou-tray data-suisou-layout="stack">
         <h2 data-suisou-text="fs-16">
           Lrig Deck <span data-suisou-text="fs-14" data-suisou="sub">({lrigDeck.length})</span>
         </h2>

@@ -108,7 +108,7 @@
   }
 </script>
 
-<div class="deck-side" data-suisou-layout="stack s:grow gap-2">
+<div class="deck-side" data-suisou-layout="stack s:grow">
   <div class="deck-panel" data-suisou-tray>
     <div data-suisou-layout="row">
       <span data-suisou-text="fs-16 fw-500">Lrig Deck</span>
@@ -172,11 +172,11 @@
     </div>
   </div>
 
-  <div data-suisou-tray data-suisou-layout="stack" data-suisou="s>hidden" class="folder">
-    <div class="panel-head" data-suisou-layout="row">
+  <div data-suisou-tray data-suisou-layout="stack gap-3" data-suisou="s>hidden" class="folder">
+    <div data-suisou-layout="row">
       <span data-suisou-text="fs-16 fw-500">Folder</span>
     </div>
-    <div class="folder-grid" data-suisou-layout="grid gap-2">
+    <div class="folder-grid" data-suisou-layout="grid">
       {#each candidateKeyed as { card, key } (key)}
         <CardTile
           {card}
@@ -208,9 +208,6 @@
 
   .deck-panel {
     height: fit-content;
-  }
-  .panel-head {
-    margin-block-end: var(--suisou-space-2);
   }
 
   .deck-side :global(.card-img) {

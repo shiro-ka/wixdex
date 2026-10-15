@@ -61,7 +61,7 @@
       </div>
 
       <!-- ユーザー名 / ページURL -->
-      <section data-suisou-tray data-suisou-layout="stack gap-2">
+      <section data-suisou-tray data-suisou-layout="stack">
         <h2 data-suisou-text="fs-16 fw-700">ページURL</h2>
         {#if canEditUsername}
           {#if f?.action === 'changeUsername'}
@@ -71,7 +71,7 @@
               <p data-suisou="success">ユーザー名を変更しました。</p>
             {/if}
           {/if}
-          <form method="POST" action="?/changeUsername" data-suisou-layout="stack gap-2">
+          <form method="POST" action="?/changeUsername" data-suisou-layout="stack">
             <div data-suisou-layout="row">
               <div data-suisou-layout="grow" data-suisou-item="field">
                 <span>/@</span>
@@ -110,7 +110,7 @@
       </section>
 
       {#if data.user.email}
-        <section data-suisou-tray data-suisou-layout="stack gap-2">
+        <section data-suisou-tray data-suisou-layout="stack">
           <h2 data-suisou-text="fs-16 fw-700">パスワード変更</h2>
           {#if f?.action === 'changePassword'}
             {#if f?.error}
@@ -119,7 +119,7 @@
               <p data-suisou="success">パスワードを変更しました。</p>
             {/if}
           {/if}
-          <form method="POST" action="?/changePassword" data-suisou-layout="stack gap-2">
+          <form method="POST" action="?/changePassword" data-suisou-layout="stack">
             <div data-suisou-layout="stack gap-1">
               <label for="currentPassword" data-suisou="sub">現在のパスワード</label>
               <input
@@ -147,7 +147,7 @@
         </section>
       {/if}
 
-      <section data-suisou-tray data-suisou-layout="stack gap-2">
+      <section data-suisou-tray data-suisou-layout="stack">
         <h2 data-suisou-text="fs-16 fw-700">Bluesky 連携</h2>
         {#if f?.action === 'unlinkBluesky'}
           {#if f?.error}
@@ -162,7 +162,7 @@
             <button type="submit" data-suisou-button="outline" data-suisou="error">連携解除</button>
           </form>
         {:else}
-          <div data-suisou-layout="stack gap-2">
+          <div data-suisou-layout="stack">
             <input
               type="text"
               bind:value={blueskyHandle}

@@ -115,7 +115,7 @@
           />
         </div>
 
-        <div data-suisou-layout="row gap-2">
+        <div data-suisou-layout="row">
           {@render actionButton(IconMinus, () => onRemove(card), '1枚減らす', count === 0)}
           <div data-suisou-layout="row grow middle" data-suisou-text="fs-20 fw-700">
             {count}
@@ -175,7 +175,7 @@
           </div>
 
           {#if card.text?.length}
-            <div class="sec" data-suisou-layout="stack gap-2">
+            <div class="sec" data-suisou-layout="stack">
               {#each card.text as t, i (i)}
                 <div class="doc">
                   {#if t.label}
@@ -200,7 +200,7 @@
           {#if card.faq?.length}
             <div class="sec-lg">
               <h3 data-suisou-text="fs-14 fw-700" data-suisou="accent" class="sec-head">FAQ</h3>
-              <div data-suisou-layout="stack gap-2">
+              <div data-suisou-layout="stack">
                 {#each card.faq as f, i (i)}
                   <div class="doc" data-suisou-text="fs-12">
                     {#if f.q}<p>Q. {f.q}</p>{/if}

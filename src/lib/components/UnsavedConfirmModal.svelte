@@ -14,7 +14,7 @@
 <BaseModal {isOpen} onClose={onCancel} title="未保存の変更があります" maxWidth="sm">
   <div data-suisou-layout="stack gap-3">
     <p data-suisou="sub">保存していない変更があります。どうしますか？</p>
-    <div data-suisou-layout="stack gap-2">
+    <div data-suisou-layout="stack">
       <button type="button" onclick={onSave} data-suisou-button="outline" data-suisou="accent w-full"
         >保存して閉じる</button
       >
