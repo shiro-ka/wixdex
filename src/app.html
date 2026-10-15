@@ -8,10 +8,6 @@
     <meta name="description" content="WIXOSSのデッキ構築ツール" />
     <link rel="apple-touch-icon" href="%sveltekit.assets%/wixdex.png" />
 
-    <!-- OGP 全ページ共通デフォルト。
-         og:title / og:description / og:url は各ページの <svelte:head> で個別に指定する
-         （ここに書くと先勝ちでページ側を上書きしてしまうため、ここには置かない）。
-         og:image は絶対URL必須。画像は static/og.png（1200x630）を差し替えれば即反映。 -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="wixdex" />
     <meta property="og:image" content="https://wixdex.cards/og.png" />
@@ -30,12 +26,7 @@
       href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Suisou（デザイン体系）。/v1/ は v1 系の最新。凍結したくなったら /v/<sha7>/ に切り替える。
 
-         ★Suisou はカスケードレイヤーを使わない。**読み込み順や詳細度より先にレイヤを見る**ので、
-           レイヤの中に置いた規則はどれだけ詳細度を上げても Suisou に勝てない。
-         ★上書きしたいときはレイヤの外＝コンポーネントの scoped style で書く。
-           Svelte が付ける .svelte-xxx でレイヤ無し同士の詳細度勝負になり、現場が勝つ。 -->
     <link rel="stylesheet" href="https://suisou.pages.dev/v3/suisou.css" />
     %sveltekit.head%
   </head>

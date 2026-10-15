@@ -1,47 +1,11 @@
-/* wixdex がここに持つのは **Suisou が持たないと決めたもの**だけ ――
-   WIXOSS のカード5色（対象物の色）と、ページそのものの地。
-   見た目の語彙は Suisou（https://suisou.pages.dev/v1/suisou.css）から来る。
-
-   ★リセットは Suisou の ui/reset.css が持つ。ここに書き足さないこと。
-   ★生の色クラス（zinc/gray/orange/red/green/yellow など）は1つでも書くと
-     scripts/check-bridge.mjs が落とす。色は Suisou から取る。 */
-
 :root {
-  /* ══ ドメイン色 ══════════════════════════════════
-     WIXOSS のカード5色。**対象物側で固定され、作者が動かせない色**。
-
-     ★Suisou は持たない。しろかのブランドではなく WIXOSS のものなので、
-       現場（wixdex）が自分で持つ ―― Suisou の掟でいう「class は現場のもの」と同じ線引き。
-       一度 Suisou 側に実装したが撤回した（経緯は ccmemory の dev/suisou/palette-spec.md）。
-
-     導出は Suisou と同じ手順で、設計時に一度だけ計算した値を焼いてある:
-       H    もとの近似色（wixdex が目で当てていたもの）を OKLCH に逆算して読んだ
-       L    面に載せて読める明度
-       C    maxC(L, H) × 彩度比 × hadal のトーン倍率(0.95)
-       検証 非文字なので 3.0:1（WCAG 1.4.11）。最悪 overlay の上で 4.59:1
-
-     ★白だけ彩度比 0.36。白は彩度の無さがアイデンティティで、
-       上限まで振るとただの黄色になる（#fce92f になった）。
-
-     ★テーマは hadal 固定。テーマ切替を入れるなら、この5色も解き直しになる。 */
-  --card-white: oklch(92% 0.0662 103); /* #ece7b4 */
-  --card-red: oklch(73% 0.158 22); /* #fb7a7a */
-  --card-blue: oklch(74% 0.1296 255); /* #70adfb */
-  --card-green: oklch(76% 0.19 152); /* #27d271 */
-  --card-black: oklch(74% 0.1623 306); /* #c48dfb */
-
-  /* ★カード画像の上に出す「候補フォルダに入っている」印（CardImage）。
-     ブリッジに載せられない ―― bg-orange-500 がライフバーストの印として
-     accent に繋がっているので、blue も accent に繋ぐと2つの印が同じ色になり
-     区別が消える。かといって Suisou に塗り色は無い（塗らず線で示す設計なので、
-     accent も意味色も L74 前後のインクしか無く、絵の上に敷く下地には向かない）。
-     よってこれは現場のもの ―― --card-* と同じ扱いで wixdex が持つ。 */
-  --badge-candidate: oklch(62.3% 0.1899 259.8); /* #3b82f6 */
-  /* ライフバーストの印も同じ理屈で固定。★accent に追従させてはいけない ――
-     LB はゲームの概念であって「いま選んでいるテーマの強調色」ではないし、
-     テーマを trench × blue に変えた瞬間、accent 追従の LB と青固定の候補印が
-     同じ色になって区別が消える。 */
-  --badge-lifeburst: oklch(70.5% 0.1867 47.6); /* #f97316 */
+  --card-white: oklch(92% 0.0662 103);
+  --card-red: oklch(73% 0.158 22);
+  --card-blue: oklch(74% 0.1296 255);
+  --card-green: oklch(76% 0.19 152);
+  --card-black: oklch(74% 0.1623 306);
+  --badge-candidate: oklch(62.3% 0.1899 259.8);
+  --badge-lifeburst: oklch(70.5% 0.1867 47.6);
 }
 
 @keyframes slide-down {
@@ -99,7 +63,6 @@
 }
 
 :root {
-  /* 書体・文字色・下地は Suisou（data-suisou-root）が持つ。ここは描画のチューニングだけ */
   color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -111,24 +74,14 @@ html,
 body {
   width: 100%;
   margin: 0;
-  /* 上から引っ張ったときのプルリフレッシュ(誤爆)を抑止。
-     判定はルートのスクロール境界(html)を見るので、body だけでなく html にも指定する。
-     Chrome/Firefox(Android)とも overscroll-behavior でプルリフレッシュを止められる。 */
   overscroll-behavior-y: none;
 }
 
-/* 通常ページ(設定/プロフィール/共有デッキ/ログイン)はドキュメントフローでスクロール。
-   メインアプリ(/) は自身の root が w-dvw h-dvh overflow-hidden で全画面を完結させる。
-   かつてここにあった Vite 既定の display:flex / place-items:center / position:fixed /
-   overflow:hidden は、サブページの中央寄せ不能・余白に地色露出・スクロール不能の原因だったので除去。 */
 body {
   min-width: 320px;
-  /* 地色は Suisou（--suisou-bg）が持つ */
   overscroll-behavior: none;
 }
 
-
-/* カスタムスクロールバー */
 .overflow-x-auto::-webkit-scrollbar {
   height: 16px;
 }
