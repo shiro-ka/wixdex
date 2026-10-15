@@ -180,7 +180,7 @@
     )}
   </div>
   <footer data-suisou-layout="stack center gap-0" data-suisou-text="fs-12 center" class="section foot">
-    <span>suisou</span>
+    <span>Suisou</span>
     <span>{themeLabel}</span>
   </footer>
 </div>
