@@ -95,12 +95,12 @@
       transition:fade={{ duration: 120 }}
     ></button>
 
-    <div class="body" data-suisou-tray data-suisou-layout="stack" transition:scale={{ start: 0.97, opacity: 0, duration: 200 }}>
+    <div class="body" data-suisou-tray data-suisou-layout="stack s:row s:stretch" transition:scale={{ start: 0.97, opacity: 0, duration: 200 }}>
       <button class="close" data-suisou-button="icon" onclick={onClose} aria-label="閉じる">
         <IconX />
       </button>
 
-      <div class="tabbar" data-suisou-layout="row middle gap-1">
+      <div class="tabbar" data-suisou-layout="row middle gap-1" data-suisou="s:hidden">
         {@render tabButton('card', 'カード')}
         {@render tabButton('info', '情報')}
       </div>
@@ -237,16 +237,11 @@
     justify-content: center;
     padding: 12px 12px 0;
   }
-  @media (min-width: 1280px) {
-    .tabbar {
-      display: none;
-    }
-  }
 
   .card-pane {
     padding: 12px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: 768px) {
     .card-pane {
       flex: none;
       width: 50%;
@@ -296,7 +291,7 @@
     overflow-y: auto;
     padding: 12px var(--suisou-space-3) var(--suisou-space-3);
   }
-  @media (min-width: 1280px) {
+  @media (min-width: 768px) {
     .info-scroll {
       position: absolute;
       inset: 0;
@@ -304,12 +299,6 @@
     }
   }
 
-  @media (min-width: 1280px) {
-    .body {
-      flex-direction: row;
-      align-items: stretch;
-    }
-  }
 
   .scrim {
     position: absolute;
@@ -349,7 +338,7 @@
   .info.card-tab {
     display: none;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: 768px) {
     .info {
       position: relative;
       inset: auto;
