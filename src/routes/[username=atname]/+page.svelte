@@ -16,17 +16,13 @@
   <meta property="og:title" content="{profile.displayName} (@{profile.atName}) — wixdex" />
   <meta property="og:description" content="{profile.displayName} さんのデッキ一覧 — wixdex" />
   <meta property="og:url" content={page.url.origin + page.url.pathname} />
-  <!-- twitter:card / og:image は app.html の共通デフォルト（summary_large_image）を使う -->
 </svelte:head>
 
 <div data-suisou="min-screen">
   <PageHeader />
 
   <div data-suisou-layout="stack gap-4" data-suisou="container-l" class="page">
-    <!-- プロフィールヘッダ -->
     <header data-suisou-layout="row gap-3" data-suisou="bd-bottom" class="head">
-      <!-- 頭文字は Avatar が出す。円形＝人という約束ごと部品に寄せる。
-           文字色も部品の text-sub に譲った（accent の頭文字は装飾で、意味が無かった） -->
       <div data-suisou-item="circle" data-suisou-text="fs-24 fw-700" style="--suisou-size-circle: 4rem" class="face">
         {profile.displayName.charAt(0).toUpperCase()}
       </div>
@@ -49,7 +45,6 @@
       </div>
     </header>
 
-    <!-- 公開デッキ一覧 -->
     <section data-suisou-layout="stack gap-3">
       <h2 class="sec-head" data-suisou-text="fw-700" data-suisou="note">
         公開デッキ <span data-suisou="note">({decks.length})</span>
@@ -82,7 +77,6 @@
 
 <style>
 
-  /* 640px から顔をひとまわり大きく。段が sm なので現場のもの */
   @media (min-width: 640px) {
     .face {
       --suisou-size-circle: 5rem;
@@ -102,10 +96,6 @@
     display: block;
   }
 
-  /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
-     Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
-     「2段で表せない振り方は現場のもの」という決定どおり。
-     ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
   .decks {
     --suisou-grid-cols: repeat(1, minmax(0, 1fr));
   }
@@ -125,8 +115,6 @@
     }
   }
 
-  /* 押せる面の hover。Suisou の面は押せない（押せるのは部品）ので、
-     カード型のリンクは現場が hover を持つ。使う色は行と同じ hover-surface */
   .deck-card {
     transition:
       background-color var(--suisou-duration-fast) var(--suisou-ease),
