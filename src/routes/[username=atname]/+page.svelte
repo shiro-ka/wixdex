@@ -44,19 +44,19 @@
             @{profile.atName}
           </a>
         {:else}
-          <p data-suisou="sub">@{profile.atName}</p>
+          <p data-suisou="note">@{profile.atName}</p>
         {/if}
       </div>
     </header>
 
     <!-- 公開デッキ一覧 -->
     <section data-suisou-layout="stack gap-3">
-      <h2 class="sec-head" data-suisou-text="fw-700" data-suisou="sub">
-        公開デッキ <span data-suisou="sub">({decks.length})</span>
+      <h2 class="sec-head" data-suisou-text="fw-700" data-suisou="note">
+        公開デッキ <span data-suisou="note">({decks.length})</span>
       </h2>
 
       {#if decks.length === 0}
-        <p class="state" data-suisou-text="center" data-suisou="sub">公開中のデッキはまだありません。</p>
+        <p class="state" data-suisou-text="center" data-suisou="note">公開中のデッキはまだありません。</p>
       {:else}
         <div class="decks" data-suisou-layout="grid gap-3">
           {#each decks as deck (deck.slug)}
@@ -66,10 +66,10 @@
               class="deck-card"
             >
               <div data-suisou-text="fw-500 one-line">{deck.name}</div>
-              <div data-suisou="sub">
+              <div data-suisou="note">
                 メイン {deck.mainCount}枚 / ルリグ {deck.lrigCount}枚
               </div>
-              <div data-suisou-text="fs-12" data-suisou="sub">
+              <div data-suisou-text="fs-12" data-suisou="note">
                 更新: {new Date(deck.updatedAt * 1000).toLocaleDateString('ja-JP')}
               </div>
             </a>

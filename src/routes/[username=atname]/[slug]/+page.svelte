@@ -63,7 +63,7 @@
     <div>
       <h1 data-suisou-text="fs-24 s:fs-28 fw-700 one-line">{data.deck.name}</h1>
     </div>
-    <a href="/@{data.atName}" data-suisou-text="link" data-suisou="sub" class="back">
+    <a href="/@{data.atName}" data-suisou-text="link" data-suisou="note" class="back">
       @{data.atName} のデッキ
     </a>
 
@@ -84,7 +84,7 @@
     {:else}
       <section data-suisou-tray data-suisou-layout="stack">
         <h2 data-suisou-text="fs-16">
-          Lrig Deck <span data-suisou-text="fs-14" data-suisou="sub">({lrigDeck.length})</span>
+          Lrig Deck <span data-suisou-text="fs-14" data-suisou="note">({lrigDeck.length})</span>
         </h2>
         <div class="lrig-grid" data-suisou-layout="grid gap-1">
           {#each lrigDeck as card, i (`lrig-${card.cardID}-${i}`)}
@@ -102,9 +102,9 @@
       <section data-suisou-tray>
         <div data-suisou-layout="row between">
           <h2 data-suisou-text="fs-16">
-            Main Deck <span data-suisou-text="fs-14" data-suisou="sub">({mainDeck.length})</span>
+            Main Deck <span data-suisou-text="fs-14" data-suisou="note">({mainDeck.length})</span>
           </h2>
-          <span data-suisou="sub">LB {lifeBurstCount}</span>
+          <span data-suisou="note">LB {lifeBurstCount}</span>
         </div>
         <div class="main-grid" data-suisou-layout="grid gap-1">
           {#each mainDeck as card, i (`main-${card.cardID}-${i}`)}

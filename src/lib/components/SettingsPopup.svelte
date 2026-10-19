@@ -117,7 +117,7 @@
   }
 
   .toggle :global(svg) {
-    color: var(--suisou-color-text-sub);
+    color: var(--suisou-color-text-note);
     transition: color var(--suisou-duration-fast) var(--suisou-ease);
   }
   .toggle:hover :global(svg) {

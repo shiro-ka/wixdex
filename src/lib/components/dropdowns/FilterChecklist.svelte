@@ -41,7 +41,7 @@
     overflow-y: auto;
   }
   .group {
-    color: var(--suisou-color-text-sub);
+    color: var(--suisou-color-text-note);
     margin-block: var(--suisou-space-3) var(--suisou-space-1);
   }
   .group:first-child {
@@ -55,7 +55,7 @@
   }
 
   .toggle :global(svg) {
-    color: var(--suisou-color-text-sub);
+    color: var(--suisou-color-text-note);
     transition: color var(--suisou-duration-fast) var(--suisou-ease);
   }
   .toggle:hover :global(svg) {

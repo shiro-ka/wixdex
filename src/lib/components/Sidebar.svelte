@@ -203,7 +203,7 @@
 
   .static-row {
     padding: var(--suisou-space-2) var(--suisou-space-3);
-    color: var(--suisou-color-text-sub);
+    color: var(--suisou-color-text-note);
   }
 
   .desc {

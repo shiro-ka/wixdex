@@ -22,16 +22,16 @@
 <BaseModal {isOpen} {onClose} title="デッキ一覧">
   <div data-suisou-layout="stack">
     {#if decks.length === 0}
-      <p class="state" data-suisou-text="center" data-suisou="sub">保存されたデッキがありません</p>
+      <p class="state" data-suisou-text="center" data-suisou="note">保存されたデッキがありません</p>
     {:else}
       {#each decks as deck (deck.id)}
         <div data-suisou-item data-suisou-layout="row stretch gap-0">
           <button type="button" onclick={() => { onSelectDeck(deck); onClose(); }} data-suisou-button="block" data-suisou-layout="stack gap-1 grow" data-suisou-text="start" class="pick">
             <div data-suisou-text="fw-500">{deck.name}</div>
-            <div data-suisou="sub">
+            <div data-suisou="note">
               メイン: {deck.mainCount}枚 / ルリグ: {deck.lrigCount}枚
             </div>
-            <div data-suisou-text="fs-12" data-suisou="sub">
+            <div data-suisou-text="fs-12" data-suisou="note">
               {new Date(deck.updatedAt * 1000).toLocaleString('ja-JP')}
             </div>
           </button>

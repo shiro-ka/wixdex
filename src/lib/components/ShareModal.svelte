@@ -152,11 +152,11 @@
     <div>
       <h4 data-suisou-text="fs-14 fw-700" class="sec-head">デッキを公開</h4>
       {#if !isLoggedIn}
-        <p data-suisou-text="fs-12" data-suisou="sub">ログインするとデッキを公開・共有できます。</p>
+        <p data-suisou-text="fs-12" data-suisou="note">ログインするとデッキを公開・共有できます。</p>
       {:else if !deckId}
-        <p data-suisou-text="fs-12" data-suisou="sub">デッキを保存すると公開・共有できます。</p>
+        <p data-suisou-text="fs-12" data-suisou="note">デッキを保存すると公開・共有できます。</p>
       {:else}
-        <label data-suisou-layout="row between" data-suisou="sub">
+        <label data-suisou-layout="row between" data-suisou="note">
           このデッキを公開する
           <input
             type="checkbox"
@@ -190,7 +190,7 @@
               </div>
             {:else}
               <div data-suisou-layout="row between" class="sec-xs">
-                <p data-suisou-text="fs-12" data-suisou="sub">
+                <p data-suisou-text="fs-12" data-suisou="note">
                   リンクを知っている人がこのデッキを閲覧できます。
                 </p>
                 <button type="button" onclick={() => (editingSlug = true)} data-suisou-button data-suisou-text="fs-12" class="fix">
@@ -276,12 +276,12 @@
         <p class="sec" data-suisou-text="fs-12" data-suisou="warning">※デッキにカードを追加してください</p>
       {/if}
       {#if isExporting}
-        <p class="sec" data-suisou-text="fs-12" data-suisou="sub">生成中...</p>
+        <p class="sec" data-suisou-text="fs-12" data-suisou="note">生成中...</p>
       {/if}
     </div>
 
     <div data-suisou="bd-top" class="sec-block">
-      <p data-suisou-text="fs-12" data-suisou="sub">リスト式、テキストエクスポートは今後実装予定です。</p>
+      <p data-suisou-text="fs-12" data-suisou="note">リスト式、テキストエクスポートは今後実装予定です。</p>
     </div>
   </div>
 </BaseModal>

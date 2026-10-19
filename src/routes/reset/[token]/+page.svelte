@@ -23,7 +23,7 @@
       {/if}
       <form method="POST" data-suisou-layout="stack gap-3">
         <div data-suisou-layout="stack gap-1">
-          <label for="password" data-suisou="sub">新しいパスワード（8文字以上）</label
+          <label for="password" data-suisou="note">新しいパスワード（8文字以上）</label
           >
           <input
             id="password"

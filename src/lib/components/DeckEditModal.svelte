@@ -39,7 +39,7 @@
   <div data-suisou-layout="stack gap-3">
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
-      <label data-suisou-text="fs-14 fw-500" data-suisou="sub">デッキ名</label>
+      <label data-suisou-text="fs-14 fw-500" data-suisou="note">デッキ名</label>
       {#if !isLoggedIn}
         <input type="text" disabled value={name} placeholder="デッキ名を入力" data-suisou="w-full" />
       {:else if isNameEditMode}
@@ -69,7 +69,7 @@
 
     <div>
       <!-- svelte-ignore a11y_label_has_associated_control -->
-      <label data-suisou-text="fs-14 fw-500" data-suisou="sub">メモ</label>
+      <label data-suisou-text="fs-14 fw-500" data-suisou="note">メモ</label>
       {#if !isLoggedIn}
         <div
           data-suisou-text="typeset"
@@ -103,7 +103,7 @@
           {@html renderedMemo}
         </button>
       {/if}
-      <p data-suisou-text="fs-12" data-suisou="sub" class="note">
+      <p data-suisou-text="fs-12" data-suisou="note" class="note">
         {#if !isLoggedIn}
           <a href="/login" data-suisou-text="link">ログインするとデッキを保存できます</a>
         {:else}

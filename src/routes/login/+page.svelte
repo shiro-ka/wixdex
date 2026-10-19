@@ -88,9 +88,9 @@
         <h1 class="brand-name" data-suisou-text="fs-28 fw-700">
           wix<span data-suisou="accent">dex</span>
         </h1>
-        <p data-suisou="sub">WIXOSS デッキビルダー</p>
+        <p data-suisou="note">WIXOSS デッキビルダー</p>
       </div>
-      <ul data-suisou-layout="stack" data-suisou="sub">
+      <ul data-suisou-layout="stack" data-suisou="note">
         <li data-suisou-layout="row">
           <span data-suisou="accent">▸</span> カードを集めてデッキを構築
         </li>
@@ -152,12 +152,12 @@
 
       {#if mode === 'forgot'}
         <!-- パスワード再設定: メールアドレス入力 -->
-        <p data-suisou="sub">
+        <p data-suisou="note">
           登録したメールアドレスを入力してください。パスワード再設定用のリンクをお送りします。
         </p>
         <form method="POST" action="?/forgotPassword" data-suisou-layout="stack gap-3">
           <div data-suisou-layout="stack gap-1">
-            <label for="forgot-email" data-suisou="sub">メールアドレス</label>
+            <label for="forgot-email" data-suisou="note">メールアドレス</label>
             <input
               id="forgot-email"
               name="email"
@@ -173,7 +173,7 @@
         <button
           type="button"
           onclick={() => (mode = 'login')}
-          class="back" data-suisou-text="center" data-suisou="sub">
+          class="back" data-suisou-text="center" data-suisou="note">
           ← ログインに戻る
         </button>
       {:else}
@@ -181,7 +181,7 @@
         <form method="POST" action="?/{mode}" data-suisou-layout="stack gap-3">
           {#if mode === 'register'}
             <div data-suisou-layout="stack gap-1">
-              <label for="displayName" data-suisou="sub">表示名</label>
+              <label for="displayName" data-suisou="note">表示名</label>
               <input
                 id="displayName"
                 name="displayName"
@@ -193,8 +193,8 @@
               />
             </div>
             <div data-suisou-layout="stack gap-1">
-              <label for="username" data-suisou="sub">
-                ユーザー名 <span data-suisou="sub">(URLになります: /@…)</span>
+              <label for="username" data-suisou="note">
+                ユーザー名 <span data-suisou="note">(URLになります: /@…)</span>
               </label>
               <div data-suisou-layout="row">
                 <div data-suisou-layout="grow" data-suisou-item="field">
@@ -226,13 +226,13 @@
                 </button>
               </div>
               {#if usernameStatus === 'checking'}
-                <p data-suisou-text="fs-12" data-suisou="sub">確認中…</p>
+                <p data-suisou-text="fs-12" data-suisou="note">確認中…</p>
               {:else if usernameStatus === 'ok'}
                 <p data-suisou-text="fs-12" data-suisou="success">{usernameMsg}</p>
               {:else if usernameStatus === 'taken'}
                 <p data-suisou-text="fs-12" data-suisou="error">{usernameMsg}</p>
               {:else}
-                <p data-suisou-text="fs-12" data-suisou="sub">
+                <p data-suisou-text="fs-12" data-suisou="note">
                   英小文字・数字・ハイフン・アンダースコア（後から変更できます）
                 </p>
               {/if}
@@ -240,7 +240,7 @@
           {/if}
           {#if mode === 'register'}
             <div data-suisou-layout="stack gap-1">
-              <label for="email" data-suisou="sub">メールアドレス</label>
+              <label for="email" data-suisou="note">メールアドレス</label>
               <input
                 id="email"
                 name="email"
@@ -253,7 +253,7 @@
             </div>
           {:else}
             <div data-suisou-layout="stack gap-1">
-              <label for="identifier" data-suisou="sub">メールアドレス または ユーザー名</label
+              <label for="identifier" data-suisou="note">メールアドレス または ユーザー名</label
               >
               <input
                 id="identifier"
@@ -269,7 +269,7 @@
             </div>
           {/if}
           <div data-suisou-layout="stack gap-1">
-            <label for="password" data-suisou="sub">
+            <label for="password" data-suisou="note">
               パスワード{mode === 'register' ? '（8〜128文字）' : ''}
             </label>
             <input
@@ -303,7 +303,7 @@
       {#if mode !== 'forgot'}
         <div data-suisou-layout="row" class="or">
           <div class="hr" data-suisou-layout="grow"></div>
-          <span data-suisou-text="fs-12" data-suisou="sub">または</span>
+          <span data-suisou-text="fs-12" data-suisou="note">または</span>
           <div class="hr" data-suisou-layout="grow"></div>
         </div>
 

@@ -18,7 +18,7 @@
   {#each tags as t (t)}
     {@const kind = kinds.get(t)}
     <li class="tag" data-suisou-item="tag">
-      {#if kind}<span class="kind" data-suisou="sub">{kind}</span>{/if}<span>{t}</span>
+      {#if kind}<span class="kind" data-suisou="note">{kind}</span>{/if}<span>{t}</span>
     </li>
   {/each}
 </ul>

@@ -17,7 +17,7 @@
 
   <p data-suisou-text="fs-32 fw-700" data-suisou="success">{page.status}</p>
 
-  <p data-suisou="sub">{message}</p>
+  <p data-suisou="note">{message}</p>
 
   <a href="/" data-suisou-button="outline" data-suisou="accent">ホームへ戻る</a>
 </main>

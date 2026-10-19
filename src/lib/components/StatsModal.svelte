@@ -56,11 +56,11 @@
 
 <BaseModal {isOpen} {onClose} title="カード使用統計" maxWidth="lg">
   {#if loading}
-    <div class="state" data-suisou-text="center" data-suisou="sub">読み込み中...</div>
+    <div class="state" data-suisou-text="center" data-suisou="note">読み込み中...</div>
   {:else if error}
     <div class="state" role="alert" data-suisou-text="center" data-suisou="error">{error}</div>
   {:else if ranked.length === 0}
-    <div class="state" data-suisou-text="center" data-suisou="sub">
+    <div class="state" data-suisou-text="center" data-suisou="note">
       <p data-suisou-text="fs-20">まだ集計データがありません</p>
       <p class="hint">デッキを保存すると、ここに使用ランキングが表示されます。</p>
     </div>
@@ -78,17 +78,17 @@
             />
             <div class="name" data-suisou-layout="stack gap-0">
               <div data-suisou-text="fw-500 one-line">{row.card.name}</div>
-              <div data-suisou-text="fs-12 one-line" data-suisou="sub">{row.cardId}</div>
+              <div data-suisou-text="fs-12 one-line" data-suisou="note">{row.cardId}</div>
             </div>
           {:else}
             <div class="thumb ph"></div>
             <div class="name" data-suisou-layout="stack gap-0">
-              <div data-suisou-text="one-line" data-suisou="sub">{row.cardId}</div>
+              <div data-suisou-text="one-line" data-suisou="note">{row.cardId}</div>
             </div>
           {/if}
           <div class="count">
             <div data-suisou-text="fw-500" data-suisou="accent">{row.deckCount} デッキ</div>
-            <div data-suisou-text="fs-12" data-suisou="sub">合計 {row.totalCount} 枚</div>
+            <div data-suisou-text="fs-12" data-suisou="note">合計 {row.totalCount} 枚</div>
           </div>
         </li>
       {/each}

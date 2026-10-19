@@ -142,7 +142,7 @@
     <div data-suisou-layout="row between">
       <span data-suisou-text="fs-16 fw-500">Main Deck</span>
       <div class="burst" data-suisou-layout="row gap-1">
-        <LifeBurstIcon class="burst-icon" data-suisou="sub" data-suisou-text="fs-14"/>
+        <LifeBurstIcon class="burst-icon" data-suisou="note" data-suisou-text="fs-14"/>
         <span data-suisou-layout="row middle" data-suisou-text="fs-14" class="burst-num">{lifeBurstCount}</span
         >
       </div>

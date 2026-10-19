@@ -156,7 +156,7 @@
         <div class="info-scroll">
           <h2 data-suisou-text="fs-20 fw-700" class="title">{card.name}</h2>
           {#if card.subName?.length}
-            <p data-suisou-text="fs-12" data-suisou="sub">{card.subName.join(' / ')}</p>
+            <p data-suisou-text="fs-12" data-suisou="note">{card.subName.join(' / ')}</p>
           {/if}
 
           <div class="chips" data-suisou-layout="row wrap gap-1">
@@ -187,7 +187,7 @@
           {/if}
 
           {#if card.flavorText}
-            <p class="flavor" data-suisou-text="fs-12" data-suisou="sub">{card.flavorText}</p>
+            <p class="flavor" data-suisou-text="fs-12" data-suisou="note">{card.flavorText}</p>
           {/if}
 
           {#if card.tags?.length}
@@ -204,7 +204,7 @@
                 {#each card.faq as f, i (i)}
                   <div class="doc" data-suisou-text="fs-12">
                     {#if f.q}<p>Q. {f.q}</p>{/if}
-                    <p data-suisou="sub">A. {f.a}</p>
+                    <p data-suisou="note">A. {f.a}</p>
                   </div>
                 {/each}
               </div>

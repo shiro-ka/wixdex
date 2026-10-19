@@ -41,15 +41,15 @@
     <div class="cols">
       <!-- アカウント概要 -->
       <div data-suisou-tray data-suisou-layout="stack gap-1">
-        <p data-suisou="sub">表示名</p>
+        <p data-suisou="note">表示名</p>
         <p>{data.user.displayName}</p>
         {#if data.user.email}
-          <p data-suisou="sub">
-            メール: <span data-suisou="sub">{data.user.email}</span>
+          <p data-suisou="note">
+            メール: <span data-suisou="note">{data.user.email}</span>
           </p>
         {/if}
         {#if data.user.blueskyHandle}
-          <p data-suisou="sub">
+          <p data-suisou="note">
             Bluesky: <a
               href="https://bsky.app/profile/{data.user.blueskyHandle}"
               target="_blank"
@@ -95,17 +95,17 @@
                 <IconDice />
               </button>
             </div>
-            <p data-suisou-text="fs-12" data-suisou="sub">
+            <p data-suisou-text="fs-12" data-suisou="note">
               英小文字・数字・ハイフン・アンダースコア。変更すると古いURLは無効になります。
             </p>
             <button type="submit" data-suisou-button="outline" data-suisou="accent"> 保存する </button>
           </form>
         {:else if data.user.blueskyHandle}
-          <p data-suisou="sub">
+          <p data-suisou="note">
             あなたのページURLは Bluesky ハンドルです:
             <span>/@{data.user.blueskyHandle}</span>
           </p>
-          <p data-suisou-text="fs-12" data-suisou="sub">ハンドルの変更は Bluesky 側で行えます。</p>
+          <p data-suisou-text="fs-12" data-suisou="note">ハンドルの変更は Bluesky 側で行えます。</p>
         {/if}
       </section>
 
@@ -121,7 +121,7 @@
           {/if}
           <form method="POST" action="?/changePassword" data-suisou-layout="stack">
             <div data-suisou-layout="stack gap-1">
-              <label for="currentPassword" data-suisou="sub">現在のパスワード</label>
+              <label for="currentPassword" data-suisou="note">現在のパスワード</label>
               <input
                 id="currentPassword"
                 name="currentPassword"
@@ -131,7 +131,7 @@
               />
             </div>
             <div data-suisou-layout="stack gap-1">
-              <label for="newPassword" data-suisou="sub">新しいパスワード（8〜128文字）</label
+              <label for="newPassword" data-suisou="note">新しいパスワード（8〜128文字）</label
               >
               <input
                 id="newPassword"
@@ -157,7 +157,7 @@
           {/if}
         {/if}
         {#if data.user.blueskyHandle}
-          <p data-suisou="sub">@{data.user.blueskyHandle} と連携中</p>
+          <p data-suisou="note">@{data.user.blueskyHandle} と連携中</p>
           <form method="POST" action="?/unlinkBluesky">
             <button type="submit" data-suisou-button="outline" data-suisou="error">連携解除</button>
           </form>
