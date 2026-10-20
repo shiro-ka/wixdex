@@ -56,7 +56,7 @@
   }: Props = $props();
 
   let searchText = $state('');
-  let isSettingsOpen = $state(false);
+  const uid = $props.id();
   let isSearchSettingsOpen = $state(false);
   let isLargeScreen = $state(false);
 
@@ -292,42 +292,32 @@
     </div>
 
     <div data-suisou-layout="row stretch" class="bar">
-      <div class="anchor sq">
+      <div class="sq">
         <button
           type="button"
           class="cell fill-w"
           data-suisou-button="outline"
-          onclick={() => {
-            isSettingsOpen = !isSettingsOpen;
-          }}
+          popovertarget="{uid}-settings"
         >
           <IconAdjustments />
         </button>
-        <SettingsPopup
-          isOpen={isSettingsOpen}
-          onClose={() => {
-            isSettingsOpen = false;
-          }}
-          {settings}
-        />
+        <SettingsPopup id="{uid}-settings" {settings} />
       </div>
 
       <div class="search" data-suisou-layout="grow" data-suisou-item="field">
-        <div class="anchor sq-lg">
+        <div class="sq-lg">
           <button
             type="button"
             class="cell fill-w"
             data-suisou-button
-            onclick={() => {
-              isSearchSettingsOpen = !isSearchSettingsOpen;
-            }}
+            popovertarget="{uid}-search"
           >
             {#if isSearchSettingsOpen}<IconZoomCancelFilled />{:else}<IconSearch />{/if}
           </button>
           <SearchSettingsPopup
-            isOpen={isSearchSettingsOpen}
-            onClose={() => {
-              isSearchSettingsOpen = false;
+            id="{uid}-search"
+            ontoggle={(e) => {
+              isSearchSettingsOpen = e.newState === 'open';
             }}
             searchCardName={filter.searchName}
             searchCardText={filter.searchInText}
@@ -394,9 +384,6 @@
   }
   .sq-lg {
     width: 3rem;
-  }
-  .anchor {
-    position: relative;
   }
   .fill-w {
     width: 100%;
