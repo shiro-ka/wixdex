@@ -27,7 +27,7 @@
         {profile.displayName.charAt(0).toUpperCase()}
       </div>
       <div class="ident" data-suisou-layout="stack gap-0">
-        <h1 data-suisou-text="fs-24 s:fs-28 fw-700 one-line">{profile.displayName}</h1>
+        <h1 data-suisou-text="fs-24 s:fs-28 fw-700 clamp-1">{profile.displayName}</h1>
         {#if bskyUrl}
           <a
             href={bskyUrl}
@@ -60,7 +60,7 @@
               data-suisou-tray
               class="deck-card"
             >
-              <div data-suisou-text="fw-500 one-line">{deck.name}</div>
+              <div data-suisou-text="fw-500 clamp-1">{deck.name}</div>
               <div data-suisou="note">
                 メイン {deck.mainCount}枚 / ルリグ {deck.lrigCount}枚
               </div>

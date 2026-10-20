@@ -77,13 +77,13 @@
               loading="lazy"
             />
             <div class="name" data-suisou-layout="stack gap-0">
-              <div data-suisou-text="fw-500 one-line">{row.card.name}</div>
-              <div data-suisou-text="fs-12 one-line" data-suisou="note">{row.cardId}</div>
+              <div data-suisou-text="fw-500 clamp-1">{row.card.name}</div>
+              <div data-suisou-text="fs-12 clamp-1" data-suisou="note">{row.cardId}</div>
             </div>
           {:else}
             <div class="thumb ph"></div>
             <div class="name" data-suisou-layout="stack gap-0">
-              <div data-suisou-text="one-line" data-suisou="note">{row.cardId}</div>
+              <div data-suisou-text="clamp-1" data-suisou="note">{row.cardId}</div>
             </div>
           {/if}
           <div class="count">

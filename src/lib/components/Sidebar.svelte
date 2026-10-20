@@ -134,7 +134,7 @@
     {#if user}
       <div data-suisou-item="media" class="static-row">
         <span data-suisou-item="media-figure"><IconUser size={20} /></span>
-        <span data-suisou-text="one-line">{user.displayName}</span>
+        <span data-suisou-text="clamp-1">{user.displayName}</span>
       </div>
       {#if myAtName}
         <a href="/@{myAtName}" onclick={onClose} data-suisou-button="block">マイページ</a>

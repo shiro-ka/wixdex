@@ -61,7 +61,7 @@
 
   <div data-suisou-layout="stack gap-3" data-suisou="container-l" class="page">
     <div>
-      <h1 data-suisou-text="fs-24 s:fs-28 fw-700 one-line">{data.deck.name}</h1>
+      <h1 data-suisou-text="fs-24 s:fs-28 fw-700 clamp-1">{data.deck.name}</h1>
     </div>
     <a href="/@{data.atName}" data-suisou-text="link" data-suisou="note" class="back">
       @{data.atName} のデッキ
