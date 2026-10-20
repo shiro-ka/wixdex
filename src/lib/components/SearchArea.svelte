@@ -422,10 +422,6 @@
     color: var(--card-black);
   }
 
-  .search {
-    display: flex;
-    align-items: center;
-  }
   .clear {
     flex: none;
     width: 3rem;
