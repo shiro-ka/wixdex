@@ -57,8 +57,7 @@
           {#each decks as deck (deck.slug)}
             <a
               href="/@{profile.atName}/{deck.slug}"
-              data-suisou-tray
-              class="deck-card"
+              data-suisou-tray="link"
             >
               <div data-suisou-text="fw-500 clamp-1">{deck.name}</div>
               <div data-suisou="note">
@@ -92,9 +91,6 @@
   .state {
     padding-block: 5rem;
   }
-  .deck-card {
-    display: block;
-  }
 
   .decks {
     --suisou-grid-cols: repeat(1, minmax(0, 1fr));
@@ -114,17 +110,6 @@
       --suisou-grid-cols: repeat(4, minmax(0, 1fr));
     }
   }
-
-  .deck-card {
-    transition:
-      background-color var(--suisou-duration-fast) var(--suisou-ease),
-      border-color var(--suisou-duration-fast) var(--suisou-ease);
-  }
-  .deck-card:hover {
-    background: var(--suisou-color-hover);
-    border-color: var(--suisou-color-line-strong);
-  }
-
 
   .head {
     padding-block-end: var(--suisou-space-4);
