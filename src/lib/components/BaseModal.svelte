@@ -44,19 +44,15 @@
 <style>
   .modal {
     margin: auto;
-    width: min(92vw, var(--modal-max, 28rem));
     max-height: 90dvh;
     overflow-y: auto;
     padding: 0;
   }
   .sm {
-    --modal-max: 24rem;
-  }
-  .md {
-    --modal-max: 28rem;
+    --suisou-size-dialog: 24rem;
   }
   .lg {
-    --modal-max: 32rem;
+    --suisou-size-dialog: 32rem;
   }
   .inner {
     padding: var(--suisou-space-3);

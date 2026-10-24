@@ -180,14 +180,14 @@
                 <div class="doc">
                   {#if t.label}
                     <span data-suisou-item="tag" class="chip">{t.label}</span>
-                  {/if}<span class="pre">{t.body}</span>
+                  {/if}<span data-suisou-text="pre-line">{t.body}</span>
                 </div>
               {/each}
             </div>
           {/if}
 
           {#if card.flavorText}
-            <p class="flavor" data-suisou-text="fs-12" data-suisou="note">{card.flavorText}</p>
+            <p class="flavor" data-suisou-text="fs-12 pre-line" data-suisou="note">{card.flavorText}</p>
           {/if}
 
           {#if card.tags?.length}
@@ -264,9 +264,6 @@
     margin-inline-end: var(--suisou-space-1);
     vertical-align: middle;
   }
-  .pre {
-    white-space: pre-line;
-  }
   .doc {
     line-height: 1.625;
   }
@@ -282,7 +279,6 @@
   .flavor {
     margin-block-start: 12px;
     font-style: italic;
-    white-space: pre-line;
   }
 
   .info-scroll {
