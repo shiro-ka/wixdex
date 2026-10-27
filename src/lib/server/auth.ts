@@ -4,7 +4,7 @@ import { newSessionId } from './ids.js';
 import { getAppUrl } from './context.js';
 
 const SESSION_COOKIE = 'wixdex_session';
-const SESSION_TTL = 30 * 24 * 60 * 60; // 30 days
+const SESSION_TTL = 30 * 24 * 60 * 60;
 
 export async function getSession(
   cookies: Cookies,

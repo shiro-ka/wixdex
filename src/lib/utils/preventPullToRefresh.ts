@@ -1,11 +1,3 @@
-/**
- * 画像の上で下向きにスワイプしたときの引っぱり更新を止める。
- *
- * カードは画像を掴んで動かす操作（デッキへ入れる等）を持つので、
- * 画面の一番上で下へ引くと更新と競合する。画像に触れているときだけ抑える。
- *
- * 戻り値は後始末。onMount からそのまま返せる。
- */
 export function preventPullToRefresh(): () => void {
   let startY = 0;
   let touched: EventTarget | null = null;

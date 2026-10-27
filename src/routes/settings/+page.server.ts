@@ -18,7 +18,6 @@ const changePasswordSchema = z.object({
 });
 
 export const actions: Actions = {
-  // ユーザー名(URLキー)の変更。メアド勢向け。
   changeUsername: async (event) => {
     const { cookies, locals } = event;
     if (!locals.user) return fail(401, { error: 'ログインが必要です。', action: 'changeUsername' });
@@ -31,7 +30,6 @@ export const actions: Actions = {
     }
     const username = check.value;
 
-    // 他人が使っていたら不可。自分の現在値ならそのままOK。
     const owner = await db.getUserByUsername(username);
     if (owner && owner.id !== locals.user.id) {
       return fail(409, { error: 'このユーザー名はすでに使われています。', action: 'changeUsername' });

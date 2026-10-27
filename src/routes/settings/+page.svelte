@@ -11,7 +11,6 @@
 
   const f = $derived(form as { error?: string; success?: boolean; action?: string } | null);
 
-  // メアド勢のみ username を編集可。pure-bsky勢(emailなし)はハンドルが固定URL。
   const canEditUsername = $derived(!!data.user.email);
   let username = $state(untrack(() => data.user.username ?? ''));
 
@@ -39,7 +38,6 @@
     <h1 data-suisou-text="fs-24 s:fs-28 fw-700">設定</h1>
 
     <div class="cols">
-      <!-- アカウント概要 -->
       <div data-suisou-tray data-suisou-layout="stack gap-1">
         <p data-suisou="note">表示名</p>
         <p>{data.user.displayName}</p>
@@ -60,7 +58,6 @@
         {/if}
       </div>
 
-      <!-- ユーザー名 / ページURL -->
       <section data-suisou-tray data-suisou-layout="stack">
         <h2 data-suisou-text="fs-16 fw-700">ページURL</h2>
         {#if canEditUsername}
@@ -197,8 +194,6 @@
   .page {
     padding: var(--suisou-space-4) var(--suisou-space-3);
   }
-  /* ★2列の格子。Suisou の even は「子の数だけ列を作る」ので、
-     **列数を固定する語が無い**（ここは4枚を2列に置きたい）。→ 申し送り */
   .cols {
     display: grid;
     align-items: start;

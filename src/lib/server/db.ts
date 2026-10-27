@@ -14,7 +14,6 @@ export interface UserRow {
 }
 
 export class Db {
-  /** updateUser で UPDATE を許可するカラム。これ以外のキーは無視する。 */
   private static readonly UPDATABLE_COLUMNS = new Set([
     'email',
     'email_verified',
@@ -43,7 +42,6 @@ export class Db {
       .first<UserRow>();
   }
 
-  /** メアド勢の公開URLキー。username は小文字正規化済みで渡すこと。 */
   async getUserByUsername(username: string): Promise<UserRow | null> {
     return this.d1
       .prepare('SELECT * FROM users WHERE username = ?')
@@ -51,7 +49,6 @@ export class Db {
       .first<UserRow>();
   }
 
-  /** bsky勢の公開URLキー。ハンドルは大小無視で照合。 */
   async getUserByHandle(handle: string): Promise<UserRow | null> {
     return this.d1
       .prepare('SELECT * FROM users WHERE bluesky_handle = ? COLLATE NOCASE')
@@ -59,10 +56,6 @@ export class Db {
       .first<UserRow>();
   }
 
-  /**
-   * username を設定/変更。呼び出し側で検証・正規化済みの値を渡すこと。
-   * 一意制約違反時は false（既に使われている）。
-   */
   async setUsername(id: string, username: string): Promise<boolean> {
     try {
       await this.d1
@@ -99,7 +92,6 @@ export class Db {
 
   async updateUser(id: string, fields: Partial<Omit<UserRow, 'id' | 'created_at'>>): Promise<void> {
     const now = Math.floor(Date.now() / 1000);
-    // カラム名は SQL 文字列に直接埋め込むため、許可リスト外のキーは弾く(注入防止の防御策)。
     const entries = Object.entries({ ...fields, updated_at: now }).filter(([k]) =>
       Db.UPDATABLE_COLUMNS.has(k)
     );
@@ -113,11 +105,8 @@ export class Db {
   }
 
   async upsertBlueskyUser(did: string, handle: string, displayName: string): Promise<UserRow> {
-    // ハンドルは小文字正規化して保存（@解決は大小無視だが保存は揃える）。
     const normalizedHandle = handle.trim().toLowerCase();
 
-    // 旧ハンドルを手放した別ユーザーがこのハンドルを保持したままだと @解決が衝突する。
-    // bsky上はある瞬間ハンドルは一意なので、自分以外の同名ハンドルは古い＝クリアしてよい。
     await this.d1
       .prepare(
         'UPDATE users SET bluesky_handle = NULL WHERE bluesky_handle = ? COLLATE NOCASE AND bluesky_did != ?'

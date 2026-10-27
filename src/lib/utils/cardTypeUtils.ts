@@ -16,11 +16,6 @@ export const DECK_LIMITS = {
   ARTS: 6,
 } as const;
 
-/**
- * カードの主種別。構築ルール上の種別は常に cardType の先頭で判定する。
- * (例: ピースだが裏面ルリグのカードは ['ピース', ...] となり「ピース」としてのみ扱う)
- * 先頭が主種別であることはデータ生成側 (convert_cards.py) が保証する。
- */
 function primaryType(card: Card): string {
   return card.cardType?.[0] ?? '';
 }

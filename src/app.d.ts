@@ -24,7 +24,6 @@ declare global {
         WIXDEX_SESSION: KVNamespace;
         RATE_LIMIT: KVNamespace;
         OAUTH_PRIVATE_KEYS: string;
-        // メール送信(Resend)。未設定なら送信スキップ(ローカル開発用)。
         RESEND_API_KEY?: string;
         MAIL_FROM?: string;
       };

@@ -1,9 +1,5 @@
 import type { Card } from '$lib/types';
 
-/**
- * お気に入りカード。表示は即時に切り替え、サーバーへは後から投げる
- * （一覧のハートを連打しても待たされない）。
- */
 export class FavoritesStore {
   #ids = $state<Set<string>>(new Set());
 
@@ -27,7 +23,6 @@ export class FavoritesStore {
     });
   }
 
-  /** フィルタ側が集合そのものを要る。 */
   get ids(): Set<string> {
     return this.#ids;
   }

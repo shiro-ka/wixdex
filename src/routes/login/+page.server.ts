@@ -11,8 +11,6 @@ import { validateUsername, normalizeUsername } from '$lib/utils/atName';
 import { z } from 'zod';
 
 const loginSchema = z.object({
-  // メールアドレス or ユーザー名。ユーザー名は文字種上 "@" を含まないので、
-  // "@" の有無でどちらを照合するか一意に判別できる。
   identifier: z.string().min(1).max(255),
   password: z.string().min(1),
 });
@@ -29,13 +27,11 @@ export const load: PageServerLoad = async ({ locals, url }) => {
   const message = url.searchParams.get('message');
   return {
     oauthError: error ? (message ?? error) : null,
-    // /reset 完了後の戻り先。成功メッセージ表示用。
     resetDone: url.searchParams.get('reset') === 'success',
   };
 };
 
 export const actions: Actions = {
-  // メールアドレス＋パスワードでログイン
   login: async (event) => {
     const { request, cookies, getClientAddress } = event;
     const { env, store, db } = ctx(event);
@@ -60,7 +56,6 @@ export const actions: Actions = {
 
     const { identifier, password } = parsed.data;
     const id = identifier.trim();
-    // "@" を含むならメールアドレス、含まなければユーザー名として照合する。
     const user = id.includes('@')
       ? await db.getUserByEmail(id)
       : await db.getUserByUsername(normalizeUsername(id));
@@ -73,14 +68,10 @@ export const actions: Actions = {
       });
     }
 
-    // 旧パラメータ(回数少なめ)のハッシュなら、ログイン成功のついでに現行強度へ再保存。
-    // 失敗してもログインは続行する(致命的でない)。
     if (needsRehash(user.password_hash)) {
       try {
         await db.updateUser(user.id, { password_hash: await hashPassword(password) });
-      } catch {
-        /* rehash 失敗は無視 */
-      }
+      } catch {}
     }
 
     await createSession(cookies, env, store, {
@@ -95,7 +86,6 @@ export const actions: Actions = {
     redirect(302, '/');
   },
 
-  // メールアドレスで新規登録
   register: async (event) => {
     const { request, cookies, getClientAddress } = event;
     const { env, store, db } = ctx(event);
@@ -120,7 +110,6 @@ export const actions: Actions = {
       return fail(400, { mode: 'register', error: `入力内容を確認してください: ${issues}` });
     }
 
-    // username はURLキーになるので専用バリデーション（予約語・文字種）。
     const usernameCheck = validateUsername(String(data.get('username') ?? ''));
     if (!usernameCheck.ok) {
       return fail(400, { mode: 'register', error: `ユーザー名: ${usernameCheck.error}` });
@@ -165,8 +154,6 @@ export const actions: Actions = {
     redirect(302, '/');
   },
 
-  // パスワード再設定メールの送信リクエスト。
-  // アカウントの有無に関わらず常に同じ成功応答を返す(存在を漏らさない)。
   forgotPassword: async (event) => {
     const { request, getClientAddress } = event;
     const { env, store, db } = ctx(event);
@@ -181,22 +168,16 @@ export const actions: Actions = {
     const data = await request.formData();
     const parsed = z.string().email().safeParse(String(data.get('email') ?? '').trim());
 
-    // メール形式が妥当 かつ パスワード持ちのアカウントが存在する時だけ送信。
-    // それ以外でも応答は同じ(成功)にして、登録の有無を判別させない。
     if (parsed.success) {
       const user = await db.getUserByEmail(parsed.data);
       if (user?.password_hash) {
         const userId = user.id;
         const email = parsed.data;
-        // トークン保存とメール送信はバックグラウンドで実行し、応答時間をアカウント有無で揃える
-        // （存在する時だけ送信完了を待つと、その遅延で存在を推測されるため）。
         const job = (async () => {
           const token = generateResetToken();
           await store.setPasswordReset(await hashResetToken(token), userId, RESET_TTL);
           await sendEmail(env, email, passwordResetEmail(`${getAppUrl(env)}/reset/${token}`));
         })().catch((err) => console.error('[forgotPassword] 背景処理失敗:', err));
-        // 本番(Pages)は waitUntil で worker を生かして完走させる。
-        // ローカルは context が無くても floating promise として完走する。
         event.platform?.context?.waitUntil?.(job);
       }
     }

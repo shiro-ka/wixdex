@@ -76,10 +76,6 @@ export class CloudDeckSync {
   }
 
   async save(deck: DeckInput): Promise<string> {
-    // 新規判定は deck.id の有無だけで行う。
-    // 一覧(this.decks)は開くまでロードされない(空)ことがあり、find に依存すると
-    // 「下書き復元した保存済みデッキを一覧を開かず保存」で既存デッキを新規POSTして
-    // 複製してしまう。存在しないidへのPUTはサーバが404で弾く(=silent複製より安全)。
     const isNew = !deck.id;
 
     this.syncing = true;
@@ -131,7 +127,6 @@ export class CloudDeckSync {
     }
   }
 
-  /** デッキの公開URL(slug)を変更。成功時はローカル一覧も更新。 */
   async updateSlug(id: string, slug: string): Promise<{ ok: true; slug: string } | { ok: false; error: string }> {
     try {
       const res = await fetch(`/api/decks/${id}`, {

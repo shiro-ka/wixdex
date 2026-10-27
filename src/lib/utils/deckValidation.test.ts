@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest';
 import type { Card } from '$lib/types';
 import { canAddCard, canAddToMainDeck, canAddToLrigDeck } from './deckValidation';
 
-/** テスト用の最小カード生成。cardType と name 以外は構築ルールに無関係なのでダミー。 */
 function makeCard(cardType: string[], name = cardType[0]): Card {
   return {
     cardID: `${name}-${Math.random()}`,
@@ -27,9 +26,7 @@ function makeCard(cardType: string[], name = cardType[0]): Card {
   };
 }
 
-/** 同名カードを n 枚並べる */
 const repeat = (card: Card, n: number): Card[] => Array.from({ length: n }, () => card);
-/** 種別ごとに異なる名前のカードを n 枚並べる(同名制限を避けたいとき用) */
 const distinct = (cardType: string[], n: number): Card[] =>
   Array.from({ length: n }, (_, i) => makeCard(cardType, `${cardType[0]}-${i}`));
 
@@ -79,7 +76,7 @@ describe('ルリグデッキ', () => {
     });
   });
   it('合計8枚まで', () => {
-    const full = [...distinct(['アーツ'], 6), ...distinct(['ピース'], 2)]; // 8枚
+    const full = [...distinct(['アーツ'], 6), ...distinct(['ピース'], 2)];
     expect(full).toHaveLength(8);
     const res = canAddToLrigDeck(makeCard(['アシスト'], '新規'), full);
     expect(res).toEqual({ valid: false, error: 'ルリグデッキは8枚までです' });
@@ -108,11 +105,9 @@ describe('ルリグデッキ', () => {
 });
 
 describe('主種別は先頭(cardType[0])のみで判定する', () => {
-  // ピースだが裏面ルリグ等の複合種別。ルール上「ピース」としてのみ扱う。
   const pieceBackLrig = makeCard(['ピース', 'ルリグ'], '裏面ルリグのピース');
 
   it('複合種別カードは先頭のピースとして扱われる(ルリグ枠に二重カウントしない)', () => {
-    // センターが既に1枚あっても、ピース(裏面ルリグ)はセンター制限に引っかからない
     const res = canAddToLrigDeck(pieceBackLrig, [lrig]);
     expect(res.valid).toBe(true);
   });
@@ -124,7 +119,7 @@ describe('主種別は先頭(cardType[0])のみで判定する', () => {
 
   it('先頭がメイン種別なら裏面種別に関係なくメインデッキ扱い', () => {
     const signiBackLrig = makeCard(['シグニ', 'ルリグ'], '裏面ルリグのシグニ');
-    expect(canAddCard(signiBackLrig, [], []).valid).toBe(true); // メイン側で受理
+    expect(canAddCard(signiBackLrig, [], []).valid).toBe(true);
     expect(canAddToLrigDeck(signiBackLrig, [])).toEqual({
       valid: false,
       error: 'このカードはルリグデッキに入りません',

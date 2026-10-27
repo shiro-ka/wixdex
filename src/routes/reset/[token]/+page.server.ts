@@ -40,7 +40,7 @@ export const actions: Actions = {
     }
 
     await db.updateUser(record.userId, { password_hash: await hashPassword(parsed.data) });
-    await store.delPasswordReset(tokenHash); // 単回使用
+    await store.delPasswordReset(tokenHash);
 
     redirect(303, '/login?reset=success');
   },

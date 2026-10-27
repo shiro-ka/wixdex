@@ -54,7 +54,6 @@ describe('読み込み順(orderMap)を最終キーに使う', () => {
   it('同種別・同レベル・同色なら orderMap の順で並ぶ(cardID辞書順より優先)', () => {
     const a = makeCard({ cardID: 'A', level: 1, color: ['白'] });
     const b = makeCard({ cardID: 'B', level: 1, color: ['白'] });
-    // orderMap では B(0) が A(1) より先 = 発売順で B が先
     const orderMap = new Map([['B', 0], ['A', 1]]);
     expect(names(sortMainDeck([a, b], orderMap))).toEqual(['B', 'A']);
   });

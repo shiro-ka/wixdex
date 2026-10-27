@@ -28,9 +28,6 @@ export const GET: RequestHandler = async (event) => {
     redirect(302, `/login?${params}`);
   }
 
-  // 認証で確定するのは DID のみ。handle / 表示名は AppView から「検証済み」の値だけ採用する。
-  // AppView は handle を双方向検証(DID⇄handle)してから配信し、未検証なら 'handle.invalid' を返す。
-  // PDS の自己申告(describeRepo)を信用しないことで、@handle のなりすまし表示を防ぐ。
   let handle = did;
   let displayName = '';
   try {
@@ -43,9 +40,7 @@ export const GET: RequestHandler = async (event) => {
       if (data.handle && data.handle !== 'handle.invalid') handle = data.handle;
       if (data.displayName) displayName = data.displayName;
     }
-  } catch {
-    // 取得失敗時は DID 表示にフォールバック
-  }
+  } catch {}
 
   const user = await db.upsertBlueskyUser(did, handle, displayName || handle);
   await createSession(cookies, env, store, {

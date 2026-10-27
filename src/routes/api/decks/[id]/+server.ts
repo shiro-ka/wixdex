@@ -23,7 +23,6 @@ export const PUT: RequestHandler = async (event) => {
   return json(deck);
 };
 
-// デッキの公開URL(slug)のみ変更する軽量エンドポイント。
 export const PATCH: RequestHandler = async (event) => {
   if (!event.locals.user) error(401, 'Unauthorized');
   const body = (await event.request.json().catch(() => null)) as { slug?: unknown } | null;

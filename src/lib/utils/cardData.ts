@@ -1,8 +1,5 @@
 import type { Card } from '$lib/types';
 
-// カード一覧の並び。発売日の新しい順で、ブースターと構築済みデッキを混ぜる。
-// 同じ日に出たものはブースターが先、デッキは番号の大きい順。
-// WXDi-D09 は入るカードが0枚（全部が再録など）なので読み込まない。
 const CARD_SETS = [
   'header',
   'WX26-P2',
@@ -76,10 +73,6 @@ export function buildCardMap(cards: Card[]): Map<string, Card> {
   return map;
 }
 
-/**
- * カードキー -> 読み込み順インデックスの対応表。
- * loadAllCards() の並び(CARD_SETS 順 = 発売順)をソートの最終キーとして使うために構築する。
- */
 export function buildOrderMap(cards: Card[]): Map<string, number> {
   const map = new Map<string, number>();
   cards.forEach((card, index) => {

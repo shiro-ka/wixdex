@@ -3,7 +3,6 @@ import { JoseKey } from '@atproto/jwk-jose';
 import type { CloudflareStore } from './store.js';
 import { getAppUrl } from './context.js';
 
-// Workers don't support redirect:"error" — transparently rewrite to "manual"
 const workerFetch: typeof fetch = (input, init) =>
   init?.redirect === 'error'
     ? fetch(input, { ...init, redirect: 'manual' })
@@ -11,9 +10,6 @@ const workerFetch: typeof fetch = (input, init) =>
 
 type Json = Record<string, unknown>;
 
-// Serialize dpopKey as JWK on write, reconstruct JoseKey on read.
-// Without this, JSON round-trip through KV drops the class getter `algorithms`
-// and .includes() crashes in the callback.
 function wrapDpopStore<T>(store: {
   get: (k: string) => Promise<Json | undefined>;
   set: (k: string, v: Json) => Promise<void>;

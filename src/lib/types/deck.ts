@@ -22,8 +22,6 @@ export interface SavedDeck {
   updatedAt: number;
 }
 
-// ── DTOs shared between server (D1) and client (cloudDeckSync) ─────────────
-
 export type DeckSlotKind = 'main' | 'lrig' | 'candidate';
 
 export interface DeckSlot {
@@ -63,8 +61,6 @@ export interface DeckUpsert {
   slots: DeckSlot[];
 }
 
-/** 公開デッキの読み取り専用ビュー（所有者チェック無し・is_public=1 のみ）。
- *  author は将来の作者表示用に保持（現状 UI 未使用）。 */
 export interface PublicDeckDetail {
   id: string;
   name: string;
@@ -75,7 +71,6 @@ export interface PublicDeckDetail {
   author: { displayName: string; blueskyHandle: string | null };
 }
 
-/** 公開プロフィールに並べる公開デッキの要約。slug は /@user/[slug] のURL用。 */
 export interface PublicDeckSummary {
   slug: string;
   name: string;
@@ -83,8 +78,6 @@ export interface PublicDeckSummary {
   lrigCount: number;
   updatedAt: number;
 }
-
-// ── Card usage aggregate (Phase D) ────────────────────────────────────────
 
 export interface CardUsage {
   cardId: string;

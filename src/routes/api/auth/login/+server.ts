@@ -6,7 +6,6 @@ import { checkRateLimit, incrementRateLimit } from '$lib/server/rate-limit';
 import { z } from 'zod';
 
 const schema = z.object({
-  // 省略時は bsky.social のエントリーウェイへ直行（ハンドル入力不要のGoogle方式）。
   handle: z.string().max(255).optional(),
 });
 
@@ -28,7 +27,6 @@ export const POST: RequestHandler = async (event) => {
     return json({ error: 'Invalid request', message: '不正なリクエストです。' }, { status: 400 });
   }
 
-  // ハンドル指定があればそれを、無ければ bsky.social のログインページへ直行。
   const target = parsed.data.handle?.trim() || DEFAULT_ENTRYWAY;
 
   try {

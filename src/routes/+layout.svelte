@@ -5,7 +5,6 @@
 
   let { children } = $props();
 
-  // vite-pwa が生成する <link rel="manifest"> タグ（PWA/TWAのインストール判定に必須）。
   const webManifestLink = pwaInfo ? pwaInfo.webManifest.linkTag : '';
 
   onMount(async () => {

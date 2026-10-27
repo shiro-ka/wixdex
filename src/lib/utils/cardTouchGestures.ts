@@ -1,21 +1,6 @@
-/**
- * カードの升目の指の操作を読み取る。
- *
- * ★ここは「何が起きたか」しか知らない。上へ払ったら onSwipeUp、下へ払ったら
- *   onSwipeDown、フォルダの上で押さえ続けたら onHold ―― それがデッキへの追加なのか
- *   候補への出し入れなのかは呼ぶ側が決める。判定の中に業務の意味を入れない。
- *
- * 指の追従（画像を少し動かす）はここで直接 style を書く。Svelte の状態にすると
- * 升目ごとに再描画が走り、一覧をなぞるだけで重くなる。
- */
-
-/** フォルダの上で押さえ続けたと見なすまでの時間 */
 const HOLD_MS = 700;
-/** 払ったと見なす縦の移動量 */
 const SWIPE_PX = 30;
-/** 指に追従させる画像の振れ幅 */
 const DRAG_CLAMP_PX = 10;
-/** 縦の操作だと決める最小の移動量（横スクロールと食い合わないように） */
 const DIRECTION_PX = 5;
 
 interface GestureState {
@@ -34,13 +19,9 @@ export interface CardGestureHandlers<T> {
 }
 
 export function createCardGestures<T>(opts: {
-  /** 上へ払った */
   onSwipeUp: (item: T) => void;
-  /** 下へ払った */
   onSwipeDown: (item: T) => void;
-  /** フォルダの上で押さえ続けた */
   onHold: (item: T) => void;
-  /** 押さえ続けた先の目印。見つからなければ押さえの判定をしない */
   folderId: string;
 }): CardGestureHandlers<T> {
   const states = new Map<HTMLElement, GestureState>();
@@ -90,7 +71,6 @@ export function createCardGestures<T>(opts: {
           s.isVerticalSwipe = false;
           opts.onHold(item);
           if (folder) {
-            // 受け取ったことを一瞬の膨らみで返す
             folder.style.transform = 'scale(1.1)';
             setTimeout(() => {
               folder.style.transform = 'scale(1)';
@@ -125,7 +105,6 @@ export function createCardGestures<T>(opts: {
         img.style.transform = 'translateY(0)';
       }
 
-      // 押さえて離したときは払いとして扱わない
       if (s.isHolding) {
         states.delete(node);
         return;

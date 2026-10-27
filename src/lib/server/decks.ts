@@ -121,7 +121,6 @@ export class DeckDb {
     };
   }
 
-  /** 公開デッキ（is_public=1）を所有者チェック無しで取得。作者情報も同時取得。 */
   async getPublicDeck(id: string): Promise<PublicDeckDetail | null> {
     const row = await this.d1
       .prepare(
@@ -163,7 +162,6 @@ export class DeckDb {
     };
   }
 
-  /** 公開プロフィール用: あるユーザーの公開デッキ一覧（slug付き）。 */
   async listPublicDecks(userId: string): Promise<PublicDeckSummary[]> {
     const rows = await this.d1
       .prepare(
@@ -200,7 +198,6 @@ export class DeckDb {
     }));
   }
 
-  /** 公開デッキを (所有者id, slug) で取得。/@user/[slug] ルート用。作者情報も同梱。 */
   async getPublicDeckBySlug(userId: string, slug: string): Promise<PublicDeckDetail | null> {
     const row = await this.d1
       .prepare(
@@ -279,7 +276,6 @@ export class DeckDb {
         .prepare(
           'INSERT INTO decks (id, user_id, name, memo, slug, is_public, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
         )
-        // slug は初期値として内部idを流用。後からユーザーが変更可能(Phase 3)。
         .bind(id, userId, data.name, data.memo, id, data.isPublic ? 1 : 0, now, now),
       ...data.slots.map((s) =>
         this.d1
@@ -344,10 +340,6 @@ export class DeckDb {
     };
   }
 
-  /**
-   * デッキの公開URL(slug)を変更。slug は検証・正規化済みで渡すこと。
-   * 'notfound'=本人のデッキでない / 'taken'=同ユーザー内で重複 / 'ok'=成功。
-   */
   async updateSlug(id: string, userId: string, slug: string): Promise<'ok' | 'taken' | 'notfound'> {
     const existing = await this.d1
       .prepare('SELECT id FROM decks WHERE id = ? AND user_id = ?')

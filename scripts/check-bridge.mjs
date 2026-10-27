@@ -1,18 +1,4 @@
 #!/usr/bin/env node
-/* 生の色クラスが混ざっていないか検査する。
- *
- * ★2026-09-08 に役目が変わった。もとは「app.css の @theme 対応表に無い色が
- *   黙って素通りする」のを捕まえる番人だったが、**対応表ごと撤去した**ので、
- *   いまは「Tailwind の生の色クラスを1つでも書いたら落ちる」になっている。
- *   ★コードは変えていない ―― bridged が空になれば全部が違反になる作りだった。
- *
- * 素通りが実害になった実例（対応表があった頃）:
- *   2026-08-21  neutral-700   モーダルの罫が Suisou を通らず、枠線が出ていないように見えた
- *   2026-08-21  white (45箇所) 文字が純白のままテーマに追従していなかった
- *
- * 色はすべて Suisou 側（data-suisou-text / data-suisou-* / var(--suisou-*)）から取る。
- * ドメインの色（カードの色など）は :root の --card-* を直接使い、ALLOW に理由を書く。
- */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -21,7 +7,6 @@ const PALETTES =
 const UTIL =
   'bg|text|border|ring|fill|stroke|divide|from|via|to|placeholder|accent|caret|outline|shadow';
 
-/** 素通りを許す色と、その理由 */
 const ALLOW = new Map([]);
 
 const walk = (d) =>

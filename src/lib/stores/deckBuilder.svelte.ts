@@ -7,7 +7,6 @@ import {
 } from '$lib/utils/deckOperations';
 import { sortCandidateCards, sortMainDeck, sortLrigDeck } from '$lib/utils/cardSorting';
 
-/** デッキ内容の署名。名前・メモ・各スロットのカード別枚数を順不同で安定化したもの。 */
 function slotSig(cards: Card[]): string {
   const counts = new Map<string, number>();
   for (const c of cards) {
@@ -25,11 +24,6 @@ type LoadableDeck = Pick<
   'id' | 'name' | 'memo' | 'slug' | 'isPublic' | 'mainDeck' | 'lrigDeck' | 'candidateCards'
 >;
 
-/**
- * 編集中デッキの状態・操作・dirty 追跡をまとめた Svelte 5 ストア。
- * dirty 判定は「保存/読込時に取った署名(savedSnapshot)」と現在署名の一致で行う。
- * これにより読込直後の誤 dirty や、同枚数入替の見逃しを防ぐ。
- */
 export class DeckBuilderStore {
   mainDeck = $state<Card[]>([]);
   lrigDeck = $state<Card[]>([]);
@@ -37,10 +31,9 @@ export class DeckBuilderStore {
   id = $state<string | null>(null);
   name = $state('');
   memo = $state('');
-  slug = $state(''); // デッキ公開URLの slug。未保存なら空、保存後は既定で id と同値。
+  slug = $state('');
   isPublic = $state(false);
 
-  /** カードキー -> 読み込み順(発売順)。ソートの最終キー。データ読込後に setCardOrder で注入。 */
   orderMap = $state<Map<string, number> | undefined>(undefined);
 
   savedSnapshot = $state(this.signature());
@@ -59,12 +52,10 @@ export class DeckBuilderStore {
     ].join('|');
   }
 
-  /** 現在の内容を「保存済み」基準として記録する。 */
   markSaved(): void {
     this.savedSnapshot = this.signature();
   }
 
-  /** 読み込み順(発売順)を注入し、既存のデッキ内容も並べ直す。データ読込完了後に1回呼ぶ。 */
   setCardOrder(orderMap: Map<string, number>): void {
     this.orderMap = orderMap;
     this.mainDeck = sortMainDeck(this.mainDeck, orderMap);
@@ -91,7 +82,6 @@ export class DeckBuilderStore {
     const r = removeCardFromDeck(card, this.mainDeck, this.lrigDeck, specificIndex, deckType);
     this.mainDeck = r.mainDeck;
     this.lrigDeck = r.lrigDeck;
-    // デッキから完全に消えたカードは候補(フォルダ)へ退避する
     const inMain = r.mainDeck.some((c) => c.cardID === card.cardID);
     const inLrig = r.lrigDeck.some((c) => c.cardID === card.cardID);
     if (!inMain && !inLrig && !this.candidateCards.some((c) => c.cardID === card.cardID)) {
@@ -109,13 +99,11 @@ export class DeckBuilderStore {
     this.candidateCards = this.candidateCards.filter((c) => c.image !== card.image);
   };
 
-  /** 保存前にヘッダー/モーダルから渡された名前・メモを反映する。 */
   setMeta(name: string, memo: string): void {
     this.name = name;
     this.memo = memo;
   }
 
-  /** クラウドから読み込んだデッキを反映し、保存済み状態にする。 */
   load(deck: LoadableDeck): void {
     this.mainDeck = sortMainDeck(deck.mainDeck, this.orderMap);
     this.lrigDeck = sortLrigDeck(deck.lrigDeck, this.orderMap);
@@ -128,7 +116,6 @@ export class DeckBuilderStore {
     this.markSaved();
   }
 
-  /** 新規デッキ（空）にリセットし、保存済み状態にする。 */
   reset(): void {
     this.id = null;
     this.name = '';
@@ -141,7 +128,6 @@ export class DeckBuilderStore {
     this.markSaved();
   }
 
-  /** localStorage の下書きを復元する。savedSnapshot は空基準のままなので内容があれば未保存扱い。 */
   restoreFromDraft(draft: DraftState): void {
     this.mainDeck = draft.mainDeck;
     this.lrigDeck = draft.lrigDeck;

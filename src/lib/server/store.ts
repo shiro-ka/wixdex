@@ -16,7 +16,6 @@ type Json = Record<string, unknown>;
 export class CloudflareStore {
   constructor(private env: App.Platform['env']) {}
 
-  // ── OAuth state (KV, 10-min TTL) ─────────────────────────────────────────
 
   async getOAuthState(key: string): Promise<Json | undefined> {
     return (await this.env.OAUTH_STATE.get<Json>(key, 'json')) ?? undefined;
@@ -30,7 +29,6 @@ export class CloudflareStore {
     await this.env.OAUTH_STATE.delete(key);
   }
 
-  // ── OAuth session (KV, no TTL — SDK manages lifetime) ────────────────────
 
   async getOAuthSession(did: string): Promise<Json | undefined> {
     return (await this.env.OAUTH_SESSION.get<Json>(did, 'json')) ?? undefined;
@@ -44,7 +42,6 @@ export class CloudflareStore {
     await this.env.OAUTH_SESSION.delete(did);
   }
 
-  // ── App session (KV with TTL + metadata for remaining-TTL queries) ────────
 
   async getSession(sessionId: string): Promise<AppSession | undefined> {
     return (await this.env.WIXDEX_SESSION.get<AppSession>(sessionId, 'json')) ?? undefined;
@@ -71,7 +68,6 @@ export class CloudflareStore {
     return Math.max(0, metadata.expiresAt - Math.floor(Date.now() / 1000));
   }
 
-  // ── Rate limiting (KV, non-atomic — eventual consistency acceptable) ──────
 
   async incrRate(key: string, ttlSeconds: number): Promise<number> {
     const existing = await this.env.RATE_LIMIT.get<{ count: number }>(key, 'json');
@@ -85,9 +81,6 @@ export class CloudflareStore {
     return val?.count ?? 0;
   }
 
-  // ── Password reset tokens (KV, short TTL) ─────────────────────────────────
-  // 専用namespaceは作らず RATE_LIMIT に prefix付きで間借りする(キーが衝突しないため安全)。
-  // 値はトークンのハッシュをキーに、userId だけを保存。単回使用で del する。
 
   async setPasswordReset(tokenHash: string, userId: string, ttlSeconds: number): Promise<void> {
     await this.env.RATE_LIMIT.put(`pwreset:${tokenHash}`, JSON.stringify({ userId }), {

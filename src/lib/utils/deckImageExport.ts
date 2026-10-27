@@ -11,7 +11,6 @@ export function loadImage(src: string): Promise<HTMLImageElement> {
   });
 }
 
-/** スロット(x,y,W,H)内に画像をアスペクト維持で収める（object-contain 相当・引き伸ばさない）。 */
 function drawContain(
   ctx: CanvasRenderingContext2D,
   img: HTMLImageElement,
@@ -26,7 +25,6 @@ function drawContain(
   ctx.drawImage(img, x + (W - dw) / 2, y + (H - dh) / 2, dw, dh);
 }
 
-/** 横向き画像を90°回転し、縦スロットにアスペクト維持で収める（アプリの rotateLandscape 相当）。 */
 function drawRotatedContain(
   ctx: CanvasRenderingContext2D,
   img: HTMLImageElement,
@@ -37,7 +35,6 @@ function drawRotatedContain(
 ) {
   const iw = img.naturalWidth;
   const ih = img.naturalHeight;
-  // 回転後は幅↔高さが入れ替わるので、収まり判定もそれに合わせる。
   const scale = Math.min(W / ih, H / iw);
   const dw = iw * scale;
   const dh = ih * scale;
@@ -52,9 +49,7 @@ export type DeckImageTheme = 'dark' | 'light';
 
 export interface DeckImageOptions {
   rotateLandscape?: boolean;
-  /** 横の列数。8列(メイン5行) or 10列(メイン4行)。 */
   columns?: number;
-  /** 配色。light は完全な白を避けたグレー寄りの淡色（白ロゴが同化しないように）。 */
   theme?: DeckImageTheme;
 }
 
@@ -71,7 +66,7 @@ interface Palette {
 
 const PALETTES: Record<DeckImageTheme, Palette> = {
   dark: {
-    pageBg: '#18181b', // zinc-900（アプリ本体と同じ）
+    pageBg: '#18181b',
     boxFill: 'rgba(82, 82, 91, 0.10)',
     boxStroke: 'rgba(75, 85, 99, 0.30)',
     deckName: '#ffffff',
@@ -81,7 +76,7 @@ const PALETTES: Record<DeckImageTheme, Palette> = {
     placeholderStroke: 'rgba(120, 120, 130, 0.4)',
   },
   light: {
-    pageBg: '#e4e4e7', // zinc-200。完全な白は避ける（白ロゴが同化＆野暮ったいため）
+    pageBg: '#e4e4e7',
     boxFill: 'rgba(255, 255, 255, 0.55)',
     boxStroke: 'rgba(63, 63, 70, 0.18)',
     deckName: '#18181b',
@@ -92,12 +87,6 @@ const PALETTES: Record<DeckImageTheme, Palette> = {
   },
 };
 
-/**
- * アプリ本体と同じ見た目のデッキ画像を生成する。
- * ヘッダ（左=デッキ名 / 右=wixdexロゴ）＋ ルリグ/メインを zinc ハコに入れた縦長レイアウト。
- * スタック表示はせず、渡された配列順（＝アプリ表示と同じソート済み順）でそのまま並べる。
- * 横幅は固定(1600px)で、列数とテーマを options で切り替えられる。
- */
 export async function generateDeckImage(
   deckName: string,
   mainDeck: Card[],
@@ -106,20 +95,19 @@ export async function generateDeckImage(
 ): Promise<HTMLCanvasElement> {
   const { rotateLandscape = false, columns = 8, theme = 'dark' } = options;
   const pal = PALETTES[theme];
-  const WIDTH = 1600; // 出力幅は固定。高さだけデッキ枚数で動的に伸びる。
+  const WIDTH = 1600;
   const COLS = columns;
   const GAP = 8;
-  const PAD = 28; // 画像外周の余白
-  const BOX_PAD = 20; // ハコ内側の余白
-  const HEADER_H = 100; // デッキ名 + ロゴ
-  const BOX_TITLE_H = 64; // ハコ内のセクション見出し領域
-  const SECTION_GAP = 16; // ルリグハコ↔メインハコの間
-  const RADIUS = 16; // ハコ角丸（rounded-xl 相当）
+  const PAD = 28;
+  const BOX_PAD = 20;
+  const HEADER_H = 100;
+  const BOX_TITLE_H = 64;
+  const SECTION_GAP = 16;
+  const RADIUS = 16;
 
-  // 固定幅からカード1枚の幅を逆算する（WIDTH=1600 は COLS=8 で割り切れて端数が出ない）。
   const gridW = WIDTH - PAD * 2 - BOX_PAD * 2;
   const CARD_W = Math.floor((gridW - (COLS - 1) * GAP) / COLS);
-  const CARD_H = Math.round((CARD_W * 17) / 12); // カード比 12:17
+  const CARD_H = Math.round((CARD_W * 17) / 12);
 
   const lrigRows = Math.max(1, Math.ceil(lrigDeck.length / COLS));
   const mainRows = Math.max(1, Math.ceil(mainDeck.length / COLS));
@@ -139,9 +127,6 @@ export async function generateDeckImage(
   const ctx = canvas.getContext('2d');
   if (!ctx) throw new Error('Canvas context not available');
 
-  // アプリ本体と同じ Zen Maru Gothic で描く。canvas は描画前にフォント読込完了を待たないと
-  // 黙って別フォントにフォールバックするので、使用weightを明示ロードしておく。
-  // (deckName を text ヒントに渡し、Google Fonts の必要な unicode-range サブセットを取りに行かせる)
   const family = '"Zen Maru Gothic", sans-serif';
   try {
     await Promise.all([
@@ -149,35 +134,27 @@ export async function generateDeckImage(
       document.fonts.load(`400 32px "Zen Maru Gothic"`, 'LB0123456789'),
     ]);
     await document.fonts.ready;
-  } catch {
-    // 読込に失敗しても sans-serif フォールバックで続行（family にフォールバック指定済み）
-  }
+  } catch {}
 
-  // 背景
   ctx.fillStyle = pal.pageBg;
   ctx.fillRect(0, 0, width, height);
 
   const headerMid = PAD + HEADER_H / 2;
 
-  // ヘッダ左: デッキ名
   ctx.fillStyle = pal.deckName;
   ctx.font = `bold 56px ${family}`;
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
   ctx.fillText(deckName || '無題のデッキ', PAD, headerMid);
 
-  // ヘッダ右: wixdex ファビコンを控えめに
   const LOGO_H = 56;
   try {
     const logo = await loadImage('/wixdex.png');
     const scale = LOGO_H / logo.naturalHeight;
     const lw = logo.naturalWidth * scale;
     ctx.drawImage(logo, width - PAD - lw, headerMid - LOGO_H / 2, lw, LOGO_H);
-  } catch {
-    // ロゴが読めなければ何も描かない（出力自体は続行）
-  }
+  } catch {}
 
-  // ハコ（rounded-xl / bg-zinc-600/10 / border-gray-600/30 相当）を描く
   const drawBox = (x: number, y: number, w: number, h: number) => {
     ctx.beginPath();
     ctx.roundRect(x, y, w, h, RADIUS);
@@ -188,7 +165,6 @@ export async function generateDeckImage(
     ctx.stroke();
   };
 
-  // ハコ内のセクション見出し（左=ラベル / 任意で右=LB数）。枚数は見れば分かるので出さない。
   const drawTitle = (label: string, boxY: number, lb?: number) => {
     const ty = boxY + BOX_PAD;
     ctx.textBaseline = 'top';
@@ -234,7 +210,6 @@ export async function generateDeckImage(
   place(lrigDeck, lrigTop);
   place(mainDeck, mainTop);
 
-  // 画像を並列ロード（失敗は null）してから順に描画
   const loaded = await Promise.all(
     slots.map((s) =>
       loadImage(cardImageUrl(s.card.image))
@@ -249,11 +224,9 @@ export async function generateDeckImage(
       if (rotateLandscape && landscape) {
         drawRotatedContain(ctx, img, s.x, s.y, CARD_W, CARD_H);
       } else {
-        // 縦長はスロットを埋め、横長は引き伸ばさず横のまま収める（レターボックス）
         drawContain(ctx, img, s.x, s.y, CARD_W, CARD_H);
       }
     } else {
-      // ロード失敗時は欠けが分かるようプレースホルダを描く
       ctx.fillStyle = pal.placeholderFill;
       ctx.fillRect(s.x, s.y, CARD_W, CARD_H);
       ctx.strokeStyle = pal.placeholderStroke;

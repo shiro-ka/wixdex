@@ -5,8 +5,8 @@ describe('passwordReset', () => {
   it('generateResetToken は URL-safe で十分な長さ、毎回ユニーク', () => {
     const a = generateResetToken();
     const b = generateResetToken();
-    expect(a).toMatch(/^[A-Za-z0-9_-]+$/); // base64url(パディング無し)
-    expect(a.length).toBeGreaterThanOrEqual(40); // 32バイト ≒ 43文字
+    expect(a).toMatch(/^[A-Za-z0-9_-]+$/);
+    expect(a.length).toBeGreaterThanOrEqual(40);
     expect(a).not.toBe(b);
   });
 

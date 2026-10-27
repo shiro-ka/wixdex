@@ -8,10 +8,6 @@ function toggleInSet<T>(set: Set<T>, value: T): Set<T> {
   return s;
 }
 
-/**
- * カード検索フィルタの状態とトグル操作をまとめた Svelte 5 ストア。
- * 候補カード・お気に入りは別ストア管理なので apply() の引数で受け取る。
- */
 export class FilterStore {
   selectedColors = $state<Set<string>>(new Set());
   selectedLevels = $state<Set<number>>(new Set());
@@ -85,7 +81,6 @@ export class FilterStore {
     this.favoriteFilter = false;
   };
 
-  /** 現在のフィルタ条件でカード配列を絞り込む（候補・お気に入りは外部から注入）。 */
   apply(cards: Card[], candidateCards: Card[], favoriteIds: Set<string>): Card[] {
     return filterCards(cards, {
       selectedColors: this.selectedColors,

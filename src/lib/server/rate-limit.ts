@@ -1,7 +1,7 @@
 import type { CloudflareStore } from './store.js';
 
 const MAX_ATTEMPTS = 5;
-const WINDOW_SECONDS = 15 * 60; // 15 minutes
+const WINDOW_SECONDS = 15 * 60;
 
 export async function checkRateLimit(
   store: CloudflareStore,

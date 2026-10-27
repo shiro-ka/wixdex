@@ -40,9 +40,7 @@ function write(key: string, value: unknown): void {
   if (typeof localStorage === 'undefined') return;
   try {
     localStorage.setItem(key, JSON.stringify(value));
-  } catch {
-    /* quota or disabled */
-  }
+  } catch {}
 }
 
 export const getSettings = (): UserSettings => ({ ...DEFAULT_SETTINGS, ...read<Partial<UserSettings>>(SETTINGS_KEY, {}) });

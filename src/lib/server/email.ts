@@ -6,11 +6,6 @@ interface MailContent {
   text: string;
 }
 
-/**
- * Resend 経由でメール送信。
- * RESEND_API_KEY 未設定(ローカル開発)なら送信せず true を返す(リンクはログに出す)。
- * 戻り値は成否だが、呼び出し側は「アカウント有無を漏らさない」ため UI 応答を分岐しないこと。
- */
 export async function sendEmail(
   env: App.Platform['env'],
   to: string,
@@ -43,7 +38,6 @@ export async function sendEmail(
   }
 }
 
-/** パスワード再設定メールの本文。resetUrl は完全なURL。 */
 export function passwordResetEmail(resetUrl: string): MailContent {
   const subject = '【wixdex】パスワード再設定のご案内';
   const text =

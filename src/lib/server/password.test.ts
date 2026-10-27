@@ -1,8 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { hashPassword, verifyPassword, needsRehash } from './password';
 
-// 任意の反復回数で保存形式 (pbkdf2$sha256$<iter>$<salt>$<hash>) の文字列を作る。
-// 旧パラメータのハッシュを再現して後方互換を検証するため。
 async function makeHash(password: string, iterations: number): Promise<string> {
   const salt = new Uint8Array(16);
   crypto.getRandomValues(salt);
@@ -46,9 +44,6 @@ describe('password', () => {
   });
 
   it('needsRehash: 旧回数は true / 現行は false / 不正形式は true', async () => {
-    // 現行 ITERATIONS(100,000) より「少ない」= 弱いハッシュが再ハッシュ対象。
-    // ※ Workers 上限に合わせ ITERATIONS を下げた経緯があるため、少ない回数で表現する
-    //   （多い回数=より強いハッシュはあえて焼き直さないのが needsRehash の正しい挙動）。
     const old = await makeHash('pw', 50_000);
     const fresh = await hashPassword('pw');
     expect(needsRehash(old)).toBe(true);

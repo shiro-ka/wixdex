@@ -11,7 +11,6 @@ const COLOR_ORDER: Record<string, number> = {
   '白': 1, '赤': 2, '青': 3, '緑': 4, '黒': 5, '多色': 6, '無': 7,
 };
 
-/** カードの読み込み順(=発売順)インデックス。orderMap 未指定や未収録は末尾扱い。 */
 function getOrderIndex(card: Card, orderMap?: Map<string, number>): number {
   if (!orderMap) return Number.MAX_SAFE_INTEGER;
   const key = cardKey(card);

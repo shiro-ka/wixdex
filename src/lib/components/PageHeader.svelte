@@ -4,11 +4,6 @@
   import IconMenu2 from '@tabler/icons-svelte/icons/menu-2';
   import Sidebar from './Sidebar.svelte';
 
-  // サブページ共通のトップバー。ツール(トップ)の Navbar に寄せた見た目にする。
-  // ・ロゴ画像 + wixdex 文字（トップはロゴのみ）
-  // ・デッキ名/保存/共有 の代わりに「デッキを作る」ボタン（ツールへ遷移）
-  // ・ハンバーガーはトップと共通の Sidebar（デッキ操作系メニューは非表示）
-  // right スニペットを渡すと「デッキを作る」ボタンを差し替えられる。
   let { right }: { right?: Snippet } = $props();
 
   let isSidebarOpen = $state(false);
@@ -51,7 +46,7 @@
     padding: var(--suisou-space-2) var(--suisou-space-3);
   }
   .logo {
-    height: 1.75rem; /* 28px。ロゴの実寸は現場の値 */
+    height: 1.75rem;
   }
   .brand {
     transition: opacity var(--suisou-duration-fast) var(--suisou-ease);

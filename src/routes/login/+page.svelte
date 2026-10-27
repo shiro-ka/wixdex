@@ -8,7 +8,6 @@
 
   let { form, data }: { form: ActionData; data: PageData } = $props();
 
-  // ログイン / 新規登録 / パスワード再設定 の切替。フォームが返したモードで初期タブを開く（初期値のみ参照）。
   let mode = $state<'login' | 'register' | 'forgot'>(
     untrack(() =>
       form?.mode === 'register' ? 'register' : form?.mode === 'forgot' ? 'forgot' : 'login',
@@ -17,16 +16,14 @@
 
   let username = $state('');
 
-  // ユーザー名の事前判定（フォーカスを外した時に確認）。
-  // 入力中は idle に戻し、blur / おまかせ生成のたびに /api/username-check へ問い合わせる。
   let usernameStatus = $state<'idle' | 'checking' | 'ok' | 'taken'>('idle');
   let usernameMsg = $state('');
-  let checkSeq = 0; // 古い応答が新しい結果を上書きしないように
+  let checkSeq = 0;
 
   function resetUsernameCheck() {
     usernameStatus = 'idle';
     usernameMsg = '';
-    checkSeq++; // 進行中の応答を無効化
+    checkSeq++;
   }
 
   async function checkUsername() {
@@ -41,7 +38,7 @@
     try {
       const res = await fetch(`/api/username-check?u=${encodeURIComponent(u)}`);
       const data = (await res.json()) as { available: boolean; error?: string };
-      if (seq !== checkSeq) return; // 入力が変わった/別の確認が走った → この応答は破棄
+      if (seq !== checkSeq) return;
       if (data.available) {
         usernameStatus = 'ok';
         usernameMsg = 'このユーザー名は使えます';
@@ -51,14 +48,14 @@
       }
     } catch {
       if (seq !== checkSeq) return;
-      resetUsernameCheck(); // 通信失敗時は黙ってヒント表示に戻す（登録時に最終判定される）
+      resetUsernameCheck();
     }
   }
 
   let blueskyHandle = $state('');
   let blueskyLoading = $state(false);
   let blueskyError = $state('');
-  let showHandleInput = $state(false); // 別PDS用のハンドル入力（通常は隠す）
+  let showHandleInput = $state(false);
 
   async function loginWithBluesky(handle?: string) {
     blueskyLoading = true;
@@ -79,7 +76,6 @@
     data-suisou-tray
     data-suisou-layout="grid gap-0"
   >
-    <!-- 左: ブランディング（PCのみ。zincダーク、オレンジは差し色のみ） -->
     <div
       data-suisou-layout="stack between"
       data-suisou="bd-end m>hidden" class="aside"
@@ -103,11 +99,9 @@
       </ul>
     </div>
 
-    <!-- 右: 認証フォーム -->
     <div data-suisou-layout="stack gap-3" class="form-col">
       <h1 data-suisou-text="fs-20 fw-700 center" data-suisou="m:hidden">wixdex</h1>
 
-      <!-- タブ切替（再設定モードでは隠す） -->
       {#if mode !== 'forgot'}
         <div data-suisou-tray data-suisou-layout="row gap-0">
           <button
@@ -151,7 +145,6 @@
       {/if}
 
       {#if mode === 'forgot'}
-        <!-- パスワード再設定: メールアドレス入力 -->
         <p data-suisou="note">
           登録したメールアドレスを入力してください。パスワード再設定用のリンクをお送りします。
         </p>
@@ -177,7 +170,6 @@
           ← ログインに戻る
         </button>
       {:else}
-        <!-- メール認証フォーム。action でログイン/登録を切替 -->
         <form method="POST" action="?/{mode}" data-suisou-layout="stack gap-3">
           {#if mode === 'register'}
             <div data-suisou-layout="stack gap-1">
@@ -307,7 +299,6 @@
           <div class="hr" data-suisou-layout="grow"></div>
         </div>
 
-        <!-- Bluesky（ログイン・登録共通。bsky.social へ直行＝ハンドル入力不要） -->
         <div data-suisou-layout="stack">
           <button
             type="button"
@@ -323,7 +314,6 @@
             <p data-suisou="error">{blueskyError}</p>
           {/if}
 
-          <!-- bsky.social 以外のPDS利用者向け（普段は隠す） -->
           <button type="button" onclick={() => (showHandleInput = !showHandleInput)} data-suisou-button data-suisou-text="fs-12" data-suisou="w-full">
             別のサーバー(PDS)のアカウント
           </button>
@@ -369,7 +359,7 @@
     overflow: hidden;
   }
   .aside {
-    padding: 2.5rem; /* Suisou の段に無い値 */
+    padding: 2.5rem;
   }
   .brand-name {
     letter-spacing: -0.025em;
@@ -380,10 +370,6 @@
     transition: color var(--suisou-duration-fast) var(--suisou-ease);
   }
 
-  /* ★列数は --suisou-cols で段を上げる（layout="cols"）。
-     Suisou の段は md / lg の2つなので、sm / xl は現場が持つ ――
-     「2段で表せない振り方は現場のもの」という決定どおり。
-     ★語にせず値にしてあるので、@media で書き換えるだけで済む。 */
   .split {
     --suisou-grid-cols: repeat(1, minmax(0, 1fr));
   }
@@ -393,12 +379,10 @@
     }
   }
 
-  /* 「または」の左右に伸びる線 */
   .hr {
     height: 1px;
     background: var(--suisou-color-line-weak);
   }
-  /* 左の紹介カラム。薄く敷いて罫で区切る */
   .aside {
     background: var(--suisou-color-hover);
     border-color: var(--suisou-color-line-weak);
@@ -415,7 +399,6 @@
       padding: var(--suisou-space-4) calc(var(--suisou-space-4) * 1.7);
     }
   }
-  /* 「または」の行。上下に少し間を置く */
   .or {
     margin-block: var(--suisou-space-2);
   }
