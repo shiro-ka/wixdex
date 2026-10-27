@@ -99,8 +99,7 @@ describe('filterCards: テキスト検索', () => {
     expect(res).toEqual([yuki]);
   });
 
-  it('手で足した検索語(alias)もカード名検索の対象', () => {
-    // 公式の読みが漢字と違うカードを、漢字の素直な読みや略称でも引けるようにするための列
+  it('手動で足した検索語(alias)もカード名検索の対象', () => {
     const zen = makeCard({ name: '全力疾走', subName: ['じゃいあんとなっくる'], alias: ['ぜんりょくしっそう', 'じゃいな'] });
     const res = filterCards([zen, tama], makeFilters({ searchText: 'じゃいな', searchName: true }));
     expect(res).toEqual([zen]);
@@ -118,7 +117,7 @@ describe('filterCards: テキスト検索', () => {
 
   it('名前OR本文 (両方ONならどちらでヒットしてもOK)', () => {
     const res = filterCards([tama, yuki], makeFilters({ searchText: 'タマ', searchName: true, searchInText: true }));
-    expect(res).toEqual([tama, yuki]); // tama=名前, yuki=本文
+    expect(res).toEqual([tama, yuki]);
   });
 
   it('両方OFFなら入力を無視して全件返す(0件トラップを防ぐ)', () => {
