@@ -166,7 +166,7 @@
       {#if isLoggedIn}
         <button
           type="button"
-          class="cell"
+          class="cell sq"
           data-suisou-button="outline"
           aria-pressed={filter.favoriteFilter}
           onclick={filter.toggleFavorite}
@@ -179,7 +179,7 @@
         type="button"
         id="folder-button"
         data-suisou-button="outline"
-        data-suisou="s:hidden" class="cell"
+        data-suisou="s:hidden" class="cell sq"
         aria-pressed={filter.candidateFilter}
         onclick={filter.toggleCandidate}
       >
@@ -282,8 +282,9 @@
 
       <button
         type="button"
-        class="cell sq"
+        class="cell"
         data-suisou-button="outline"
+        data-suisou-layout="grow"
         aria-pressed={filter.lifeBurstFilter !== null}
         onclick={filter.toggleLifeBurst}
       >
