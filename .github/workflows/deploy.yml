@@ -3,8 +3,8 @@ name: Deploy to Cloudflare Pages
 on:
   push:
     branches:
-      - main # → production (wixdex.cards)
-      - dev  # → preview    (dev.wixdex.pages.dev)
+      - main
+      - dev
   workflow_dispatch:
 
 jobs:
@@ -27,8 +27,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # ★ブリッジの取りこぼし検査。@theme に無い色クラスは黙って素通りして
-      #   Tailwind の生の色が出る（neutral-700 と white で2回やられている）。
       - name: Check Suisou bridge
         run: npm run lint:bridge
 
@@ -37,7 +35,6 @@ jobs:
         env:
           VITE_CARD_IMAGE_BASE_URL: ${{ vars.VITE_CARD_IMAGE_BASE_URL }}
 
-      # ---- production (main) : 本番 D1 へ適用 ----
       - name: Apply D1 migrations (production)
         if: github.ref == 'refs/heads/main'
         run: npx wrangler d1 migrations apply DB --remote
@@ -45,7 +42,6 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-      # ---- preview (dev) : staging D1 へ適用 ----
       - name: Apply D1 migrations (staging)
         if: github.ref == 'refs/heads/dev'
         run: npx wrangler d1 migrations apply DB --remote --env preview
@@ -53,11 +49,30 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-      # ブランチ名を渡すと wrangler が production/preview を自動判定
-      # (main = 本番デプロイ, それ以外 = プレビューデプロイ)
       - name: Deploy to Cloudflare Pages
+        id: deploy
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy .svelte-kit/cloudflare --project-name=wixdex --branch=${{ github.ref_name }}
+
+      - name: Check Cloudflare deployment
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          DEPLOYMENT_ID: ${{ steps.deploy.outputs.pages-deployment-id }}
+        run: |
+          test -n "$DEPLOYMENT_ID"
+          for i in $(seq 1 36); do
+            stage=$(curl -fsS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+              "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/wixdex/deployments/$DEPLOYMENT_ID" \
+              | jq -r '.result.latest_stage.name + " " + .result.latest_stage.status')
+            echo "$stage"
+            case "$stage" in
+              "deploy success") exit 0 ;;
+              *failure*|*canceled*) exit 1 ;;
+            esac
+            sleep 5
+          done
+          exit 1
